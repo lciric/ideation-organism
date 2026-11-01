@@ -1,0 +1,48 @@
+{
+ "mode": "decisif",
+ "issue": "confirmée",
+ "fatales": {
+  "T01|v8": "tenue",
+  "T02|v8": "tenue",
+  "T03b|v8": "tenue",
+  "T03u|v8": "tenue",
+  "T04|v8": "tenue",
+  "T05s|v8": "tenue",
+  "T09g|v8": "tenue",
+  "T09l|v8": "tenue",
+  "T12a|v8": "tenue",
+  "T17s|v8": "tenue",
+  "nul_exact|v8": "tenue"
+ },
+ "artefact": {
+  "T01|v1": "tenue"
+ },
+ "perte_de_puissance": {
+  "fille_neuve": "tenue",
+  "fraiche_neuve": "tenue"
+ },
+ "audits": [],
+ "fatales_au_dessus_de_alpha": [],
+ "artefacts_non_vus": [],
+ "taux": {
+  "T01|v8": 0.0,
+  "T02|v8": 0.0,
+  "T03u|v8": 0.0,
+  "T03b|v8": 0.0,
+  "T04|v8": 0.0,
+  "T05s|v8": 0.0,
+  "T09g|v8": 0.0,
+  "T09l|v8": 0.0,
+  "T12a|v8": 0.0,
+  "T17s|v8": 0.0,
+  "nul_exact|v8": 0.0,
+  "T01|v1": 0.395,
+  "fille_neuve|v8": 0.983,
+  "fille_neuve|v7": 0.988,
+  "fraiche_neuve|v8": 0.978,
+  "fraiche_neuve|v7": 0.998,
+  "T07|v8": 0.016,
+  "T12b|v8": 0.903
+ },
+ "duree_s": 3101.3
+}

@@ -1,0 +1,245 @@
+{
+  "code_sha256": {
+    "__init__.py": "f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b",
+    "__main__.py": "82ad20fc6e950402663dc9352873adc9fbf195242cccd963f3173dddcf2f75a7",
+    "ablation.py": "543737074cafd0b3d0c672932ef8dbc88355335606e62c66c332fa9868349e00",
+    "adaptateur_kimi_v53.py": "09a46515ff30a99f360fcbc7d4c613c35cb511439a5b6c249327e477fdee4ada",
+    "adaptateurs.py": "a1a8ede8d38884a28365ee797dcd3018dbf09ea1baefa3f57cfcb3281c529c99",
+    "adaptateurs_v2.py": "350b6d06804c5280cbf2aefb9f39309a22e01ce6533471fc61c32c1a8bb75e6d",
+    "adaptateurs_v56.py": "d36c79b272af450b8d67313f44068743d80f0204bcedbd30f5d879829c945a17",
+    "aiguilleur_v53.py": "a856cdaa37e8fb1f3b873ef2c0d9aa439ee0a8838f5ee9a2910cb3c0dcf8007f",
+    "bisociateur_v53.py": "962eb8ce22d5af1bf59970e9ef9cab15620edef4d5e9746161bc302e97c2af02",
+    "bisociateur_v54.py": "20d938b2dcafcd4bb7c9777a0182a3590b390a146a8375590905741ea0e250f8",
+    "bisociateur_v55.py": "d9521311a96384494871e9f9fcd4b4554548b9f45fdc28e8e75ca30d4c54d22f",
+    "bras_attaque_v54.py": "a4a70be0090f5c94852dae7b6192486a97b50ec5c901b27ed01ccb40fdde9368",
+    "budget_v53.py": "cefc7e76322b8f8266ec77f31ecb06bf1ea21633ab5dec1e1b91dc62e4374345",
+    "budget_v54.py": "220d25e6ce5a7eed008c095ef1a9f66e84b4e98f801dfee2f74bdda02ba5ac62",
+    "budget_v56.py": "3a672aceeeee3cf83cd4e46ca461fdbaf3acd0a9552be24d2566627ce6b7c13e",
+    "caviardage.py": "78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85",
+    "coffre_v53.py": "f8a70c8f71c380689b2979e3c212d09379ceee1973465b2b207b493cbd73c380",
+    "coffre_v55.py": "ef10fe044608fda51d5cd4b3b855da677845be83d1367ca3aa33fe45337e33fd",
+    "configuration_v53.py": "ef72ffbf6b5ba546fb5e509502b59f0d9ac4f78772dcb9570ef36086639f4a78",
+    "configuration_v54.py": "3424ca7fa8911e5c2656cb56632f7d74c958008b9366af0ac45e6a62e4d16d66",
+    "configuration_v55.py": "2e6237c0a8b1c823fa17ddd6c680357a59ec4030bfbe9ac6ba970a700a864071",
+    "configuration_v56.py": "122405228d6ec550b2120114e87a1e70bcc74c14eee17342605d8402bd015d6b",
+    "controles_pari.py": "fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c",
+    "controles_pari_v1.py": "0389fcbb9f3e016880d6261cd6271b97e9ea073a2b75c54a164b9eff1dfc6ea8",
+    "course2_v53.py": "8f2d035828df913d8fa92e1b7d0c8e41ac73e8416e60f3b674753c27f5c61237",
+    "course2_v54.py": "ac1980d04eb88d8fbb9a073902e47146ab9eadd3375a41cd72835fa5acf20342",
+    "course2_v55.py": "ee6a861e7f8db32a9545372a51f902389cdbea809b0ba354e621a3681e541a70",
+    "course2_v56.py": "14f655696876afc8453ec5237236b3f9daf8d87844c4acc9d5189b3e61b310f1",
+    "course2_v57.py": "2efc4e0ece6b5cea8354503ae476195cffb448f85bdf5db5b99b6295a22ff17d",
+    "cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+    "dossier_ferme.py": "62fd284519278382592a4684e9d4ecd32baad5e11491c256ef64ee844f08d087",
+    "duel_pari.py": "df5f07bd3838e661dd1fd751daeb1ea843436f36d8382047ccc0e664fd78aec7",
+    "engagement_apparie.py": "fd80872a2e4770a334528b37ccfca6913e093afb350649fe42949b8e93764b0e",
+    "etage_entre_generations_v53.py": "d568d25bf7d96011cfdcda12e7bc2c1933a61827b237f8c8c363b4055122ad4b",
+    "etage_entre_generations_v54.py": "86a6bec00c3fee9b4ea510cf8dad8d899b9c96adef1e5ae4f8a8281d658143e5",
+    "etage_entre_generations_v55.py": "865bd7e5734618a2e989bdd14726ff7db53e014963cbc93b48be1892c7ab4dd9",
+    "etage_entre_generations_v56.py": "f0c80e2d9801d4a928574f7f442e2950c2d130d77015b30102911bfa87dd6eba",
+    "etage_entre_generations_v57.py": "e4bf36819d18844079a2bb4996991fd65c233a51d76b7d3daf5b866a71328318",
+    "experience_critere.py": "87ee8f2dc6a0e21f3235df7f50e0886c32852ed790a9fce988e516d122e8cc86",
+    "experience_juge_v1.py": "b797fe6041f2b291dec1ab15eac21ba483ec6231c91555cb7c3b1f2d8556060a",
+    "fiche.py": "ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074",
+    "fiches_v53.py": "7cfcf8329c66c7a37ceb2992cc96e21aedbfa0a10525467672794090a128eda6",
+    "fiches_v54.py": "1ab0796dd5d9de14ea84953b0307a065572bc300ebe45209ca207d7880bbaebf",
+    "garde_outils.py": "3abd0e19a8f16cc1c2a8f2590ea04831a7d9ba25c02129fb881b87be3983f390",
+    "gardes_e0_v54.py": "83b54b816b3277d97f5340ad4a316094a492bc2090c782b3e134092a97ca1edf",
+    "gardes_e0_v55.py": "e46c5cd0a301c89830d97c098ee52b33ead6b01cafe15ab8454e6b7957c54db1",
+    "gardes_e0_v56.py": "921e59f23753666d6367678447edf4ee2964dc6ec3d382aefa8582b996e123b9",
+    "graines_v53.py": "7eb838958b28c7b7a5ee20177dfc3d0c194002b99b2382e019fe7d91c3090dc0",
+    "ideation.py": "4ee70d25567a9b3ac90911cc5ebee8cebba0537d541e7a0ebc1fa3ed170abdc2",
+    "ideation_v2.py": "67d2ad3591b21601ece4101154138f532ba519024761beb8c9738181f8f3fefc",
+    "juge_plan_plein_v1.py": "6bcec082991bd8a4d55d195adb0e7b35f4e5dec00f85330e70863da96f4b4569",
+    "juges_croises_v53.py": "c4c6ab12dc471eef078c116a4205a22d9b498da720ce71e37a0a6edae6c4239b",
+    "juges_seulement_v1.py": "7147fb1a5a0d3ce0320a0685f4726850a63e3f79085dff693a1a217e0af92608",
+    "memoire.py": "71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e",
+    "memoire_v53.py": "43b01b43b1ec347ff02b456975d74c17e7a0e974e9b95e9ba4935bdb895f31a0",
+    "mesures_v54.py": "8f3f57fc98972fbcf6aefb27fd37298ac67f249cd295c7127b47ab8e77626c08",
+    "moisson.py": "35d9a996aaacf6d61e84762a2173e73e3c1a90eda730cce122a0f321b038d0e1",
+    "monde_banque.py": "33088eb9088549a20ffd489687928a1f1469d1df85a025db29bc9ce3f93e7b18",
+    "monde_banque_scores.py": "58d4fee878fe7957e163a6b5b791adf8895eb2e136aad55502c011b314bccb28",
+    "monde_noyau.py": "b2aaf3958525e399f0c6453eace41550146327623f95578d64e158bb13e8cae0",
+    "noyau_v54.py": "711a32679164bd63605f0bcc2a96f37d53260c479004d04d887d8228ac7d431b",
+    "noyau_v55.py": "ca0f2dda980777da9c549519c6b15994309722353b22f88d117e95aa2c2d4035",
+    "noyau_v56.py": "eb5a003e8f23b0882e5588fe537e8b65b890f0d7d19560896be4e85a0731543b",
+    "nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+    "nul_v8.py": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888",
+    "outils.py": "966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444",
+    "pari_apparie.py": "ec6c2cf64d0c9a3bcb3484f2bc58ca986c89e97829bd45fdb96cbc42bf094fef",
+    "pole.py": "69e08e9586a7c5991ee8d7fd57de251079df4e965ba21214cce69cab96cb3845",
+    "porte_pace.py": "1f31a5917d0fec912b1b81e393bacdfa6018e16d63356677e72382e3e2090ef6",
+    "prepilote_v54.py": "77056684e5d1b2149521878da396d51bb3f16834de85ca9e86acdc7e1998592d",
+    "prepilote_v55.py": "e91e07e4f3bf67cd5106129586048abb3b06284eb9812f8e4da4082087859f05",
+    "prepilote_v56.py": "dfce55061c65b5ae7526161c54be17005ddef631cb539463cd2c23b32b87b087",
+    "proposeur.py": "a77018584ec5d20c25224fc675c412c4606ba3a6ce8dfde6e469a651a425a2ea",
+    "proposeurs_references.py": "6ed7e56fb1a1f7441467281d414b892176e73a1ffa528db090684cb6cf20805c",
+    "protocole_outils.py": "0657eec8e0b1a3d2a3f57f37aad59c34554a2352be4e42ed2c3395e9e94fe2b5",
+    "recombinaison.py": "71faad38644c77ae2cc21f23bfb1011c48fe674a08e542983819425ee47bd3d0",
+    "relais.py": "b5a76343e458cf8fb91ee1928244f9cb65d50c27ab9b1bae91c21a5c82349da3",
+    "relais_moisson.py": "11584bfa67d78439cc369b4e82eb1418077660c4abd61e00bc8e06e01d763cce",
+    "relais_reel.py": "1b90b020287e575b5564508f9ba33b87bbc051c1015f4198e6b6e648d50ee153",
+    "relais_reel_v2.py": "98c3e79e2c795a69345ffcf9aa742e31dde4a578a15f7c610f1ec7fd535ac8d7",
+    "selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc",
+    "simulation.py": "be14d44e7a8ebf6b2a71f16b5290555f5d7a11309e5dbf309ce9097f19ae7892",
+    "simulation_v53.py": "27129c62498e3d5b801eb4d882b8abb7db2c3a0bfb2205829a62d7f0c69a353c",
+    "simulation_v54.py": "de2232922516f0d3fa2ca664ff80800d0ac53ff8e823b784864aab375e01941c",
+    "simulation_v55.py": "91ac1c345c3670dd232b0c1da63825608aac1a840192639dd01e7fb175efbf4f",
+    "simulation_v56.py": "bcafca44c5117dfd30262ee520a67944d051208f1b1deac6fac016e8cb95dc76",
+    "suivi_roles_v54.py": "620225973d68670a56ca913cdd02709fa576fa43e1393d166915ea67c1d7c3bb",
+    "tableau_v53.py": "1a8267fea6d147b070d697ccd2c9d33f2514be6fcba106dca8ca123be1cb7403",
+    "tests_de_mort.py": "fc5d3507b33e13094d64751ff2b4564ba5ed4c238f93aaae808c458b3c123252",
+    "tests_de_mort_v2.py": "363a3725885da08412f25b28defba7a8d204d883c3637f1de1df83686d93a41a",
+    "tests_de_mort_v3.py": "ea05eb55f9d179501fb091d25298deaf36cd66ad16fd65bdca4dcf5e4ba74bba",
+    "tests_de_mort_v4.py": "35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a",
+    "tests_de_mort_v5.py": "da524871b9b498693d67cc099240acb98c4c84c800ee4c69f0a1cb5fe60b64f1"
+  },
+  "plateforme": "linux",
+  "python": "3.13.18",
+  "reglages": {
+    "banc": "banc-tricheurs-v8",
+    "code_du_banc_sha256": {
+      "demonstrations/banc_tricheurs_v7.py": "ef016d250b7b503f705dc95919719c68c8f968534fd901df7364a6062d67cf12",
+      "demonstrations/banc_tricheurs_v8.py": "0be47e4b5916a98499faf9c40d65369b41e3a5463d7ab444ed18ba18bba08c03",
+      "pole/__init__.py": "f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b",
+      "pole/caviardage.py": "78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85",
+      "pole/controles_pari.py": "fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c",
+      "pole/cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+      "pole/fiche.py": "ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074",
+      "pole/memoire.py": "71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e",
+      "pole/nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+      "pole/nul_v8.py": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888",
+      "pole/outils.py": "966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444",
+      "pole/selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc"
+    },
+    "duree_max_s": 10800.0,
+    "entropie_racine": "57541592421722724294366344173160702582946065141201953608546625954723769738437",
+    "lignes": [
+      [
+        "T01",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T02",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T03u",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T03b",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T04",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T05s",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T09g",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T09l",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T12a",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T17s",
+        "v8",
+        "fatale"
+      ],
+      [
+        "nul_exact",
+        "v8",
+        "fatale"
+      ],
+      [
+        "T01",
+        "v1",
+        "artefact_requis"
+      ],
+      [
+        "fille_neuve",
+        "v8",
+        "puissance"
+      ],
+      [
+        "fille_neuve",
+        "v7",
+        "puissance"
+      ],
+      [
+        "fraiche_neuve",
+        "v8",
+        "puissance"
+      ],
+      [
+        "fraiche_neuve",
+        "v7",
+        "puissance"
+      ],
+      [
+        "T07",
+        "v8",
+        "mesure"
+      ],
+      [
+        "T12b",
+        "v8",
+        "mesure"
+      ]
+    ],
+    "mode": "decisif",
+    "nul": {
+      "module": "pole/nul_v8.py",
+      "nul": "nul-v8",
+      "reglages_imposes": {
+        "nul_archive": true,
+        "nul_archive_ajuste": true,
+        "nul_filles": "v2",
+        "selection": "pari"
+      },
+      "sha256": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888"
+    },
+    "numpy": "2.5.3",
+    "preenregistrement": {
+      "chemin": "prereg/preenregistrement-validation-nul-v8-v2.md",
+      "empreintes_du_code_verifiees": {
+        "demonstrations/banc_tricheurs_v7.py": "ef016d250b7b503f705dc95919719c68c8f968534fd901df7364a6062d67cf12",
+        "demonstrations/banc_tricheurs_v8.py": "0be47e4b5916a98499faf9c40d65369b41e3a5463d7ab444ed18ba18bba08c03",
+        "pole/__init__.py": "f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b",
+        "pole/caviardage.py": "78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85",
+        "pole/controles_pari.py": "fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c",
+        "pole/cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+        "pole/fiche.py": "ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074",
+        "pole/memoire.py": "71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e",
+        "pole/nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+        "pole/nul_v8.py": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888",
+        "pole/outils.py": "966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444",
+        "pole/selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc"
+      },
+      "sha256": "7f37631d4f5de481d618bba151eed9d7fe30e38a6276cbbd0d2397babc0de4c5"
+    },
+    "processus": 2,
+    "repetitions": 1000
+  },
+  "regle_des_graines": "numpy.random.SeedSequence (R9) : entropie racine = int(empreinte SHA-256 du préenregistrement scellé, 16) en mode décisif, --graine (< 2^64) sinon ; répétition r de la ligne « nom|nul » : spawn_key=(4 premiers octets gros-boutistes de SHA-256(« nom|nul »), r), spawn(3) : scénario, noyau, tirages frais, chacun s0 + 2^64·s1 de generate_state(2, uint64) ; graines internes du juge de production dérivées ensuite par outils.graine_derivee (inchangé)",
+  "version_pole": "0.7.0"
+}

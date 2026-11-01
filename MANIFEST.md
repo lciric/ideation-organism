@@ -248,6 +248,14 @@ Files added to this public tree after the extraction above, each as a new file (
 | `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.md.sha256` | `54250ae9ec9667e1eb8029a7af30e8807380559aeed879632afdab9fdef58858` | seal |
 | `resultats/puissance-juge-banque-v1-2026-11-01/diagnostic-non-monotone-v1.txt.sha256` | `109f6b591a32eec320609a3966febaba19c3e1089643bff0cecef898844a9853` | seal |
 | `resultats/puissance-juge-banque-v1-2026-11-01/force-en-clair-v1.txt.sha256` | `8499fd9d0db69931b7c6e2287d52084dd638fcb535d16b47c86e480bd2a451e3` | seal |
+| `resultats/banc-tricheurs-v8-validation-v1/banc-tricheurs-v8.json` | `7a10f4c727d9b681a13f09a8d8ff0601185ff7b31ef8ecfdd9d238490b4b0ec3` | output of the decisive validation of the v8 null (1,000 repetitions per line; seed from the sealed preregistration) |
+| `resultats/banc-tricheurs-v8-validation-v1/banc-tricheurs-v8.json.sha256` | `e2837be0b8c3e59b0529567b4bb910a70732899991d237ea6c632c2b5b7566fd` | seal written by the bench |
+| `resultats/banc-tricheurs-v8-validation-v1/manifeste.json` | `06e506abc81bb4c9bdaa00b4ffaa5cb573cae381797b5e55f8434bbbe83d7287` | run manifest (code hashes, settings, seed rule, commit 1bad95f) |
+| `resultats/banc-tricheurs-v8-validation-v1/manifeste.json.sha256` | `2038191c71f1ca94420ad10931b71e2306f0917fe19f5879c83d0aa70d488609` | seal written by the bench |
+| `resultats/banc-tricheurs-v8-validation-v1/journal-lancement-v1.txt` | `9620de988f54ea024b175607b3f60403ea64063e309425d90e9ef51dce7fc39e` | launch log: commit, start 22:25:14 UTC, exit code 0, end 23:16:55 UTC |
+| `resultats/banc-tricheurs-v8-validation-v1/journal-lancement-v1.txt.sha256` | `d176caaab8fa8491a89fb715e8a1bd3f8f7e8ec1ea4e6bef368c70244241e87c` | seal |
+| `resultats/banc-tricheurs-v8-validation-v1/sortie-standard-v1.txt` | `7807203cecd8f8f90d3a57017bb04a53b87a09b6cecc87d7fd3be82971e8a7f5` | standard output of the run (the frozen reading computed by the code) |
+| `resultats/banc-tricheurs-v8-validation-v1/sortie-standard-v1.txt.sha256` | `59adc72ef3161292b0431217b216d43e444aac2e00a7d8513ff5024caa447de6` | seal |
 | `orchestrator/pole/tests_de_mort_v4.py` | `35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a` | v57: death-test verdict computed by the orchestrator from the script's raw file (not yet wired into the stage) |
 | `orchestrator/pole/tests_de_mort_v4.py.sha256` | `06df987e81eb7b30f2ed121b952a4027e4a91220d8a63c9f9df9cca0c1c01147` | seal |
 | `orchestrator/essais/test_v57_verdict_noyau.py` | `8c0c8533ff808a2db46ed942b9d090b93b82de6a944916e2bb7056c0d765fd64` | v57 tests: healthy case and artefacts for every guard of the verdict |
