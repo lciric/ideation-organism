@@ -86,8 +86,9 @@ All numbers below come from sealed run records in the private working repository
 | Test suite in this public tree (1 Nov 2026, Python 3.13, numpy 2.5) | **763 passed, 8 failed, 15 skipped, 487 subtests passed** in 6 min 17 s. The 8 failures are all provenance or environment checks: 5 compare the tree against older-version manifests that are not shipped here (`TestR12*`, `test_v49_18`, `test_v50_17`), 3 need the real sandbox binary `bwrap` (`test_v51_*`). No functional test fails. | Yes — section 5 |
 | Mutation bench | 156 mutations, 156 killed for the expected reason, 0 survivors | Yes — `python3 -I -B essais/mutations_v56.py` (slow) |
 | Statistical judge on planted worlds | 8 of 8 true witnesses promoted, 0 of 8 false witnesses promoted | Yes — `demonstrations/demo_couche1_proposeur_v7.py` |
-| Statistical judge on the real episode bank (180 episodes of an 8-billion-parameter model, two LLM judges) | 2 true witnesses promoted, 2 false eliminated, 11 of 11 replays identical (27 Oct 2026); on the 13 real monitors of that bank, **nothing promoted** at 120 episodes — the bank is too small for the judge's power, which the preregistered reading rule treats as "no teeth, no conclusion" | Partly — the bank and the demo are in `exemples/` and `demonstrations/` |
-| First ideation round with real agents (Claude, Argon) | 29 idea cards, 27 eligible after the gatekeeper, 17 distinct ideas (12 duplicate pairs caught by the memory) | No — real API calls; records private |
+| Real engine, end to end (real model calls, 27 Oct 2026), in a deliberately tautological world (the true witness's law *is* the world's law) | 2 true witnesses promoted, 2 false eliminated, 11 of 11 replays identical — this checks the plumbing, not the judge's power | No — real API calls; records private |
+| Statistical judge on a bank built from real episodes (180 episodes of an 8-billion-parameter model, two LLM judges) | planted witnesses recovered down to effect strength 0.5 (144 test episodes per card); on the bank's 13 **real** monitors, **nothing promoted** at 120 episodes (0 of 20 true witnesses; at 288 episodes the best wealth reached 2.28 against a threshold of 3.0) — which the preregistered reading rule calls "no teeth, no conclusion" | Partly — the bank and the demonstrations are in `exemples/` and `demonstrations/` |
+| First ideation round with real agents (Claude, Argon) | 29 idea cards, 27 eligible after the gatekeeper, 17 distinct ideas (12 duplicate pairs) | No — real API calls; records private |
 | Death tests and generation-to-generation loop | Implemented, tested offline, **never run for real** | — |
 
 What this does *not* show: that the ideas are good. The pole has not yet promoted a real hypothesis to the test stage; the first measured result of the programme that hosts this system (a preregistered simulation on adaptive defences, 1 November 2026) was produced outside this loop. That is the honest state of the instrument.
@@ -138,7 +139,7 @@ flowchart TB
     end
     subgraph entry["entry points"]
         i8[demonstrations/ideation_v8.py<br/>launcher, delegates to v7…v4] ; d1[demonstrations/demo_couche1_v7.py] ; bt[demonstrations/banc_tricheurs_v7.py]
-        t[essais/ — 770 tests<br/>faux_sdk/ fake SDK<br/>mutations_v56.py]
+        t[essais/ — 786 tests<br/>faux_sdk/ fake SDK<br/>mutations_v56.py]
     end
     entry --> core --> judge
     core --> kill
@@ -149,7 +150,7 @@ flowchart TB
 | Directory | Contents |
 |---|---|
 | `orchestrator/pole/` | the orchestrator: run loop, spending caps, gatekeeper, memory, judges, bisociator, harvester, statistical judge, death tests, sandbox guards, vault |
-| `orchestrator/essais/` | 52 test modules (770 tests, 487 subtests), the fake SDK (`faux_sdk/`), the mutation benches |
+| `orchestrator/essais/` | 52 test modules (786 tests, 487 subtests), the fake SDK (`faux_sdk/`), the mutation benches |
 | `orchestrator/demonstrations/` | offline demonstrations and the launcher (`ideation_v8.py`) |
 | `orchestrator/exemples/` | the frozen episode bank of the T0.5 pilot (`banque-t05-v2.json`), planted witnesses, generated toy worlds, a scripted proposer |
 | `orchestrator/conception-v7-v1.md` | the design document that precedes the v7 code (French) |

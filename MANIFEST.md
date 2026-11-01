@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `887ccf11edf151e9e75187f74a647bed9126a517840a1863cf654e9b4bc65345` |
+| `README.md` | `98344e02d26c50c653ed017a460527eba70d1527e4ea5a77e747f5037de88cf7` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
