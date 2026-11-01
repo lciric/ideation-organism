@@ -264,6 +264,30 @@ Files added to this public tree after the extraction above, each as a new file (
 | `orchestrator/essais/test_v57b_cablage_verdict.py.sha256` | `fb0a39d51dc321cbc5169cf348a170efdccf97688e926f0ea79e39fb5e22a356` | seal |
 | `orchestrator/essais/mutations_v57b.py` | `4c58a45c489e6661e02318648f618fdf9f999eddd49f11532f6596399efc4ad7` | v57b mutation bench (15 mutations) |
 | `orchestrator/essais/mutations_v57b.py.sha256` | `1a1555a6c93bbf175bc920fa48b86ad5d1512b9d9a445725eb8d960ca92e6113` | seal |
+| `orchestrator/prereg/preenregistrement-lecture-t05-graines-neuves-v1.md` | `fdc6fbd6dc922c6ef442dde597baf966badaa3abe141054901c2a50a8582e030` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/prereg/preenregistrement-lecture-t05-graines-neuves-v1.md.sha256` | `2f4993adcf81640282b01956ae4a24b26037f91717c0afca094455f54513408a` | seal |
+| `orchestrator/prereg/preenregistrement-lecture-t05-graines-neuves-v2.md` | `93923d7132260c2fe7674417ec819b2a7011fa49ba3949482c3c355e9289443d` | sealed preregistration of the reading of the fresh-seed T0.5 batch |
+| `orchestrator/prereg/preenregistrement-lecture-t05-graines-neuves-v2.md.sha256` | `b51a5c14a06ac44b171e20b80a4255dcd716d6f41f3fb954d22596ccef267678` | seal |
+| `orchestrator/prereg/contre-lecture-preenregistrement-lecture-t05-v1.md` | `0c2fffb0149deef2dbc44da631d8778a7332c8b963803060967f7ec6e835b4a8` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/prereg/contre-lecture-preenregistrement-lecture-t05-v1.md.sha256` | `9992c4aa476c7215bd298e9ead7a845091102b3f5addd70ccf4d9d6a1c6a90d2` | seal |
+| `orchestrator/demonstrations/lecture_t05_graines_neuves_v1.py` | `91973f2582c4db08d86250594adec317bc6796095bfdd60d3119a8c21dde179d` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/lecture_t05_graines_neuves_v1.py.sha256` | `56489ea9fe2903dfeef3d6c8df04fa53eb49f77267c449b5c70021f303f218d2` | seal |
+| `orchestrator/pole/juge_plan_plein_v1.py` | `6bcec082991bd8a4d55d195adb0e7b35f4e5dec00f85330e70863da96f4b4569` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/pole/juge_plan_plein_v1.py.sha256` | `f44cfcb5869743746afcf29cad92156e710c76067ccd0cebfc33b7155a8ab479` | seal |
+| `orchestrator/essais/test_lecture_t05_graines_neuves_v1.py` | `8f4f4d71ce4249e840c4d7362889ecfc97f340482d3fc839715a8e5a5428a4d7` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/essais/test_lecture_t05_graines_neuves_v1.py.sha256` | `90e1af4ceb252d9cf3d136b87f7cb1673d97a341581f6cd67c36695fffa89a5c` | seal |
+| `orchestrator/pole/nul_v8.py` | `cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/pole/nul_v8.py.sha256` | `7516a2032a2026ff528294bf514f48f5de8af52f67a56ec91c1ac878b37a336a` | seal |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/constats-calibrage-v1.json` | `d24f8bedbbfe203be48ed6d8c160d79652bdb80ae319e77466a6d4e34adf4c91` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/constats-calibrage-v1.json.sha256` | `5bfb4c4fe3a3f6ba22d6d375f9bcd2a2ec2b38597a83a8fecbd85da1f9885ce7` | seal |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/constats_calibrage_v1.py` | `e234286d8decf393c03d967cc8c2ff8a948d1e8ae8da47c62c7231b9cb7eee2e` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/constats_calibrage_v1.py.sha256` | `85e03c226f873e4e8f7fb866394c182217edf13464ef9670cd182740f2586ebf` | seal |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance-par-paire-192-v1.txt` | `22d12017354e452135dfce5a9592432f9b02c0f52c756bdf9aa6be90b9936908` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance-par-paire-192-v1.txt.sha256` | `625d49bde41403c2e99e6c9cd76e4956b7c0c96e13cb4f8141c29a4bf4b6493e` | seal |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance-par-paire-288-v1.txt` | `30de2400a9b08bc3c8f7dcdf4c13b667411aa55a71c6c199caa5b3cb2eb47699` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance-par-paire-288-v1.txt.sha256` | `ff4a3959c73dfa5b5aba81c518dfdfda68e05fdd644c026e349e18fac55786a3` | seal |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance_par_paire_v1.py` | `f8b73c1221ffc46b64469c287fd5f14d8c432cc02cb6348ee2153529263a5463` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
+| `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance_par_paire_v1.py.sha256` | `f45de375c5ef101e115508fe905c419d2fbc790fdac161c3458bd733554a8c95` | seal |
 
 ## Security scans run before publication
 

@@ -1,0 +1,151 @@
+{
+ "calibrage_sha256": "f59018fb047af289ba1f466430fa9c577d6a0b6d4843a51831b19bd3c197b22e",
+ "couples_v2": {
+  "3B:BALANCE|log_jetons_total": 0.146,
+  "3B:RESULT_REASONING|jetons_par_action_ecart_type": -0.046,
+  "3B:RIGOR|actions_valides": 0.121,
+  "8B:COHERENCE|actions_valides": 0.075,
+  "8B:RIGOR|actions_valides": 0.11
+ },
+ "couverture": {
+  "3B:BALANCE": {
+   "instances": 124,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.431
+  },
+  "3B:COHERENCE": {
+   "instances": 260,
+   "issues": 3,
+   "sur": 288,
+   "taux": 0.903
+  },
+  "3B:NOVELTY": {
+   "instances": 239,
+   "issues": 3,
+   "sur": 288,
+   "taux": 0.83
+  },
+  "3B:REDUNDANCY_PENALTY": {
+   "instances": 231,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.802
+  },
+  "3B:RESULT_REASONING": {
+   "instances": 122,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.424
+  },
+  "3B:RIGOR": {
+   "instances": 202,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.701
+  },
+  "8B:BALANCE": {
+   "instances": 166,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.576
+  },
+  "8B:COHERENCE": {
+   "instances": 191,
+   "issues": 3,
+   "sur": 288,
+   "taux": 0.663
+  },
+  "8B:IRRELEVANCE_PENALTY": {
+   "instances": 202,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.701
+  },
+  "8B:NOVELTY": {
+   "instances": 179,
+   "issues": 3,
+   "sur": 288,
+   "taux": 0.622
+  },
+  "8B:REDUNDANCY_PENALTY": {
+   "instances": 194,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.674
+  },
+  "8B:RESULT_REASONING": {
+   "instances": 164,
+   "issues": 2,
+   "sur": 288,
+   "taux": 0.569
+  },
+  "8B:RIGOR": {
+   "instances": 171,
+   "issues": 3,
+   "sur": 288,
+   "taux": 0.594
+  }
+ },
+ "information_connue": {
+  "3B:BALANCE": {
+   "meme_tache_episode_tenu_nat": 0.0011,
+   "par_tache_nat": -0.0141
+  },
+  "3B:COHERENCE": {
+   "meme_tache_episode_tenu_nat": -0.0225,
+   "par_tache_nat": -0.0511
+  },
+  "3B:NOVELTY": {
+   "meme_tache_episode_tenu_nat": -0.0213,
+   "par_tache_nat": -0.0204
+  },
+  "3B:REDUNDANCY_PENALTY": {
+   "meme_tache_episode_tenu_nat": -0.0169,
+   "par_tache_nat": -0.0296
+  },
+  "3B:RESULT_REASONING": {
+   "meme_tache_episode_tenu_nat": -0.0672,
+   "par_tache_nat": -0.047
+  },
+  "3B:RIGOR": {
+   "meme_tache_episode_tenu_nat": 0.0085,
+   "par_tache_nat": -0.0258
+  },
+  "8B:BALANCE": {
+   "meme_tache_episode_tenu_nat": 0.003,
+   "par_tache_nat": -0.0075
+  },
+  "8B:COHERENCE": {
+   "meme_tache_episode_tenu_nat": -0.045,
+   "par_tache_nat": -0.0629
+  },
+  "8B:IRRELEVANCE_PENALTY": {
+   "meme_tache_episode_tenu_nat": -0.0105,
+   "par_tache_nat": -0.0151
+  },
+  "8B:NOVELTY": {
+   "meme_tache_episode_tenu_nat": -0.0153,
+   "par_tache_nat": -0.0191
+  },
+  "8B:REDUNDANCY_PENALTY": {
+   "meme_tache_episode_tenu_nat": -0.0001,
+   "par_tache_nat": -0.027
+  },
+  "8B:RESULT_REASONING": {
+   "meme_tache_episode_tenu_nat": -0.0626,
+   "par_tache_nat": -0.0187
+  },
+  "8B:RIGOR": {
+   "meme_tache_episode_tenu_nat": -0.0042,
+   "par_tache_nat": -0.0591
+  }
+ },
+ "resume_rangs": {
+  "couple_max": "3B:BALANCE|jetons_par_action_ecart_type",
+  "moniteurs": 13,
+  "rang_max_abs": 0.248,
+  "temoins_faux": 13,
+  "temoins_vrais": 0
+ }
+}

@@ -1,0 +1,115 @@
+0 1 0.3 {'plein': 0.85, 'gele': 0.725, 'repetitions': 40}
+0 1 0.5 {'plein': 1.0, 'gele': 0.975, 'repetitions': 40}
+0 1 0.8 {'plein': 1.0, 'gele': 1.0, 'repetitions': 40}
+0 2 0.3 {'plein': 0.475, 'gele': 0.075, 'repetitions': 40}
+0 2 0.5 {'plein': 0.95, 'gele': 0.575, 'repetitions': 40}
+0 2 0.8 {'plein': 1.0, 'gele': 0.95, 'repetitions': 40}
+1 0 0.3 {'plein': 0.675, 'gele': 0.3, 'repetitions': 40}
+1 0 0.5 {'plein': 1.0, 'gele': 0.95, 'repetitions': 40}
+1 0 0.8 {'plein': 1.0, 'gele': 1.0, 'repetitions': 40}
+1 2 0.3 {'plein': 0.725, 'gele': 0.525, 'repetitions': 40}
+1 2 0.5 {'plein': 1.0, 'gele': 0.95, 'repetitions': 40}
+1 2 0.8 {'plein': 1.0, 'gele': 1.0, 'repetitions': 40}
+2 0 0.3 {'plein': 0.3, 'gele': 0.1, 'repetitions': 40}
+2 0 0.5 {'plein': 0.975, 'gele': 0.55, 'repetitions': 40}
+2 0 0.8 {'plein': 1.0, 'gele': 0.975, 'repetitions': 40}
+2 1 0.3 {'plein': 0.8, 'gele': 0.625, 'repetitions': 40}
+2 1 0.5 {'plein': 0.975, 'gele': 0.975, 'repetitions': 40}
+2 1 0.8 {'plein': 1.0, 'gele': 1.0, 'repetitions': 40}
+{
+ "calibrage_sha256": "f59018fb047af289ba1f466430fa9c577d6a0b6d4843a51831b19bd3c197b22e",
+ "episodes": "0,1,2",
+ "m": 19,
+ "table": {
+  "actions_valides|jetons_par_action_ecart_type|0.3": {
+   "gele": 0.525,
+   "plein": 0.725,
+   "repetitions": 40
+  },
+  "actions_valides|jetons_par_action_ecart_type|0.5": {
+   "gele": 0.95,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "actions_valides|jetons_par_action_ecart_type|0.8": {
+   "gele": 1.0,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "actions_valides|log_jetons_total|0.3": {
+   "gele": 0.3,
+   "plein": 0.675,
+   "repetitions": 40
+  },
+  "actions_valides|log_jetons_total|0.5": {
+   "gele": 0.95,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "actions_valides|log_jetons_total|0.8": {
+   "gele": 1.0,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|actions_valides|0.3": {
+   "gele": 0.625,
+   "plein": 0.8,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|actions_valides|0.5": {
+   "gele": 0.975,
+   "plein": 0.975,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|actions_valides|0.8": {
+   "gele": 1.0,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|log_jetons_total|0.3": {
+   "gele": 0.1,
+   "plein": 0.3,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|log_jetons_total|0.5": {
+   "gele": 0.55,
+   "plein": 0.975,
+   "repetitions": 40
+  },
+  "jetons_par_action_ecart_type|log_jetons_total|0.8": {
+   "gele": 0.975,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "log_jetons_total|actions_valides|0.3": {
+   "gele": 0.725,
+   "plein": 0.85,
+   "repetitions": 40
+  },
+  "log_jetons_total|actions_valides|0.5": {
+   "gele": 0.975,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "log_jetons_total|actions_valides|0.8": {
+   "gele": 1.0,
+   "plein": 1.0,
+   "repetitions": 40
+  },
+  "log_jetons_total|jetons_par_action_ecart_type|0.3": {
+   "gele": 0.075,
+   "plein": 0.475,
+   "repetitions": 40
+  },
+  "log_jetons_total|jetons_par_action_ecart_type|0.5": {
+   "gele": 0.575,
+   "plein": 0.95,
+   "repetitions": 40
+  },
+  "log_jetons_total|jetons_par_action_ecart_type|0.8": {
+   "gele": 0.95,
+   "plein": 1.0,
+   "repetitions": 40
+  }
+ }
+}
