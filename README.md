@@ -79,7 +79,7 @@ This is the table the project was built around. Each line names a way an automat
 
 `demonstrations/banc_tricheurs_v7.py` is a bench of scripted cheaters against the statistical judge: each cheater is a card that tries to get promoted *without bringing a new true law* — by copying a survivor under a new name, mixing two survivors, tempering and tilting a survivor, dressing up a parent law, firing ten variants of a false law at once, and so on. Reading rules are fixed before the run (line → "must hold at ≤ α", "measured", "artefact must pass"). Rerun in this tree on 1 November 2026 (seed 20261101, 200 repetitions per line, 5 min 15 s on 4 cores; exploratory, not the decisive 1 000-repetition validation):
 
-| cheater | judge as shipped ("v7" null) | with the candidate null (fitted pooling of all known laws) |
+| cheater | judge with the plain archive null ("v7" setting: what the offline demonstrations still use) | with the pooled null (`nul_archive_ajuste`: fitted pooling of all known laws, implemented in `pole/cycle.py` and already the default of the `pole.py` command line) |
 |---|---|---|
 | T01 parent + blind law, T03u survivor + uniform, T17s renamed copy of a survivor, T09g parent⁶, T09l λ-mixture, T12a deformed parent, exact null | **0 / 200 each** — held | — |
 | T02 hidden copy ½ parent + ½ survivor | **promoted 75 %** — the judge is beaten | 0 / 200 |
@@ -91,7 +91,7 @@ This is the table the project was built around. Each line names a way an automat
 | power on genuinely new laws (daughter, fresh) | 0.97 / 1.00 | 1.00 / 0.99 (loss −0.03 / +0.01) |
 | artefact: T01 under the old "v1" null | promoted > α — the bench has teeth | — |
 
-What this says, plainly: **the judge as shipped is beaten by four cheats that recombine what the archive already accepted**, and a candidate null that pools all known laws closes all four at a power cost under 0.05. The candidate is not yet the shipped judge; promoting it is a preregistered decision, not a patch. Reproduce: `python3 -I -B demonstrations/banc_tricheurs_v7.py OUT --graine 20261101 --repetitions 200 --processus 4`, then read `lecture` in `OUT/banc-tricheurs-v7.json`.
+What this says, plainly: **without the pooled null, the judge is beaten by four cheats that recombine what the archive already accepted**; the pooled null closes all four at a power cost under 0.05. The pooled null exists and is the default of the command-line entry point, but the offline demonstrations and the bench's reference setting still run without it, and its decisive validation (1 000 repetitions per line, fresh seed at sealing, Holm-corrected bounds, preregistered and counter-read) has not been run. Making it the default everywhere and running that validation is the next change, as a new version, not a patch to existing files. Reproduce: `python3 -I -B demonstrations/banc_tricheurs_v7.py OUT --graine 20261101 --repetitions 200 --processus 4`, then read `lecture` in `OUT/banc-tricheurs-v7.json`.
 
 The **mutation bench** (`essais/mutations_v56.py`) is the meta-guard: 156 deliberate code mutations across v54–v56 (removing a check, flipping a comparison, swallowing an exception), each of which must be killed by the test suite *for the expected reason*. In the last run before publication, all 156 were killed, none survived, none was killed for a wrong reason. The bench says nothing about guards that do not exist — which is why the first line of this table is written the way it is.
 
