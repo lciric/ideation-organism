@@ -1,0 +1,9718 @@
+{
+ "banque_reelle": {
+  "chemin": "exemples/banque-t05-v2.json",
+  "episodes": 120,
+  "instances_par_moniteur_reel": [
+   53,
+   109
+  ],
+  "moniteurs_reels": 13,
+  "parties": {
+   "calibrage": 40,
+   "epreuve": 80
+  },
+  "regle_de_tirage": "par tâche, sans remise si 3N/4 ≤ 60, avec remise au-delà",
+  "sha256": "f26cc85794f0e65bca6217911f862414f1489195b9bf3ada51d22a3af0fe0d71",
+  "taches": 60
+ },
+ "calibrage_par_N": {
+  "120": [
+   60
+  ],
+  "144": [
+   72
+  ],
+  "180": [
+   90
+  ],
+  "288": [
+   144
+  ],
+  "60": [
+   30
+  ],
+  "600": [
+   300
+  ]
+ },
+ "cellules": [
+  {
+   "N": 60,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.445,
+    "tff": 0.979
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.112,
+    "q10": -0.464,
+    "q90": 0.742
+   },
+   "n_plan": [
+    60
+   ],
+   "plan": "gele",
+   "remise": false,
+   "repetitions": 500
+  },
+  {
+   "N": 120,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.736,
+    "tff": 1.393
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.267,
+    "q10": -0.485,
+    "q90": 1.221
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.507,
+    "tff": 1.373
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.303,
+    "q10": -0.431,
+    "q90": 1.347
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.39,
+    "tff": 1.594
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.39,
+    "q10": -0.294,
+    "q90": 1.458
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.318,
+    "tff": 1.859
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.371,
+    "q10": -0.31,
+    "q90": 1.659
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0326,
+       0.0729
+      ],
+      "promus": 25,
+      "taux": 0.05
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.278,
+    "tff": 1.869
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.474,
+    "q10": -0.28,
+    "q90": 2.603
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 60,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.957,
+    "tff": 2.119
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.508,
+    "q10": -0.518,
+    "q90": 2.0
+   },
+   "n_plan": [
+    60
+   ],
+   "plan": "gele",
+   "remise": false,
+   "repetitions": 500
+  },
+  {
+   "N": 120,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1072,
+       0.1692
+      ],
+      "promus": 68,
+      "taux": 0.136
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.215,
+    "tff": 2.168
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.184,
+    "q10": -0.205,
+    "q90": 3.282
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1621,
+       0.2336
+      ],
+      "promus": 98,
+      "taux": 0.196
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.849,
+    "tff": 2.653
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.508,
+    "q10": -0.191,
+    "q90": 3.789
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0069,
+       0.0313
+      ],
+      "promus": 8,
+      "taux": 0.016
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0016,
+       0.0116
+      ],
+      "jugés": 1000,
+      "promus": 5,
+      "taux": 0.005
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1844,
+       0.2589
+      ],
+      "promus": 110,
+      "taux": 0.22
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.777,
+    "tff": 2.795
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.605,
+    "q10": -0.179,
+    "q90": 4.137
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0359,
+       0.0776
+      ],
+      "promus": 27,
+      "taux": 0.054
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0096,
+       0.0365
+      ],
+      "promus": 10,
+      "taux": 0.02
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0006,
+       0.0087
+      ],
+      "jugés": 1000,
+      "promus": 3,
+      "taux": 0.003
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0012,
+       0.0174
+      ],
+      "promus": 3,
+      "taux": 0.006
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.2278,
+       0.307
+      ],
+      "promus": 133,
+      "taux": 0.266
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.39,
+    "tff": 2.95
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.638,
+    "q10": -0.101,
+    "q90": 4.691
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1528,
+       0.2229
+      ],
+      "promus": 93,
+      "taux": 0.186
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0578,
+       0.1073
+      ],
+      "promus": 40,
+      "taux": 0.08
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0028,
+       0.0144
+      ],
+      "jugés": 1000,
+      "promus": 7,
+      "taux": 0.007
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4354,
+       0.5248
+      ],
+      "promus": 240,
+      "taux": 0.48
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.507,
+    "tff": 3.03
+   },
+   "log_w_max_vrais": {
+    "mediane": 2.769,
+    "q10": -0.053,
+    "q90": 6.945
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 60,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0002,
+       0.0072
+      ],
+      "jugés": 1000,
+      "promus": 2,
+      "taux": 0.002
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0893,
+       0.1474
+      ],
+      "promus": 58,
+      "taux": 0.116
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.275,
+    "tff": 2.517
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.308,
+    "q10": -0.254,
+    "q90": 3.082
+   },
+   "n_plan": [
+    60
+   ],
+   "plan": "gele",
+   "remise": false,
+   "repetitions": 500
+  },
+  {
+   "N": 120,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0839,
+       0.1408
+      ],
+      "promus": 55,
+      "taux": 0.11
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0154,
+       0.0465
+      ],
+      "promus": 14,
+      "taux": 0.028
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0048,
+       0.0183
+      ],
+      "jugés": 1000,
+      "promus": 10,
+      "taux": 0.01
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0083,
+       0.0339
+      ],
+      "promus": 9,
+      "taux": 0.018
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.3802,
+       0.4687
+      ],
+      "promus": 212,
+      "taux": 0.424
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.534,
+    "tff": 3.457
+   },
+   "log_w_max_vrais": {
+    "mediane": 2.59,
+    "q10": 0.185,
+    "q90": 5.95
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.118,
+       0.1822
+      ],
+      "promus": 74,
+      "taux": 0.148
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0342,
+       0.0753
+      ],
+      "promus": 26,
+      "taux": 0.052
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0016,
+       0.0116
+      ],
+      "jugés": 1000,
+      "promus": 5,
+      "taux": 0.005
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4852,
+       0.5745
+      ],
+      "promus": 265,
+      "taux": 0.53
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.989,
+    "tff": 2.914
+   },
+   "log_w_max_vrais": {
+    "mediane": 3.214,
+    "q10": 0.24,
+    "q90": 6.715
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.2051,
+       0.282
+      ],
+      "promus": 121,
+      "taux": 0.242
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0839,
+       0.1408
+      ],
+      "promus": 55,
+      "taux": 0.11
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0006,
+       0.0087
+      ],
+      "jugés": 1000,
+      "promus": 3,
+      "taux": 0.003
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0012,
+       0.0174
+      ],
+      "promus": 3,
+      "taux": 0.006
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5414,
+       0.6296
+      ],
+      "promus": 293,
+      "taux": 0.586
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.094,
+    "tff": 2.75
+   },
+   "log_w_max_vrais": {
+    "mediane": 3.589,
+    "q10": 0.682,
+    "q90": 7.636
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.3431,
+       0.4302
+      ],
+      "promus": 193,
+      "taux": 0.386
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1994,
+       0.2757
+      ],
+      "promus": 118,
+      "taux": 0.236
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5942,
+       0.6802
+      ],
+      "promus": 319,
+      "taux": 0.638
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.548,
+    "tff": 3.113
+   },
+   "log_w_max_vrais": {
+    "mediane": 4.527,
+    "q10": 0.324,
+    "q90": 9.442
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4992,
+       0.5883
+      ],
+      "promus": 272,
+      "taux": 0.544
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.3724,
+       0.4606
+      ],
+      "promus": 208,
+      "taux": 0.416
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.633,
+       0.7169
+      ],
+      "promus": 338,
+      "taux": 0.676
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.212,
+    "tff": 3.17
+   },
+   "log_w_max_vrais": {
+    "mediane": 6.386,
+    "q10": 0.013,
+    "q90": 13.733
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 60,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1326,
+       0.1994
+      ],
+      "promus": 82,
+      "taux": 0.164
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0392,
+       0.0822
+      ],
+      "promus": 29,
+      "taux": 0.058
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0016,
+       0.0116
+      ],
+      "jugés": 1000,
+      "promus": 5,
+      "taux": 0.005
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5313,
+       0.6198
+      ],
+      "promus": 288,
+      "taux": 0.576
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 2.156,
+    "tff": 2.953
+   },
+   "log_w_max_vrais": {
+    "mediane": 3.519,
+    "q10": 0.807,
+    "q90": 6.811
+   },
+   "n_plan": [
+    60
+   ],
+   "plan": "gele",
+   "remise": false,
+   "repetitions": 500
+  },
+  {
+   "N": 120,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6023,
+       0.6879
+      ],
+      "promus": 323,
+      "taux": 0.646
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4058,
+       0.4948
+      ],
+      "promus": 225,
+      "taux": 0.45
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8156,
+       0.8802
+      ],
+      "promus": 425,
+      "taux": 0.85
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.456,
+    "tff": 2.905
+   },
+   "log_w_max_vrais": {
+    "mediane": 7.052,
+    "q10": 2.506,
+    "q90": 11.742
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6639,
+       0.7456
+      ],
+      "promus": 353,
+      "taux": 0.706
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5273,
+       0.6158
+      ],
+      "promus": 286,
+      "taux": 0.572
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8725,
+       0.9266
+      ],
+      "promus": 451,
+      "taux": 0.902
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.139,
+    "tff": 2.762
+   },
+   "log_w_max_vrais": {
+    "mediane": 8.345,
+    "q10": 3.015,
+    "q90": 14.372
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6888,
+       0.7685
+      ],
+      "promus": 365,
+      "taux": 0.73
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5942,
+       0.6802
+      ],
+      "promus": 319,
+      "taux": 0.638
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8703,
+       0.9249
+      ],
+      "promus": 450,
+      "taux": 0.9
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.678,
+    "tff": 3.94
+   },
+   "log_w_max_vrais": {
+    "mediane": 9.738,
+    "q10": 3.017,
+    "q90": 16.101
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.693,
+       0.7722
+      ],
+      "promus": 367,
+      "taux": 0.734
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6187,
+       0.7034
+      ],
+      "promus": 331,
+      "taux": 0.662
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8243,
+       0.8874
+      ],
+      "promus": 429,
+      "taux": 0.858
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.393,
+    "tff": 2.777
+   },
+   "log_w_max_vrais": {
+    "mediane": 12.079,
+    "q10": 2.134,
+    "q90": 19.536
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6515,
+       0.7341
+      ],
+      "promus": 347,
+      "taux": 0.694
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6146,
+       0.6995
+      ],
+      "promus": 329,
+      "taux": 0.658
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.7327,
+       0.8081
+      ],
+      "promus": 386,
+      "taux": 0.772
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.253,
+    "tff": 1.914
+   },
+   "log_w_max_vrais": {
+    "mediane": 17.146,
+    "q10": 0.151,
+    "q90": 27.036
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 60,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6495,
+       0.7322
+      ],
+      "promus": 346,
+      "taux": 0.692
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4672,
+       0.5566
+      ],
+      "promus": 256,
+      "taux": 0.512
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8681,
+       0.9231
+      ],
+      "promus": 449,
+      "taux": 0.898
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.983,
+    "tff": 2.58
+   },
+   "log_w_max_vrais": {
+    "mediane": 7.552,
+    "q10": 2.986,
+    "q90": 12.008
+   },
+   "n_plan": [
+    60
+   ],
+   "plan": "gele",
+   "remise": false,
+   "repetitions": 500
+  },
+  {
+   "N": 120,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9247,
+       0.9658
+      ],
+      "promus": 474,
+      "taux": 0.948
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8592,
+       0.9161
+      ],
+      "promus": 445,
+      "taux": 0.89
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0006,
+       0.0087
+      ],
+      "jugés": 1000,
+      "promus": 3,
+      "taux": 0.003
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9661,
+       0.9917
+      ],
+      "promus": 491,
+      "taux": 0.982
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.229,
+    "tff": 2.453
+   },
+   "log_w_max_vrais": {
+    "mediane": 15.433,
+    "q10": 7.178,
+    "q90": 22.639
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9247,
+       0.9658
+      ],
+      "promus": 474,
+      "taux": 0.948
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8814,
+       0.9336
+      ],
+      "promus": 455,
+      "taux": 0.91
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0035,
+       0.0157
+      ],
+      "jugés": 1000,
+      "promus": 8,
+      "taux": 0.008
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9768,
+       0.9967
+      ],
+      "promus": 495,
+      "taux": 0.99
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.438,
+    "tff": 3.258
+   },
+   "log_w_max_vrais": {
+    "mediane": 16.763,
+    "q10": 7.875,
+    "q90": 26.186
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9318,
+       0.9706
+      ],
+      "promus": 477,
+      "taux": 0.954
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8949,
+       0.9439
+      ],
+      "promus": 461,
+      "taux": 0.922
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0012,
+       0.0174
+      ],
+      "promus": 3,
+      "taux": 0.006
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.961,
+       0.989
+      ],
+      "promus": 489,
+      "taux": 0.978
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.248,
+    "tff": 2.209
+   },
+   "log_w_max_vrais": {
+    "mediane": 19.194,
+    "q10": 8.334,
+    "q90": 29.941
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.833,
+       0.8946
+      ],
+      "promus": 433,
+      "taux": 0.866
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.792,
+       0.8601
+      ],
+      "promus": 414,
+      "taux": 0.828
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9201,
+       0.9625
+      ],
+      "promus": 472,
+      "taux": 0.944
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.12,
+    "tff": 2.597
+   },
+   "log_w_max_vrais": {
+    "mediane": 23.64,
+    "q10": 4.715,
+    "q90": 36.407
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.7728,
+       0.8435
+      ],
+      "promus": 405,
+      "taux": 0.81
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.739,
+       0.8137
+      ],
+      "promus": 389,
+      "taux": 0.778
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0002,
+       0.0072
+      ],
+      "jugés": 1000,
+      "promus": 2,
+      "taux": 0.002
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8006,
+       0.8674
+      ],
+      "promus": 418,
+      "taux": 0.836
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.008,
+    "tff": 2.001
+   },
+   "log_w_max_vrais": {
+    "mediane": 34.934,
+    "q10": 0.704,
+    "q90": 45.634
+   },
+   "n_plan": [
+    120
+   ],
+   "plan": "gele",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.734,
+    "tff": 1.532
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.346,
+    "q10": -0.428,
+    "q90": 1.386
+   },
+   "n_plan": [
+    144
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.077,
+    "tff": 1.69
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.48,
+    "q10": -0.233,
+    "q90": 1.725
+   },
+   "n_plan": [
+    180
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0169,
+       0.049
+      ],
+      "promus": 15,
+      "taux": 0.03
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.262,
+    "tff": 1.922
+   },
+   "log_w_max_vrais": {
+    "mediane": 0.759,
+    "q10": -0.187,
+    "q90": 2.197
+   },
+   "n_plan": [
+    288
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.1,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1844,
+       0.2589
+      ],
+      "promus": 110,
+      "taux": 0.22
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.303,
+    "tff": 2.532
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.602,
+    "q10": -0.052,
+    "q90": 4.042
+   },
+   "n_plan": [
+    600
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0016,
+       0.0116
+      ],
+      "jugés": 1000,
+      "promus": 5,
+      "taux": 0.005
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1695,
+       0.242
+      ],
+      "promus": 102,
+      "taux": 0.204
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.084,
+    "tff": 2.653
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.556,
+    "q10": -0.174,
+    "q90": 3.844
+   },
+   "n_plan": [
+    144
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0169,
+       0.049
+      ],
+      "promus": 15,
+      "taux": 0.03
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0044,
+       0.0259
+      ],
+      "promus": 6,
+      "taux": 0.012
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.2372,
+       0.3174
+      ],
+      "promus": 138,
+      "taux": 0.276
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.138,
+    "tff": 3.306
+   },
+   "log_w_max_vrais": {
+    "mediane": 1.934,
+    "q10": -0.102,
+    "q90": 4.372
+   },
+   "n_plan": [
+    180
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0893,
+       0.1474
+      ],
+      "promus": 58,
+      "taux": 0.116
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0294,
+       0.0682
+      ],
+      "promus": 23,
+      "taux": 0.046
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4434,
+       0.5328
+      ],
+      "promus": 244,
+      "taux": 0.488
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.49,
+    "tff": 2.967
+   },
+   "log_w_max_vrais": {
+    "mediane": 2.954,
+    "q10": 0.256,
+    "q90": 6.167
+   },
+   "n_plan": [
+    288
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.2,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5072,
+       0.5962
+      ],
+      "promus": 276,
+      "taux": 0.552
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.349,
+       0.4363
+      ],
+      "promus": 196,
+      "taux": 0.392
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0062,
+       0.0209
+      ],
+      "jugés": 1000,
+      "promus": 12,
+      "taux": 0.012
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0096,
+       0.0365
+      ],
+      "promus": 10,
+      "taux": 0.02
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.833,
+       0.8946
+      ],
+      "promus": 433,
+      "taux": 0.866
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 2.439,
+    "tff": 3.902
+   },
+   "log_w_max_vrais": {
+    "mediane": 6.265,
+    "q10": 2.48,
+    "q90": 11.324
+   },
+   "n_plan": [
+    600
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1271,
+       0.193
+      ],
+      "promus": 79,
+      "taux": 0.158
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.0475,
+       0.0937
+      ],
+      "promus": 34,
+      "taux": 0.068
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0016,
+       0.0116
+      ],
+      "jugés": 1000,
+      "promus": 5,
+      "taux": 0.005
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5032,
+       0.5922
+      ],
+      "promus": 274,
+      "taux": 0.548
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.226,
+    "tff": 2.914
+   },
+   "log_w_max_vrais": {
+    "mediane": 3.309,
+    "q10": 0.428,
+    "q90": 6.724
+   },
+   "n_plan": [
+    144
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.2697,
+       0.3526
+      ],
+      "promus": 155,
+      "taux": 0.31
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.1235,
+       0.1887
+      ],
+      "promus": 77,
+      "taux": 0.154
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0028,
+       0.0144
+      ],
+      "jugés": 1000,
+      "promus": 7,
+      "taux": 0.007
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6598,
+       0.7418
+      ],
+      "promus": 351,
+      "taux": 0.702
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.623,
+    "tff": 3.272
+   },
+   "log_w_max_vrais": {
+    "mediane": 4.456,
+    "q10": 1.099,
+    "q90": 8.228
+   },
+   "n_plan": [
+    180
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5677,
+       0.6549
+      ],
+      "promus": 306,
+      "taux": 0.612
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.4176,
+       0.5068
+      ],
+      "promus": 231,
+      "taux": 0.462
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0055,
+       0.0196
+      ],
+      "jugés": 1000,
+      "promus": 11,
+      "taux": 0.011
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0083,
+       0.0339
+      ],
+      "promus": 9,
+      "taux": 0.018
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8308,
+       0.8928
+      ],
+      "promus": 432,
+      "taux": 0.864
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 2.172,
+    "tff": 3.432
+   },
+   "log_w_max_vrais": {
+    "mediane": 7.04,
+    "q10": 2.276,
+    "q90": 11.867
+   },
+   "n_plan": [
+    288
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.3,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9131,
+       0.9575
+      ],
+      "promus": 469,
+      "taux": 0.938
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8636,
+       0.9196
+      ],
+      "promus": 447,
+      "taux": 0.894
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0028,
+       0.0144
+      ],
+      "jugés": 1000,
+      "promus": 7,
+      "taux": 0.007
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9661,
+       0.9917
+      ],
+      "promus": 491,
+      "taux": 0.982
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.759,
+    "tff": 3.552
+   },
+   "log_w_max_vrais": {
+    "mediane": 14.165,
+    "q10": 7.221,
+    "q90": 22.345
+   },
+   "n_plan": [
+    600
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.6888,
+       0.7685
+      ],
+      "promus": 365,
+      "taux": 0.73
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.5758,
+       0.6627
+      ],
+      "promus": 310,
+      "taux": 0.62
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0012,
+       0.0174
+      ],
+      "promus": 3,
+      "taux": 0.006
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0028,
+       0.0144
+      ],
+      "jugés": 1000,
+      "promus": 7,
+      "taux": 0.007
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9017,
+       0.9491
+      ],
+      "promus": 464,
+      "taux": 0.928
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.565,
+    "tff": 2.762
+   },
+   "log_w_max_vrais": {
+    "mediane": 8.854,
+    "q10": 3.46,
+    "q90": 14.555
+   },
+   "n_plan": [
+    144
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.8027,
+       0.8692
+      ],
+      "promus": 419,
+      "taux": 0.838
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.7264,
+       0.8024
+      ],
+      "promus": 383,
+      "taux": 0.766
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0055,
+       0.0196
+      ],
+      "jugés": 1000,
+      "promus": 11,
+      "taux": 0.011
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0083,
+       0.0339
+      ],
+      "promus": 9,
+      "taux": 0.018
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9271,
+       0.9674
+      ],
+      "promus": 475,
+      "taux": 0.95
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 1.377,
+    "tff": 3.977
+   },
+   "log_w_max_vrais": {
+    "mediane": 10.918,
+    "q10": 4.579,
+    "q90": 17.463
+   },
+   "n_plan": [
+    180
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9437,
+       0.9785
+      ],
+      "promus": 482,
+      "taux": 0.964
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9017,
+       0.9491
+      ],
+      "promus": 464,
+      "taux": 0.928
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0022,
+       0.013
+      ],
+      "jugés": 1000,
+      "promus": 6,
+      "taux": 0.006
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0033,
+       0.0232
+      ],
+      "promus": 5,
+      "taux": 0.01
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9741,
+       0.9956
+      ],
+      "promus": 494,
+      "taux": 0.988
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.662,
+    "tff": 2.839
+   },
+   "log_w_max_vrais": {
+    "mediane": 16.863,
+    "q10": 8.323,
+    "q90": 24.98
+   },
+   "n_plan": [
+    288
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.5,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.253,
+    "tff": 1.935
+   },
+   "log_w_max_vrais": {
+    "mediane": 34.639,
+    "q10": 18.815,
+    "q90": 49.687
+   },
+   "n_plan": [
+    600
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 144,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9535,
+       0.9846
+      ],
+      "promus": 486,
+      "taux": 0.972
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.904,
+       0.9508
+      ],
+      "promus": 465,
+      "taux": 0.93
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0035,
+       0.0157
+      ],
+      "jugés": 1000,
+      "promus": 8,
+      "taux": 0.008
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0056,
+       0.0286
+      ],
+      "promus": 7,
+      "taux": 0.014
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9796,
+       0.9978
+      ],
+      "promus": 496,
+      "taux": 0.992
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.68,
+    "tff": 3.258
+   },
+   "log_w_max_vrais": {
+    "mediane": 17.4,
+    "q10": 9.054,
+    "q90": 26.422
+   },
+   "n_plan": [
+    144
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 180,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9741,
+       0.9956
+      ],
+      "promus": 494,
+      "taux": 0.988
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9535,
+       0.9846
+      ],
+      "promus": 486,
+      "taux": 0.972
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0012,
+       0.0174
+      ],
+      "promus": 3,
+      "taux": 0.006
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9856,
+       0.9995
+      ],
+      "promus": 498,
+      "taux": 0.996
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.344,
+    "tff": 2.209
+   },
+   "log_w_max_vrais": {
+    "mediane": 21.666,
+    "q10": 12.295,
+    "q90": 32.284
+   },
+   "n_plan": [
+    180
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 288,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0056
+      ],
+      "jugés": 1000,
+      "promus": 1,
+      "taux": 0.001
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0001,
+       0.0111
+      ],
+      "promus": 1,
+      "taux": 0.002
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9856,
+       0.9995
+      ],
+      "promus": 498,
+      "taux": 0.996
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9826,
+       0.9988
+      ],
+      "promus": 497,
+      "taux": 0.994
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0011,
+       0.0102
+      ],
+      "jugés": 1000,
+      "promus": 4,
+      "taux": 0.004
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0022,
+       0.0204
+      ],
+      "promus": 4,
+      "taux": 0.008
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.144,
+    "tff": 2.597
+   },
+   "log_w_max_vrais": {
+    "mediane": 34.298,
+    "q10": 18.916,
+    "q90": 49.966
+   },
+   "n_plan": [
+    288
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  },
+  {
+   "N": 600,
+   "force": 0.8,
+   "lectures": {
+    "e_bh_m17": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    },
+    "e_bh_m83": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0,
+       0.0037
+      ],
+      "jugés": 1000,
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    },
+    "par_fiche": {
+     "faux_bruit": {
+      "ic95_exact": [
+       0.0,
+       0.0074
+      ],
+      "promus": 0,
+      "taux": 0.0
+     },
+     "faux_ensemble": {
+      "ic95_exact": [
+       0.0002,
+       0.0072
+      ],
+      "jugés": 1000,
+      "promus": 2,
+      "taux": 0.002
+     },
+     "faux_meme_forme": {
+      "ic95_exact": [
+       0.0005,
+       0.0144
+      ],
+      "promus": 2,
+      "taux": 0.004
+     },
+     "vrais": {
+      "ic95_exact": [
+       0.9926,
+       1.0
+      ],
+      "promus": 500,
+      "taux": 1.0
+     }
+    }
+   },
+   "log_w_max_faux_q99": {
+    "tfb": 0.008,
+    "tff": 2.001
+   },
+   "log_w_max_vrais": {
+    "mediane": 77.475,
+    "q10": 38.485,
+    "q90": 97.955
+   },
+   "n_plan": [
+    600
+   ],
+   "plan": "plan_N",
+   "remise": true,
+   "repetitions": 500
+  }
+ ],
+ "date_utc": "2026-11-01 19:58 UTC",
+ "duree_par_unite_s": {
+  "120": 0.275,
+  "144": 0.475,
+  "180": 0.516,
+  "288": 0.799,
+  "60": 0.168,
+  "600": 1.441
+ },
+ "duree_s": 920.7,
+ "empreintes": {
+  "construire_banque_t05_v3": "dff00005b80e8bfdd5cf3198336cbaebd0ca21752dc1c0d983835cc71f7fdaeb",
+  "demo_couche1_proposeur_v7": "0a782a5b1fab4cac4621bbf5f96bb1afc57b36b77373a2ba2fbe0c040e8b2226",
+  "pole/cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+  "pole/engagement_apparie.py": "fd80872a2e4770a334528b37ccfca6913e093afb350649fe42949b8e93764b0e",
+  "pole/monde_banque.py": "33088eb9088549a20ffd489687928a1f1469d1df85a025db29bc9ce3f93e7b18",
+  "pole/nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+  "pole/selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc",
+  "population_v2": "e66a96cdf8f20833f44a8422a512f6bc9c880990ce93c2152406c6243c06082e",
+  "script": "692d4134e7b8b5ae2c63784b86259205344287dfec5ef57c392552aa9161ff29",
+  "temoins_v2": "3c8f65ec89d30f45f6cac36abbe2b5873bbe855c4539a5dd0ae8a297d45356a9"
+ },
+ "environnement": {
+  "coeurs": 2,
+  "numpy": "2.5.3",
+  "plateforme": "linux",
+  "python": "3.13.18"
+ },
+ "fichiers": {
+  "json": "puissance-juge-banque-v1.json",
+  "md": "puissance-juge-banque-v1.md"
+ },
+ "graines": {
+  "plantation_par_N": {
+   "120": [
+    8481016141760817879,
+    17485847351274366039,
+    10513808652836477678,
+    7262009678263171821,
+    3782150457444952611,
+    13688674755920883100,
+    9602994998039294455,
+    2597056844626073673,
+    5706768972301768222,
+    7063811623190780457,
+    13475597290020234072,
+    4904888248620269621,
+    9208632321615317714,
+    4427111518893522278,
+    5165014195303387027,
+    7742028962574301450,
+    4522318407569746957,
+    3447288879578130613,
+    14990142886966597616,
+    14976356376128672483,
+    5403087198488490948,
+    7035489107231257963,
+    3737380692680048339,
+    16245717459765696112,
+    16401339501628040662,
+    11274020292623552508,
+    7306731207747426488,
+    5869605510129329197,
+    7715343697645802113,
+    13217095469623842978,
+    3108784542298551931,
+    18152840667132350913,
+    9089807890685625532,
+    10211122891327610832,
+    11147374945442595229,
+    9465572070523783945,
+    13075264375809969631,
+    16764979022146196386,
+    11755263179633823450,
+    13422397821297943438,
+    17904088047065417353,
+    11144285873870420223,
+    17999220505585248915,
+    4079750338965493663,
+    13262005363579677566,
+    972648924905603531,
+    16501033436993457691,
+    6851200247650457408,
+    14578222716739358851,
+    4307364155597060233,
+    1965833193440136441,
+    2106465080585064642,
+    4242848804103172409,
+    12099038152576847429,
+    16015213720743548850,
+    9758271086529810449,
+    11323947723958179738,
+    10358728769421162043,
+    17593985774269710736,
+    1544287970301774166,
+    15211110583306961630,
+    16247416229159588775,
+    12233861939333005575,
+    18120252532656194135,
+    2254537074408744232,
+    16318050372451755377,
+    2248586308520435837,
+    5464094264484986215,
+    5321270707078574126,
+    17097543268964765242,
+    6772308900304726938,
+    73857820811990782,
+    3444656807616940574,
+    16765385117327017122,
+    8337910005180061881,
+    1444540086814484768,
+    2226628974945479821,
+    1772473842624215557,
+    8594874325655754692,
+    17008397510207381407,
+    17731805609046056507,
+    14690863343511003716,
+    3153665085023285324,
+    11768886593359850676,
+    3826656962796825703,
+    195326059414608507,
+    59793666510684315,
+    7275815690426308640,
+    17183209730563187128,
+    9222819716911494038,
+    14824071000689686390,
+    5440820246224726457,
+    14625946481954350217,
+    7430092583149388670,
+    6620340090208028187,
+    13674172301451093253,
+    10632301807787770434,
+    1565449903307120365,
+    10203672132447295563,
+    9320893278293057306,
+    5070154174767243869,
+    3700252595180531861,
+    15658620971641093980,
+    7551032983098006285,
+    10056559876766887869,
+    2261818121317448911,
+    15911211337958764098,
+    5905180895137735192,
+    5180099908315425496,
+    6804905017827817151,
+    3702050735557001311,
+    1911085734163315193,
+    686750348851285480,
+    15342397149530671279,
+    206499200198858110,
+    7941897073143890598,
+    4741085241912368951,
+    15641137160993527563,
+    1494594030851013829,
+    6427237086989203305,
+    13086967305521032836,
+    9215450310611078116,
+    13127587016505880516,
+    14878670151096543620,
+    15168131636666703617,
+    15521943574152043620,
+    13879283013359389199,
+    3490513181725385970,
+    13032518762383510485,
+    17362890361703920283,
+    12951488293009844994,
+    9235865710415376649,
+    18435269660135813549,
+    2655527674020990675,
+    5332246067826582839,
+    10456436339018952513,
+    9792382453500648613,
+    5289176010682269117,
+    12588480889243858140,
+    14311900192107687115,
+    10284164882017878683,
+    13916148538760097421,
+    13104877489709013415,
+    14314257120528809546,
+    14644966562382600305,
+    11925595968017811790,
+    5493703407697533320,
+    10569094861355127462,
+    7221990062932458210,
+    4226125629422035017,
+    10618469882026265782,
+    2837801690620404977,
+    4706193771501640746,
+    16982899854136349388,
+    9874918562819112740,
+    10313256729106095817,
+    7009931982906377097,
+    10068357733656071611,
+    18440285119937941299,
+    1620190270298853060,
+    16365067501386118546,
+    6847079360638094618,
+    12397017840209010997,
+    11649660570280215033,
+    5879272703759523023,
+    1170623609004313821,
+    9291655593614155161,
+    13264171125835890893,
+    4725575559485572144,
+    18264832865965078851,
+    13867556227195739748,
+    15713288823714018404,
+    14083942037264808251,
+    1745242053506397327,
+    17836650748838823476,
+    12511811088483270338,
+    340976999874751109,
+    1393956261687668805,
+    1290573130952921010,
+    17146025421309243890,
+    13527117802523264405,
+    15881132352587710841,
+    8076264231302410936,
+    2463630330261622042,
+    12455086598894532998,
+    8229655168627297851,
+    1277308926442275196,
+    13429387157987865546,
+    5699240298603562021,
+    1516804441206201052,
+    15897688661032106950,
+    6575115543525645259,
+    14278740093610397043,
+    4009826651176862654,
+    15914132771465535710,
+    3068652751100522025,
+    3910044127866489791,
+    6455519618128848468,
+    12098237058834700105,
+    812455917556676977,
+    6115746134377935954,
+    1866999470204438872,
+    12495705354899039699,
+    1998594546422909923,
+    17692952348612154703,
+    1600753094372318850,
+    5608859291266585201,
+    6851489412113452421,
+    779695850230017053,
+    14963835308605090353,
+    2011521317815168591,
+    11107886776180669266,
+    3910504420149484427,
+    9529276027673955267,
+    15232686076008846333,
+    17016057215368342961,
+    8912791563184470183,
+    17225824764674359544,
+    17033609816813731237,
+    3079555431252630861,
+    6408828887387121387,
+    5774425349580884650,
+    5165794521269300268,
+    11223247010185148375,
+    7273458512445295905,
+    1499682382239493702,
+    3649740684361944008,
+    14264889806149736421,
+    11905567774701029257,
+    16871828631962368369,
+    7319452520833718403,
+    18324257778451900012,
+    15347418780004797575,
+    7893222125444033713,
+    17794440031680666075,
+    15340226545980033587,
+    6997005245906463517,
+    4155348926010566866,
+    2760997837155126836,
+    10731159680129031631,
+    12095789051303632847,
+    13431308843825255931,
+    1754238059760809651,
+    15214373088529308963,
+    4688265597387967250,
+    3664081816942504045,
+    15065251514424996556,
+    12787932417279568330,
+    1619550245413918411,
+    17528560360259446497,
+    11197075269071211603,
+    12076772527785694295,
+    12634306097723820907,
+    9840201082989445074,
+    11919774755697644138,
+    16703817509544231363,
+    5349474837002189449,
+    10230291283259804218,
+    3583921421265419419,
+    12810503363111088049,
+    10185849289884471850,
+    7090087817557216671,
+    7492543658249825828,
+    681224894481832746,
+    8825427559122916936,
+    13122605411835270285,
+    1987860138727262873,
+    8451772395855815069,
+    7149425883414772678,
+    4318031387740876116,
+    8912117680182686743,
+    8095819215508612967,
+    2375479614532575286,
+    4480280659884322542,
+    117841308606951202,
+    9589558625508091190,
+    16263928660244120500,
+    13518878646855108226,
+    1638036098211198882,
+    10892206178291298266,
+    16047038887296628651,
+    5714170195486376853,
+    470221011339192338,
+    5743616065430436643,
+    15473483990965783039,
+    18268793718715643504,
+    13740545257410407591,
+    2932690029551204287,
+    17341532460344863798,
+    18319619493620769654,
+    14445375200695839831,
+    9287864177140731163,
+    14717140849918774520,
+    9669546179602779717,
+    12347244846547138839,
+    14956534094346699113,
+    13782281485088981714,
+    18037351487354697084,
+    11269590806015161447,
+    4022715480451860854,
+    9757483765602881775,
+    5081928185389355326,
+    13680362646047543640,
+    2818169078083445305,
+    320242228706887358,
+    248340146656773395,
+    9801159278900662237,
+    8423693599273284894,
+    17826533141788438004,
+    17592446886343344547,
+    5487417925295563030,
+    11540500604041486509,
+    16513047965713312454,
+    6660784090885041720,
+    10106541947586797823,
+    10063701870824479563,
+    3167439719331798101,
+    9114858762997605156,
+    10540073240367038727,
+    5397916901900943145,
+    4716971869909396260,
+    11068627524411962956,
+    7104682965863246016,
+    12452827579212601797,
+    15040237037233718786,
+    15455341569613617462,
+    10587131188828864741,
+    542333422874623969,
+    11753329149377471646,
+    7896382259116096574,
+    12969020321723594177,
+    174528389013065230,
+    3548801565120254185,
+    4053881113604451526,
+    8490711909261523572,
+    17163304161091493345,
+    5210089883627301266,
+    10453566065331058576,
+    12889527163501341906,
+    12047340347011517322,
+    17094697657555551159,
+    2702300369144222803,
+    14386898764056422302,
+    1833617879299874089,
+    2137412926316469876,
+    14603014435378946505,
+    17731614415858544368,
+    9220579623495079644,
+    3146373654356436492,
+    5773064046289085657,
+    10596841167674007431,
+    2502583537187394370,
+    1277129436654899477,
+    12092767171252543368,
+    9055167029255874159,
+    10330728331554370373,
+    653889910909949400,
+    1094765517393486724,
+    6495444267435279349,
+    3412612800052986542,
+    2856046720786459387,
+    5723748788090597042,
+    11497706090423062705,
+    12492302083080817816,
+    2940033665178923308,
+    17991482261015550717,
+    13581480877373670845,
+    8396914908107808931,
+    2495884114451668805,
+    12717751142671965481,
+    1749191507734804574,
+    8684058605553607146,
+    11842058162848730368,
+    4363593975695965040,
+    10937693072042641702,
+    16746747794829254240,
+    4407989258727785167,
+    2030889955599934585,
+    9742398549561335694,
+    774138763811100056,
+    2148019780235398184,
+    16500895905878320726,
+    4019745050532861274,
+    17652641809024412551,
+    14420768256749899335,
+    6408349646067141891,
+    3248644175233940665,
+    6356460968763408546,
+    16337342859015884158,
+    15556583574982952370,
+    4614910772620613554,
+    16911455958288279536,
+    16512805116216895650,
+    16532614295945348685,
+    4203477963039759245,
+    7923683372547269922,
+    17601518901864190987,
+    7778143047389841970,
+    18116152761641091944,
+    9604827891822001632,
+    17904902014728929256,
+    629820434195939436,
+    12583473588773446546,
+    13051530095240075951,
+    18300094699132309836,
+    14889289730954462742,
+    9315908444775972449,
+    2236622096692722978,
+    6575873367712384337,
+    16682915055796705645,
+    17019080646448672510,
+    13365600290863269531,
+    1001156706729477227,
+    8913870333226315881,
+    17386640452401851942,
+    8425979774338797170,
+    10042733403105807241,
+    8278005558954060828,
+    15694401532236481991,
+    6872280452168489661,
+    18028808976476695946,
+    8149128533978607649,
+    10291094547459283910,
+    3685913529716808982,
+    5430753847906043809,
+    2050319832739182142,
+    8071859117962765438,
+    17070024398215282474,
+    18249789020865641591,
+    12359936864553668818,
+    16186486725087306904,
+    5729705053960358559,
+    13182239091794748155,
+    17186726877503317984,
+    4826966572040742497,
+    10655430709901894665,
+    11776860221730388531,
+    6546228913979317240,
+    6895597036352007283,
+    7599259881458686155,
+    11585415108928319044,
+    12178475679571266860,
+    11441164936367651132,
+    13303190413788006481,
+    11448210992295566403,
+    8847937637934205398,
+    3551122695495011819,
+    14174600822802347488,
+    13067714260648698071,
+    10270743345655681295,
+    4308911012621555170,
+    240780302137540202,
+    10458366712466117995,
+    16563597144999481319,
+    2586890582562074927,
+    983370384613769922,
+    3599120163938409360,
+    7742433550545862357,
+    1627732396936042139,
+    13362706894628031076,
+    15204908862325774784,
+    15627555350816444687,
+    551688893674240528,
+    12616457670176429440,
+    7271953927176903110,
+    16255801667891958939,
+    10888162164676417858,
+    7774974104961400886,
+    4879824463684261255,
+    7501744784893248506,
+    11740039219967454989,
+    8168033835858334084,
+    12717856157180944007,
+    17989948870377834818,
+    6905136506018668826,
+    5554184797298707999,
+    3719254034879114683,
+    4776983125495985003,
+    17436138285408895011,
+    17709244339395987409,
+    4833096005283865017,
+    13842122948074139469,
+    9536678658345185541,
+    13070296054810275928,
+    12987128387096635127,
+    5714571940216196679,
+    15578687760394801504,
+    12151234084959698989,
+    2201567106200895912,
+    14822444484085848181,
+    17445717642978944633,
+    11533328704199550753,
+    1680053029442369721,
+    4391816591828120293,
+    1113059903480549409,
+    6333720169197108318,
+    13861446146393394338,
+    11155548544836525640,
+    14694677532240723381,
+    15620266210367545846
+   ],
+   "144": [
+    10296879064449514413,
+    8832623443428595785,
+    8990733893829492349,
+    14187846574545751869,
+    10145585136736088050,
+    1017150969640154485,
+    2527188348227753853,
+    9978346431700459291,
+    7206479935247526247,
+    10619205445555158918,
+    8974335992522236989,
+    12100668418122628548,
+    5326956674617716392,
+    1407269217270257316,
+    13198605958491675575,
+    9348723126535536729,
+    7378435961209310586,
+    3086798995776905753,
+    9189086865844692011,
+    14005427554026719427,
+    14255905675815001854,
+    9017372645515631871,
+    15052513844313503385,
+    4758895573655744999,
+    985235073359954779,
+    10598334772077777348,
+    17785317488504735407,
+    1300994318608661859,
+    9062445106829317351,
+    15801397411648737652,
+    16509130512879346495,
+    2991476352606947781,
+    9216794287179797294,
+    15986343441976491477,
+    16383677415006612427,
+    14966707655538340519,
+    13730735027762596635,
+    8912835212470692623,
+    9944998447964830508,
+    16781706878420111131,
+    8901472078689693073,
+    12134070884023652631,
+    9180058493360455411,
+    7755864299472140918,
+    12780383878061971946,
+    2023768170569258658,
+    4689039973460927147,
+    1229338711128299042,
+    7528600394268590004,
+    3865032428028630162,
+    16879362122834533043,
+    12233541241821529588,
+    9772236168399398649,
+    16746360876798520733,
+    2671683557510101308,
+    7562176301639550690,
+    3730883660949598560,
+    17440526079794877408,
+    13228415802107011158,
+    7893820654990984115,
+    7678045849030551293,
+    3703800838894281802,
+    13836314621004157696,
+    8430478123538548459,
+    4841626252454975149,
+    15478464931613240393,
+    9154183460979461539,
+    9377961710565584111,
+    17715795162099708218,
+    13576043787149228422,
+    18238127153709265079,
+    4222955089682130927,
+    10176929065102777971,
+    15157236480999882689,
+    13519435075172540445,
+    14766410776120975025,
+    5582254644157642815,
+    10790909118791626149,
+    3083932053363346515,
+    10384133825857802121,
+    7964998014912902957,
+    614788314274396282,
+    5375194563374709801,
+    2783344829997186099,
+    18221640456583861471,
+    903070388894709073,
+    10886795434823775352,
+    4624032198434745216,
+    8790127212716730209,
+    12088672619197969400,
+    564660100219370432,
+    748872549624451481,
+    11072325838689061997,
+    12706244325381397897,
+    11806409155572934437,
+    77921539959668612,
+    14648460788084667276,
+    7079546201528796752,
+    7420831372435054795,
+    14619350397821763992,
+    16016305078925985615,
+    1374361282719048882,
+    17058608423577228302,
+    14854775394199244379,
+    12227783710228481680,
+    12782140109003526134,
+    7629056294825887375,
+    1972820193894659185,
+    15563290636057949624,
+    646864690239733651,
+    2276878879765754965,
+    7036336106186755343,
+    11181350538673977790,
+    11694825086657533371,
+    9017880331539277435,
+    2675494851686640672,
+    1893743194573438539,
+    8288584868449104889,
+    13625216729729227198,
+    675080486946511517,
+    14214507056246008362,
+    3523803013871483583,
+    4622466161659050,
+    6343495195271848934,
+    16279773645118041640,
+    15886039571865614744,
+    7187850245412356002,
+    13193846610769134632,
+    1784182620848671006,
+    7073228544906111455,
+    6465972218068339107,
+    4417087803112969059,
+    11236539704378470620,
+    7515062706622008461,
+    7773349064334606655,
+    5839963087827123332,
+    17910391516230389054,
+    11052032762672631501,
+    10344558393366974820,
+    15646909445741402137,
+    9743140870496354163,
+    12846783068087599265,
+    16101269616758062413,
+    10865804735771763425,
+    1869925232015273867,
+    12899644699523379956,
+    7771185150294543215,
+    17443288395285372178,
+    6178097885404891385,
+    11437462564542757524,
+    15542292918996195863,
+    2485133643195373067,
+    964903592996545373,
+    4686242700222174099,
+    6698815305179089588,
+    16086531942276660405,
+    6919782419779408924,
+    8270397218024502520,
+    3686822727798011181,
+    17574852510750613443,
+    14209298102559868356,
+    12226677446324508639,
+    9050898482144575323,
+    15165908108017857985,
+    15274661168918979279,
+    3426753487687147261,
+    17623697156653291515,
+    9107299969024914718,
+    17163044023445720937,
+    10034853161096565431,
+    1525816571504476395,
+    13454741677161873953,
+    17703997680018126854,
+    2741052888827228541,
+    6040114005724812187,
+    4694724276320139740,
+    9732236043446098713,
+    4532996804015047494,
+    8633281717893702233,
+    3223457791187165959,
+    16557408156104097053,
+    7176834328547225087,
+    10898148826565526255,
+    16721007875375011155,
+    13860570111293089678,
+    3231710547197651036,
+    10466832822520139495,
+    9310102336531781540,
+    16792970584593977758,
+    5795769314935679149,
+    18151114821449263769,
+    2698252891236741760,
+    12425289097194086317,
+    8378437546480072236,
+    10264220203187200449,
+    7216996147849779697,
+    17885818567286992997,
+    11686377167201520096,
+    337492070589729242,
+    9234889450025727125,
+    17971624699648153317,
+    1171531210219875025,
+    17844294709037887703,
+    9152439228122956324,
+    5247702836033660089,
+    16754700872963656979,
+    11733570239374251757,
+    1028331792638786516,
+    11674226782921478276,
+    1825223473458118164,
+    9397539833217888636,
+    8986271829399238083,
+    13363439422731953227,
+    5975931534415777970,
+    7059449881934039913,
+    13690219547272565774,
+    14500042353890909570,
+    7980869636314572220,
+    10852224657192997577,
+    17219815431291260227,
+    17259408855178863608,
+    13842231446620753567,
+    7935799590548287540,
+    6501623611014958520,
+    14977084146098396639,
+    15727491511511481081,
+    11934675651044158434,
+    8777909055995833431,
+    14196274298823548443,
+    8659380569396020027,
+    14702108915329336586,
+    3496945089738299373,
+    14217326742475942561,
+    3988955686102619050,
+    6081840595414974352,
+    1476647980222044440,
+    14822726214504958304,
+    7877963568561813711,
+    7846648108410233743,
+    674804255742208091,
+    7643826790405412377,
+    18003978886579623363,
+    10387426173427405919,
+    11948301049705884594,
+    547644170726786603,
+    11453201243551524468,
+    2958256009455602091,
+    4572687918634073113,
+    1655473141622093901,
+    5256151022627262391,
+    7618698789645991585,
+    1472589196208799888,
+    7755411819750684566,
+    6729406312126458517,
+    13835396806035844910,
+    5934058886598970766,
+    4250356547542493466,
+    13385906437532476906,
+    8010852532052335684,
+    12533429852342043026,
+    18393342502732118631,
+    13025841209632468558,
+    10283950716019687901,
+    13646554086526814943,
+    3066980139623029870,
+    14617665023802139774,
+    14909007216595007167,
+    14631911808828102765,
+    4162643561421967886,
+    14944795989700634844,
+    13404099408333281351,
+    12813944688194930759,
+    7839446438853480521,
+    9130742329757149451,
+    6469737469779647029,
+    3837329362464889763,
+    16593291564563254182,
+    11928677869951512370,
+    4453826408672680455,
+    8114118706996729820,
+    16918308067385835091,
+    4539856281060922434,
+    3799809687216142852,
+    5107041747994246670,
+    16885735196596131040,
+    5415836240491861032,
+    13326832151602496512,
+    1557480337007810459,
+    8652063513201001996,
+    9259868474935119292,
+    5898405605732999752,
+    9111740843618160878,
+    2506604575144232520,
+    16446052609053774054,
+    4508012237795278570,
+    13797865328428633257,
+    4919180014438957629,
+    13249515982402241219,
+    15507792979966435375,
+    13326778346717944414,
+    10297631281970848228,
+    4937658017937816398,
+    812290421660816543,
+    9829980248145864850,
+    13161646273268298554,
+    11222752109944626782,
+    3189475087442088193,
+    8053654037911103037,
+    12581220566377705599,
+    15038240517279727981,
+    4581816535714640610,
+    378396798908452769,
+    4694520053776502121,
+    12501333895887081818,
+    17220439739910865030,
+    10150698029520017122,
+    7495222465973694707,
+    5576241535092341918,
+    11347639273965921606,
+    7868410360163313754,
+    442053019454634225,
+    14744650225848889887,
+    12838668146936157190,
+    9485551601129486624,
+    4155041207123509299,
+    675871481569248115,
+    12199706424504667409,
+    16441451999406467301,
+    16103195076766400637,
+    3619210052558303163,
+    4153021845179980179,
+    11464319227758173797,
+    2795033528678487484,
+    1678565950702910448,
+    18276346526988775053,
+    12142313783309943337,
+    16439877990220797871,
+    15660979708529233566,
+    6714347086139739010,
+    10221213078184878154,
+    1434430371288988183,
+    9130621845916215352,
+    14249031555578116166,
+    12679181424554544330,
+    16827704526494379534,
+    8708562338488552362,
+    3333392918458717685,
+    9940171788411817672,
+    7752118505506999097,
+    11264627562292929617,
+    3552581705311730626,
+    9431097249533672640,
+    5690948225343557164,
+    8678418524722699143,
+    9552547558669280629,
+    6104372330632736065,
+    9832455832768809466,
+    7010294780338343052,
+    2427842100703076523,
+    14763006084485940178,
+    3972346880409609922,
+    1774135901379629464,
+    16953319320492367478,
+    6012246001748753178,
+    13321724681101513177,
+    7610015900763490377,
+    12357612692553281907,
+    10355281092958502553,
+    13591777538162288453,
+    8458720545435424774,
+    17732484651332268745,
+    4730299001642043222,
+    14672668546507723909,
+    14126184673598773649,
+    7595648243131803613,
+    6812584913461236860,
+    16241839062276332498,
+    2547906731748451007,
+    5614441188696356606,
+    12060564257073451174,
+    14827676880090560148,
+    13100896590515763692,
+    16423976619014138636,
+    14649549197276158809,
+    3230160372864870586,
+    12211710829817486665,
+    1316568179070182266,
+    10656922621995750916,
+    5108989722938700185,
+    8710865547592337499,
+    53845178950976988,
+    4198164089784419675,
+    16616276555591329848,
+    15754240677049800294,
+    11691027482596697097,
+    11656536318127225978,
+    4828942127559930724,
+    13001071612990831277,
+    2524661675337808213,
+    4832826062529247765,
+    13209997952803080138,
+    5502281449548572186,
+    2770730090097723832,
+    2617156596540104705,
+    17513279826243477721,
+    1756093022541064068,
+    10587288996654469349,
+    10658595955245370571,
+    6991420024428632481,
+    12422902808556636462,
+    14308901971704271859,
+    5040028247603525764,
+    5051447455735304057,
+    11576884346551280332,
+    3929534464144238725,
+    16650016963022271515,
+    7052692249315605088,
+    3814588876753566149,
+    4517051612682644728,
+    1428328163239584480,
+    12663142151198997742,
+    10134583542491426153,
+    6361437340424084794,
+    4550530417415219980,
+    14950940330879818251,
+    5271793509497083507,
+    12338426529643805601,
+    2092734444975066715,
+    15784329473817127829,
+    3323119849524393507,
+    968929086037817529,
+    400049413622057543,
+    10600792987666467204,
+    4867911287287678622,
+    14867500866390000919,
+    6784253618676076309,
+    2986948700606963014,
+    3773472689738173709,
+    4486972831397885719,
+    11448113813181047569,
+    15760420594426822771,
+    12810124624804680121,
+    17650634773708156966,
+    1660764441165600063,
+    3909676809261076286,
+    4556852616350142825,
+    7223690505860087088,
+    15168177734253696705,
+    3527597420316653715,
+    6894104746897226557,
+    16761554037711191472,
+    14057376842781741935,
+    12794598266214891050,
+    13291513156721973741,
+    18037752815809364156,
+    5294185954505277184,
+    9512066848682280273,
+    15621852727825153300,
+    881487897103624316,
+    13080610571832772710,
+    6008377111242883034,
+    6551393212540602556,
+    2943577876537175590,
+    11994629922586775668,
+    17555555478807408072,
+    301767106068915014,
+    4294414399898172774,
+    2000785423318159931,
+    2569103510418479221,
+    7616605041513534861,
+    3114031554463382936,
+    4263862258545217558,
+    5389684982485663261,
+    10630178703803218698,
+    2175768643584868177,
+    5362339797684608333,
+    6807637848962735877,
+    9071952389815218073,
+    11194098990706305752,
+    5942912877045195144,
+    8550943306558798960,
+    16908581976881628908,
+    13413561585174866450,
+    10509590768917094469,
+    5000969428250503812,
+    14824762226997753151,
+    5958249216236225625,
+    17575375309041746571,
+    16478220442008084928,
+    14796968863359501480,
+    4216282586688164021,
+    18436782664064605159,
+    9690815723953304176,
+    15053106504287750141,
+    13517348538616729619,
+    4233619842513091675,
+    18217248133041661313,
+    4433665531091127,
+    4214765820255442899,
+    9018421308136496822
+   ],
+   "180": [
+    547213284045082954,
+    11428150402293925275,
+    17858667227945881177,
+    11910181006812450948,
+    2538023072988746062,
+    10703885875567863288,
+    16727754945421712994,
+    8169541174796353104,
+    1017311016043441450,
+    17762482229731790414,
+    13354362190445569869,
+    420272812557884094,
+    2659489361148009642,
+    16363654483521067574,
+    304889010819498448,
+    10031211309377108649,
+    10949944807202808623,
+    9771834924441843761,
+    10424988721281379523,
+    1882772180070677046,
+    5783766508685547752,
+    6939405612873991681,
+    7753399968720559371,
+    7140682481122924655,
+    9749542306912121678,
+    967400705158429682,
+    4634535147848996524,
+    7374235137854348232,
+    3292690903289184751,
+    10991403756755214101,
+    740596912852634416,
+    8997987575478661487,
+    5543302031972734369,
+    11661819720460041938,
+    15138360821966144228,
+    17348924892272860749,
+    14768169714902707077,
+    1434626521743192613,
+    667725069209003960,
+    11237331187216466153,
+    13603971333748361997,
+    1316098221896820216,
+    16752681044797965487,
+    7477189960489304681,
+    5389383837266136274,
+    7342746200054594741,
+    1380538079704388162,
+    2346398170065081613,
+    15234500106473541260,
+    2881695008014450363,
+    17349245940974024400,
+    16092037689609309891,
+    2433279791489409792,
+    15151604097252210519,
+    13150664213361569835,
+    2541553137791105713,
+    11564174586143448429,
+    9777499731544940820,
+    5878120175537052997,
+    15754950977031398060,
+    8613204331809804029,
+    12994653430201281131,
+    16274313091495764958,
+    7578325612056713120,
+    16946666175637687020,
+    5834378191054334202,
+    1660533774336817481,
+    12031358157351064037,
+    845915719168516331,
+    10977844282084687959,
+    17000207423727511944,
+    16026978595232231957,
+    8768061304299540912,
+    8273721791821047045,
+    14863518331797730696,
+    3334510007389719402,
+    13255302004595751174,
+    122779139233255067,
+    8700639653334518866,
+    15213609175582796830,
+    9833444562904707047,
+    9588767367209000214,
+    9348179635079558501,
+    16805433105678196268,
+    10895806941488656018,
+    2604600391083923967,
+    8056243172015534658,
+    4463798167557856057,
+    1336608594962217730,
+    9199228418206091277,
+    3272287236795190029,
+    1916315266629748246,
+    7243887960324845874,
+    13846917605333358583,
+    17519000256929066859,
+    13110939236444911561,
+    10454281049098466999,
+    2883268267615463239,
+    9548006571100366625,
+    6111552547140794858,
+    12071057885115919390,
+    2372040099142671536,
+    7415321641084960097,
+    9742086464339098814,
+    6076758561764329199,
+    14059115801680648273,
+    3452895156965305612,
+    14718590327673173248,
+    17878186571086007816,
+    7283727423413863630,
+    13966671784164604551,
+    8495665132169506171,
+    16203072909415854289,
+    1608974164632405,
+    12403323145604007666,
+    13310437855753144949,
+    9886348661480652637,
+    4216043725941742781,
+    16076100521450120088,
+    4706859902899744958,
+    9310140563143505214,
+    845042502496560754,
+    12649226628480232451,
+    18102047298228779437,
+    3263568296858683196,
+    1145490564963751477,
+    10149488807286911792,
+    5846482609018785270,
+    9000591273767703629,
+    16599671206221441582,
+    6427108296683431910,
+    17463965654468470207,
+    11377282846473296640,
+    2740671076052064352,
+    9883094839433194518,
+    14232203665302209194,
+    4308475728645314059,
+    17876398339670275355,
+    15735531200355742991,
+    7909315799044254706,
+    359119632003497692,
+    6459333387556154396,
+    14641936494812444547,
+    778902917768273293,
+    15696900326555657926,
+    7184014724318177687,
+    1097610225115721594,
+    12013346253507573800,
+    81156796351920921,
+    10046910543400091910,
+    9262937956482437204,
+    1794950193055177845,
+    3550063146571565204,
+    8276672288981559097,
+    11253498591306764883,
+    784176992106225113,
+    16702956951755759776,
+    7494374729236033171,
+    3615569740426688685,
+    5779725399448514404,
+    8429028786012058759,
+    16731663888398352601,
+    5070667948240519005,
+    2484655616923171442,
+    1457065745405619080,
+    9599798094504362052,
+    3211769309201735262,
+    15221182469028809493,
+    14249992757158030997,
+    1849965196243399631,
+    8301121772581141709,
+    5658159220472061061,
+    7975641207198371374,
+    15813950349301742488,
+    11696520095921279544,
+    11827593887610578211,
+    6489539489131124223,
+    5377577495872787001,
+    12173828899813811049,
+    14622164433825887671,
+    8079301422461746581,
+    14268817261851784589,
+    3675027933425069414,
+    11192876282526372745,
+    16781066779065854110,
+    8896238536936980454,
+    4303509925128015155,
+    13563596940145118312,
+    1570701412641563306,
+    14691197185610913572,
+    3734167528053564816,
+    2064197878685185401,
+    2278273270567889311,
+    14755112490480954207,
+    13131818574140486020,
+    15085233715963575330,
+    2799973475838172058,
+    12852754900999472638,
+    6353525114406330323,
+    4648883342604319932,
+    2432018388588684897,
+    3852156992733438362,
+    16896638945853170932,
+    5613242463364413911,
+    820539660163668751,
+    8499766677363954445,
+    2380476066293755999,
+    1017119545501142953,
+    603698884651384443,
+    10295661200631990511,
+    6556065541871754468,
+    4622841006770564077,
+    7717107826060023396,
+    16108833869978342292,
+    8725985411030592114,
+    16044234412609778697,
+    14358881224465050701,
+    14681564059068530179,
+    15407289962528919808,
+    111096629840326035,
+    707978407559135784,
+    11376447148737849168,
+    14141726874476148567,
+    17651743024199330297,
+    15528924118861464218,
+    4413921701997411968,
+    12585871081137115960,
+    3010121113252713723,
+    3070902303918492808,
+    10121830729077223386,
+    2504740281027055088,
+    14113106537738221954,
+    6224350063492133916,
+    904433064881513253,
+    8495352317260150748,
+    482254898856915395,
+    9375369670788947888,
+    1864011579362914281,
+    5671010806915499658,
+    5487065774542582528,
+    2947682767403804944,
+    13150255377231210871,
+    11322904966866182291,
+    10099075387594372842,
+    3064146948329019619,
+    7902588677026796354,
+    17563306743352061277,
+    11392156079397779184,
+    11401610571369806573,
+    17460060121153975845,
+    9080801350632508266,
+    13105239548869892263,
+    11808045857766494286,
+    13773318272986729773,
+    5569926102449116320,
+    12683740065847520541,
+    15432058699804674606,
+    5475473844720929953,
+    5079331224592838132,
+    14594029259255452410,
+    9217202764365621837,
+    9240447849440316722,
+    2881823629151387022,
+    11603330691618425492,
+    5350433803413688548,
+    8952205058734259642,
+    18139172426666502302,
+    13111774283614776316,
+    2006925174652305282,
+    1953877155555316166,
+    2416746886460957350,
+    16002328699749088802,
+    15334957905505781589,
+    14146173031447647211,
+    14089715573752201687,
+    16736525323037463472,
+    2751327226208551256,
+    88503608366504221,
+    3073412817664356210,
+    16361046346100891653,
+    6664219068559227537,
+    12518240793957254298,
+    12790656180481518517,
+    9429160334065144621,
+    8798754927978782926,
+    11283736747920829317,
+    4139299396305814871,
+    17118928119569983388,
+    18417853164719206236,
+    211140240731723071,
+    6241917437036987257,
+    2471710513025410891,
+    8370105189416151686,
+    17635119992183040192,
+    6880502815564215027,
+    16075475051120682136,
+    10894558838053414784,
+    18060770436468969545,
+    17172158161102581540,
+    10851004420398742819,
+    1706726726431318948,
+    9320493131577655720,
+    6890407230783210923,
+    7002769382556477826,
+    8278490832186525563,
+    17098292125901003498,
+    3609295497888069581,
+    17864096308290485355,
+    2999264519280001167,
+    8327385001175728629,
+    17016474524687362254,
+    2392501838980810580,
+    4460870276751353615,
+    1960276191438124365,
+    1558260827820141743,
+    3831339201034154823,
+    10220630695743133905,
+    4915686055626647906,
+    10606073700504178240,
+    7260203570880584745,
+    9308010123621254754,
+    5881402741680269631,
+    12463761639746770263,
+    9447880088506041074,
+    4940158558847363917,
+    2979799785561269417,
+    3612564578626818521,
+    11735698892917312915,
+    11686919790296443070,
+    17998507635580206166,
+    16628240940492140801,
+    16353928937951576775,
+    9881892762721915885,
+    17323302808755784695,
+    14123464529442057567,
+    2346621721446749920,
+    12243866774647343564,
+    537823662038188181,
+    2111492057476222820,
+    17466507054070214246,
+    14730513350723893404,
+    4059832170300142306,
+    10299488788734317656,
+    12447706687642402492,
+    16862946582703360092,
+    7436152688726077379,
+    4108459841512462741,
+    6718426661766188143,
+    6097421432566844694,
+    15399563256901911535,
+    8034293951402857686,
+    6740630772137317005,
+    7710090103757077727,
+    13240910223106391540,
+    237203010538831141,
+    17790853383737891288,
+    12837738416857206807,
+    5320340848193301015,
+    5370140879026432061,
+    1916546835675298470,
+    12766329697730464438,
+    9371629295281813273,
+    3175520416075995140,
+    9660971826845696516,
+    16495422072210342315,
+    16092728614888488247,
+    14909947184581079253,
+    18373283477715568201,
+    10342994067057584985,
+    15796748796725889777,
+    5106782085999547565,
+    6797865171872264917,
+    4094657169704668866,
+    3444051088995506023,
+    9169701603622872609,
+    15804442122917780647,
+    6419207494395019054,
+    17248511214427252748,
+    296812754837775931,
+    15124203202145641205,
+    15735081360400833545,
+    11475083406255642594,
+    14017606014385272112,
+    11723728362011027571,
+    12116695799176601605,
+    9023796632706608352,
+    16070011467272019411,
+    5926720440997680542,
+    10112798010411923944,
+    11922800679006093585,
+    17763245034841430382,
+    4949976225150987518,
+    13749550370151683078,
+    1051714761336710376,
+    14922184310932698951,
+    11227152021835017724,
+    2683119664202485106,
+    2760418905628205856,
+    2727154365033595801,
+    6102715616562356599,
+    108043978558526737,
+    8587122779673454566,
+    6550898749681208497,
+    3067612586350416577,
+    2567960488160788693,
+    4147594113293068478,
+    17388429781135289840,
+    14838308156987417625,
+    9305594356043195153,
+    12973226437475232284,
+    16675465637974101517,
+    11252944514564152926,
+    9034597431341497133,
+    1769437814963999233,
+    16895266681589716322,
+    8064131409774778565,
+    17292026988122713168,
+    3350870358478402407,
+    16423858789847362675,
+    16595400647292489535,
+    7123089324572017014,
+    7321797307996736569,
+    8025279421131223682,
+    11184773094135921556,
+    17492541016413586203,
+    4972113038406434750,
+    8463163844648229923,
+    11724430398969769713,
+    3075511360891410013,
+    5176589231379814652,
+    4180470479367026095,
+    202128515974661552,
+    995648268142782743,
+    1595211132599896143,
+    14505063933103768663,
+    9468823573849335753,
+    11300699643861690842,
+    6528415701271716346,
+    17883527697234272068,
+    12549194980268120551,
+    14321856084638980373,
+    1188470884514739412,
+    16868721236098382645,
+    14332766839877023411,
+    12411777487596214486,
+    10051478788907742913,
+    12881001920836468475,
+    3764749496416272838,
+    7808615829354494229,
+    14565671527507682282,
+    13356932104943351463,
+    9580849687033381722,
+    916674279334038791,
+    381969041774636008,
+    7467495805653846659,
+    17185022140013882483,
+    1282178476034593594,
+    10771897440468036157,
+    8425592041684221400,
+    10626464840734602792,
+    9709385590473662483,
+    2060918059604984123,
+    3285366751604400072,
+    12491556124150217024,
+    17576307559367947677,
+    16846766709073398105,
+    2765762367296262307,
+    15006870901580971317,
+    859981196768271016,
+    8511481665393830977,
+    10653421327402208132,
+    11579510181028865918,
+    2242172407396110144,
+    2198239247494861575,
+    15563770110451738053,
+    243956793068777020,
+    14261979348380015400,
+    7059635232684585258,
+    445601883173219786,
+    3856969217219682624,
+    9783039739043292156,
+    3303038115941860290,
+    12455801890687779659,
+    11269403996315189328,
+    2607357251724374339,
+    2963057445872744488,
+    18214174853214948249,
+    203965705876437123,
+    5054765784927825761,
+    9667320151169926008,
+    18052620708743164694,
+    1896197583269680025,
+    2153195249569167523,
+    5431388976615899957,
+    5188488022193581159,
+    8649814516232549343,
+    4057569305152671876,
+    6267578090195611984,
+    5053113267349811700,
+    7288852999830614986
+   ],
+   "288": [
+    16404473540192890113,
+    12567178198440832067,
+    9314635191574258765,
+    8955868783039028257,
+    11795484417549675660,
+    3108688600031495397,
+    16504661774755153177,
+    14453848236200075978,
+    11341259026599439198,
+    16946927924166585574,
+    4663769399052513520,
+    1885584195803141395,
+    13472815119496249212,
+    8014168544031621001,
+    17524545731250639199,
+    10210054515245091116,
+    931316237344466754,
+    10954669634735966542,
+    13785111074793187123,
+    11967211470713913016,
+    9843320288793115111,
+    13056006917780803955,
+    18108393369344589182,
+    9259117594457921375,
+    316690482373873245,
+    6992641184885042447,
+    8868031915079705086,
+    16549492375287750235,
+    1611961934780044609,
+    17134802866119241587,
+    11362136335588728503,
+    16077051919176151301,
+    11830850084280212176,
+    14619199262833419618,
+    2448014089648501741,
+    10840903734729625531,
+    5133660478058782300,
+    12721288188895968582,
+    10103292029342158231,
+    11841688048075834854,
+    7210096375137526923,
+    8083373149364941011,
+    6383863489136260067,
+    5102286989161303186,
+    1385496012250926714,
+    7446735503160749284,
+    13247869211350996844,
+    6561277701523705351,
+    5776001874073630028,
+    12089851378780672516,
+    15563422019064997610,
+    11165096268928324034,
+    13618678927023965631,
+    2454572597526953090,
+    16589626281269363332,
+    7272485166268571931,
+    6245692462752596369,
+    3849234796938070771,
+    9683166893369599225,
+    5565288668025554237,
+    2992860738304324432,
+    18427920307555541466,
+    9912511510755316757,
+    6652379235372436539,
+    15727359132223631573,
+    13136103778639182938,
+    9711773832377857197,
+    7373772273317161176,
+    17097207269182202204,
+    9180176775956674429,
+    5954416371672911934,
+    4065302234943299653,
+    1572540190527644565,
+    5906104960579935073,
+    12378349336798757296,
+    18392894744526575412,
+    549220796633104557,
+    3306601578254007005,
+    16838729682224523446,
+    2813683174642927929,
+    16380630134187067524,
+    13568188993827418156,
+    706593229178277695,
+    18195514870410923705,
+    13007065515524358465,
+    11547317074052919194,
+    7964110177077567307,
+    15848256541279069879,
+    15753491107527918980,
+    2896342806462056675,
+    12626303689209110013,
+    11598261708573627911,
+    11078882958041316414,
+    7550838650039181581,
+    11011639983226338019,
+    9800795512728438785,
+    8793491595592719996,
+    3767947761264078072,
+    16313337659760447224,
+    1898419185463118599,
+    14236741589255868684,
+    3019170728572237200,
+    3596414239540301376,
+    12340501372415308283,
+    400041272039585306,
+    16122760692531891344,
+    636539748620932444,
+    117542385849500439,
+    10778269472052094558,
+    4429804864782624340,
+    10536480761510866199,
+    15083457798518846571,
+    3056328537243241418,
+    3971000855671397557,
+    16287265414550519960,
+    5430437570207027590,
+    8899457617332285614,
+    12971746281435034514,
+    3508808182564165208,
+    15430315535225156197,
+    4822495026161853886,
+    16323530989677828832,
+    9927259399815028542,
+    9894057427408804359,
+    15062086995263234574,
+    13902628940490747963,
+    3920963109251334443,
+    1981197327206277517,
+    11418632761288103280,
+    15270519082671445892,
+    520247334320692596,
+    7749323409692568643,
+    874581422013541307,
+    9196496748992154996,
+    14115807152191379790,
+    14389244470645746689,
+    12479165201266853007,
+    4547114289407452310,
+    7328117478665593440,
+    16154715208048435980,
+    52425452270787783,
+    10781729988616354315,
+    4795877923171327386,
+    1827440314940029135,
+    17236817343555462924,
+    6327998191824246316,
+    13100407630962945212,
+    10691670322855300126,
+    2844093530000426858,
+    4945254007198687722,
+    8159563531982213853,
+    15215196468410606469,
+    3941155106937924204,
+    109870025750853633,
+    1240891276297924531,
+    2919465569741675392,
+    2410934759498354746,
+    2110150298761528888,
+    10394853852122720523,
+    13814008450664294031,
+    6854249589693321321,
+    15557169490062680754,
+    11896281845863003831,
+    7714181495451524125,
+    11498236259364470684,
+    16018565960436127434,
+    10461481248512177682,
+    11767727119629635322,
+    13799517116746585240,
+    9670896808523421811,
+    11411769991809424421,
+    8032620062241247903,
+    9289203304186346671,
+    12577685532674492162,
+    17698532685721220340,
+    11664849617405427589,
+    16190638674690426655,
+    18277625604235582636,
+    13757923391489660332,
+    15935631628590230897,
+    1907559062826910594,
+    8976354138484045656,
+    13420038999000330502,
+    27027508504161850,
+    13696586122084598903,
+    16625010304368864009,
+    17152524580042944626,
+    9884678001684175542,
+    16621585327189230239,
+    9050161308567801709,
+    12225247549089769764,
+    12907873465486750841,
+    7411734613739819352,
+    10671186615767335316,
+    930754002611594964,
+    8767711395332602866,
+    1197703085455286782,
+    16451486071242546390,
+    13400583320362730460,
+    10254001807735909428,
+    10781785071349520663,
+    9294826394878811237,
+    3919855050898218208,
+    9778267062364142775,
+    17134421891758973108,
+    14864185677126379225,
+    4007727508965771440,
+    2132863017336492993,
+    7481520294216858442,
+    18068078007093550892,
+    7715491779314964506,
+    13844534045623582777,
+    3447424835848804317,
+    12955682962047497851,
+    4466868426661017371,
+    201119028346661788,
+    16173625488511458568,
+    4085665281788581230,
+    10035924207812886675,
+    9260240810348321365,
+    7964077719826166569,
+    9578487829041794229,
+    11418680146023961150,
+    9080002154502646373,
+    4269126164894825188,
+    5470385923219676472,
+    12708718086349917170,
+    9452669413149803524,
+    1236928730996889653,
+    14254000881815547949,
+    8758964578617078314,
+    18142276709781711039,
+    6235918153701058325,
+    15169714134210241201,
+    5091184783640203744,
+    12067449759082048501,
+    13554100832271745818,
+    5847606993593743703,
+    13559579897042521476,
+    6017699361282179134,
+    16971700254781573637,
+    3982193428060864451,
+    4901320259870473613,
+    3231823327927752110,
+    6535759903133941871,
+    4862699642871527727,
+    8630988438956901942,
+    17444043193380414937,
+    10674370335263215491,
+    2470455544384879486,
+    2982403545778741958,
+    17623439566681049450,
+    9710451429340533352,
+    12446426271148361093,
+    17908038680166271093,
+    12936906418772719455,
+    6848004224939407088,
+    13630222278415775548,
+    12639685547857774037,
+    10739117494015519305,
+    15489150758588589223,
+    8600708908262667898,
+    17273191032901087186,
+    5014710600451479619,
+    3796049042213928508,
+    14394113504969477134,
+    14400422050305770297,
+    6632375713830403688,
+    13709285764880704921,
+    10259187459763014198,
+    12085357346549232260,
+    11676018532565497914,
+    269984695284702827,
+    12565184181687580156,
+    3246905533179256920,
+    17114977800152487194,
+    4388204633971001184,
+    536639343418361851,
+    16623127011833469919,
+    11335125352213883775,
+    3522089954404059745,
+    9119995154364147007,
+    5412348174742810538,
+    5080644255621488070,
+    5597802851214045280,
+    9461656629743563523,
+    11848970921718192229,
+    3192980345137542150,
+    766712179158777031,
+    2214940017833741327,
+    15211842723631130698,
+    15972533836110520669,
+    15565739772381231901,
+    15821973459004530108,
+    11907461637839539087,
+    10143540008071846593,
+    3179175037427621751,
+    4033238221303605183,
+    10608724822580086131,
+    15329822330990885667,
+    8999271347525905145,
+    17555895940071341693,
+    15163001294544381999,
+    16849345741767861864,
+    5214128829316461431,
+    10599476598689679576,
+    7907288589960012052,
+    13844400498040332564,
+    6939149330248832266,
+    8638114986562475207,
+    6711422224833284906,
+    12800964459301886217,
+    9467586041174538380,
+    961696425516734215,
+    9143014856864554719,
+    7479845074439693281,
+    10887522750230740882,
+    10900184240830176151,
+    15114222377271205584,
+    12494971599758865788,
+    4985945844091905639,
+    17798810553162737990,
+    3470797844714616773,
+    8847968495563925420,
+    13779483704899335935,
+    14301475919440526428,
+    9427423308874356936,
+    16605827895780032791,
+    11701919813616897720,
+    8320725717383933946,
+    3633234908245751505,
+    654285897269854908,
+    22141226241871097,
+    46431347673029852,
+    7711508152505696665,
+    14947901252003612958,
+    5329620147758051064,
+    14328166535260140888,
+    12060604055855299195,
+    5789516940114309436,
+    2626135842546591849,
+    9258079230971274381,
+    10766020624091185005,
+    1642429966479547929,
+    2179460486966362658,
+    16462326063907554773,
+    7318291666619309899,
+    12635645706455948035,
+    13363555107143902643,
+    6998045042020418964,
+    5314504279630939647,
+    7855285426815214327,
+    789877672842307115,
+    9403967325800431550,
+    1754210837375169576,
+    3674874265031355078,
+    14052690465234383708,
+    5030651912343467478,
+    3189331568142128118,
+    17758282643992920375,
+    630887669578159445,
+    14182154672089683495,
+    30320936135650199,
+    13120357442173579429,
+    16457936997884823873,
+    3681862700716639206,
+    2458107248759180716,
+    3516387030924846476,
+    7113676851955075728,
+    6748800709338716748,
+    7755801735612470745,
+    7239413218542521434,
+    11854151033228115170,
+    3572214516280339636,
+    11147180587940757468,
+    6378854465305444500,
+    14315982912737039882,
+    10604856291678354821,
+    16602950941957296891,
+    4869566068724804363,
+    13273035084678326352,
+    16561329065456329009,
+    16343019685496103572,
+    8247515792428771454,
+    13765671174906895600,
+    3657396712045008536,
+    14021814067448952231,
+    4809259313205445469,
+    13416845593983028628,
+    9416569237671451488,
+    118556999073498011,
+    8540567360716296287,
+    4840675513821477462,
+    9657345413284141381,
+    2124267692145068907,
+    8865824001857200947,
+    11666244372940145468,
+    4073291239624005515,
+    5457413354598056093,
+    6767517484104907445,
+    17464440721404799998,
+    9495247847322550854,
+    319213005055035313,
+    4409720750347009430,
+    15460573228271664508,
+    4855437784246505477,
+    6430806344291579937,
+    237792813055135052,
+    13679879383339213201,
+    4183076476979785605,
+    11052053503508966888,
+    3900493619167131515,
+    13020413586715683797,
+    4099792314791365167,
+    9632699429572283488,
+    16581117915019920936,
+    3671857953713545855,
+    9110381564866362567,
+    12432371335105523219,
+    5862826513426709514,
+    5171962364105687507,
+    4240871982132450200,
+    11406185598846404399,
+    1521032345122712716,
+    7690053295984433614,
+    638965657225555510,
+    10021119896304017394,
+    15163519442411345788,
+    7163460181706487649,
+    2777633696521186044,
+    16542136417959822519,
+    15577611861115517997,
+    4819155128142091623,
+    334796616857471869,
+    13997580192259114584,
+    6772461473522479778,
+    1811345045103651227,
+    10858597342060354701,
+    7944810187994481881,
+    15179099085275635832,
+    1663304694280140625,
+    3577784726180533746,
+    11319220712188788813,
+    483041086385367782,
+    5624349323824533247,
+    16710735269717746473,
+    6242356133423107559,
+    2553157734004820154,
+    1556430156002753002,
+    7035624443080640345,
+    15574788962123700793,
+    7931256347560029102,
+    5916033273220413898,
+    10955826682724496332,
+    5307943793171206809,
+    11501464953042117904,
+    12563369852124457255,
+    17858620810921404625,
+    4759939975851818869,
+    5806014081874404982,
+    6836468190481125232,
+    1022189928911466307,
+    18335296733683329069,
+    3171773328635788103,
+    8742985574183488624,
+    8975435294552115952,
+    1372390025150555538,
+    10238632142095587250,
+    17386468422335158505,
+    7146134634994626758,
+    9362323670289659724,
+    14916681240827194589,
+    1266356481868511824,
+    2925998380960991447,
+    3174959165548173673,
+    4663688315003356818,
+    7371787311929495184,
+    11261443451708988983,
+    17315575585901180877,
+    704091495105572964,
+    9670138702705296683,
+    83707483904347460,
+    15855929130213308674,
+    1480450928842313114,
+    1922368646032106872,
+    17527939254868419400,
+    7422115980436212819,
+    12697421826150379493,
+    8959602090553977782,
+    8614873435423427349,
+    11491653388374088115,
+    16169137575041001986,
+    9039722995383402477,
+    15992090881567293923,
+    2584992685602130156,
+    4054697081774933286,
+    7021521575314043590,
+    16033591650040070555,
+    15592458432212824017,
+    3695138735154586393
+   ],
+   "60": [
+    11633595011491483172,
+    14584388012566767418,
+    6182144565259526896,
+    13849264471130072719,
+    16056041449061588302,
+    11025474671785450623,
+    5911886996909742003,
+    14205317784530287901,
+    6451459385091653973,
+    11218008531648768777,
+    2459332930315946129,
+    12750828492798936768,
+    3672879718492999912,
+    16306112612504334258,
+    4915842283380619153,
+    1452479039358141447,
+    3833987047406958776,
+    9430757320905086956,
+    1295906683739075571,
+    9144781162915081618,
+    10351572482078189395,
+    16285099485354914426,
+    2700526056280353403,
+    11637014304147337894,
+    12096255388661383720,
+    3442913144916859093,
+    8179829776721238653,
+    6331706496198542897,
+    5665657473904605697,
+    13744391195091988905,
+    1931608811557524635,
+    16321634767685006538,
+    11006401559350672122,
+    2782868910730538139,
+    11413183117385257270,
+    5180560196151866772,
+    7634608500228655143,
+    4228835735846705191,
+    13890646950582698730,
+    17249387142695146573,
+    6149781240252007611,
+    8847176627912168983,
+    1062934426851402032,
+    10339533024879940007,
+    8443716827903857795,
+    12629739506878529601,
+    5550070055493776016,
+    557468639770579092,
+    882328247391953795,
+    12934204518795089827,
+    1461586859722950727,
+    11004508042015605327,
+    7541850491377364623,
+    12491002354554065104,
+    15176602906712588846,
+    4019491797984199162,
+    6889450881899389846,
+    3827186080114061281,
+    18428231409429193184,
+    9805628797642505437,
+    18069847182468180905,
+    13324958468129618661,
+    17394527221692603558,
+    13197538402797588157,
+    4216517362905377991,
+    15861964180822634724,
+    6040860118982981462,
+    16334462209071693798,
+    17432742589769475723,
+    12684495649538683185,
+    5882709242321183422,
+    17653207537716109728,
+    16107747821630454007,
+    14890512344645831280,
+    2287336836708047127,
+    16810947594810962803,
+    3150729440823859173,
+    8029715553251592402,
+    1500504468268098344,
+    409524502166410415,
+    11850662454123278636,
+    15349571152839555316,
+    16885129036056064754,
+    2761152420197439984,
+    3045240677161680014,
+    618361584853706630,
+    16574528736221836721,
+    12076667941572163301,
+    16071058205987945725,
+    11446798810969324403,
+    6569208502025861367,
+    12231894697329977429,
+    17151416804231983468,
+    8990673945525453007,
+    17461480874502812203,
+    5175714118073897878,
+    16379504210097266576,
+    6368624695225519165,
+    13102722897866546083,
+    7516680177248286040,
+    5918366552906711961,
+    7803387248897560683,
+    4666527415357211108,
+    8944395028317536832,
+    7366797120110903985,
+    11244163897973966952,
+    7734007202299875028,
+    10581142979727911105,
+    14206415982460882650,
+    7682134298975213976,
+    12147283086504075896,
+    527774595502525130,
+    7196254369424009977,
+    1591068916104130833,
+    15662251508477053464,
+    13097799562906255988,
+    14322156294600285671,
+    9791916107326900841,
+    10389667623111676762,
+    16053569602998430901,
+    1195919348852356297,
+    3234337241640816401,
+    5647783027886828032,
+    8089167861516061056,
+    15048235455228958831,
+    1608945226303395212,
+    3155771004224346838,
+    6536012403637532261,
+    7054788492324755814,
+    4569430866919563907,
+    12488736275525625757,
+    7498572660719355771,
+    2263660008957544695,
+    15128120441377015404,
+    8193865065235747327,
+    4952833033036964039,
+    12599710842454710894,
+    8004678428454617300,
+    13818997033194913635,
+    2403097919663583691,
+    11525142510122995094,
+    12747727661163113919,
+    3569226702780634354,
+    549354293512805741,
+    16852662505279433080,
+    9041439120759734581,
+    15780935288574245188,
+    10851046134058671754,
+    7828765898634984951,
+    14297209195893329793,
+    17131886013367056699,
+    9108293732234883031,
+    6554335809969455042,
+    5255450096252930657,
+    9862489675885483227,
+    4790509188764359299,
+    17585246974320504612,
+    16265653881820337298,
+    8206453692011376897,
+    16987395543478225600,
+    13938090764172255473,
+    307851539466263159,
+    4332852843922334326,
+    12164035951440873548,
+    12779653556407778746,
+    17880439886547301377,
+    15663666396022797218,
+    236274872503399940,
+    1358432313597526363,
+    17915259959881281980,
+    10677223784732576423,
+    17322594012871063297,
+    15813854924422170406,
+    8970985880773589714,
+    15104890387629294149,
+    18097648043528350732,
+    7506905124015524915,
+    16289306068390555789,
+    6425758972601880295,
+    17940785552962285574,
+    11494838969361558044,
+    14637649883111679483,
+    1026990143238944059,
+    9969948182228310900,
+    14856437200160252521,
+    3297360748795141199,
+    6958015761383184626,
+    1067484085711956154,
+    6126066771764377499,
+    8034027109175011499,
+    11751568951352506520,
+    1230944591607507608,
+    3902824808232277913,
+    15173053969243190521,
+    4525201000536522048,
+    15980889406278872135,
+    505152185286699521,
+    2057089862502182915,
+    17462645521510860409,
+    16895485406143468470,
+    15256305666927941067,
+    10203121902973156669,
+    10697172644868841342,
+    12537885375757589294,
+    12047148833282901431,
+    3139344809213666782,
+    6072684510182651022,
+    17942779518024302340,
+    16250211663914280629,
+    5110365020323468944,
+    16205755252852396269,
+    16242804194072154000,
+    16822830936745219543,
+    4635867116199187488,
+    5360295352918311650,
+    1684498235677223096,
+    1599971464045396663,
+    12341739616101096412,
+    9579083072303234543,
+    3884084513711094441,
+    17060748522767743195,
+    11239960892396075611,
+    7686845309416958015,
+    7367365252819086669,
+    6921246570816971009,
+    16912526675338180090,
+    383148839733375052,
+    12628414238283704736,
+    18388321344702970710,
+    17241122745103733011,
+    10194331086444276502,
+    1284138279133923249,
+    12241117337208370821,
+    387124564970602945,
+    16792443723485893139,
+    1413412837855111679,
+    2409306766301236292,
+    3194087916703942878,
+    7838509045491406265,
+    4040276448201931617,
+    6601715024252775446,
+    14432937633556005454,
+    15103806429884409380,
+    16791369442465644914,
+    547704409579719906,
+    6307573780744126597,
+    17397765163376277397,
+    3229343795944983048,
+    2428784809050987126,
+    1200738777163376980,
+    17938401427262647085,
+    2771844400695937519,
+    4485820547232286062,
+    9665121664987454402,
+    528709306655697377,
+    9300341272013846580,
+    14667302798352057324,
+    12920130166812189079,
+    4626438578462768547,
+    16983116880219643987,
+    3494916899991908901,
+    11900969925694368583,
+    450675080867208259,
+    5276884289038047098,
+    10507936878839345777,
+    14464625783728587186,
+    1526267847165743277,
+    11116810111505633115,
+    13691898628403166491,
+    11816983460608616594,
+    8147580157292788785,
+    3574334592402044519,
+    7002037141321554477,
+    3123140325484728699,
+    12688800397846595211,
+    8249352303964391590,
+    2895510090601828733,
+    12862583012062231573,
+    2875377281801560363,
+    1184142858658128917,
+    5108044436399586724,
+    11088950309087496148,
+    4296014244551572698,
+    2368243986526876144,
+    13299602074582833058,
+    17746291195774864976,
+    12572604420912715329,
+    15752875887262830040,
+    5797460505606325399,
+    11797657791122301542,
+    4871251780113296982,
+    14096104173342487081,
+    16017747893025458776,
+    6246040088738475877,
+    14261277007511036763,
+    5181615606476200700,
+    6637199295227416823,
+    14934616609863267,
+    8908020538720101778,
+    3255497592487211256,
+    9609797601833992706,
+    13192772962445356220,
+    13568318330879214002,
+    7923162565069631436,
+    13165807935316219991,
+    9845860920618710137,
+    15939382201251948560,
+    16744460051191322783,
+    18281526038223210943,
+    16019496542465208724,
+    4171659360019030219,
+    13641887463304960390,
+    8002144710147874674,
+    7155222408950244489,
+    12139463512515666480,
+    1574989477019355839,
+    17463132868494386190,
+    8991184064675941326,
+    10830698626843848281,
+    2133514138232246087,
+    1962286764273582682,
+    9504400663785758340,
+    428374971546572335,
+    1313376872668253129,
+    11116073971532399679,
+    10139363646763387533,
+    16742381793019238591,
+    8055242694173457391,
+    6984980825595077979,
+    7175987064094904836,
+    4322834657418846,
+    958534955658336183,
+    12647040580698059944,
+    17395006955983996462,
+    5448553633663514307,
+    6018848264100479776,
+    7883507020506311426,
+    4081169538517338440,
+    16088110550937732123,
+    15451297467343474007,
+    14759718250466211882,
+    11023701592264478756,
+    16769150004940538011,
+    17506732824958157519,
+    7073940496878702754,
+    1339161521858002603,
+    11773498343212805519,
+    4449371280550738802,
+    7324758043325420600,
+    14856553217425583333,
+    13855892214020857513,
+    14166237716369226562,
+    555032005843888202,
+    18391020885059501977,
+    10140493536159893943,
+    12815425912650403511,
+    13145127170226720698,
+    8538633840745900185,
+    811367536016874416,
+    15566369762295777346,
+    14546902429574832927,
+    1776307593011870437,
+    16195642823031461710,
+    9344116456468992390,
+    5904440415266417720,
+    3698521136090635125,
+    10800297350129110856,
+    2914169207108961127,
+    4468105883155043405,
+    5119838709469347817,
+    3743505872594477165,
+    8640696581062746961,
+    13450325131982786217,
+    4006695922160115472,
+    18000778167966896727,
+    6058145331464440581,
+    1973240631578871471,
+    13338718517141870987,
+    5188820171360165738,
+    2277657517496048962,
+    18160231045821557369,
+    12517427446838622276,
+    6824948828394453939,
+    2194986184207719102,
+    2963203115248835035,
+    12857760959106719721,
+    13181537219962637251,
+    16668100456575764996,
+    3227578089734835148,
+    2331992183136709450,
+    6784111581889145948,
+    10644324222209567810,
+    14661873456528811798,
+    18211022231675818392,
+    3987701255617129884,
+    15802365555103944972,
+    3574897979458387203,
+    2912059369223201759,
+    5695631463120375035,
+    12249508583259355373,
+    18095123519429548959,
+    7468765338108000660,
+    18173579263310363582,
+    18164294352168351549,
+    13273190440238146201,
+    6123581844424984191,
+    4490604981036863898,
+    8153032980368038009,
+    12876527577628631210,
+    3631271700989932251,
+    2450932853769539071,
+    18086960744689091606,
+    12851206351245986633,
+    16762328114905118688,
+    9970620375260214543,
+    3336702020110893429,
+    15352917658668978389,
+    15499150759519760385,
+    17021957563403150372,
+    71601921758386710,
+    4880311976879945323,
+    1190013095939502271,
+    3239357391552846267,
+    8296960230753192824,
+    1259332832648726452,
+    3984189696878940812,
+    9668842332197095274,
+    17707713100957410004,
+    11683812736812278258,
+    1000453550569172337,
+    2294781641724170838,
+    6824578015881923866,
+    3571374531673553864,
+    15654743483647944566,
+    1344959627168249401,
+    2343122176583811410,
+    8724826232334034241,
+    13699085536801944995,
+    17047056393744531042,
+    16831294909315293366,
+    3847265841544259264,
+    2870629489454957213,
+    13611922025968718336,
+    1425205442559647434,
+    7819157677358578931,
+    799636687043176370,
+    15684555073504774959,
+    5692170061174922714,
+    17695303584154487124,
+    8346528311324103264,
+    17875483080812087658,
+    18092419793140909922,
+    3301435218921672717,
+    10784891043599478704,
+    15873758693209079940,
+    13661994921941495253,
+    18358036986107059508,
+    3297455126408144072,
+    235335325758757521,
+    6072203679590702734,
+    8488671475100062957,
+    9245445559939445163,
+    11401762934645408087,
+    6135865928450233978,
+    3377108964330224794,
+    7144229122826709766,
+    9650186746623146097,
+    3140891804871323384,
+    6818438073135020381,
+    1710585456345993441,
+    11127971978298085587,
+    6200836475424603297,
+    8728403573703862647,
+    8590610223235635649,
+    13124665712748667234,
+    8136358094928725032,
+    1036856989379246751,
+    11506981028036805407,
+    7154555887731367838,
+    12044018096380544130,
+    17979002793882446857,
+    2968347640715991050,
+    10807095852939300340,
+    13461952108405298782,
+    13535975386851025279,
+    10981070077128918057,
+    9072081500246239923,
+    6543984805494760154,
+    8643314672431378431,
+    4218117341724907110,
+    1652970215886492283,
+    929777570840118667,
+    13595777429108772042,
+    2808034446840855486,
+    10334594405643072854,
+    5586273375134222414,
+    6010284020199400650,
+    14391503115889129777,
+    415170292026182403,
+    14667022610498896218
+   ],
+   "600": [
+    3429223950105207772,
+    8616674145361280638,
+    7146261850893136649,
+    4872515356566611233,
+    12233221928418440315,
+    8966886104272211051,
+    4943071057449441137,
+    15997103849484588860,
+    14360898831790919236,
+    1027076365970499937,
+    7553219155363605830,
+    4034142747365348765,
+    8095643972727070331,
+    14659174275737928566,
+    10590897517279222453,
+    4649486093929028986,
+    11367216062812317603,
+    11055530138270970468,
+    5206501161900148385,
+    13140344656001504140,
+    16627382624150462643,
+    17389146721417901994,
+    16827878449391292208,
+    2215568619792912222,
+    3184710250367489334,
+    4410901527563521091,
+    1544727286393238722,
+    5910859406733609681,
+    9607646501801241866,
+    7215985501399867741,
+    14565630441055414521,
+    14065682672675447895,
+    676082495418214271,
+    12265458380365403820,
+    5446168207515475514,
+    10273932951468289339,
+    5124694206060074751,
+    2825445015032244333,
+    13111986315189603294,
+    14867871290572612185,
+    17859081539116877934,
+    167230041027576205,
+    12491583668465913307,
+    13561081144344611841,
+    1336879476035804762,
+    9447283374142246505,
+    1801751914352787348,
+    8981338840895548158,
+    16502350191660065873,
+    2389957121671743289,
+    8125481165387789344,
+    9774677466961023790,
+    5541868748208085905,
+    14228067127513699321,
+    4233396173623278583,
+    2303001758724266284,
+    17192151938826132544,
+    1769362351195297273,
+    6748366027562535630,
+    4484056597921490035,
+    6795573464073751497,
+    14212742000715755869,
+    17020498218920468747,
+    2497101530758210206,
+    1259664136837681022,
+    1336452887719963541,
+    16624248288937445120,
+    15344470351518748525,
+    12950513938604500930,
+    13398177245466563796,
+    11095951103758681684,
+    17705994085603838080,
+    17829724019506880813,
+    9668189811889737809,
+    12349159894714057428,
+    10123172458368242999,
+    12873224302071340367,
+    1999640797507658100,
+    8995430906405408809,
+    8750357051947865749,
+    11545461317456022543,
+    2955037332511667574,
+    10674278047171280224,
+    6301004550632376604,
+    15627921115056010943,
+    3520670520874418307,
+    252138859333611900,
+    15712868504213879214,
+    15644331083298772205,
+    15724390776922862102,
+    60694953108157356,
+    2414141881660880902,
+    15752599980366320995,
+    17589107218900549700,
+    7630812876837351224,
+    16748137097813251517,
+    11308766860535943361,
+    11967057734591427667,
+    12551835459277732987,
+    9611430238403111129,
+    14299146164130480272,
+    12237936892185576581,
+    8315624147086257340,
+    8775915867673800314,
+    18408493559124258168,
+    4565255761570950147,
+    10194567325393598259,
+    13812921035090378435,
+    11557034615882276754,
+    5862053620558375525,
+    6448706814705091449,
+    16452117264815549473,
+    10021310642372500940,
+    1230467381154479154,
+    7606227422588164034,
+    8746916769443548897,
+    14409472947801554043,
+    16078187030556404957,
+    4816856756309778316,
+    9769667660253596677,
+    7099208011363235554,
+    835416840557403900,
+    686025014686411082,
+    5297062282087609941,
+    9988747826815032150,
+    6119780488915201570,
+    7132653487503797826,
+    7944902556228495134,
+    7238522149486860301,
+    5166356040032788141,
+    14204000595082901040,
+    11218373710634913948,
+    5792523739013131852,
+    10504294527329587664,
+    7871367059337277010,
+    9319111270339165215,
+    16340188625042611960,
+    12568854436709717817,
+    11576347506493451899,
+    1297518408406419166,
+    13575076760672367679,
+    15661078914946027029,
+    2699995215546610321,
+    1127233126890407252,
+    7933605677214489478,
+    12814970771749416596,
+    3182746774710490773,
+    8063708546957621867,
+    3509900671605015441,
+    1423402512186660725,
+    4759859744721456608,
+    2536696026200377042,
+    7908978119586704124,
+    9304324984487075644,
+    16932637544544196066,
+    77860689939021385,
+    5949061504708707882,
+    4403393372502869074,
+    5808741329255348888,
+    12225267238973976923,
+    3462420846293694898,
+    7101446810948337430,
+    9449332595019419639,
+    10782445579577117676,
+    2383020511537536733,
+    7602385234840980153,
+    4084612810927880233,
+    2169968817710388927,
+    8364819516291106578,
+    1494950623896662706,
+    7667633949930992621,
+    17959499097009794338,
+    1642162692185901426,
+    15392823768628792459,
+    16045906250828958754,
+    176582360669542239,
+    3267138247501308845,
+    4996934290810656990,
+    11915429587472604150,
+    14686718053851596769,
+    8220703836929372564,
+    6581547100439152529,
+    10996353371909514187,
+    998757653822828849,
+    15270077293632712081,
+    6103616672107827532,
+    9223018580538927854,
+    6817164801852372605,
+    8438242671388829293,
+    11122916863568134401,
+    5544778144170126018,
+    1359635290808241515,
+    14907585776205859248,
+    3171154233758659771,
+    2432698306095110253,
+    15430107870681264341,
+    17791906991015015254,
+    17100422685521583830,
+    7744689835841577281,
+    4167235062128740635,
+    14710490895180368168,
+    9473768639719411816,
+    2363418034000565353,
+    14787080239077368638,
+    1694409668996579801,
+    9020624283135014840,
+    18157625424582885095,
+    12198331718865225760,
+    18011451377258445355,
+    1172189850132219444,
+    16948664710224015317,
+    8900675370819369097,
+    8137116020043996131,
+    10567575669082841285,
+    8310580713299792100,
+    7044364458312532247,
+    17568706955259667897,
+    11838162184040487907,
+    9786292306986563373,
+    2374495497753350681,
+    12751576862666262598,
+    9277681368440466929,
+    13310928487032992284,
+    580335367258157933,
+    6114362524817582356,
+    15722956007536195926,
+    10541764928414724833,
+    9633499202445630681,
+    17607059001275136596,
+    16273124667468992778,
+    5336779448239622393,
+    9459804959641523039,
+    1507909539988706551,
+    17438052572930113817,
+    16962365809690650028,
+    18374670533094614460,
+    17544715900411192704,
+    15062786071276174444,
+    466128013008274494,
+    5788250536604533392,
+    17123753250964092228,
+    3432643584689646093,
+    15324247088521373273,
+    8358570666577475657,
+    12904404368278194716,
+    11377048786970918559,
+    11225207388954914236,
+    11010085711206328002,
+    4631608725149103066,
+    11238719405936012949,
+    5967752135606613868,
+    15028682414192799465,
+    7105873255920331425,
+    3278772395826761211,
+    2591953481161295872,
+    9345089825954584049,
+    4422355715704564361,
+    3079703945740414426,
+    3094016620316079093,
+    11591015934121317360,
+    12298292542403125354,
+    7040871224626175981,
+    836097306759580387,
+    8146891552868087722,
+    15532121985955908475,
+    8112002793917729247,
+    1119567249987739831,
+    15615939934158711990,
+    14301957892393581294,
+    7329622390493708792,
+    6319231665655316878,
+    6503822324060388217,
+    8090513890690962225,
+    3890532673197207467,
+    12072723281347076602,
+    4675268639125708753,
+    4466699886445505376,
+    12782490031669362652,
+    7342653045573334945,
+    5225507998409181670,
+    13872047829648509336,
+    1404548291837846391,
+    10052288418518913626,
+    5656560188015302454,
+    4209456785895754684,
+    17964293353898682011,
+    12241752753389372899,
+    1880402726123312856,
+    9994421692443323898,
+    4925685285528762899,
+    4232948955226428617,
+    12816753819448038591,
+    16520689166587969726,
+    830274201653401418,
+    4814378169727605345,
+    12438428300066101811,
+    18200235974677626286,
+    11012167440410638095,
+    12429797239042144098,
+    16075883142840639528,
+    5549943433020827257,
+    2749596747748931544,
+    15052498719822156142,
+    12242363370817550011,
+    10947632498208600833,
+    2612491464779677415,
+    9999870196824008490,
+    5604739313489205752,
+    6931503746953369620,
+    15091777774498492395,
+    122739325673729949,
+    8055490737328656427,
+    13478449602768032577,
+    5562418454931831416,
+    18309740095940992944,
+    13332747826159939547,
+    15294767311467521178,
+    11426353341271523769,
+    7997653953038365736,
+    11985559780260021752,
+    9172684258504768383,
+    17703821859932703172,
+    12473378480564355120,
+    4936421726375950811,
+    17987484251818771115,
+    12760195400753745059,
+    2509246405763318607,
+    12206366682637395575,
+    15135958824859740162,
+    3336296368639909408,
+    716611852089791182,
+    6991718572068751620,
+    5954390339313965548,
+    6344581843745807755,
+    6996401217980136767,
+    14800738859730888036,
+    5043033382776692540,
+    15971502451802748016,
+    234650860271355454,
+    3610863405944939618,
+    11839396251366599565,
+    9779688808411216162,
+    10083072857810659448,
+    6633043359949282583,
+    7259411371248090191,
+    3684780986773316194,
+    189662434763464883,
+    5667122992324406969,
+    2158789750720273431,
+    11355897157357390284,
+    181507825348047070,
+    13901426508800077416,
+    3855583516628217128,
+    6652230239894305313,
+    12634083485471301622,
+    4937748843525611948,
+    3867163193262378092,
+    14453976152067057966,
+    15858203107248203441,
+    17590457703471494420,
+    12031155592830951824,
+    11282983147733852089,
+    3171769867810232498,
+    16504632373929284477,
+    16843783195572145560,
+    18081491164527955331,
+    5006720170544984776,
+    183493339938963415,
+    7203862846322720972,
+    8053594523772019625,
+    16834752016042677297,
+    10193878655334912012,
+    4814116623677005637,
+    8008128579256001244,
+    14007461095261633270,
+    12615151097425338472,
+    1053535107341700850,
+    7843618762898695097,
+    14208235227928436035,
+    10337907696883843441,
+    30760073209155057,
+    14365603686682308982,
+    8754372221030181173,
+    7825377208155875434,
+    6511671817499595858,
+    8845239022645948261,
+    8447465378276561552,
+    3554435801790815313,
+    15850536282175119978,
+    7873818891916188508,
+    18285839455093374900,
+    4709100581056885175,
+    5712251268491207422,
+    3275737333146147096,
+    6891808330074420011,
+    5239899906781825667,
+    1755020960905482738,
+    13607606781032400079,
+    15794709402110787841,
+    15164715074959925194,
+    1983428088400245521,
+    13238746644966191515,
+    631857014305323417,
+    14340122237557121975,
+    8890268366556169859,
+    16850924201042301788,
+    11090914850857648073,
+    2953344775372924452,
+    14575159109433422021,
+    248531393606401652,
+    3029966660412832977,
+    6872095600024476809,
+    7155177815913535832,
+    13970855140712861155,
+    11982886856645662581,
+    13420383088928656683,
+    17444878657293013304,
+    5162887877916617890,
+    6159650615086019382,
+    1587652023696898312,
+    1179340212450735112,
+    9526766800544192580,
+    9721487384205740358,
+    16057167909621903960,
+    11034252437623422440,
+    3865212619831052479,
+    15413920502095708691,
+    16428193806473562704,
+    18249237070353240017,
+    61631915156930505,
+    10381576481058805747,
+    18154517414000081771,
+    16935643676860177538,
+    5089419813050341610,
+    10791076905186536707,
+    889190980413431465,
+    7871788463039730247,
+    17897755259654134352,
+    10630940486642924487,
+    856126011612755454,
+    10102819005149848166,
+    10580236090828726737,
+    3856355210294625495,
+    2670269384788828434,
+    2844151245744441308,
+    16231647798835537497,
+    1375606802934299448,
+    8357654907274142799,
+    15808148801127290817,
+    4577768875469224778,
+    10267905461415211788,
+    12126887992463175135,
+    17289174976417027980,
+    12823558424748122909,
+    6969306068124788268,
+    16426203913287194081,
+    8523559770938325056,
+    13571793423036333068,
+    11264449695187873276,
+    18440256120156528334,
+    6073398704080958863,
+    15025537532804015359,
+    18343275170831410284,
+    14761113233354811002,
+    12633200721780014398,
+    10113999217776407197,
+    14600213385074352435,
+    18344450430791340602,
+    2122890700454521813,
+    17717497083482117256,
+    7352696184304848661,
+    4354069143772168299,
+    16489251380966521639,
+    5185334479005181689,
+    10582236300798712512,
+    3298007593294020625,
+    6777166915504091609,
+    538699931657587335,
+    15218425527183362291,
+    195702918193157393,
+    1754335808955589461,
+    11590576781026698825,
+    10075642234007241639,
+    18059997703358821779,
+    3613641081114459381,
+    12226662382139270962,
+    176077445979907921,
+    4216949614845816695,
+    8984894809158832045,
+    3590768942877032195,
+    4527937448255271439,
+    4024404804901997811,
+    15735175349832641896,
+    14676056018801171493,
+    4749527753897156819,
+    1634357527310262720,
+    14421373053302488074,
+    9549582962660008953,
+    16176411253950612442,
+    1097374036612217329
+   ]
+  },
+  "regle": "numpy.random.SeedSequence(graine, spawn_key=(N, r)) ; trois fils : banque (tirage des tâches et partition), plantation (entier passé à construire_banque_t05_v3.planter), permutation (faux « même forme »)"
+ },
+ "lecture": {
+  "L4": {
+   "0.1": {
+    "gele_N120": 0.0,
+    "gele_N600": 0.0,
+    "plan_N_N600": 0.008
+   },
+   "0.2": {
+    "gele_N120": 0.002,
+    "gele_N600": 0.186,
+    "plan_N_N600": 0.552
+   },
+   "0.3": {
+    "gele_N120": 0.11,
+    "gele_N600": 0.544,
+    "plan_N_N600": 0.938
+   },
+   "0.5": {
+    "gele_N120": 0.646,
+    "gele_N600": 0.694,
+    "plan_N_N600": 1.0
+   },
+   "0.8": {
+    "gele_N120": 0.948,
+    "gele_N600": 0.81,
+    "plan_N_N600": 1.0
+   }
+  },
+  "P1": {
+   "cellule": {
+    "N": 144,
+    "force": 0.5
+   },
+   "observe": {
+    "ic95_exact": [
+     0.6639,
+     0.7456
+    ],
+    "promus": 353,
+    "taux": 0.706
+   },
+   "tenu": false
+  },
+  "P2": {
+   "cellules": [
+    {
+     "N": 60,
+     "force": 0.1,
+     "taux": 0.0
+    },
+    {
+     "N": 120,
+     "force": 0.1,
+     "taux": 0.0
+    },
+    {
+     "N": 144,
+     "force": 0.1,
+     "taux": 0.0
+    },
+    {
+     "N": 180,
+     "force": 0.1,
+     "taux": 0.0
+    },
+    {
+     "N": 60,
+     "force": 0.2,
+     "taux": 0.0
+    },
+    {
+     "N": 120,
+     "force": 0.2,
+     "taux": 0.002
+    },
+    {
+     "N": 144,
+     "force": 0.2,
+     "taux": 0.012
+    },
+    {
+     "N": 180,
+     "force": 0.2,
+     "taux": 0.016
+    }
+   ],
+   "cellules_en_defaut": [],
+   "tenu": true
+  },
+  "P3": {
+   "borne_haute_ic95_la_plus_haute": 0.0339,
+   "cellules_en_defaut": [],
+   "pire_cellule": {
+    "N": 120,
+    "force": 0.3,
+    "ic95_exact": [
+     0.0083,
+     0.0339
+    ],
+    "lecture": "par_fiche",
+    "promus": 9,
+    "sorte": "faux_meme_forme",
+    "taux": 0.018
+   },
+   "tenu": true
+  },
+  "P3_variante_lue_cellules_au_dessus_du_seuil": []
+ },
+ "lecture_fixee": {
+  "L4": {
+   "texte": "lue, sans seuil : gain de puissance de N = 120 à N = 600, juge gelé (plan de 120) contre la variante taille_plan = N"
+  },
+  "P1": {
+   "episodes": 144,
+   "force": 0.5,
+   "seuil_minimal": 0.8,
+   "texte": "à force 0,5 et N = 144 épisodes d'épreuve, taux de promotion des témoins vrais ≥ 0,8 (réplique la couche 1 bis v2 : force 0,5 promue à 144 épisodes d'épreuve, plan de 120, m = 17)"
+  },
+  "P2": {
+   "episodes_maximal": 180,
+   "force_maximale": 0.2,
+   "seuil_strict": 0.5,
+   "texte": "à force ≤ 0,2 et N ≤ 180, taux de promotion des témoins vrais < 0,5 dans chaque cellule"
+  },
+  "P3": {
+   "seuil_maximal": 0.05,
+   "texte": "taux de promotion des témoins faux ≤ 0,05 dans chaque cellule, pour les deux sortes de témoins faux (bruit, même forme permutée) et les trois lectures (par fiche, e-BH m = 17, e-BH m = m₀), juge gelé ; la borne haute de Clopper-Pearson est rapportée, non décisive"
+  },
+  "ecrite": "2026-11-01, 19:55 UTC, avant toute course",
+  "lecture_principale": "e-BH, m = 17 (témoin vrai hors famille au seuil log(m/α)), juge gelé (taille_plan = 120)"
+ },
+ "lectures": [
+  "par_fiche",
+  "e_bh_m17",
+  "e_bh_m83"
+ ],
+ "n_minimal": {
+  "gele": {
+   "0.1": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.2": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.3": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.5": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.8": {
+    "N_interpole": 108.8,
+    "atteint": true,
+    "entre": [
+     60,
+     120
+    ],
+    "mention": "interpolation linéaire entre deux points de la grille",
+    "non_monotone": true,
+    "taux_aux_bornes": [
+     0.692,
+     0.948
+    ]
+   }
+  },
+  "plan_N": {
+   "0.1": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.2": {
+    "N_interpole": null,
+    "atteint": false,
+    "mention": "non atteint sur la grille (N ≤ 600)"
+   },
+   "0.3": {
+    "N_interpole": 563.6,
+    "atteint": true,
+    "entre": [
+     288,
+     600
+    ],
+    "mention": "interpolation linéaire entre deux points de la grille",
+    "non_monotone": false,
+    "taux_aux_bornes": [
+     0.612,
+     0.938
+    ]
+   },
+   "0.5": {
+    "N_interpole": 233.1,
+    "atteint": true,
+    "entre": [
+     180,
+     288
+    ],
+    "mention": "interpolation linéaire entre deux points de la grille",
+    "non_monotone": false,
+    "taux_aux_bornes": [
+     0.838,
+     0.964
+    ]
+   },
+   "0.8": {
+    "N_interpole": 108.8,
+    "atteint": true,
+    "entre": [
+     60,
+     120
+    ],
+    "mention": "interpolation linéaire entre deux points de la grille",
+    "non_monotone": false,
+    "taux_aux_bornes": [
+     0.692,
+     0.948
+    ]
+   }
+  }
+ },
+ "nom": "puissance-juge-banque-v1",
+ "reglages": {
+  "alpha": 0.05,
+  "config_du_juge": {
+   "alpha": 0.05,
+   "budget_generation_usd": 200.0,
+   "concurrence": 4,
+   "delta0": 0.01,
+   "exploration_developpement": false,
+   "graine": 20261027,
+   "instants_filles": 6,
+   "juge": "v1",
+   "lecture": "continu",
+   "max_tours_experimentateur": 40,
+   "max_tours_proposeur": 15,
+   "max_tours_recombinaison": 10,
+   "max_tours_synthese": 5,
+   "max_tours_verificateur": 30,
+   "modele_experimentateur": "simule-a",
+   "modele_proposeur": "simule-e",
+   "modele_recombinaison": "simule-c",
+   "modele_synthese": "simule-d",
+   "modele_verificateur": "simule-b",
+   "multiplicite": "e-bh",
+   "noyau_secret": false,
+   "nul_archive": true,
+   "nul_archive_ajuste": false,
+   "nul_filles": "v2",
+   "pari_fraction": false,
+   "part_calibrage": 12,
+   "plafond_experimentateur_usd": 1.0,
+   "plafond_proposeur_usd": 0.5,
+   "plafond_recombinaison_usd": 0.3,
+   "plafond_synthese_usd": 0.2,
+   "plafond_verificateur_usd": 0.5,
+   "politique_redite": "refus",
+   "proposeur": "agent",
+   "propositions_par_generation": 0,
+   "reservoir": 600,
+   "selection": "pari",
+   "taille_max_rejeu_octets": 20000000,
+   "taille_plan": 120,
+   "taille_plan_filles": 120,
+   "temoins_sans_agent": true,
+   "tirage_recombinaison": "stratifie",
+   "urne": false
+  },
+  "episodes": [
+   60,
+   120,
+   144,
+   180,
+   288,
+   600
+  ],
+  "forces": [
+   0.1,
+   0.2,
+   0.3,
+   0.5,
+   0.8
+  ],
+  "graine": 20261101,
+  "graine_du_juge": 20261027,
+  "m_generation_0": 83,
+  "m_principal": 17,
+  "processus": 2,
+  "provenance_m": {
+   "17": "m des témoins plantés de la couche 1 bis v2 (course e2) ; générations 1 à 3 de la démo sur la banque réelle : 15 à 17",
+   "83": "génération 0 de la démo : 78 fiches de la population v2 + 5 témoins faux par génération"
+  },
+  "puissance_cible": 0.9,
+  "repetitions": 500,
+  "taille_plan": 120,
+  "variante": true
+ },
+ "remise_par_N": {
+  "120": true,
+  "144": true,
+  "180": true,
+  "288": true,
+  "60": false,
+  "600": true
+ },
+ "reserves": [
+  "« Force » = coefficient a de `planter` (v3) : logit ±a·z_i sur les issues 0 et 2 d'un moniteur à 3 issues (issue 1 à 0), signe inversé selon le signe d'un autre trait z_j ; z centrés réduits. C'est une loi **non linéaire** que le nul informé (softmax linéaire ajustée sur le calibrage) ne capture pas ; un effet linéaire de même taille serait en partie absorbé par le nul informé : la courbe est une borne haute pour un tel effet.",
+  "Le témoin vrai engage **la loi exacte du monde** (témoin oracle) : la puissance mesurée est celle d'une fiche parfaitement spécifiée ; une fiche réelle (forme, traits, coefficients approchés) en a moins.",
+  "Les moniteurs plantés portent une issue sur **toutes** les instances ; les moniteurs réels de la banque v2 n'en portent que sur une partie (de 53 à 109 des 120 épisodes) et ont 2 ou 3 issues à coupes déséquilibrées : N épisodes réels donnent moins d'instances jugées par moniteur que N ici.",
+  "La banque réelle n'a que 80 épisodes d'épreuve (60 tâches au total) : toutes les cellules N où 3N/4 tâches dépassent 60 sont tirées **avec remise** (mêmes traits répétés, issues plantées indépendantes). Avec un plan plafonné à 120, le sélecteur par divergence prend les instances les plus extrêmes : au-delà de N = 120, il choisit des copies des mêmes épisodes réels extrêmes ; de vrais épisodes neufs auraient des extrêmes plus extrêmes.",
+  "Juge gelé : taille_plan = 120 ; au-delà, N n'agit que sur le choix des 120 instances, pas sur leur nombre (la variante taille_plan = N dit ce que donnerait un plan qui grandit).",
+  "Le seuil effectif d'un témoin vrai sous e-BH est log(m/α), pas log(1/α) ≈ 3,00 : 5,83 à m = 17, 7,41 à m = 83 ; la puissance dépend donc de la taille de la génération, que ce banc ne tire pas (deux valeurs lues).",
+  "Famille e-BH reconstituée : un témoin vrai (hors famille) et deux témoins faux, les m − 2 autres fiches à e = 0. C'est exact tant que les fiches réelles ont log W < log(1/α) (aucune promue dans la démo) ; des fiches réelles fortes abaisseraient le seuil des faux (k* plus grand).",
+  "Les 5 forces d'une répétition partagent la même banque (mêmes traits, issues indépendantes par moniteur) : les cellules d'une même ligne N sont corrélées entre forces, pas entre répétitions.",
+  "Le plan est trié par divergence ; les ex aequo (le trait « actions_valides » est un compte entier) sont départagés par le mélange du réservoir, dont la graine est l'empreinte de la fiche : renommer un témoin peut changer sa richesse maximale. Vérifié hors banc sur la couche 1 bis v2 : le chemin du témoin de ce script redonne exactement les log W du journal quand la fiche porte les noms du pôle, et s'en écarte un peu sous un autre nom.",
+  "Banc exploratoire, sans préenregistrement scellé ni contre-lecture : rien d'opposable ; la lecture fixée en tête est datée dans le script, pas scellée avant la course."
+ ],
+ "seuils_log": {
+  "e_bh_m17": 5.8289456176102075,
+  "e_bh_m83": 7.414572881350589,
+  "par_fiche": 2.995732273553991
+ }
+}

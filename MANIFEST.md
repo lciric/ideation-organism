@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `35157059905c99115238a07c3779e05d356a9266bab657e33a9140628aec3200` |
+| `README.md` | `98b62455638e1291d3bb977f5cfd4be1fd10a32e90e1b8253a50b535fc855a8d` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
@@ -223,6 +223,31 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 | `pont-fiche-loi-v1/conception-pont-fiche-loi-v1.md` (design note of the bridge) | contains cost estimates and operational details of private runs; the code and its tests are complete without it |
 | the design programme `programme-conception-organisme-v7.md` and the explanatory dossier | quote the director's decisions verbatim and cite private registers line by line |
 | everything under `donnees/`, `registres/`, the attack-side vault, the sealed preregistrations of the pre-pilot, run manifests with costs | private by the project's rules; nothing in them is needed to read or run this code |
+
+## Added after the initial extraction
+
+Files added to this public tree after the extraction above, each as a new file (rule R12: existing files are never modified; the README and this manifest excepted). The hash is the file's SHA-256 at the commit that added it.
+
+| path | sha256 | what |
+|---|---|---|
+| `orchestrator/demonstrations/puissance_juge_banque_v1.py` | `692d4134e7b8b5ae2c63784b86259205344287dfec5ef57c392552aa9161ff29` | power curve of the statistical judge on the real episode bank (planted laws), exploratory |
+| `orchestrator/demonstrations/puissance_juge_banque_v1.py.sha256` | `00b3457f51ec643a4b7a149a0b0dae5749d6da41b4e407b8e71e5f43700ed70e` | seal |
+| `orchestrator/demonstrations/annexes_puissance_v1/force_en_clair_v1.py` | `76cd61c3b6791e7f8ccaf8c5f7bb5bc278bb5cb44577168cc34a6faef0ec744c` | annex: planted strength in plain units |
+| `orchestrator/demonstrations/annexes_puissance_v1/force_en_clair_v1.py.sha256` | `7c608eb16cb772f8bcf350e5bb66b38d9d6337ba216653349a2f81ea464b5330` | seal |
+| `orchestrator/demonstrations/annexes_puissance_v1/diagnostic_non_monotone_v1.py` | `a48179c9a7e6536d7351cfdf97ab864780d39ad90fd8780d45d16f62419b0f7f` | annex: why power can fall with more episodes under a frozen plan |
+| `orchestrator/demonstrations/annexes_puissance_v1/diagnostic_non_monotone_v1.py.sha256` | `4bc23a17dd43653298ade20fa67584611cc850d6c5163177de63b24f34f56476` | seal |
+| `resultats/banc-tricheurs-v7-2026-11-01/banc-tricheurs-v7.json` | `2fc037b4eda23cf6b36e038c2034c53e6de4625f07308159a896ad04c808ca3c` | output of the cheaters bench, seed 20261101, 200 repetitions |
+| `resultats/banc-tricheurs-v7-2026-11-01/banc-tricheurs-v7.json.sha256` | `7533897da857147a35540a32df401ac870729c2948eb98592ea74fa3181038b4` | seal written by the bench |
+| `resultats/banc-tricheurs-v7-2026-11-01/manifeste.json` | `6a854aa4296bc8ff7cd39534c1fef83a4b8d781cfd23b5f601170e384243fd68` | run manifest of the bench (code hashes, settings, seed rule) |
+| `resultats/banc-tricheurs-v7-2026-11-01/manifeste.json.sha256` | `2898ccf200db784a2a8f073f3419b5e2aa3a50da2a7b701e2e31be640c303b15` | seal written by the bench |
+| `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.json` | `060216fef755b77ecc488195b6eba56d52ecdd3c530855c18cc8610cd17b4c55` | output of the power curve, seed 20261101, 500 repetitions per cell |
+| `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.md` | `d06d86e9cae12c1493aa38737a996dc148226cbc2e8f226d32b022e200bfe5d2` | rendering of the JSON (reading fixed before the run, tables, reservations) |
+| `resultats/puissance-juge-banque-v1-2026-11-01/diagnostic-non-monotone-v1.txt` | `92b6bc4070a777fc7946db2be63c61c493068bdd8c478ecee10fe47477049adf` | output of the non-monotone diagnostic annex |
+| `resultats/puissance-juge-banque-v1-2026-11-01/force-en-clair-v1.txt` | `7419358857c824e0f67c76fb8a130faef1cf0071ce27b5d4bd0bbd900106a1a6` | output of the plain-units annex |
+| `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.json.sha256` | `df5d484d4074af28d300a30bbf6b15950eb149e253056d0c448b84edc60b3079` | seal |
+| `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.md.sha256` | `54250ae9ec9667e1eb8029a7af30e8807380559aeed879632afdab9fdef58858` | seal |
+| `resultats/puissance-juge-banque-v1-2026-11-01/diagnostic-non-monotone-v1.txt.sha256` | `109f6b591a32eec320609a3966febaba19c3e1089643bff0cecef898844a9853` | seal |
+| `resultats/puissance-juge-banque-v1-2026-11-01/force-en-clair-v1.txt.sha256` | `8499fd9d0db69931b7c6e2287d52084dd638fcb535d16b47c86e480bd2a451e3` | seal |
 
 ## Security scans run before publication
 

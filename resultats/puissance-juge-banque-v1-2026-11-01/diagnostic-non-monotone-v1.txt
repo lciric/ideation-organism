@@ -1,0 +1,11 @@
+corrélations des traits réels : {'log_jetons~actions': -0.12, 'log_jetons~ecart_type': 0.72, 'actions~ecart_type': -0.21}
+asymétrie (part des |z| > 1,5 du côté positif) : {'log_jetons': 0.5, 'actions': 0.0, 'ecart_type': 1.0}
+
+N = 120, plan = 120, force 0,8 : log W max < 5,83 → n=3, homogénéité médiane du plan (part de la classe prédite majoritaire) 0.78, épisodes distincts médians 76, membres dominants {'marginale_empirique': 3}, paires {'ecart_type|log_jetons': 3}
+   log W max ≥ 5,83 → n=57, homogénéité médiane du plan (part de la classe prédite majoritaire) 0.59, épisodes distincts médians 78, membres dominants {'marginale_empirique': 52, 'moyenne_glissante': 4, 'connu': 1}, paires {'log_jetons|actions': 15, 'actions|log_jetons': 12, 'actions|ecart_type': 14, 'ecart_type|log_jetons': 3, 'log_jetons|ecart_type': 8, 'ecart_type|actions': 5}
+
+N = 600, plan = 120, force 0,8 : log W max < 5,83 → n=14, homogénéité médiane du plan (part de la classe prédite majoritaire) 1.00, épisodes distincts médians 24.5, membres dominants {'moyenne_glissante': 1, 'marginale_empirique': 13}, paires {'ecart_type|log_jetons': 6, 'log_jetons|ecart_type': 8}
+   log W max ≥ 5,83 → n=46, homogénéité médiane du plan (part de la classe prédite majoritaire) 0.57, épisodes distincts médians 26.0, membres dominants {'marginale_empirique': 20, 'connu': 8, 'moyenne_glissante': 18}, paires {'actions|log_jetons': 12, 'ecart_type|log_jetons': 7, 'log_jetons|actions': 10, 'ecart_type|actions': 9, 'actions|ecart_type': 8}
+
+N = 600, plan = 600, force 0,8 : log W max < 5,83 → —
+   log W max ≥ 5,83 → n=60, homogénéité médiane du plan (part de la classe prédite majoritaire) 0.62, épisodes distincts médians 120.0, membres dominants {'marginale_empirique': 26, 'moyenne_glissante': 16, 'connu': 18}, paires {'actions|log_jetons': 12, 'ecart_type|log_jetons': 13, 'log_jetons|actions': 10, 'ecart_type|actions': 9, 'log_jetons|ecart_type': 8, 'actions|ecart_type': 8}

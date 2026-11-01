@@ -1,0 +1,6 @@
+force | écart P(issue 2) − P(issue 0) à |z_i| = 1 | information moyenne par épisode (nat), moyenne sur les 6 paires (i, j) [min ; max] | idem sur le tiers le plus divergent
+0.1 | 0.067 | 0.0028 [0.0019 ; 0.0033] | 0.0067
+0.2 | 0.132 | 0.0110 [0.0076 ; 0.0130] | 0.0260
+0.3 | 0.197 | 0.0239 [0.0166 ; 0.0283] | 0.0560
+0.5 | 0.320 | 0.0602 [0.0426 ; 0.0717] | 0.1380
+0.8 | 0.483 | 0.1281 [0.0924 ; 0.1523] | 0.2799
