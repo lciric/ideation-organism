@@ -1,0 +1,4 @@
+............................... [ 88%]
+....                                                           [100%]
+35 passed, 51 subtests passed in 29.70s
+CODE_SORTIE=0

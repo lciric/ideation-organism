@@ -288,10 +288,40 @@ Files added to this public tree after the extraction above, each as a new file (
 | `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance-par-paire-288-v1.txt.sha256` | `ff4a3959c73dfa5b5aba81c518dfdfda68e05fdd644c026e349e18fac55786a3` | seal |
 | `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance_par_paire_v1.py` | `f8b73c1221ffc46b64469c287fd5f14d8c432cc02cb6348ee2153529263a5463` | reading of the fresh-seed T0.5 batch (judge with a plan over the whole test split) |
 | `orchestrator/demonstrations/annexes_lecture_t05_v1/puissance_par_paire_v1.py.sha256` | `f45de375c5ef101e115508fe905c419d2fbc790fdac161c3458bd733554a8c95` | seal |
+| `orchestrator/prereg/preenregistrement-validation-nul-v8-v2.md` | `7f37631d4f5de481d618bba151eed9d7fe30e38a6276cbbd0d2397babc0de4c5` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/preenregistrement-validation-nul-v8-v2.md.sha256` | `5e35b05c98d72985310d6d7895540791167b15a704c89bb9fb5bf98250528db3` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/preenregistrement-validation-nul-v8-v1.md` | `894b294b2a3d3eb455ff77e709695026795e6d67199e94f2a905491cddf2d4b4` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/preenregistrement-validation-nul-v8-v1.md.sha256` | `0aa717cc1159a655d1ab719d6c3dbdc4b2d59ae779ccf13353b1ce74c0b8b43c` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/contre-lecture-prereg-nul-v8-v1.md` | `e0faa4f2fad1426bf08b1ff6b04b9b42fa1bd2542502ee71cef5cde682bad06f` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/contre-lecture-prereg-nul-v8-v1.md.sha256` | `d5df119f1ad69a282dcc4e875c52d50fe5fb481089b2d434a484aa9dfb17e763` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/contre-lecture-diff-nul-v8-v1-v2.md` | `74c9f0155251ac2050e265c86a62c50f100d89f33a365f35371bacbfbe8addc5` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/prereg/contre-lecture-diff-nul-v8-v1-v2.md.sha256` | `4eb8a98e52fcf599bfd4f85a1edadb1fdbb8208ff6580f0bf219a2b9a8e032d7` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/banc_tricheurs_v8.py` | `0be47e4b5916a98499faf9c40d65369b41e3a5463d7ab444ed18ba18bba08c03` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/banc_tricheurs_v8.py.sha256` | `d67e9efcbbba616645e0e5d8cbca6d3ef0badae9b983cbe01e409d729d0ab301` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/demo_couche1_v8.py` | `3c6841edf797960411121b9cb3b52a7f12c6b41144dfdabf81860de996a8e3fc` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/demo_couche1_v8.py.sha256` | `9068f4c2ac4f91c00c7669fe8a121d253e09a463258c2d28c9978be2d8855db7` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/demo_couche1_proposeur_v8.py` | `44b8e5fe8fb57459721b11ee946771428828939e1e508755e0e5aed1d8b5a5ba` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/demonstrations/demo_couche1_proposeur_v8.py.sha256` | `df69f224af409ba13951960265a81dd8bc713ba499558639ef3c7816c82bbe03` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/essais/test_v58_nul_v8.py` | `776fa335785d6beda899111c2852b041220ff87212ed0b6de1e76961a697e6a8` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/essais/test_v58_nul_v8.py.sha256` | `e5200e18cdee63a71f19dd57ad05e978fc67545d61c8389a6db3646dfb86b81a` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/essais/mutations_v58.py` | `bd938759e7a0be757500a379306f21afbc2bf4bdd519e4c1382216120800c9e0` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `orchestrator/essais/mutations_v58.py.sha256` | `741b7d8d72d14fb7a23dc403a9f7cfbd38383c5e7d49d904de0cef6939201ce2` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `.github/workflows/bench-reduit.yml` | `6047f1814c0ae3a6d433fb79ade4b8297de32f52221e6c6a5c11fdb5529c1db2` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L11-banc-reduit-ci-rejeu-banc-gele/banc-tricheurs-v8.json` | `56276b9e0b625d83ddf6854a6070b1f626347f430d1205f3d063a0981173b3d5` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L11-banc-reduit-ci-rejeu-banc-gele/manifeste.json` | `93257cd8001694511a6c596b2898e04ef23e963e19c835a0862c3c0978a7c3b5` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L12ab-essais-mutations-contre-lecteur/mutations_sortie.txt` | `0a913b5b9cf96fb625f677a2c00f9edf45f8ad991218dd4713452465c70aa815` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L12ab-essais-mutations-contre-lecteur/pytest_final.txt` | `1e771cef98021e27dd4af2a4a2afe47915f4f9f4932faf534adec8aac6641dd7` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L12c-rejeu-L8-contre-lecteur/banc-tricheurs-v8.json` | `5ad6b686b5c7ead84e59746c002bb482e0c1bae1a9b30d94fd7e9f191e43a608` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L12c-rejeu-L8-contre-lecteur/manifeste.json` | `0972d2c0623f783daf60a90045b05cd130402e2919aaa1928bb8e4a9026cc351` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L7-banc-reduit-ci/banc-tricheurs-v8.json` | `c565dcddd3c674c2927709f0b3a2c7e272c15bfb5223864c24fa976cd295528c` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L7-banc-reduit-ci/manifeste.json` | `ec43b17abd33c9ecb893e4b5c3c13cfada4fc20800c55398ca213e6b47b5c2ba` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L8-banc-complet-20-graine7/banc-tricheurs-v8.json` | `483f2e05ee243053e1084a6837cf56a6da0da55f82f1c58deecc14ef6eb830e5` | v58 (adjusted null as the judge's only null) and its sealed validation |
+| `resultats/prelectures-nul-v8-2026-11-01/L8-banc-complet-20-graine7/manifeste.json` | `51195d44fd84830e0b905b530ea7160bf984e0f45997a50817d4feffe84a57b7` | v58 (adjusted null as the judge's only null) and its sealed validation |
 
 ## Security scans run before publication
 
 - key and token patterns (Anthropic, GitHub, AWS, Slack, OpenAI, private-key blocks, literal `api_key=`): no match except the regular expression inside `pole/caviardage.py`, which is the redaction guard itself;
 - session, trigger and instance identifiers: none; e-mail addresses: only `.invalid` test fixtures;
+- added after the initial extraction: some sealed preregistrations, counter-readings and pre-run outputs of 1 November 2026 cite local scratch paths of the cloud workspace where they were written (`/tmp/claude-0/…`). These are filesystem paths, not credentials, and they are kept as written because the files are sealed (editing them would change the hashes that fix the decisive seeds);
 - attack-side content: none (the `coffre_*` and `bras_attaque_v54.py` modules are mechanism only, see README section 7);
 - `__pycache__` and `.pyc`: none.

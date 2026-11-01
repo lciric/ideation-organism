@@ -1,0 +1,21 @@
+name: reduced cheaters bench (judge null v8)
+on: [push, pull_request]
+jobs:
+  bench-reduit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python -m pip install "numpy>=1.25"
+      # Exploratory, non-decisive run with a fixed seed (declared as prior reading L7/L10 in
+      # orchestrator/prereg/preenregistrement-validation-nul-v8-v1.md). Lines: T02, T04, exact null and T01 under the v8 null
+      # (fatal: rate must stay <= alpha = 0.05), plus T01 under the old v1 null (required artefact: rate must exceed alpha,
+      # otherwise the bench has no teeth). Exit code 1 if a fatal line exceeds alpha or the artefact is not seen; 2 refusal;
+      # 3 stop. About 10 s on 2 cores.
+      - name: cheaters bench under the v8 null (20 repetitions; fails if a fatal line exceeds alpha)
+        working-directory: orchestrator
+        run: >-
+          python -I -B demonstrations/banc_tricheurs_v8.py "$RUNNER_TEMP/banc-reduit-v8"
+          --graine 20261101 --lignes T02,T04,nul_exact,T01 --repetitions 20 --processus 2

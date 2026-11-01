@@ -1,0 +1,163 @@
+{
+  "artefacts_non_vus": [],
+  "banc": "banc-tricheurs-v8",
+  "duree_s": 10.3,
+  "fatales_au_dessus_de_alpha": [],
+  "lecture": {
+    "artefact": {
+      "T01|v1": "tenue"
+    },
+    "audits": [],
+    "fatales": {
+      "T01|v8": "non jugeable (précision insuffisante)",
+      "T02|v8": "non jugeable (précision insuffisante)",
+      "T04|v8": "non jugeable (précision insuffisante)",
+      "nul_exact|v8": "non jugeable (précision insuffisante)"
+    },
+    "fatales_valeurs_p": {
+      "T01|v8": {
+        "H0_taux_au_moins_alpha": 0.3584859224085422,
+        "H0_taux_au_plus_alpha": 1.0
+      },
+      "T02|v8": {
+        "H0_taux_au_moins_alpha": 0.3584859224085422,
+        "H0_taux_au_plus_alpha": 1.0
+      },
+      "T04|v8": {
+        "H0_taux_au_moins_alpha": 0.3584859224085422,
+        "H0_taux_au_plus_alpha": 1.0
+      },
+      "nul_exact|v8": {
+        "H0_taux_au_moins_alpha": 0.3584859224085422,
+        "H0_taux_au_plus_alpha": 1.0
+      }
+    },
+    "issue": "partielle (plan incomplet : aucune issue)",
+    "issue_suspendue_par_audit": false,
+    "mesures": {},
+    "perte_de_puissance": {},
+    "pertes_bornes_newcombe_95_non_corrigees": {},
+    "pertes_observees": {},
+    "predictions": {
+      "P1_lignes_fatales": {
+        "T01|v8": true,
+        "T02|v8": true,
+        "T04|v8": true,
+        "nul_exact|v8": true
+      },
+      "P2_perte_dans_l_intervalle": {},
+      "P3_artefact_dans_l_intervalle": {
+        "T01|v1": true
+      },
+      "P4_mesures": {},
+      "P5_puissance_v8": {}
+    }
+  },
+  "mode": "exploratoire (non décisif)",
+  "preenregistrement": null,
+  "repetitions": 20,
+  "resultats": [
+    {
+      "clopper_pearson_95_unilaterales": [
+        0.0,
+        0.13910834066826522
+      ],
+      "dominants": {
+        "ajuste_lineaire": 3,
+        "ajuste_lineaire:archive": 14,
+        "ajuste_log:AB": 2,
+        "ajuste_log:archive:S1": 1
+      },
+      "duree_s": 7.1,
+      "ligne": "T01",
+      "log_w_max_99e": -0.191,
+      "log_w_max_max": -0.1266383007924503,
+      "log_w_max_mediane": -0.9,
+      "promues": 0,
+      "reglage": "v8",
+      "repetitions": 20,
+      "role": "fatale",
+      "taux": 0.0
+    },
+    {
+      "clopper_pearson_95_unilaterales": [
+        0.0,
+        0.13910834066826522
+      ],
+      "dominants": {
+        "ajuste_lineaire:archive": 19,
+        "ajuste_log:AB": 1
+      },
+      "duree_s": 6.9,
+      "ligne": "T02",
+      "log_w_max_99e": -0.135,
+      "log_w_max_max": -0.009641016823273674,
+      "log_w_max_mediane": -0.563,
+      "promues": 0,
+      "reglage": "v8",
+      "repetitions": 20,
+      "role": "fatale",
+      "taux": 0.0
+    },
+    {
+      "clopper_pearson_95_unilaterales": [
+        0.0,
+        0.13910834066826522
+      ],
+      "dominants": {
+        "ajuste_lineaire:archive": 20
+      },
+      "duree_s": 1.3,
+      "ligne": "T04",
+      "log_w_max_99e": -0.018,
+      "log_w_max_max": -0.0025892652374182035,
+      "log_w_max_mediane": -0.18,
+      "promues": 0,
+      "reglage": "v8",
+      "repetitions": 20,
+      "role": "fatale",
+      "taux": 0.0
+    },
+    {
+      "clopper_pearson_95_unilaterales": [
+        0.0,
+        0.13910834066826522
+      ],
+      "dominants": {
+        "ajuste_lineaire:archive": 5,
+        "ajuste_log:AB": 15
+      },
+      "duree_s": 3.1,
+      "ligne": "nul_exact",
+      "log_w_max_99e": -0.298,
+      "log_w_max_max": -0.23894653779635178,
+      "log_w_max_mediane": -0.694,
+      "promues": 0,
+      "reglage": "v8",
+      "repetitions": 20,
+      "role": "fatale",
+      "taux": 0.0
+    },
+    {
+      "clopper_pearson_95_unilaterales": [
+        0.3469313976430929,
+        0.7413493902510877
+      ],
+      "dominants": {
+        "marginale_empirique": 2,
+        "parent_couvert:A|marginale_entrainement": 17,
+        "parent_couvert:A|uniforme": 1
+      },
+      "duree_s": 0.5,
+      "ligne": "T01",
+      "log_w_max_99e": 12.02,
+      "log_w_max_max": 13.102601985103234,
+      "log_w_max_mediane": 5.45,
+      "promues": 11,
+      "reglage": "v1",
+      "repetitions": 20,
+      "role": "artefact_requis",
+      "taux": 0.55
+    }
+  ]
+}
