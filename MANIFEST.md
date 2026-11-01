@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `c343da4a50fc3219657d9ffeaa81d8ecb9497d6707384662d08b1f294f179f50` |
+| `README.md` | `4c069634d035337bc9deb50add1a090c961cbd26cbfd3947d4cb5e76816a6a9f` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
@@ -254,6 +254,16 @@ Files added to this public tree after the extraction above, each as a new file (
 | `orchestrator/essais/test_v57_verdict_noyau.py.sha256` | `820b3545fb2a599ebf7a7fece04d66af6d6cf097e49fd0e6408cbe29d122ade1` | seal |
 | `orchestrator/essais/mutations_v57.py` | `5a36f9243625c27ab40abc5b1072c398dd3dd382a1f3e8fe2ac93f055265194d` | v57 mutation bench (19 mutations; also runs v54-v56) |
 | `orchestrator/essais/mutations_v57.py.sha256` | `c61737c6904a3743798914d5aeece51723281c2004fd4e381c3ceab9ecfa8a25` | seal |
+| `orchestrator/pole/tests_de_mort_v5.py` | `da524871b9b498693d67cc099240acb98c4c84c800ee4c69f0a1cb5fe60b64f1` | v57b: death-test stage whose verdict comes only from the orchestrator's computation on the raw file |
+| `orchestrator/pole/tests_de_mort_v5.py.sha256` | `f34db1cd73b3632610e6971a5c1fa71eae662bf708640da9de0fade07a3fb736` | seal |
+| `orchestrator/pole/etage_entre_generations_v57.py` | `e4bf36819d18844079a2bb4996991fd65c233a51d76b7d3daf5b866a71328318` | v57b: selection point between generations (keeps only 'survives' through selectionner) |
+| `orchestrator/pole/etage_entre_generations_v57.py.sha256` | `a44b833da10458ec78738ad49b5e1f66eb1707a0756ee9dd0030a3b3a7b0710d` | seal |
+| `orchestrator/pole/course2_v57.py` | `2efc4e0ece6b5cea8354503ae476195cffb448f85bdf5db5b99b6295a22ff17d` | v57b: the v56 run with the v57 stage and selection |
+| `orchestrator/pole/course2_v57.py.sha256` | `59d396a0f54b14d9cb23c6ab9267a889bc2a25d717771185292bb6885d1608a8` | seal |
+| `orchestrator/essais/test_v57b_cablage_verdict.py` | `0f59d78213e4021e9cf5f957c22ff2d5d93886d441f4bd49141ed55dd63238c8` | v57b tests: end to end through the new stage, healthy case and artefacts |
+| `orchestrator/essais/test_v57b_cablage_verdict.py.sha256` | `fb0a39d51dc321cbc5169cf348a170efdccf97688e926f0ea79e39fb5e22a356` | seal |
+| `orchestrator/essais/mutations_v57b.py` | `4c58a45c489e6661e02318648f618fdf9f999eddd49f11532f6596399efc4ad7` | v57b mutation bench (15 mutations) |
+| `orchestrator/essais/mutations_v57b.py.sha256` | `1a1555a6c93bbf175bc920fa48b86ad5d1512b9d9a445725eb8d960ca92e6113` | seal |
 
 ## Security scans run before publication
 
