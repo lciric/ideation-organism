@@ -1,0 +1,43 @@
+rejeu a posteriori de la section 13 ; commit 2cfb9400b7edaafb37e32b3947da5e4e5d9ed901 ; départ 23:34:34 ; git diff 1bad95f HEAD -- orchestrator vide : oui
+............................... [ 88%]
+....                                                           [100%]
+35 passed, 51 subtests passed in 75.19s (0:01:15)
+pytest code 0 23:35:51
+témoin (aucune mutation) : 20 essais, 0 en échec
+tuée  nul_archive_ajuste forcé à faux (garde en place) : 1/1 essais en échec
+tuée  nul_archive_ajuste forcé à faux et garde retirée : 2/2 essais en échec
+tuée  refus remplacé par un repli silencieux (réglage contraire écrasé) : 7/1 essais en échec
+tuée  garde de type relâchée (1 vaut vrai) : 1/1 essais en échec
+tuée  garde de configuration neutralisée : 4/1 essais en échec
+tuée  membre ajuste_lineaire:archive retiré, garde contournée (essais statistiques seuls) : 3/1 essais en échec
+tuée  survivantes tempérées et inclinées retirées, garde contournée (essais statistiques seuls) : 1/1 essais en échec
+tuée  membres d'archive demandés sans ajustement (ajuste=False) : 4/1 essais en échec
+tuée  garde des membres neutralisée : 5/1 essais en échec
+tuée  garde des membres : lois mises en commun non vérifiées : 1/1 essais en échec
+tuée  graines : répétition absente de la clé : 1/1 essais en échec
+tuée  graines : clés de lignes non vérifiées : 1/1 essais en échec
+tuée  graines : espace exploratoire non borné (graine ≥ 2⁶⁴ acceptée) : 2/1 essais en échec
+tuée  graines : entropie décisive dans l'espace exploratoire acceptée : 1/1 essais en échec
+tuée  préenregistrement : autre fichier que le fichier nommé accepté : 1/1 essais en échec
+tuée  préenregistrement non scellé accepté : 1/1 essais en échec
+tuée  préenregistrement : code importé non exigé dans le gel : 1/1 essais en échec
+tuée  préenregistrement : empreintes du code gelé non vérifiées : 1/1 essais en échec
+tuée  préenregistrement : plan gelé non vérifié (--lignes, --repetitions, --duree-max-s) : 4/1 essais en échec
+tuée  lecture : sens du test exact inversé : 1/1 essais en échec
+tuée  lecture : borne basse de Clopper-Pearson remplacée par la proportion observée : 1/1 essais en échec
+tuée  lecture : Holm retiré (bornes non corrigées) : 1/1 essais en échec
+tuée  lecture : marge de perte ignorée : 1/1 essais en échec
+tuée  lecture : ligne fatale non tenue sans effet sur l'issue : 1/1 essais en échec
+tuée  lecture : banc sans dents lu comme confirmé : 1/1 essais en échec
+tuée  lecture : audit A1 retiré (promotion d'une ligne refusée par construction) : 1/1 essais en échec
+tuée  lecture : audit A2 retiré (v8 plus puissant que v7) : 1/1 essais en échec
+tuée  lecture : audit A4 retiré (log W > 0 dans la classe linéaire) : 1/1 essais en échec
+tuée  code de sortie : artefact non vu ignoré : 1/1 essais en échec
+tuée  code de sortie du script forcé à 0 (l'intégration continue ne peut plus échouer) : 1/1 essais en échec
+tuée  ligne en erreur : repli silencieux au lieu de l'arrêt : 2/1 essais en échec
+tuée  démonstration v8 avec proposeur : configuration de la v7 non remplacée : 1/1 essais en échec
+tuée  démonstration v8 avec proposeur : garde de executer_pole retirée : 2/1 essais en échec
+tuée  démonstration v8 couche 1 : configuration de la v7 non remplacée : 1/1 essais en échec
+mutations : 34 ; tuées pour la raison attendue : 34 ; tuées pour une autre raison : 0 ; défaut du banc : 0 ; survivantes : 0 ; non appliquées : 0
+témoin après restauration : 20 essais, 0 en échec
+mutations code 0 fin 23:37:05

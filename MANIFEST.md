@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `73368b2318bb07051fe19bba9404ebd771a34bd93ee5ad2ab1e417a97f024850` |
+| `README.md` | `83af095e664f96b456be789c1cac192f6c97db11e080bdce0eb111c30ad0a831` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
@@ -256,6 +256,12 @@ Files added to this public tree after the extraction above, each as a new file (
 | `resultats/banc-tricheurs-v8-validation-v1/journal-lancement-v1.txt.sha256` | `d176caaab8fa8491a89fb715e8a1bd3f8f7e8ec1ea4e6bef368c70244241e87c` | seal |
 | `resultats/banc-tricheurs-v8-validation-v1/sortie-standard-v1.txt` | `7807203cecd8f8f90d3a57017bb04a53b87a09b6cecc87d7fd3be82971e8a7f5` | standard output of the run (the frozen reading computed by the code) |
 | `resultats/banc-tricheurs-v8-validation-v1/sortie-standard-v1.txt.sha256` | `59adc72ef3161292b0431217b216d43e444aac2e00a7d8513ff5024caa447de6` | seal |
+| `resultats/banc-tricheurs-v8-validation-v1/verdict-R13-validation-nul-v8-v1.md` | `33883f6da08bdd9dfa7640cdd96e7e2e6c49f1a059ddb8301cdfa8a8757ed8f8` | fresh reader's verdict (R13): "confirmed with reservations" (two minor) |
+| `resultats/banc-tricheurs-v8-validation-v1/verdict-R13-validation-nul-v8-v1.md.sha256` | `62907dd02bc375f7201c219f4b2e47793453f8d7d21f2ef2a44e7566b88882dd` | seal |
+| `resultats/banc-tricheurs-v8-validation-v1/rejeu-section13-a-posteriori-v1.txt` | `998153e1eff0c3382fe9dd2ac20aca47e0a3d8ec396f4f627ee160f2560b997d` | replay after the run of the 35 tests and the 34-mutation bench on the identical tree |
+| `resultats/banc-tricheurs-v8-validation-v1/rejeu-section13-a-posteriori-v1.txt.sha256` | `eaac387b6dd4f5537915a50906f25f01a08a4000ad68567d0e92c91e961a7681` | seal |
+| `resultats/banc-tricheurs-v8-validation-v1/ecart-section13-v1.md` | `a99400dbed67139f33f2b9bfb4e9e5523638766ad414c1cb9047eb0c06bb00e7` | deviation note: the run started 7 s after the push, without the replay asked by section 13 |
+| `resultats/banc-tricheurs-v8-validation-v1/ecart-section13-v1.md.sha256` | `184a56fbbfa8f51bb2b46eafab3f575bf645f089c01ede89e0b6ed06743cce0b` | seal |
 | `orchestrator/pole/tests_de_mort_v4.py` | `35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a` | v57: death-test verdict computed by the orchestrator from the script's raw file (not yet wired into the stage) |
 | `orchestrator/pole/tests_de_mort_v4.py.sha256` | `06df987e81eb7b30f2ed121b952a4027e4a91220d8a63c9f9df9cca0c1c01147` | seal |
 | `orchestrator/essais/test_v57_verdict_noyau.py` | `8c0c8533ff808a2db46ed942b9d090b93b82de6a944916e2bb7056c0d765fd64` | v57 tests: healthy case and artefacts for every guard of the verdict |
