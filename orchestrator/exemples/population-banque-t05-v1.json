@@ -1,0 +1,5942 @@
+{
+  "banque": "banque-t05-v1",
+  "fiches": [
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note BALANCE du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-BALA-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note COHERENCE du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-COHE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note NOVELTY du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-NOVE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-REDU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RESU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "La note RIGOR du juge 3B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "3B-RIGO-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note BALANCE du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-BALA-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note COHERENCE du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-COHE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note IRRELEVANCE_PENALTY du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-IRRE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note NOVELTY du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-NOVE-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note REDUNDANCY_PENALTY du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-REDU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RESULT_REASONING du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RESU-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B croît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-log_jeto-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B décroît avec log_jetons_total",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-log_jeto-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.8,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B croît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-actions_-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B décroît avec actions_valides",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-actions_-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B croît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B décroît avec jetons_par_action_moyenne",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_moyenne"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B croît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-jetons_p-plus",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "La note RIGOR du juge 8B décroît avec jetons_par_action_ecart_type",
+      "espace_instances": {
+        "banque": "banque-t05-v1",
+        "dimension": 5,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "8B-RIGO-jetons_p-moins",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05
+    }
+  ],
+  "proposeur": "scripté v1"
+}

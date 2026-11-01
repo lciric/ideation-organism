@@ -1,0 +1,1074 @@
+{
+  "correlations_de_rang_en_calibrage": {
+    "3B:BALANCE": {
+      "actions_valides": 0.219,
+      "jetons_par_action_ecart_type": 0.118,
+      "log_jetons_total": 0.424
+    },
+    "3B:COHERENCE": {
+      "actions_valides": 0.275,
+      "jetons_par_action_ecart_type": 0.11,
+      "log_jetons_total": 0.01
+    },
+    "3B:NOVELTY": {
+      "actions_valides": 0.349,
+      "jetons_par_action_ecart_type": -0.032,
+      "log_jetons_total": -0.119
+    },
+    "3B:REDUNDANCY_PENALTY": {
+      "actions_valides": -0.028,
+      "jetons_par_action_ecart_type": 0.249,
+      "log_jetons_total": 0.124
+    },
+    "3B:RESULT_REASONING": {
+      "actions_valides": 0.342,
+      "jetons_par_action_ecart_type": -0.518,
+      "log_jetons_total": -0.065
+    },
+    "3B:RIGOR": {
+      "actions_valides": 0.38,
+      "jetons_par_action_ecart_type": -0.161,
+      "log_jetons_total": 0.074
+    },
+    "8B:BALANCE": {
+      "actions_valides": 0.236,
+      "jetons_par_action_ecart_type": 0.171,
+      "log_jetons_total": -0.024
+    },
+    "8B:COHERENCE": {
+      "actions_valides": 0.417,
+      "jetons_par_action_ecart_type": -0.153,
+      "log_jetons_total": -0.157
+    },
+    "8B:IRRELEVANCE_PENALTY": {
+      "actions_valides": 0.23,
+      "jetons_par_action_ecart_type": -0.022,
+      "log_jetons_total": 0.065
+    },
+    "8B:NOVELTY": {
+      "actions_valides": 0.243,
+      "jetons_par_action_ecart_type": 0.093,
+      "log_jetons_total": 0.199
+    },
+    "8B:REDUNDANCY_PENALTY": {
+      "actions_valides": -0.098,
+      "jetons_par_action_ecart_type": 0.191,
+      "log_jetons_total": 0.134
+    },
+    "8B:RESULT_REASONING": {
+      "actions_valides": 0.015,
+      "jetons_par_action_ecart_type": 0.219,
+      "log_jetons_total": 0.102
+    },
+    "8B:RIGOR": {
+      "actions_valides": 0.475,
+      "jetons_par_action_ecart_type": 0.074,
+      "log_jetons_total": 0.148
+    }
+  },
+  "fiches": [
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin vrai : la note BALANCE du juge 3B suit log_jetons_total (rang +0.42 en calibrage)",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-BALA-log_jeto-vrai",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            -0.4,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.4,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:log_jetons_total"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "vraie"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note BALANCE du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-BALA-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.491655,
+          -0.254892
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note COHERENCE du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-COHE-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.429467,
+          -0.599118,
+          -1.55463
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note NOVELTY du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-NOVE-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -2.564949,
+          -0.7404,
+          -0.807091
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note REDUNDANCY_PENALTY du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-REDU-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.821612,
+          -0.176456
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin vrai : la note RESULT_REASONING du juge 3B suit jetons_par_action_ecart_type (rang -0.52 en calibrage)",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-RESU-jetons_p-vrai",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.4,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.4,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:jetons_par_action_ecart_type"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "vraie"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note RESULT_REASONING du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-RESU-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.648659,
+          -0.213574
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin vrai : la note RIGOR du juge 3B suit actions_valides (rang +0.38 en calibrage)",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-RIGO-actions_-vrai",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.4,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.4,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "vraie"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 3B"
+      ],
+      "enonce": "Témoin faux : la note RIGOR du juge 3B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "3B:RIGOR",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-3B-RIGO-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.243194,
+          -0.340326
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note BALANCE du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:BALANCE",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-BALA-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -0.875469,
+          -0.538997
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin vrai : la note COHERENCE du juge 8B suit actions_valides (rang +0.42 en calibrage)",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-COHE-actions_-vrai",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "vraie"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note COHERENCE du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:COHERENCE",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-COHE-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.652923,
+          -1.285198,
+          -0.631272
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note IRRELEVANCE_PENALTY du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:IRRELEVANCE_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-IRRE-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.696449,
+          -0.202524
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note NOVELTY du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:NOVELTY",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-NOVE-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -0.927987,
+          -0.816761,
+          -1.81529
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note REDUNDANCY_PENALTY du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:REDUNDANCY_PENALTY",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-REDU-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -0.591364,
+          -0.806476
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note RESULT_REASONING du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:RESULT_REASONING",
+        "nombre_issues": 2,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-RESU-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -0.390866,
+          -1.128465
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.4
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.4
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin vrai : la note RIGOR du juge 8B suit actions_valides (rang +0.47 en calibrage)",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-RIGO-actions_-vrai",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            -0.8,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.8,
+            0.0,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:actions_valides"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "vraie"
+    },
+    {
+      "contraintes": [
+        "lineaire"
+      ],
+      "cout_borne": 1.0,
+      "domaines": [
+        "juge 8B"
+      ],
+      "enonce": "Témoin faux : la note RIGOR du juge 8B suit le trait de bruit",
+      "espace_instances": {
+        "banque": "banque-t05-v2",
+        "dimension": 4,
+        "moniteur": "8B:RIGOR",
+        "nombre_issues": 3,
+        "sous_populations": 2
+      },
+      "identifiant": "T-8B-RIGO-bruit-faux",
+      "loi_predictive": {
+        "biais": [
+          -1.516347,
+          -0.578078,
+          -1.516347
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            -0.8
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.8
+          ]
+        ],
+        "type": "softmax"
+      },
+      "metrique": "richesse W contre la bibliothèque (aveugle, et prédicteur connu si servi)",
+      "nul": "bibliothèque de prédicteurs aveugles (marginale, uniforme, moyennes glissantes) et prédicteur connu",
+      "operateurs": [
+        "monotone:bruit"
+      ],
+      "prediction": {
+        "signe": "+",
+        "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+        "valeur": 0.1
+      },
+      "protocole": "pari sur les instances d'épreuve de la banque choisies ex ante par divergence",
+      "seuil": 20.0,
+      "severite_attendue": 0.05,
+      "temoin": "fausse"
+    }
+  ]
+}

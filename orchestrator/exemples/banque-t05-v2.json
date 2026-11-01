@@ -1,0 +1,2884 @@
+{
+  "graine": 20261027,
+  "instances": [
+    {
+      "g": 0,
+      "identifiant": "2506.01290v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2506.01290v2",
+      "z": [
+        0.193774,
+        -1.223161,
+        0.59099,
+        0.641108
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.01290v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2506.01290v2",
+      "z": [
+        0.220382,
+        0.201881,
+        0.954797,
+        -1.609193
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.01420v2/e0",
+      "issues": {
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2506.01420v2",
+      "z": [
+        1.065211,
+        -0.51064,
+        2.296197,
+        0.742218
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.01420v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2506.01420v2",
+      "z": [
+        -0.53152,
+        0.914402,
+        -0.958591,
+        -1.260222
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.05216v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "epreuve",
+      "tache": "2506.05216v2",
+      "z": [
+        -1.696627,
+        -1.223161,
+        -0.744172,
+        0.1042
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.05216v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2506.05216v2",
+      "z": [
+        -1.989852,
+        0.201881,
+        -1.008306,
+        -1.525518
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.09007v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2506.09007v2",
+      "z": [
+        0.343866,
+        0.201881,
+        0.899064,
+        1.703622
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.09007v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2506.09007v2",
+      "z": [
+        -0.20039,
+        -2.648202,
+        0.718112,
+        -1.291274
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.16404v3/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2506.16404v3",
+      "z": [
+        -0.456652,
+        0.914402,
+        -0.700873,
+        0.823872
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.16404v3/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2506.16404v3",
+      "z": [
+        -1.337281,
+        0.201881,
+        -0.720912,
+        -0.636119
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.17197v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "calibrage",
+      "tache": "2506.17197v2",
+      "z": [
+        -0.391541,
+        0.914402,
+        -0.45132,
+        -0.04757
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.17197v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "calibrage",
+      "tache": "2506.17197v2",
+      "z": [
+        -0.555679,
+        0.201881,
+        -0.641323,
+        0.873537
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.18862v3/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2506.18862v3",
+      "z": [
+        0.570879,
+        0.201881,
+        -0.720669,
+        1.650099
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.18862v3/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "calibrage",
+      "tache": "2506.18862v3",
+      "z": [
+        1.365975,
+        -1.935681,
+        1.383079,
+        0.891751
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2506.21710v2/e0",
+      "issues": {
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2506.21710v2",
+      "z": [
+        1.302165,
+        0.201881,
+        1.494352,
+        0.612605
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2506.21710v2/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "epreuve",
+      "tache": "2506.21710v2",
+      "z": [
+        0.413658,
+        0.914402,
+        0.764321,
+        2.159393
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2507.11818v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2507.11818v2",
+      "z": [
+        -0.768236,
+        -0.51064,
+        -0.771303,
+        -0.503403
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2507.11818v2/e1",
+      "issues": {
+        "8B:BALANCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2507.11818v2",
+      "z": [
+        -1.037726,
+        0.201881,
+        -0.788251,
+        -1.288795
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2508.10631v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1
+      },
+      "partie": "epreuve",
+      "tache": "2508.10631v2",
+      "z": [
+        0.880475,
+        0.201881,
+        -0.742914,
+        1.041652
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2508.10631v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2508.10631v2",
+      "z": [
+        -0.438824,
+        0.914402,
+        0.840758,
+        0.830381
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.03810v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2509.03810v2",
+      "z": [
+        0.706945,
+        -0.51064,
+        0.680506,
+        -1.561871
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.03810v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2509.03810v2",
+      "z": [
+        0.372399,
+        0.201881,
+        -0.782934,
+        0.115766
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.17083v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2509.17083v2",
+      "z": [
+        0.748377,
+        0.914402,
+        1.29592,
+        1.365824
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.17083v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 2
+      },
+      "partie": "epreuve",
+      "tache": "2509.17083v2",
+      "z": [
+        -1.555278,
+        0.914402,
+        -0.739747,
+        -1.117342
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.18350v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2509.18350v2",
+      "z": [
+        1.444244,
+        0.201881,
+        1.036919,
+        -0.102979
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.18350v2/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "calibrage",
+      "tache": "2509.18350v2",
+      "z": [
+        -1.15373,
+        0.914402,
+        -0.467243,
+        -1.009967
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.21513v3/e0",
+      "issues": {},
+      "partie": "calibrage",
+      "tache": "2509.21513v3",
+      "z": [
+        1.818779,
+        0.914402,
+        0.757739,
+        0.669704
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.21513v3/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2509.21513v3",
+      "z": [
+        -0.952996,
+        0.201881,
+        -0.801664,
+        1.115884
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.21880v3/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2509.21880v3",
+      "z": [
+        -0.14931,
+        0.914402,
+        -1.031302,
+        -1.129597
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.21880v3/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2509.21880v3",
+      "z": [
+        -1.234608,
+        -0.51064,
+        -0.884371,
+        0.507535
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.22925v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "8B:COHERENCE": 2
+      },
+      "partie": "calibrage",
+      "tache": "2509.22925v2",
+      "z": [
+        -0.335879,
+        -0.51064,
+        -0.203008,
+        0.14865
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.22925v2/e1",
+      "issues": {
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2509.22925v2",
+      "z": [
+        1.341852,
+        0.201881,
+        1.07423,
+        -0.474555
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.23173v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 2,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "calibrage",
+      "tache": "2509.23173v2",
+      "z": [
+        1.685493,
+        0.914402,
+        2.129497,
+        -0.762377
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.23173v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2509.23173v2",
+      "z": [
+        -0.872651,
+        -0.51064,
+        -0.597543,
+        1.696827
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2509.24912v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2509.24912v2",
+      "z": [
+        -2.086987,
+        -1.223161,
+        -0.997716,
+        0.728378
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2509.24912v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2509.24912v2",
+      "z": [
+        0.889969,
+        0.914402,
+        1.440565,
+        -0.508217
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.02245v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.02245v2",
+      "z": [
+        2.103804,
+        -0.51064,
+        1.059153,
+        -1.293724
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.02245v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.02245v2",
+      "z": [
+        1.067513,
+        -1.223161,
+        2.210459,
+        0.556659
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.02779v4/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.02779v4",
+      "z": [
+        -0.020736,
+        -0.51064,
+        -0.603158,
+        -0.314675
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.02779v4/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 2,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.02779v4",
+      "z": [
+        -0.501459,
+        0.914402,
+        -0.708451,
+        0.069309
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.05038v3/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.05038v3",
+      "z": [
+        -0.872651,
+        -0.51064,
+        -0.669689,
+        0.379429
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.05038v3/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:NOVELTY": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.05038v3",
+      "z": [
+        0.628159,
+        -0.51064,
+        -0.282384,
+        -1.237818
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.05132v3/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.05132v3",
+      "z": [
+        -0.277845,
+        -1.223161,
+        -0.474169,
+        -0.512799
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.05132v3/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.05132v3",
+      "z": [
+        -0.895039,
+        -0.51064,
+        -0.822384,
+        0.320084
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.14562v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.14562v1",
+      "z": [
+        -0.828129,
+        0.914402,
+        -0.887308,
+        -0.904121
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.14562v1/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.14562v1",
+      "z": [
+        1.608263,
+        0.914402,
+        0.532668,
+        -0.869034
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.16989v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.16989v1",
+      "z": [
+        -0.180473,
+        -1.223161,
+        -0.795547,
+        0.879406
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.16989v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.16989v1",
+      "z": [
+        -0.543587,
+        0.914402,
+        -0.311447,
+        1.151282
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.18828v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.18828v1",
+      "z": [
+        0.528183,
+        -1.935681,
+        1.966328,
+        -0.343487
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.18828v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:NOVELTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.18828v1",
+      "z": [
+        -0.350476,
+        -0.51064,
+        -0.22691,
+        0.22899
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.20877v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2510.20877v1",
+      "z": [
+        -0.154964,
+        0.914402,
+        -0.718432,
+        1.050585
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.20877v1/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "calibrage",
+      "tache": "2510.20877v1",
+      "z": [
+        -0.240426,
+        -1.223161,
+        -0.529692,
+        1.527006
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.21310v2/e0",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2510.21310v2",
+      "z": [
+        -1.512455,
+        0.201881,
+        -0.778712,
+        1.375153
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.21310v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2510.21310v2",
+      "z": [
+        -1.130347,
+        0.914402,
+        -0.935703,
+        -0.22076
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.21366v3/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.21366v3",
+      "z": [
+        1.84508,
+        -1.935681,
+        1.654239,
+        -0.991797
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.21366v3/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.21366v3",
+      "z": [
+        -0.708942,
+        -0.51064,
+        -0.744603,
+        1.204823
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.23574v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.23574v1",
+      "z": [
+        1.284441,
+        0.201881,
+        -0.196226,
+        0.908251
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.23574v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.23574v1",
+      "z": [
+        0.325637,
+        0.914402,
+        -0.743302,
+        1.470697
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.24061v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.24061v1",
+      "z": [
+        0.291633,
+        -0.51064,
+        -0.436697,
+        -0.959123
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.24061v1/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1
+      },
+      "partie": "epreuve",
+      "tache": "2510.24061v1",
+      "z": [
+        0.510513,
+        0.201881,
+        0.972115,
+        0.778277
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.24709v2/e0",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.24709v2",
+      "z": [
+        -1.978302,
+        -1.223161,
+        -0.899773,
+        0.524056
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.24709v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "epreuve",
+      "tache": "2510.24709v2",
+      "z": [
+        0.199105,
+        -0.51064,
+        2.243322,
+        0.00941
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.24788v1/e0",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2510.24788v1",
+      "z": [
+        -0.783939,
+        0.914402,
+        -0.86467,
+        0.020062
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.24788v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 0
+      },
+      "partie": "calibrage",
+      "tache": "2510.24788v1",
+      "z": [
+        -0.733836,
+        0.201881,
+        -0.71385,
+        0.09696
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2510.25798v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "epreuve",
+      "tache": "2510.25798v1",
+      "z": [
+        1.616661,
+        -0.51064,
+        1.234271,
+        1.040639
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2510.25798v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "epreuve",
+      "tache": "2510.25798v1",
+      "z": [
+        0.387905,
+        -1.935681,
+        0.956246,
+        0.104333
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2511.00962v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2511.00962v1",
+      "z": [
+        1.055995,
+        0.914402,
+        1.559069,
+        -1.221219
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2511.00962v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:NOVELTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2511.00962v1",
+      "z": [
+        -0.68106,
+        -0.51064,
+        1.367496,
+        0.641375
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2511.18601v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2511.18601v1",
+      "z": [
+        0.177751,
+        0.201881,
+        -0.641905,
+        -0.60232
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2511.18601v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2511.18601v1",
+      "z": [
+        0.796754,
+        0.201881,
+        -0.6266,
+        -0.156032
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.00930v1/e0",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2512.00930v1",
+      "z": [
+        -0.47155,
+        -0.51064,
+        -0.798969,
+        -1.14017
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.00930v1/e1",
+      "issues": {
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2512.00930v1",
+      "z": [
+        0.028827,
+        0.914402,
+        2.099108,
+        0.54012
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.01199v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2512.01199v1",
+      "z": [
+        2.076687,
+        0.914402,
+        1.49511,
+        -0.179918
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.01199v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "epreuve",
+      "tache": "2512.01199v1",
+      "z": [
+        -0.257667,
+        0.201881,
+        -0.705341,
+        -0.437092
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.02017v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2512.02017v1",
+      "z": [
+        0.167046,
+        0.201881,
+        -0.560503,
+        1.001127
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.02017v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2512.02017v1",
+      "z": [
+        0.441858,
+        0.201881,
+        -0.602085,
+        0.963035
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.03125v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2512.03125v1",
+      "z": [
+        -0.724488,
+        -0.51064,
+        -0.56445,
+        -1.237585
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.03125v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2512.03125v1",
+      "z": [
+        0.67998,
+        0.914402,
+        0.65245,
+        -1.918222
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.05150v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2512.05150v2",
+      "z": [
+        -1.330381,
+        0.914402,
+        -0.978194,
+        -0.315324
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.05150v2/e1",
+      "issues": {
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2512.05150v2",
+      "z": [
+        0.818395,
+        0.914402,
+        -0.650014,
+        -0.054055
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.06870v2/e0",
+      "issues": {
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2512.06870v2",
+      "z": [
+        -1.886702,
+        0.201881,
+        -1.073788,
+        -2.257627
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.06870v2/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1
+      },
+      "partie": "calibrage",
+      "tache": "2512.06870v2",
+      "z": [
+        -0.11831,
+        0.201881,
+        -0.039092,
+        -1.679749
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2512.11131v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "calibrage",
+      "tache": "2512.11131v1",
+      "z": [
+        -1.320045,
+        0.201881,
+        -0.939378,
+        0.102438
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2512.11131v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2512.11131v1",
+      "z": [
+        0.580881,
+        0.201881,
+        -0.046211,
+        -0.977862
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2601.01484v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2601.01484v2",
+      "z": [
+        -1.123683,
+        0.201881,
+        -0.364255,
+        -1.7975
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2601.01484v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 0,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0
+      },
+      "partie": "epreuve",
+      "tache": "2601.01484v2",
+      "z": [
+        -1.63097,
+        0.914402,
+        -1.130333,
+        1.310556
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2601.21315v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2601.21315v2",
+      "z": [
+        -0.424007,
+        -1.935681,
+        -0.556568,
+        -0.093713
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2601.21315v2/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1
+      },
+      "partie": "epreuve",
+      "tache": "2601.21315v2",
+      "z": [
+        1.639694,
+        0.914402,
+        1.006471,
+        -0.595887
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2601.22135v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2601.22135v1",
+      "z": [
+        -0.631815,
+        0.914402,
+        -0.815804,
+        0.599525
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2601.22135v1/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2601.22135v1",
+      "z": [
+        -0.441791,
+        0.914402,
+        -1.010633,
+        0.086493
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.00987v1/e0",
+      "issues": {
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2602.00987v1",
+      "z": [
+        0.164366,
+        -2.648202,
+        0.088156,
+        1.301376
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.00987v1/e1",
+      "issues": {
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "calibrage",
+      "tache": "2602.00987v1",
+      "z": [
+        0.039785,
+        0.914402,
+        -0.850276,
+        0.139926
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.01329v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.01329v1",
+      "z": [
+        -0.972442,
+        0.201881,
+        -1.048507,
+        -0.054053
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.01329v1/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.01329v1",
+      "z": [
+        0.832779,
+        -0.51064,
+        0.581204,
+        0.16846
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.04162v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:RESULT_REASONING": 0
+      },
+      "partie": "epreuve",
+      "tache": "2602.04162v2",
+      "z": [
+        -0.286514,
+        0.201881,
+        -0.499536,
+        -0.326472
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.04162v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.04162v2",
+      "z": [
+        -0.619567,
+        0.914402,
+        -0.556363,
+        -1.225771
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.07160v1/e0",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.07160v1",
+      "z": [
+        -0.260545,
+        0.914402,
+        -0.336007,
+        0.224057
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.07160v1/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2602.07160v1",
+      "z": [
+        0.733787,
+        -1.223161,
+        1.616153,
+        -1.827388
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.09690v1/e0",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "calibrage",
+      "tache": "2602.09690v1",
+      "z": [
+        0.920717,
+        -1.935681,
+        1.395927,
+        0.680274
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.09690v1/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RIGOR": 2
+      },
+      "partie": "calibrage",
+      "tache": "2602.09690v1",
+      "z": [
+        0.861443,
+        0.914402,
+        0.550123,
+        -1.517207
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2602.15124v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.15124v1",
+      "z": [
+        1.014341,
+        0.201881,
+        0.67977,
+        -0.351569
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2602.15124v1/e1",
+      "issues": {
+        "3B:BALANCE": 0,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 0,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2602.15124v1",
+      "z": [
+        -0.920728,
+        -1.935681,
+        -0.738112,
+        1.393727
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2603.01762v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 0,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 2,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2603.01762v1",
+      "z": [
+        0.072537,
+        0.914402,
+        -0.847932,
+        -0.690693
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2603.01762v1/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:NOVELTY": 0
+      },
+      "partie": "calibrage",
+      "tache": "2603.01762v1",
+      "z": [
+        -1.519571,
+        0.914402,
+        -0.903794,
+        0.257667
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2603.06922v2/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:NOVELTY": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2603.06922v2",
+      "z": [
+        -1.180567,
+        0.914402,
+        -0.940823,
+        0.20766
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2603.06922v2/e1",
+      "issues": {
+        "3B:COHERENCE": 0,
+        "3B:NOVELTY": 0,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2603.06922v2",
+      "z": [
+        0.920717,
+        0.201881,
+        2.052082,
+        0.176094
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2604.12086v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2604.12086v1",
+      "z": [
+        -1.830163,
+        0.914402,
+        -1.089502,
+        1.811788
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2604.12086v1/e1",
+      "issues": {
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2604.12086v1",
+      "z": [
+        1.455033,
+        -2.648202,
+        1.441005,
+        -1.43189
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2604.16919v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 0,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0
+      },
+      "partie": "epreuve",
+      "tache": "2604.16919v1",
+      "z": [
+        1.333056,
+        -2.648202,
+        -0.043039,
+        0.043826
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2604.16919v1/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 0,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2604.16919v1",
+      "z": [
+        -0.318409,
+        0.914402,
+        -0.87456,
+        0.283024
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2604.17568v1/e0",
+      "issues": {
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2604.17568v1",
+      "z": [
+        1.510824,
+        -2.648202,
+        0.402769,
+        -1.824968
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2604.17568v1/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "epreuve",
+      "tache": "2604.17568v1",
+      "z": [
+        -0.805993,
+        0.914402,
+        -0.953761,
+        0.716972
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2604.18258v1/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 2
+      },
+      "partie": "calibrage",
+      "tache": "2604.18258v1",
+      "z": [
+        1.39,
+        0.914402,
+        1.777744,
+        1.3448
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2604.18258v1/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "calibrage",
+      "tache": "2604.18258v1",
+      "z": [
+        0.034308,
+        0.914402,
+        -0.560824,
+        1.667155
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2604.23720v1/e0",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 1,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0
+      },
+      "partie": "calibrage",
+      "tache": "2604.23720v1",
+      "z": [
+        0.099694,
+        0.914402,
+        -0.356677,
+        0.876806
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2604.23720v1/e1",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1
+      },
+      "partie": "calibrage",
+      "tache": "2604.23720v1",
+      "z": [
+        -0.226096,
+        0.914402,
+        -1.045897,
+        0.974055
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2605.17899v2/e0",
+      "issues": {
+        "3B:COHERENCE": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2605.17899v2",
+      "z": [
+        0.064366,
+        0.201881,
+        -0.681791,
+        -1.575053
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2605.17899v2/e1",
+      "issues": {
+        "3B:BALANCE": 1,
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 1,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2605.17899v2",
+      "z": [
+        1.662638,
+        0.914402,
+        2.109824,
+        -1.261327
+      ]
+    },
+    {
+      "g": 0,
+      "identifiant": "2605.29097v2/e0",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 1,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 1,
+        "8B:REDUNDANCY_PENALTY": 0,
+        "8B:RESULT_REASONING": 1,
+        "8B:RIGOR": 1
+      },
+      "partie": "epreuve",
+      "tache": "2605.29097v2",
+      "z": [
+        -0.231824,
+        -0.51064,
+        0.635814,
+        -0.057318
+      ]
+    },
+    {
+      "g": 1,
+      "identifiant": "2605.29097v2/e1",
+      "issues": {
+        "3B:COHERENCE": 1,
+        "3B:NOVELTY": 2,
+        "3B:REDUNDANCY_PENALTY": 1,
+        "3B:RESULT_REASONING": 1,
+        "3B:RIGOR": 1,
+        "8B:BALANCE": 0,
+        "8B:COHERENCE": 2,
+        "8B:IRRELEVANCE_PENALTY": 1,
+        "8B:NOVELTY": 0,
+        "8B:REDUNDANCY_PENALTY": 1,
+        "8B:RESULT_REASONING": 0,
+        "8B:RIGOR": 0
+      },
+      "partie": "epreuve",
+      "tache": "2605.29097v2",
+      "z": [
+        0.338663,
+        0.914402,
+        -0.167333,
+        -0.346433
+      ]
+    }
+  ],
+  "moniteurs": {
+    "3B:BALANCE": {
+      "coupes": [
+        2
+      ],
+      "instances": 62,
+      "juge": "3B",
+      "nombre_issues": 2,
+      "rubrique": "BALANCE"
+    },
+    "3B:COHERENCE": {
+      "coupes": [
+        3,
+        4
+      ],
+      "instances": 109,
+      "juge": "3B",
+      "nombre_issues": 3,
+      "rubrique": "COHERENCE"
+    },
+    "3B:NOVELTY": {
+      "coupes": [
+        2,
+        3
+      ],
+      "instances": 103,
+      "juge": "3B",
+      "nombre_issues": 3,
+      "rubrique": "NOVELTY"
+    },
+    "3B:REDUNDANCY_PENALTY": {
+      "coupes": [
+        -1
+      ],
+      "instances": 101,
+      "juge": "3B",
+      "nombre_issues": 2,
+      "rubrique": "REDUNDANCY_PENALTY"
+    },
+    "3B:RESULT_REASONING": {
+      "coupes": [
+        2
+      ],
+      "instances": 53,
+      "juge": "3B",
+      "nombre_issues": 2,
+      "rubrique": "RESULT_REASONING"
+    },
+    "3B:RIGOR": {
+      "coupes": [
+        3
+      ],
+      "instances": 87,
+      "juge": "3B",
+      "nombre_issues": 2,
+      "rubrique": "RIGOR"
+    },
+    "8B:BALANCE": {
+      "coupes": [
+        2
+      ],
+      "instances": 70,
+      "juge": "8B",
+      "nombre_issues": 2,
+      "rubrique": "BALANCE"
+    },
+    "8B:COHERENCE": {
+      "coupes": [
+        2,
+        3
+      ],
+      "instances": 78,
+      "juge": "8B",
+      "nombre_issues": 3,
+      "rubrique": "COHERENCE"
+    },
+    "8B:IRRELEVANCE_PENALTY": {
+      "coupes": [
+        -1
+      ],
+      "instances": 86,
+      "juge": "8B",
+      "nombre_issues": 2,
+      "rubrique": "IRRELEVANCE_PENALTY"
+    },
+    "8B:NOVELTY": {
+      "coupes": [
+        2,
+        3
+      ],
+      "instances": 75,
+      "juge": "8B",
+      "nombre_issues": 3,
+      "rubrique": "NOVELTY"
+    },
+    "8B:REDUNDANCY_PENALTY": {
+      "coupes": [
+        -1
+      ],
+      "instances": 84,
+      "juge": "8B",
+      "nombre_issues": 2,
+      "rubrique": "REDUNDANCY_PENALTY"
+    },
+    "8B:RESULT_REASONING": {
+      "coupes": [
+        2
+      ],
+      "instances": 69,
+      "juge": "8B",
+      "nombre_issues": 2,
+      "rubrique": "RESULT_REASONING"
+    },
+    "8B:RIGOR": {
+      "coupes": [
+        2,
+        3
+      ],
+      "instances": 71,
+      "juge": "8B",
+      "nombre_issues": 3,
+      "rubrique": "RIGOR"
+    }
+  },
+  "nom": "banque-t05-v2",
+  "normalisation": {
+    "ecarts_types": [
+      0.1686069604174874,
+      1.4034679270372452,
+      26.80611611846906,
+      0.9637473948697602
+    ],
+    "moyennes": [
+      7.674391034547921,
+      8.716666666666667,
+      37.719414390688605,
+      0.07240083733598071
+    ]
+  },
+  "notes": "une instance par épisode et par moniteur (première passe) ; tâches entières d'un même côté de la partition ; les épisodes d'une même tâche restent dépendants (limite déclarée)",
+  "sources": {
+    "diag/20261012-105125-t05-pilote-reel/episodes.json": "45616303dc740b66c42095cd5317a8ddd63e89123e64dd86490e43429c7cd15c",
+    "diag/20261017-193648-t05-notations-reel/notations-3B-decisives.json": "51548526c7590231b76473c2b4c9e619a092616b5f948830e735c466b037adab",
+    "diag/20261017-193648-t05-notations-reel/notations-8B-decisives.json": "b103835bcd3bfc3117a53e335be6f37a1259102cc2a2a134acfc6e114cb3f1c4"
+  },
+  "sous_populations": 2,
+  "traits": [
+    "log_jetons_total",
+    "actions_valides",
+    "jetons_par_action_ecart_type",
+    "bruit"
+  ]
+}

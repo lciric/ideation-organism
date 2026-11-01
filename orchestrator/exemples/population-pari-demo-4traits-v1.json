@@ -1,0 +1,353 @@
+{
+ "fiches": [
+  {
+   "contraintes": [
+    "lineaire"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Le premier trait oriente l'issue vers la classe deux dans les memoires spectrales",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q01",
+   "loi_predictive": {
+    "biais": [
+     -0.403533,
+     0.523511,
+     -0.50815
+    ],
+    "poids": [
+     [
+      1.211035,
+      -0.693718,
+      0.86763,
+      0.282142
+     ],
+     [
+      -0.137375,
+      -0.191191,
+      0.027097,
+      -0.077656
+     ],
+     [
+      -1.824197,
+      0.569205,
+      0.382025,
+      2.158769
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [
+    "stationnaire"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Le second trait inverse les classes un et trois sous normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q02",
+   "loi_predictive": {
+    "biais": [
+     0.414068,
+     -0.44172,
+     0.212096
+    ],
+    "poids": [
+     [
+      -0.622452,
+      1.090689,
+      1.721513,
+      1.051146
+     ],
+     [
+      -0.771047,
+      0.591272,
+      -1.820767,
+      -0.782109
+     ],
+     [
+      1.672339,
+      -0.169921,
+      -2.235256,
+      0.561418
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [
+    "non lineaire",
+    "transitoire"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Les deux traits combines predisent la classe majoritaire des graphes de ligne",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q03",
+   "loi_predictive": {
+    "biais": [
+     0.568391,
+     -0.038171,
+     -0.199196
+    ],
+    "poids": [
+     [
+      -1.737817,
+      1.838911,
+      0.316622,
+      -0.223031
+     ],
+     [
+      -0.970022,
+      1.250478,
+      -1.333762,
+      -1.01168
+     ],
+     [
+      0.69655,
+      -1.814968,
+      -2.015127,
+      0.033171
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "repulsion",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [
+    "discret"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Le hachage par trigrammes predit la classe d'un mot flechi",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q04",
+   "loi_predictive": {
+    "biais": [
+     -0.006866,
+     -0.389012,
+     -0.160317
+    ],
+    "poids": [
+     [
+      1.07438,
+      0.699062,
+      1.321303,
+      -1.479958
+     ],
+     [
+      -1.529559,
+      0.041508,
+      -0.478193,
+      -0.064763
+     ],
+     [
+      -0.167843,
+      0.018002,
+      1.28605,
+      0.279673
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "hachage",
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [
+    "continu"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Le critere d'arret depend du premier trait de la trace",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q05",
+   "loi_predictive": {
+    "biais": [
+     -0.107614,
+     0.064884,
+     0.925087
+    ],
+    "poids": [
+     [
+      0.618442,
+      0.633194,
+      1.164239,
+      1.203315
+     ],
+     [
+      1.557729,
+      -0.435644,
+      0.418086,
+      -2.935705
+     ],
+     [
+      1.163692,
+      -2.652786,
+      -2.301893,
+      -2.227959
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "seuillage",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [
+    "stationnaire"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "La sous-population ne change rien a la loi des issues",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "Q06",
+   "loi_predictive": {
+    "biais": [
+     -0.27136,
+     -0.200633,
+     -0.114297
+    ],
+    "poids": [
+     [
+      1.086145,
+      0.412515,
+      5.07346,
+      -1.987805
+     ],
+     [
+      -0.004736,
+      1.348723,
+      -0.439342,
+      -0.816387
+     ],
+     [
+      -0.647308,
+      1.738678,
+      -2.661236,
+      1.166705
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  }
+ ]
+}

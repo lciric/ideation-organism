@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use or discuss this software, please cite it as below."
+title: "Ideation organism: an automated research pole for AI-control hypotheses"
+authors:
+  - family-names: Ciric
+    given-names: Lazar
+date-released: 2026-11-01
+version: "orchestrator v56"
+repository-code: "https://github.com/lciric/ideation-organism"

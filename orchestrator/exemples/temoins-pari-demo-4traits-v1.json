@@ -1,0 +1,476 @@
+{
+ "fiches": [
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "traces"
+   ],
+   "enonce": "Le premier descripteur des traces de l'organisme oriente la classe de sortie",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-V1",
+   "loi_predictive": {
+    "biais": [
+     0.027373,
+     0.069356,
+     -0.14223
+    ],
+    "poids": [
+     [
+      -1.50717,
+      0.46273,
+      -0.768402,
+      0.091445
+     ],
+     [
+      -2.199088,
+      -1.952378,
+      -2.518226,
+      -0.481216
+     ],
+     [
+      3.145974,
+      1.917086,
+      -1.530333,
+      1.335966
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "vraie"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "classification"
+   ],
+   "enonce": "La combinaison des deux descripteurs separe les classes un et deux",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-V2",
+   "loi_predictive": {
+    "biais": [
+     0.056401,
+     -0.023805,
+     0.0508
+    ],
+    "poids": [
+     [
+      1.330083,
+      -2.695579,
+      1.955886,
+      -0.432326
+     ],
+     [
+      0.016468,
+      -0.790462,
+      0.460644,
+      -2.705465
+     ],
+     [
+      -0.935378,
+      0.863438,
+      0.391996,
+      -0.708346
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "vraie"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "traces"
+   ],
+   "enonce": "Le second descripteur favorise la classe trois dans les traces longues",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-V3",
+   "loi_predictive": {
+    "biais": [
+     -0.425447,
+     0.258686,
+     0.234425
+    ],
+    "poids": [
+     [
+      3.212042,
+      -2.477592,
+      -0.568081,
+      1.914504
+     ],
+     [
+      1.214866,
+      -0.427327,
+      1.149287,
+      1.700639
+     ],
+     [
+      -0.697203,
+      2.049671,
+      -4.58714,
+      0.148422
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "vraie"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "classification"
+   ],
+   "enonce": "Un premier descripteur negatif annonce la classe un",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-V4",
+   "loi_predictive": {
+    "biais": [
+     -0.149922,
+     -0.002585,
+     0.975627
+    ],
+    "poids": [
+     [
+      -1.731761,
+      -3.496691,
+      0.284796,
+      0.9371
+     ],
+     [
+      0.635552,
+      -2.30572,
+      -1.722607,
+      1.224337
+     ],
+     [
+      -2.722604,
+      -1.710057,
+      -0.085229,
+      2.825309
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "vraie"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "traces"
+   ],
+   "enonce": "La parite de l'indice de trace predit la classe de sortie",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-F1",
+   "loi_predictive": {
+    "biais": [
+     -0.421791,
+     -0.327442,
+     0.206064
+    ],
+    "poids": [
+     [
+      -0.352887,
+      0.851017,
+      1.043241,
+      -0.867354
+     ],
+     [
+      -0.67796,
+      1.080854,
+      -1.036635,
+      2.827298
+     ],
+     [
+      -0.06338,
+      2.627086,
+      0.515591,
+      -1.22557
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "fausse"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "classification"
+   ],
+   "enonce": "Le premier descripteur inverse les classes deux et trois",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-F2",
+   "loi_predictive": {
+    "biais": [
+     0.190068,
+     0.421034,
+     0.048313
+    ],
+    "poids": [
+     [
+      1.406822,
+      -0.047717,
+      0.809787,
+      -2.033443
+     ],
+     [
+      1.700125,
+      1.744893,
+      -1.35251,
+      2.756492
+     ],
+     [
+      0.963591,
+      0.442186,
+      2.017331,
+      0.095686
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "fausse"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "traces"
+   ],
+   "enonce": "La norme des descripteurs predit la classe deux",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-F3",
+   "loi_predictive": {
+    "biais": [
+     -0.142687,
+     -0.192505,
+     0.045848
+    ],
+    "poids": [
+     [
+      1.546166,
+      -0.65447,
+      -0.47353,
+      1.643257
+     ],
+     [
+      -0.467689,
+      0.63599,
+      -0.583165,
+      3.026463
+     ],
+     [
+      2.097217,
+      0.562113,
+      -0.04534,
+      -0.006335
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "fausse"
+  },
+  {
+   "contraintes": [
+    "independant"
+   ],
+   "cout_borne": 1.0,
+   "domaines": [
+    "classification"
+   ],
+   "enonce": "Le signe du second descripteur annonce la classe trois",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "S-F4",
+   "loi_predictive": {
+    "biais": [
+     -0.229676,
+     -0.431552,
+     -0.353002
+    ],
+    "poids": [
+     [
+      0.881902,
+      -1.413907,
+      0.481054,
+      -1.475768
+     ],
+     [
+      1.8824,
+      -0.036235,
+      0.648972,
+      -1.353375
+     ],
+     [
+      -1.424121,
+      0.448457,
+      -0.552085,
+      1.208428
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "moyenne"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05,
+   "temoin": "fausse"
+  }
+ ]
+}

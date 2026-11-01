@@ -1,0 +1,11 @@
+{
+ "lecture": "Vérités du monde simulé de la démonstration ; lues par le seul moteur simulé, jamais montrées aux agents ni au pôle.",
+ "verites": {
+  "La normalisation de la base avant relevement accroit le rappel du plus proche voisin dans la memoire de rang 6": true,
+  "Le centrage des exemplaires abaisse le rapport sigma1 sur sigma6 et ameliore l'information de la memoire": false,
+  "Un hachage par 3-grammes de caracteres rapproche les mots flechis d'une meme racine": true,
+  "La repulsion sur graphe de ligne preserve les pivots inter-domaines mieux que la repulsion actuelle": true,
+  "Un critere de Cauchy a seuil fixe detecte une convergence reelle de la memoire spectrale": false,
+  "La memoire change d'une generation a l'autre": true
+ }
+}

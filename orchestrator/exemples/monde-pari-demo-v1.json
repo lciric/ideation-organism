@@ -1,0 +1,11 @@
+{
+ "lecture": "Vérités du monde simulé (sélection par pari) ; lues par le seul moteur simulé.",
+ "verites": {
+  "Le premier trait oriente l'issue vers la classe deux dans les memoires spectrales": true,
+  "Le second trait inverse les classes un et trois sous normalisation": true,
+  "Les deux traits combines predisent la classe majoritaire des graphes de ligne": false,
+  "Le hachage par trigrammes predit la classe d'un mot flechi": true,
+  "Le critere d'arret depend du premier trait de la trace": false,
+  "La sous-population ne change rien a la loi des issues": false
+ }
+}

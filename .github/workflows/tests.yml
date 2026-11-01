@@ -1,0 +1,29 @@
+name: offline tests
+on: [push, pull_request]
+jobs:
+  quick:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python -m pip install "numpy>=1.25" pytest
+      - name: v56 guards on healthy cases and artefacts (64 tests)
+        working-directory: orchestrator
+        run: python -I -B -m pytest -q -p no:cacheprovider essais/test_v56_corrections.py
+      - name: bridge card -> law (77 tests)
+        working-directory: pont-fiche-loi-v1
+        run: PYTHONPATH=. python -I -B -m pytest -q -p no:cacheprovider essais/
+      - name: offline demonstration of the statistical judge on the real episode bank
+        working-directory: orchestrator
+        run: python -I -B demonstrations/demo_couche1_v7.py "$RUNNER_TEMP/demo-couche1" --generations 2 | tail -20
+  full:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python -m pip install "numpy>=1.25" pytest
+      - name: full suite (sandbox tests declared not played; 8 provenance/sandbox failures are expected, see README section 4)
+        working-directory: orchestrator
+        run: POLE_ESSAI_BAC_REEL_NON_JOUE=1 python -I -B -m pytest -q -p no:cacheprovider essais/ || true

@@ -1,0 +1,3364 @@
+{
+ "fiches": [
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V01 : le trait 3 oriente l'issue 3 dans le domaine memoire spectrale par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V01",
+   "loi_predictive": {
+    "biais": [
+     -0.204652,
+     -0.035266,
+     0.103911
+    ],
+    "poids": [
+     [
+      1.929893,
+      -0.368498,
+      1.258022,
+      -1.072179
+     ],
+     [
+      -1.796413,
+      -0.075826,
+      -0.065463,
+      -0.810185
+     ],
+     [
+      1.029176,
+      0.420256,
+      1.525741,
+      1.618295
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V02 : le trait 4 oriente l'issue 2 dans le domaine graphes par projection et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V02",
+   "loi_predictive": {
+    "biais": [
+     0.442697,
+     -0.210535,
+     -0.130393
+    ],
+    "poids": [
+     [
+      0.314165,
+      -0.720807,
+      -0.775378,
+      0.334825
+     ],
+     [
+      -0.203727,
+      -1.437614,
+      -0.927827,
+      -1.018199
+     ],
+     [
+      -0.242239,
+      -0.080553,
+      -0.691916,
+      -1.697523
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V03 : le trait 4 oriente l'issue 1 dans le domaine morphologie par normalisation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V03",
+   "loi_predictive": {
+    "biais": [
+     -0.18276,
+     0.034068,
+     0.255282
+    ],
+    "poids": [
+     [
+      -1.97264,
+      -2.296994,
+      0.901004,
+      1.882516
+     ],
+     [
+      -0.525189,
+      -1.371407,
+      -1.687982,
+      2.193482
+     ],
+     [
+      -2.641145,
+      2.218929,
+      -0.581071,
+      -0.279784
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V04 : le trait 1 oriente l'issue 1 dans le domaine representation par seuillage et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V04",
+   "loi_predictive": {
+    "biais": [
+     -0.426214,
+     -0.098088,
+     -0.429078
+    ],
+    "poids": [
+     [
+      -2.611264,
+      0.72978,
+      -0.719027,
+      0.095887
+     ],
+     [
+      -0.982724,
+      1.584165,
+      -0.579648,
+      1.120281
+     ],
+     [
+      -2.187606,
+      -1.405655,
+      1.26445,
+      -0.964627
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V05 : le trait 4 oriente l'issue 1 dans le domaine arret par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V05",
+   "loi_predictive": {
+    "biais": [
+     0.555541,
+     -0.078137,
+     0.416386
+    ],
+    "poids": [
+     [
+      0.014603,
+      -2.70358,
+      -1.456092,
+      2.017854
+     ],
+     [
+      -0.196553,
+      -0.379328,
+      0.947331,
+      0.308663
+     ],
+     [
+      0.277514,
+      -1.46336,
+      1.358805,
+      2.423019
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V06 : le trait 1 oriente l'issue 3 dans le domaine hachage par normalisation et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V06",
+   "loi_predictive": {
+    "biais": [
+     0.000378,
+     0.179323,
+     -0.185193
+    ],
+    "poids": [
+     [
+      -1.667988,
+      0.436812,
+      0.472531,
+      1.77819
+     ],
+     [
+      -1.321954,
+      1.991709,
+      0.249897,
+      1.101965
+     ],
+     [
+      -1.761863,
+      2.900765,
+      -0.07845,
+      -2.059133
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V07 : le trait 1 oriente l'issue 2 dans le domaine memoire spectrale par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V07",
+   "loi_predictive": {
+    "biais": [
+     0.193161,
+     -0.003879,
+     0.182193
+    ],
+    "poids": [
+     [
+      -0.863885,
+      0.246304,
+      1.75035,
+      -0.650236
+     ],
+     [
+      0.325975,
+      1.279818,
+      1.065455,
+      0.801266
+     ],
+     [
+      -0.22385,
+      -0.118066,
+      -0.222362,
+      0.275052
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V08 : le trait 2 oriente l'issue 2 dans le domaine graphes par projection et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V08",
+   "loi_predictive": {
+    "biais": [
+     0.055278,
+     0.024878,
+     0.264979
+    ],
+    "poids": [
+     [
+      -0.513211,
+      -0.811543,
+      0.479369,
+      -0.938316
+     ],
+     [
+      -1.143141,
+      -1.487965,
+      -2.68641,
+      0.363027
+     ],
+     [
+      -0.494076,
+      4.294115,
+      1.03369,
+      -1.938118
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V09 : le trait 2 oriente l'issue 2 dans le domaine morphologie par seuillage et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V09",
+   "loi_predictive": {
+    "biais": [
+     0.368509,
+     -0.057978,
+     0.383705
+    ],
+    "poids": [
+     [
+      -1.597796,
+      -0.713709,
+      0.742571,
+      0.319531
+     ],
+     [
+      -0.065922,
+      0.077833,
+      -0.862128,
+      -0.227376
+     ],
+     [
+      0.440849,
+      1.687651,
+      2.265111,
+      -1.944078
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V10 : le trait 4 oriente l'issue 2 dans le domaine representation par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V10",
+   "loi_predictive": {
+    "biais": [
+     -0.158288,
+     -0.429092,
+     -0.168345
+    ],
+    "poids": [
+     [
+      -2.209296,
+      0.530792,
+      0.324241,
+      1.703316
+     ],
+     [
+      1.514647,
+      3.473706,
+      -0.115315,
+      1.36792
+     ],
+     [
+      0.156896,
+      -0.05086,
+      0.049359,
+      0.954176
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V11 : le trait 3 oriente l'issue 3 dans le domaine arret par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V11",
+   "loi_predictive": {
+    "biais": [
+     0.11616,
+     -0.418963,
+     0.041869
+    ],
+    "poids": [
+     [
+      2.281967,
+      -1.000534,
+      -2.277923,
+      2.116988
+     ],
+     [
+      2.141055,
+      2.124048,
+      -0.965274,
+      -0.869001
+     ],
+     [
+      -1.761129,
+      -2.367196,
+      -1.532478,
+      1.758624
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V12 : le trait 3 oriente l'issue 2 dans le domaine hachage par normalisation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V12",
+   "loi_predictive": {
+    "biais": [
+     -0.705368,
+     0.086658,
+     0.131806
+    ],
+    "poids": [
+     [
+      -0.425764,
+      0.458084,
+      -0.48388,
+      -1.664797
+     ],
+     [
+      0.07556,
+      0.894647,
+      1.317659,
+      -0.310765
+     ],
+     [
+      -0.616009,
+      -2.098947,
+      -3.218677,
+      -0.177437
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V13 : le trait 2 oriente l'issue 2 dans le domaine memoire spectrale par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V13",
+   "loi_predictive": {
+    "biais": [
+     0.193356,
+     0.226403,
+     -0.024514
+    ],
+    "poids": [
+     [
+      2.03627,
+      0.424981,
+      -1.824955,
+      -1.414821
+     ],
+     [
+      -0.062752,
+      -2.555109,
+      0.507234,
+      0.939839
+     ],
+     [
+      0.152348,
+      -0.982113,
+      -0.830031,
+      -2.785921
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V14 : le trait 4 oriente l'issue 3 dans le domaine graphes par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V14",
+   "loi_predictive": {
+    "biais": [
+     -0.276534,
+     -0.206902,
+     0.090709
+    ],
+    "poids": [
+     [
+      1.159179,
+      -0.015975,
+      1.907623,
+      2.430199
+     ],
+     [
+      -2.350407,
+      0.152859,
+      2.335205,
+      2.267135
+     ],
+     [
+      0.556849,
+      1.141308,
+      0.094112,
+      -0.684993
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V15 : le trait 3 oriente l'issue 1 dans le domaine morphologie par projection et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V15",
+   "loi_predictive": {
+    "biais": [
+     -0.087017,
+     0.010081,
+     0.002027
+    ],
+    "poids": [
+     [
+      -1.388299,
+      -1.516142,
+      3.750113,
+      0.667754
+     ],
+     [
+      1.346811,
+      -3.53401,
+      0.366395,
+      -1.044673
+     ],
+     [
+      -1.450109,
+      -0.980635,
+      0.959812,
+      -1.19736
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V16 : le trait 4 oriente l'issue 1 dans le domaine representation par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V16",
+   "loi_predictive": {
+    "biais": [
+     0.104941,
+     0.090606,
+     0.426684
+    ],
+    "poids": [
+     [
+      -1.262968,
+      0.886224,
+      -1.670394,
+      1.885912
+     ],
+     [
+      -0.031814,
+      1.013099,
+      -0.703675,
+      -0.263386
+     ],
+     [
+      -1.918947,
+      0.885736,
+      0.829138,
+      1.986889
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V17 : le trait 1 oriente l'issue 3 dans le domaine arret par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V17",
+   "loi_predictive": {
+    "biais": [
+     -0.127562,
+     -1.032476,
+     0.024478
+    ],
+    "poids": [
+     [
+      -2.167919,
+      -0.61239,
+      0.155745,
+      -0.873106
+     ],
+     [
+      1.578978,
+      -0.618793,
+      -0.435282,
+      1.495247
+     ],
+     [
+      1.373578,
+      -0.464716,
+      0.601594,
+      -1.085711
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V18 : le trait 2 oriente l'issue 3 dans le domaine hachage par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V18",
+   "loi_predictive": {
+    "biais": [
+     0.120024,
+     -0.426828,
+     0.38978
+    ],
+    "poids": [
+     [
+      0.101166,
+      1.077183,
+      -1.036309,
+      -1.985454
+     ],
+     [
+      -1.962836,
+      -2.013113,
+      3.667028,
+      -1.941621
+     ],
+     [
+      -0.133617,
+      1.862253,
+      -1.560872,
+      -1.218787
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V19 : le trait 1 oriente l'issue 1 dans le domaine memoire spectrale par agregation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V19",
+   "loi_predictive": {
+    "biais": [
+     -0.133784,
+     -0.229477,
+     0.446354
+    ],
+    "poids": [
+     [
+      0.408946,
+      -2.898529,
+      -2.768593,
+      2.781167
+     ],
+     [
+      1.859305,
+      -0.766286,
+      -1.845682,
+      -0.190347
+     ],
+     [
+      0.660137,
+      0.114573,
+      -0.394671,
+      1.804923
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V20 : le trait 1 oriente l'issue 3 dans le domaine graphes par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V20",
+   "loi_predictive": {
+    "biais": [
+     0.148015,
+     0.36056,
+     -0.182331
+    ],
+    "poids": [
+     [
+      -0.149251,
+      -2.900895,
+      -0.653688,
+      -0.598786
+     ],
+     [
+      0.723876,
+      0.920901,
+      -1.576379,
+      1.836856
+     ],
+     [
+      -0.168718,
+      -1.516961,
+      -0.164381,
+      3.912678
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V21 : le trait 4 oriente l'issue 1 dans le domaine morphologie par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V21",
+   "loi_predictive": {
+    "biais": [
+     0.24933,
+     -0.019978,
+     -0.32751
+    ],
+    "poids": [
+     [
+      -1.770181,
+      1.666588,
+      1.106787,
+      -1.837596
+     ],
+     [
+      0.541462,
+      1.76177,
+      1.503803,
+      -2.309746
+     ],
+     [
+      -1.393883,
+      0.453831,
+      1.477692,
+      0.637363
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V22 : le trait 2 oriente l'issue 1 dans le domaine representation par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V22",
+   "loi_predictive": {
+    "biais": [
+     0.428258,
+     -0.298744,
+     -0.184369
+    ],
+    "poids": [
+     [
+      0.642859,
+      -0.601211,
+      0.639856,
+      1.294092
+     ],
+     [
+      -0.023634,
+      0.773822,
+      0.700724,
+      -0.099471
+     ],
+     [
+      0.405155,
+      -1.083004,
+      0.22476,
+      1.046155
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V23 : le trait 2 oriente l'issue 1 dans le domaine arret par seuillage et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V23",
+   "loi_predictive": {
+    "biais": [
+     0.593545,
+     0.150176,
+     -0.208018
+    ],
+    "poids": [
+     [
+      2.067728,
+      0.719504,
+      -0.40934,
+      0.066329
+     ],
+     [
+      -0.719414,
+      3.090764,
+      1.54841,
+      -1.497446
+     ],
+     [
+      -0.263663,
+      0.825693,
+      0.36644,
+      -1.258845
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V24 : le trait 1 oriente l'issue 2 dans le domaine hachage par projection et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V24",
+   "loi_predictive": {
+    "biais": [
+     0.597357,
+     0.065253,
+     -0.039522
+    ],
+    "poids": [
+     [
+      -0.425514,
+      -1.110888,
+      -1.796755,
+      -0.853887
+     ],
+     [
+      -0.824648,
+      -2.63027,
+      2.214503,
+      1.917907
+     ],
+     [
+      -0.673558,
+      -0.990739,
+      -0.194692,
+      0.575515
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V25 : le trait 3 oriente l'issue 3 dans le domaine memoire spectrale par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V25",
+   "loi_predictive": {
+    "biais": [
+     -0.267919,
+     -0.178592,
+     -0.408643
+    ],
+    "poids": [
+     [
+      -0.523591,
+      -3.422863,
+      -0.809394,
+      -0.755071
+     ],
+     [
+      -2.749509,
+      0.66333,
+      0.636178,
+      3.160269
+     ],
+     [
+      1.965564,
+      2.063826,
+      1.430114,
+      1.595678
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V26 : le trait 2 oriente l'issue 3 dans le domaine graphes par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V26",
+   "loi_predictive": {
+    "biais": [
+     0.057565,
+     0.01066,
+     -0.510752
+    ],
+    "poids": [
+     [
+      -0.113616,
+      -0.250285,
+      -0.492831,
+      0.370014
+     ],
+     [
+      -1.257052,
+      -0.298085,
+      2.445676,
+      0.551604
+     ],
+     [
+      0.028071,
+      1.234956,
+      0.728367,
+      1.951531
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V27 : le trait 1 oriente l'issue 2 dans le domaine morphologie par projection et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V27",
+   "loi_predictive": {
+    "biais": [
+     0.246159,
+     0.264354,
+     0.122611
+    ],
+    "poids": [
+     [
+      -0.102683,
+      2.255882,
+      1.812829,
+      -1.197905
+     ],
+     [
+      1.300423,
+      1.059633,
+      -0.991337,
+      1.081489
+     ],
+     [
+      -1.076158,
+      1.043375,
+      0.630097,
+      0.344398
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V28 : le trait 1 oriente l'issue 3 dans le domaine representation par projection et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V28",
+   "loi_predictive": {
+    "biais": [
+     -0.523028,
+     -0.057078,
+     -0.212753
+    ],
+    "poids": [
+     [
+      -0.537958,
+      -1.512304,
+      -0.757982,
+      0.167787
+     ],
+     [
+      0.955091,
+      -0.278291,
+      2.109271,
+      1.293832
+     ],
+     [
+      1.210585,
+      -2.554224,
+      0.361682,
+      1.70172
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V29 : le trait 4 oriente l'issue 3 dans le domaine arret par projection et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V29",
+   "loi_predictive": {
+    "biais": [
+     -0.025047,
+     -0.504027,
+     0.232145
+    ],
+    "poids": [
+     [
+      1.366144,
+      1.040053,
+      2.054472,
+      2.187348
+     ],
+     [
+      3.761036,
+      0.608174,
+      0.92483,
+      1.996333
+     ],
+     [
+      2.820673,
+      0.730411,
+      -0.992755,
+      1.617253
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V30 : le trait 4 oriente l'issue 3 dans le domaine hachage par projection et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V30",
+   "loi_predictive": {
+    "biais": [
+     -0.081138,
+     0.015883,
+     0.218642
+    ],
+    "poids": [
+     [
+      -0.360648,
+      0.892457,
+      -1.520132,
+      2.299155
+     ],
+     [
+      -1.460288,
+      1.091238,
+      -3.243298,
+      1.051581
+     ],
+     [
+      -2.417461,
+      -0.941613,
+      1.13437,
+      -1.57426
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V31 : le trait 2 oriente l'issue 2 dans le domaine memoire spectrale par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V31",
+   "loi_predictive": {
+    "biais": [
+     0.242374,
+     -0.377543,
+     0.037136
+    ],
+    "poids": [
+     [
+      -0.358989,
+      0.214399,
+      0.716023,
+      2.739003
+     ],
+     [
+      0.541129,
+      1.193787,
+      1.844229,
+      3.044534
+     ],
+     [
+      -0.191051,
+      0.834573,
+      0.257899,
+      -2.501826
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V32 : le trait 4 oriente l'issue 3 dans le domaine graphes par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V32",
+   "loi_predictive": {
+    "biais": [
+     0.269438,
+     0.052279,
+     0.460545
+    ],
+    "poids": [
+     [
+      1.433233,
+      0.00309,
+      0.402857,
+      -1.489782
+     ],
+     [
+      1.454702,
+      1.572557,
+      0.914456,
+      -0.325358
+     ],
+     [
+      -1.279241,
+      1.747013,
+      0.200519,
+      -1.644974
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V33 : le trait 3 oriente l'issue 3 dans le domaine morphologie par agregation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V33",
+   "loi_predictive": {
+    "biais": [
+     -0.055557,
+     -0.0351,
+     0.115266
+    ],
+    "poids": [
+     [
+      1.848632,
+      -2.37572,
+      2.419144,
+      -0.661439
+     ],
+     [
+      -0.769272,
+      -1.431223,
+      -0.624178,
+      1.61769
+     ],
+     [
+      0.274583,
+      0.489615,
+      -1.825443,
+      -0.644005
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V34 : le trait 3 oriente l'issue 1 dans le domaine representation par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V34",
+   "loi_predictive": {
+    "biais": [
+     0.23186,
+     0.341364,
+     -0.487277
+    ],
+    "poids": [
+     [
+      0.523872,
+      2.283872,
+      -0.123537,
+      0.682892
+     ],
+     [
+      -2.427936,
+      -0.107251,
+      -0.609572,
+      0.557214
+     ],
+     [
+      -0.166439,
+      -1.758968,
+      2.117632,
+      -1.211345
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V35 : le trait 4 oriente l'issue 3 dans le domaine arret par normalisation et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V35",
+   "loi_predictive": {
+    "biais": [
+     -0.168625,
+     0.099881,
+     -0.192924
+    ],
+    "poids": [
+     [
+      2.781832,
+      -2.674859,
+      0.601607,
+      -1.598524
+     ],
+     [
+      -0.627218,
+      2.138606,
+      0.338549,
+      1.557076
+     ],
+     [
+      2.152699,
+      -2.922988,
+      0.554126,
+      1.607057
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V36 : le trait 3 oriente l'issue 3 dans le domaine hachage par normalisation et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V36",
+   "loi_predictive": {
+    "biais": [
+     -0.03291,
+     -0.507297,
+     -0.17277
+    ],
+    "poids": [
+     [
+      -1.045599,
+      -0.634596,
+      1.358004,
+      -2.378722
+     ],
+     [
+      0.343115,
+      1.899801,
+      1.822849,
+      -1.598699
+     ],
+     [
+      -0.713161,
+      -0.631664,
+      -1.090409,
+      -0.796122
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V37 : le trait 4 oriente l'issue 2 dans le domaine memoire spectrale par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V37",
+   "loi_predictive": {
+    "biais": [
+     -0.482265,
+     -0.193997,
+     -0.388604
+    ],
+    "poids": [
+     [
+      0.45221,
+      0.216586,
+      0.886821,
+      0.516809
+     ],
+     [
+      -1.182799,
+      0.263975,
+      -0.306192,
+      0.051156
+     ],
+     [
+      -1.655188,
+      3.216188,
+      -1.28648,
+      -1.454413
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V38 : le trait 3 oriente l'issue 3 dans le domaine graphes par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V38",
+   "loi_predictive": {
+    "biais": [
+     0.111472,
+     -0.592111,
+     0.042564
+    ],
+    "poids": [
+     [
+      1.367816,
+      -1.718529,
+      2.943852,
+      3.057483
+     ],
+     [
+      0.681816,
+      -0.394448,
+      1.295576,
+      0.505198
+     ],
+     [
+      0.345888,
+      -0.76392,
+      1.268632,
+      1.782978
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V39 : le trait 2 oriente l'issue 3 dans le domaine morphologie par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V39",
+   "loi_predictive": {
+    "biais": [
+     -0.000684,
+     -0.191599,
+     0.301147
+    ],
+    "poids": [
+     [
+      -1.117124,
+      2.799173,
+      1.556795,
+      -0.530232
+     ],
+     [
+      1.466287,
+      -0.403456,
+      -0.80447,
+      -0.839305
+     ],
+     [
+      1.739111,
+      1.216942,
+      0.55442,
+      1.038324
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V40 : le trait 3 oriente l'issue 2 dans le domaine representation par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V40",
+   "loi_predictive": {
+    "biais": [
+     0.073926,
+     -0.243102,
+     -0.137044
+    ],
+    "poids": [
+     [
+      -2.040907,
+      -1.035915,
+      0.311985,
+      1.529389
+     ],
+     [
+      -0.146694,
+      2.711811,
+      -1.095756,
+      -0.664269
+     ],
+     [
+      1.2921,
+      0.33458,
+      -1.411841,
+      1.170169
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V41 : le trait 4 oriente l'issue 3 dans le domaine arret par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V41",
+   "loi_predictive": {
+    "biais": [
+     0.220964,
+     -0.046123,
+     -0.078796
+    ],
+    "poids": [
+     [
+      -1.391199,
+      2.4116,
+      1.112488,
+      -0.424219
+     ],
+     [
+      -0.466434,
+      -0.171274,
+      -1.642413,
+      1.374902
+     ],
+     [
+      -0.636997,
+      -1.595313,
+      -0.543569,
+      0.278034
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V42 : le trait 4 oriente l'issue 1 dans le domaine hachage par seuillage et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V42",
+   "loi_predictive": {
+    "biais": [
+     0.001624,
+     -0.171859,
+     -0.307455
+    ],
+    "poids": [
+     [
+      -0.517119,
+      0.811792,
+      0.355509,
+      1.183319
+     ],
+     [
+      1.835791,
+      -2.030221,
+      -0.77713,
+      -0.729377
+     ],
+     [
+      1.022065,
+      4.226018,
+      -2.057308,
+      1.862438
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "projection",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V43 : le trait 1 oriente l'issue 2 dans le domaine memoire spectrale par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V43",
+   "loi_predictive": {
+    "biais": [
+     -0.061323,
+     -0.358557,
+     0.021228
+    ],
+    "poids": [
+     [
+      -0.96246,
+      0.904394,
+      1.863574,
+      0.535584
+     ],
+     [
+      -0.249525,
+      0.848563,
+      -3.028005,
+      -1.833324
+     ],
+     [
+      1.775033,
+      -0.07134,
+      0.426731,
+      -2.728329
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V44 : le trait 3 oriente l'issue 2 dans le domaine graphes par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V44",
+   "loi_predictive": {
+    "biais": [
+     0.07513,
+     0.069792,
+     0.654636
+    ],
+    "poids": [
+     [
+      1.520586,
+      -0.271696,
+      -0.127508,
+      -0.318255
+     ],
+     [
+      1.665896,
+      0.075809,
+      -0.978286,
+      0.978389
+     ],
+     [
+      0.175497,
+      2.099362,
+      0.698196,
+      1.426033
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V45 : le trait 3 oriente l'issue 2 dans le domaine morphologie par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V45",
+   "loi_predictive": {
+    "biais": [
+     0.020003,
+     -0.426691,
+     -0.729721
+    ],
+    "poids": [
+     [
+      -0.534373,
+      -1.023679,
+      1.490214,
+      -1.555362
+     ],
+     [
+      -1.259506,
+      0.541865,
+      1.497228,
+      2.42873
+     ],
+     [
+      2.295256,
+      -1.891433,
+      -0.652805,
+      -1.902644
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V46 : le trait 4 oriente l'issue 3 dans le domaine representation par normalisation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V46",
+   "loi_predictive": {
+    "biais": [
+     -0.284483,
+     0.221044,
+     0.36268
+    ],
+    "poids": [
+     [
+      0.436903,
+      -1.328826,
+      -1.317934,
+      -0.865409
+     ],
+     [
+      -0.733756,
+      -0.72074,
+      1.767142,
+      1.333365
+     ],
+     [
+      1.729459,
+      -0.72305,
+      2.391849,
+      -2.988152
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V47 : le trait 1 oriente l'issue 1 dans le domaine arret par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V47",
+   "loi_predictive": {
+    "biais": [
+     0.464778,
+     0.066518,
+     0.132975
+    ],
+    "poids": [
+     [
+      -2.378148,
+      1.006444,
+      -0.267163,
+      -3.126807
+     ],
+     [
+      -0.908504,
+      0.005511,
+      0.33091,
+      -1.027299
+     ],
+     [
+      0.574326,
+      -2.167114,
+      -0.365043,
+      3.602336
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V48 : le trait 4 oriente l'issue 1 dans le domaine hachage par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V48",
+   "loi_predictive": {
+    "biais": [
+     0.12013,
+     -0.545233,
+     0.085841
+    ],
+    "poids": [
+     [
+      -3.172422,
+      -0.71621,
+      0.197123,
+      -0.21796
+     ],
+     [
+      -0.856284,
+      1.567191,
+      -0.185698,
+      3.274823
+     ],
+     [
+      1.323358,
+      0.132165,
+      -2.115717,
+      -1.622509
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V49 : le trait 2 oriente l'issue 3 dans le domaine memoire spectrale par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V49",
+   "loi_predictive": {
+    "biais": [
+     0.441728,
+     -0.366422,
+     0.262315
+    ],
+    "poids": [
+     [
+      2.079819,
+      1.043724,
+      3.212063,
+      -0.132812
+     ],
+     [
+      -1.331784,
+      0.438078,
+      3.072134,
+      -1.106439
+     ],
+     [
+      0.684749,
+      -0.350951,
+      0.207713,
+      0.736512
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V50 : le trait 3 oriente l'issue 3 dans le domaine graphes par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V50",
+   "loi_predictive": {
+    "biais": [
+     0.054685,
+     -0.142224,
+     0.002787
+    ],
+    "poids": [
+     [
+      2.54617,
+      0.71666,
+      2.022685,
+      0.266835
+     ],
+     [
+      -1.565262,
+      -2.132876,
+      1.180802,
+      0.848843
+     ],
+     [
+      1.192894,
+      -1.498566,
+      -1.756699,
+      -0.8961
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V51 : le trait 4 oriente l'issue 1 dans le domaine morphologie par normalisation et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V51",
+   "loi_predictive": {
+    "biais": [
+     -0.311716,
+     0.364044,
+     -0.517484
+    ],
+    "poids": [
+     [
+      -2.801056,
+      1.447228,
+      -0.178836,
+      4.064407
+     ],
+     [
+      -0.505851,
+      -0.938181,
+      -1.251661,
+      1.352915
+     ],
+     [
+      0.950113,
+      -0.086933,
+      -0.041601,
+      -0.739019
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V52 : le trait 2 oriente l'issue 1 dans le domaine representation par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V52",
+   "loi_predictive": {
+    "biais": [
+     0.573015,
+     -0.394545,
+     -0.069052
+    ],
+    "poids": [
+     [
+      -1.474388,
+      -0.351665,
+      -2.241235,
+      -0.690526
+     ],
+     [
+      3.855741,
+      0.751566,
+      -1.339053,
+      -1.208845
+     ],
+     [
+      2.02897,
+      1.876438,
+      -2.086711,
+      -0.549284
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V53 : le trait 4 oriente l'issue 1 dans le domaine arret par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V53",
+   "loi_predictive": {
+    "biais": [
+     -0.514626,
+     -0.216687,
+     0.018948
+    ],
+    "poids": [
+     [
+      0.731382,
+      -0.133801,
+      -2.865336,
+      -0.867788
+     ],
+     [
+      -1.456788,
+      0.804061,
+      -0.779611,
+      0.150691
+     ],
+     [
+      -2.658395,
+      1.799011,
+      1.162938,
+      -1.024012
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V54 : le trait 1 oriente l'issue 2 dans le domaine hachage par projection et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V54",
+   "loi_predictive": {
+    "biais": [
+     0.22937,
+     -0.226614,
+     -0.205799
+    ],
+    "poids": [
+     [
+      1.749084,
+      1.296474,
+      -0.003459,
+      -0.896755
+     ],
+     [
+      4.042553,
+      -1.160305,
+      -0.875525,
+      3.751663
+     ],
+     [
+      -0.969078,
+      -0.045306,
+      -0.496097,
+      -0.384131
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "memoire spectrale"
+   ],
+   "enonce": "Hypothèse V55 : le trait 1 oriente l'issue 2 dans le domaine memoire spectrale par agregation et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V55",
+   "loi_predictive": {
+    "biais": [
+     0.036604,
+     0.07295,
+     -0.681364
+    ],
+    "poids": [
+     [
+      -0.167799,
+      0.438756,
+      -0.825672,
+      2.907577
+     ],
+     [
+      -1.166568,
+      -1.199406,
+      -0.79825,
+      -0.98635
+     ],
+     [
+      1.946104,
+      -1.614331,
+      -0.143627,
+      -1.544827
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "normalisation"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "graphes"
+   ],
+   "enonce": "Hypothèse V56 : le trait 1 oriente l'issue 1 dans le domaine graphes par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V56",
+   "loi_predictive": {
+    "biais": [
+     0.358531,
+     -0.080308,
+     0.117972
+    ],
+    "poids": [
+     [
+      0.805341,
+      2.773562,
+      -1.003379,
+      0.266064
+     ],
+     [
+      -0.264918,
+      0.378562,
+      -3.199417,
+      2.295584
+     ],
+     [
+      -1.061563,
+      -3.023604,
+      0.139995,
+      -0.864505
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "morphologie"
+   ],
+   "enonce": "Hypothèse V57 : le trait 2 oriente l'issue 3 dans le domaine morphologie par seuillage et normalisation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V57",
+   "loi_predictive": {
+    "biais": [
+     -0.221586,
+     0.017973,
+     0.308125
+    ],
+    "poids": [
+     [
+      -0.734531,
+      -2.633676,
+      0.484438,
+      0.322824
+     ],
+     [
+      -0.348805,
+      2.223922,
+      -2.42359,
+      0.391457
+     ],
+     [
+      -0.266683,
+      1.969837,
+      0.452428,
+      -1.381477
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "representation"
+   ],
+   "enonce": "Hypothèse V58 : le trait 2 oriente l'issue 1 dans le domaine representation par seuillage et agregation",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V58",
+   "loi_predictive": {
+    "biais": [
+     -0.021273,
+     -0.057406,
+     -0.094173
+    ],
+    "poids": [
+     [
+      -2.180806,
+      -1.879504,
+      1.195757,
+      -0.110909
+     ],
+     [
+      0.929772,
+      2.785342,
+      -0.664411,
+      -0.393572
+     ],
+     [
+      -1.97432,
+      -3.134841,
+      -0.085681,
+      -0.815444
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "arret"
+   ],
+   "enonce": "Hypothèse V59 : le trait 1 oriente l'issue 3 dans le domaine arret par agregation et seuillage",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V59",
+   "loi_predictive": {
+    "biais": [
+     0.259732,
+     -0.05056,
+     0.134793
+    ],
+    "poids": [
+     [
+      -0.081375,
+      -2.815944,
+      2.289451,
+      -0.217314
+     ],
+     [
+      -2.910397,
+      -0.846714,
+      3.294344,
+      1.16075
+     ],
+     [
+      3.313403,
+      1.882649,
+      -0.00667,
+      0.476216
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "agregation",
+    "seuillage"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  },
+  {
+   "contraintes": [],
+   "cout_borne": 1.0,
+   "domaines": [
+    "hachage"
+   ],
+   "enonce": "Hypothèse V60 : le trait 3 oriente l'issue 3 dans le domaine hachage par normalisation et projection",
+   "espace_instances": {
+    "dimension": 4,
+    "nombre_issues": 3,
+    "sous_populations": 2
+   },
+   "identifiant": "V60",
+   "loi_predictive": {
+    "biais": [
+     0.09242,
+     0.639442,
+     0.333501
+    ],
+    "poids": [
+     [
+      1.722029,
+      0.27568,
+      1.593042,
+      0.181813
+     ],
+     [
+      -1.606173,
+      -0.160187,
+      -0.147328,
+      -1.29095
+     ],
+     [
+      -1.333341,
+      0.875685,
+      1.026995,
+      1.643009
+     ]
+    ],
+    "type": "softmax"
+   },
+   "metrique": "richesse W contre la bibliothèque aveugle",
+   "nul": "bibliothèque de prédicteurs aveugles au domaine (marginale, uniforme, moyennes glissantes)",
+   "operateurs": [
+    "normalisation",
+    "projection"
+   ],
+   "prediction": {
+    "signe": "+",
+    "texte": "log-richesse moyenne par tirage positive contre la bibliothèque nulle",
+    "valeur": 0.1
+   },
+   "protocole": "pari sur 120 tirages frais choisis ex ante par divergence",
+   "seuil": 20.0,
+   "severite_attendue": 0.05
+  }
+ ]
+}
