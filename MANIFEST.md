@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `98b62455638e1291d3bb977f5cfd4be1fd10a32e90e1b8253a50b535fc855a8d` |
+| `README.md` | `c343da4a50fc3219657d9ffeaa81d8ecb9497d6707384662d08b1f294f179f50` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
@@ -248,6 +248,12 @@ Files added to this public tree after the extraction above, each as a new file (
 | `resultats/puissance-juge-banque-v1-2026-11-01/puissance-juge-banque-v1.md.sha256` | `54250ae9ec9667e1eb8029a7af30e8807380559aeed879632afdab9fdef58858` | seal |
 | `resultats/puissance-juge-banque-v1-2026-11-01/diagnostic-non-monotone-v1.txt.sha256` | `109f6b591a32eec320609a3966febaba19c3e1089643bff0cecef898844a9853` | seal |
 | `resultats/puissance-juge-banque-v1-2026-11-01/force-en-clair-v1.txt.sha256` | `8499fd9d0db69931b7c6e2287d52084dd638fcb535d16b47c86e480bd2a451e3` | seal |
+| `orchestrator/pole/tests_de_mort_v4.py` | `35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a` | v57: death-test verdict computed by the orchestrator from the script's raw file (not yet wired into the stage) |
+| `orchestrator/pole/tests_de_mort_v4.py.sha256` | `06df987e81eb7b30f2ed121b952a4027e4a91220d8a63c9f9df9cca0c1c01147` | seal |
+| `orchestrator/essais/test_v57_verdict_noyau.py` | `8c0c8533ff808a2db46ed942b9d090b93b82de6a944916e2bb7056c0d765fd64` | v57 tests: healthy case and artefacts for every guard of the verdict |
+| `orchestrator/essais/test_v57_verdict_noyau.py.sha256` | `820b3545fb2a599ebf7a7fece04d66af6d6cf097e49fd0e6408cbe29d122ade1` | seal |
+| `orchestrator/essais/mutations_v57.py` | `5a36f9243625c27ab40abc5b1072c398dd3dd382a1f3e8fe2ac93f055265194d` | v57 mutation bench (19 mutations; also runs v54-v56) |
+| `orchestrator/essais/mutations_v57.py.sha256` | `c61737c6904a3743798914d5aeece51723281c2004fd4e381c3ceab9ecfa8a25` | seal |
 
 ## Security scans run before publication
 
