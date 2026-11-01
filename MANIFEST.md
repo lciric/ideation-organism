@@ -8,7 +8,7 @@ Extract of the private working repository `controle-ia-travail` (branch `canal/c
 |---|---|
 | `.gitignore` | `6f4ff2992c4e2558837e2e09c39ed2bba140658755b22d046aab810ea2c90ca0` |
 | `CITATION.cff` | `4b5d5bbb23d06eebf4a1bcb278cc9680c0c5d80700725f2328a36d6be4aeaa2b` |
-| `README.md` | `83af095e664f96b456be789c1cac192f6c97db11e080bdce0eb111c30ad0a831` |
+| `README.md` | `232c9a9e9e2a4aa89b56dbeed8028022fe373f778a6498085aa2f22372dd3467` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt` | `d50895c99e98825758f9e5b4b05e3221ff616379ffc471440e5216d2c36aedd2` |
 | `orchestrator/EMPREINTES-orchestrateur-pole-v7-v56.txt.sha256` | `0ad93e7b629c5d7cf43e5257dc0f0f31a86fdea487fdaafbeaf08c9bbe35a36c` |
 | `orchestrator/conception-v7-v1.md` | `31fc8c4bc286341fcbf10181be6779ecd20ddf9de092a2c885ce8d11b27fedee` |
@@ -262,6 +262,10 @@ Files added to this public tree after the extraction above, each as a new file (
 | `resultats/banc-tricheurs-v8-validation-v1/rejeu-section13-a-posteriori-v1.txt.sha256` | `eaac387b6dd4f5537915a50906f25f01a08a4000ad68567d0e92c91e961a7681` | seal |
 | `resultats/banc-tricheurs-v8-validation-v1/ecart-section13-v1.md` | `a99400dbed67139f33f2b9bfb4e9e5523638766ad414c1cb9047eb0c06bb00e7` | deviation note: the run started 7 s after the push, without the replay asked by section 13 |
 | `resultats/banc-tricheurs-v8-validation-v1/ecart-section13-v1.md.sha256` | `184a56fbbfa8f51bb2b46eafab3f575bf645f089c01ede89e0b6ed06743cce0b` | seal |
+| `resultats/suite-essais-2026-11-02/suite-complete-bac-reel-non-joue-v1.txt` | `0eb17e57b5004ae1855cbdfd0ac023fc6ce3569dbda4e64d6b243f59dc39c7ae` | full test suite output, real-sandbox tests declared not played (906 passed, 8 failed, 15 skipped) |
+| `resultats/suite-essais-2026-11-02/suite-complete-bac-reel-non-joue-v1.txt.sha256` | `187be623bac25793a3639cd22c1b84a8f533ad132ffefb573568f2ee4c880889` | seal |
+| `resultats/suite-essais-2026-11-02/suite-complete-sans-variable-v1.txt` | `028e168b860c6996e777799f15b2e1624d9722ec9536fa5ec20c1d4aa6ba7891` | full test suite output without the variable (906 passed, 20 failed, 3 skipped) |
+| `resultats/suite-essais-2026-11-02/suite-complete-sans-variable-v1.txt.sha256` | `02afe2dbb42c7f35148c24fac85c32fec37e9878176842a33b6cfe1bb65032eb` | seal |
 | `orchestrator/pole/tests_de_mort_v4.py` | `35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a` | v57: death-test verdict computed by the orchestrator from the script's raw file (not yet wired into the stage) |
 | `orchestrator/pole/tests_de_mort_v4.py.sha256` | `06df987e81eb7b30f2ed121b952a4027e4a91220d8a63c9f9df9cca0c1c01147` | seal |
 | `orchestrator/essais/test_v57_verdict_noyau.py` | `8c0c8533ff808a2db46ed942b9d090b93b82de6a944916e2bb7056c0d765fd64` | v57 tests: healthy case and artefacts for every guard of the verdict |

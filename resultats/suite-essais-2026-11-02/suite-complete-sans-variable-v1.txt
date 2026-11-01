@@ -1,0 +1,314 @@
+commit 02ca692 départ 23:18:25 python Python 3.13.18 numpy 2.5.3
+......................... [  2%]
+............................................................................................................ [ 14%]
+..........................................FF.FFF.F.FFF [ 20%]
+..F...............................F..................F.. [ 26%]
+........................................... [ 30%]
+.........s...................s.... [ 34%]
+............................F..................... [ 39%]
+........................F.............................. [ 45%]
+.................................s................................................ [ 54%]
+...................................................................... [ 62%]
+.................................................. [ 67%]
+.................................................. [ 72%]
+............................................................... [ 79%]
+..............................F.................FF..............FFF.............................................. [ 91%]
+.............................................................. [ 98%]
+..............                                                           [100%]
+=================================== FAILURES ===================================
+________ TestV51.test_v51_01_temoin_identite_cas_sain_sous_le_vrai_bac _________
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+_ TestV51.test_v51_02_temoin_identite_artefact_bwrap_lance_par_le_superutilisateur _
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+________ TestV51.test_v51_04_memoire_du_bac_artefacts_reels_et_cas_sain ________
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+_________ TestV51.test_v51_05_mutations_de_la_sonde_dev_filtre_groupe __________
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+___________ TestV51.test_v51_06_programme_du_filtre_d_appels_systeme ___________
+
+self = <essais.test_v51_bac_reel.TestV51 testMethod=test_v51_06_programme_du_filtre_d_appels_systeme>
+
+    def test_v51_06_programme_du_filtre_d_appels_systeme(self):
+        """CL15-02, CL15-06 : le programme BPF (`programme_seccomp`) **rejoué par un petit interpréteur** : chaque appel refusé
+        rend `EPERM` ; `read`, `write`, `fork`, `execve`, `clone`, `mmap`, `openat`, `socketpair` passent ; un appel x32 est refusé ;
+        une autre architecture est tuée. Une architecture sans table éprouvée est refusée (aucun filtre deviné), à l'outil comme à
+        la construction du programme. La commande porte `--seccomp FD` et `--remount-ro /dev` après le `tmpfs` de `/dev/shm`."""
+        programme = tdm.programme_seccomp("x86_64")
+        self.assertEqual(len(programme) % 8, 0)
+        instr = [struct.unpack("=HBBI", programme[i:i + 8]) for i in range(0, len(programme), 8)]
+    
+        def executer_bpf(arch, nr):
+            pc = acc = 0
+            while True:
+                code, jt, jf, k = instr[pc]
+                if code == 0x20:
+                    acc = {0: nr, 4: arch}[k]
+                    pc += 1
+                elif code == 0x15:
+                    pc += 1 + (jt if acc == k else jf)
+                elif code == 0x35:
+                    pc += 1 + (jt if acc >= k else jf)
+                elif code == 0x06:
+                    return k
+                else:
+                    raise AssertionError(f"instruction inconnue {code:#x}")
+        arch = tdm.APPELS_REFUSES["x86_64"][0]
+        for nom, nr in tdm.APPELS_REFUSES["x86_64"][2].items():
+            self.assertEqual(executer_bpf(arch, nr), 0x00050001, nom)
+        for nr in (0, 1, 2, 9, 56, 57, 59, 257, 53, 39, 60, 231, 435):  # read, write, open, mmap, clone, fork, execve, openat, socketpair…
+            self.assertEqual(executer_bpf(arch, nr), 0x7FFF0000, nr)
+        self.assertEqual(executer_bpf(arch, 0x40000000 | 1), 0x00050001)  # x32
+        self.assertEqual(executer_bpf(0x40000003, 1), 0x80000000)  # i386 (int 0x80) : tué
+        self.assertEqual(executer_bpf(0xC00000B7, 1), 0x80000000)  # aarch64 : tué
+        for nom in ("shmget", "msgget", "semget", "memfd_create", "io_uring_setup", "ptrace", "bpf", "perf_event_open", "keyctl",
+                    "add_key", "userfaultfd", "process_vm_readv", "pidfd_getfd"):
+            self.assertIn(nom, tdm.APPELS_REFUSES["x86_64"][2])
+        with self.assertRaisesRegex(tdm.EtageRefuse, "sans filtre d'appels système éprouvé"):
+            tdm.programme_seccomp("aarch64")
+        ex = tdm.ExecuteurBacASable(bwrap="/usr/bin/bwrap", python="/usr/bin/python3")
+        with mock.patch.object(tdm.os, "uname", return_value=types.SimpleNamespace(machine="riscv64")):
+>           self.assertIn("architecture 'riscv64'", ex.verifier_outils() or "")
+E           AssertionError: "architecture 'riscv64'" not found in "bwrap absent : étage de tests de mort refusé (aucune exécution hors d'un bac à sable, aucun repli)"
+
+essais/test_v51_bac_reel.py:350: AssertionError
+_ TestV51.test_v51_08_lien_substitue_pendant_la_surveillance_sous_le_vrai_bac __
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+_____ TestV51.test_v51_10_modele_commande_externe_refuse_sans_attestation ______
+
+self = <essais.test_v51_bac_reel.TestV51 testMethod=test_v51_10_modele_commande_externe_refuse_sans_attestation>
+
+    def test_v51_10_modele_commande_externe_refuse_sans_attestation(self):
+        """CL15-05 : avec le moteur réel, `--modele-commande-externe` autre que `gemini-4-argon` est refusé **avant tout appel** tant
+        que `--commande-externe-lit-modele` n'atteste pas une commande qui lit le modèle demandé ; l'attestation sans commande
+        externe est une erreur d'options ; le LISEZMOI de la v51 dit que le premier appel réel d'Argon fixe
+        `--modele-servi-externe-permis` avec Lazar."""
+        l2 = lanceur("ideation_v2.py")
+    
+        def args(**kw):
+            base = dict(moteur="claude-sdk", commande_externe="cmd", experimentateur_externe=None, modele_commande_externe=None,
+                        commande_externe_accepte_experimentateur=False, commande_externe_lit_modele=False)
+            base.update(kw)
+            return types.SimpleNamespace(**base)
+        with self.assertRaisesRegex(l2.idn.CourseInterrompue, "CL15-05"):
+            l2.verifier_commande_externe_reelle(args(modele_commande_externe="gemini-5-argon"), [("a", "gemini-5-argon")], [])
+        l2.verifier_commande_externe_reelle(args(modele_commande_externe="gemini-5-argon", commande_externe_lit_modele=True),
+                                            [("a", "gemini-5-argon")], [])
+        l2.verifier_commande_externe_reelle(args(), [("a", "gemini-4-argon")], [])
+        l2.verifier_commande_externe_reelle(args(moteur="simule", modele_commande_externe="gemini-5-argon"), [("a", "x")], [])
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as cm:
+                l2.principal([os.path.join(self.tmp, "s"), "--liste-blanche", "l", "--question", "q", "--temoins", "t",
+                              "--commande-externe-lit-modele"])
+        self.assertEqual(cm.exception.code, 2)
+>       with open(os.path.join(RACINE, "LISEZMOI-orchestrateur-pole-v7-v51.md"), encoding="utf-8") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/ideation-organism/orchestrator/LISEZMOI-orchestrateur-pole-v7-v51.md'
+
+essais/test_v51_bac_reel.py:506: FileNotFoundError
+___ TestV51.test_v51_11_ptrace_io_uring_et_chemin_de_l_hote_sous_le_vrai_bac ___
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+_________ TestV51.test_v51_12_identite_dediee_processus_compte_verrou __________
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+__ TestV51.test_v51_15_r12_la_v50_reste_telle_quelle_et_provenance_de_la_v51 ___
+
+self = <essais.test_v51_bac_reel.TestV51 testMethod=test_v51_15_r12_la_v50_reste_telle_quelle_et_provenance_de_la_v51>
+
+    def test_v51_15_r12_la_v50_reste_telle_quelle_et_provenance_de_la_v51(self):
+        """R12 : aucun fichier de la v50 n'est modifié — chaque fichier de `EMPREINTES-orchestrateur-pole-v7-v50.txt` présent sur
+        le disque a son empreinte v50 ; le seul absent, `essais/test_v7_ideation.py` (v50), est dans `CODE-orchestrateur-pole-v7-
+        v50.zip` à son empreinte. Les fichiers nouveaux de la v51 sont au tableau du LISEZMOI v51 avec leur empreinte (le fichier
+        d'essais présent ne s'y compare pas : il ne peut pas se contenir) ; chaque version 2 a sa version 1 dans l'arbre ou
+        l'archive. Aucun groupe de contrôle `pole-bac-*` ne reste."""
+        v50 = {}
+>       with open(os.path.join(RACINE, "EMPREINTES-orchestrateur-pole-v7-v50.txt"), encoding="utf-8") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/ideation-organism/orchestrator/EMPREINTES-orchestrateur-pole-v7-v50.txt'
+
+essais/test_v51_bac_reel.py:667: FileNotFoundError
+_ TestV52bBorneMemoire.test_v52b_02_sonde_reelle_a_exactement_la_borne_minimale _
+essais/test_v7_ideation_v2.py:5643: in enveloppe
+    exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+________________ TestR12.test_aucun_fichier_de_la_v52b_modifie _________________
+
+self = <essais.test_v53_course2.TestR12 testMethod=test_aucun_fichier_de_la_v52b_modifie>
+
+    def test_aucun_fichier_de_la_v52b_modifie(self):
+        """Chaque fichier de la liste d'empreintes de la v52b (dossier parent de la livraison) a, dans l'arbre v53, son empreinte."""
+        import hashlib
+        liste = os.path.join(RACINE, os.pardir, "EMPREINTES-orchestrateur-v52b.txt")
+>       self.assertTrue(os.path.isfile(liste), "liste d'empreintes de la v52b absente du dossier parent (la suite se joue dans la livraison)")
+E       AssertionError: False is not true : liste d'empreintes de la v52b absente du dossier parent (la suite se joue dans la livraison)
+
+essais/test_v53_course2.py:367: AssertionError
+_________________ TestR12.test_aucun_fichier_de_la_v53_modifie _________________
+
+self = <essais.test_v54_prepilote.TestR12 testMethod=test_aucun_fichier_de_la_v53_modifie>
+
+    def test_aucun_fichier_de_la_v53_modifie(self):
+        """Chaque empreinte de la liste v53 (copiée dans la livraison) tient sur l'arbre v54."""
+        liste = os.path.join(RACINE, "EMPREINTES-orchestrateur-pole-v7-v53.txt")
+        n = 0
+>       with open(liste, encoding="utf-8") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/ideation-organism/orchestrator/EMPREINTES-orchestrateur-pole-v7-v53.txt'
+
+essais/test_v54_prepilote.py:408: FileNotFoundError
+_______________ TestR12V55.test_aucun_fichier_de_la_v54_modifie ________________
+
+self = <essais.test_v55_corrections.TestR12V55 testMethod=test_aucun_fichier_de_la_v54_modifie>
+
+    def test_aucun_fichier_de_la_v54_modifie(self):
+        liste = os.path.join(RACINE, "EMPREINTES-orchestrateur-pole-v7-v54.txt")
+        n = 0
+>       with open(liste, encoding="utf-8") as f:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/claude/ideation-organism/orchestrator/EMPREINTES-orchestrateur-pole-v7-v54.txt'
+
+essais/test_v55_corrections.py:701: FileNotFoundError
+____________ TestV48.test_v48_22_bac_a_sable_reel_si_bwrap_present _____________
+
+self = <essais.test_v7_ideation_v2.TestV48 testMethod=test_v48_22_bac_a_sable_reel_si_bwrap_present>
+a = (), k = {}
+
+    @_functools.wraps(fonction)
+    def enveloppe(self, *a, **k):
+        if not shutil.which("bwrap"):
+>           exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+
+essais/test_v7_ideation_v2.py:5643: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+________ TestV49.test_v49_18_provenance_du_code_modifie_dit_au_lisezmoi ________
+
+self = <essais.test_v7_ideation_v2.TestV49 testMethod=test_v49_18_provenance_du_code_modifie_dit_au_lisezmoi>
+
+    def test_v49_18_provenance_du_code_modifie_dit_au_lisezmoi(self):
+        """R12 : le LISEZMOI de la v49 liste **chaque fichier de code modifié** avec l'empreinte v48 (celle de
+        `EMPREINTES-orchestrateur-pole-v7-v48.txt`, vérifiée) et l'empreinte v49 (celle de `EMPREINTES-orchestrateur-pole-v7-v49.txt`,
+        scellée : depuis la v50 le disque a changé, le fichier de la v49 ne change plus) ; tout fichier de l'empreinte v48 dont le
+        contenu a changé dans la v49 figure dans le tableau ; aucun fichier du tableau n'est inchangé."""
+        from essais.test_v47_relais_moisson import RACINE
+        lisezmoi = os.path.join(RACINE, "LISEZMOI-orchestrateur-pole-v7-v49.md")
+>       self.assertTrue(os.path.exists(lisezmoi), "LISEZMOI de la v49 absent")
+E       AssertionError: False is not true : LISEZMOI de la v49 absent
+
+essais/test_v7_ideation_v2.py:7850: AssertionError
+_____ TestV49.test_v49_19_evasion_rejouee_dans_le_vrai_bac_cibles_factices _____
+
+self = <essais.test_v7_ideation_v2.TestV49 testMethod=test_v49_19_evasion_rejouee_dans_le_vrai_bac_cibles_factices>
+a = (), k = {}
+
+    @_functools.wraps(fonction)
+    def enveloppe(self, *a, **k):
+        if not shutil.which("bwrap"):
+>           exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+
+essais/test_v7_ideation_v2.py:5643: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+____ TestV50.test_v50_15_bac_reel_evasions_de_cl14_rejouees_cibles_factices ____
+
+self = <essais.test_v7_ideation_v2.TestV50 testMethod=test_v50_15_bac_reel_evasions_de_cl14_rejouees_cibles_factices>
+a = (), k = {}
+
+    @_functools.wraps(fonction)
+    def enveloppe(self, *a, **k):
+        if not shutil.which("bwrap"):
+>           exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+
+essais/test_v7_ideation_v2.py:5643: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+__ TestV50.test_v50_16_bac_reel_liens_tube_et_noms_sha256_par_l_etage_entier ___
+
+self = <essais.test_v7_ideation_v2.TestV50 testMethod=test_v50_16_bac_reel_liens_tube_et_noms_sha256_par_l_etage_entier>
+a = (), k = {}
+
+    @_functools.wraps(fonction)
+    def enveloppe(self, *a, **k):
+        if not shutil.which("bwrap"):
+>           exiger_essai_reel(self, "bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot")
+
+essais/test_v7_ideation_v2.py:5643: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+essais/test_v7_ideation_v2.py:5634: in exiger_essai_reel
+    test.fail(f"essai réel impossible ici : {motif} (CL15-04 : jamais ignoré en silence ; {VARIABLE_ESSAIS_REELS_NON_JOUES}=1 "
+E   AssertionError: essai réel impossible ici : bwrap absent de cette machine : essai réel à rejouer dans le conteneur de session-depot (CL15-04 : jamais ignoré en silence ; POLE_ESSAI_BAC_REEL_NON_JOUE=1 pour le déclarer non joué)
+________ TestV50.test_v50_17_provenance_du_code_modifie_dit_au_lisezmoi ________
+
+self = <essais.test_v7_ideation_v2.TestV50 testMethod=test_v50_17_provenance_du_code_modifie_dit_au_lisezmoi>
+
+    def test_v50_17_provenance_du_code_modifie_dit_au_lisezmoi(self):
+        """R12 : le LISEZMOI de la v50 liste **chaque fichier de code modifié** avec l'empreinte v49 (celle de
+        `EMPREINTES-orchestrateur-pole-v7-v49.txt`, vérifiée) et l'empreinte v50 (celle du disque, sauf le fichier d'essais, qui ne
+        peut pas contenir sa propre empreinte stable) ; tout fichier de l'empreinte v49 dont le contenu a changé figure dans le
+        tableau ; aucun fichier du tableau n'est inchangé ; le code de la v49 est récupérable dans `CODE-orchestrateur-pole-v7-v49.zip`
+        (empreintes égales à celles de la liste v49)."""
+        import zipfile
+        from essais.test_v47_relais_moisson import RACINE
+        lisezmoi = os.path.join(RACINE, "LISEZMOI-orchestrateur-pole-v7-v50.md")
+>       self.assertTrue(os.path.exists(lisezmoi), "LISEZMOI de la v50 absent")
+E       AssertionError: False is not true : LISEZMOI de la v50 absent
+
+essais/test_v7_ideation_v2.py:8942: AssertionError
+conftest v54 : essais/_tmp (vide, laissé par le sous-processus de TestV46) retiré
+=========================== short test summary info ============================
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_01_temoin_identite_cas_sain_sous_le_vrai_bac
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_02_temoin_identite_artefact_bwrap_lance_par_le_superutilisateur
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_04_memoire_du_bac_artefacts_reels_et_cas_sain
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_05_mutations_de_la_sonde_dev_filtre_groupe
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_06_programme_du_filtre_d_appels_systeme
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_08_lien_substitue_pendant_la_surveillance_sous_le_vrai_bac
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_10_modele_commande_externe_refuse_sans_attestation
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_11_ptrace_io_uring_et_chemin_de_l_hote_sous_le_vrai_bac
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_12_identite_dediee_processus_compte_verrou
+FAILED essais/test_v51_bac_reel.py::TestV51::test_v51_15_r12_la_v50_reste_telle_quelle_et_provenance_de_la_v51
+FAILED essais/test_v52b_borne_memoire.py::TestV52bBorneMemoire::test_v52b_02_sonde_reelle_a_exactement_la_borne_minimale
+FAILED essais/test_v53_course2.py::TestR12::test_aucun_fichier_de_la_v52b_modifie
+FAILED essais/test_v54_prepilote.py::TestR12::test_aucun_fichier_de_la_v53_modifie
+FAILED essais/test_v55_corrections.py::TestR12V55::test_aucun_fichier_de_la_v54_modifie
+FAILED essais/test_v7_ideation_v2.py::TestV48::test_v48_22_bac_a_sable_reel_si_bwrap_present
+FAILED essais/test_v7_ideation_v2.py::TestV49::test_v49_18_provenance_du_code_modifie_dit_au_lisezmoi
+FAILED essais/test_v7_ideation_v2.py::TestV49::test_v49_19_evasion_rejouee_dans_le_vrai_bac_cibles_factices
+FAILED essais/test_v7_ideation_v2.py::TestV50::test_v50_15_bac_reel_evasions_de_cl14_rejouees_cibles_factices
+FAILED essais/test_v7_ideation_v2.py::TestV50::test_v50_16_bac_reel_liens_tube_et_noms_sha256_par_l_etage_entier
+FAILED essais/test_v7_ideation_v2.py::TestV50::test_v50_17_provenance_du_code_modifie_dit_au_lisezmoi
+20 failed, 906 passed, 3 skipped, 669 subtests passed in 774.97s (0:12:54)
+code 1 fin 23:31:22
