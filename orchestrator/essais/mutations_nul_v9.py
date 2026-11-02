@@ -94,6 +94,9 @@ MUTATIONS = [
     ("départage des membres changé (ordre au lieu du nom)", nul_v9, "evaluer_sur_issues",
      "meilleur, nom = max(candidats, key=lambda c: (c[0], c[1]))", "meilleur, nom = max(candidats, key=lambda c: c[0])",
      [EVAL + "test_departage_des_membres_comme_v2", EVAL + "test_identique_a_v2_sans_morceaux"], r"'a' != 'b'|membre_dominant_final"),
+    ("durée du mode décisif non gardée (une autre durée acceptée)", B, "principal",
+     "args.duree_max_s != DUREE_MAX_S", "False",
+     [PRE + "test_duree_du_mode_decisif_48_h"], r"Expected .lire_preenregistrement. to not have been called|Called 1 times"),
     # --- banc v9 : juge et répétitions ---
     ("monotonie non gardée", B, "verifier_monotonie",
      "    if max(ecarts) > TOLERANCE_MONOTONIE + 1e-6 or (ev9[\"promue\"] and not ev8[\"promue\"]):\n", "    if False:\n",

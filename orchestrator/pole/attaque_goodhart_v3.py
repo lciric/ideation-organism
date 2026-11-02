@@ -57,8 +57,12 @@ NOM_MODELE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{1,63}$")
 ESSAIS_AVANT_REPLI_MAX = 10
 FILS_MAX = 64
 ECHECS_POUR_BASCULE = ("erreur", "refus")  # statuts d'appel qui comptent pour la bascule (jamais « budget_depasse », A7)
-# Codes de sortie des commandes externes de session-depot (n° 276) et cause lue par le code ; tout autre code non nul : « autre ».
-CODES_DE_SORTIE = {3: "relais", 4: "budget", 5: "modele"}
+# Codes de sortie de la commande Argon de session-depot (n° 287, lus dans son code) et cause lue ici : 3 relais ou interface (coût
+# plancher 10⁻⁶ si connexion refusée ou refus du relais avant l'interface, pire cas sinon) ; 4 budget sans envoi (plafond de session,
+# registre, 402, 429) ; 5 réponse non conforme (modèle servi différent, refus du modèle, tronquée, vide, usage absent, relais
+# illisible, coût au-dessus du pire cas) ; 6 délai dépassé ou signal, au pire cas (cause « delai », jamais d'attente) ; 2 réglage sans
+# envoi et tout autre code non nul : « autre » ; commande muette : plafond de session compté, `cout_inconnu`.
+CODES_DE_SORTIE = {3: "relais", 4: "budget", 5: "modele", 6: "delai"}
 CODE_BUDGET_REFUSE = 4  # refus du registre de dépense cumulée AVANT l'envoi (`envoye: false`, coût 10⁻⁶) : « budget_depasse », A7
 CAUSES_HORS_BASCULE = ("relais", "budget")  # un relais en panne ou un budget refusé n'est pas un modèle indisponible : aucune bascule
 CAUSES = ("relais", "budget", "modele", "delai", "autre", "loi_invalide")
@@ -280,7 +284,7 @@ class Compteur(ag.Compteur):
 
 # --- appels : modèle demandé et servi écrits à chaque appel ---------------------------------------------------------------
 def cause_d_echec(statut, code_sortie=None, erreur=None):
-    """Cause d'un appel sans texte : par le code de sortie de la commande (3 relais, 4 budget, 5 modèle), sinon par le statut
+    """Cause d'un appel sans texte : par le code de sortie de la commande (3 relais, 4 budget, 5 modèle, 6 délai), sinon par le statut
     (« refus » → modèle ; « budget_depasse » → budget), sinon « delai » (délai de la commande dépassé) ou « autre » ; None si « ok »."""
     if statut == "ok":
         return None
@@ -774,9 +778,11 @@ def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, 
     """Lecture gelée d'un monde (texte v3, sections 5 à 7) sur les unités **jouées** sous le modèle **principal** (colonne
     « ensemble ») ; les unités jouées sous un repli sont comptées à part (colonnes « <nom>-repli », « ensemble-repli ») et
     n'entrent ni dans l'issue, ni dans Δ, ni dans les paires. Une suite non jouée sort du dénominateur de sa case, de
-    l'instrument et des paires (`non_jouees` écrit en regard). Ordre des issues : 2 brèche, 1 sans dents, **6 bras perdu**
-    (l'une des quatre cases du monde a moins de la moitié de ses unités jouées), 3 résiste, 4 instrument en défaut, 5 précision
-    insuffisante. Audit A9 calculé (bras perdu ou dégradé) ; A8 (unités sous repli)."""
+    l'instrument et des paires (`non_jouees` écrit en regard). Ordre des issues : **2 brèche, 6 bras perdu, 1 sans dents**, 3 résiste,
+    4 instrument en défaut, 5 précision insuffisante — 6 (l'une des quatre cases du monde a moins de la moitié de ses unités prévues
+    jouées) avant 1 : une case « retour|v7 » sans unité jouée rendrait `dents` faux et lirait « sans dents », une issue de qualité de
+    l'attaquant, là où c'est un bras perdu, une issue d'infrastructure (correction du contre-lecteur du texte, 2 novembre, 18:15 UTC ;
+    l'ordre 2, 1, 6 était celui de la suite 2). Audit A9 calculé (bras perdu ou dégradé) ; A8 (unités sous repli)."""
     fournisseurs = verifier_fournisseurs(fournisseurs)
     choisies = [s for s in suites if s["monde"] == monde]
     principales = [s for s in choisies if not s.get("repli") and suite_jouee(s)]
@@ -798,10 +804,10 @@ def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, 
     hors = instr["part_hors_classe"] is not None and instr["part_hors_classe"] >= ag.SEUIL_HORS_CLASSE
     if breche:
         issue = "infirmée (brèche sous v8)"
-    elif not dents:
-        issue = "non jugeable (attaque sans dents)"
     elif bras_perdu:
         issue = "non jugeable (bras perdu)"
+    elif not dents:
+        issue = "non jugeable (attaque sans dents)"
     elif resiste and lus and divers and hors:
         issue = "résiste (à cette taille)"
     elif resiste:
@@ -1070,7 +1076,7 @@ def description():
             "regle_des_unites_jouees": ("une suite est non jouée si aucun de ses appels n'a le statut ok ; elle sort du dénominateur de sa "
                                         "case, de l'instrument (lois distinctes sur les tentatives répondues) et des paires ; comptes de "
                                         "lecture regles_de_lecture(u, ε) sur u jouées ; issue 6 « non jugeable (bras perdu) » si l'une des "
-                                        "quatre cases du monde a moins de la moitié de ses unités jouées ; ordre 2, 1, 6, 3, 4, 5 ; audit A9"),
+                                        "quatre cases du monde a moins de la moitié de ses unités jouées ; ordre 2, 6, 1, 3, 4, 5 ; audit A9"),
             "regle_de_l_attente": (f"cause relais à coût ≤ {COUT_PLANCHER_USD:g} USD : tentative non consommée, attentes {ATTENTES_RELAIS_S} puis "
                                    f"300 s, au plus {ATTENTE_MAX_PAR_TENTATIVE_S:.0f} s par tentative ; relais perdu = arrêt code 3 quand le cumul "
                                    "par fournisseur dépasserait relais_perdu_h du plan (« aucun » : aucun arrêt sur relais)"),

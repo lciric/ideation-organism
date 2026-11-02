@@ -424,7 +424,7 @@ def principal(argv=None):
     a.add_argument("--fournisseurs", help="à blanc : noms parmi les plans de référence, dans l'ordre (kimi,astra,fable,opus ; argon)")
     a.add_argument("--fils", help="à blanc : N (tous) ou nom=N,… (défaut : fils du plan A1-bis)")
     a.add_argument("--panne", help="à blanc : MODELE:I-J (appels I à J en échec) ou MODELE:* ; plusieurs séparés par « ; »")
-    a.add_argument("--code-panne", type=int, help="à blanc : code de sortie simulé des pannes (3 relais, 4 budget, 5 modèle)")
+    a.add_argument("--code-panne", type=int, help="à blanc : code de sortie simulé des pannes (3 relais, 4 budget, 5 modèle, 6 délai)")
     a.add_argument("--muet", action="store_true", default=None, help="à blanc : pannes muettes (aucune ligne de coût : plafond de session compté)")
     a.add_argument("--coupure-relais-s", type=float, help="à blanc : relais coupé pendant N secondes depuis le premier appel (code 3, coût plancher)")
     a.add_argument("--relais-perdu-h", help="à blanc : heures d'attente cumulée par fournisseur avant l'arrêt « relais perdu », ou « aucun »")

@@ -598,6 +598,20 @@ class GrainesEtPreenregistrement(Dossier):
                 with open(os.path.join(arret, "banc-tricheurs-v9.json"), encoding="utf-8") as f:
                     self.assertIn(attendu, json.load(f)["arret"])
 
+    def test_duree_du_mode_decisif_48_h(self):
+        """Cas sain : la durée gelée du mode décisif est 48 h (aucun couperet sur la mesure) ; artefact : un texte décisif
+        lancé avec l'ancienne durée de 8 h est refusé avant toute course (code 2)."""
+        self.assertEqual(banc.DUREE_MAX_S, 48 * 3600.0)
+        self.silence()
+        sortie = os.path.join(self.tmp, "duree-8h")
+        prereg = os.path.join(self.tmp, "preenregistrement-validation-nul-v9-v1.md")
+        with open(prereg, "w", encoding="utf-8") as f:
+            f.write("texte factice")
+        with unittest.mock.patch.object(banc, "lire_preenregistrement") as lu:
+            self.assertEqual(banc.principal([sortie, "--preenregistrement", prereg, "--duree-max-s", "28800"]), 2)
+        lu.assert_not_called()  # refusé sur la durée, avant même de lire le texte
+        self.assertFalse(os.path.exists(os.path.join(sortie, "banc-tricheurs-v9.json")))
+
     def test_fichiers_geles_couvrent_les_imports(self):
         script = ("import importlib.util, json, os, sys\nsys.path.insert(0, sys.argv[1])\n"
                   "s = importlib.util.spec_from_file_location('b', os.path.join(sys.argv[1], 'demonstrations', "

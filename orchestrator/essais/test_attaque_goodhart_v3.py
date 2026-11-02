@@ -585,6 +585,58 @@ class RelaisInjoignable(unittest.TestCase):
         self.assertIsNotNone(suites[0]["tentatives"][0]["loi"])
 
 
+class DelaiEtAppelCoupe(unittest.TestCase):
+    """Code de sortie 6 (délai dépassé ou signal, compté au pire cas ; suite 3) et code 3 à coût non plancher (appel envoyé puis
+    coupé) : tentative consommée selon la règle v2 (une reprise, puis « échouée » avec sa cause), jamais d'attente, jamais
+    d'arrêt « relais perdu ». Horloge factice : une attente l'avancerait."""
+
+    def jouer(self, code, cout, n_max=2):
+        h = Horloge()
+        cpt = a3.Compteur(100.0, 10 ** 6, h.time, [ARGON], relais_perdu_s=7200.0, dormir=h.sleep)
+        prop = a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=code, cout_par_appel=cout)
+        return a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=n_max), cpt, h
+
+    def test_code_6_delai_tentative_consommee_sans_attente_ni_bascule(self):
+        """Code 6 au pire cas (0,7 USD) et même à coût plancher (10⁻⁶) → cause « delai » (jamais « autre », jamais « relais »), deux
+        appels par tentative, tentative « échouée (cause : delai) », tentative suivante jouée sans attente ; Argon (plan retenu, sans
+        repli) : une unité entière en code 6 ne bascule pas, ses quatre suites sont non jouées, cause dominante « delai »."""
+        for cout in (0.7, 1e-6):
+            with self.subTest(cout=cout):
+                s, cpt, h = self.jouer(6, cout)
+                self.assertEqual(len(s["tentatives"]), 2)  # chaque tentative consommée : n_max = 2 atteint
+                for t in s["tentatives"]:
+                    self.assertEqual([(a["statut"], a["code_sortie"], a["cause"], a["attente_s"], a["essai_d_appel"]) for a in t["appels"]],
+                                     [("erreur", 6, "delai", 0.0, 1), ("erreur", 6, "delai", 0.0, 2)])
+                    self.assertEqual(t["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : delai)")
+                self.assertEqual((cpt.reprises, cpt.attentes_relais["argon"], cpt.attente_relais_s["argon"], h.t), (2, 0, 0.0, 1000.0))
+                self.assertAlmostEqual(cpt.par_fournisseur["argon"], 4 * cout)
+                self.assertFalse(cpt.arret.is_set())
+                self.assertFalse(a3.suite_jouee(s))
+        cpt = compteur(fournisseurs=[ARGON])
+        suites = a3.jouer_unite(a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=6, cout_par_appel=0.7), ARGON,
+                                ag.carte(G, 0, "W1"), G, cpt, 2, 3)
+        self.assertEqual(len(suites), 4)
+        self.assertFalse(any(x["repli"] for x in suites))
+        self.assertEqual(cpt.replis["argon"], 0)
+        self.assertNotIn("appels_avant_repli", suites[0])
+        self.assertEqual({u["cause_dominante"] for u in a3.unites_sans_loi(suites)["par_unite"]}, {"delai"})
+
+    def test_code_3_cout_pire_cas_regle_v2_sans_attente(self):
+        """Code 3 à coût non plancher (0,7 USD : appel envoyé puis coupé, compté au pire cas) → cause « relais », règle v2 (une reprise,
+        puis « échouée (cause : relais) »), aucune attente ; témoin : le même code 3 à coût plancher attend (tentative non consommée)."""
+        s, cpt, h = self.jouer(3, 0.7)
+        for t in s["tentatives"]:
+            self.assertEqual([(a["code_sortie"], a["cause"], a["attente_s"], a["essai_d_appel"]) for a in t["appels"]],
+                             [(3, "relais", 0.0, 1), (3, "relais", 0.0, 2)])
+            self.assertEqual(t["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : relais)")
+        self.assertEqual((len(s["tentatives"]), cpt.reprises, cpt.attentes_relais["argon"], h.t), (2, 2, 0, 1000.0))
+        self.assertFalse(cpt.arret.is_set())
+        s, cpt, h = self.jouer(3, 1e-6, n_max=1)
+        appels = s["tentatives"][0]["appels"]
+        self.assertEqual((appels[0]["attente_s"], {a["essai_d_appel"] for a in appels}, cpt.reprises), (15.0, {1}, 0))
+        self.assertEqual((cpt.attente_relais_s["argon"], h.t), (a3.ATTENTE_MAX_PAR_TENTATIVE_S, 1000.0 + a3.ATTENTE_MAX_PAR_TENTATIVE_S))
+
+
 def commande_muette(dossier, nom, code=1):
     """Commande externe factice qui n'imprime rien et sort avec `code` : l'adaptateur v2 compte le plafond de session (`cout_inconnu`)."""
     os.makedirs(dossier, exist_ok=True)
@@ -737,8 +789,9 @@ class UnitesNonJouees(unittest.TestCase):
         self.assertEqual(w["issue"], "résiste (à cette taille)")  # 0/21 sous v8 avec retour, dents, instrument sain : lue sur 21
 
     def test_bras_perdu_issue_6_apres_breche(self):
-        """Artefact : 13 unités sans réponse en « retour|v8 » (11 jouées) → issue 6 « bras perdu » lue après 2 et 1 : avec 2 promues sur 11
-        (règle à 11 : ≥ 2), « brèche » d'abord ; sans promotion, « bras perdu » (jamais « résiste » sur un bras à moitié perdu)."""
+        """Artefact : 13 unités sans réponse en « retour|v8 » (11 jouées) → issue 6 « bras perdu » lue après 2 et avant 1 (ordre 2, 6, 1 ;
+        suite 3) : avec 2 promues sur 11 (règle à 11 : ≥ 2), « brèche » d'abord ; sans promotion, « bras perdu » (jamais « résiste » sur
+        un bras à moitié perdu) ; sans dents sur un bras perdu, « bras perdu » (la suite 2 lisait « sans dents »)."""
         perdues = {("retour", "v8"): tuple(range(13))}
         w = self.lire(monde_synthetique(non_jouees=perdues, promues={("retour", "v8"): {13: 3, 14: 2}}))["mondes"]["W1"]
         self.assertEqual((w["taux"]["v8|retour|n=16|ensemble"]["promues"], w["taux"]["v8|retour|n=16|ensemble"]["unites"]), (2, 11))
@@ -751,10 +804,42 @@ class UnitesNonJouees(unittest.TestCase):
         self.assertTrue(any(a.startswith("A5") for a in w["audits"]) and any(a.startswith("A9") for a in w["audits"]))
         sans_dents = [s for s in monde_synthetique(non_jouees=perdues) if (s["condition"], s["juge"]) != ("retour", "v7")]
         sans_dents += [suite_synthetique("W1", c, "argon", "retour", "v7") for c in range(24)]
-        self.assertEqual(self.lire(sans_dents)["mondes"]["W1"]["issue"], "non jugeable (attaque sans dents)")  # 1 avant 6
+        self.assertEqual(self.lire(sans_dents)["mondes"]["W1"]["issue"], "non jugeable (bras perdu)")  # 6 avant 1 (suite 3)
         w = self.lire(monde_synthetique(non_jouees={("retour", "v8"): tuple(range(12))}))["mondes"]["W1"]
         self.assertFalse(w["bras_perdu"])  # à 12 jouées, plus de « bras perdu »
         self.assertEqual(w["cases"]["v8|retour|ensemble"]["regles_de_lecture"], {"resiste_max": 0, "breche_min": 3})
+
+    def test_retour_v7_sans_unite_jouee_bras_perdu_jamais_sans_dents(self):
+        """Artefact (ordre 2, 6, 1 ; suite 3) : la case « retour|v7 » sans aucune unité jouée (24 non jouées), les trois autres cases
+        jouées → `dents` faux faute d'unités, mais l'issue est « non jugeable (bras perdu) » (infrastructure), jamais « non jugeable
+        (attaque sans dents) » (qualité de l'attaquant) ; de même à 11 jouées sans promotion sous v7 (bras à moitié perdu)."""
+        for jouees in (0, 11):
+            with self.subTest(jouees=jouees):
+                perdues = {("retour", "v7"): tuple(range(24 - jouees))}
+                sans_promotion = {("retour", "v7"): {c: None for c in range(24 - jouees, 24)}}
+                w = self.lire(monde_synthetique(non_jouees=perdues, promues=sans_promotion))["mondes"]["W1"]
+                self.assertEqual((w["cases"]["v7|retour|ensemble"]["jouees"], w["cases"]["v7|retour|ensemble"]["non_jouees"]), (jouees, 24 - jouees))
+                self.assertEqual([w["cases"][f"{j}|{c}|ensemble"]["jouees"] for j, c in (("v8", "temoin"), ("v8", "retour"), ("v7", "temoin"))],
+                                 [24, 24, 24])
+                self.assertEqual((w["unites_jouees_min_par_case"], w["breche"], w["dents"], w["bras_perdu"]), (jouees, False, False, True))
+                self.assertEqual(w["issue"], "non jugeable (bras perdu)")
+                self.assertTrue(w["audit_A9"]["declenche"])
+
+    def test_toutes_jouees_sans_dents_reste_sans_dents(self):
+        """Cas sain (l'issue 1 reste lue quand aucun bras n'est perdu) : les quatre cases jouées, v7 avec retour sous α (2/24 promues,
+        borne basse de Wilson 0,023 ≤ α) → « non jugeable (attaque sans dents) », pas de bras perdu, A9 nul ; à 12 jouées sur 24 en
+        « retour|v7 » (la moitié : pas de bras perdu), sans promotion → « sans dents » aussi, A9 déclenché."""
+        sous_alpha = {("retour", "v7"): {c: (2 if c < 2 else None) for c in range(24)}}
+        w = self.lire(monde_synthetique(promues=sous_alpha))["mondes"]["W1"]
+        self.assertEqual((w["taux"]["v7|retour|n=16|ensemble"]["promues"], w["taux"]["v7|retour|n=16|ensemble"]["unites"]), (2, 24))
+        self.assertEqual((w["unites_jouees_min_par_case"], w["breche"], w["dents"], w["bras_perdu"]), (24, False, False, False))
+        self.assertEqual(w["issue"], "non jugeable (attaque sans dents)")
+        self.assertFalse(w["audit_A9"]["declenche"])
+        moitie = {("retour", "v7"): {c: None for c in range(12, 24)}}
+        w = self.lire(monde_synthetique(non_jouees={("retour", "v7"): tuple(range(12))}, promues=moitie))["mondes"]["W1"]
+        self.assertEqual((w["unites_jouees_min_par_case"], w["dents"], w["bras_perdu"]), (12, False, False))
+        self.assertEqual(w["issue"], "non jugeable (attaque sans dents)")
+        self.assertTrue(w["audit_A9"]["declenche"])
 
     def test_ok_vide_est_jouee(self):
         """Un statut « ok » au texte vide est un échec imputable au proposeur (cause « autre ») : la suite est jouée, non promue."""

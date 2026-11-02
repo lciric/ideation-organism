@@ -37,14 +37,14 @@ Lecture gelée (`lire_v9`), α = 0,05 : voir le préenregistrement (sections 5 �
 
 Gardes (R5) : mode décisif refusé si le préenregistrement n'est pas un fichier `prereg/preenregistrement-validation-nul-v9-v<N>.md`
 (N entier ≥ 1), n'est pas scellé, ne gèle pas chacun des `FICHIERS_GELES`, ou si une empreinte gelée diffère ; refusé avec
-`--lignes`, un autre nombre de répétitions que 1 000, une autre durée maximale que 8 heures ; entropie hors de son espace
+`--lignes`, un autre nombre de répétitions que 1 000, une autre durée maximale que 48 heures (garde contre une boucle folle, jamais un couperet sur la mesure : décision de Lazar du 2 novembre, 18:26 UTC) ; entropie hors de son espace
 refusée ; dossier de sortie non vide refusé ; arrêt (code 3, aucun taux) sur une erreur, une richesse non finie ou la durée.
 
 Codes de sortie : 0 course complète, aucune ligne fatale au-dessus de α et tout artefact au-dessus de α ; 1 sinon ; 2 refus avant
 toute course ; 3 arrêt en cours de course. **Le code ne décide rien** : seule la lecture gelée décide.
 
 Usage : python -I -B demonstrations/banc_tricheurs_v9.py DOSSIER_NEUF (--preenregistrement PREREG.md | --graine G)
-        [--repetitions 1000] [--processus 2] [--lignes nom1,nom2] [--duree-max-s 28800]
+        [--repetitions 1000] [--processus 2] [--lignes nom1,nom2] [--duree-max-s 172800]
 """
 
 import argparse
@@ -81,7 +81,7 @@ VERSION = "banc-tricheurs-v9"
 K, DIM, TIRAGES, CALIBRAGE, ALPHA, DELTA0 = v8.K, v8.DIM, v8.TIRAGES, v8.CALIBRAGE, v8.ALPHA, v8.DELTA0
 INSTANTS = v8.INSTANTS
 REPETITIONS_DECISIVES = 1000
-DUREE_MAX_S = 8 * 3600.0
+DUREE_MAX_S = 48 * 3600.0  # garde contre une boucle folle seulement (course attendue : 1,3 à 5 h)
 NIVEAU_FAMILLE = 0.05
 GAMMA = 0.05
 MARGE_PERTE = 0.05  # perte de puissance appariée admise sur chaque ligne de puissance (préenregistrement, section 5)

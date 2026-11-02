@@ -155,11 +155,19 @@ MUTATIONS = [
     ("issue 6 retirée", A3, "lire_monde", '    elif bras_perdu:\n        issue = "non jugeable (bras perdu)"\n', "",
      [T + "UnitesNonJouees.test_bras_perdu_issue_6_apres_breche"], r"'non jugeable \(précision insuffisante\)' != 'non jugeable \(bras perdu\)'"),
     ("issue 6 placée avant 2 (une brèche masquée par un bras perdu)", A3, "lire_monde",
-     '    if breche:\n        issue = "infirmée (brèche sous v8)"\n    elif not dents:\n        issue = "non jugeable (attaque sans dents)"\n'
-     '    elif bras_perdu:\n        issue = "non jugeable (bras perdu)"\n',
-     '    if bras_perdu:\n        issue = "non jugeable (bras perdu)"\n    elif breche:\n        issue = "infirmée (brèche sous v8)"\n'
-     '    elif not dents:\n        issue = "non jugeable (attaque sans dents)"\n',
+     '    if breche:\n        issue = "infirmée (brèche sous v8)"\n    elif bras_perdu:\n        issue = "non jugeable (bras perdu)"\n',
+     '    if bras_perdu:\n        issue = "non jugeable (bras perdu)"\n    elif breche:\n        issue = "infirmée (brèche sous v8)"\n',
      [T + "UnitesNonJouees.test_bras_perdu_issue_6_apres_breche"], r"'non jugeable \(bras perdu\)' != 'infirmée \(brèche sous v8\)'"),
+    # --- suite 3 : ordre 2, 6, 1 ; code 6 ---
+    ("1 lu avant 6 (ordre 2, 1, 6 de la suite 2 : un bras perdu lu « sans dents »)", A3, "lire_monde",
+     '    elif bras_perdu:\n        issue = "non jugeable (bras perdu)"\n    elif not dents:\n        issue = "non jugeable (attaque sans dents)"\n',
+     '    elif not dents:\n        issue = "non jugeable (attaque sans dents)"\n    elif bras_perdu:\n        issue = "non jugeable (bras perdu)"\n',
+     [T + "UnitesNonJouees.test_retour_v7_sans_unite_jouee_bras_perdu_jamais_sans_dents"],
+     r"test_retour_v7_sans_unite_jouee[\s\S]*'non jugeable \(attaque sans dents\)' != 'non jugeable \(bras perdu\)'"),
+    ("code 6 lu comme autre (table des codes de la suite 2)", A3, "cause_d_echec",
+     "    if code_sortie in CODES_DE_SORTIE:\n", '    if code_sortie in {3: "relais", 4: "budget", 5: "modele"}:\n',
+     [T + "DelaiEtAppelCoupe.test_code_6_delai_tentative_consommee_sans_attente_ni_bascule"],
+     r"test_code_6_delai[\s\S]*\('erreur', 6, 'autre', 0\.0, 1\)"),
     ("lois distinctes sur toutes les tentatives (échouées comprises)", A3, "instrument",
      '    repondues_longues = sum(tentative_repondue(t) for s in longues for t in s["tentatives"])\n',
      '    repondues_longues = sum(len(s["tentatives"]) for s in longues)\n',
