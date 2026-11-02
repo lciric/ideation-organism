@@ -125,8 +125,11 @@ class Description(unittest.TestCase):
         self.assertIn(nul_v9.PHRASES_MEMBRES_V9[nul_v9.TYPE_MORCEAUX], d)
         self.assertIn("mise en commun linéaire", d)
         self.assertIn(a4.MARQUE_NON_COUVERT, d)
-        for phrase in nul_v9.NON_COUVERT_V9:
+        for phrase in nul_v9.NON_COUVERT_V9 + nul_v9.HORS_DU_NUL_PAR_CHOIX_V9 + nul_v9.HORS_DU_NUL_PAR_NATURE_V9:
             self.assertIn(phrase, d)
+        trous = d[d.index(a4.MARQUE_NON_COUVERT):d.index(a4.MARQUE_PAR_CHOIX)]
+        for phrase in nul_v9.HORS_DU_NUL_PAR_CHOIX_V9:  # les choix ne sont pas rangés parmi les trous (description publique du nul)
+            self.assertNotIn(phrase, trous)
         self.assertIn("instants 25, 50", d)
         self.assertEqual(a4.description_du_juge("v8", L), ag.description_du_juge("v8", L))
 

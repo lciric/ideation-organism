@@ -12,6 +12,9 @@ banc v8). Fichier neuf (R12) ; aucun fichier existant n'est modifié ; aucun ré
   promue sous v9 (log W ≤ 0) et l'est sous v8 ; les tricheurs par morceaux M02 à M07 de même ; une loi neuve plantée
   (interaction, loi neuve) reste promue ; artefact : sans les membres par morceaux, M01 passe.
 - Lecture gelée, issues, audits, préenregistrement, liste d'arrêt, fermeture des imports.
+- Après la contre-lecture R2 n° 1 du préenregistrement de validation : cas sain et refus du mode décisif (B1), monotonie par la
+  seule richesse (B1), ordre des issues (I5), valeur certifiée sous optimisation tronquée (I6), description publique séparant
+  trous, choix et nature (I2).
 Mutations : `essais/mutations_nul_v9.py`. Durée visée : quelques minutes (`nice -n 10`).
 """
 
@@ -259,6 +262,42 @@ class CertificatMorceaux(unittest.TestCase):
         self.assertLess(float(f0[0]), lv, "la valeur atteinte au départ devrait être sous la vraisemblance du monde")
         self.assertGreaterEqual(float(cert0[0]), lv - 1e-9, "le certificat au même point domine la vraisemblance du monde")
 
+    def test_valeur_certifiee_sous_optimisation_tronquee(self):
+        """I6 (contre-lecture R2 n° 1) : sous optimisation tronquée (un palier, un pas), la valeur rendue par le membre domine encore
+        la log-vraisemblance de chaque monde de la famille à chaque instant lu (les 30 mondes de l'essai de domination, mêmes
+        graines) — la validité ne dépend pas de la convergence ; dents de l'essai : la meilleure valeur atteinte + 10⁻³ passe sous
+        la vraisemblance du monde à au moins un instant (ce que rendrait une valeur non certifiée)."""
+        instants = [25, 50, 100, 150, 200]
+        sous_atteinte = 0
+        with unittest.mock.patch.object(nul_v9, "PALIERS_MU", (1e-2,)), unittest.mock.patch.object(nul_v9, "PAS_MAX_PAR_PALIER", 1):
+            for r in range(30):  # génération identique à `test_cas_sain_valeur_domine_la_vraisemblance_de_tout_monde_de_la_famille`
+                rng = random.Random(1000 + r)
+                L = _lois(2000 + r)
+                S1, S2 = L["S1"], L["S2"]
+                j, s = rng.randrange(DIM), rng.uniform(-1.5, 1.5)
+                q = {"type": "fixe", "probas": [rng.random() + 0.01 for _ in range(K)]}
+                eps = rng.uniform(0.0, 0.4)
+                choix = r % 4
+                if choix == 0:
+                    monde, nom = banc._par_sp(S1, S2), "morceaux:sous_population"
+                elif choix == 1:
+                    monde, nom = banc._si_seuil(j, s, S1, S2), f"morceaux:seuil:z{j}"
+                elif choix == 2:
+                    monde, nom = banc._melange([banc._si_seuil(j, s, S2, S1), q], [1 - eps, eps]), f"morceaux:seuil:z{j}"
+                else:
+                    monde = banc._par_sp(banc._melange([S1, S2, q], [0.24, 0.56, 0.2]), banc._melange([S1, S2, q], [0.6, 0.2, 0.2]))
+                    nom = "morceaux:sous_population"
+                instances, issues = _donnees(monde, 200, rng)
+                d = _valeurs(nul_v9.membres_morceaux([S1, S2], DIM), instances, issues, instants)
+                lv = nul_v9.log_vraisemblance(monde, issues, instances)
+                for t in instants:
+                    self.assertGreaterEqual(d[nom][t]["valeur"], lv[t - 1] - 1e-9,
+                                            f"optimisation tronquée, monde {r} ({nom}), instant {t} : valeur {d[nom][t]['valeur']} "
+                                            f"sous la vraisemblance du monde {lv[t - 1]}")
+                    sous_atteinte += d[nom][t]["atteinte"] + 1e-3 < lv[t - 1] - 1e-9
+        self.assertGreater(sous_atteinte, 0, "dents de l'essai : l'optimisation tronquée devrait laisser la valeur atteinte + 10⁻³ "
+                                             "sous la vraisemblance du monde à au moins un instant")
+
     def test_garde_depart_non_admissible(self):
         L = _lois(3)
         instances, issues = _donnees(L["S1"], 30, random.Random(3))
@@ -502,6 +541,20 @@ class LectureGelee(unittest.TestCase):
         self.assertEqual(banc.ISSUES, ("confirmé", "trou", "puissance perdue", "non concluant (banc sans dents)",
                                        "non concluant (précision insuffisante)"))
 
+    def test_ordre_des_issues(self):
+        """I5 (contre-lecture R2 n° 1) : l'ordre gelé « trou », puis « puissance perdue », puis « banc sans dents » — une ligne
+        fatale non tenue avec une perte non tenue se lit « trou » ; une perte non tenue avec un artefact non tenu se lit
+        « puissance perdue »."""
+        perte_i02 = {"perdues": 120, "perte": 0.12}
+        r = _remplacer(_remplacer(_resultats_sains(), "M03", promues=90, taux=0.09), "I02", apparie_v8=perte_i02)
+        lec = banc.lire_v9(r, complet=True)
+        self.assertEqual((lec["fatales"]["M03|v9"], lec["perte_de_puissance"]["I02"]), (banc.NON_TENUE, banc.NON_TENUE))
+        self.assertEqual(lec["issue"], "trou")
+        r = _remplacer(_remplacer(_resultats_sains(), "I02", apparie_v8=perte_i02), "M02", apparie_v8={"promues": 20, "taux": 0.02})
+        lec = banc.lire_v9(r, complet=True)
+        self.assertEqual((lec["perte_de_puissance"]["I02"], lec["artefact"]["M02|v8 apparié"]), (banc.NON_TENUE, banc.NON_TENUE))
+        self.assertEqual(lec["issue"], "puissance perdue")
+
 
 class GrainesEtPreenregistrement(Dossier):
     def test_graines_seedsequence_et_cles_distinctes(self):
@@ -586,10 +639,14 @@ class GrainesEtPreenregistrement(Dossier):
             self.assertEqual(banc.principal([os.path.join(self.tmp, "fatale-promue")] + base), 1)
         inverse = ({"promue": True, "log_richesse_max": 5.0, "trajectoire_log_w": [5.0], "membre_dominant_final": "x"},
                    {"promue": False, "log_richesse_max": 1.0, "trajectoire_log_w": [1.0], "membre_dominant_final": "x"})
+        # B1 (contre-lecture R2 n° 1) : monotonie violée par la seule richesse (log W v9 > log W v8 + 10⁻⁶, aucune promotion)
+        richesse = ({"promue": False, "log_richesse_max": 2.0, "trajectoire_log_w": [2.0], "membre_dominant_final": "x"},
+                    {"promue": False, "log_richesse_max": 1.0, "trajectoire_log_w": [1.0], "membre_dominant_final": "x"})
         for nom, argv, patch, attendu in (
                 ("duree", base + ["--duree-max-s", "1e-9"], None, "ArretDuree"),
                 ("erreur", base, unittest.mock.patch.object(banc, "juger_v9", side_effect=RuntimeError("panne simulée")), "panne simulée"),
-                ("monotonie", base, unittest.mock.patch.object(banc, "juger_v9", return_value=inverse), "MonotonieViolee")):
+                ("monotonie", base, unittest.mock.patch.object(banc, "juger_v9", return_value=inverse), "MonotonieViolee"),
+                ("monotonie-richesse", base, unittest.mock.patch.object(banc, "juger_v9", return_value=richesse), "MonotonieViolee")):
             with self.subTest(arret=nom):
                 arret = os.path.join(self.tmp, "arret-" + nom)
                 with (patch or contextlib.nullcontext()):
@@ -612,6 +669,41 @@ class GrainesEtPreenregistrement(Dossier):
         lu.assert_not_called()  # refusé sur la durée, avant même de lire le texte
         self.assertFalse(os.path.exists(os.path.join(sortie, "banc-tricheurs-v9.json")))
 
+    def test_mode_decisif_cas_sain_et_refus(self):
+        """B1 (contre-lecture R2 n° 1). Cas sain du mode décisif : texte d'essai scellé au nom décisif, gelant les 14 empreintes
+        réelles, sans aucune option de plan → toutes les gardes passent et la course démarre une fois (bouchon de `jouer_tout`,
+        qui rend un arrêt : code 3), avec les 31 lignes du plan, 1 000 répétitions chacune, la durée gelée (172 800 s) transmise à
+        chaque ligne et l'entropie égale à l'empreinte du texte ; manifeste en mode décisif. Artefacts : en mode décisif,
+        `--lignes M01`, puis `--repetitions 999` → code 2, aucune course, texte jamais lu, rien écrit."""
+        appels = []
+
+        def bouchon(taches, processus):
+            appels.append((list(taches), processus))
+            return [], "course interrompue par l'essai (bouchon de jouer_tout)"
+        self.silence()
+        with unittest.mock.patch.object(banc, "DOSSIER_PREREG", os.path.join(self.tmp, "prereg")), \
+                unittest.mock.patch.object(banc, "jouer_tout", bouchon):
+            p = self._prereg(self._gel())
+            sortie = os.path.join(self.tmp, "decisif-sain")
+            self.assertEqual(banc.principal([sortie, "--preenregistrement", p]), 3)
+            self.assertEqual(len(appels), 1, "le cas sain du mode décisif doit lancer la course une fois")
+            taches, processus = appels[0]
+            self.assertEqual([(t[1], t[2], t[3]) for t in taches], [tuple(l) for l in banc.LIGNES])
+            self.assertEqual(len(taches), 31)
+            self.assertEqual({t[0] for t in taches}, {int(sha256_fichier(p), 16)})
+            self.assertEqual({t[4] for t in taches}, {banc.REPETITIONS_DECISIVES})
+            self.assertEqual({t[6] for t in taches}, {48 * 3600.0}, "durée transmise à la course ≠ durée gelée")
+            with open(os.path.join(sortie, "manifeste.json"), encoding="utf-8") as f:
+                m = json.load(f)["reglages"]
+            self.assertEqual((m["mode"], m["repetitions"], m["duree_max_s"]), ("decisif", 1000, 48 * 3600.0))
+            for nom, plus in (("lignes", ["--lignes", "M01"]), ("repetitions", ["--repetitions", "999"])):
+                with self.subTest(refus=nom), unittest.mock.patch.object(banc, "lire_preenregistrement") as lu:
+                    s = os.path.join(self.tmp, "decisif-" + nom)
+                    self.assertEqual(banc.principal([s, "--preenregistrement", p] + plus), 2)
+                    lu.assert_not_called()
+                    self.assertFalse(os.path.exists(s))
+        self.assertEqual(len(appels), 1, "une course a été lancée malgré un refus du mode décisif")
+
     def test_fichiers_geles_couvrent_les_imports(self):
         script = ("import importlib.util, json, os, sys\nsys.path.insert(0, sys.argv[1])\n"
                   "s = importlib.util.spec_from_file_location('b', os.path.join(sys.argv[1], 'demonstrations', "
@@ -626,14 +718,54 @@ class GrainesEtPreenregistrement(Dossier):
 
 class DescriptionPublique(unittest.TestCase):
     def test_description_dit_la_classe_et_le_non_couvert(self):
+        """I2 (contre-lecture R2 n° 1) : les trous (`NON_COUVERT_V9`, recombinaisons de lois connues non couvertes) sont séparés
+        des choix (`HORS_DU_NUL_PAR_CHOIX_V9`, dépendances aveugles nouvelles) et de la nature (lois hors de l'archive) ; le poids
+        commun du bruit est dit. Artefact : la liste du brouillon 2, qui rangeait un choix parmi les trous, est détectée."""
         d = nul_v9.description()
         self.assertEqual(d["nul"], "nul-v9")
-        self.assertEqual(len(d["non_couvert"]), 5)
-        texte = " ".join(d["non_couvert"])
-        for mot in ("profondeur 2", "aiguillage doux", "bruit aveugle propre", "tempérées", "produits"):
-            self.assertIn(mot, texte)
-        self.assertIn("tout seuil réel", nul_v9.PHRASES_MEMBRES_V9[nul_v9.TYPE_MORCEAUX])
-        self.assertIn("bruit aveugle fixe commun", nul_v9.PHRASES_MEMBRES_V9[nul_v9.TYPE_MORCEAUX])
+        self.assertEqual(len(d["non_couvert"]), 4)
+        trous = " ".join(d["non_couvert"])
+        for mot in ("profondeur 2", "aiguillage doux", "tempérées", "produits"):
+            self.assertIn(mot, trous)
+        choix = " ".join(d["hors_du_nul_par_choix"])
+        for mot in ("escalier aveugle", "loi aveugle seule sur un morceau", "bruit aveugle propre à un morceau", "autre poids"):
+            self.assertIn(mot, choix)
+        self.assertIn("hors de l'archive", " ".join(d["hors_du_nul_par_nature"]))
+        self.assertIn("sans mémoire", " ".join(d["reserves"]))
+        phrase = nul_v9.PHRASES_MEMBRES_V9[nul_v9.TYPE_MORCEAUX]
+        for mot in ("tout seuil réel", "bruit aveugle fixe commun", "même poids"):
+            self.assertIn(mot, phrase)
+
+        def choix_parmi_les_trous(trous):
+            return [p for p in trous if "aveugle" in p]
+        self.assertEqual(choix_parmi_les_trous(nul_v9.NON_COUVERT_V9), [])
+        liste_du_brouillon_2 = ("morceaux de morceaux (profondeur 2 : sous-population puis seuil, deux seuils, deux traits) et seuils "
+                                "sur une combinaison de traits", "poids de mélange qui varient continûment avec les traits (aiguillage "
+                                "doux)", "bruit aveugle propre à chaque morceau, ou loi aveugle seule sur un morceau",
+                                "lois connues tempérées ou inclinées différemment selon le morceau, compositions d'étapes",
+                                "produits de lois connues, déformations non monotones")
+        self.assertEqual(len(choix_parmi_les_trous(liste_du_brouillon_2)), 1)
+
+    def test_description_publique_separe_trous_choix_et_nature(self):
+        """La description publique (texte) dit le maximum au dénominateur, la classe couverte avec le poids commun du bruit, la
+        garantie, puis, dans cet ordre et sans mélange, les trous, les choix, la nature, et les réserves."""
+        t = nul_v9.description_publique()
+        self.assertEqual(t, nul_v9.description()["description_publique"])
+        self.assertIn("maximum (jamais un mélange a priori)", t)
+        self.assertIn("même loi aveugle, même poids", t)
+        i_trous, i_choix, i_nature, i_res = (t.index("Hors du nul — trous"), t.index("Hors du nul par choix"),
+                                             t.index("Hors du nul par nature"), t.index("Réserves"))
+        self.assertLess(i_trous, i_choix)
+        self.assertLess(i_choix, i_nature)
+        self.assertLess(i_nature, i_res)
+        trous, choix = t[i_trous:i_choix], t[i_choix:i_nature]
+        for p in nul_v9.NON_COUVERT_V9:
+            self.assertIn(p, trous)
+        for p in nul_v9.HORS_DU_NUL_PAR_CHOIX_V9:
+            self.assertIn(p, choix)
+            self.assertNotIn(p, trous, "choix rangé parmi les trous")
+        for p in nul_v9.HORS_DU_NUL_PAR_NATURE_V9 + nul_v9.RESERVES_V9:
+            self.assertIn(p, t[i_nature:])
 
 
 if __name__ == "__main__":

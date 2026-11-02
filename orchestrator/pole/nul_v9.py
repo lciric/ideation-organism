@@ -59,18 +59,24 @@ Argument de validité (court ; la version longue est dans le rapport de rédacti
 
 Classe **couverte** par le nul v9 (en plus de celle du v8) : toute loi qui, sur chaque morceau d'une partition à un niveau —
 par sous-population, ou par seuil réel sur un seul trait —, est un mélange de lois connues propre au morceau, mélangé à une
-même loi aveugle fixe pour tous les morceaux.
-Classe **non couverte** (dite, non fermée ; la description publique du juge la dit, `NON_COUVERT_V9`) :
-- profondeur 2 et plus (morceaux de morceaux : sous-population puis seuil, deux seuils, deux traits) ; seuils sur une
-  combinaison de traits (coupes obliques) ; morceaux définis par l'historique ou par l'instant ;
-- poids de mélange qui varient continûment avec l'instance (aiguillage doux) ;
-- bruit aveugle propre à chaque morceau, et loi aveugle seule sur un morceau quand un autre porte une loi connue ;
-- lois connues tempérées ou inclinées différemment par morceau (le v8 ne couvre la loi tempérée et inclinée que sur tout
-  l'espace) ; compositions d'étapes ;
-- produits de lois (sauf, pour une fille, le produit des deux parents, membre du v8) ; déformations non monotones ;
-- lois hors de l'archive : témoins, fiches d'un autre espace, lois inconnues du pôle.
-Une loi en escalier aveugle (loi fixe propre à chaque valeur de g ou à chaque côté d'un seuil) **reste promouvable** : elle
-dit une dépendance que l'archive ne dit pas.
+même loi aveugle fixe **avec le même poids** pour tous les morceaux (un même vecteur de bruit r).
+Hors du nul v9, en trois sortes (dites, non fermées ; la description publique du juge les sépare, `description_publique`) :
+- **trous** (`NON_COUVERT_V9`) — recombinaisons de lois connues que le nul ne couvre pas, où une promotion peut être fausse :
+  profondeur 2 et plus (morceaux de morceaux : sous-population puis seuil, deux seuils, deux traits), seuils sur une
+  combinaison de traits (coupes obliques), morceaux définis par l'historique ou par l'instant ; poids de mélange qui varient
+  continûment avec l'instance (aiguillage doux) ; lois connues tempérées ou inclinées différemment par morceau (le v8 ne couvre
+  la loi tempérée et inclinée que sur tout l'espace), compositions d'étapes ; produits de lois (sauf, pour une fille, le
+  produit des deux parents, membre du v8), déformations non monotones ;
+- **hors du nul par choix** (`HORS_DU_NUL_PAR_CHOIX_V9`) — dépendances aveugles nouvelles, tenues pour neuves et donc
+  promouvables (choix de sens de « rien au-delà de l'archive », à confirmer par Lazar) : loi en escalier aveugle (loi fixe
+  propre à chaque valeur de g ou à chaque côté d'un seuil), loi aveugle seule sur un morceau quand un autre porte une loi
+  connue, bruit aveugle propre à un morceau (autre loi aveugle, ou même loi aveugle avec un autre poids) ;
+- **hors du nul par nature** (`HORS_DU_NUL_PAR_NATURE_V9`) — lois hors de l'archive (témoins, fiches d'un autre espace, lois
+  inconnues du pôle) : ce que le juge doit pouvoir promouvoir.
+Réserves de la garantie (`RESERVES_V9`) : mondes sans mémoire seulement ; traits finis (un trait non fini sort de la preuve) ;
+membres log-linéaires du v8 à la marge de Newton près (réserve du v8).
+Ce paragraphe, les constantes et `description_publique` ne changent aucun calcul (2 novembre 2026, contre-lecture R2 n° 1 du
+préenregistrement de validation, point I2).
 
 Garanties de code : `exiger_membres_v9` (garde : membres v8 intacts, chaque membre par morceaux présent une fois, lois
 connues exactes, partition exacte) lève `NulV9Refuse` ; `evaluer_v9` refuse un membre inconnu ; aucune valeur de repli :
@@ -105,17 +111,27 @@ TOLERANCE_GROUPE = 1e-3  # précision visée du maximum certifié d'une question
 PHRASES_MEMBRES_V9 = {
     TYPE_MORCEAUX: ("chaque recombinaison par morceaux, à un niveau, des lois connues : un morceau par sous-population, ou "
                     "les deux côtés de tout seuil réel d'un seul trait ; sur chaque morceau un mélange des lois connues propre "
-                    "au morceau, plus un bruit aveugle fixe commun à tous les morceaux ; poids et seuil ajustés au maximum de "
-                    "vraisemblance sur ces mêmes issues"),
+                    "au morceau, plus un bruit aveugle fixe commun à tous les morceaux (même loi aveugle, même poids) ; poids "
+                    "et seuil ajustés au maximum de vraisemblance sur ces mêmes issues"),
 }
-NON_COUVERT_V9 = (
+# Hors du nul v9, trois sortes (description publique, `description_publique`) ; aucune n'entre dans un calcul.
+NON_COUVERT_V9 = (  # trous : recombinaisons de lois connues que le nul ne couvre pas (une promotion peut y être fausse)
     "morceaux de morceaux (profondeur 2 : sous-population puis seuil, deux seuils, deux traits) et seuils sur une "
     "combinaison de traits",
     "poids de mélange qui varient continûment avec les traits (aiguillage doux)",
-    "bruit aveugle propre à chaque morceau, ou loi aveugle seule sur un morceau",
     "lois connues tempérées ou inclinées différemment selon le morceau, compositions d'étapes",
     "produits de lois connues, déformations non monotones",
 )
+HORS_DU_NUL_PAR_CHOIX_V9 = (  # dépendances aveugles nouvelles, tenues pour neuves : promouvables (choix de sens, à confirmer)
+    "loi en escalier aveugle (une loi fixe propre à chaque sous-population ou à chaque côté d'un seuil)",
+    "loi aveugle seule sur un morceau quand un autre porte une loi connue",
+    "bruit aveugle propre à un morceau (une autre loi aveugle, ou la même avec un autre poids)",
+)
+HORS_DU_NUL_PAR_NATURE_V9 = ("lois hors de l'archive : ce que le juge doit pouvoir promouvoir",)
+RESERVES_V9 = ("la garantie vaut pour des mondes sans mémoire (issues indépendantes sachant les instances)",
+               "traits finis (un trait non fini sort de la preuve)",
+               "lois tempérées et inclinées (membres log-linéaires du v8) : garantie à la marge de Newton près, au second ordre, "
+               "non démontrée")
 
 
 class NulV9Refuse(ValueError):
@@ -545,7 +561,24 @@ def log_vraisemblance(loi, issues, instances):
     return [float(v) for v in sp.trajectoire_loi(loi, issues, instances)]
 
 
+def description_publique():
+    """Description publique du nul v9 (texte), engendrée depuis les constantes du module : ce qui est couvert, la garantie, et
+    les trois sortes de lois hors du nul — les trous, les choix, la nature — puis les réserves. Ne change aucun calcul."""
+    return ("Nul v9 du juge. Le dénominateur de la richesse est le maximum (jamais un mélange a priori) des prédicteurs nuls, "
+            "chacun ajusté au mieux sur les issues mêmes. Couvert : les lois connues de l'archive (parents et survivantes), toute "
+            "loi aveugle fixe, leurs mélanges, les lois connues tempérées et inclinées sur tout l'espace (nul v8), et "
+            + PHRASES_MEMBRES_V9[TYPE_MORCEAUX] + ". Garantie : pour tout monde dont la loi est dans l'une de ces familles, une "
+            "loi est promue avec une probabilité d'au plus α, quel que soit le nombre de membres. Hors du nul — trous "
+            "(recombinaisons de lois connues que le nul ne couvre pas ; une promotion peut y être fausse) : "
+            + " ; ".join(NON_COUVERT_V9) + ". Hors du nul par choix (dépendances aveugles nouvelles, tenues pour neuves, donc "
+            "promouvables) : " + " ; ".join(HORS_DU_NUL_PAR_CHOIX_V9) + ". Hors du nul par nature : "
+            + " ; ".join(HORS_DU_NUL_PAR_NATURE_V9) + ". Réserves : " + " ; ".join(RESERVES_V9) + ".")
+
+
 def description():
-    """Provenance du nul pour les rapports : version, module et empreinte, nul v8 sous-jacent, classe non couverte."""
+    """Provenance du nul pour les rapports : version, module et empreinte, nul v8 sous-jacent, ce qui est hors du nul (trous,
+    choix, nature), réserves et description publique."""
     return {"nul": VERSION_NUL, "module": "pole/nul_v9.py", "sha256": sha256_fichier(__file__), "nul_v8": nul_v8.description(),
-            "paliers_mu": list(PALIERS_MU), "pas_max_par_palier": PAS_MAX_PAR_PALIER, "non_couvert": list(NON_COUVERT_V9)}
+            "paliers_mu": list(PALIERS_MU), "pas_max_par_palier": PAS_MAX_PAR_PALIER, "non_couvert": list(NON_COUVERT_V9),
+            "hors_du_nul_par_choix": list(HORS_DU_NUL_PAR_CHOIX_V9), "hors_du_nul_par_nature": list(HORS_DU_NUL_PAR_NATURE_V9),
+            "reserves": list(RESERVES_V9), "description_publique": description_publique()}

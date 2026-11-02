@@ -18,8 +18,10 @@ Ce qui change (décisions de Lazar du 2 novembre 2026, défauts sous 48 heures ;
    au-dessus de celle du v8, est une `MonotonieViolee` du banc : verdict « évaluation impossible » (audit A6), jamais une
    promotion. Les rejeux sous v9 se font sans l'appariement (même décision, `apparie=False`, essai d'égalité).
 3. **Description du juge** (`bibliotheque_du_juge`, `description_du_juge`) : sous v9, engendrée depuis la bibliothèque réelle du v9
-   (membres du v8 plus les membres par morceaux), avec la phrase de `nul_v9.PHRASES_MEMBRES_V9` et la phrase « Non couvert : »
-   suivie de `nul_v9.NON_COUVERT_V9` (la description publique dit le non-couvert) ; sous l'ancien juge, la description de la v2,
+   (membres du v8 plus les membres par morceaux), avec la phrase de `nul_v9.PHRASES_MEMBRES_V9`, puis ce qui est hors du nul,
+   séparé comme dans la description publique du nul (`nul_v9.description_publique`) : « Non couvert : » suivi des trous
+   (`nul_v9.NON_COUVERT_V9`), « Hors du nul par choix » suivi de `nul_v9.HORS_DU_NUL_PAR_CHOIX_V9`, « Hors du nul par nature »
+   suivi de `nul_v9.HORS_DU_NUL_PAR_NATURE_V9` ; sous l'ancien juge, la description de la v2,
    inchangée. La consigne sous v9 est la consigne v2 du juge v8 dont **seul** le paragraphe du juge change (`consigne`).
 4. **Classe couverte** (`structurellement_couverte`, `hors_classe`) : celle du v9 — lois connues, lois fixes, leurs mélanges (classe
    linéaire du v8), et toute loi qui, sur chaque morceau d'une partition à un niveau (par sous-population, ou par un seuil réel sur
@@ -63,6 +65,7 @@ GRILLES = {24: {"eps": 0.25}}
 REJEUX = {"v9": 200, "ancien": 20}
 REJEUX_AUDIT = 200
 MARQUE_NON_COUVERT = "Non couvert : "
+MARQUE_PAR_CHOIX = "Hors du nul par choix (dépendances aveugles nouvelles, tenues pour neuves, donc promouvables) : "
 TOLERANCE_BRUIT_COMMUN = 1e-9
 # Devis : appels par unité attendus (bas, haut). W1 : comme la v2 (sous v9 comme sous v8, W1 ne se gagne pas ; sous v7, A1).
 # W2 : 32 appels pour les deux suites v9 sans promotion (16 + 16) et au moins 2 pour les suites v8 (A1 : trou trouvé dès la
@@ -131,7 +134,8 @@ def bibliotheque_du_juge(nul, L):
 
 def description_du_juge(nul, L):
     """Texte servi au proposeur. Sous v8 et v7 : celui de la v2, inchangé. Sous v9 : engendré depuis `bibliotheque_du_juge("v9")`
-    (refus d'un membre sans phrase), lecture aux instants fixés, et la classe non couverte (`nul_v9.NON_COUVERT_V9`)."""
+    (refus d'un membre sans phrase), lecture aux instants fixés, et ce qui est hors du nul, séparé comme dans la description
+    publique du nul : trous (`nul_v9.NON_COUVERT_V9`), choix (`HORS_DU_NUL_PAR_CHOIX_V9`), nature (`HORS_DU_NUL_PAR_NATURE_V9`)."""
     if nul in ("v8", "v7"):
         return ag.description_du_juge(nul, L)
     membres = bibliotheque_du_juge(nul, L)
@@ -145,7 +149,9 @@ def description_du_juge(nul, L):
             "nouvelles (traits et sous-population tirés comme dans les données de développement), dans un ordre secret. "
             "Ta richesse W est le rapport entre la vraisemblance de ta loi et celle du meilleur des prédicteurs nuls "
             "suivants, chacun ajusté au mieux sur ces mêmes issues : " + " ; ".join(PHRASES_MEMBRES[t] for t in types)
-            + ". " + MARQUE_NON_COUVERT + " ; ".join(nul_v9.NON_COUVERT_V9) + ". W est lue aux instants 25, 50, 75, 100, 125, "
+            + ". " + MARQUE_NON_COUVERT + " ; ".join(nul_v9.NON_COUVERT_V9) + ". " + MARQUE_PAR_CHOIX
+            + " ; ".join(nul_v9.HORS_DU_NUL_PAR_CHOIX_V9) + ". Hors du nul par nature : " + " ; ".join(nul_v9.HORS_DU_NUL_PAR_NATURE_V9)
+            + ". W est lue aux instants 25, 50, 75, 100, 125, "
             f"150, 175 et 200 seulement ; ta loi est **promue** si log W ≥ {ag.SEUIL_LOG_W:.2f} (W ≥ 20) à l'un de ces instants.")
 
 

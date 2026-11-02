@@ -16,9 +16,9 @@ issues 2, 6, 1, code 6), arrivé pendant la rédaction ; l'arbre de travail est 
 Le code v4 est écrit selon l'esquisse (rapport de rédaction du nul v9, section 10, cité **N9**) et les décisions de Lazar : il
 importe la v3 et ne redéfinit que ce qui change (juges, juge, description, consigne, classe couverte, lecture, rejeux, grille,
 devis, proposeur scripté ; lanceur : bloc, texte, fermeture, étape de dépense). **27 essais (73 sous-essais) réussis ; 32
-mutations sur 32 tuées pour la raison attendue.** Les courses à blanc (proposeur scripté, 24 cartes par monde, un fil, rejeux
-réduits) donnent ce que la conception prédit (section 6). Le texte `prereg/preenregistrement-attaque-goodhart-v4-brouillon1.md`
-porte deux jetons (configuration de session-depot ; empreintes au commit). Deux réserves de fond (section 8) : l'instrument
+mutations sur 33 tuées pour la raison attendue.** Les courses à blanc (proposeur scripté, 24 cartes par monde, un fil, rejeux
+réduits) donnent ce que la conception prédit (section 6). Le texte `prereg/preenregistrement-attaque-goodhart-v4-brouillon2.md`
+(depuis l'alignement de la description du juge v9, 19:57 UTC ; le brouillon 1, commité à `b9b3ee3`, reste intact) porte deux jetons (configuration de session-depot ; empreintes au commit). Deux réserves de fond (section 8) : l'instrument
 « hors classe » est la principale menace contre une issue conclusive ; la description boîte blanche donne au proposeur la liste
 des trous du v9.
 
@@ -34,7 +34,12 @@ des trous du v9.
    impossible » (A6) ; `apparie=False` (rejeux, audit) : `engagement_v9`, `tirer_frais`, `nul_v9.evaluer_v9` (même décision ; essai).
 3. **Description et consigne** : `bibliotheque_du_juge("v9")` = standard + marginale d'entraînement + `nul_v9.membres_archive_v9` ;
    `description_du_juge("v9")` engendrée depuis elle (refus d'un membre sans phrase ; `PHRASES_MEMBRES` = v2 + `PHRASES_MEMBRES_V9`),
-   puis « Non couvert : » et `NON_COUVERT_V9`, puis la lecture aux instants fixés ; sous v8 et v7, la description de la v2.
+   puis ce qui est hors du nul, séparé comme dans la description publique du nul (`nul_v9.description_publique`) : « Non
+   couvert : » et les trous (`NON_COUVERT_V9`), « Hors du nul par choix » (`HORS_DU_NUL_PAR_CHOIX_V9`), « Hors du nul par
+   nature » (`HORS_DU_NUL_PAR_NATURE_V9`), puis la lecture aux instants fixés ; sous v8 et v7, la description de la v2.
+   **Alignement fait à 19:57 UTC**, après la contre-lecture R2 n° 1 de la validation du v9 (point I2), qui a séparé dans
+   `pole/nul_v9.py` les trous des choix (description seulement, aucun calcul) ; avant, la v4 disait « Non couvert : » suivi des
+   cinq phrases de l'ancien `NON_COUVERT_V9`, choix compris.
    `consigne` sous v9 = consigne v2 du juge v8 dont **seul** le paragraphe du juge est remplacé (une occurrence vérifiée).
 4. **Classe couverte** : `forme_v9` décompose une loi en (partition, {morceau : (poids de S1, poids de S2 ; part fixe)}) — partition
    globale, par sous-population, ou par seuil (indice, seuil) ; mélanges combinés morceau par morceau ; une sous-loi d'une autre
@@ -88,12 +93,18 @@ survivait : les lois promues sous l'ancien juge, rejouées sous v9, donnaient le
 
 ## 5. Banc de mutations (`essais/mutations_attaque_goodhart_v4.py`)
 
-Mécanique de `essais/mutations_nul_v9.py`, étendue aux méthodes (cible = classe). **32 mutations, 32 tuées pour la raison
+Mécanique de `essais/mutations_nul_v9.py`, étendue aux méthodes (cible = classe). **33 mutations, 33 tuées pour la raison
 attendue, 0 survivante, 0 défaut du banc** ; témoin 19 essais sans échec avant et après. Libellés : texte, section 8. Pour rendre
 la méthode `ProposeurScripte.__call__` recompilable, elle appelle la v3 explicitement (`a3.ProposeurScripte.__call__(self, …)`)
 au lieu de `super()` (un `super()` sans argument recompilé hors de sa classe lève « __class__ cell not found »).
 
 ## 6. Courses à blanc (aucun réseau, proposeur scripté)
+
+**Code joué** : celui d'avant l'alignement de la description (cœur `692bef22…99c6`, nul v9 `8cb44adf…aebc655`). Depuis, seul le
+paragraphe du juge des consignes v9 a changé (trous, puis choix, puis nature) ; le calcul, les graines et le proposeur scripté
+(qui ne lit que les blocs MONDE et HISTORIQUE et les marques « Non couvert : » et « mise en commun linéaire », toujours
+présentes) sont les mêmes : rejouées, les courses donneraient les mêmes lois et les mêmes verdicts ; seuls les champs
+`consigne_sha256` et les empreintes des manifestes changeraient. Non rejouées (temps machine), dit.
 
 Lanceur v4 en mode à blanc, plan décidé (Argon seul, **un fil**, **24 cartes par monde**, W1 et W2, 16 tentatives, « relais perdu »
 aucun), graine exploratoire 20261102, rejeux réduits ; code joué = code remis (empreintes des quatre fichiers v4, du cœur v3 et du
@@ -154,17 +165,18 @@ Script `devis_v4.py` (empreintes en section 9).
 
 ## 9. Empreintes
 
-Fichiers neufs du dépôt (code : `sha256sum` à 19:27 UTC, avant le dernier passage des essais et des mutations, inchangés depuis ;
+Fichiers neufs du dépôt (code : `sha256sum` à 19:58 UTC, après l'alignement de la description et le dernier passage des essais et des
+mutations — `essais-et-mutations-final2-sortie.txt` `4a9e2bd74be140beec368e7e117a9a16d22170205ed79d1c196cd00dad02df16` ;
 les deux textes : à la remise, donnés avec elle, puisqu'un texte ne peut porter sa propre empreinte) :
 ```
-692bef229c66760cc48c1cbab6d008d1f60215c864c49cd3e2785017a6fc99c6  pole/attaque_goodhart_v4.py
+0077a6470781b8cd9e0599232ddd52e3601c8c4c8735a5cfcf817800bda3bb5c  pole/attaque_goodhart_v4.py
 6357c0f55a55fdf73969d7f1f6a15fad99fb4566b6c7b541b8cc1cbee329f5ec  demonstrations/attaque_goodhart_v4.py
-b8d9be4151423dc38b015e8d6f1497840652dfb44f62dbd8730976531b3b1b56  essais/test_attaque_goodhart_v4.py
-3a66aaa933b14cdde958b1c8d5169bc27ecdd6c487a1ecb7bbee0dd938d67eae  essais/mutations_attaque_goodhart_v4.py
+350423da81e1f49eb251a72c8a0ca69c350cab8298b8f59b5c10c75bf3739cd6  essais/test_attaque_goodhart_v4.py
+2dd378f6e83c1e5f0a4079e615b132763a13cd3d1fed028249747d806b87c6db  essais/mutations_attaque_goodhart_v4.py
 ```
 Importés tels quels (commit `e58cfec`) : `pole/attaque_goodhart_v3.py` `b821bdb73a2829a41d519800859bbf10216254ca97228b5a179438eed38a1c6a`,
 `demonstrations/attaque_goodhart_v3.py` `ff8aa180c5f69290dd02b66f7252dfb47a78868220cd2260bdbe171844b7313a`, `pole/nul_v9.py`
-`8cb44adf8b325ac656b077f03dddb44311071510a5785ebd3f0aa8c37aebc655`, `demonstrations/banc_tricheurs_v9.py`
+`7ae450df2482246122bf9fbcf0fa5ef30b4a7e4c6f0d09531e83af048e46ee95` (description publique, brouillon 4 de la validation ; au commit `e58cfec` : `8cb44adf…aebc655`), `demonstrations/banc_tricheurs_v9.py`
 `7e4bff5995df2a7d62a4f5a2f5f9176da614e657a55b05183325fa2fc6e24e44`.
 
 Bloc-notes (`…/scratchpad/attaque-v4/`) :
@@ -188,7 +200,7 @@ Bloc-notes (`…/scratchpad/attaque-v4/`) :
 5. Le lanceur : bloc, refus croisés, étape de dépense, fermeture (77).
 6. Les courses à blanc : issues attendues et contre-épreuves (melangeur, sortant de la v2).
 7. Le devis (constantes de durée, W2 à 34–40 appels par unité).
-8. Les essais nommés au texte (section 8) et les 32 mutations (raisons).
+8. Les essais nommés au texte (section 8) et les 33 mutations (raisons).
 9. Que les fonctions recopiées de la v3 n'ont pas dérivé du commit `e58cfec`.
 10. Que rien dans le texte ne dépend d'un chiffre d'A1 non vérifié (R7).
 

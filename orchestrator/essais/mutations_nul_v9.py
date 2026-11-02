@@ -8,7 +8,11 @@ décisive (l'essai des refus remplace la course par un bouchon). Cibles :
   et leur garde, liste des types ajustés de l'évaluateur, refus d'un membre inconnu, gardes d'engagement, sens du pas de Newton ;
 - le banc v9 (l'instance chargée par les essais, `test_nul_v9.banc`) : monotonie gardée, perte appariée, lecture gelée (issues,
   artefacts appariés, audits A4 et A5), préenregistrement (nom, scellement, empreintes), espace des graines, liste d'arrêt,
-  code de sortie.
+  code de sortie ;
+- ajoutées après la contre-lecture R2 n° 1 du préenregistrement de validation (section 5 de
+  `prereg/contre-lecture-preenregistrement-validation-nul-v9-v1.md`) : G1 à G5 (mode décisif : `--lignes`, répétitions, cas
+  sain, durée transmise ; monotonie par la seule richesse), L1 et L2 (ordre des issues), C5 (valeur du membre = meilleure valeur
+  atteinte + 10⁻³), et la description publique (choix rangés parmi les trous).
 
   nice -n 10 python3 -I -B essais/mutations_nul_v9.py [--raisons]      (depuis orchestrator/ ; une ligne par mutation)
 """
@@ -36,6 +40,18 @@ NR = r"not raised"
 BANC = re.compile(r"NameError|SyntaxError|IndentationError|__class__ cell not found")
 CERT, EVAL, TRI = T + "CertificatMorceaux.", T + "EvaluateurV9.", T + "TricheursParMorceaux."
 MEM, LEC, PRE = T + "MembresNulV9.", T + "LectureGelee.", T + "GrainesEtPreenregistrement."
+DESC = T + "DescriptionPublique."
+# Contre-lecture R2 n° 1 (prereg/contre-lecture-preenregistrement-validation-nul-v9-v1.md, section 5) : fragments de l'ordre
+# des issues dans `lire_v9`, repris à l'identique de `sondes_mutations_contre_lecture_v1.py`.
+ORDRE_23_A = ('    elif NON_TENUE in lecture["perte_de_puissance"].values():\n        issue = "puissance perdue"\n'
+              '    elif not valeurs_art or any(v != TENUE for v in valeurs_art):\n        issue = "non concluant (banc sans dents)"\n')
+ORDRE_23_N = ('    elif not valeurs_art or any(v != TENUE for v in valeurs_art):\n        issue = "non concluant (banc sans dents)"\n'
+              '    elif NON_TENUE in lecture["perte_de_puissance"].values():\n        issue = "puissance perdue"\n')
+ORDRE_12_A = ('    elif NON_TENUE in lecture["fatales"].values():\n        issue = "trou"\n'
+              '    elif NON_TENUE in lecture["perte_de_puissance"].values():\n        issue = "puissance perdue"\n')
+ORDRE_12_N = ('    elif NON_TENUE in lecture["perte_de_puissance"].values():\n        issue = "puissance perdue"\n'
+              '    elif NON_TENUE in lecture["fatales"].values():\n        issue = "trou"\n')
+APPELE = r"Expected .lire_preenregistrement. to not have been called|Called 1 times"
 DOMINE = CERT + "test_cas_sain_valeur_domine_la_vraisemblance_de_tout_monde_de_la_famille"
 SOUS = r"< log-vraisemblance du monde|valeur .* sous la référence|M0\d\|v9 promue [1-9]|log_w_max_max|not less than or equal to 1e-06"
 
@@ -150,6 +166,32 @@ MUTATIONS = [
     ("code de sortie : artefact et fatale ignorés", B, "code_de_sortie",
      "return 1 if fatales_au_dessus_de_alpha(resultats) or artefacts_non_vus(resultats) else 0", "return 0",
      [PRE + "test_banc_reduit_et_liste_d_arret"], r"0 != 1"),
+    # --- contre-lecture R2 n° 1 : mutations G1 à G5 (B1), L1 et L2 (I5), C5 (I6), fragments de `sondes_mutations_contre_lecture_v1.py` ---
+    ("G1 mode décisif : --lignes accepté", B, "principal", "if args.lignes or ", "if ",
+     [PRE + "test_mode_decisif_cas_sain_et_refus"], APPELE),
+    ("G2 mode décisif : autre nombre de répétitions accepté", B, "principal", "args.repetitions != REPETITIONS_DECISIVES or ", "",
+     [PRE + "test_mode_decisif_cas_sain_et_refus"], APPELE),
+    ("G3 mode décisif toujours refusé (le cas sain n'est jamais joué)", B, "principal",
+     "if args.lignes or args.repetitions != REPETITIONS_DECISIVES or args.duree_max_s != DUREE_MAX_S:", "if True:",
+     [PRE + "test_mode_decisif_cas_sain_et_refus"], r"2 != 3"),
+    ("G4 durée transmise à la course plafonnée à 8 h (la garde accepte 48 h, la course coupe à 8 h)", B, "principal",
+     "debut, args.duree_max_s)", "debut, min(args.duree_max_s, 28800.0))",
+     [PRE + "test_mode_decisif_cas_sain_et_refus"], r"28800"),
+    ("G5 monotonie : écart de richesse non gardé (seule la promotion inversée arrête)", B, "verifier_monotonie",
+     "if max(ecarts) > TOLERANCE_MONOTONIE + 1e-6 or (ev9", "if (ev9",
+     [PRE + "test_banc_reduit_et_liste_d_arret"], r"monotonie-richesse[\s\S]*(0|1) != 3"),
+    ("L1 ordre des issues : « banc sans dents » avant « puissance perdue »", B, "lire_v9", ORDRE_23_A, ORDRE_23_N,
+     [LEC + "test_ordre_des_issues"], r"'non concluant \(banc sans dents\)' != 'puissance perdue'"),
+    ("L2 ordre des issues : « puissance perdue » avant « trou »", B, "lire_v9", ORDRE_12_A, ORDRE_12_N,
+     [LEC + "test_ordre_des_issues"], r"'puissance perdue' != 'trou'"),
+    ("C5 valeur du membre = meilleure valeur atteinte + 10^-3 (confiance dans l'optimiseur)", nul_v9, "detail_morceaux_groupe",
+     "valeur, atteinte = float(bornes[sel].max()), float(atteintes[sel].max())",
+     "valeur, atteinte = float(atteintes[sel].max()) + 1e-3, float(atteintes[sel].max())",
+     [CERT + "test_valeur_certifiee_sous_optimisation_tronquee"], r"optimisation tronquée[\s\S]*sous la vraisemblance du monde"),
+    # --- description publique (I2) ---
+    ("description publique : choix rangés parmi les trous", nul_v9, "description_publique", "\" ; \".join(NON_COUVERT_V9)",
+     "\" ; \".join(NON_COUVERT_V9 + HORS_DU_NUL_PAR_CHOIX_V9)",
+     [DESC + "test_description_publique_separe_trous_choix_et_nature"], r"choix rangé parmi les trous"),
 ]
 
 

@@ -54,8 +54,12 @@ MUTATIONS = [
      [JUG + "test_monotonie_violee_evaluation_impossible"], r"'promue' != 'evaluation_impossible'"),
     # --- description et consigne ---
     ("« Non couvert » retiré de la description du v9", a4, "description_du_juge",
-     "MARQUE_NON_COUVERT + \" ; \".join(nul_v9.NON_COUVERT_V9) + \". W est lue", "\"W est lue",
+     "MARQUE_NON_COUVERT + \" ; \".join(nul_v9.NON_COUVERT_V9) + \". \" + MARQUE_PAR_CHOIX", "MARQUE_PAR_CHOIX",
      [DES + "test_description_v9_dit_les_membres_et_le_non_couvert"], r"'Non couvert : ' not found"),
+    ("choix rangés parmi les trous dans la description du v9", a4, "description_du_juge",
+     "\" ; \".join(nul_v9.NON_COUVERT_V9) + \". \" + MARQUE_PAR_CHOIX",
+     "\" ; \".join(nul_v9.NON_COUVERT_V9 + nul_v9.HORS_DU_NUL_PAR_CHOIX_V9) + \". \" + MARQUE_PAR_CHOIX",
+     [DES + "test_description_v9_dit_les_membres_et_le_non_couvert"], r"unexpectedly found in"),
     ("membre de bibliothèque sans phrase accepté", a4, "description_du_juge",
      "        if t not in PHRASES_MEMBRES:\n", "        if t not in PHRASES_MEMBRES:\n            continue\n        if False:\n",
      [DES + "test_artefact_membre_sans_phrase_refuse"], r"AttaqueRefusee not raised"),
