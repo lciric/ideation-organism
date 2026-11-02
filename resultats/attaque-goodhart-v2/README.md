@@ -1,6 +1,12 @@
 # A1 — Goodhart attack on the statistical judge: status
 
-*Status page of the preregistered attack on this system's statistical judge by language-model proposers that see its verdicts. Last updated: 2 November 2026, 09:29 UTC. The result, whatever its sign, will be posted on this page once the sealed output has been read once under the frozen criteria and checked by a fresh reader.*
+*Status page of the preregistered attack on this system's statistical judge by language-model proposers that see its verdicts. Last updated: 2 November 2026, 16:05 UTC. The result is below: the sealed output was read once under the frozen criteria, audited in writing, and the verdict was given by a fresh reader.*
+
+## Result
+
+**Result (2 November 2026).** The run finished on 2 November 2026 at 13:29:14 UTC with exit code 0 (3,572 calls, 39.45 USD of the 80 USD cap, about 3.5 hours). The frozen code computed the reading at the end of the run and sealed it with the output; a fresh auditor audited it in writing, and a fresh reader gave this verdict under the frozen criteria. **W1** (a world inside the v8 null): **not judgeable (instrument failure).** With feedback, 1 of 24 units had a law promoted under v8 within 16 attempts (95% Wilson interval 0.007 to 0.202), and the attack had teeth under the old v7 null (11 of 24); but the share of distinct laws was 0.497, below the frozen 0.50, so the count cannot be read as resistance. **W2** (a piecewise world outside the v8 null): **breach under v8, through the uncovered class**: 12 of 24 units promoted (0.314 to 0.686); all 24 promoted laws replay above α after Holm's correction, none of them in the covered class. As written before the run, this does not mean that the v8 null is flawed or that Ville's guarantee is beaten: the null itself declares this class uncovered. **Deviations.** The Kimi arm was almost entirely lost to relay problems, not to the model. A monitoring script wrongly stopped the Kimi relay at 10:39:15 UTC (306 attempts consumed as failures in 89 seconds); then a "skip Kimi" rule decided during the run stopped it for good at 12:23:14 after two upstream 502 errors (1,212 more failed attempts, whose 2,424 calls are missing from the spending ledger and from the relay log). Kimi produced 5 laws in 1,524 attempts; 21 of its 24 units have none, and the frozen code counts them as units not promoted. In practice the results are Argon's: on W2, Argon was promoted in 12 of 12 units, 11 of them at the first attempt with or without feedback, so the share of the feedback is not measured; on W1, a reading of Argon alone, exploratory and outside the preregistration, gives 1 of 12 and "insufficient precision", not "resists". The launcher's working tree had uncommitted changes (at least the private GO ledger copied into it); the 71 frozen code files matched their hashes. Predictions, which do not decide the outcome: P1, P3, P4 and P6 true; P2 and P5 false. SHA-256: preregistration `fc81d015d27e60388099c7845a66b75d613187f99d5d0060950540a686925b65`; sealed output `5dd5066c659c7a3b34c1b12d15a9bb80fb996d67a14f226d76c028c428a1d8c6`; manifest `7552e5a416c1a5dac4c8576e43cf06d118ff0d16785b812f8823d3d0af90d423`; spending ledger `ae47217ed7bc66c44c2fa25a2d675af7486e0d71c8e3a8a43cb20279c0129611`; audit report `a886904d000770760efa86ecd87bfa041ecd1df35b91977770815b4d2fa9d942`. Fresh reader's verdict: SHA-256 `795e5e992d65bce3096d78f1cd4c36c95cdfc00cdeb40f6259278275e92d3909`.
+
+No other reading replaces this one: the Argon-only reading above is exploratory. Any further run will be a new preregistration, sealed before it runs, and reported on this page.
 
 ## The question
 
@@ -48,11 +54,11 @@ It ran in 4 s here on 2 November 2026 (code 0, 36 simulated calls, 0 USD; sealed
 
 ## Where it stands
 
-- **Sealed** on 2 November 2026. The run is launched by the session that holds the API keys, under GO-2026-11-02-07 (at most 80 USD). It ends after 2 November.
-- **Then**: the output is sealed before any reading; it is read once under the frozen criteria; a fresh reader checks the verdict; the result is posted here, null or not. If the run stops on a guard, this page says so.
+- **Sealed** on 2 November 2026. Run by the session that holds the API keys, under GO-2026-11-02-07 (at most 80 USD), from 09:58:45 to 13:29:14 UTC (exit code 0, 39.45 USD).
+- **Read**: output sealed before any reading; read once under the frozen criteria; audited in writing (section 7 of the preregistration); verdict by a fresh reader. The result, with its deviations, is at the top of this page.
 
 ## Next: the closed round
 
-The closed round is the generation loop closed with real sandboxed death tests. Its preregistration is at **draft 2**, public with the code of its first stage (commit `7d3aa82`: [`orchestrator/prereg/preenregistrement-tour-ferme-v1-brouillon2.md`](../../orchestrator/prereg/preenregistrement-tour-ferme-v1-brouillon2.md)), and a second fresh counter-reading of the text and the code is under way. **It is not sealed and has not been run**; its second stage is not yet written. This page will say when it is sealed.
+The closed round is the generation loop closed with real sandboxed death tests. Its preregistration is at **draft 3**, public with the code of its first stage (commit `8247cac`: [`orchestrator/prereg/preenregistrement-tour-ferme-v1-brouillon3.md`](../../orchestrator/prereg/preenregistrement-tour-ferme-v1-brouillon3.md)); a third fresh counter-reading of the text and the code is to come. **It is not sealed and has not been run**; its second stage is not yet written. This page will say when it is sealed.
 
 Back to the [main README](../../README.md).
