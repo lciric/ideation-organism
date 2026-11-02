@@ -1,0 +1,167 @@
+[
+ [
+  "T64",
+  "Calculé par `pole/lecture_tour_ferme_v61.lire_etage1` (C1, C2 appliqués ; la v60 reste, inchangée) sur le relevé scellé, dans cet ordre ;",
+  "Calculé par `pole/lecture_tour_ferme_v62.lire_etage1`, appelée par `lire_tour_etage_1` (programme `demonstrations/lire_tour_ferme_v62.py`, section 9 ; C10 et C16 de la contre-lecture 2 appliqués ; les lectures v60 et v61 restent inchangées, hors du code gelé de ce texte) sur le relevé scellé, dans cet ordre ;"
+ ],
+ [
+  "T65",
+  "un lanceur à vrais modèles (écrit en `_v61` pour l'étage 1, section 13 ; cœur de l'étage 2 non écrit)",
+  "un lanceur à vrais modèles (écrit en `_v61`, remplacé pour ce texte par `demonstrations/tour_ferme_v62.py`, étage 1 seul, section 13 ; cœur de l'étage 2 non écrit)"
+ ],
+ [
+  "T66",
+  "(`pole/lecture_tour_ferme_v60.py`, remplacée pour ce texte par `pole/lecture_tour_ferme_v61.py`, section 4.6)",
+  "(`pole/lecture_tour_ferme_v60.py`, remplacée par `pole/lecture_tour_ferme_v61.py`, puis, pour ce texte, par `pole/lecture_tour_ferme_v62.py`, section 4.6)"
+ ],
+ [
+  "T67",
+  "`tour-ferme-v61|etage=<e>|bras=<b>|generation=<g>` (préfixe = `VERSION` du cœur gelé ; `tour-ferme-v62|…` avec un cœur v62) suivies de",
+  "`tour-ferme-v62|etage=1|bras=<b>|generation=<g>` (préfixe = `VERSION` du cœur gelé `pole/tour_ferme_v62.py` ; règle recopiée au manifeste, champ `regle_des_graines`) suivies de"
+ ],
+ [
+  "T68",
+  "`nice -n 10 python3 -I -B demonstrations/lire_tour_ferme_v62.py ../resultats/tour-ferme-v1-etage1 LECTURE.json` (à écrire en v62 : vérifie le sceau et l'empreinte du relevé, applique `lire_tour` au champ `releve`, écrit la lecture scellée qu'exige la garde 12).",
+  "`nice -n 10 python3 -I -B demonstrations/lire_tour_ferme_v62.py ../resultats/tour-ferme-v1-etage1 LECTURE.json --releve-sha256 SHA` (SHA : l'empreinte du relevé imprimée par le lanceur à la fin de la course et commitée avec lui ; le programme vérifie le sceau et cette empreinte, applique `lire_tour_etage_1` au seul champ `releve`, écrit la lecture scellée sans jamais écraser une lecture existante ; c'est elle que lira la porte du préenregistrement de l'étage 2)."
+ ],
+ [
+  "T69",
+  "recalculées ci-dessous pour le code v62, arbre de travail à la tête `82ad7a8`, fichiers v62 non suivis : à revérifier après commit)",
+  "recalculées ci-dessous pour le code v62 à la tête `82ad7a8` ; revérifiées par la contre-lecture 3 aux commits `8247cac` et `421d090` : 81 empreintes égales à l'arbre et aux deux commits. Limite : cette fermeture est celle du chargement des programmes ; pendant la course, l'import tardif de `dossier_ferme.charger_dossier_ferme` (appelé à chaque création de tranche) charge et exécute deux modules du dépôt absents de ce bloc, que le lanceur ne vérifie pas : `pole/ideation.py` (`4ee70d25567a9b3ac90911cc5ebee8cebba0537d541e7a0ebc1fa3ed170abdc2`) et `pole/tests_de_mort.py` (`fc5d3507b33e13094d64751ff2b4564ba5ed4c238f93aaae808c458b3c123252`) ; la session-depot vérifie ces deux empreintes juste avant la course)"
+ ],
+ [
+  "T70",
+  "(1) le code `_v62` (contre-lecture 2 : loi servie à l'expérimentateur, grammaire servie aux proposeurs, lectures d'héritage, arrêts scellés, relais, machine jetable) et, pour l'étage 2, son cœur ; leurs essais, leur banc de mutations et une répétition à blanc où les rôles scriptés ne reçoivent que ce que reçoivent les modèles ;",
+  "(1) fait pour l'étage 1 : le code `_v62` (contre-lecture 2 : loi servie à l'expérimentateur, grammaire servie aux proposeurs, lectures d'héritage, arrêts scellés, relais, machine jetable), ses essais, son banc de mutations et cinq répétitions à blanc où les rôles scriptés ne reçoivent que ce que reçoivent les modèles (L2b-v62) ; le cœur de l'étage 2 relève du préenregistrement de l'étage 2 ;"
+ ],
+ [
+  "T71",
+  "(3) les décisions D2 à D9 (marqueurs)",
+  "(3) les décisions D2, D3, D4, D6, D7 et D9 (marqueurs ; D5 et D8 relèvent de l'étage 2)"
+ ],
+ [
+  "T72",
+  "(4) chez la\nsession-depot : le texte et l'empreinte de la question du 1er novembre et la configuration de son tour (modèles,\nadaptateurs), l'exécution de la réserve et les cases de la section 5.2, le monde M2, les clés, **`bwrap` 0.9.0 et une identité\ndédiée sans privilège sur son instance** ;",
+  "(4) chez la\nsession-depot : la configuration v3 de l'étage 1 (modèles et adaptateurs du tour du 1er novembre, `budget.plafond_usd` = 15, relais de Kimi et d'Argon), les clés, **`bwrap` 0.9.0 et une identité\ndédiée sans privilège sur son instance**, la machine jetable (`POLE_MACHINE_JETABLE_V56=1`, environnement dans la liste blanche) et un passage `--verifier-seulement` ; la question du 1er novembre, la réserve, les cases de la section 5.2 et le monde M2 relèvent de l'étage 2 ;"
+ ],
+ [
+  "T73",
+  "la validation par Lazar des décisions D2 à D9 (section 14 ; D1 est prise)",
+  "la validation par Lazar des décisions D2, D3, D4, D6, D7 et D9 (section 14 ; D1 est prise ; D5 et D8 relèvent de l'étage 2)"
+ ],
+ [
+  "T74",
+  "Les cases « à remplir avant scellement » (section 5.2) sont remplies par la session-depot, qui tient les\ndonnées privées, puis relues par le contre-lecteur ; un texte qui en garde une vide ne se scelle pas.",
+  "Les cases de la section 5.2 relèvent de l'étage 2, hors de ce scellement ; pour l'étage 1, la session-depot porte l'empreinte de la configuration v3 et l'identifiant du GO (section 13) ; un texte qui garde un marqueur hors des zones de l'étage 2 ne se scelle pas (le lanceur le refuse, garde 6)."
+ ],
+ [
+  "T75",
+  "la phrase au mentor (section 5.6)",
+  "la phrase au mentor (section 4.8)"
+ ],
+ [
+  "T76",
+  "Arrêt = sortie scellée telle quelle, code 3, aucune issue lue ;",
+  "Arrêt = sortie scellée telle quelle, code 3, aucune issue lue : la lecture v62 rend « ne tient pas (T1) » et `n1 = arret` (phrase N1 d'arrêt, section 4.8) ; l'issue A4 qu'elle calcule sur le relevé partiel n'est ni lue ni rapportée comme issue (ses chiffres, s'ils sont cités, le sont comme partiels) ;"
+ ],
+ [
+  "T77",
+  "S1 ou S3 déclenché sans défaut trouvé : l'issue porte la réserve « trop beau, audité sans défaut » (R4).",
+  "S1 ou S3 déclenché sans défaut trouvé : l'issue porte la réserve « trop beau, audité sans défaut » (R4). Point (3), S1 déclenché ou non : une ligne de tranche dans un contexte servi est un défaut (course invalide, aucune issue) ; une touche des paramètres de L* est auditée avant toute lecture d'issue (coïncidence d'un nombre servi, par exemple d'un épisode de développement, ou fuite : défaut) ; la lecture v62 rapporte ce point (`audits`), elle ne l'applique pas."
+ ],
+ [
+  "T78",
+  "par exemple 12 USD pour Kimi et 3 USD pour Argon, v62)",
+  "12 USD pour Kimi et 3 USD pour Argon, v62 ; avant chaque étage de tests de mort, la part restante d'un relais doit couvrir son pire cas, cartes de l'étage × 0,5 USD pour Kimi et × 0,1 USD pour Argon : à 6 tours par carte et aux tailles moyennes ci-dessus, la marge de Kimi avant le dernier étage n'est que ≈ 0,2 USD, et une carte ou un témoin promu de plus en chemin, ou 6,5 tours par carte, arrête la course en génération 3 — arrêt, phrase N1 d'arrêt, aucune issue ; à 4 tours, marge ≈ 3,7 USD)"
+ ],
+ [
+  "T79",
+  "This is one planted world, three generations, 36 proposals per arm. »",
+  "This is one planted world, three generations, [n_real] model proposals and [n_random] random proposals judged. »"
+ ],
+ [
+  "T80",
+  "([stop: budget / duration / recomputation disagreement / session failure])",
+  "([stop: budget / duration / recomputation disagreement / session failure / model refusal / other: (type)])"
+ ],
+ [
+  "T81",
+  "« not measurable: no proposal from the models was judged ».",
+  "« not measurable: no proposal from the models was judged ». Si S1 est déclenché et audité sans défaut (section 6), la phrase « tient » se termine par : « The run was flagged as too clean and audited; no defect was found. »"
+ ],
+ [
+  "T82",
+  "| 7 | témoins jamais retenus ni servis | témoin promu et survivant : absent de la sélection, de l'archive, de la vue | témoin introduit dans l'archive → refus | `Garde7` (v61), mutation tuée |",
+  "| 7 | témoins jamais retenus ni servis | témoin promu et survivant : absent de la sélection, de l'archive, de la vue | témoin introduit dans l'archive → refus | v62 : `Garde7` (archive et vue ; identifiant réel ou servi d'un témoin → `TemoinRetenu`) ; le refus d'un témoin dans la sélection (`jouer_generation`) n'est essayé par aucun essai v62 ; `Garde7` v61 et sa mutation portent sur le code v61 |"
+ ],
+ [
+  "T83",
+  "→ refusée au gardien mécanique | `Garde8` et lanceur `--scenario-proposeur hors_gabarit` (v61), mutation tuée |",
+  "→ refusée au gardien mécanique | v62 : `GrammaireServie` (proposition complétée acceptée ; proposition qui porte un `test_de_mort`, clé manquante, énoncé trop long → refusée), mutation de la borne ±4 tuée ; `Garde8` et `--scenario-proposeur hors_gabarit` : v61 |"
+ ],
+ [
+  "T84",
+  "| 9 | familles séparées | expérimentateur Kimi, vérificateur Argon | même famille → refus avant toute session | `Garde9` et lanceur `--familles-a-blanc a,a`, code 2 (v61), mutation tuée |",
+  "| 9 | familles séparées | expérimentateur Kimi, vérificateur Argon | même famille → refus avant toute session | v62 : `RefusAvantToutAppel` (`--familles-a-blanc a,a` → code 2, rien écrit) et toutes les courses d'essai v62 (familles distinctes) ; `Garde9` et sa mutation : v61 |"
+ ],
+ [
+  "T86",
+  "aucun canal hors bande ; 5 racines |",
+  "aucun canal hors bande ; 5 racines ; la racine 20261104 sur le code gelé (81 empreintes égales au manifeste), les quatre autres sur un lanceur antérieur d'une modification (paramètre d'essai `dossier_prereg` de `lire_preenregistrement`, chemin réel seulement ; cœur, évaluateur et lecture identiques) |"
+ ],
+ [
+  "T87",
+  "(au moins 4 cartes sur 12)",
+  "(parmi les cartes jugées de la génération 1 ; au moins 4 sur 12 si toutes passent le gardien)"
+ ],
+ [
+  "T88",
+  "décroît** de la génération 1 à la génération 3 (mesurée, sans seuil).",
+  "décroît** de la génération 1 à la génération 3 (mesurée, sans seuil ; la lecture v62 rend `vd_plantee` par génération mais ne calcule pas cette trajectoire : le lecteur la calcule sur les champs `divergence_nat` du relevé, cartes VD du bras réel, sans autre choix)."
+ ],
+ [
+  "T89",
+  "Un seul préenregistrement, deux étages.",
+  "Deux étages ; ce texte ne scelle que le premier (section 0, portée)."
+ ],
+ [
+  "T90",
+  "- **D6** — bras aléatoire de contrôle à l'étage 2 (oui, ≈ 0,7 USD) ; seconde réplique du bras aléatoire de l'étage 1 : non (recommandation : les 2,5 USD servent mieux au plafond). Mot de Lazar : <<DECISION_D6>>.",
+  "- **D6** (pour ce scellement, sa seule partie de l'étage 1) — seconde réplique du bras aléatoire de l'étage 1 : non (recommandation : les 2,5 USD servent mieux au plafond). Mot de Lazar : <<DECISION_D6>>. Le bras aléatoire de contrôle de l'étage 2 (oui, ≈ 0,7 USD) relève du préenregistrement de l'étage 2."
+ ],
+ [
+  "T91",
+  "Écrites après les lectures préalables L0 à L4 (section 10)",
+  "Écrites après les lectures préalables L0 à L4, L2b-v61 et L2b-v62 (section 10)"
+ ],
+ [
+  "T92",
+  "Les\nprédictions ont été écrites après L0 à L4 : déclaré",
+  "Les\nprédictions ont été écrites après L0 à L4 (P4 récrite par la contre-lecture 2 après L2b-v61 ; son cas intermédiaire ajouté par le rédacteur 3, avec L2b-v62) : déclaré"
+ ],
+ [
+  "T93",
+  "le lanceur refuse `d9 = aiguilleur` avant tout appel).",
+  "le lanceur refuse `d9 = aiguilleur` avant tout appel). Limite connue du gardien v62 (contre-lecture 3) : `condition.indice` d'une loi `si_sinon` y est accepté en nombre à virgule (`1.0`), que le juge ne sait pas évaluer ; une telle proposition, jugée, arrête la course (code 3, `TypeError`, N1 d'arrêt)."
+ ],
+ [
+  "T94",
+  "monde gelé, moteur de l'étage)",
+  "monde gelé, moteur de l'étage : « claude-sdk » en mode réel, mot de l'étage v5 pour « coûts réels, exécuteur factice refusé » ; aucun modèle Claude n'est appelé)"
+ ],
+ [
+  "T95",
+  "(T1 manqué par un arrêt de la liste d'arrêt ; champ `n1 = arret` de la lecture v62)",
+  "(T1 manqué par un arrêt de la liste d'arrêt ; champ `n1 = arret` de la lecture v62 ; un relevé d'arrêt jugé invalide, `n1 = critere` avec un champ `arret` non nul, se dit aussi par cette phrase)"
+ ],
+ [
+  "T96",
+  "([x] of which carried no new information by an oracle that knows the planted law)",
+  "([x] of the random proposals kept carried no new information by an oracle that knows the planted law)"
+ ],
+ [
+  "T97",
+  "toute exception après le manifeste est un arrêt (v62, C12) ;",
+  "toute exception (classe Python `Exception`) après le manifeste est un arrêt (v62, C12) ; une interruption par signal ou une panne de la machine ne laisse que le manifeste, sans relevé : course sans issue, reprise selon la phrase suivante ;"
+ ]
+]
