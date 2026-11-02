@@ -1,0 +1,154 @@
+[
+ {
+  "ancien": "**Statut : brouillon 2, non contre-lu, non scellé.**",
+  "nouveau": "**Statut : brouillon 2, contre-lu (R2 n° 1, `prereg/contre-lecture-preenregistrement-validation-nul-v9-v1.md`), couples appliqués ; non scellé.**"
+ },
+ {
+  "ancien": "**Un marqueur reste, et une correction du code est indispensable avant le scellement** (annexe B) : le plan gèle désormais\nune durée maximale de **48 heures** (décision de Lazar, section 0), alors que le banc livré au commit refuse en mode décisif\ntoute autre durée que 8 heures (`demonstrations/banc_tricheurs_v9.py`, ligne 84, `DUREE_MAX_S = 8 * 3600.0`, et ligne 524).\nCe repreneur n'a pas le droit de modifier un fichier existant : la correction est **dite, non faite**. Tant qu'elle n'est pas\nfaite, l'empreinte du banc v9 reste un jeton dans le bloc de la section 12, et le banc refuse le texte (fichier gelé manquant).",
+  "nouveau": "**La correction du code demandée par ce brouillon est faite** (annexe B) au commit `e58cfec` (2 novembre 2026) : le banc\ngèle une durée maximale de **48 heures** (`demonstrations/banc_tricheurs_v9.py`, ligne 84, `DUREE_MAX_S = 48 * 3600.0`,\ncomparée ligne 524 ; docstring et usage, lignes 40 et 47) ; un essai (`test_duree_du_mode_decisif_48_h`) et une mutation\n(« durée du mode décisif non gardée ») sont ajoutés. Le jeton de la section 12 porte désormais l'empreinte du banc corrigé,\n`7e4bff5995df2a7d62a4f5a2f5f9176da614e657a55b05183325fa2fc6e24e44` (sha256 au commit `e58cfec`, égal à l'arbre de\ntravail ; recalculé par le contre-lecteur R2 n° 1 le 2 novembre à 19:06 UTC). Écart à l'annexe B : l'essai livré ne joue pas\nle cas sain demandé (B1 de la contre-lecture, essais à ajouter, aucun fichier gelé touché)."
+ },
+ {
+  "ancien": "| `demonstrations/banc_tricheurs_v9.py` | le banc (à corriger : durée, annexe B) | `c7ab547065180b6e23e0e496d9c9dc96b674ed4c1b47766b3e108709fdbcf466` |",
+  "nouveau": "| `demonstrations/banc_tricheurs_v9.py` | le banc, corrigé au commit `e58cfec` (durée 48 h, annexe B) ; à `5e352ec` : `c7ab5470…fcf466`, non gelé | `7e4bff5995df2a7d62a4f5a2f5f9176da614e657a55b05183325fa2fc6e24e44` |"
+ },
+ {
+  "ancien": "| `essais/test_nul_v9.py` | essais | `f674e9cac121d8930942738e28f938bd3613018c0c4371bd4621e53020212855` |",
+  "nouveau": "| `essais/test_nul_v9.py` | essais ; au commit `e58cfec` (un essai de plus, durée) ; version finale : celle du commit de scellement (essais de B1 ajoutés ; fichier non gelé) | `9eb966ad4220fc6cd297eef53ebec36a0f77655c2eadaceedc52ad72a1a67b21` |"
+ },
+ {
+  "ancien": "| `essais/mutations_nul_v9.py` | banc de mutations | `576eea7917cc9c0ed5213eeb22f191add217cc91b54fc4368a087911f153507d` |",
+  "nouveau": "| `essais/mutations_nul_v9.py` | banc de mutations ; au commit `e58cfec` (34 mutations) ; version finale : celle du commit de scellement (mutations de B1 ajoutées ; fichier non gelé) | `9cb305e45b8c005564184df621e68c05f1ac36b92e520ee081dbed735a252d16` |"
+ },
+ {
+  "ancien": "Les quatre empreintes de code et celle du brouillon 1 sont celles du bloc de livraison du rapport de rédaction (section 9) ;\nle rapport lui-même ne portait pas la sienne (elle est ci-dessus). Essais et mutations sur ce code : passage final du concepteur\n(18:23 à 18:25 UTC, 32 essais réussis, 32 sous-essais ; 33 mutations tuées pour la raison attendue sur 33 ; témoin 21 essais\nsans échec avant et après), puis passage indépendant de 18:33 à 18:35 UTC (message du commit). Ce repreneur ne les a pas\nrelancés (section 10, L9).",
+  "nouveau": "Les quatre empreintes de code et celle du brouillon 1 sont celles du bloc de livraison du rapport de rédaction (section 9) ;\nle rapport lui-même ne portait pas la sienne (elle est ci-dessus). Essais et mutations sur ce code : passage final du concepteur\n(18:23 à 18:25 UTC, 32 essais réussis, 32 sous-essais ; 33 mutations tuées pour la raison attendue sur 33 ; témoin 21 essais\nsans échec avant et après), puis passage indépendant de 18:33 à 18:35 UTC (message du commit). Ce repreneur ne les a pas\nrelancés (section 10, L9). Au commit `e58cfec` (banc,\nessais et mutations corrigés), passage du contre-lecteur R2 n° 1 : 33 essais réussis, 32 sous-essais (19:11:17 à 19:11:58 UTC) ;\n34 mutations tuées pour la raison attendue sur 34, témoin 22 essais sans échec avant et après (19:14:31 à 19:17:56 UTC) ;\nsection 10, L10."
+ },
+ {
+  "ancien": "**Correction du code indispensable, non faite** (annexe B).",
+  "nouveau": "**Correction du code faite au commit `e58cfec`** (annexe B ; essais du mode décisif à compléter, B1 de la contre-lecture)."
+ },
+ {
+  "ancien": "7. **Section 12 : 13 des 14 empreintes gelées calculées au commit `5e352ec`** (aucune n'est touchée par la correction de la\n   durée) ; la quatorzième, celle du banc v9, reste un jeton jusqu'à la correction. Le brouillon 1 laissait tout le bloc vide.",
+  "nouveau": "7. **Section 12 : 13 des 14 empreintes gelées calculées au commit `5e352ec`** (aucune n'est touchée par la correction de la\n   durée) ; la quatorzième, celle du banc v9 corrigé, est celle du commit `e58cfec` (`7e4bff59…6e24e44`), portée par la\n   contre-lecture R2 n° 1. Le brouillon 1 laissait tout le bloc vide."
+ },
+ {
+  "ancien": "- **Couvert en plus du v8** : toute loi qui, sur chaque morceau d'une partition à un niveau — par sous-population, ou par un\n  seuil réel quelconque sur un seul trait —, est un mélange de lois connues propre au morceau, mélangé à une même loi aveugle\n  fixe pour tous les morceaux (dont le monde W2, tout si/sinon de deux lois connues sur un seuil, et ces lois « avec bruit »\n  commun).",
+  "nouveau": "- **Couvert en plus du v8** : toute loi qui, sur chaque morceau d'une partition à un niveau — par sous-population (un morceau\n  par valeur de g), ou par un seuil réel quelconque sur un seul trait —, est un mélange de lois connues propre au morceau,\n  mélangé à une même loi aveugle fixe **avec le même poids** sur tous les morceaux (un même vecteur de bruit r, de masse\n  commune ; dont le monde W2, tout si/sinon de deux lois connues ou de deux mélanges de lois connues sur un seuil, et ces lois\n  « avec bruit » commun). Preuve : rapport, section 3 ; refaite par la contre-lecture R2 n° 1, section 1."
+ },
+ {
+  "ancien": "- **Non couvert** (dit par `nul_v9.NON_COUVERT_V9`, et par la description publique du juge) : profondeur 2 et plus ; seuils\n  sur une combinaison de traits ; poids qui varient continûment avec l'instance (aiguillage doux) ; bruit aveugle propre à un\n  morceau ; lois tempérées ou inclinées différemment par morceau ; compositions d'étapes ; produits de lois (sauf, pour une\n  fille, celui des deux parents) ; déformations non monotones ; lois hors de l'archive.",
+  "nouveau": "- **Hors du nul v9** (`nul_v9.NON_COUVERT_V9` en dit cinq phrases ; « lois hors de l'archive » n'est que dans la docstring du\n  module ; la description publique du juge v9 n'existe pas au commit `e58cfec` : celle de l'attaque v4, non commitée, reprend\n  `NON_COUVERT_V9`) : (a) **trous** — recombinaisons de lois connues que le v9 ne couvre pas : profondeur 2 et plus,\n  plusieurs seuils sur un même trait, seuils sur une combinaison de traits ; poids qui varient continûment avec l'instance\n  (aiguillage doux) ; lois tempérées ou inclinées différemment par morceau ; compositions d'étapes ; produits de lois (sauf,\n  pour une fille, celui des deux parents) ; déformations non monotones (question de nouveauté, T12) ; (b) **hors du nul par le\n  choix du point suivant**, promouvables comme dépendances nouvelles : bruit aveugle propre à un morceau (autre loi aveugle,\n  ou même loi aveugle avec un autre poids), loi aveugle seule sur un morceau, loi en escalier aveugle ; (c) lois hors de\n  l'archive ; mondes avec mémoire (réserve du v8) ; traits non finis (hors de la preuve ; impossibles dans le banc).\n  `NON_COUVERT_V9` range (b) parmi les non-couverts sans dire que c'est un choix : la description publique du v9 (attaque v4,\n  production) doit le dire."
+ },
+ {
+  "ancien": "porté par défaut et à confirmer par Lazar** (décision du 2 novembre, défaut sous 48 heures)",
+  "nouveau": "proposé, à confirmer par Lazar** (proposition du 2 novembre ; la course n'en dépend pas ; aucune revendication publique\n  ni mise en production sur ce sens avant sa réponse explicite, section 14, étape 2)"
+ },
+ {
+  "ancien": "| M01 | sans parent | S1 si g = 0, S2 si g = 1 (**monde W2**) | par morceaux | fatale |",
+  "nouveau": "| M01 | sans parent | S1 si g = 0, S2 si g = 1 (**forme du monde W2**, lois tirées à chaque répétition ; les cartes 0 à 3 de W2 : essai `test_monde_w2_de_l_attaque_membre_du_nul_v9`) | par morceaux | fatale |"
+ },
+ {
+  "ancien": "Les interactions I01 et I02 ne dépendent que du signe de z0·z1 : aucun trait seul, aucune survivante, aucun morceau à un\nniveau n'en dit rien (la loi de l'issue sachant un seul trait, ou sachant g, est la même partout). Elles sont « hors de\nl'archive et hors du nul v9 » au sens de la demande.",
+  "nouveau": "Les interactions I01 et I02 ne dépendent que du signe de z0·z1 : la loi de l'issue sachant un seul trait, ou sachant g, est\nla même partout, et aucune loi du nul v9 ne les égale (en général). Un membre par morceaux peut toutefois en approcher une\npartie : sur un morceau coupé sur un trait, les survivantes, qui dépendent des deux traits, suivent en partie l'autre signe —\nc'est le prix mesuré (P4). Elles sont « hors de l'archive et hors du nul v9 » au sens de la demande."
+ },
+ {
+  "ancien": "- **P6** (mesurées sous v9, hors de la classe couverte : taux de fausse promotion des trous restants) : T07 **≤ 0,03** ;",
+  "nouveau": "- **P6** (mesurées sous v9, hors de la classe couverte ; taux de fausse promotion pour les recombinaisons de lois connues que\n  le v9 ne couvre pas, T07, H01, H02, H03, H05 ; pour T12b, dont la fiche dit vrai, et pour H04, dont le bruit propre au\n  morceau est une dépendance aveugle nouvelle que le choix de la section 2 tient pour neuve, taux de promotion d'une loi qui\n  n'est pas, ou pas seulement, une recombinaison de l'archive) : T07 **≤ 0,03** ;"
+ },
+ {
+  "ancien": "- **Un scellement, une course décisive** : règle du v8 (section 4 de son préenregistrement), reprise mot pour mot pour ce\n  fichier : toute course décisive dont le manifeste est écrit est rapportée ; une issue rendue (code 0 ou 1) fait foi ; un arrêt\n  sans taux (code 3) autorise le seul rejeu de la section 9.",
+  "nouveau": "- **Un scellement, une course décisive** (règle du v8, section 4 de son préenregistrement, transposée) : aucune course en\n  mode décisif sur aucune version de ce fichier avant son scellement (vérifié avant scellement : aucun dossier\n  `resultats/banc-tricheurs-v9-validation-v1*`, aucun compagnon `.sha256` de ce texte) ; la course décisive n'est lancée\n  qu'après la poussée du commit qui contient ce fichier, son compagnon `.sha256` et les 14 fichiers gelés (section 14). Toute\n  course décisive dont le manifeste est écrit est rapportée, qu'elle aille à son terme ou non. Une issue rendue (code 0 ou 1)\n  fait foi : modifier ce fichier, le resceller (nouvelle graine) et rejouer n'est pas admis ; une reprise passe par un\n  préenregistrement de version nouvelle (R12) qui cite la première course, son dossier et son empreinte. Un arrêt sans taux\n  (code 3) n'autorise que le rejeu de la section 9, et seulement pour un arrêt que les mêmes graines ne reproduisent pas\n  (durée) : un arrêt déterministe (erreur, richesse non finie, monotonie violée) est un défaut du code du v9 (section 9)."
+ },
+ {
+  "ancien": "soit onze fois le pire coût mesuré)",
+  "nouveau": "soit onze fois le coût moyen mesuré et six fois le pire coût mesuré par ligne, T12b à ≈ 0,93 s par répétition en L3)"
+ },
+ {
+  "ancien": "2. **« puissance perdue »** — aucune ligne fatale non tenue, une perte au moins non tenue. Lecture : le v9 ferme les lignes,\n   au prix mesuré sur la ligne nommée ; **décision de Lazar** : accepter le prix (le v9 devient le nul du juge, la description\n   publique dit le prix) ou chercher un nul moins coûteux (version nouvelle). Les pertes et puissances observées sont publiées\n   avec leurs bornes. C'est l'issue attendue sous la marge (a) (P7).",
+  "nouveau": "2. **« puissance perdue »** — aucune ligne fatale non tenue, une perte au moins non tenue. Lecture **à deux étages** : (i) si\n   les 18 lignes fatales sont « tenues » **et** les 3 artefacts « tenus » (champs `lecture.fatales` et `lecture.artefact`), et\n   si la règle de P1b (section 8) ne joue pas, le v9 ferme les lignes, au prix mesuré sur la ligne nommée ; **décision de\n   Lazar** : accepter le prix (le v9 devient le nul du juge, la description publique dit le prix) ou chercher un nul moins\n   coûteux (version nouvelle) ; (ii) sinon (une ligne fatale « non jugeable », un artefact non tenu ou non jugeable, ou la\n   réserve log-linéaire), la perte est établie mais pas la validité sur cette course : « puissance perdue, validité non\n   établie », le v9 n'est pas proposé en production. Les pertes et puissances observées sont publiées avec leurs bornes.\n   C'est l'issue attendue sous la marge (a) (P7)."
+ },
+ {
+  "ancien": "Le v9 n'est proposé comme nul de production qu'après une issue « confirmé », ou « puissance perdue » avec le prix accepté par\nLazar ;",
+  "nouveau": "Le v9 n'est proposé comme nul de production qu'après une issue « confirmé », ou « puissance perdue » lue au premier étage\n(18 lignes fatales et 3 artefacts tenus, réserve log-linéaire non déclenchée) avec le prix accepté par Lazar ;"
+ },
+ {
+  "ancien": "- **A5** — **propreté suspecte** : sur une ligne M, un membre par morceaux domine à l'instant final dans moins de la moitié\n  des répétitions (un 0/1 000 qui ne viendrait pas du nul v9). Repère L3 : `morceaux:sous_population` 100/100 sur M01 ;\n  seuils 100/100 sur M02 ; M07 : seuil 41 et `ajuste_log:archive:S2` 10 parmi les premiers (le seuil extrême laisse dominer\n  d'autres membres : à lire, pas un défaut).",
+  "nouveau": "- **A5** — **propreté suspecte** : sur une ligne M, un membre par morceaux domine à l'instant final dans moins de la moitié\n  des répétitions (un 0/1 000 qui ne viendrait pas du nul v9), compté parmi les quatre premiers membres dominants que le banc\n  rapporte (`dominants` de `jouer_ligne`) : la troncature peut sous-estimer la part des membres par morceaux, jamais la\n  surestimer ; un A5 déclenché se vérifie, pour l'audit écrit, en recomptant les dominants de la ligne sur les mêmes graines\n  (calcul déterministe, sans effet sur l'issue). Repère L3 : `morceaux:sous_population` 100/100 sur M01 ; seuils 100/100 sur\n  M02 ; M07 : seuils 90/100 (z0 : 41, z1 : 49) et `ajuste_log:archive:S2` 10 (le seuil extrême laisse dominer d'autres\n  membres : à lire, pas un défaut)."
+ },
+ {
+  "ancien": "sauf défaut localisé (règle du\nv8).",
+  "nouveau": "sauf défaut localisé (règle du\nv8) ; sous « puissance perdue », lecture au second étage (section 7, issue 2). Cette issue, appliquée par le\nlecteur du verdict (R13), s'ajoute aux cinq de `lire_v9`."
+ },
+ {
+  "ancien": "| certificat | valeur ≥ log-vraisemblance du monde, 30 mondes de la famille, 5 instants ; seuil égal à une valeur observée ; référence scipy (SLSQP) sur 14 instances, à 10⁻² près | valeur atteinte au départ sous la vraisemblance du monde W2 (ce qu'un calcul sans certificat rendrait) ; monde hors famille (bruit propre au morceau) non dominé | `CertificatMorceaux.*` |",
+  "nouveau": "| certificat | valeur ≥ log-vraisemblance du monde, 30 mondes de la famille, 5 instants ; seuil égal à une valeur observée ; référence scipy (SLSQP) sur 14 instances, à 10⁻² près ; mêmes 30 mondes sous optimisation tronquée (un palier, un pas) : valeur ≥ log-vraisemblance du monde (à ajouter, I6) | valeur atteinte au départ sous la vraisemblance du monde W2 (ce qu'un calcul sans certificat rendrait) ; monde hors famille (bruit propre au morceau) non dominé ; sous optimisation tronquée, « meilleure valeur atteinte + 10⁻³ » sous la vraisemblance du monde (mutation C5 de la contre-lecture, à tuer : I6) | `CertificatMorceaux.*` |"
+ },
+ {
+  "ancien": "| lecture gelée | tout tenu → « confirmé », aucun audit | « trou », « puissance perdue », « banc sans dents », « précision insuffisante », plan incomplet ; audits A1, A3, A4, A5 | `LectureGelee.*` |",
+  "nouveau": "| lecture gelée | tout tenu → « confirmé », aucun audit | « trou », « puissance perdue », « banc sans dents », « précision insuffisante », plan incomplet ; audits A1, A3, A4, A5 ; **ordre des issues** : fatale non tenue et perte non tenue → « trou » ; perte non tenue et artefact non tenu → « puissance perdue » (à ajouter, I5 de la contre-lecture) | `LectureGelee.*` |"
+ },
+ {
+  "ancien": "| refus avant course | — | brouillon en mode décisif, ligne inconnue, graine ≥ 2⁶⁴, graine négative, dossier non vide → code 2, aucune course | `test_refus_du_banc_avant_toute_course` |",
+  "nouveau": "| refus avant course | texte décisif scellé et conforme, sans option → les gardes passent et la course démarre (bouchon de `jouer_tout` : 31 tâches, 1 000 répétitions, 172 800 s, entropie = empreinte du texte) (à ajouter, B1) | brouillon en mode décisif, ligne inconnue, graine ≥ 2⁶⁴, graine négative, dossier non vide → code 2, aucune course ; en mode décisif, `--lignes M01` et `--repetitions 999` → code 2, texte jamais lu (à ajouter, B1) | `test_refus_du_banc_avant_toute_course`, `test_mode_decisif_cas_sain_et_refus` (B1) |"
+ },
+ {
+  "ancien": "| **durée gelée (48 h)** | **à ajouter (annexe B) : texte scellé, durée par défaut (48 h) → la course démarre** | **à ajouter : texte scellé et `--duree-max-s 28800` (l'ancienne valeur) → code 2, aucune course** | **essai à écrire avec la correction (annexe B) ; aujourd'hui aucun essai ne vise ce refus** |",
+  "nouveau": "| durée gelée (48 h) | texte décisif scellé, durée par défaut → durée transmise à chaque ligne = 172 800 s (à ajouter, B1 ; l'essai livré ne vérifie que la constante) | texte décisif et `--duree-max-s 28800` (l'ancienne valeur) → code 2, texte jamais lu | `test_duree_du_mode_decisif_48_h` (artefact), `test_mode_decisif_cas_sain_et_refus` (cas sain, B1) |"
+ },
+ {
+  "ancien": "| liste d'arrêt | course réduite → code 0 | fatale promue → 1 ; durée → 3 (`ArretDuree`) ; erreur du juge → 3 ; **monotonie violée → 3** (`MonotonieViolee`) | `test_banc_reduit_et_liste_d_arret` |",
+  "nouveau": "| liste d'arrêt | course réduite → code 0 | fatale promue → 1 ; durée → 3 (`ArretDuree`) ; erreur du juge → 3 ; **monotonie violée → 3** (`MonotonieViolee`) : par une promotion sous v9 sans promotion sous v8, et (à ajouter, B1) par la seule richesse, log W v9 > log W v8 + 10⁻⁶ sans promotion inversée | `test_banc_reduit_et_liste_d_arret` |"
+ },
+ {
+  "ancien": "Après un arrêt, rejeu dans un dossier de sortie neuf, même fichier scellé (règle du\nv8).",
+  "nouveau": "Après un arrêt de durée, rejeu dans un dossier de sortie neuf, même fichier scellé (règle du\nv8). Après un arrêt déterministe (ligne en erreur, richesse non finie, monotonie violée : les mêmes graines le reproduisent),\npas de rejeu : l'arrêt est rapporté comme un défaut du code du v9 (le v9 n'est pas validé ; audit écrit, R4) ; réparation =\nversion nouvelle, préenregistrement nouveau."
+ },
+ {
+  "ancien": "Banc de mutations (`essais/mutations_nul_v9.py`) : **33 mutations, 33 tuées pour la raison attendue**, témoin 21 essais sans\néchec avant et après (dernier passage sur le code du commit : 2 novembre, 18:23:58 à 18:25:08 UTC, section 10, L7 ; à rejouer\naprès la correction de l'annexe B et sur l'arbre scellé).",
+  "nouveau": "Banc de mutations (`essais/mutations_nul_v9.py`) : au commit `e58cfec`, **34 mutations, 34 tuées pour la raison attendue**,\ntémoin 22 essais sans échec avant et après (passage du contre-lecteur R2 n° 1, 2 novembre, 19:14:31 à 19:17:56 UTC, section 10,\nL10) ; s'y ajoutent les mutations des essais de B1, I5 et I6 (mode décisif : `--lignes` et répétitions acceptés, cas sain\ntoujours refusé, durée transmise plafonnée à 8 h ; monotonie par la seule richesse ; ordre des issues ; valeur du membre\nremplacée par la meilleure valeur atteinte + 10⁻³), chacune tuée pour la raison attendue ; à rejouer sur l'arbre scellé."
+ },
+ {
+  "ancien": "| L9 | 18:45 à 18:55 (repreneur) | lecture en entier du rapport de rédaction, du brouillon 1, de `pole/nul_v9.py`, du banc v9, des essais et du banc de mutations ; lignes 60 à 260 du banc v8 ; recalcul des empreintes (six fichiers v9, 14 fichiers gelés) sur disque et au commit ; ligne 26 du texte scellé de l'attaque ; aucun essai, aucun banc, aucune course relancés | — | en-tête, section 1 bis, section 12 ; la durée gelée du banc (8 h) contredit la décision de Lazar (48 h) : annexe B | — |",
+  "nouveau": "| L9 | 18:45 à 18:55 (repreneur) | lecture en entier du rapport de rédaction, du brouillon 1, de `pole/nul_v9.py`, du banc v9, des essais et du banc de mutations ; lignes 60 à 260 du banc v8 ; recalcul des empreintes (six fichiers v9, 14 fichiers gelés) sur disque et au commit ; ligne 26 du texte scellé de l'attaque ; aucun essai, aucun banc, aucune course relancés | — | en-tête, section 1 bis, section 12 ; la durée gelée du banc (8 h) contredit la décision de Lazar (48 h) : annexe B | — |\n| L10 | 19:06 à 19:36 (contre-lecteur R2 n° 1) | essais et banc de mutations rejoués sur le code du commit `e58cfec` ; 12 mutations du contre-lecteur, en mémoire, contre toute la suite ; sondes : domination sur 48 mondes neufs, égalités de z, référence scipy, optimisation tronquée (30 mondes de l'essai de domination) ; fermeture dynamique (une répétition de M01, M06 et T01\\|v1 par `jouer_ligne`, en mémoire, taux non lus) ; tables de la section 6 recalculées ; aucune course par `principal` | essais 20261102 ; sondes : graines 910000 à 930011 et celles de l'essai de domination ; fermeture 5 | 33 essais réussis ; 34 mutations tuées sur 34 ; 8 des 12 mutations du contre-lecteur survivent (B1, I5, I6) ; aucun écart de domination ; tables identiques | `prereg/contre-lecture-preenregistrement-validation-nul-v9-v1.md`, sections 0, 1 et 5 |"
+ },
+ {
+  "ancien": "La marge (a) est celle du v8,\nfixée par Lazar avant toute course du v9 ; le choix ne s'appuie pas sur L3 (R3 : la marge est le prix acceptable, non l'issue\nvisée).",
+  "nouveau": "La marge (a) est la règle du v8,\nécrite avant toute course du v9 ; elle a été retenue pour le v9 le 2 novembre, après L3 et la recommandation (a) du brouillon\n1, dont l'annexe A donnait l'issue prédite de chaque option : l'option retenue est celle dont l'issue prédite est « puissance\nperdue », non celle qui promettait « confirmé » (R3 : la marge est le prix acceptable, non l'issue visée)."
+ },
+ {
+  "ancien": "les lignes H01 à H05 mesurent, sans seuil, les trous restants de la description\npublique ;",
+  "nouveau": "les lignes H01 à H05 mesurent, sans seuil, ce que la description\npublique dit hors du nul v9 (des trous pour H01, H02, H03 et H05 ; pour H04, une dépendance aveugle nouvelle, promouvable par\nle choix de la section 2) ;"
+ },
+ {
+  "ancien": "Valeurs du 2 novembre 2026, 18:50 UTC, sur l'arbre de travail égal au commit `5e352ec` pour ces fichiers.",
+  "nouveau": "Valeurs du 2 novembre 2026, 18:50 UTC, sur l'arbre de travail égal au commit `5e352ec` pour ces fichiers ; revérifiées par le\ncontre-lecteur R2 n° 1 à 19:06 UTC au commit `e58cfec` (13 inchangées ; le banc corrigé, ci-dessous)."
+ },
+ {
+  "ancien": "sa ligne reste un jeton jusqu'à la\ncorrection (au commit, avant correction : `c7ab5470…fcf466`, valeur **à ne pas geler**). Tant que le jeton est là, le banc\nrefuse le texte (« code importé par la course non gelé »).",
+  "nouveau": "sa ligne porte l'empreinte du banc\ncorrigé au commit `e58cfec` (recalculée sur disque et sur `git show e58cfec:…`) ; la valeur d'avant correction\n(`c7ab5470…fcf466`) n'est pas gelée. Les essais de B1, I5 et I6 ne touchent aucun des 14 fichiers : le bloc ne change\npas."
+ },
+ {
+  "ancien": "<<EMPREINTE_DU_BANC_CORRIGE>>  demonstrations/banc_tricheurs_v9.py",
+  "nouveau": "7e4bff5995df2a7d62a4f5a2f5f9176da614e657a55b05183325fa2fc6e24e44  demonstrations/banc_tricheurs_v9.py"
+ },
+ {
+  "ancien": "## 13. Contre-lecture (R2) — à faire",
+  "nouveau": "## 13. Contre-lecture (R2) — faite (n° 1 : `prereg/contre-lecture-preenregistrement-validation-nul-v9-v1.md`)"
+ },
+ {
+  "ancien": "1. **Correction du banc (annexe B)**, par le directeur ou un concepteur autorisé à modifier le fichier (ou en version nouvelle\n   du banc, si le directeur préfère ne pas toucher un fichier commité : alors `FICHIERS_GELES`, le motif du texte et l'essai de\n   fermeture suivent) ; essais (`nice -n 10 python3 -I -B -m pytest -q -p no:cacheprovider essais/test_nul_v9.py`) et banc de\n   mutations (`nice -n 10 python3 -I -B essais/mutations_nul_v9.py`) rejoués ; jeton de la section 12 remplacé par l'empreinte du\n   banc corrigé.",
+  "nouveau": "1. **Correction du banc (annexe B)** : faite au commit `e58cfec` ; essais et banc de mutations rejoués par le contre-lecteur\n   (L10) ; jeton de la section 12 remplacé par l'empreinte du banc corrigé. **Reste (B1, I5 et I6 de la contre-lecture)** :\n   les essais du mode décisif, de la monotonie par la seule richesse, de l'ordre des issues et de la valeur certifiée sous\n   optimisation tronquée, et leurs mutations, dans `essais/test_nul_v9.py` et `essais/mutations_nul_v9.py` (aucun fichier gelé\n   touché) ; puis essais et banc de mutations rejoués, toutes les mutations tuées pour la raison attendue :\n   `nice -n 10 python3 -I -B -m pytest -q -p no:cacheprovider essais/test_nul_v9.py` ;\n   `nice -n 10 python3 -I -B essais/mutations_nul_v9.py`."
+ },
+ {
+  "ancien": "2. **Confirmation du sens de « rien au-delà de l'archive »** par Lazar (section 2 ; défaut appliqué : bruit commun). Sans\n   réponse, le défaut vaut et la revendication publique le dit comme un choix ; une réponse contraire arrête ce texte (nul v10).",
+  "nouveau": "2. **Confirmation du sens de « rien au-delà de l'archive »** par Lazar (section 2 ; proposition : bruit commun). La course\n   n'en dépend pas et peut avoir lieu sans réponse ; la revendication publique et l'usage en production attendent la réponse\n   explicite de Lazar (nœud « revendication », sans défaut) ; une réponse contraire arrête ce texte (nul v10)."
+ },
+ {
+  "ancien": "## Annexe B. Correction indispensable du banc v9 (dite, non faite) et marqueur restant",
+  "nouveau": "## Annexe B. Correction du banc v9 (faite au commit `e58cfec`) et marqueur levé"
+ },
+ {
+  "ancien": "**Marqueur restant (un seul)** : le jeton EMPREINTE_DU_BANC_CORRIGE (entre doubles chevrons) dans le bloc de la section\n12, levé par le directeur après la correction, au recalcul du bloc. Les marqueurs du brouillon 1 sont levés (marge : annexe A).",
+  "nouveau": "**Marqueur levé** : le jeton EMPREINTE_DU_BANC_CORRIGE (entre doubles chevrons) du bloc de la section 12 porte l'empreinte du\nbanc corrigé au commit `e58cfec` (`7e4bff59…6e24e44`). Les marqueurs du brouillon 1 sont levés (marge : annexe A). Écart à\ncette annexe, dit : l'essai livré (`test_duree_du_mode_decisif_48_h`) joue l'artefact (28 800 s → code 2, texte jamais lu) et\nvérifie la constante, mais pas le cas sain demandé (durée par défaut → la course démarre, durée transmise 172 800 s) : B1 de la\ncontre-lecture."
+ }
+]

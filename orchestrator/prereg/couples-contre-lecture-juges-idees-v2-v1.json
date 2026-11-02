@@ -1,0 +1,162 @@
+[
+ {
+  "ancien": "Statut : **brouillon 1, non scellé, non contre-lu**.",
+  "nouveau": "Statut : **brouillon 2 (couples de la contre-lecture v1 appliqués), non scellé** ; contre-lecture :\n`prereg/contre-lecture-preenregistrement-juges-idees-v2-v1.md`."
+ },
+ {
+  "ancien": "Trois marqueurs restent, et le lanceur refuse tout texte qui en porte un :\n`<<GO>>`, `<<CONFIGURATION_SHA256>>` et `<<EMPREINTE_DU_CODE>>` (une ligne par fichier de la fermeture du chemin réel,\nsection 11).",
+  "nouveau": "Six marqueurs restent, et le lanceur refuse tout texte qui en porte un :\n`<<MATERIAUX_SHA256>>` (matériaux rééquilibrés, section 4), `<<MOT_DE_LAZAR_ASTRA>>` et `<<REGLAGES_DES_JUGES>>` (section 4),\n`<<SOURCES_DU_DEVIS>>` (section 12), `<<CONFIGURATION_SHA256>>` et `<<EMPREINTE_DU_CODE>>` (une ligne par fichier de la fermeture\ndu chemin réel, section 11). GO : `GO-2026-11-02-24` (calcul, 60 USD, accordé par Lazar le 2 novembre 2026, échéance le\n16 novembre ; `registres/go.md` du dépôt de travail, ligne 70)."
+ },
+ {
+  "ancien": "`kappa_cohen` (ligne 140) rend 1",
+  "nouveau": "`kappa_cohen` (lignes 133 à 140) rend 1"
+ },
+ {
+  "ancien": "assumé à la reproduction exacte du second tour, section 10).",
+  "nouveau": "assumé à la reproduction exacte du second tour, section 10). **Bras sans dossier** (décision de Lazar, 2 novembre 2026) : le\njuge A juge aussi les 20 témoins d'évaluation par l'ancien protocole **sans dossier** (consigne figée puis fiche seule, octet\npour octet la forme de l'entrée du second tour) ; ce bras sépare l'effet du protocole (v2 contre ancien, même dossier) de l'effet\ndu dossier sur l'ancien protocole (ancien avec dossier contre ancien sans dossier)."
+ },
+ {
+  "ancien": "(b) l'ancien ne sature pas sur ces témoins : le plafond du second tour tenait aux fiches réelles ou à\n  l'absence de dossier, pas au protocole ;",
+  "nouveau": "(b) l'ancien ne sature pas sur ces témoins : le plafond du second tour tenait aux fiches réelles (l'ancien\n  ne sature pas même sans dossier) ou à l'absence de dossier (il sature sans dossier, pas avec) — le bras sans dossier\n  départage les deux branches ;"
+ },
+ {
+  "ancien": "| P11 | juge B (Astra), ancien : part de notables ≥ 0,80 | même raison que P1 | < 0,80 : le plafond dépend du juge |",
+  "nouveau": "| P11 | juge B (Astra), ancien : part de notables ≥ 0,80 | même raison que P1 | < 0,80 : le plafond dépend du juge |\n| P12 | ancien **sans dossier** (A) : part de notables ≥ 0,80 et aire ≤ 0,65 | le second tour (11 fiches sur 12 « notables », sans dossier) ; sans dossier, aucune fiche ne peut être sue fausse ou redite | < 0,80 : le plafond du second tour ne se reproduit pas sur ces témoins, même dans ses conditions ; H0(b), première branche |\n| P13 | effet du dossier sur l'ancien (A) : part de notables avec dossier moins part sans dossier ≥ −0,10 | l'ancien juge la forme ; le dossier change peu ses verdicts | < −0,10 : le dossier suffit à l'ancien pour refuser des fiches ; H0(b), seconde branche |"
+ },
+ {
+  "ancien": "Les gabarits sont communs à toutes les classes, sauf le texte long (long par construction, pour mesurer la préférence pour la\nlongueur). `controle_forme` : aire de la longueur 0,38 et du nombre de chiffres 0,415 entre bons et mauvais témoins (seuil\n0,65 : aucun indice de forme simple ne favorise les bons témoins).",
+  "nouveau": "**Gabarits et a priori (contre-lecture, B1).** Dans les matériaux du brouillon 1 (graine 20261102, empreinte `c3eeb559…`), les\ngabarits n'étaient pas communs aux classes : toutes les lois fausses étaient des comparaisons de deux groupes sur une\ncaractéristique binaire sans effet, huit bonnes fiches sur dix des lois graduées sur trois niveaux ou des interactions ;\nl'indice « loi graduée ou interaction » avait une aire de 0,80 entre bons et mauvais témoins, l'indice « caractéristique non\nbinaire » 0,70 ; un juge scripté qui ne lit **aucune** table (gabarit, deux lignes de lois établies, phrase de contexte) tenait D1\ndans 16 courses à blanc sur 20 (avec un ancien protocole indulgent : issue I1a dans les 16), et dans 20 sur 20 avec l'a priori\nde plausibilité des caractéristiques nommées. Les matériaux de ce texte sont donc rééquilibrés : dans chaque monde, au moins une\nloi fausse au gabarit gradué sur une caractéristique ordinale sans effet et plausible a priori, et au moins une bonne loi au\ngabarit de deux groupes sur une caractéristique d'effet vrai mais peu plausible a priori ; chaque caractéristique porte une\nétiquette d'a priori (plausible ou non) fixée dans le code avant toute course. `controle_forme` mesure la longueur, le nombre de\nchiffres, l'indice de gabarit et l'indice « caractéristique binaire » (aire ≤ 0,65 pour chacun, sinon refus avant tout appel) ;\nle **contrôle de diagnosticité** rejoue le plan avec un juge scripté « sans tables » (gabarit, lois établies, contexte,\nétiquettes d'a priori) sur 20 graines de course : D1 tenu dans plus de 2 courses sur 20 = matériaux refusés (artefact de son\nessai : les matériaux du brouillon 1). Le texte long reste long par construction (préférence pour la longueur)."
+ },
+ {
+  "ancien": "famille gpt, prix non mesuré, taux de devis 0,25 USD par appel, section 12). Kimi est exclu des comparaisons par paires (coût et\ndurée, section 12).",
+  "nouveau": "famille gpt, prix non mesuré, taux de devis 0,25 USD par appel, section 12). Le GO-2026-11-02-24 décrit la course « chez\nsession-depot (relais Kimi et Argon) » : Astra n'y est pas nommé ; le mot de Lazar qui l'admet est cité ici avant le\nscellement : `<<MOT_DE_LAZAR_ASTRA>>`. Kimi est exclu des comparaisons par paires : ni le coût ni la durée ne l'excluent plus\n(plafond de 60 USD, aucun budget de temps), mais son relais a rendu 5 appels réussis pour 616 en échec à A1 (section 12).\nRéglages de raisonnement de chaque juge, tels que la configuration les fixe (effort et réflexion de la commande Astra, réglage\nd'Argon) : `<<REGLAGES_DES_JUGES>>` ; gelés par l'empreinte de la configuration, dits ici."
+ },
+ {
+  "ancien": "budget par appel = `plafonds_session.juge` ; modèle servi contrôlé à chaque appel (A2).",
+  "nouveau": "budget par appel = `plafonds_session.juge` ; modèle servi contrôlé à chaque appel (A2), y compris quand la commande v56\nrend le statut « refus » pour un autre modèle servi (section 8)."
+ },
+ {
+  "ancien": "| décisive B | B | v2, tirage 1 | paires **mélangées** (une bonne, une mauvaise) du graphe du tirage 1 de A, au plus 13 par lot, un ordre tiré indépendamment de ceux de A | 12 à 26 |",
+  "nouveau": "| décisive B | B | v2, tirage 1 | paires **mélangées** (une bonne, une mauvaise) du graphe du tirage 1 de A, au plus 13 par lot, un ordre tiré indépendamment de ceux de A | 12 à 26 |\n| sans dossier (A) | A | ancien **sans dossier**, tirage 1 | les 20 témoins d'évaluation, une fiche par appel, entrée de la forme du second tour (consigne figée puis fiche) ; jouée après les phases décisives A et B, avant le lot réel ; projection vérifiée comme avant une étape décisive ; n'entre ni dans la validité de l'instrument ni dans l'issue principale | 20 |"
+ },
+ {
+  "ancien": "`ordre-ancien|<lot>|<juge>|tirage-<t>`, `anonymisation|<juge>|tirage-<t>|<lot>|<fiche>`, ",
+  "nouveau": "`ordre-ancien|<lot>|<juge>|tirage-<t>`, `anonymisation|<juge>|tirage-<t>|<lot>|<fiche>`,\n`ordre-ancien-sans-dossier|<lot>|<juge>`, `anonymisation-sans-dossier|<juge>|<lot>|<fiche>`, "
+ },
+ {
+  "ancien": "--registre-go registres/go.md --go <<GO>>`",
+  "nouveau": "--registre-go registres/go.md --go GO-2026-11-02-24`"
+ },
+ {
+  "ancien": "materiaux_sha256: c3eeb559f6ead1035f8a73a1daa5a5c16163ca635199327b34eeae95fc1f8479",
+  "nouveau": "materiaux_sha256: <<MATERIAUX_SHA256>>"
+ },
+ {
+  "ancien": "plafond_usd: 30\nplafond_juge_a_usd: 12\nplafond_juge_b_usd: 18\nduree_max_h: 6",
+  "nouveau": "plafond_usd: 60\nplafond_juge_a_usd: 24\nplafond_juge_b_usd: 36\nduree_max_h: 48"
+ },
+ {
+  "ancien": "go: <<GO>>",
+  "nouveau": "go: GO-2026-11-02-24"
+ },
+ {
+  "ancien": "Les deux empreintes `materiaux_sha256` et `consigne_paire_sha256` sont celles du code de ce brouillon ; si la contre-lecture\nfait changer le code, elles changent et le lanceur refuse l'écart (à recalculer au scellement, avec le bloc de la section 11).",
+  "nouveau": "`consigne_paire_sha256` est l'empreinte de la consigne v2 du code de ce brouillon ; `materiaux_sha256` est un marqueur : les\nmatériaux rééquilibrés (section 4) sont reconstruits et leur empreinte recopiée au scellement, avec le bloc de la section 11 ;\nle lanceur refuse tout écart. Plafond : exactement 60 USD (GO-2026-11-02-24) ; parts : 24 USD pour Argon, 36 USD pour Astra,\nau large du pire cas du plan (section 12). `duree_max_h` est une garde contre une boucle folle, jamais une coupe de la mesure\n(règle prise sur les mots de Lazar du 2 novembre 2026, 18:26 UTC) : 48 heures, plus de dix fois la durée haute du devis."
+ },
+ {
+  "ancien": "(DeLong, unilatéral ; variance nulle → p = 0 si la différence est positive, dit) ;",
+  "nouveau": "(DeLong, unilatéral ; variance nulle → p = 0 si la différence est positive, dit) ; bras sans dossier (A) : part de notables,\naire et Mann et Whitney, effet du dossier sur l'ancien (part de notables et aire, avec dossier moins sans dossier ; DeLong\nbilatéral, descriptif) et gain total (aire v2 moins aire de l'ancien sans dossier ; DeLong unilatéral, descriptif) ;"
+ },
+ {
+  "ancien": "sans lien avec la classe), et, descriptifs, sur\ntoutes les paires et sur les paires de même qualité ;",
+  "nouveau": "sans lien avec la classe) ; le juge B ne voyant que des paires\nmélangées, ce kappa est aussi celui de « toutes les paires » et il n'en existe aucun « sur les paires de même qualité » (vide par\nconstruction, dit) ; sur des paires mélangées, deux juges indépendants justes à p ont un kappa voisin de (2p − 1)² : D6 ≥ 0,30\ndemande une exactitude d'environ 0,77 à chacun ;"
+ },
+ {
+  "ancien": "de A, taux de bascule, effet γ par lot)",
+  "nouveau": "de A, taux de bascule compté par tirage et par paire, effet γ par lot)"
+ },
+ {
+  "ancien": "(0,78 à 10, 0,85 à 12), au niveau exact de 0,045.",
+  "nouveau": "(0,78 à 10, 0,85 à 12), au niveau exact de 0,045 ; 14 à 15 pour une puissance de 0,9 (0,90 à 14, 0,93 à 15 ; recalcul de la\ncontre-lecture, même graine, 20 000 répétitions)."
+ },
+ {
+  "ancien": "et plafonne la puissance à une aire\nvraie de 0,8 vers 0,73 à 0,76 quelle que soit la taille (le seuil est proche de la valeur visée) ;",
+  "nouveau": "et limite la puissance, à une aire\nvraie de 0,8, à 0,73 pour 10 témoins par classe, 0,75 pour 15 et 0,77 pour 20 (le seuil est proche de la valeur visée ; la\npuissance ne croît que lentement avec la taille) ;"
+ },
+ {
+  "ancien": "Le plan retient 10 contre 10 : au-delà,\nle devis (section 12) ne tient plus dans 30 USD avec le juge B.",
+  "nouveau": "Le plan retient 10 contre 10. **Portée d'une issue\nnégative** : à cette taille, une aire vraie de 0,8 laisse D1 non tenu dans 27 % des tirages ; I3 exclut une aire vraie de 0,9\n(D1 tenu 97 fois sur 100), pas une aire de 0,8. Quinze témoins par classe (trois mondes) porteraient la puissance du test à 0,93\net celle de D1 à 0,75 à une aire de 0,8 (0,92 à une aire de 0,85), pour un devis maximal d'environ 42,5 USD au prix du plan,\ndans le plafond de 60 USD."
+ },
+ {
+  "ancien": "| D6 | kappa des paires mélangées entre A et B | ≥ 0,30 ; « non mesuré » si la phase de B est incomplète ou à moins de 0,85 de comparaisons valides |",
+  "nouveau": "| D6 | kappa des paires mélangées entre A et B | ≥ 0,30 ; « non mesuré » si la phase de B est incomplète ou à moins de 0,85 de comparaisons valides |\n| D7 | part de notables de l'ancien **sans dossier** (juge A, bras sans dossier : « l'ancien sature dans les conditions du second tour ») | ≥ 0,80 ; « non mesuré » si le bras est incomplet ou rend moins de 18 verdicts lisibles sur 20 |"
+ },
+ {
+  "ancien": "au moins 18 verdicts lisibles de l'ancien sur 20.",
+  "nouveau": "au moins 18 verdicts lisibles de l'ancien sur 20 ; au plus 15 % des appels de la phase décisive de A perdus par\nl'infrastructure (relais injoignable après attente, délai dépassé ; jamais comptés comme réponses du juge), sinon I0\n« infrastructure »."
+ },
+ {
+  "ancien": "- **I3 — le v2 ne fait pas mieux** : D1 non tenu.",
+  "nouveau": "- **I3 — le v2 ne fait pas mieux au seuil gelé** : D1 non tenu (une aire vraie de 0,8 n'est pas exclue : section 5)."
+ },
+ {
+  "ancien": "Suite : pas de conclusion sur le second tour ; proposer une course où l'ancien protocole est servi\n  avec la question seule (sans dossier), sur nouveau texte.",
+  "nouveau": "Suite : la lecture du bras sans dossier dit quelle branche de H0(b) tient (S1 : l'information\n  manquait ; S3 : les témoins ne reproduisent pas le plafond du second tour) ; aucune conclusion sur les fiches réelles."
+ },
+ {
+  "ancien": "Réserve écrite d'avance : D6 non mesuré → « accord entre juges non mesuré » joint à I1, I2, I4.",
+  "nouveau": "Réserve écrite d'avance : D6 non mesuré → « accord entre juges non mesuré » joint à I1, I2, I4.\n\n**Lecture du bras sans dossier** (gelée ; jointe à l'issue, ne la change jamais) : S0 « non mesuré » si D7 n'est pas mesuré ;\nS1 « le dossier lève le plafond de l'ancien » si D7 est tenu et D2 non tenu ; S2 « l'ancien sature avec et sans dossier » si D7\net D2 sont tenus ; S3 « l'ancien ne sature pas même sans dossier » si D7 n'est pas tenu (le plafond du second tour ne se\nreproduit pas sur ces témoins dans ses propres conditions ; avec D2 tenu, l'incohérence est dite en réserve). Descriptifs\njoints : effet du dossier sur l'ancien et gain total (section 5)."
+ },
+ {
+  "ancien": "plafond > 30 USD, parts hors du",
+  "nouveau": "plafond > 60 USD (le GO exige ensuite le montant exact), parts hors du"
+ },
+ {
+  "ancien": "durée haute au-dessus de 6 heures ; porte de plafond qui n'accuse pas sa part.",
+  "nouveau": "durée haute du devis au-dessus de 48 heures (garde contre une boucle folle) ; porte de plafond\n  qui n'accuse pas sa part ; matériaux refusés par le contrôle de forme étendu ou par le contrôle de diagnosticité (section 4) ;\n  consigne figée de l'ancien juge refusée par la garde A4 des témoins ; juges A et B sur le même relais ; durée maximale nulle\n  ou négative."
+ },
+ {
+  "ancien": "**projection** des étapes décisives restantes au prix observé (moyenne des appels du\n  juge dès trois appels, prix du plan avant) au-delà du reste, vérifiée avant chaque étape décisive ; durée de 6 heures ; modèle\n  servi absent ou différent (A2) ;",
+  "nouveau": "**projection** des étapes décisives restantes au prix observé (moyenne des appels **à coût\n  connu** du juge dès trois appels, prix du plan avant) au-delà du reste du plafond **ou du reste de la part du juge**, vérifiée\n  avant chaque étape décisive ; durée de 48 heures (garde contre une boucle folle, jamais une coupe de la mesure) ; modèle servi\n  absent ou différent (A2), **y compris le statut « refus » que la commande v56 rend pour un autre modèle servi** : arrêt au\n  premier appel ; **refus de dépense du relais** (code 4, statut « budget_depasse ») : arrêt « dépense », jamais une réponse\n  inexploitable, aucun coût fictif dans le prix observé ; **relais injoignable** (code 3 sans coût) : même appel repris après\n  attente (15, 30, 60, 120 puis 300 s, au plus 30 minutes par appel, comme l'attaque de Goodhart v3 :\n  `pole/attaque_goodhart_v3.py`, lignes 73-74, commit `e58cfec`), jamais compté comme réponse du juge ; **délai dépassé**\n  (code 6, coût au pire cas) : appel perdu, compté à part, jamais comme réponse du juge ; pertes d'infrastructure au-delà de\n  15 % de la phase décisive de A : arrêt « infrastructure » ;"
+ },
+ {
+  "ancien": "Les prédictions ont été écrites après ces courses à blanc, qui ne disent rien des juges réels.",
+  "nouveau": "Les prédictions ont été écrites après ces courses à blanc, qui ne disent rien des juges réels. La contre-lecture\n(`prereg/contre-lecture-preenregistrement-juges-idees-v2-v1.md`) a joué d'autres courses à blanc (juges scriptés, dont un juge\nqui ne lit aucune table) et des calculs de puissance, sans appel de modèle ni donnée réelle ; elle a écrit P12 et P13."
+ },
+ {
+  "ancien": "- L'ancien protocole est rejoué avec le dossier inséré sur les témoins : ce n'est pas l'entrée exacte du second tour.",
+  "nouveau": "- L'ancien protocole est rejoué avec le dossier inséré sur les témoins (ce n'est pas l'entrée exacte du second tour) et, par le\n  juge A seul, sans dossier (la forme de l'entrée du second tour, à la consigne et aux items de la configuration près ; un juge,\n  Argon, au lieu de Kimi et Argon).\n- La consigne v2 nomme exactement les familles de défauts plantées (loi contredite, redite, affirmation vraie par définition,\n  texte sans affirmation réfutable) et la longueur ; elle a été écrite par l'auteur des témoins. La comparaison porte sur des\n  protocoles complets, consigne comprise : un succès ne dit rien des défauts que la consigne ne nomme pas.\n- Les matériaux sont rééquilibrés pour que ni le gabarit ni l'a priori de plausibilité ne séparent les classes (section 4) ; le\n  contrôle de diagnosticité ne couvre que les indices qu'il nomme."
+ },
+ {
+  "ancien": "Argon 0,062 USD par appel et environ 8 s ; Kimi 0,35 USD et environ 16 min (mesurés le 2 novembre, chiffres\ntransmis par la session ; non revérifiés ici).",
+  "nouveau": "Argon 0,062 USD par appel et environ 8 s ; Kimi 0,35 USD et environ 16 min (mesurés le 2 novembre, chiffres\ntransmis par la session ; non revérifiés ici) ; fiabilité du relais Kimi à A1 : 5 appels réussis, 616 en échec. Sources, par\nchemin et empreinte (R6) : `<<SOURCES_DU_DEVIS>>`."
+ },
+ {
+  "ancien": "| décisive B | Astra | 20 + au plus 26 paires (42 dans la course à blanc de référence ; 36 à 45 sur 40 tirages simulés) | au plus 11,50 |",
+  "nouveau": "| décisive B | Astra | 20 + au plus 26 paires (42 dans la course à blanc de référence ; 36 à 45 sur 40 tirages simulés) | au plus 11,50 |\n| sans dossier (A) | Argon | 20 | 1,24 |"
+ },
+ {
+  "ancien": "| **total** | | au plus 246 (242 dans la course à blanc de référence) | **au plus 28,41** (27,41 dans la course à blanc de référence) |",
+  "nouveau": "| **total** | | au plus 266 (262 dans la course à blanc de référence) | **au plus 29,65** (28,65 dans la course à blanc de référence) |"
+ },
+ {
+  "ancien": "**Maximum** (lot réel de 13 fiches, 26 paires mélangées pour B) : Argon 190 appels (11,78 USD, part 12), Astra 72 appels\n(18,00 USD, part 18) : **29,78 USD ≤ plafond 30 USD**.",
+  "nouveau": "**Maximum** (lot réel de 13 fiches toutes admises pour A, 26 paires mélangées pour B) : Argon 210 appels (13,02 USD, part 24),\nAstra 72 appels (18,00 USD, part 36) : **31,02 USD ≤ plafond 60 USD** ; les parts laissent 1,8 fois le prix d'Argon et 2 fois le\ntaux de devis d'Astra au pire cas du plan."
+ },
+ {
+  "ancien": "0,57 à 4,2 heures pour la\ncourse à blanc de référence ; plafond 6 heures.",
+  "nouveau": "0,62 à 4,4 heures pour la\ncourse à blanc de référence (bras sans dossier compris) ; garde de 48 heures contre une boucle folle, jamais une coupe de la\nmesure (la durée par appel d'Astra n'est pas mesurée) ; délai par appel de la commande externe : 1 800 s\n(`AdaptateurCommandeExterne.DELAI_COMMANDE_S`), garde contre un appel bloqué."
+ },
+ {
+  "ancien": "| Argon (A) + Astra (B), retenue | au plus 246 | au plus 28,41 USD (lot réel de 12 fiches) | prix d'Astra à confirmer (projection au prix observé) |",
+  "nouveau": "| Argon (A) + Astra (B), retenue | au plus 266 | au plus 29,65 USD (lot réel de 12 fiches) | prix d'Astra non mesuré (projection au prix observé, part de 36 USD) ; Astra hors du périmètre écrit du GO : mot de Lazar exigé (section 4) |"
+ },
+ {
+  "ancien": "| Argon (A) + Kimi (B) | B : 20 + 16 à 26 paires + 24 | B seul 21,0 à 24,5 USD ; total 31,9 à 35,4 | au-dessus du plafond ; 60 à 70 appels d'environ 16 min : 16 à 19 h séquentielles |",
+  "nouveau": "| Argon (A) + Kimi (B) | B : 20 + 16 à 26 paires + 24 | B seul 21,0 à 24,5 USD ; total 33,1 à 36,6 (bras sans dossier compris) | dans le plafond de 60 USD et dans le périmètre écrit du GO ; 16 à 19 h séquentielles, sous la garde de 48 h ; écarté pour la fiabilité de son relais (A1 : 5 appels réussis, 616 en échec) |"
+ },
+ {
+  "ancien": "`plafonds_session.juge`, pièces `consigne_juge`, `question_course_2`, `lot_reel_juges_idees_v2`) ; GO de Lazar au plafond exact\ndu texte ;",
+  "nouveau": "`plafonds_session.juge`, pièces `consigne_juge`, `question_course_2`, `lot_reel_juges_idees_v2`) ; avant le scellement, la\nsession qui tient les pièces vérifie que la consigne figée de l'ancien juge passe la garde A4 des témoins (`exiger_entrees`) ;\naucune autre course n'emploie le relais Argon pendant celle-ci (relais à un seul fil) ; GO de Lazar au plafond exact du texte\n(GO-2026-11-02-24, 60 USD) et mot de Lazar sur Astra ;"
+ }
+]
