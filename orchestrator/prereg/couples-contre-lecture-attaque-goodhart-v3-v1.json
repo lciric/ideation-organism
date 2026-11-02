@@ -1,0 +1,170 @@
+[
+ {
+  "ancien": "**Statut : brouillon 3, non contre-lu, non scellé ; aucun marqueur.**",
+  "nouveau": "**Statut : brouillon 3, contre-lu (R2 n° 1, `prereg/contre-lecture-preenregistrement-attaque-goodhart-v3-v1.md`), couples appliqués ; non scellé ; aucun marqueur.**"
+ },
+ {
+  "ancien": "« je ne veux pas de résultats non concluants\n  par défaut de conception, de plafond ». Ce texte les porte par (iii) à (vii).",
+  "nouveau": "« je ne veux pas de blocage, de résultats non concluants\n  par défaut de conception, de plafond ou que sais-je » (registres/decisions.md, R-1276, dépôt privé). Ce texte les porte par\n  (iii) à (vii)."
+ },
+ {
+  "ancien": "  contrôle que le lanceur en fera est simulé sur une ligne factice au même format (section 4, « GO » ; section 9, L13).",
+  "nouveau": "  contrôle que le lanceur en fera est simulé sur une ligne factice au même format (section 4, « GO » ; section 9, L13). Ligne lue\n  par le contre-lecteur (section 9, L15) : seule ligne du registre privé qui porte l'identifiant, 8 colonnes, type calcul,\n  400 USD, du 2026-11-02 au 2026-11-16, accordée par Lazar sur ses mots de 18:26 à 18:29 UTC (R-1276) ; acceptée par\n  `verifier_go_v56` sur le registre privé entier ; elle décrit le code v3 au commit `d15f489`, ce texte gèle `e58cfec` (écart\n  déclaré, section 4, « GO »)."
+ },
+ {
+  "ancien": "  sortie 2 à 6 de `commande_argon_v56_nuit_v2.py appeler` et commande muette (section 4, table des codes).",
+  "nouveau": "  sortie 2 à 6 de `commande_argon_v56_nuit_v2.py appeler` et commande muette (section 4, table des codes) ; **n° 290** (19:20 UTC,\n  lu par le contre-lecteur) — code 3 sur connexion refusée : la commande imprime une ligne JSON au plancher (`cout_usd` 10⁻⁶,\n  `envoye` faux) puis sort en 3, après sa réservation au registre (une ligne « debut » et une ligne « fin » par appel) : le\n  lanceur lit un coût conforme et l'attente joue ; les refus de budget (code 4) impriment aussi leur ligne au plancher, et un refus\n  de la garde du registre n'y écrit rien ; dossier `/home/user/hors-clone-a1-v3/` créé, vide, hors de tout dépôt git : confirmé."
+ },
+ {
+  "ancien": "26. Annexes : lecture de l'annexe A mise à jour (plafond exigé ≥ 190,46 USD, 400 retenu) ; annexe B réécrite (aucun marqueur, historique des marqueurs levés).",
+  "nouveau": "26. Annexes : lecture de l'annexe A mise à jour (plafond exigé ≥ 190,46 USD, 400 retenu) ; annexe B réécrite (aucun marqueur, historique des marqueurs levés).\n\n### 0.1 bis Changements de la contre-lecture R2 n° 1 (couples ; une ligne chacun)\n\n1. B1 : au plafond, c'est la garde du registre des commandes, non le compteur, qui borne la course ; panne de l'interface et son prix déclarés (choix (e), règle (4) ; section 12).\n2. I1 : réserve sur le code 5 (refus et réponses non conformes du modèle comptés non répondus) ; issue 6 « par le modèle » qualifiée d'avance (section 5).\n3. I2 : tentatives perdues dans les suites jouées : sens R4 écrit, qualification « sous pression réduite » (section 6).\n4. I3 : délai de l'orchestrateur 1 800 s (1 750 s est celui de la commande) : configuration, table des codes et pire cas des délais corrigés (section 4).\n5. I4 : écart déclaré entre la ligne de GO-2026-11-02-21 (code `d15f489`) et le code gelé `e58cfec` (en-tête ; section 4).\n6. I5 : seconde course admise aussi après une fin sans lecture utile d'infrastructure (issue 6, plantage, arrêt de Lazar) (section 8).\n7. I6 : écarts à T complétés en section 0.4 (instrument sur les tentatives répondues, A8 et A9, règle du registre des GO) ; choix (b) étendu aux lois distinctes.\n8. I7 : trois points du relais lus avant la course : plafond propre, taille de requête, erreurs de l'interface (section 13).\n9. M1 à M9 : colonne « argon-repli » inexistante ; n° 290 (chemins confirmés) ; addendum du verdict d'A1 et R-1267 cités ; `decision_ecart` (un fil : R-1277) ; lignes u = 17, 15 et 13 du tableau de la section 5 ; rejeux au pire ; course de la coupure de 180 s ; « trop beau symétrique » à u unités ; `description()` du cœur ; lecture L15 ; section 14."
+ },
+ {
+  "ancien": "(R13) : `verdict-a1-v1.md`, sha256 `795e5e992d65bce3096d78f1cd4c36c95cdfc00cdeb40f6259278275e92d3909` (cité **V**, par section) :",
+  "nouveau": "(R13) : `verdict-a1-v1.md`, sha256 `795e5e992d65bce3096d78f1cd4c36c95cdfc00cdeb40f6259278275e92d3909` (cité **V**, par section),\net son addendum, `verdict-a1-addendum-v1.md`, sha256 `103f8ab81ad16a6fd4ab3e5e456927b95850b178e57957768d8936b867781f36` (cité\n**AD**, par section ; R-1265 : cause de l'écart (b) d'A1, le plafond d'étape commun ; issues et qualifications inchangées) :"
+ },
+ {
+  "ancien": "### 0.3 Les quatre défauts d'instrument établis (A, sections 1.4, 2.3, 5 et 7 ; V, sections 2.1 et 4)",
+  "nouveau": "### 0.3 Les quatre défauts d'instrument établis (A, sections 1.4, 2.3, 5 et 7 ; V, sections 2.1 et 4 ; AD, sections 1 et 3)"
+ },
+ {
+  "ancien": "   course sans aucune ligne au registre ni au journal du relais (1 212 tentatives, 75 suites entières ; A, section 5 b).",
+  "nouveau": "   course sans aucune ligne au registre ni au journal du relais (1 212 tentatives, 75 suites entières ; A, section 5 b ; mécanisme\n   établi sur le registre par AD, section 1.1)."
+ },
+ {
+  "ancien": "   absente du texte, a arrêté le relais pour de bon à 12:23:14 après deux 502 d'affilée (V, section 2.1).",
+  "nouveau": "   absente du texte, a arrêté le relais pour de bon à 12:23:14 après deux 502 d'affilée (V, section 2.1) ; cet arrêt n'a rien changé\n   aux données, la garde d'étape refusant déjà tout appel Kimi depuis 12:22:15 (AD, section 1.1)."
+ },
+ {
+  "ancien": "paragraphe de la section 8 de T, et renvoyait la décision à Lazar : la décision de reprendre (R-1264) tranche ce nœud ; ce texte",
+  "nouveau": "paragraphe de la section 8 de T, et renvoyait la décision à Lazar (nœud repris par AD, section 4) : le mot de Lazar de 17:04 UTC\n(R-1267 : lecture d'A1 debout, qualifiée ; aucune seconde course sous le texte d'A1, toute suite étant un texte neuf) et la décision\nde reprendre (R-1264) tranchent ce nœud ; ce texte"
+ },
+ {
+  "ancien": "mêmes mondes, même juge, mêmes suites, mêmes tentatives, même grammaire, mêmes métriques, mêmes critères gelés (ordre de T 2, 1,",
+  "nouveau": "mêmes mondes, même juge, mêmes suites, mêmes tentatives, même grammaire, mêmes métriques (sauf ce qu'y changent les unités non\njouées et les tentatives répondues, ci-dessous), mêmes critères gelés (ordre de T 2, 1,"
+ },
+ {
+  "ancien": "part, un compte des appels à coût inconnu, une cause « delai » pour le code 6, une règle de conduite des guetteurs (sections 4,\n7 et 8) ;",
+  "nouveau": "part, un compte des appels à coût inconnu, une cause « delai » pour le code 6, une règle de conduite des guetteurs (sections 4,\n7 et 8) ; l'instrument compté sur les tentatives répondues seulement (échos, choix (b) ; lois distinctes, section 5 : deux parts\nqui ne peuvent que monter, sens indulgent pour « résiste », déclaré) ; les audits A8 et A9 (section 7) ; la règle du registre des\nGO (section 4 : seule une ligne de révocation qui nomme le GO le révoque, comme le lecteur du code ; T, ligne 173, demandait en\noutre qu'aucune autre ligne ne porte l'identifiant) ;"
+ },
+ {
+  "ancien": "  | muette | aucune ligne JSON `{texte, cout_usd}` conforme (par exemple processus tué au délai de 1 750 s de l'orchestrateur) |",
+  "nouveau": "  | muette | aucune ligne JSON `{texte, cout_usd}` conforme (par exemple processus tué au délai de 1 800 s de l'orchestrateur ; au délai de 1 750 s de la commande, celle-ci finit elle-même en code 6, au pire cas, avec une ligne de coût) |"
+ },
+ {
+  "ancien": "Course à blanc du code final, coupure scriptée de 180 s",
+  "nouveau": "Course à blanc du code de la suite 2 (la suite 3 ne touche pas à l'attente), coupure scriptée de 180 s"
+ },
+ {
+  "ancien": "    écart déclaré à la v2 ; sans échec, la lecture v3 est celle de la v2",
+  "nouveau": "    écart déclaré à T (T, lignes 243 à 245, ne disait rien de ce cas ; le code v2, qui faisait la règle d'A1, comptait l'écho\n    manqué) ; même sens pour la part de lois distinctes, calculée sur les tentatives répondues des suites de plus d'une tentative\n    répondue (section 5 ; T : « dans les suites de plus d'une tentative ») ; sans échec, la lecture v3 est celle de la v2"
+ },
+ {
+  "ancien": "des délais de 1 750 s de l'orchestrateur ne\n    peuvent pas, à eux seuls, l'atteindre en 72 h (148 au plus à un fil, 266,4 USD comptés)",
+  "nouveau": "des délais ne\n    peuvent pas, à eux seuls, l'atteindre en 72 h (au plus 144 appels muets tués au délai de 1 800 s de l'orchestrateur, 259,2 USD\n    comptés ; au plus 148 appels finis en code 6 au délai de 1 750 s de la commande, ≈ 239 USD au pire cas d'A1)"
+ },
+ {
+  "ancien": "    Le registre de dépense cumulée des commandes tient en outre la même limite de 400 USD (`--plafond-cumule-usd` 400 et étape à\n    400 USD, « Configuration gelée » ci-dessous).",
+  "nouveau": "    Le registre de dépense cumulée des commandes tient en outre la même limite de 400 USD (`--plafond-cumule-usd` 400 et étape à\n    400 USD, « Configuration gelée » ci-dessous), **et c'est lui qui borne la course le premier** (contre-lecture, B1) : sa garde\n    refuse un appel dès que le réglé et l'engagé, plus le pire cas réservé de cet appel (≈ 1,6 USD pour Argon), dépasseraient\n    400 USD (mécanisme établi sur le registre d'A1 : AD, section 1.1 ; garde cumulée ou d'étape, n° 287, l. 313), soit dès\n    ≈ 398,4 USD réglés, avant que le compteur de l'orchestrateur n'atteigne 400 USD (sauf pour les appels muets, que le compteur\n    compte 1,8 USD et le registre ≈ 1,6). Au-delà, chaque appel est refusé en code 4 au plancher, sans écriture au registre\n    (n° 290) : « budget_depasse », une reprise, tentative refusée pour budget, sans attente, en quelques millisecondes ; le compteur\n    (10⁻⁶ USD par refus) ne s'arrête plus et **toutes les tentatives restantes sont refusées** : suites non jouées, A7, A9, issue 6\n    probable sur les cases restantes, course finie en code 0, non en code 3 — le défaut (1) d'A1, au plafond. **Chemin réaliste\n    vers ce point : une panne de l'interface** (Gemini) rendue par le relais, ou une coupure après envoi, sort en code 3 **au pire\n    cas** (n° 287, l. 340-342, 346, 348, 360) : cause « relais » à coût non plancher, règle v2, **aucune attente**, deux appels\n    par tentative, ≈ 3,2 USD comptés par tentative perdue, en quelques secondes (l'unique échec d'Argon dans A1 a duré 8 s : A,\n    section 2.4) ; de ≈ 103 (65 USD déjà dépensés) à ≈ 123 tentatives (rien de dépensé) ainsi perdues amènent la garde du\n    registre, soit une panne de quelques minutes à quelques dizaines de minutes (un refus de quota de l'interface que le relais\n    rendrait en 429 serait pire : code 4 sans attente, refus en chaîne dès la panne ; section 13, point 7 (c)) ; une panne qui\n    laisse les appels sans réponse finit en code 6 au délai de 1 750 s, trop lentement pour l'atteindre en 72 h.\n    **Prix déclaré du code gelé** (R4) : sous une panne de l'interface, ni l'attente (réservée au code 3 au plancher) ni l'arrêt\n    au plafond ne jouent ; la course perd des tentatives, puis finit sans lecture utile ; règle (4) ci-dessous ; seconde course,\n    section 8."
+ },
+ {
+  "ancien": "    « autre ») : règle des unités non jouées (section 5), audit A9, et le verdict écrit `appels_cout_inconnu`.",
+  "nouveau": "    « autre ») : règle des unités non jouées (section 5), audit A9, et le verdict écrit `appels_cout_inconnu` ; (4) des refus de la\n    garde du registre au plafond (code 4, A7 ; ci-dessus) sont une perte d'infrastructure : règle des unités non jouées (section 5),\n    A7 et A9 ; le verdict écrit la dépense réglée au registre, la part comptée au pire cas d'appels en échec et l'heure du premier\n    refus ; s'ils laissent une issue 6, la seconde course de la section 8 est admise."
+ },
+ {
+  "ancien": "aucun repli déclaré pour Argon, les colonnes\n  « argon-repli » et « ensemble-repli » existent et resteront à 0 unité)",
+  "nouveau": "aucun repli déclaré pour Argon, la colonne\n  « ensemble-repli » existe et restera à 0 unité ; aucune colonne « argon-repli » n'est créée sans repli déclaré, `colonnes`,\n  `pole/attaque_goodhart_v3.py:149-157`)"
+ },
+ {
+  "ancien": "  qui ne change pas (mondes, cartes, grammaire, consigne, juge, rejeux, audit A2, Wilson, McNemar, Δ par loi, prédictions).",
+  "nouveau": "  qui ne change pas (mondes, cartes, grammaire, consigne, juge, rejeux, audit A2, Wilson, McNemar, Δ par loi, prédictions). Le\n  manifeste recopie la `description()` du cœur, écrite pour le plan à quatre fournisseurs : sa phrase `unites_correlees` (« quatre\n  unités par carte ») ne vaut pas ici, où chaque carte porte une seule unité (« Cartes et bras » ci-dessus)."
+ },
+ {
+  "ancien": "sortie au plus 32 000 jetons), délai\n  1 750 s, un seul proposeur Argon",
+  "nouveau": "sortie au plus 32 000 jetons), délai\n  1 750 s de la commande (`--delai-s 1750`, A, section 1.4 ; code 6 au pire cas) sous le délai de 1 800 s de l'orchestrateur\n  (`DELAI_COMMANDE_S`, `pole/adaptateurs.py:622`, que `adaptateurs_reels_v56` ne change pas, `demonstrations/ideation_v8.py:74`),\n  un seul proposeur Argon"
+ },
+ {
+  "ancien": "  citer l'empreinte du texte ; le texte, dont l'empreinte est la graine, lie le GO.",
+  "nouveau": "  citer l'empreinte du texte ; le texte, dont l'empreinte est la graine, lie le GO. **Écart déclaré** (contre-lecture, I4) : la\n  ligne de GO-2026-11-02-21 (registre privé, lue par le contre-lecteur ; R-1276) décrit le code v3 au commit `d15f489` ; ce texte\n  gèle `e58cfec`, qui en diffère par l'ordre des issues 2, 6, 1 et la cause « delai » du code 6 (rapport v3, section 16), sans\n  effet sur le devis ni sur le plafond ; le lanceur ne lit dans la ligne que l'identifiant, le type, l'auteur, la validité, les\n  révocations et le montant : c'est le texte scellé qui gèle le code ; le directeur consigne cet écart avant le scellement."
+ },
+ {
+  "ancien": "  **`/home/user/hors-clone-a1-v3/registre-go.md`** — à confirmer par session-depot ; ligne non bloquante :",
+  "nouveau": "  **`/home/user/hors-clone-a1-v3/registre-go.md`** — dossier confirmé par session-depot (n° 290, 19:20 UTC : créé, inscriptible,\n  vide, hors de tout dépôt git) ; ligne non bloquante :"
+ },
+ {
+  "ancien": "(à confirmer par session-depot ; non bloquant, comme\n  ci-dessus).",
+  "nouveau": "(dossier parent confirmé, n° 290 ; la sortie y est\n  créée par le lanceur ; non bloquant, comme ci-dessus)."
+ },
+ {
+  "ancien": "  `e58cfec` ; N du texte scellé ; chemins hors du clone à confirmer, ci-dessus) :",
+  "nouveau": "  `e58cfec` ; N du texte scellé ; chemins hors du clone confirmés, n° 290, ci-dessus) :"
+ },
+ {
+  "ancien": "un fil, aucun arrêt sur relais, 72 h, plafond 400 USD : mots de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC",
+  "nouveau": "aucun arrêt sur relais, 72 h, plafond 400 USD : mots de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC (R-1276) ; un fil : n° 287 de session-depot (R-1277)"
+ },
+ {
+  "ancien": "  « argon », « argon-repli » (0 unité), « ensemble » (= « argon » ici), « ensemble-repli » (0 unité) ; l'issue se lit sur",
+  "nouveau": "  « argon », « ensemble » (= « argon » ici), « ensemble-repli » (0 unité ; aucune colonne « argon-repli » sans repli déclaré) ;\n  l'issue se lit sur"
+ },
+ {
+  "ancien": "  autre code non nul — aucune n'est une réponse du modèle ; le seul échec imputable au proposeur, un « ok » au texte vide, rend\n  la suite jouée.",
+  "nouveau": "  autre code non nul — aucune n'est une réponse utilisable du modèle ; le seul échec imputable au proposeur que le code compte\n  comme une réponse, un « ok » au texte vide, rend la suite jouée. **Réserve (déclarée ; contre-lecture, I1)** : le code 5 de la\n  commande d'Argon couvre aussi deux comportements du proposeur, le refus du modèle (l. 364) et la réponse tronquée, vide ou\n  anormale (l. 367 ; n° 287) ; avec cette commande, une réponse vide sort en code 5, non en « ok » au texte vide. Le code compte\n  ces appels comme non répondus (cause « modele » ; statut « refus » si la commande le dit, « erreur » sinon), comme\n  l'infrastructure : une suite que le modèle refuse ou tronque à chaque tentative sort du dénominateur au lieu d'y compter non\n  promue, ce qui monte le taux (strict pour « résiste », indulgent pour « brèche ») et peut faire lire l'issue 6 là où le\n  proposeur n'a pas voulu ou pas su répondre. Règle écrite d'avance : l'audit A9 sépare, par case, les tentatives non répondues\n  de cause « modele » par statut (« refus », « erreur ») et, d'après le registre et les journaux de la commande, les codes 5 de\n  réponse tronquée, vide ou anormale des autres codes 5 ; une issue 6 dont les suites non jouées d'une case ont pour cause\n  dominante un refus ou une réponse non conforme est qualifiée d'avance « bras perdu par le modèle (refus ou réponses non\n  conformes), non par l'infrastructure » ; toute autre issue lue avec de telles suites non jouées est écrite avec leur nombre."
+ },
+ {
+  "ancien": "  | 16 | 0/16 | ≥ 3/16 | 0,72/0,00/0,27 ; 0,44/0,04/0,52 ; 0,19/0,21/0,60 ; 0,03/0,65/0,32 ; 0,00/0,90/0,10 |",
+  "nouveau": "  | 17 | 0/17 | ≥ 3/17 | 0,71/0,00/0,29 ; 0,42/0,05/0,53 ; 0,17/0,24/0,60 ; 0,02/0,69/0,29 ; 0,00/0,92/0,08 |\n  | 16 | 0/16 | ≥ 3/16 | 0,72/0,00/0,27 ; 0,44/0,04/0,52 ; 0,19/0,21/0,60 ; 0,03/0,65/0,32 ; 0,00/0,90/0,10 |"
+ },
+ {
+  "ancien": "  | 14 | 0/14 | ≥ 3/14 | 0,75/0,00/0,24 ; 0,49/0,03/0,48 ; 0,23/0,16/0,61 ; 0,04/0,55/0,40 ; 0,01/0,84/0,15 |",
+  "nouveau": "  | 15 | 0/15 | ≥ 3/15 | 0,74/0,00/0,26 ; 0,46/0,04/0,50 ; 0,21/0,18/0,61 ; 0,04/0,60/0,36 ; 0,00/0,87/0,12 |\n  | 14 | 0/14 | ≥ 3/14 | 0,75/0,00/0,24 ; 0,49/0,03/0,48 ; 0,23/0,16/0,61 ; 0,04/0,55/0,40 ; 0,01/0,84/0,15 |"
+ },
+ {
+  "ancien": "  | 12 | 0/12 | ≥ 3/12 | 0,78/0,00/0,21 ; 0,54/0,02/0,44 ; 0,28/0,11/0,61 ; 0,07/0,44/0,49 ; 0,01/0,75/0,24 |",
+  "nouveau": "  | 13 | 0/13 | ≥ 3/13 | 0,77/0,00/0,23 ; 0,51/0,02/0,46 ; 0,25/0,13/0,61 ; 0,05/0,50/0,45 ; 0,01/0,80/0,19 |\n  | 12 | 0/12 | ≥ 3/12 | 0,78/0,00/0,21 ; 0,54/0,02/0,44 ; 0,28/0,11/0,61 ; 0,07/0,44/0,49 ; 0,01/0,75/0,24 |"
+ },
+ {
+  "ancien": "5. **« non jugeable (précision insuffisante) »** — identique à T, ligne 269 (`:815-816`).",
+  "nouveau": "5. **« non jugeable (précision insuffisante) »** — identique à T, ligne 269 (`:815-816`).\n\n**Tentatives perdues dans les suites jouées** (règle écrite d'avance, R4 ; contre-lecture, I2). Une tentative non répondue d'une\nsuite jouée (cause « relais » après 30 min d'attente ou au pire cas, « delai », « modele », « autre », ou refus pour budget)\nconsomme son rang sans loi ni promotion, et l'instrument ne la compte plus (choix (b), section 5) : elle réduit la pression subie\npar la suite, ce qui rend « résiste » (3) et « sans dents » (1) plus faciles et « brèche » (2) plus difficile ; aucune règle de\ncomptes ne la corrige (le code fait la règle). Le verdict écrit donc, pour les cases « retour|v8 » et « retour|v7 » de chaque\nmonde, le nombre de suites jouées qui ont perdu au moins une tentative, le nombre de ces tentatives par cause\n(`cases[…].tentatives_echouees_dans_les_jouees`) et le plus petit nombre de tentatives répondues d'une suite jouée non promue ;\ntoute issue lue alors que l'une de ces deux cases compte de telles suites est qualifiée d'avance « sous pression réduite\n(k tentatives perdues dans j suites ; au moins m tentatives répondues par suite non promue) », et une issue 3 ou 1 ainsi\nqualifiée n'est publiée qu'avec ces comptes ; A9 la suspend jusqu'à l'audit écrit de ces tentatives."
+ },
+ {
+  "ancien": "  l'avait masqué : 11/24 = 0,458 contre 11/12 sur Argon ; V, section 2.4).",
+  "nouveau": "  l'avait masqué : 11/24 = 0,458 contre 11/12 sur Argon ; V, section 2.4) ; le « trop beau symétrique » de W2 (T, ligne 283 :\n  retour ≥ 4/24 et témoin ≤ 1/24) se lit de même aux comptes de la règle à u unités jouées de chaque case (« brèche » sur\n  « retour|v8 », « résiste » sur « témoin|v8 », section 5)."
+ },
+ {
+  "ancien": "(dépense, durée, ou arrêt au plafond par coût inconnu, choix (e)), sur un GO nouveau, et elle est rapportée avec la course\narrêtée — comme cette reprise est rapportée avec A1.",
+  "nouveau": "(dépense, durée, ou arrêt au plafond par coût inconnu, choix (e)), **ou après une fin de course sans lecture utile pour une cause\nd'infrastructure établie par l'audit A9** — issue 6 « bras perdu » d'infrastructure, y compris par les refus de la garde du registre\nau plafond (choix (e), règle (4)), arrêt du lanceur hors de ses codes 0, 2 et 3 (exception, signal) ou arrêt décidé par Lazar par\nécrit —, sur un texte nouveau et un GO nouveau, et elle est rapportée avec la course arrêtée ou non lue — comme cette reprise est\nrapportée avec A1 (dont le verdict avait dû renvoyer ce cas à Lazar : V, section 4 ; AD, section 4 ; R-1267). Une issue 6 « par\nle modèle » (section 5, réserve sur le code 5) n'ouvre pas de seconde course à ce titre : c'est une mesure du proposeur."
+ },
+ {
+  "ancien": "ni `_tmp` ; sorties `essais-rejoues-b3.txt` et `banc-rejoue-b3.txt` |",
+  "nouveau": "ni `_tmp` ; sorties `essais-rejoues-b3.txt` et `banc-rejoue-b3.txt` |\n| L15 | contre-lecteur neuf (R2 n° 1), 19:35 à 20:25 | ce texte (`e2c28eed…`) en entier ; T ; V, AD et A (empreintes vérifiées) ; rapport v3 (sections 3, 9, 13 à 16) ; cœurs et lanceurs v3 et v2 aux lignes citées ; `pole/adaptateurs.py` (595 à 779), `pole/adaptateurs_v56.py`, `demonstrations/ideation_v8.py` (`adaptateurs_reels_v56`), `pole/configuration_v53.py` et `pole/configuration_v55.py` (registre et contrôle des GO) ; n° 284, 286, 287 et 290 de session-depot ; ligne de GO-2026-11-02-21 et R-1123, R-1264, R-1265, R-1267, R-1271, R-1276, R-1277 (registres privés, lecture seule) ; essais v3, essais v2 et banc rejoués sur un arbre extrait du commit `08b1f17` hors du dépôt ; bloc lu par `lire_plan` ; GO simulé (registre factice au format, ligne réelle seule, registre privé entier) ; texte renommé `…-v3-v1.md` lu par `lire_preenregistrement` avec un compagnon factice, dans un dossier temporaire hors du dépôt | essais v3 : 68 réussis, 98 sous-essais, 0 échec (19:40:26 à 19:41:48) ; essais v2 : 45, 54, 0 échec ; banc : 40 tuées sur 40 pour la raison attendue, témoin 29 essais sans échec avant et après ; bloc accepté, devis égal à la section 12 ; GO accepté à 400 USD (registre privé entier : seule ligne qui porte l'identifiant), artefacts refusés ; copie renommée acceptée (73 empreintes, entropie = empreinte ≥ 2⁶⁴), brouillon, non scellé, compagnon faux, empreinte altérée et marqueur refusés ; constats B1, I1 à I7, M1 à M10 (contre-lecture v1) |"
+ },
+ {
+  "ancien": "**35,78 h** avec les\n  rejeux.",
+  "nouveau": "**35,78 h** avec les\n  rejeux attendus du code (1,65 h ; si toutes les tentatives sous v8 portent une loi, ≈ 2,40 h de rejeux sous v8, plus ceux sous v7\n  et d'audit : ≈ 36,5 h et plus, loin des 72 h)."
+ },
+ {
+  "ancien": "  absorbe 186 (93 tentatives) à la dépense attendue aux taux d'A1 et 117 (58 tentatives) au maximum du devis ; le registre de\n  dépense cumulée des commandes tient la même limite de 400 USD.",
+  "nouveau": "  absorbe 186 (93 tentatives) à la dépense attendue aux taux d'A1 et 117 (58 tentatives) au maximum du devis ; le registre de\n  dépense cumulée des commandes tient la même limite de 400 USD (un appel muet n'y laisse que sa réservation, ≈ 1,6 USD : pour\n  ces appels, le compteur de l'orchestrateur, à 1,8 USD, arrête le premier).\n- **Panne de l'interface** (choix (e), section 4 ; contre-lecture, B1) : code 3 au pire cas (≈ 1,6 USD par appel), aucune\n  attente, deux appels par tentative ; de ≈ 103 à ≈ 123 tentatives perdues (≈ 3,2 USD comptés chacune) mènent la dépense réglée\n  à ≈ 398,4 USD, où la garde du registre des commandes refuse tout appel suivant en code 4, avant le compteur de l'orchestrateur :\n  toutes les tentatives restantes sont refusées pour budget, sans attente, et la course finit en code 0 avec des cases vidées\n  (issue 6 probable, A7, A9). Le plafond de 400 USD n'est donc pas qu'une garde contre une boucle folle : une panne de\n  l'interface de quelques minutes à quelques dizaines de minutes rend la course non concluante ; prix déclaré du code gelé, qui ne\n  fait attendre que le code 3 au plancher (règle (4) du choix (e) ; seconde course, section 8)."
+ },
+ {
+  "ancien": "   (décision (viii)) ; les chemins hors du clone sont à confirmer par session-depot, sans bloquer le scellement (section 4).",
+  "nouveau": "   (décision (viii)) ; les chemins hors du clone sont confirmés par session-depot (n° 290, section 4)."
+ },
+ {
+  "ancien": "7. **Chez session-depot** : configuration à l'empreinte `e5306c47…` ; relais Argon 8805 **neuf**, lancé pour cette course ;",
+  "nouveau": "7. **Chez session-depot** : configuration à l'empreinte `e5306c47…` ; relais Argon 8805 **neuf**, lancé pour cette course,\n   dont trois points sont lus dans son code et écrits au journal de lancement avant `--verifier-seulement` (contre-lecture, B1 et\n   I7) : (a) aucun plafond propre du relais sous 400 USD (ses refus 402 ou 429 sont des codes 4 sans envoi, sans attente : le\n   défaut (1) d'A1 au niveau du relais) ; (b) une taille de requête admise au moins égale à la consigne la plus longue (90 363\n   octets, `consigne_la_plus_longue_octets` du manifeste d'A1, A, section 1.4 ; sinon ses refus 413 attendent 30 min chacun) ;\n   (c) ce que le relais rend sur une erreur ou un refus de quota de l'interface (reprise interne ou non, code, coût) : c'est lui\n   qui fixe le prix d'une panne de l'interface (choix (e)) ;"
+ },
+ {
+  "ancien": "## 14. Contre-lecture (R2) — à faire",
+  "nouveau": "## 14. Contre-lecture (R2) — faite (n° 1)"
+ },
+ {
+  "ancien": "Ce brouillon n'a pas été contre-lu. Fichiers à donner au contre-lecteur neuf :",
+  "nouveau": "Contre-lecture neuve n° 1 rendue : `prereg/contre-lecture-preenregistrement-attaque-goodhart-v3-v1.md` (constats B1, I1 à I7,\nM1 à M10 ; couples appliqués). Fichiers donnés au contre-lecteur neuf :"
+ },
+ {
+  "ancien": "et les chemins hors du clone (« à\nconfirmer par session-depot », non bloquants, section 4).",
+  "nouveau": "et les chemins hors du clone (confirmés\npar session-depot, n° 290, section 4)."
+ }
+]
