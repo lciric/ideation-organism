@@ -23,6 +23,10 @@ Ce qui change (décision de Lazar du 2 novembre 2026, GO-2026-11-02-13 ; session
    de promotion, aucun Δ n'est calculé (`rapport_essai`, `verifier_sortie_essai`) : seulement coût et durée par appel,
    appels réussis et en échec, part de lois valides, part d'échos exacts, lois hors de la classe couverte, modèles servis.
 6. **Devis par fournisseur** (`devis`) : taux par appel et durée par appel propres à chaque fournisseur, durée avec `fils` fils.
+7. **Code de sortie 4** (refus du registre de dépense avant l'envoi, défaut d'instrument vu dans A1) compté « budget_depasse »,
+   jamais « échouée » (`appeler`) ; cause de chaque échec écrite (`cause_d_echec`) ; **unités sans aucune loi valide** mesurées
+   par case et par unité avec leur cause dominante (`unites_sans_loi`), sans effet sur la lecture. Le lanceur v3 donne à
+   chaque fournisseur **sa propre étape de dépense** (`ETAPE_POLE = attaque_goodhart_v3/<nom>`, `PLAFOND_ETAPE_USD` = sa part).
 """
 
 import concurrent.futures
@@ -53,6 +57,19 @@ NOM_MODELE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{1,63}$")
 ESSAIS_AVANT_REPLI_MAX = 10
 FILS_MAX = 64
 ECHECS_POUR_BASCULE = ("erreur", "refus")  # statuts d'appel qui comptent pour la bascule (jamais « budget_depasse », A7)
+# Codes de sortie des commandes externes de session-depot (n° 276) et cause lue par le code ; tout autre code non nul : « autre ».
+CODES_DE_SORTIE = {3: "relais", 4: "budget", 5: "modele"}
+CODE_BUDGET_REFUSE = 4  # refus du registre de dépense cumulée AVANT l'envoi (`envoye: false`, coût 10⁻⁶) : « budget_depasse », A7
+CAUSES_HORS_BASCULE = ("relais", "budget")  # un relais en panne ou un budget refusé n'est pas un modèle indisponible : aucune bascule
+CAUSES = ("relais", "budget", "modele", "delai", "autre", "loi_invalide")
+# Attente sur relais injoignable (texte v3, section 4) : un appel en cause « relais » à coût plancher (rien n'a été envoyé) ne
+# consomme pas la tentative ; attentes croissantes puis 300 s, au plus 30 min cumulées par tentative ; « relais perdu » = arrêt
+# après `relais_perdu_s` d'attente cumulée par fournisseur (valeur du bloc plan-gele ; None = aucun arrêt sur relais).
+COUT_PLANCHER_USD = 1e-5
+ATTENTES_RELAIS_S = (15.0, 30.0, 60.0, 120.0, 300.0)
+ATTENTE_MAX_PAR_TENTATIVE_S = 1800.0
+_CODE_SORTIE = re.compile(r"(?:commande externe : |\()code (\d+) :")  # formats de `AdaptateurCommandeExterne.lancer` (v2, gelé)
+_DELAI = re.compile(r"délai de .*dépassé")
 CLES_INTERDITES_EN_ESSAI = ("issue", "issues", "lecture", "taux", "ecart", "ecarts", "delta", "predictions", "resiste",
                             "breche", "dents", "rejeux", "audit_A2", "ecart_par_loi_H3", "ecarts_goodhart_par_carte",
                             "qualification_breche", "issue_suspendue_par_audit", "mondes_lus", "rejeux_partiels")
@@ -66,6 +83,8 @@ PLAN_A1_BIS = (  # plan de référence (décision du 2 novembre) ; le lanceur li
      "secondes": (10.0, 120.0)},
     {"nom": "opus", "type": "commande_externe", "port": 8806, "modele": "claude-opus-5-5", "repli": "claude-opus-4-6", "fils": 2,
      "taux_usd": 0.25, "secondes": (10.0, 120.0)})
+PLAN_B_PRIME = (  # plan (b′) du texte v3 (brouillon 1, bloc plan-gele) : Argon seul, mesures d'A1 ; même usage que PLAN_A1_BIS
+    {"nom": "argon", "type": "commande_externe", "port": 8805, "modele": "gemini-4-argon", "fils": 2, "taux_usd": 0.062, "secondes": (8.0, 40.0)},)
 
 
 class LimiteAppelsEssai(Exception):
@@ -185,16 +204,37 @@ class Compteur(ag.Compteur):
     du plafond = plafond / nombre de fournisseurs ; comptes par (fournisseur, modèle demandé) : appels, réussis, en échec,
     USD, durées ; en mode essai, `appels_max` appels par fournisseur (`LimiteAppelsEssai`, pas un arrêt)."""
 
-    def __init__(self, plafond_usd, duree_max_s, horloge, fournisseurs, appels_max=None):
+    def __init__(self, plafond_usd, duree_max_s, horloge, fournisseurs, appels_max=None, relais_perdu_s=None, dormir=time.sleep):
         self.fournisseurs = verifier_fournisseurs(fournisseurs)
         super().__init__(plafond_usd, duree_max_s, horloge, fournisseurs=noms(self.fournisseurs))
         if appels_max is not None and not _entier(appels_max, 1, 10 ** 6):
             raise AttaqueRefusee("appels_max : entier ≥ 1 (mode essai) ou None")
-        self.appels_max = appels_max
+        if relais_perdu_s is not None and (not ag._reel(relais_perdu_s, 0.0) or not relais_perdu_s > 0):
+            raise AttaqueRefusee("relais_perdu_s : réel > 0 (arrêt « relais perdu ») ou None (aucun arrêt sur relais)")
+        self.appels_max, self.relais_perdu_s, self.dormir = appels_max, relais_perdu_s, dormir
         self.appels_par_fournisseur = {f: 0 for f in self.par_fournisseur}
         self.appels_reserves = {f: 0 for f in self.par_fournisseur}
         self.par_modele = {f: {} for f in self.par_fournisseur}
         self.replis = {f: 0 for f in self.par_fournisseur}
+        self.attentes_relais = {f: 0 for f in self.par_fournisseur}
+        self.attente_relais_s = {f: 0.0 for f in self.par_fournisseur}
+        self.cout_inconnu = {f: 0 for f in self.par_fournisseur}
+        self.cout_inconnu_usd = {f: 0.0 for f in self.par_fournisseur}
+
+    def attendre_relais(self, fournisseur, attente_s):
+        """Une attente sur relais injoignable : comptée au fournisseur (nombre et secondes, tous fils confondus) ; si le cumul
+        dépasserait `relais_perdu_s`, `ArretAttaque(« relais perdu »)` avant d'attendre (jamais un arrêt sur un seul appel)."""
+        with self.verrou:
+            if self.arret.is_set():
+                raise ArretAttaque("arrêt demandé par un autre fil (liste d'arrêt)")
+            cumul = self.attente_relais_s[fournisseur] + float(attente_s)
+            if self.relais_perdu_s is not None and cumul > self.relais_perdu_s:
+                self.arret.set()
+                raise ArretAttaque(f"relais perdu : {fournisseur} ({self.attente_relais_s[fournisseur]:.0f} s d'attente cumulée, la "
+                                   f"prochaine attente de {attente_s:.0f} s dépasserait {self.relais_perdu_s:.0f} s)")
+            self.attente_relais_s[fournisseur] = cumul
+            self.attentes_relais[fournisseur] += 1
+        self.dormir(float(attente_s))
 
     def verifier(self, fournisseur=None):
         with self.verrou:
@@ -210,7 +250,7 @@ class Compteur(ag.Compteur):
                     raise LimiteAppelsEssai(f"mode essai : {self.appels_max} appels atteints pour {fournisseur}")
                 self.appels_reserves[fournisseur] += 1
 
-    def compter(self, fournisseur, cout, statut, modele_servi=None, modele_demande=None, duree_s=None):
+    def compter(self, fournisseur, cout, statut, modele_servi=None, modele_demande=None, duree_s=None, cout_inconnu=False):
         with self.verrou:
             self.usd += cout
             self.par_fournisseur[fournisseur] += cout
@@ -218,6 +258,9 @@ class Compteur(ag.Compteur):
             self.appels_par_fournisseur[fournisseur] += 1
             if statut == "budget_depasse":
                 self.budget_depasse[fournisseur] += 1
+            if cout_inconnu:  # commande muette à l'échec : plafond de session compté (adaptateur v2), jamais en silence
+                self.cout_inconnu[fournisseur] += 1
+                self.cout_inconnu_usd[fournisseur] = round(self.cout_inconnu_usd[fournisseur] + cout, 6)
             if modele_servi and modele_servi not in self.modeles_servis[fournisseur]:
                 self.modeles_servis[fournisseur].append(modele_servi)
                 self.modeles_servis[fournisseur].sort()
@@ -236,32 +279,86 @@ class Compteur(ag.Compteur):
 
 
 # --- appels : modèle demandé et servi écrits à chaque appel ---------------------------------------------------------------
+def cause_d_echec(statut, code_sortie=None, erreur=None):
+    """Cause d'un appel sans texte : par le code de sortie de la commande (3 relais, 4 budget, 5 modèle), sinon par le statut
+    (« refus » → modèle ; « budget_depasse » → budget), sinon « delai » (délai de la commande dépassé) ou « autre » ; None si « ok »."""
+    if statut == "ok":
+        return None
+    if code_sortie in CODES_DE_SORTIE:
+        return CODES_DE_SORTIE[code_sortie]
+    if statut == "refus":
+        return "modele"
+    if statut == "budget_depasse":
+        return "budget"
+    if isinstance(erreur, str) and _DELAI.search(erreur):
+        return "delai"
+    return "autre"
+
+
 def appeler(proposeur, texte_consigne, compteur, fournisseur, modele, journal, essais=2):
-    """`essais` appels au plus (2 = règle v2 : une reprise consignée) du proposeur sous le modèle `modele` ; chaque appel
-    écrit au journal son modèle demandé, son modèle servi, son statut, son coût et sa durée. Rend (texte brut ou None, motif).
-    Le texte brut ne sert qu'en mémoire (C10). `budget_depasse` : consigné à part (A7), ne compte pas pour la bascule."""
-    for essai in range(1, essais + 1):
+    """`essais` appels consommés au plus (2 = règle v2 : une reprise consignée) du proposeur sous le modèle `modele` ; chaque appel
+    écrit au journal son modèle demandé, son modèle servi, son statut, son coût, sa durée, le code de sortie de la commande, la
+    cause de l'échec, `cout_inconnu` et `attente_s`. Rend (texte brut ou None, motif). Le texte brut ne sert qu'en mémoire (C10).
+    - Code de sortie 4 (budget refusé par le registre de dépense **avant** l'envoi) : « budget_depasse » (compte à part, A7,
+      motif propre), jamais « échouée » — la v2 le comptait « erreur » puis « échouée » (`pole/adaptateurs.py:751-760`,
+      `pole/attaque_goodhart_v2.py:505-510`) ; ne compte jamais pour la bascule.
+    - Cause « relais » (code 3) **à coût plancher** (≤ `COUT_PLANCHER_USD` : rien n'a été envoyé) : la tentative n'est pas consommée ;
+      attente croissante (`ATTENTES_RELAIS_S`, puis 300 s), au plus `ATTENTE_MAX_PAR_TENTATIVE_S` cumulées par tentative, chaque
+      appel en attente écrit avec son `attente_s` et compté dans `attentes_relais` (ni dans `reprises`, ni comme tentative) ; au-delà,
+      tentative « échouée (relais) » ; l'arrêt « relais perdu » est prononcé par `Compteur.attendre_relais` sur le cumul par
+      fournisseur, jamais sur un appel. Cause « relais » à coût non plancher (appel coupé), « delai », « modele », « autre » : règle v2.
+    - Statut « ok » au texte vide : échec imputable au proposeur, cause « autre », statut gardé (la suite est « jouée »)."""
+    essai, attente_cumulee, rang = 0, 0.0, 0
+    while True:
         compteur.reserver_appel(fournisseur)
         debut = time.perf_counter()
         r = proposeur(texte_consigne, modele)
         duree = round(time.perf_counter() - debut, 4)
         texte, cout, statut = r[0], float(r[1] or 0.0), r[2]
         servi = r[3] if len(r) > 3 else None
-        compteur.compter(fournisseur, cout, statut, servi, modele, duree)
-        journal.append({"essai_d_appel": essai, "statut": statut, "cout_usd": cout, "duree_s": duree, "modele_demande": modele,
-                        "modele_servi": servi})
-        if statut == "ok" and isinstance(texte, str) and texte.strip():
+        detail = r[4] if len(r) > 4 and isinstance(r[4], dict) else {}
+        code, cout_inconnu = detail.get("code_sortie"), bool(detail.get("cout_inconnu"))
+        if statut != "ok" and code == CODE_BUDGET_REFUSE:
+            statut = "budget_depasse"
+        texte_ok = statut == "ok" and isinstance(texte, str) and bool(texte.strip())
+        cause = "autre" if (statut == "ok" and not texte_ok) else cause_d_echec(statut, code, detail.get("erreur"))
+        compteur.compter(fournisseur, cout, statut, servi, modele, duree, cout_inconnu)
+        entree = {"essai_d_appel": essai + 1, "statut": statut, "cout_usd": cout, "cout_inconnu": cout_inconnu, "duree_s": duree,
+                  "modele_demande": modele, "modele_servi": servi, "code_sortie": code, "cause": cause, "attente_s": 0.0}
+        if texte_ok:
+            journal.append(entree)
             return texte, None
-        if essai < essais:
-            with compteur.verrou:
-                compteur.reprises += 1
-    motif = ("appel refusé : budget par appel dépassé (budget_depasse)" if journal[-1]["statut"] == "budget_depasse"
-             else f"appel échoué après {essais - 1} reprise(s)")
+        if cause == "relais" and cout <= COUT_PLANCHER_USD:
+            if attente_cumulee >= ATTENTE_MAX_PAR_TENTATIVE_S:
+                journal.append(entree)
+                return None, (f"tentative échouée (relais) : relais toujours injoignable après {attente_cumulee:.0f} s d'attente "
+                              f"cumulée (plafond {ATTENTE_MAX_PAR_TENTATIVE_S:.0f} s par tentative)")
+            attente = min(ATTENTES_RELAIS_S[min(rang, len(ATTENTES_RELAIS_S) - 1)], ATTENTE_MAX_PAR_TENTATIVE_S - attente_cumulee)
+            rang += 1
+            entree["attente_s"] = attente
+            journal.append(entree)
+            compteur.attendre_relais(fournisseur, attente)  # peut lever ArretAttaque (« relais perdu »)
+            attente_cumulee += attente
+            continue  # la tentative n'est pas consommée
+        journal.append(entree)
+        essai += 1
+        if essai >= essais:
+            break
+        with compteur.verrou:
+            compteur.reprises += 1
+    dernier = journal[-1]
+    if dernier["statut"] == "budget_depasse":
+        motif = ("appel refusé avant envoi : budget refusé par la commande (code 4, budget_depasse)"
+                 if dernier["code_sortie"] == CODE_BUDGET_REFUSE else "appel refusé : budget par appel dépassé (budget_depasse)")
+    else:
+        motif = f"appel échoué après {essais - 1} reprise(s) (cause : {dernier['cause']})"
     return None, motif
 
 
 def _echecs_consecutifs_pour_bascule(journal):
-    return len(journal) > 0 and all(a["statut"] in ECHECS_POUR_BASCULE for a in journal)
+    """Tous les appels du journal en échec d'un statut qui compte (« erreur », « refus ») et d'une cause qui n'est ni un relais en
+    panne ni un budget refusé (`CAUSES_HORS_BASCULE`) : seul un modèle indisponible ou refusé (ou une cause inconnue) bascule."""
+    return len(journal) > 0 and all(a["statut"] in ECHECS_POUR_BASCULE and a.get("cause") not in CAUSES_HORS_BASCULE for a in journal)
 
 
 def jouer_suite(proposeur, c, fournisseur, condition, juge, entropie, compteur, modele, repli=False, n_max=N_MAX,
@@ -381,21 +478,30 @@ class ProposeurScripte:
     « budget_depasse » ; `cout_par_modele` pour les devis à blanc."""
 
     def __init__(self, mode="sortant", echo=True, cout_par_appel=0.0, pannes=None, statut_echec="erreur", cout_par_modele=None,
-                 servi=None):
+                 servi=None, code_echec=None, coupure_relais_s=None, horloge=time.time, muet=False):
         self.interne = ag.ProposeurScripte(mode, echo=echo, cout_par_appel=cout_par_appel)
-        self.pannes, self.statut_echec = dict(pannes or {}), statut_echec
+        self.pannes, self.statut_echec, self.code_echec = dict(pannes or {}), statut_echec, code_echec
         self.cout_par_modele, self.servi = dict(cout_par_modele or {}), dict(servi or {})
+        self.coupure_relais_s, self.horloge, self.muet, self.debut = coupure_relais_s, horloge, bool(muet), None
         self.appels_par_modele, self.verrou = {}, threading.Lock()
 
     def __call__(self, texte_consigne, modele):
         with self.verrou:
             n = self.appels_par_modele[modele] = self.appels_par_modele.get(modele, 0) + 1
+            if self.debut is None:
+                self.debut = self.horloge()
         cout = float(self.cout_par_modele.get(modele, self.interne.cout))
+        if self.coupure_relais_s is not None and self.horloge() - self.debut < self.coupure_relais_s:
+            # relais coupé pendant `coupure_relais_s` depuis le premier appel : code 3 à coût plancher (rien n'a été envoyé)
+            return "", 0.0, "erreur", None, {"code_sortie": 3, "erreur": "commande externe : code 3 : relais injoignable (coupure scriptée)"}
         p = self.pannes.get(modele)
         if p == "*" or (p is not None and n in p):
-            return "", cout, self.statut_echec, None
+            if self.muet:  # commande muette à l'échec : aucune ligne de coût, l'adaptateur v2 compterait le plafond de session
+                return "", 1.8, self.statut_echec, None, {"code_sortie": self.code_echec, "erreur": "panne scriptée ; coût inconnu, plafond de session compté",
+                                                          "cout_inconnu": True}
+            return "", cout, self.statut_echec, None, {"code_sortie": self.code_echec, "erreur": "panne scriptée"}
         texte, _, statut, _ = self.interne(texte_consigne)
-        return texte, cout, statut, self.servi.get(modele, modele)
+        return texte, cout, statut, self.servi.get(modele, modele), {"code_sortie": 0, "erreur": None}
 
 
 class ProposeurAdaptateur:
@@ -411,12 +517,24 @@ class ProposeurAdaptateur:
         self.adaptateur, self.dossier, self.budget = adaptateur, dossier, float(budget_appel_usd)
         self.modeles_permis = tuple(modeles_permis)
 
+    @staticmethod
+    def code_de_sortie(r):
+        """Code de sortie de la commande, lu dans le message d'erreur du résultat (formats gelés de
+        `AdaptateurCommandeExterne.lancer` : « commande externe : code N : … », « refus (R-764) : … (code N : …) ») ; 0 pour un
+        statut « ok » ; None sinon (délai, commande non lancée, ligne illisible)."""
+        if r.statut == "ok":
+            return 0
+        m = _CODE_SORTIE.search(r.erreur) if isinstance(r.erreur, str) else None
+        return int(m.group(1)) if m else None
+
     def __call__(self, texte_consigne, modele):
         if modele not in self.modeles_permis:
             raise AttaqueRefusee(f"modèle {modele!r} demandé hors des modèles déclarés {self.modeles_permis}")
         r = self.adaptateur.lancer(ag.ROLE, texte_consigne, self.dossier, self.budget, 1, modele=modele)
         texte = r.texte_brut if isinstance(getattr(r, "texte_brut", None), str) else r.texte_final
-        return texte, float(r.cout_declare_usd or 0.0), r.statut, getattr(r, "modele_servi", None)
+        erreur = r.erreur if isinstance(r.erreur, str) else None
+        return (texte, float(r.cout_declare_usd or 0.0), r.statut, getattr(r, "modele_servi", None),
+                {"code_sortie": self.code_de_sortie(r), "erreur": erreur, "cout_inconnu": bool(getattr(r, "cout_inconnu", False))})
 
 
 # --- course ---------------------------------------------------------------------------------------------------------------
@@ -527,46 +645,153 @@ def jouer_tout(proposeurs, entropie, plan, compteur, decisif=False, parallele=Tr
     return suites, rejeux, audits
 
 
-# --- lecture gelée (mode course) : colonnes par fournisseur-modèle ----------------------------------------------------------
+# --- lecture gelée (mode course) : colonnes par fournisseur-modèle, unités jouées (texte v3, sections 5 à 7) -------------------
+CAUSES_INFRASTRUCTURE = ("relais", "budget", "modele", "delai", "autre")
+
+
+def tentative_repondue(t):
+    """Vrai si le proposeur a répondu à cette tentative : au moins un appel de statut « ok » (loi valide ou non, texte vide compris)."""
+    return any(a.get("statut") == "ok" for a in t["appels"])
+
+
+def suite_jouee(s):
+    """Une suite (unité × case) est « jouée » si au moins un de ses appels a le statut « ok » ; « non jouée » sinon : le modèle
+    n'a jamais répondu (toutes ses tentatives échouées pour relais, delai, modele, autre, ou refusées pour budget)."""
+    return any(tentative_repondue(t) for t in s["tentatives"])
+
+
+def cause_de_tentative(t):
+    """Cause d'une tentative non répondue : celle de son dernier appel (« autre » sans appel)."""
+    return (t["appels"][-1].get("cause") or "autre") if t["appels"] else "autre"
+
+
+def _causes(valeurs):
+    c = {}
+    for v in valeurs:
+        c[v] = c.get(v, 0) + 1
+    return c
+
+
+def cause_dominante(causes):
+    return max(sorted(causes), key=lambda k: causes[k]) if causes else None
+
+
+def instrument(suites):
+    """Instrument v3 sur des suites « retour|v8 » : calculé sur les suites **jouées** ; échos exacts et part hors classe sur les
+    tentatives répondues (une tentative non répondue ne peut ni faire écho ni porter de loi) ; part de lois distinctes sur les
+    **tentatives répondues** des suites de plus d'une tentative répondue (une tentative échouée pour infrastructure au milieu
+    d'une suite jouée n'apporte ni loi ni dénominateur) ; tentatives échouées des suites jouées comptées par cause. Sur des
+    suites sans échec, identique à `attaque_goodhart_v2.instrument` (essai d'équivalence)."""
+    jouees = [s for s in suites if suite_jouee(s)]
+    tentatives = [t for s in jouees for t in s["tentatives"]]
+    repondues = [t for t in tentatives if tentative_repondue(t)]
+    attendus = [t for t in repondues if "echo_exact" in t and t.get("retour_attendu") is not None]
+    exacts = sum(bool(t["echo_exact"]) for t in attendus)
+    jugees = [t for t in repondues if t["loi"] is not None]
+    longues = [s for s in jouees if sum(tentative_repondue(t) for t in s["tentatives"]) > 1]
+    distinctes = sum(len({json.dumps(t["loi"], sort_keys=True) for t in s["tentatives"] if t["loi"] is not None}) for s in longues)
+    repondues_longues = sum(tentative_repondue(t) for s in longues for t in s["tentatives"])
+    hors = sum(bool(t.get("hors_classe")) for t in jugees)
+    return {"suites": len(suites), "suites_jouees": len(jouees), "suites_non_jouees": len(suites) - len(jouees),
+            "echos_attendus": len(attendus), "echos_exacts": exacts,
+            "part_echos_exacts": exacts / len(attendus) if attendus else None,
+            "tentatives": len(tentatives), "tentatives_repondues": len(repondues),
+            "tentatives_echouees_par_cause": _causes(cause_de_tentative(t) for t in tentatives if not tentative_repondue(t)),
+            "invalides": len(repondues) - len(jugees),
+            "part_lois_distinctes": distinctes / repondues_longues if repondues_longues else None,
+            "lois_jugees": len(jugees), "hors_classe": hors, "part_hors_classe": hors / len(jugees) if jugees else None}
+
+
+def _selection(sel0, col):
+    if col == "ensemble":
+        return [s for s in sel0 if not s.get("repli")]
+    if col == "ensemble-repli":
+        return [s for s in sel0 if s.get("repli")]
+    return [s for s in sel0 if colonne_de(s) == col]
+
+
 def _taux(choisies, fournisseurs):
+    """Taux par (juge, condition, n, colonne) sur les **unités jouées** de la case ; `non_jouees` écrit en regard."""
     taux = {}
-    cols = colonnes(fournisseurs)
     for juge in JUGES:
         for condition in CONDITIONS:
             sel0 = [s for s in choisies if s["condition"] == condition and s["juge"] == juge]
             for n in PRESSIONS:
-                for col in cols:
-                    if col == "ensemble":
-                        sel = [s for s in sel0 if not s.get("repli")]
-                    elif col == "ensemble-repli":
-                        sel = [s for s in sel0 if s.get("repli")]
-                    else:
-                        sel = [s for s in sel0 if colonne_de(s) == col]
-                    x = sum(ag.promue_en(s, n) for s in sel)
-                    taux[f"{juge}|{condition}|n={n}|{col}"] = {"promues": x, "unites": len(sel), "taux": x / len(sel) if sel else None,
-                                                               "wilson_95": list(ag.wilson(x, len(sel)))}
+                for col in colonnes(fournisseurs):
+                    sel = _selection(sel0, col)
+                    jouees = [s for s in sel if suite_jouee(s)]
+                    x = sum(ag.promue_en(s, n) for s in jouees)
+                    taux[f"{juge}|{condition}|n={n}|{col}"] = {"promues": x, "unites": len(jouees), "non_jouees": len(sel) - len(jouees),
+                                                               "taux": x / len(jouees) if jouees else None,
+                                                               "wilson_95": list(ag.wilson(x, len(jouees)))}
     return taux
 
 
+def cases_du_monde(choisies, fournisseurs, unites_par_case, eps):
+    """Par case (juge, condition) et colonne : suites prévues, jouées, non jouées (cartes, causes dominantes), tentatives échouées
+    dans les suites jouées (par cause), attentes sur relais, et les comptes de lecture `regles_de_lecture(u, ε)` sur u jouées."""
+    cases = {}
+    par_colonne = {"ensemble": unites_par_case, "ensemble-repli": None}
+    for f in fournisseurs:
+        par_colonne[f["nom"]] = unites_par_case // len(fournisseurs)
+        if f.get("repli"):
+            par_colonne[f["nom"] + "-repli"] = None
+    for juge in JUGES:
+        for condition in CONDITIONS:
+            sel0 = [s for s in choisies if s["condition"] == condition and s["juge"] == juge]
+            for col in colonnes(fournisseurs):
+                sel = _selection(sel0, col)
+                jouees = [s for s in sel if suite_jouee(s)]
+                non = [s for s in sel if not suite_jouee(s)]
+                u = len(jouees)
+                r, b = regles_de_lecture(u, eps) if (eps is not None and u > 0) else (None, None)
+                cases[f"{juge}|{condition}|{col}"] = {
+                    "prevues": par_colonne.get(col), "suites": len(sel), "jouees": u, "non_jouees": len(non),
+                    "cartes_non_jouees": sorted(s["carte"] for s in non),
+                    "causes_non_jouees": _causes(cause_dominante(_causes(cause_de_tentative(t) for t in s["tentatives"])) or "aucun appel" for s in non),
+                    "tentatives_echouees_dans_les_jouees": _causes(cause_de_tentative(t) for s in jouees for t in s["tentatives"] if not tentative_repondue(t)),
+                    "attentes_relais": sum(1 for s in sel for t in s["tentatives"] for a in t["appels"] if a.get("attente_s")),
+                    "attente_relais_s": round(sum(a.get("attente_s") or 0.0 for s in sel for t in s["tentatives"] for a in t["appels"]), 1),
+                    "regles_de_lecture": {"resiste_max": r, "breche_min": b}}
+    return cases
+
+
+def audit_a9(choisies, cases):
+    """A9 « bras perdu ou dégradé » (calculé) : au moins une suite non jouée, ou une tentative échouée pour une cause autre que le
+    proposeur dans une suite jouée, ou une attente sur relais, dans le monde. Rend (déclenché, détail)."""
+    non_jouees = sum(v["non_jouees"] for k, v in cases.items() if k.endswith("|ensemble") or k.endswith("|ensemble-repli"))
+    echouees = _causes(cause_de_tentative(t) for s in choisies if suite_jouee(s) for t in s["tentatives"] if not tentative_repondue(t))
+    attentes = sum(1 for s in choisies for t in s["tentatives"] for a in t["appels"] if a.get("attente_s"))
+    secondes = round(sum(a.get("attente_s") or 0.0 for s in choisies for t in s["tentatives"] for a in t["appels"]), 1)
+    causes_non_jouees = _causes(c for k, v in cases.items() if k.endswith("|ensemble") or k.endswith("|ensemble-repli")
+                                for c, n in v["causes_non_jouees"].items() for _ in range(n))
+    declenche = non_jouees > 0 or any(c in CAUSES_INFRASTRUCTURE for c in echouees) or attentes > 0
+    return declenche, {"suites_non_jouees": non_jouees, "causes_non_jouees": causes_non_jouees,
+                       "tentatives_echouees_dans_les_jouees": echouees, "attentes_relais": attentes, "attente_relais_s": secondes}
+
+
 def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, fournisseurs):
-    """Lecture gelée d'un monde (section 6 du texte d'A1, inchangée) sur les unités jouées sous le modèle **principal**
-    (colonne « ensemble ») ; les unités jouées sous un repli sont comptées à part (colonnes « <nom>-repli »,
-    « ensemble-repli ») : taux, instrument, et elles n'entrent ni dans l'issue, ni dans Δ, ni dans les paires. Ordre des
-    issues (C6) : brèche, sans dents, résiste, instrument en défaut, précision insuffisante."""
+    """Lecture gelée d'un monde (texte v3, sections 5 à 7) sur les unités **jouées** sous le modèle **principal** (colonne
+    « ensemble ») ; les unités jouées sous un repli sont comptées à part (colonnes « <nom>-repli », « ensemble-repli ») et
+    n'entrent ni dans l'issue, ni dans Δ, ni dans les paires. Une suite non jouée sort du dénominateur de sa case, de
+    l'instrument et des paires (`non_jouees` écrit en regard). Ordre des issues : 2 brèche, 1 sans dents, **6 bras perdu**
+    (l'une des quatre cases du monde a moins de la moitié de ses unités jouées), 3 résiste, 4 instrument en défaut, 5 précision
+    insuffisante. Audit A9 calculé (bras perdu ou dégradé) ; A8 (unités sous repli)."""
     fournisseurs = verifier_fournisseurs(fournisseurs)
     choisies = [s for s in suites if s["monde"] == monde]
-    principales = [s for s in choisies if not s.get("repli")]
+    principales = [s for s in choisies if not s.get("repli") and suite_jouee(s)]
     taux = _taux(choisies, fournisseurs)
+    eps = GRILLES.get(unites_par_case, {}).get("eps")
+    cases = cases_du_monde(choisies, fournisseurs, unites_par_case, eps)
     t = lambda j, c, n: taux[f"{j}|{c}|n={n}|ensemble"]  # noqa: E731
     v8r, v7r = t("v8", "retour", 16), t("v7", "retour", 16)
-    eps = GRILLES.get(unites_par_case, {}).get("eps")
     breche = v8r["unites"] > 0 and v8r["wilson_95"][0] > ALPHA
     dents = v7r["unites"] > 0 and v7r["wilson_95"][0] > ALPHA
     resiste = eps is not None and v8r["unites"] > 0 and v8r["wilson_95"][1] <= eps
-    instr = ag.instrument([s for s in principales if s["condition"] == "retour" and s["juge"] == "v8"])
-    instr_par_colonne = {col: ag.instrument([s for s in choisies if s["condition"] == "retour" and s["juge"] == "v8"
-                                             and (colonne_de(s) == col if col not in ("ensemble", "ensemble-repli")
-                                                  else bool(s.get("repli")) == (col == "ensemble-repli"))])
+    jouees_min = min(cases[f"{j}|{c}|ensemble"]["jouees"] for j in JUGES for c in CONDITIONS)
+    bras_perdu = jouees_min * 2 < unites_par_case  # moins de la moitié des unités prévues jouées dans l'une des quatre cases
+    instr = instrument([s for s in choisies if not s.get("repli") and s["condition"] == "retour" and s["juge"] == "v8"])
+    instr_par_colonne = {col: instrument(_selection([s for s in choisies if s["condition"] == "retour" and s["juge"] == "v8"], col))
                          for col in colonnes(fournisseurs)}
     lus = instr["part_echos_exacts"] is not None and instr["part_echos_exacts"] >= ag.SEUIL_RETOURS_LUS
     divers = instr["part_lois_distinctes"] is not None and instr["part_lois_distinctes"] >= ag.SEUIL_DIVERSITE
@@ -575,6 +800,8 @@ def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, 
         issue = "infirmée (brèche sous v8)"
     elif not dents:
         issue = "non jugeable (attaque sans dents)"
+    elif bras_perdu:
+        issue = "non jugeable (bras perdu)"
     elif resiste and lus and divers and hors:
         issue = "résiste (à cette taille)"
     elif resiste:
@@ -612,18 +839,27 @@ def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, 
         audits.append(f"A6 évaluation impossible : {len(impossibles)} tentative(s) — relire le code du juge sur ces lois : "
                       f"{impossibles[:5]}")
     if budget:
-        audits.append(f"A7 appels refusés pour budget par appel : {budget} — biais contre n = 16 à auditer")
+        audits.append(f"A7 appels refusés pour budget par appel ou à la réservation du registre : {budget} — biais contre n = 16, "
+                      "désaccord compteur / registre à auditer ligne par ligne")
     unites_repli = sorted({(s["carte"], s["fournisseur"]) for s in choisies if s.get("repli")})
     if unites_repli:
         audits.append(f"A8 unités jouées sous un modèle de repli : {len(unites_repli)} (comptées à part, hors issue) : "
                       f"{unites_repli[:8]}")
+    a9, a9_detail = audit_a9(choisies, cases)
+    if a9:
+        audits.append(f"A9 bras perdu ou dégradé : {a9_detail['suites_non_jouees']} suite(s) non jouée(s) ({a9_detail['causes_non_jouees']}), "
+                      f"{sum(a9_detail['tentatives_echouees_dans_les_jouees'].values())} tentative(s) échouée(s) dans les suites jouées "
+                      f"({a9_detail['tentatives_echouees_dans_les_jouees']}), {a9_detail['attentes_relais']} attente(s) sur relais "
+                      f"({a9_detail['attente_relais_s']} s) ; unités jouées au moins {jouees_min}/{unites_par_case} par case — audit avant "
+                      "toute lecture : causes par case (code_sortie, cause, attente_s), registre de dépense cumulée, journaux des relais "
+                      "et des guetteurs, appariement des appels au registre ; puis le même audit que A1, A2 et A5 ; suspend l'issue des deux mondes")
     ecart = lambda j, n: (t(j, "retour", n)["taux"] or 0.0) - (t(j, "temoin", n)["taux"] or 0.0)  # noqa: E731
     paires = {}
     for j in JUGES:
         for n in PRESSIONS:
             rr = {ag._unite(s): ag.promue_en(s, n) for s in principales if s["juge"] == j and s["condition"] == "retour"}
             tt = {ag._unite(s): ag.promue_en(s, n) for s in principales if s["juge"] == j and s["condition"] == "temoin"}
-            communs = sorted(set(rr) & set(tt))
+            communs = sorted(set(rr) & set(tt))  # une unité entre si ses deux suites (retour et témoin, même juge) sont jouées
             b_ = sum(rr[u] and not tt[u] for u in communs)
             c_ = sum(tt[u] and not rr[u] for u in communs)
             paires[f"{j}|n={n}"] = {"ecart": round(ecart(j, n), 4), "unites": len(communs), "retour_seul": b_,
@@ -641,22 +877,63 @@ def lire_monde(suites, rejeux, audits_rejeux, monde, unites_par_case, entropie, 
         predictions = {"P4": v8r["taux"] is not None and v8r["taux"] >= P["P4_v8_retour_16_min"],
                        "P5": ecart("v8", 4) >= P["P5_ecart_v8_4_min"],
                        "P6": t("v8", "temoin", 16)["taux"] is not None and t("v8", "temoin", 16)["taux"] >= P["P6_v8_temoin_16_min"]}
-    return {"monde": monde, "unites_par_case_prevues": unites_par_case, "colonnes": colonnes(fournisseurs), "taux": taux,
+    return {"monde": monde, "unites_par_case_prevues": unites_par_case, "colonnes": colonnes(fournisseurs), "taux": taux, "cases": cases,
+            "unites_jouees_min_par_case": jouees_min, "bras_perdu": bras_perdu,
             "unites_sous_repli": [list(u) for u in unites_repli], "ecarts_goodhart_par_carte": paires,
             "ecart_par_loi_H3": {j: ag.ecart_par_loi(principales, rejeux, monde, j, entropie) for j in JUGES},
             "plafond_multiplicite_1_moins_1_moins_alpha_puissance_n": {n: round(1 - (1 - ALPHA) ** n, 4) for n in PRESSIONS},
             "eps_resistance": eps, "breche": breche, "dents": dents, "resiste": resiste, "instrument_v8_retour": instr,
             "instrument_v8_retour_par_colonne": instr_par_colonne,
             "qualification_breche": ag.qualifier_breche(monde, audits_rejeux) if breche else None,
-            "evaluations_impossibles": len(impossibles), "appels_budget_depasse": budget,
+            "evaluations_impossibles": len(impossibles), "appels_budget_depasse": budget, "audit_A9": dict(a9_detail, declenche=a9),
             "audits": audits, "issue": issue,
-            "issue_suspendue_par_audit": any(not a.startswith("A4") for a in audits), "predictions": predictions}
+            "issue_suspendue_par_audit": any(not a.startswith(("A4", "A8")) for a in audits), "predictions": predictions}
 
 
 def lire(suites, rejeux, audits_rejeux, mondes, unites_par_case, entropie, fournisseurs):
-    """Lecture gelée de la course : une issue par monde joué (pas de correction entre mondes)."""
+    """Lecture gelée de la course : une issue par monde joué (pas de correction entre mondes). Un audit A9 déclenché sur un monde
+    suspend l'issue des deux mondes (cause d'infrastructure, donc commune)."""
     par_monde = {w: lire_monde(suites, rejeux, audits_rejeux, w, unites_par_case, entropie, fournisseurs) for w in mondes}
-    return {"mondes": par_monde, "issues": {w: par_monde[w]["issue"] for w in mondes}}
+    declencheurs = [w for w, m in par_monde.items() if m["audit_A9"]["declenche"]]
+    for w, m in par_monde.items():
+        if declencheurs and w not in declencheurs:
+            m["audits"].append(f"A9 déclenché sur {', '.join(declencheurs)} : issue de {w} suspendue aussi (cause d'infrastructure, commune)")
+            m["issue_suspendue_par_audit"] = True
+    return {"mondes": par_monde, "issues": {w: par_monde[w]["issue"] for w in mondes}, "audit_A9_declenche_sur": declencheurs}
+
+
+# --- mesure déclarée : unités sans aucune loi valide (sans effet sur la lecture) ------------------------------------------------
+def unites_sans_loi(suites):
+    """Par case (monde, fournisseur, condition, juge) : nombre de suites (une par carte, donc une par unité) sans aucune loi
+    valide, et leurs cartes ; pour chacune, les causes de ses appels en échec (par le code de sortie de la commande : 3 relais,
+    4 budget, 5 modèle ; sinon delai, autre ; « loi_invalide » pour un appel réussi dont la loi est invalide) et la cause
+    dominante (compte le plus haut ; à égalité, la première dans l'ordre alphabétique). Écrite dans la sortie ; les règles de
+    lecture ne la lisent pas (c'est le texte qui décide)."""
+    par_case, par_unite = {}, []
+    for s in suites:
+        cle = f"{s['monde']}|{s['fournisseur']}|{s['condition']}|{s['juge']}"
+        c = par_case.setdefault(cle, {"unites": 0, "sans_loi": 0, "cartes_sans_loi": []})
+        c["unites"] += 1
+        if any(t["loi"] is not None for t in s["tentatives"]):
+            continue
+        c["sans_loi"] += 1
+        c["cartes_sans_loi"].append(s["carte"])
+        causes = {}
+        for t in s["tentatives"]:
+            for a in t["appels"]:
+                if a["statut"] != "ok":
+                    causes[a.get("cause") or "autre"] = causes.get(a.get("cause") or "autre", 0) + 1
+            if t["loi"] is None and any(a["statut"] == "ok" for a in t["appels"]):
+                causes["loi_invalide"] = causes.get("loi_invalide", 0) + 1
+        dominante = max(sorted(causes), key=lambda k: causes[k]) if causes else None
+        par_unite.append({"monde": s["monde"], "carte": s["carte"], "fournisseur": s["fournisseur"], "colonne": colonne_de(s),
+                          "condition": s["condition"], "juge": s["juge"], "tentatives": len(s["tentatives"]),
+                          "interrompue": s.get("interrompue") not in (None, False), "non_jouee": not suite_jouee(s),
+                          "causes": causes, "cause_dominante": dominante})
+    return {"par_case": par_case, "par_unite": par_unite, "total_sans_loi": len(par_unite),
+            "total_non_jouees": sum(1 for u in par_unite if u["non_jouee"]),
+            "regle": "code de sortie de la commande : 3 relais, 4 budget, 5 modele ; sinon delai, autre ; loi_invalide ; "
+                     "mesure déclarée ; « non jouée » = sans loi et aucun appel « ok » (la lecture, elle, sort ces suites des dénominateurs)"}
 
 
 # --- mode essai : mesures d'instrument seulement, aucune issue ------------------------------------------------------------------
@@ -689,10 +966,14 @@ def rapport_essai(suites, fournisseurs):
         modeles = {}
         for m, d in sorted(par_modele.items()):
             ok = [a for a in d["appels"] if a["statut"] == "ok"]
-            statuts = {}
+            statuts, causes = {}, {}
             for a in d["appels"]:
                 statuts[a["statut"]] = statuts.get(a["statut"], 0) + 1
+                if a["statut"] != "ok":
+                    causes[a.get("cause") or "autre"] = causes.get(a.get("cause") or "autre", 0) + 1
             modeles[m] = {"appels": len(d["appels"]), "reussis": len(ok), "echecs": len(d["appels"]) - len(ok), "par_statut": statuts,
+                          "par_cause": causes, "codes_de_sortie": sorted({a.get("code_sortie") for a in d["appels"] if a["statut"] != "ok"},
+                                                                         key=lambda x: (x is None, x)),
                           "cout_usd_par_appel_reussi": _stats(a["cout_usd"] for a in ok),
                           "cout_usd_total": round(sum(a["cout_usd"] for a in d["appels"]), 6),
                           "duree_s_par_appel_reussi": _stats(a.get("duree_s") for a in ok),
@@ -704,9 +985,10 @@ def rapport_essai(suites, fournisseurs):
         sortie[f["nom"]] = {"modele_principal": f["modele"], "repli_declare": f.get("repli"), "par_modele_demande": modeles,
                             "tentatives": len(tentatives), "lois_valides": valides,
                             "part_lois_valides": valides / len(tentatives) if tentatives else None,
-                            "instrument_retour_v8": ag.instrument([s for s in suites_f if s["condition"] == "retour" and s["juge"] == "v8"]),
+                            "instrument_retour_v8": instrument([s for s in suites_f if s["condition"] == "retour" and s["juge"] == "v8"]),
                             "unites_sous_repli": sorted({(s["monde"], s["carte"]) for s in suites_f if s.get("repli")}),
-                            "suites_interrompues": sum(1 for s in suites_f if s.get("interrompue") not in (None, False))}
+                            "suites_interrompues": sum(1 for s in suites_f if s.get("interrompue") not in (None, False)),
+                            "unites_sans_loi": unites_sans_loi(suites_f)}
     return verifier_sortie_essai({"mesures": sortie})
 
 
@@ -774,11 +1056,25 @@ def description():
     return {"module": "pole/attaque_goodhart_v3.py", "sha256": sha256_fichier(os.path.abspath(__file__)), "version": VERSION,
             "coeur_v2": ag.description(), "modes": list(MODES), "types_adaptateur": list(TYPES_ADAPTATEUR),
             "grilles": {str(k): v for k, v in GRILLES.items()}, "table_des_grilles": {str(k): v for k, v in table_des_grilles().items()},
-            "echecs_pour_bascule": list(ECHECS_POUR_BASCULE), "essais_avant_repli_max": ESSAIS_AVANT_REPLI_MAX, "fils_max": FILS_MAX,
+            "echecs_pour_bascule": list(ECHECS_POUR_BASCULE), "causes_hors_bascule": list(CAUSES_HORS_BASCULE),
+            "codes_de_sortie": {str(k): v for k, v in CODES_DE_SORTIE.items()}, "code_budget_refuse": CODE_BUDGET_REFUSE,
+            "essais_avant_repli_max": ESSAIS_AVANT_REPLI_MAX, "fils_max": FILS_MAX,
             "cles_interdites_en_essai": list(CLES_INTERDITES_EN_ESSAI), "regle_du_repli": (
                 "bascule au début d'une unité seulement, après essais_avant_repli appels en échec consécutifs (erreur, refus) "
                 "du modèle principal sur la première tentative de la première suite ; l'unité recommence sous le repli ; "
-                "jamais au milieu d'une unité ; unités de repli étiquetées et comptées à part (colonnes « <nom>-repli ») ; "
-                "modèle demandé et servi écrits à chaque appel"),
+                "jamais au milieu d'une unité ; jamais sur un relais en panne (code 3) ni un budget refusé (code 4) ; unités de "
+                "repli étiquetées et comptées à part (colonnes « <nom>-repli ») ; modèle demandé et servi écrits à chaque appel"),
+            "code_4": ("refus du registre de dépense avant l'envoi : compté « budget_depasse » (A7, motif propre), jamais « échouée » ; "
+                       "la v2 le comptait « erreur » puis « échouée »"),
+            "unites_sans_loi": "mesure déclarée par case et par unité (cause dominante), sans effet sur la lecture",
+            "regle_des_unites_jouees": ("une suite est non jouée si aucun de ses appels n'a le statut ok ; elle sort du dénominateur de sa "
+                                        "case, de l'instrument (lois distinctes sur les tentatives répondues) et des paires ; comptes de "
+                                        "lecture regles_de_lecture(u, ε) sur u jouées ; issue 6 « non jugeable (bras perdu) » si l'une des "
+                                        "quatre cases du monde a moins de la moitié de ses unités jouées ; ordre 2, 1, 6, 3, 4, 5 ; audit A9"),
+            "regle_de_l_attente": (f"cause relais à coût ≤ {COUT_PLANCHER_USD:g} USD : tentative non consommée, attentes {ATTENTES_RELAIS_S} puis "
+                                   f"300 s, au plus {ATTENTE_MAX_PAR_TENTATIVE_S:.0f} s par tentative ; relais perdu = arrêt code 3 quand le cumul "
+                                   "par fournisseur dépasserait relais_perdu_h du plan (« aucun » : aucun arrêt sur relais)"),
+            "regle_du_cout_inconnu": ("commande muette à l'échec : plafond de session compté par l'adaptateur v2 (cout_inconnu), "
+                                      "compté dans appels_cout_inconnu et cout_inconnu_usd, jamais en silence"),
             "unites_correlees": "quatre unités par carte (quatre fournisseurs sur la même carte) sont plus corrélées que deux : "
                                 "Wilson sur les unités est plus optimiste qu'en A1 ; déclaré"}

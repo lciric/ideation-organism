@@ -240,14 +240,40 @@ class Repli(unittest.TestCase):
         appels = [a for s in suites for t in s["tentatives"] for a in t["appels"]]
         self.assertTrue(appels)
         for a in appels:
-            self.assertEqual(set(a), {"essai_d_appel", "statut", "cout_usd", "duree_s", "modele_demande", "modele_servi"})
+            self.assertEqual(set(a), {"essai_d_appel", "statut", "cout_usd", "cout_inconnu", "duree_s", "modele_demande", "modele_servi",
+                                      "code_sortie", "cause", "attente_s"})
             self.assertEqual(a["modele_demande"], "claude-opus-5-5")
             self.assertEqual(a["modele_servi"], "claude-opus-5-5" if a["statut"] == "ok" else None)
+            self.assertEqual((a["code_sortie"], a["cause"]), (0, None) if a["statut"] == "ok" else (None, "autre"))
 
     def test_essais_avant_repli_borne(self):
         for e in (0, 11, True):
             with self.subTest(e=e), self.assertRaisesRegex(ag.AttaqueRefusee, "essais_avant_repli"):
                 self.unite({}, essais=e)
+
+
+class Horloge:
+    """Horloge factice : `time()` rend l'instant, `sleep(s)` l'avance (aucune attente réelle)."""
+
+    def __init__(self, t=1000.0):
+        self.t = float(t)
+
+    def time(self):
+        return self.t
+
+    def sleep(self, s):
+        self.t += float(s)
+
+
+def lecture_sur_cles_v2(v3):
+    """Projection d'une lecture v3 sur les clés de la lecture v2 (les clés ajoutées par la v3 sont ôtées) pour l'essai d'équivalence."""
+    taux = {k: {kk: vv for kk, vv in v.items() if kk != "non_jouees"} for k, v in v3["taux"].items() if "repli" not in k}
+    instr = {k: v for k, v in v3["instrument_v8_retour"].items()
+             if k not in ("suites", "suites_jouees", "suites_non_jouees", "tentatives_repondues", "tentatives_echouees_par_cause")}
+    audits = [a for a in v3["audits"] if not a.startswith(("A8", "A9"))]
+    return dict(issue=v3["issue"], taux=taux, instrument_v8_retour=instr, audits=audits,
+                **{k: v3[k] for k in ("ecarts_goodhart_par_carte", "ecart_par_loi_H3", "predictions", "breche", "dents", "resiste",
+                                      "eps_resistance", "qualification_breche")})
 
 
 class LectureAPart(unittest.TestCase):
@@ -279,12 +305,12 @@ class LectureAPart(unittest.TestCase):
         v2 = ag.lire(suites, rejeux, audits, ["W1"], 3, G)["mondes"]["W1"]
         with unittest.mock.patch.dict(a3.GRILLES, {6: {"eps": 0.40}}):
             v3 = a3.lire(suites, rejeux, audits, ["W1"], 6, G, [KIMI, ARGON])["mondes"]["W1"]
-        self.assertEqual(v3["issue"], v2["issue"])
-        self.assertEqual({k: v for k, v in v3["taux"].items() if "repli" not in k}, v2["taux"])
         self.assertTrue(all(v["unites"] == 0 for k, v in v3["taux"].items() if "repli" in k))
-        for k in ("ecarts_goodhart_par_carte", "ecart_par_loi_H3", "predictions", "audits", "instrument_v8_retour", "breche", "dents",
-                  "resiste", "eps_resistance", "qualification_breche"):
-            self.assertEqual(v3[k], v2[k], k)
+        proj = lecture_sur_cles_v2(v3)
+        for k, v in proj.items():
+            self.assertEqual(v, v2[k], k)
+        self.assertEqual(proj["taux"], v2["taux"])
+        self.assertFalse(v3["audit_A9"]["declenche"])
 
 
 class Fils(unittest.TestCase):
@@ -362,6 +388,576 @@ class Devis(unittest.TestCase):
             a3.devis(1, ["W1"], [KIMI], "essai")
 
 
+class CodesDeSortie(unittest.TestCase):
+    """Code de sortie 4 (budget refusé avant envoi) compté « budget_depasse », jamais « échouée » ; causes ; bascule."""
+
+    def test_code_4_compte_budget_depasse_motif_propre_a7(self):
+        cpt = compteur(fournisseurs=[KIMI])
+        prop = a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, statut_echec="erreur", code_echec=4)
+        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "kimi", "retour", "v8", G, cpt, "kimi-k3.1-pro", n_max=2)
+        t = s["tentatives"][0]
+        self.assertEqual([a["statut"] for a in t["appels"]], ["budget_depasse", "budget_depasse"])
+        self.assertEqual([(a["code_sortie"], a["cause"]) for a in t["appels"]], [(4, "budget")] * 2)
+        self.assertIn("avant envoi", t["motif_invalidite"])
+        self.assertNotIn("échoué", t["motif_invalidite"])
+        self.assertEqual(cpt.budget_depasse["kimi"], 4)
+        w = a3.lire([s], [], [], ["W1"], 24, G, [KIMI])["mondes"]["W1"]
+        self.assertTrue(any(a.startswith("A7") for a in w["audits"]))
+        # cas sain : un autre code non nul reste « échouée », avec sa cause
+        s = a3.jouer_suite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, code_echec=3, cout_par_appel=1.61), ag.carte(G, 0, "W1"), "kimi",
+                           "retour", "v8", G, compteur(fournisseurs=[KIMI]), "kimi-k3.1-pro", n_max=1)  # appel coupé : coût pire cas
+        self.assertIn("appel échoué", s["tentatives"][0]["motif_invalidite"])
+        self.assertIn("relais", s["tentatives"][0]["motif_invalidite"])
+        self.assertEqual(s["tentatives"][0]["appels"][0]["statut"], "erreur")
+
+    def test_cause_d_echec(self):
+        for statut, code, erreur, attendu in (("ok", 0, None, None), ("erreur", 3, None, "relais"), ("erreur", 4, None, "budget"),
+                                              ("erreur", 5, None, "modele"), ("refus", None, "refus (R-764) : …", "modele"),
+                                              ("budget_depasse", None, None, "budget"),
+                                              ("erreur", None, "commande externe : délai de 1750 s dépassé, groupe de processus arrêté", "delai"),
+                                              ("erreur", None, "commande externe non lancée (OSError : …)", "autre"), ("erreur", 7, None, "autre")):
+            with self.subTest(statut=statut, code=code):
+                self.assertEqual(a3.cause_d_echec(statut, code, erreur), attendu)
+
+    def test_code_de_sortie_lu_dans_le_resultat(self):
+        from pole.adaptateurs import Resultat
+        cas = ((Resultat("x", [], 0.1, "ok"), 0), (Resultat("", [], 1e-6, "erreur", "commande externe : code 4 : stderr caviardé"), 4),
+               (Resultat("", [], 0.1, "refus", "refus (R-764) : modèle servi 'x' ≠ modèle demandé 'y' (code 5 : …)"), 5),
+               (Resultat("", [], 0.1, "erreur", "commande externe : code 3 : relais injoignable"), 3),
+               (Resultat("", [], 1.8, "erreur", "commande externe : délai de 1750 s dépassé, groupe de processus arrêté ; coût inconnu"), None),
+               (Resultat("", [], 0.0, "erreur", "commande externe non lancée (OSError : x)"), None))
+        for r, code in cas:
+            with self.subTest(erreur=r.erreur):
+                self.assertEqual(a3.ProposeurAdaptateur.code_de_sortie(r), code)
+
+        class Faux:
+            def __init__(self, r):
+                self.r = r
+
+            def lancer(self, *a, **kw):
+                return self.r
+        p = a3.ProposeurAdaptateur(Faux(cas[1][0]), "/tmp", 1.0, ("m",))
+        r = p("consigne", "m")
+        self.assertEqual((r[2], r[4]["code_sortie"]), ("erreur", 4))  # l'adaptateur dit « erreur » ; `appeler` le compte budget_depasse
+        journal = []
+        a3.appeler(p, "consigne", compteur(fournisseurs=[KIMI]), "kimi", "m", journal)
+        self.assertEqual([a["statut"] for a in journal], ["budget_depasse", "budget_depasse"])
+
+    def test_bascule_jamais_sur_relais_ni_budget(self):
+        """Artefacts : trois échecs du principal par relais (code 3) ou budget (code 4) → pas de bascule ; cas sain : code 5 → bascule."""
+        for code, bascule in ((3, False), (4, False), (5, True), (None, True)):
+            with self.subTest(code=code):
+                cpt = compteur(fournisseurs=[OPUS])
+                prop = a3.ProposeurScripte(pannes={"claude-opus-5-5": {1, 2, 3}}, code_echec=code, cout_par_appel=0.5)  # code 3 : appel coupé
+                suites = a3.jouer_unite(prop, OPUS, ag.carte(G, 0, "W1"), G, cpt, 2, 3)
+                self.assertEqual(all(s["repli"] for s in suites), bascule)
+                self.assertEqual(cpt.replis["opus"], int(bascule))
+
+
+class UnitesSansLoi(unittest.TestCase):
+    def test_mesure_par_case_et_cause_dominante(self):
+        c = ag.carte(G, 0, "W1")
+        saine = a3.jouer_unite(a3.ProposeurScripte(), KIMI, c, G, compteur(fournisseurs=[KIMI]), 2, 3)
+        budget = a3.jouer_unite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, code_echec=4), KIMI, ag.carte(G, 1, "W1"), G,
+                                compteur(fournisseurs=[KIMI]), 2, 3)
+        relais = a3.jouer_unite(a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=3, cout_par_appel=1.61), ARGON, c, G,
+                                compteur(fournisseurs=[ARGON]), 2, 3)  # appels coupés (coût pire cas) : règle v2, pas d'attente
+
+        def invalide(texte, modele):
+            return json.dumps({"retour_lu": "aucun", "loi": {"type": "calendrier", "probas": [[0.3, 0.3, 0.4]] * 10}}), 0.0, "ok", modele, {"code_sortie": 0}
+        inval = [a3.jouer_suite(invalide, ag.carte(G, 2, "W1"), "kimi", "retour", "v8", G, compteur(fournisseurs=[KIMI]), "kimi-k3.1-pro", n_max=2)]
+        m = a3.unites_sans_loi(saine + budget + relais + inval)
+        self.assertEqual(m["par_case"]["W1|kimi|retour|v8"], {"unites": 3, "sans_loi": 2, "cartes_sans_loi": [1, 2]})
+        self.assertEqual(m["par_case"]["W1|kimi|temoin|v8"], {"unites": 2, "sans_loi": 1, "cartes_sans_loi": [1]})
+        self.assertEqual(m["par_case"]["W1|argon|temoin|v7"]["sans_loi"], 1)
+        self.assertEqual(m["total_sans_loi"], 4 + 4 + 1)
+        dom = {(u["fournisseur"], u["carte"], u["condition"], u["juge"]): u["cause_dominante"] for u in m["par_unite"]}
+        self.assertEqual(dom[("kimi", 1, "retour", "v8")], "budget")
+        self.assertEqual(dom[("argon", 0, "retour", "v8")], "relais")
+        self.assertEqual(dom[("kimi", 2, "retour", "v8")], "loi_invalide")
+        self.assertEqual(next(u for u in m["par_unite"] if u["carte"] == 1 and u["condition"] == "retour" and u["juge"] == "v8")["causes"], {"budget": 4})
+        self.assertNotIn(("kimi", 0, "retour", "v8"), dom)  # cas sain : une unité pourvue n'y figure pas
+        self.assertEqual(a3.unites_sans_loi([])["total_sans_loi"], 0)
+
+    def test_egalite_departagee_et_rapport_d_essai(self):
+        suite = {"monde": "W1", "carte": 0, "fournisseur": "kimi", "condition": "retour", "juge": "v8", "premiere_promotion": None,
+                 "tentatives": [{"k": 1, "loi": None, "appels": [{"statut": "erreur", "cause": "relais"}, {"statut": "erreur", "cause": "autre"}]}]}
+        self.assertEqual(a3.unites_sans_loi([suite])["par_unite"][0]["cause_dominante"], "autre")
+        r = a3.rapport_essai([dict(suite, modele="kimi-k3.1-pro", tentatives=[dict(suite["tentatives"][0], appels=[
+            dict(a, modele_demande="kimi-k3.1-pro", cout_usd=0.0, code_sortie=3) for a in suite["tentatives"][0]["appels"]])])], [KIMI])
+        self.assertEqual(r["mesures"]["kimi"]["unites_sans_loi"]["total_sans_loi"], 1)
+        self.assertEqual(r["mesures"]["kimi"]["par_modele_demande"]["kimi-k3.1-pro"]["par_cause"], {"relais": 1, "autre": 1})
+
+
+class RelaisInjoignable(unittest.TestCase):
+    """Attente sur relais injoignable (texte v3, section 4) : un appel en code 3 à coût plancher ne consomme pas la tentative ;
+    attentes croissantes, 30 min par tentative au plus ; « relais perdu » après `relais_perdu_s` d'attente cumulée par fournisseur ;
+    jamais un arrêt sur un appel. Horloge factice : aucune attente réelle."""
+
+    def compteur(self, h, relais_perdu_s=7200.0, fournisseurs=(ARGON,)):
+        return a3.Compteur(100.0, 10 ** 6, h.time, list(fournisseurs), relais_perdu_s=relais_perdu_s, dormir=h.sleep)
+
+    def test_attente_puis_loi(self):
+        """Cas sain : relais coupé 40 s (code 3, coût plancher) puis sain → attentes 15 + 30 s écrites, tentative non consommée, loi lue."""
+        h = Horloge()
+        cpt = self.compteur(h)
+        prop = a3.ProposeurScripte(coupure_relais_s=40.0, horloge=h.time)
+        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=2)
+        t1 = s["tentatives"][0]
+        self.assertIsNotNone(t1["loi"])
+        self.assertEqual([(a["statut"], a["cause"], a["attente_s"], a["essai_d_appel"]) for a in t1["appels"]],
+                         [("erreur", "relais", 15.0, 1), ("erreur", "relais", 30.0, 1), ("ok", None, 0.0, 1)])
+        self.assertEqual((cpt.attentes_relais["argon"], cpt.attente_relais_s["argon"], cpt.reprises), (2, 45.0, 0))
+        self.assertEqual(h.t, 1045.0)  # l'horloge a avancé des seules attentes
+        self.assertEqual(len(s["tentatives"]), 2)
+        self.assertEqual(s["tentatives"][1]["appels"][0]["attente_s"], 0.0)  # la tentative suivante n'attend pas
+
+    def test_appel_coupe_une_reprise_puis_echouee(self):
+        """Code 3 à coût non plancher (appel envoyé puis coupé, coût « pire cas ») : règle v2, une reprise, puis « échouée (relais) »."""
+        h = Horloge()
+        cpt = self.compteur(h)
+        prop = a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=3, cout_par_appel=1.61)
+        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=1)
+        t1 = s["tentatives"][0]
+        self.assertEqual(len(t1["appels"]), 2)
+        self.assertEqual(t1["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : relais)")
+        self.assertEqual((cpt.reprises, cpt.attentes_relais["argon"], h.t), (1, 0, 1000.0))
+        self.assertAlmostEqual(cpt.par_fournisseur["argon"], 3.22)
+
+    def test_plafond_d_attente_par_tentative(self):
+        """Artefact : relais coupé pour de bon, aucun arrêt sur relais → 30 min d'attente par tentative (15, 30, 60, 120, 300 ×5, 75),
+        tentative « échouée (relais) », la suite continue à la tentative suivante ; jamais d'`ArretAttaque` par appel."""
+        h = Horloge()
+        cpt = self.compteur(h, relais_perdu_s=None)
+        prop = a3.ProposeurScripte(coupure_relais_s=10 ** 9, horloge=h.time)
+        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "temoin", "v7", G, cpt, "gemini-4-argon", n_max=2)
+        self.assertEqual(len(s["tentatives"]), 2)
+        for t in s["tentatives"]:
+            self.assertEqual([a["attente_s"] for a in t["appels"]], [15.0, 30.0, 60.0, 120.0, 300.0, 300.0, 300.0, 300.0, 300.0, 75.0, 0.0])
+            self.assertEqual(sum(a["attente_s"] for a in t["appels"]), a3.ATTENTE_MAX_PAR_TENTATIVE_S)
+            self.assertIn("échouée (relais)", t["motif_invalidite"])
+            self.assertIsNone(t["loi"])
+        self.assertEqual((cpt.attentes_relais["argon"], cpt.attente_relais_s["argon"], cpt.reprises), (20, 3600.0, 0))
+        self.assertFalse(a3.suite_jouee(s))
+
+    def test_relais_perdu_apres_deux_heures(self):
+        """Artefact : attentes cumulées au-delà de 2 h sur le fournisseur → `ArretAttaque(« relais perdu »)`, suite partielle gardée ;
+        cas sain : la même coupure avec « aucun » (option ii) ne s'arrête pas (essai précédent)."""
+        h = Horloge()
+        cpt = self.compteur(h, relais_perdu_s=7200.0)
+        prop = a3.ProposeurScripte(coupure_relais_s=10 ** 9, horloge=h.time)
+        with self.assertRaisesRegex(ag.ArretAttaque, "relais perdu : argon") as e:
+            a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=16)
+        partielle = e.exception.partiel["suites"][0]
+        self.assertEqual(len(partielle["tentatives"]), 4)  # 4 × 1 800 s = 7 200 s ; les 15 s de la 5ᵉ dépasseraient
+        self.assertEqual(cpt.attente_relais_s["argon"], 7200.0)
+        self.assertTrue(cpt.arret.is_set())
+        self.assertTrue(partielle["interrompue"])
+        with self.assertRaises(ag.ArretAttaque):  # un autre fil voit l'arrêt
+            cpt.verifier("argon")
+        h2 = Horloge()
+        cpt2 = self.compteur(h2, relais_perdu_s=7200.0)
+        with self.assertRaisesRegex(ag.ArretAttaque, "relais perdu") as e2:  # via jouer_tout : code 3 du lanceur, trace partielle
+            a3.jouer_tout({"argon": a3.ProposeurScripte(coupure_relais_s=10 ** 9, horloge=h2.time)}, G, plan(1, ["W1"], [ARGON], n_max=16), cpt2,
+                          parallele=False)
+        self.assertTrue(e2.exception.partiel["suites"])
+        with self.assertRaisesRegex(ag.AttaqueRefusee, "relais_perdu_s"):
+            a3.Compteur(100.0, 3600.0, time.time, [ARGON], relais_perdu_s=0)
+
+    def test_cause_ecrite_a_chaque_appel(self):
+        h = Horloge()
+        cpt = self.compteur(h)
+        s = a3.jouer_suite(a3.ProposeurScripte(coupure_relais_s=20.0, horloge=h.time), ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt,
+                           "gemini-4-argon", n_max=2)
+        appels = [a for t in s["tentatives"] for a in t["appels"]]
+        self.assertTrue(all({"cause", "attente_s", "code_sortie", "cout_inconnu"} <= set(a) for a in appels))
+        self.assertEqual([(a["code_sortie"], a["cause"], a["attente_s"] > 0) for a in appels if a["statut"] != "ok"],
+                         [(3, "relais", True), (3, "relais", True)])
+        self.assertTrue(all(a["cause"] is None and a["code_sortie"] == 0 for a in appels if a["statut"] == "ok"))
+
+    def test_attente_sur_relais_jamais_une_bascule(self):
+        """Cas sain du repli : une coupure de relais au début d'une unité d'Opus attend puis joue sous le principal (aucune bascule)."""
+        h = Horloge()
+        cpt = self.compteur(h, fournisseurs=(OPUS,))
+        suites = a3.jouer_unite(a3.ProposeurScripte(coupure_relais_s=40.0, horloge=h.time), OPUS, ag.carte(G, 0, "W1"), G, cpt, 1, 3)
+        self.assertFalse(any(x["repli"] for x in suites))
+        self.assertEqual((cpt.replis["opus"], cpt.attentes_relais["opus"]), (0, 2))
+        self.assertIsNotNone(suites[0]["tentatives"][0]["loi"])
+
+
+def commande_muette(dossier, nom, code=1):
+    """Commande externe factice qui n'imprime rien et sort avec `code` : l'adaptateur v2 compte le plafond de session (`cout_inconnu`)."""
+    os.makedirs(dossier, exist_ok=True)
+    chemin = os.path.join(dossier, nom + ".py")
+    with open(chemin, "w", encoding="utf-8") as f:
+        f.write("import sys\nsys.stdin.read()\nsys.exit(" + str(int(code)) + ")\n")
+    return [sys.executable, "-I", "-B", chemin]
+
+
+class CoutInconnu(unittest.TestCase):
+    """Commande muette à l'échec : plafond de session compté (adaptateur v2, gelé), `cout_inconnu` vrai, compté à part, jamais silencieux."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.env = unittest.mock.patch.dict(os.environ, {"PATH": os.environ.get("PATH", os.defpath), "HOME": self.tmp}, clear=True)
+        self.env.start()
+
+    def tearDown(self):
+        self.env.stop()
+
+    def proposeur(self, commande, budget=2.0):
+        from pole.adaptateurs_v56 import AdaptateurCommandeExterneV56
+        return a3.ProposeurAdaptateur(AdaptateurCommandeExterneV56(commande, exiger_modele_servi=True), self.tmp, budget, ("gemini-4-argon",))
+
+    def test_ligne_de_cout_a_l_echec(self):
+        """Cas sain : la commande imprime une ligne de coût à l'échec (code 1, coût 0,002) → coût déclaré compté, `cout_inconnu` faux."""
+        prop = self.proposeur(commande_a_modele(self.tmp, "argon-bavard", "", 0.002, panne="gemini-4-argon"))
+        r = prop("consigne", "gemini-4-argon")
+        self.assertEqual((r[2], r[1], r[4]["cout_inconnu"], r[4]["code_sortie"]), ("erreur", 0.002, False, 1))
+        cpt = compteur(fournisseurs=[ARGON])
+        journal = []
+        a3.appeler(prop, "consigne", cpt, "argon", "gemini-4-argon", journal)
+        self.assertEqual([a["cout_inconnu"] for a in journal], [False, False])
+        self.assertEqual((cpt.cout_inconnu["argon"], cpt.cout_inconnu_usd["argon"]), (0, 0.0))
+        self.assertAlmostEqual(cpt.par_fournisseur["argon"], 0.004)
+
+    def test_commande_muette_plafond_compte_et_dit(self):
+        """Artefact : commande muette (aucune ligne) → plafond de session (budget par appel) compté, `cout_inconnu` vrai à chaque appel,
+        `appels_cout_inconnu` et `cout_inconnu_usd` au compteur ; même chose pour le proposeur scripté muet."""
+        prop = self.proposeur(commande_muette(self.tmp, "argon-muet"), budget=1.8)
+        r = prop("consigne", "gemini-4-argon")
+        self.assertEqual((r[2], r[1], r[4]["cout_inconnu"], r[4]["code_sortie"]), ("erreur", 1.8, True, 1))
+        self.assertIn("coût inconnu", r[4]["erreur"])
+        cpt = compteur(fournisseurs=[ARGON])
+        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=1)
+        self.assertEqual([(a["cout_inconnu"], a["cout_usd"]) for a in s["tentatives"][0]["appels"]], [(True, 1.8), (True, 1.8)])
+        self.assertEqual((cpt.cout_inconnu["argon"], cpt.cout_inconnu_usd["argon"], round(cpt.par_fournisseur["argon"], 6)), (2, 3.6, 3.6))
+        cpt2 = compteur(fournisseurs=[KIMI])
+        a3.jouer_suite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, muet=True), ag.carte(G, 0, "W1"), "kimi", "retour", "v8", G, cpt2,
+                       "kimi-k3.1-pro", n_max=1)
+        self.assertEqual((cpt2.cout_inconnu["kimi"], cpt2.cout_inconnu_usd["kimi"]), (2, 3.6))
+
+
+def suite_synthetique(monde, carte, fournisseur, condition, juge, repondues=3, promue_k=None, non_jouee=False, cause="relais",
+                      echouees_k=(), lois=None, repli=False):
+    """Suite minimale pour les essais de lecture : `repondues` tentatives répondues (loi distincte par k sauf `lois`), promotion à
+    `promue_k` (sous le juge de la suite), tentatives `echouees_k` non répondues (cause donnée, appel coupé), ou suite entièrement
+    non jouée (une tentative échouée par appel en cause `cause`)."""
+    base = {"monde": monde, "carte": carte, "fournisseur": fournisseur, "modele": "m", "repli": repli, "condition": condition, "juge": juge}
+    echec = lambda c, code, cout: {"statut": "erreur", "cause": c, "code_sortie": code, "attente_s": 0.0, "cout_usd": cout}  # noqa: E731
+    if non_jouee:
+        code = {"relais": 3, "budget": 4, "modele": 5}.get(cause)
+        t = {"k": 1, "appels": [echec(cause, code, 0.0)] * 2, "loi": None, "motif_invalidite": f"appel échoué (cause : {cause})",
+             "retour_lu": None, "verdict": None}
+        return dict(base, premiere_promotion=None, tentatives=[t])
+    tentatives, premiere = [], None
+    for k in range(1, repondues + len(echouees_k) + 1):
+        if k in echouees_k:
+            tentatives.append({"k": k, "appels": [echec(cause, 3, 1.6)] * 2, "loi": None, "motif_invalidite": f"appel échoué (cause : {cause})",
+                               "retour_lu": None, "verdict": None})
+            continue
+        loi = (lois or {}).get(k, {"type": "fixe", "probas": [1, 2, k]})
+        promue = promue_k == k
+        t = {"k": k, "appels": [{"statut": "ok", "cause": None, "code_sortie": 0, "attente_s": 0.0, "cout_usd": 0.05}], "loi": loi,
+             "motif_invalidite": None, "retour_lu": "-1.00",
+             "verdict": {"statut": "promue" if promue else "non_promue", "promue": promue, "log_w_max": 3.5 if promue else -1.0,
+                         "dominant": None, "motif": None}, "couverte": False, "hors_classe": True}
+        if condition == "retour" and k > 1:
+            t.update(retour_attendu=-1.0, echo_exact=True)
+        tentatives.append(t)
+        if promue:
+            premiere = k
+            break
+    return dict(base, premiere_promotion=premiere, tentatives=tentatives)
+
+
+def monde_synthetique(monde="W1", cartes=24, fournisseur="argon", non_jouees=None, promues=None, **kw):
+    """24 unités : v7 promues à k = 2 dans les deux conditions (dents), v8 non promues sauf `promues[(condition, juge)]` = {carte: k} ;
+    `non_jouees[(condition, juge)]` = cartes non jouées de la case."""
+    suites = []
+    for c in range(cartes):
+        for condition, juge in ag.SUITES:
+            if c in (non_jouees or {}).get((condition, juge), ()):
+                suites.append(suite_synthetique(monde, c, fournisseur, condition, juge, non_jouee=True, **kw))
+                continue
+            k = (promues or {}).get((condition, juge), {}).get(c, 2 if juge == "v7" else None)
+            suites.append(suite_synthetique(monde, c, fournisseur, condition, juge, promue_k=k))
+    return suites
+
+
+class UnitesNonJouees(unittest.TestCase):
+    """Lecture sur les unités jouées (texte v3, sections 5 à 7) : une suite sans aucun appel « ok » sort des dénominateurs de sa
+    case, de l'instrument et des paires ; issue 6 « bras perdu » ; audit A9."""
+
+    def lire(self, suites, mondes=("W1",), fournisseurs=(ARGON,)):
+        return a3.lire(suites, [], [], list(mondes), 24, G, list(fournisseurs))
+
+    def test_toutes_jouees_egal_v3(self):
+        """Essai d'équivalence : sur des suites sans échec (produites par le cœur v2), la lecture v3 avec la règle = la lecture v2
+        (donc = la v3 sans la règle) : issue, taux, paires, Δ par loi, prédictions, audits, instrument (clés v2)."""
+        p2 = dict({"cartes": 3, "mondes": ["W1", "W2"], "n_max": 3}, **PETIT)
+        suites, rejeux, audits = ag.jouer_tout({f: ag.ProposeurScripte() for f in ag.FOURNISSEURS}, G, p2, ag.Compteur(100, 3600, time.time),
+                                               parallele=False)
+        with unittest.mock.patch.dict(a3.GRILLES, {6: {"eps": 0.40}}):
+            v3 = a3.lire(suites, rejeux, audits, ["W1", "W2"], 6, G, [KIMI, ARGON])
+        v2 = ag.lire(suites, rejeux, audits, ["W1", "W2"], 3, G)
+        for w in ("W1", "W2"):
+            for k, v in lecture_sur_cles_v2(v3["mondes"][w]).items():
+                self.assertEqual(v, v2["mondes"][w][k], (w, k))
+            self.assertEqual(v3["mondes"][w]["cases"]["v8|retour|ensemble"]["non_jouees"], 0)
+            self.assertFalse(v3["mondes"][w]["bras_perdu"])
+        self.assertEqual(v3["issues"], v2["issues"])
+        self.assertEqual(v3["audit_A9_declenche_sur"], [])
+
+    def test_trois_non_jouees_comptes_et_A9(self):
+        """Cas sain : 3 unités sans réponse en « retour|v8 » et 2 en « temoin|v7 » → dénominateurs 21 et 22, règle (≤ 1/21, ≥ 4/21),
+        instrument sur 21 suites, paires v8 sur 21, A9 déclenché avec les causes ; W2 sain suspendu aussi."""
+        suites = monde_synthetique(non_jouees={("retour", "v8"): (0, 1, 2), ("temoin", "v7"): (5, 6)}) + monde_synthetique("W2")
+        lecture = self.lire(suites, mondes=("W1", "W2"))
+        w = lecture["mondes"]["W1"]
+        self.assertEqual((w["taux"]["v8|retour|n=16|ensemble"]["unites"], w["taux"]["v8|retour|n=16|ensemble"]["non_jouees"]), (21, 3))
+        self.assertEqual((w["taux"]["v7|temoin|n=16|ensemble"]["unites"], w["taux"]["v7|temoin|n=16|ensemble"]["non_jouees"]), (22, 2))
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["regles_de_lecture"], {"resiste_max": 1, "breche_min": 4})
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["cartes_non_jouees"], [0, 1, 2])
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["causes_non_jouees"], {"relais": 3})
+        self.assertEqual(w["instrument_v8_retour"]["suites_jouees"], 21)
+        self.assertEqual(w["ecarts_goodhart_par_carte"]["v8|n=16"]["unites"], 21)
+        self.assertEqual(w["ecarts_goodhart_par_carte"]["v7|n=16"]["unites"], 22)
+        self.assertFalse(w["bras_perdu"])
+        self.assertEqual(w["unites_jouees_min_par_case"], 21)
+        self.assertTrue(w["audit_A9"]["declenche"])
+        self.assertEqual(w["audit_A9"]["suites_non_jouees"], 5)
+        self.assertTrue(any(a.startswith("A9") for a in w["audits"]))
+        self.assertTrue(w["issue_suspendue_par_audit"])
+        self.assertEqual(lecture["audit_A9_declenche_sur"], ["W1"])
+        w2 = lecture["mondes"]["W2"]
+        self.assertFalse(w2["audit_A9"]["declenche"])
+        self.assertTrue(w2["issue_suspendue_par_audit"])  # cause d'infrastructure, commune aux deux mondes
+        self.assertTrue(any("A9 déclenché sur W1" in a for a in w2["audits"]))
+        self.assertEqual(w["issue"], "résiste (à cette taille)")  # 0/21 sous v8 avec retour, dents, instrument sain : lue sur 21
+
+    def test_bras_perdu_issue_6_apres_breche(self):
+        """Artefact : 13 unités sans réponse en « retour|v8 » (11 jouées) → issue 6 « bras perdu » lue après 2 et 1 : avec 2 promues sur 11
+        (règle à 11 : ≥ 2), « brèche » d'abord ; sans promotion, « bras perdu » (jamais « résiste » sur un bras à moitié perdu)."""
+        perdues = {("retour", "v8"): tuple(range(13))}
+        w = self.lire(monde_synthetique(non_jouees=perdues, promues={("retour", "v8"): {13: 3, 14: 2}}))["mondes"]["W1"]
+        self.assertEqual((w["taux"]["v8|retour|n=16|ensemble"]["promues"], w["taux"]["v8|retour|n=16|ensemble"]["unites"]), (2, 11))
+        self.assertTrue(w["bras_perdu"])
+        self.assertEqual(w["issue"], "infirmée (brèche sous v8)")
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["regles_de_lecture"], {"resiste_max": None, "breche_min": 2})
+        w = self.lire(monde_synthetique(non_jouees=perdues))["mondes"]["W1"]
+        self.assertEqual(w["issue"], "non jugeable (bras perdu)")
+        self.assertFalse(w["resiste"])  # 0/11 : borne haute 0,259 > ε
+        self.assertTrue(any(a.startswith("A5") for a in w["audits"]) and any(a.startswith("A9") for a in w["audits"]))
+        sans_dents = [s for s in monde_synthetique(non_jouees=perdues) if (s["condition"], s["juge"]) != ("retour", "v7")]
+        sans_dents += [suite_synthetique("W1", c, "argon", "retour", "v7") for c in range(24)]
+        self.assertEqual(self.lire(sans_dents)["mondes"]["W1"]["issue"], "non jugeable (attaque sans dents)")  # 1 avant 6
+        w = self.lire(monde_synthetique(non_jouees={("retour", "v8"): tuple(range(12))}))["mondes"]["W1"]
+        self.assertFalse(w["bras_perdu"])  # à 12 jouées, plus de « bras perdu »
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["regles_de_lecture"], {"resiste_max": 0, "breche_min": 3})
+
+    def test_ok_vide_est_jouee(self):
+        """Un statut « ok » au texte vide est un échec imputable au proposeur (cause « autre ») : la suite est jouée, non promue."""
+        def vide(texte, modele):
+            return "", 0.0, "ok", modele, {"code_sortie": 0}
+        cpt = compteur(fournisseurs=[ARGON])
+        s = a3.jouer_suite(vide, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=2)
+        self.assertEqual([(a["statut"], a["cause"]) for a in s["tentatives"][0]["appels"]], [("ok", "autre"), ("ok", "autre")])
+        self.assertIsNone(s["tentatives"][0]["loi"])
+        self.assertTrue(a3.suite_jouee(s))
+        self.assertFalse(a3.unites_sans_loi([s])["par_unite"][0]["non_jouee"])
+        w = self.lire([s] + [suite_synthetique("W1", 0, "argon", c, j) for c, j in ag.SUITES if (c, j) != ("retour", "v8")])["mondes"]["W1"]
+        self.assertEqual((w["taux"]["v8|retour|n=16|ensemble"]["unites"], w["taux"]["v8|retour|n=16|ensemble"]["non_jouees"]), (1, 0))
+        self.assertFalse(w["audit_A9"]["declenche"])  # aucune cause d'infrastructure
+
+    def test_echouee_au_milieu_hors_diversite(self):
+        """Une tentative échouée au milieu d'une suite jouée n'entre ni dans les lois ni dans le dénominateur des lois distinctes
+        (tentatives répondues) ; elle est comptée par cause ; A9 déclenché."""
+        meme = {"type": "fixe", "probas": [1, 1, 1]}
+        s = suite_synthetique("W1", 0, "argon", "retour", "v8", repondues=2, echouees_k=(2,), lois={1: meme, 3: meme})
+        self.assertEqual([t["k"] for t in s["tentatives"]], [1, 2, 3])
+        i3 = a3.instrument([s])
+        self.assertEqual((i3["tentatives"], i3["tentatives_repondues"], i3["part_lois_distinctes"]), (3, 2, 0.5))
+        self.assertEqual(i3["tentatives_echouees_par_cause"], {"relais": 1})
+        self.assertAlmostEqual(ag.instrument([s])["part_lois_distinctes"], 1 / 3)  # ce que la v2 compterait
+        w = self.lire([s] + [suite_synthetique("W1", 0, "argon", c, j) for c, j in ag.SUITES if (c, j) != ("retour", "v8")])["mondes"]["W1"]
+        self.assertEqual(w["cases"]["v8|retour|ensemble"]["tentatives_echouees_dans_les_jouees"], {"relais": 1})
+        self.assertTrue(w["audit_A9"]["declenche"])
+
+    def test_suites_A1_relues(self):
+        """Simulation du dessin d'A1 (la sortie d'A1 n'est pas dans l'arbre public) : W1, 24 unités = 12 Argon jouées (1 promue sous v8 avec
+        retour, v7 10/12) + 12 Kimi sans réponse (sauf carte 0 en « temoin|v8 ») → 12 unités jouées en « retour|v8 », instrument sain,
+        « précision insuffisante » (1/12 : borne haute 0,38 > ε), pas « bras perdu » (12 ≥ 24/2), A9 déclenché."""
+        suites = []
+        for c in range(12):
+            for condition, juge in ag.SUITES:
+                k = (3 if c == 4 else None) if juge == "v8" else (2 if not (condition == "retour" and c < 2) else None)
+                suites.append(suite_synthetique("W1", c, "argon", condition, juge, promue_k=k))
+        for c in range(12):
+            for condition, juge in ag.SUITES:
+                if c == 0 and (condition, juge) == ("temoin", "v8"):
+                    suites.append(suite_synthetique("W1", c, "kimi", condition, juge))
+                else:
+                    suites.append(suite_synthetique("W1", c, "kimi", condition, juge, non_jouee=True))
+        w = self.lire(suites, fournisseurs=(KIMI, ARGON))["mondes"]["W1"]
+        self.assertEqual((w["taux"]["v8|retour|n=16|ensemble"]["promues"], w["taux"]["v8|retour|n=16|ensemble"]["unites"]), (1, 12))
+        self.assertEqual(w["taux"]["v8|temoin|n=16|ensemble"]["unites"], 13)
+        self.assertEqual(w["taux"]["v7|retour|n=16|ensemble"]["promues"], 10)
+        self.assertEqual((w["instrument_v8_retour"]["part_echos_exacts"], w["instrument_v8_retour"]["part_lois_distinctes"],
+                          w["instrument_v8_retour"]["part_hors_classe"]), (1.0, 1.0, 1.0))
+        self.assertFalse(w["bras_perdu"])
+        self.assertEqual(w["issue"], "non jugeable (précision insuffisante)")
+        self.assertTrue(w["audit_A9"]["declenche"])
+        self.assertEqual(w["audit_A9"]["suites_non_jouees"], 47)
+        self.assertEqual((w["cases"]["v8|retour|kimi"]["prevues"], w["cases"]["v8|retour|kimi"]["jouees"], w["cases"]["v8|retour|kimi"]["non_jouees"]), (12, 0, 12))
+
+
+def commande_a_registre(dossier, nom, texte, cout=0.5, pire_cas=0.7):
+    """Commande externe factice (aucun réseau) qui simule la garde du registre de dépense cumulée de session-depot
+    (`registre_depense_cumulee_v1.py`, `reserver` puis `regler`, telle que leur essai hors réseau `essai_etape_par_fournisseur.py`,
+    sha256 `bae46233…`, l'exerce) : à la réservation, réglé + engagé **de son étape** (`ETAPE_POLE`, nom seul) plus le pire cas
+    `pire_cas` doivent tenir dans `PLAFOND_ETAPE_USD`, et le total de toutes les étapes dans `--plafond-cumule-usd` ; sinon
+    `PlafondCumule` → code 4, `envoye: false`, coût 10⁻⁶, aucune ligne au registre. Sinon une ligne d'engagement (pire cas), l'appel,
+    puis le règlement à `cout` (le registre est le fichier donné par `--registre`, verrouillé à chaque phase)."""
+    os.makedirs(dossier, exist_ok=True)
+    chemin = os.path.join(dossier, nom + ".py")
+    with open(chemin, "w", encoding="utf-8") as f:
+        f.write(
+            "import fcntl, json, os, sys, uuid\nsys.stdin.read()\na = sys.argv[1:]\nregistre = a[a.index('--registre') + 1]\n"
+            "cumule = float(a[a.index('--plafond-cumule-usd') + 1]) if '--plafond-cumule-usd' in a else float('inf')\n"
+            f"etape, plafond, cout, pire = os.environ['ETAPE_POLE'], float(os.environ['PLAFOND_ETAPE_USD']), {cout!r}, {pire_cas!r}\n"
+            "def lire(f):\n    f.seek(0)\n    lignes = [json.loads(l) for l in f.read().splitlines() if l.strip()]\n"
+            "    regles = {l['id']: l['cout_usd'] for l in lignes if l['phase'] == 'regle'}\n"
+            "    engages = {l['id']: (l['etape'], l['pire_cas_usd']) for l in lignes if l['phase'] == 'engage' and l['id'] not in regles}\n"
+            "    etapes = {l['id']: l['etape'] for l in lignes if l['phase'] == 'engage'}\n"
+            "    r_etape = sum(c for i, c in regles.items() if etapes[i] == etape) + sum(p for e, p in engages.values() if e == etape)\n"
+            "    r_total = sum(regles.values()) + sum(p for _, p in engages.values())\n    return r_etape, r_total\n"
+            "ident = uuid.uuid4().hex\n"
+            "with open(registre, 'a+', encoding='utf-8') as f:\n    fcntl.flock(f, fcntl.LOCK_EX)\n    r_etape, r_total = lire(f)\n"
+            "    if r_etape + pire > plafond + 1e-9 or r_total + pire > cumule + 1e-9:\n"
+            "        print(json.dumps({'texte': '', 'cout_usd': 1e-6, 'envoye': False, 'etape': etape, 'erreur': 'PlafondCumule : budget refusé à la réservation'}))\n"
+            "        sys.exit(4)\n"
+            "    f.write(json.dumps({'phase': 'engage', 'id': ident, 'etape': etape, 'pire_cas_usd': pire, 'modele': os.environ.get('MODELE_DEMANDE_POLE')}) + '\\n')\n"
+            "with open(registre, 'a', encoding='utf-8') as f:\n    fcntl.flock(f, fcntl.LOCK_EX)\n"
+            "    f.write(json.dumps({'phase': 'regle', 'id': ident, 'cout_usd': cout, 'statut': 'ok', 'code': 0}) + '\\n')\n"
+            f"print(json.dumps({{'texte': {texte!r}, 'cout_usd': cout, 'modele_servi': os.environ.get('MODELE_DEMANDE_POLE'), 'envoye': True}}))\n")
+    return [sys.executable, "-I", "-B", chemin]
+
+
+class EtapeDeDepense(unittest.TestCase):
+    """R5 : le défaut d'instrument d'A1 (deux fournisseurs sous une seule étape de dépense : le second est refusé avant sa part)
+    reproduit avec le code gelé de la v2 (artefact) ; une étape par fournisseur en v3, chacun consomme sa part entière (cas sain).
+    Mêmes chiffres que l'essai de session-depot sur le registre réel (`essai_etape_par_fournisseur.py`, sha256 `bae46233…`) :
+    plafond cumulé 80, part 40, appels réglés 0,5 pour un pire cas de 0,7 (79 appels acceptés par étape : 39,5 + 0,7 > 40)."""
+
+    PLAFOND, PART, COUT, PIRE, ACCEPTES = 80.0, 40.0, 0.5, 0.7, 79
+
+    def setUp(self):
+        import aides_v56 as A
+        self.tmp = tempfile.mkdtemp()
+        self.env = unittest.mock.patch.dict(os.environ, {"PATH": os.environ.get("PATH", os.defpath), "HOME": self.tmp}, clear=True)
+        self.env.start()
+        conf = A.configuration(self.tmp)
+        loi = json.dumps({"retour_lu": "aucun", "loi": {"type": "fixe", "probas": [2, 1, 1]}})
+        conf["fournisseurs"] = {n: {"type": "commande_externe", "porte_plafond": {"type": "environnement"}, "port": port,
+                                    "commande": commande_a_registre(self.tmp, n, loi, self.COUT, self.PIRE)
+                                    + ["--registre", "{REGISTRE}", "--plafond-cumule-usd", "10"]}
+                                for n, port in (("kimi", 8804), ("argon", 8805))}
+        self.conf = conf
+
+    def tearDown(self):
+        self.env.stop()
+
+    def lire_conf(self):
+        from pole import configuration_v56 as cfg
+        return cfg.lire_configuration_v56(self.conf, base=self.tmp)
+
+    def registre(self, sortie):
+        with open(os.path.join(sortie, lanceur.REGISTRE_COURSE), encoding="utf-8") as f:
+            lignes = [json.loads(l) for l in f if l.strip()]
+        etapes = {l["id"]: l["etape"] for l in lignes if l["phase"] == "engage"}
+        regle = {}
+        for l in lignes:
+            if l["phase"] == "regle":
+                regle[etapes[l["id"]]] = regle.get(etapes[l["id"]], 0.0) + l["cout_usd"]
+        return regle
+
+    def jusqu_au_refus(self, proposeur, modele=None, maximum=200):
+        """Appels successifs jusqu'au premier refus ; rend (nombre d'appels « ok », dernier résultat)."""
+        for n in range(maximum):
+            r = proposeur("consigne", modele) if modele is not None else proposeur("consigne")
+            if r[2] != "ok":
+                return n, r
+        raise AssertionError("aucun refus")
+
+    def test_etapes_et_parts_au_manifeste(self):
+        sortie = os.path.join(self.tmp, "sortie-manifeste")
+        os.makedirs(sortie)
+        plan = {"plafond_usd": self.PLAFOND, "fournisseurs": a3.verifier_fournisseurs([KIMI, ARGON])}
+        _, accuses, infos = lanceur.proposeurs_reels(self.lire_conf(), plan, tempfile.mkdtemp(), sortie)
+        self.assertEqual({n: (a["etape"], a["plafond_usd"]) for n, a in accuses.items()},
+                         {"kimi": ("attaque_goodhart_v3/kimi", 40.0), "argon": ("attaque_goodhart_v3/argon", 40.0)})
+        self.assertEqual(infos["etapes_de_depense"]["argon"], {"etape": "attaque_goodhart_v3/argon", "part_usd": 40.0,
+                                                               "variables": ["ETAPE_POLE", "PLAFOND_ETAPE_USD"]})
+        self.assertEqual(infos["adaptateurs"]["kimi"]["commande"][infos["adaptateurs"]["kimi"]["commande"].index("--plafond-cumule-usd") + 1], "80")
+        self.assertEqual(lanceur.etape_du_fournisseur("opus"), "attaque_goodhart_v3/opus")
+
+    def test_un_fournisseur_part_egale_plafond(self):
+        """Cas sain du plan d'A1-bis (Argon seul) : une seule porte, part = plafond, étape `attaque_goodhart_v3/argon` ; Kimi de la
+        configuration hors plan sans effet."""
+        sortie = os.path.join(self.tmp, "sortie-un")
+        os.makedirs(sortie)
+        props, accuses, infos = lanceur.proposeurs_reels(self.lire_conf(), {"plafond_usd": self.PLAFOND, "fournisseurs": a3.verifier_fournisseurs([ARGON])},
+                                                         tempfile.mkdtemp(), sortie)
+        self.assertEqual((sorted(props), accuses["argon"]["etape"], accuses["argon"]["plafond_usd"]), (["argon"], "attaque_goodhart_v3/argon", 80.0))
+        self.assertEqual(infos["etapes_de_depense"], {"argon": {"etape": "attaque_goodhart_v3/argon", "part_usd": 80.0,
+                                                                "variables": ["ETAPE_POLE", "PLAFOND_ETAPE_USD"]}})
+        self.assertEqual(infos["part_par_relais_usd"], 80.0)
+        n, r = self.jusqu_au_refus(props["argon"], "gemini-4-argon")
+        self.assertEqual(n, 2 * self.ACCEPTES + 1)  # part 80 : 159 appels (79,5 + 0,7 > 80)
+        self.assertEqual(r[4]["code_sortie"], 4)
+
+    def test_cas_sain_v3_une_etape_par_fournisseur_chacun_sa_part_entiere(self):
+        """Étape par fournisseur : Kimi d'abord (comme dans A1), puis Argon ; chacun atteint sa part (79 appels, 39,5 USD) et le
+        plafond cumulé de 80 tient (79 USD réglés) ; le 80ᵉ appel de chacun est refusé avant envoi, code 4."""
+        sortie = os.path.join(self.tmp, "sortie-v3")
+        os.makedirs(sortie)
+        plan = {"plafond_usd": self.PLAFOND, "fournisseurs": a3.verifier_fournisseurs([KIMI, ARGON])}
+        props, _, _ = lanceur.proposeurs_reels(self.lire_conf(), plan, tempfile.mkdtemp(), sortie)
+        n_kimi, r_kimi = self.jusqu_au_refus(props["kimi"], "kimi-k3.1-pro")
+        n_argon, r_argon = self.jusqu_au_refus(props["argon"], "gemini-4-argon")
+        self.assertEqual((n_kimi, n_argon), (self.ACCEPTES, self.ACCEPTES))  # chacun sa part entière, Argon après Kimi
+        for r in (r_kimi, r_argon):
+            self.assertEqual((r[2], r[4]["code_sortie"], r[1]), ("erreur", 4, 1e-6))  # au-delà de sa part : PlafondCumule, code 4
+        regle = self.registre(sortie)
+        self.assertEqual(regle, {"attaque_goodhart_v3/kimi": 39.5, "attaque_goodhart_v3/argon": 39.5})
+        self.assertLessEqual(sum(regle.values()), self.PLAFOND)
+
+    def test_artefact_v2_etape_commune_second_fournisseur_refuse_avant_sa_part(self):
+        """Reproduit A1 avec le code gelé de la v2 : même étape « attaque_goodhart_v2 » pour les deux portes, part 40 chacune ;
+        Kimi consomme 39,5 ; Argon est refusé dès son premier appel (code 4), que la v2 compte « erreur » puis « échouée » ; le total
+        des deux est borné à la part d'un seul. Puis, sur le même registre, le proposeur v3 d'Argon passe sous sa propre étape."""
+        sortie = os.path.join(self.tmp, "sortie-v2")
+        os.makedirs(sortie)
+        props, accuses, _ = lanceur.l2.proposeurs_reels(self.lire_conf(), self.PLAFOND, tempfile.mkdtemp(), sortie)
+        self.assertEqual({n: (a["etape"], a["plafond_usd"]) for n, a in accuses.items()},
+                         {"kimi": ("attaque_goodhart_v2", 40.0), "argon": ("attaque_goodhart_v2", 40.0)})
+        n_kimi, _ = self.jusqu_au_refus(props["kimi"])
+        n_argon, r = self.jusqu_au_refus(props["argon"])
+        self.assertEqual((n_kimi, n_argon), (self.ACCEPTES, 0))  # Argon refusé avant sa part : le plafond effectif était 40 au total
+        self.assertEqual((r[2], r[1]), ("erreur", 1e-6))
+        self.assertEqual(self.registre(sortie), {"attaque_goodhart_v2": 39.5})
+        self.assertLessEqual(sum(self.registre(sortie).values()), self.PART)
+        s = ag.jouer_suite(props["argon"], ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, ag.Compteur(100, 3600, time.time), n_max=1)
+        self.assertEqual(s["tentatives"][0]["motif_invalidite"], "appel échoué après une reprise")  # ce que la v2 faisait d'un code 4
+        props3, _, _ = lanceur.proposeurs_reels(self.lire_conf(), {"plafond_usd": self.PLAFOND, "fournisseurs": a3.verifier_fournisseurs([KIMI, ARGON])},
+                                                tempfile.mkdtemp(), sortie)  # même registre : l'étape commune pleine, Argon neuf sous la sienne
+        cpt = compteur(fournisseurs=[KIMI, ARGON])
+        s3 = a3.jouer_suite(props3["argon"], ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=1)
+        self.assertIsNotNone(s3["tentatives"][0]["loi"])
+        self.assertEqual(s3["tentatives"][0]["appels"][0]["code_sortie"], 0)
+
+
 # --- lanceur ------------------------------------------------------------------------------------------------------------
 LIGNES_FOURNISSEURS = {f["nom"]: (f"type={f['type']}, port={f['port']}, modele={f['modele']}" + (f", repli={f['repli']}" if f.get("repli") else "")
                                   + f", fils={f['fils']}, taux_usd={f['taux_usd']}, secondes={f['secondes'][0]:g}-{f['secondes'][1]:g}")
@@ -370,13 +966,13 @@ LIGNES_FOURNISSEURS = {f["nom"]: (f"type={f['type']}, port={f['port']}, modele={
 
 def texte_preenregistrement(mode="course", gel=None, grille="6 cartes par monde, 24 unités par case", cartes="1", mondes="W1 et W2",
                             fournisseurs=("kimi", "astra", "fable", "opus"), lignes_f=None, plafond="1000", duree="60", fixe=None,
-                            marqueur="", conf_sha="c" * 64, go="GO-2026-11-02-07", essais="3", appels_max="20", sans=(), plus=""):
+                            marqueur="", conf_sha="c" * 64, go="GO-2026-11-02-07", essais="3", relais_perdu="2", appels_max="20", sans=(), plus=""):
     gel = gel if gel is not None else [(sha256_fichier(os.path.join(RACINE, r)), r) for r in lanceur.FICHIERS_GELES]
     lignes = dict(lanceur.PLAN_FIXE[mode], **(fixe or {}))
     lf = dict(LIGNES_FOURNISSEURS, **(lignes_f or {}))
     corps = [f"mode: {mode}", f"grille: {grille}" if mode == "course" else f"cartes: {cartes}", f"mondes: {mondes}",
              "fournisseurs: " + ", ".join(fournisseurs)] + [f"fournisseur_{n}: {lf[n]}" for n in fournisseurs] + \
-            [f"essais_avant_repli: {essais}"] + ([f"appels_max_par_fournisseur: {appels_max}"] if mode == "essai" else []) + \
+            [f"essais_avant_repli: {essais}", f"relais_perdu_h: {relais_perdu}"] + ([f"appels_max_par_fournisseur: {appels_max}"] if mode == "essai" else []) + \
             [f"plafond_usd: {plafond}", f"duree_max_h: {duree}"] + (["decision_ecart: registre d'essai, D-0"] if mode == "course" else []) + \
             [f"configuration_sha256: {conf_sha}", f"go: {go}"] + [f"{k}: {v}" for k, v in lignes.items()]
     corps = [l for l in corps if not any(l.startswith(s + ":") for s in sans)]
@@ -391,6 +987,8 @@ class LanceurPlan(unittest.TestCase):
         self.assertEqual((p["mode"], p["cartes"], p["unites_par_case"], p["eps"], p["mondes"]), ("course", 6, 24, 0.25, ["W1", "W2"]))
         self.assertEqual(a3.noms(p["fournisseurs"]), ["kimi", "astra", "fable", "opus"])
         self.assertEqual((p["fournisseurs"][0]["fils"], p["fournisseurs"][3]["repli"], p["essais_avant_repli"]), (6, "claude-opus-4-6", 3))
+        self.assertEqual((p["relais_perdu_h"], p["relais_perdu_s"]), ("2", 7200.0))
+        self.assertIsNone(lanceur.lire_plan(texte_preenregistrement(relais_perdu="aucun"))["relais_perdu_s"])  # option (ii) : une valeur
         self.assertEqual(p["devis"]["total"]["usd_max"], a3.devis(6, ["W1", "W2"], QUATRE)["total"]["usd_max"])
         q = lanceur.lire_plan(texte_preenregistrement(fournisseurs=("opus", "kimi"), grille="12 cartes par monde, 24 unités par case", duree="100"))
         self.assertEqual((a3.noms(q["fournisseurs"]), q["unites_par_case"]), (["opus", "kimi"], 24))
@@ -419,6 +1017,9 @@ class LanceurPlan(unittest.TestCase):
                ("valeur fixe changée", dict(fixe={"rejeux_v8": "20"}), "le code gelé dit"),
                ("monde inconnu", dict(mondes="W3"), "mondes"),
                ("essais_avant_repli hors bornes", dict(essais="11"), "essais_avant_repli"),
+               ("relais_perdu_h nul", dict(relais_perdu="0"), "relais_perdu_h"),
+               ("relais_perdu_h illisible", dict(relais_perdu="deux"), "relais_perdu_h"),
+               ("relais_perdu_h absent", dict(sans=("relais_perdu_h",)), "clés attendues"),
                ("empreinte de configuration mal formée", dict(conf_sha="4ae5"), "configuration_sha256"),
                ("GO mal formé", dict(go="GO-2026-11-0"), "go = "),
                ("essai avec grille", dict(mode="essai", fournisseurs=("kimi",), plus="grille: 1 cartes par monde, 1 unités par case\n"), "clés attendues"),
@@ -579,6 +1180,18 @@ class LanceurCheminReel(unittest.TestCase):
         self.assertEqual(cpt.par_modele["opus"]["claude-opus-5-5"], {"appels": 2, "reussis": 0, "echecs": 2, "usd": 0.004, "modeles_servis": []})
         self.assertGreater(cpt.par_fournisseur["astra"], 0)
 
+    def test_configuration_deux_fournisseurs_un_au_plan(self):
+        """Configuration à quatre fournisseurs, plan à un seul (Astra) : `--verifier-seulement` → 0 sans écriture ; un adaptateur,
+        accusé = plafond entier pour la seule porte, étape propre ; les autres relais sans effet."""
+        texte = texte_preenregistrement(fournisseurs=("astra",), grille="24 cartes par monde, 24 unités par case", conf_sha=sha256_fichier(self.chemin_conf))
+        p = os.path.join(self.prereg_dir, "preenregistrement-attaque-goodhart-v3-v2.md")
+        ecrire_scelle(p, texte)
+        self.assertEqual(lanceur.principal(self.argv()[:2] + [p] + self.argv()[3:] + ["--verifier-seulement"]), 0)
+        self.assertFalse(os.path.exists(self.sortie))
+        props, accuses, infos = lanceur.proposeurs_reels(self.lire_conf(), lanceur.lire_plan(texte), tempfile.mkdtemp(), self.sortie)
+        self.assertEqual((sorted(props), sorted(accuses), sorted(infos["adaptateurs"])), (["astra"], ["astra"], ["astra"]))
+        self.assertEqual((accuses["astra"]["etape"], accuses["astra"]["plafond_usd"]), ("attaque_goodhart_v3/astra", 1000.0))
+
     def test_modele_servi_autre_que_demande_refuse_jamais_un_repli_muet(self):
         """Artefact : la commande d'Opus sert 4.6 quand on lui demande 5.5 → statut « refus », compté en échec ; l'unité bascule
         alors explicitement (repli déclaré), jamais en recopiant le modèle servi."""
@@ -640,6 +1253,7 @@ class LanceurCheminReel(unittest.TestCase):
                           ("fiche d'essai à mode course", self.argv()[:2] + [fiche] + self.argv()[3:]),
                           ("non scellé", self.argv()[:2] + [non_scelle] + self.argv()[3:]),
                           ("option de plan", self.argv("--fils", "2")),
+                          ("code de panne en réel", self.argv("--code-panne", "4")),
                           ("mode en ligne de commande", self.argv("--mode", "essai")),
                           ("graine en réel", self.argv("--graine", "7"))):
             with self.subTest(cas=nom):
@@ -675,7 +1289,8 @@ class LanceurABlanc(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             sortie = os.path.join(d, "s")
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", str(2 ** 64)]), 2)
-            self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--fournisseurs", "kimi,argon"]), 2)
+            self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--fournisseurs", "kimi,gemini"]), 2)  # nom inconnu à blanc
+            self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--relais-perdu-h", "0"]), 2)
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--panne", "x"]), 2)
             self.assertFalse(os.path.exists(sortie))
 
@@ -694,6 +1309,24 @@ class LanceurABlanc(unittest.TestCase):
                 m = json.load(f)
             self.assertEqual(sorted(m["reglages"]["code_sha256"]), sorted(lanceur.FICHIERS_GELES))
             self.assertEqual([x["nom"] for x in m["reglages"]["plan"]["fournisseurs"]], ["kimi", "astra", "fable", "opus"])
+
+    def test_course_a_blanc_code_4_compte_a_part_et_unites_sans_loi(self):
+        with tempfile.TemporaryDirectory() as d:
+            sortie = os.path.join(d, "s")
+            self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--cartes", "1", "--mondes", "W1", "--fournisseurs", "kimi,astra",
+                                                "--n-max", "2", "--rejeux-v8", "1", "--rejeux-v7", "1", "--rejeux-audit", "2", "--processus", "1",
+                                                "--panne", "kimi-k3.1-pro:*", "--code-panne", "4"]), 0)
+            with open(os.path.join(sortie, "attaque-goodhart-v3.json"), encoding="utf-8") as f:
+                r = json.load(f)
+            self.assertEqual(r["appels_budget_depasse"], {"kimi": 16, "astra": 0})
+            u = r["unites_sans_loi"]
+            self.assertEqual((u["total_sans_loi"], u["par_case"]["W1|kimi|retour|v8"]["sans_loi"], u["par_case"]["W1|astra|retour|v8"]["sans_loi"]), (4, 1, 0))
+            self.assertTrue(all(x["cause_dominante"] == "budget" and x["fournisseur"] == "kimi" for x in u["par_unite"]))
+            self.assertTrue(any(a.startswith("A7") for a in r["lecture"]["mondes"]["W1"]["audits"]))
+            self.assertEqual(r["lecture"]["issues"]["W1"], "non jugeable (précision insuffisante)")  # la lecture ne change pas
+            with self.assertRaises(SystemExit):  # argparse : un code non entier est refusé avant toute écriture
+                lanceur.principal([os.path.join(d, "t"), "--a-blanc", "--graine", "7", "--code-panne", "x"])
+            self.assertFalse(os.path.exists(os.path.join(d, "t")))
 
     def test_essai_a_blanc_sans_issue_et_arret_code_3(self):
         with tempfile.TemporaryDirectory() as d:

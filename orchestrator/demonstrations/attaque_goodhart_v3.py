@@ -15,7 +15,8 @@ Deux modes, exclusifs :
 Bloc `plan-gele` (lignes « clé: valeur ») : `mode`, `grille` (course : « C cartes par monde, U unités par case », U = C ×
 fournisseurs, U admise) ou `cartes` (essai : 1), `mondes`, `fournisseurs` (liste ordonnée de noms), une ligne
 `fournisseur_<nom>: type=commande_externe, port=P, modele=M[, repli=R], fils=F, taux_usd=T, secondes=B-H` par nom,
-`essais_avant_repli`, `appels_max_par_fournisseur` (essai), `plafond_usd`, `duree_max_h`, `decision_ecart` (course),
+`essais_avant_repli`, `relais_perdu_h` (heures d'attente cumulée par fournisseur avant l'arrêt « relais perdu », ou « aucun »),
+`appels_max_par_fournisseur` (essai), `plafond_usd`, `duree_max_h`, `decision_ecart` (course),
 `configuration_sha256`, `go`, et les valeurs fixes que le texte recopie du code (`tentatives`, `rejeux_*` en course,
 `fournisseurs_en_parallele`, `processus_rejeux` en course).
 
@@ -28,6 +29,10 @@ autre que le modèle demandé serait un repli muet) ; plafond sous le maximum du
 attendue haute avec `fils` fils ; grille non admise ou unités ≠ cartes × fournisseurs ; repli déclaré sans identifiant.
 Codes : 0 course ou essai complet (le code ne décide rien) ; 2 refus ; 3 arrêt (plafond, part d'un fournisseur ou durée :
 trace partielle écrite et scellée, aucun taux lu).
+
+Étape de dépense : **une par fournisseur** (`etape_du_fournisseur`, `ETAPE_POLE = attaque_goodhart_v3/<nom>`, `PLAFOND_ETAPE_USD` =
+sa part), écrite au manifeste (`etapes_de_depense`, `accuses_plafond`) ; le registre de dépense cumulée reste commun (jeton
+`{REGISTRE}`), avec `--plafond-cumule-usd` = plafond de la course. Mesure déclarée `unites_sans_loi` dans chaque sortie.
 """
 
 import argparse
@@ -61,6 +66,18 @@ def _charger_lanceur_v2():
 l2 = _charger_lanceur_v2()
 ag = a3.ag
 ETAPE = "attaque_goodhart_v3"
+
+
+def etape_du_fournisseur(nom):
+    """Étape de dépense propre à un fournisseur : `attaque_goodhart_v3/<nom>`. La v2 passait la même étape à toutes les portes
+    (`demonstrations/attaque_goodhart_v2.py:285`) ; le registre de dépense cumulée des commandes (côté session-depot) additionne
+    réglé + engagé **par étape**, donc le plafond effectif d'A1 était la part d'un seul fournisseur pour les deux (défaut vu le
+    2 novembre, 16:45 UTC). Ici chaque commande reçoit `ETAPE_POLE` = son étape et `PLAFOND_ETAPE_USD` = sa part
+    (`PortePlafondEnvironnement.transmettre`, `pole/adaptateurs_v56.py:130-136`, puis `environnement_commande`, `:67-71` ; rien
+    d'autre n'écrit ces variables : `AdaptateurCommandeExterne.environnement_commande` les laisse à la v56, `pole/adaptateurs.py:648-664`).
+    Forme vérifiée par session-depot sur leur registre réel (`essai_etape_par_fournisseur.py`, sha256 `bae46233…`) : la garde
+    d'étape est indexée sur le nom d'étape seul, « / » y est admis, chaque fournisseur atteint sa part et le plafond cumulé tient."""
+    return f"{ETAPE}/{nom}"
 SORTIES = {"course": "attaque-goodhart-v3.json", "essai": "essai-attaque-goodhart-v3.json"}
 DOSSIER_PREREG = os.path.join(RACINE, "prereg")
 NOMS_PREREG = {"course": re.compile(r"^preenregistrement-attaque-goodhart-v3-v[1-9][0-9]*\.md$"),
@@ -72,18 +89,20 @@ PreenregistrementRefuse = l2.PreenregistrementRefuse
 PLAN_FIXE = {"course": {"tentatives": str(ag.N_MAX), "rejeux_v8": str(ag.REJEUX["v8"]), "rejeux_v7": str(ag.REJEUX["v7"]),
                         "rejeux_audit": str(ag.REJEUX_AUDIT), "fournisseurs_en_parallele": "oui", "processus_rejeux": "2"},
              "essai": {"tentatives": str(ag.N_MAX), "fournisseurs_en_parallele": "oui"}}
-CLES_PLAN = {"course": {"mode", "grille", "mondes", "fournisseurs", "essais_avant_repli", "plafond_usd", "duree_max_h", "decision_ecart",
-                        "configuration_sha256", "go"},
-             "essai": {"mode", "cartes", "mondes", "fournisseurs", "essais_avant_repli", "appels_max_par_fournisseur", "plafond_usd",
-                       "duree_max_h", "configuration_sha256", "go"}}
+CLES_PLAN = {"course": {"mode", "grille", "mondes", "fournisseurs", "essais_avant_repli", "relais_perdu_h", "plafond_usd", "duree_max_h",
+                        "decision_ecart", "configuration_sha256", "go"},
+             "essai": {"mode", "cartes", "mondes", "fournisseurs", "essais_avant_repli", "relais_perdu_h", "appels_max_par_fournisseur",
+                       "plafond_usd", "duree_max_h", "configuration_sha256", "go"}}
 # Fermeture des imports du chemin réel (essai `Fermeture.test_fichiers_geles_egaux_a_la_fermeture`) : celle de la v2 (le lanceur
 # v2 est chargé) plus les deux fichiers neufs ; le texte scellé gèle l'empreinte de chacun, le lanceur refuse tout écart.
 FICHIERS_GELES = tuple(sorted(set(l2.FICHIERS_GELES) | {"demonstrations/attaque_goodhart_v3.py", "pole/attaque_goodhart_v3.py"}))
-OPTIONS_DE_PLAN = ("mode", "cartes", "mondes", "fournisseurs", "fils", "panne", "appels_max", "essais_avant_repli", "n_max", "rejeux_v8",
+OPTIONS_DE_PLAN = ("mode", "cartes", "mondes", "fournisseurs", "fils", "panne", "code_panne", "muet", "coupure_relais_s", "relais_perdu_h",
+                   "appels_max", "essais_avant_repli", "n_max", "rejeux_v8",
                    "rejeux_v7", "rejeux_audit", "plafond_usd", "duree_max_h", "processus", "sequentiel", "proposeur", "sans_echo",
                    "cout_simule_usd")
 A_BLANC = {"mode": "course", "cartes": 6, "mondes": "W1,W2", "fournisseurs": ",".join(f["nom"] for f in a3.PLAN_A1_BIS), "fils": None,
-           "panne": None, "appels_max": 20, "essais_avant_repli": 3, "n_max": ag.N_MAX, "rejeux_v8": ag.REJEUX["v8"],
+           "panne": None, "code_panne": None, "muet": False, "coupure_relais_s": None, "relais_perdu_h": "2", "appels_max": 20,
+           "essais_avant_repli": 3, "n_max": ag.N_MAX, "rejeux_v8": ag.REJEUX["v8"],
            "rejeux_v7": ag.REJEUX["v7"], "rejeux_audit": ag.REJEUX_AUDIT, "plafond_usd": 1e9, "duree_max_h": 24.0, "processus": 2,
            "sequentiel": False, "proposeur": "sortant", "sans_echo": False, "cout_simule_usd": 0.0}
 LIGNE_FOURNISSEUR = re.compile(r"^fournisseur_([a-z][a-z0-9]{0,15})$")
@@ -165,7 +184,9 @@ def lire_plan(texte, mode_attendu=None):
     mondes = [w for w in ag.MONDES if w in mondes]
     essais = _entier(lignes["essais_avant_repli"], "essais_avant_repli")
     plafond, duree = _nombre(lignes["plafond_usd"], "plafond_usd"), _nombre(lignes["duree_max_h"], "duree_max_h")
+    relais_perdu_s = lire_relais_perdu(lignes["relais_perdu_h"])
     plan = {"mode": mode, "mondes": mondes, "fournisseurs": fournisseurs, "n_max": ag.N_MAX, "essais_avant_repli": essais,
+            "relais_perdu_h": lignes["relais_perdu_h"], "relais_perdu_s": relais_perdu_s,
             "plafond_usd": plafond, "duree_max_s": duree * 3600.0, "parallele": True, "configuration_sha256": lignes["configuration_sha256"],
             "go": lignes["go"]}
     if mode == "course":
@@ -198,6 +219,17 @@ def lire_plan(texte, mode_attendu=None):
         raise PreenregistrementRefuse("plan-gele : go = GO-AAAA-MM-JJ-NN")
     plan["devis"] = d
     return plan
+
+
+def lire_relais_perdu(texte):
+    """`relais_perdu_h: H` (réel > 0 : arrêt « relais perdu » après H heures d'attente cumulée par fournisseur, option (i) du texte)
+    ou `relais_perdu_h: aucun` (option (ii) : aucun arrêt sur relais, seule la durée maximale arrête) ; rend les secondes ou None."""
+    if texte.strip().lower() == "aucun":
+        return None
+    h = _nombre(texte, "relais_perdu_h")
+    if not h > 0:
+        raise PreenregistrementRefuse("plan-gele : relais_perdu_h = réel > 0 (heures) ou « aucun »")
+    return h * 3600.0
 
 
 def mode_du_nom(nom):
@@ -309,7 +341,13 @@ def proposeurs_reels(conf, plan, base_sessions, sortie):
         if not isinstance(adaptateurs[f["nom"]], AdaptateurCommandeExterneV56):
             raise ag.AttaqueRefusee(f"fournisseur « {f['nom']} » : commande externe v56 exigée, trouvé {type(adaptateurs[f['nom']]).__name__}")
     part = plan["plafond_usd"] / len(fournisseurs)
-    accuses = {f["nom"]: portes[f["nom"]].transmettre(ETAPE, part) for f in fournisseurs}
+    accuses = {f["nom"]: portes[f["nom"]].transmettre(etape_du_fournisseur(f["nom"]), part) for f in fournisseurs}
+    for f in fournisseurs:  # l'accusé de chaque porte porte bien l'étape propre du fournisseur et sa part (jamais une autre)
+        if accuses[f["nom"]].get("etape") != etape_du_fournisseur(f["nom"]) or abs(accuses[f["nom"]].get("plafond_usd", -1) - part) > 0.01:
+            raise ag.AttaqueRefusee(f"porte de « {f['nom']} » : accusé {accuses[f['nom']]!r}, attendu étape "
+                                    f"{etape_du_fournisseur(f['nom'])!r} et part {part:.2f} USD")
+    etapes = {f["nom"]: {"etape": etape_du_fournisseur(f["nom"]), "part_usd": part, "variables": ["ETAPE_POLE", "PLAFOND_ETAPE_USD"]}
+              for f in fournisseurs}
     proposeurs = {}
     for f in fournisseurs:
         d = os.path.join(base_sessions, f["nom"])
@@ -318,7 +356,8 @@ def proposeurs_reels(conf, plan, base_sessions, sortie):
     longue = l2.consigne_la_plus_longue()
     infos = {"budget_appel_usd": budget, "modeles_demandes": modeles, "replis_declares": {f["nom"]: f.get("repli") for f in fournisseurs},
              "fils": {f["nom"]: f["fils"] for f in fournisseurs}, "ports": {f["nom"]: f["port"] for f in fournisseurs},
-             "role_pole": ag.ROLE, "part_par_relais_usd": part, "substitutions_dans_les_commandes": substitutions,
+             "role_pole": ag.ROLE, "part_par_relais_usd": part, "etapes_de_depense": etapes,
+             "substitutions_dans_les_commandes": substitutions,
              "consigne_la_plus_longue_octets": len(longue.encode("utf-8")),
              "pire_cas_par_appel": "tenu par chaque commande externe (PLAFOND_SESSION_USD = budget par appel)",
              "adaptateurs": {f["nom"]: adaptateurs[f["nom"]].description() for f in fournisseurs},
@@ -344,7 +383,7 @@ def fils_a_blanc(texte):
 
 def fournisseurs_a_blanc(noms_texte, fils=None):
     choisis = [n.strip() for n in noms_texte.split(",") if n.strip()]
-    base = {f["nom"]: f for f in a3.PLAN_A1_BIS}
+    base = {f["nom"]: f for f in a3.PLAN_A1_BIS + a3.PLAN_B_PRIME}
     inconnus = [n for n in choisis if n not in base]
     if inconnus:
         raise ag.AttaqueRefusee(f"--fournisseurs : inconnus à blanc {inconnus} (connus : {sorted(base)})")
@@ -382,9 +421,13 @@ def principal(argv=None):
     a.add_argument("--mode", choices=a3.MODES)
     a.add_argument("--cartes", type=int)
     a.add_argument("--mondes")
-    a.add_argument("--fournisseurs", help="à blanc : noms parmi le plan A1-bis, dans l'ordre (kimi,astra,fable,opus)")
+    a.add_argument("--fournisseurs", help="à blanc : noms parmi les plans de référence, dans l'ordre (kimi,astra,fable,opus ; argon)")
     a.add_argument("--fils", help="à blanc : N (tous) ou nom=N,… (défaut : fils du plan A1-bis)")
     a.add_argument("--panne", help="à blanc : MODELE:I-J (appels I à J en échec) ou MODELE:* ; plusieurs séparés par « ; »")
+    a.add_argument("--code-panne", type=int, help="à blanc : code de sortie simulé des pannes (3 relais, 4 budget, 5 modèle)")
+    a.add_argument("--muet", action="store_true", default=None, help="à blanc : pannes muettes (aucune ligne de coût : plafond de session compté)")
+    a.add_argument("--coupure-relais-s", type=float, help="à blanc : relais coupé pendant N secondes depuis le premier appel (code 3, coût plancher)")
+    a.add_argument("--relais-perdu-h", help="à blanc : heures d'attente cumulée par fournisseur avant l'arrêt « relais perdu », ou « aucun »")
     a.add_argument("--appels-max", type=int, help="à blanc, mode essai : appels au plus par fournisseur")
     a.add_argument("--essais-avant-repli", type=int)
     a.add_argument("--n-max", type=int)
@@ -420,6 +463,8 @@ def principal(argv=None):
                     "appels_max_par_fournisseur": r["appels_max"] if r["mode"] == "essai" else None, "exiger_grille": False}
             if r["mode"] == "course":
                 plan.update(rejeux={"v8": r["rejeux_v8"], "v7": r["rejeux_v7"]}, rejeux_audit=r["rejeux_audit"])
+            plan["relais_perdu_h"] = str(r["relais_perdu_h"])
+            plan["relais_perdu_s"] = lire_relais_perdu(plan["relais_perdu_h"])
             a3.verifier_plan(plan)
             entropie = ag.verifier_entropie(args.graine, decisif=False)
             mode, preenregistrement, conf_info = f"a-blanc (exploratoire, {plan['mode']})", None, None
@@ -460,7 +505,8 @@ def principal(argv=None):
         return 2
     if args.a_blanc:
         proposeurs = {f["nom"]: a3.ProposeurScripte(args.proposeur or A_BLANC["proposeur"], echo=not args.sans_echo,
-                                                    cout_par_appel=args.cout_simule_usd or 0.0, pannes=pannes)
+                                                    cout_par_appel=args.cout_simule_usd or 0.0, pannes=pannes, code_echec=args.code_panne,
+                                                    muet=bool(args.muet), coupure_relais_s=args.coupure_relais_s)
                       for f in plan["fournisseurs"]}
     os.makedirs(args.dossier, exist_ok=True)
     m = manifeste(attaque=a3.VERSION, mode=mode, entropie_racine=str(entropie),
@@ -475,21 +521,27 @@ def principal(argv=None):
                               "rejeu r : (cle('rejeu|<monde>|…'), c, k, 1 + r) ; audit A2 : (cle('audit|<monde>|…'), c, k, 1 + r) ; "
                               "rééchantillonnage : (cle('bootstrap'), cle('<monde>|<juge>')) ; le modèle (principal ou repli) n'entre "
                               "pas dans l'étiquette : une unité est jouée sous un seul modèle")
-    m["regle_du_repli"] = a3.description()["regle_du_repli"]
+    for k in ("regle_du_repli", "regle_des_unites_jouees", "regle_de_l_attente", "regle_du_cout_inconnu"):
+        m[k] = a3.description()[k]
     ecrire_json_scelle(os.path.join(args.dossier, "manifeste.json"), m)
-    compteur = a3.Compteur(plan["plafond_usd"], plan["duree_max_s"], time.time, plan["fournisseurs"], plan.get("appels_max_par_fournisseur"))
+    compteur = a3.Compteur(plan["plafond_usd"], plan["duree_max_s"], time.time, plan["fournisseurs"], plan.get("appels_max_par_fournisseur"),
+                           relais_perdu_s=plan.get("relais_perdu_s"))
     sortie = os.path.join(args.dossier, SORTIES[plan["mode"]])
     commun = lambda: {"attaque": a3.VERSION, "mode": mode, "appels": compteur.appels, "reprises": compteur.reprises,  # noqa: E731
                       "depense_usd": round(compteur.usd, 4), "depense_par_fournisseur_usd": compteur.par_fournisseur,
                       "appels_par_fournisseur": compteur.appels_par_fournisseur, "appels_budget_depasse": compteur.budget_depasse,
                       "modeles_servis": compteur.modeles_servis, "par_fournisseur_et_modele_demande": compteur.par_modele,
-                      "unites_basculees_sur_repli": compteur.replis, "duree_s": round(time.time() - compteur.debut, 1),
+                      "unites_basculees_sur_repli": compteur.replis, "attentes_relais": compteur.attentes_relais,
+                      "attente_relais_s": {f: round(v, 1) for f, v in compteur.attente_relais_s.items()},
+                      "appels_cout_inconnu": compteur.cout_inconnu, "cout_inconnu_usd": compteur.cout_inconnu_usd,
+                      "relais_perdu_s": plan.get("relais_perdu_s"), "duree_s": round(time.time() - compteur.debut, 1),
                       "fin_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
     try:
         suites, rejeux, audits = a3.jouer_tout(proposeurs, entropie, plan, compteur, decisif=not args.a_blanc,
                                                parallele=plan["parallele"], processus=plan["processus"])
     except ag.ArretAttaque as e:
-        rapport = dict(commun(), arret=str(e), suites_partielles=e.partiel.get("suites", []))
+        rapport = dict(commun(), arret=str(e), suites_partielles=e.partiel.get("suites", []),
+                       unites_sans_loi=a3.unites_sans_loi(e.partiel.get("suites", [])))
         if plan["mode"] == "course":
             rapport.update(issue="non jugeable (arrêt) : aucun taux lu", rejeux_partiels=e.partiel.get("rejeux", []))
         else:
@@ -500,7 +552,7 @@ def principal(argv=None):
         return 3
     if plan["mode"] == "essai":
         rapport = dict(commun(), preenregistrement=preenregistrement, mesures=a3.rapport_essai(suites, plan["fournisseurs"])["mesures"],
-                       suites=suites)
+                       unites_sans_loi=a3.unites_sans_loi(suites), suites=suites)
         try:
             a3.verifier_sortie_essai(rapport)
         except ag.AttaqueRefusee as e:
@@ -514,11 +566,14 @@ def principal(argv=None):
                           "duree_s": rapport["duree_s"]}, ensure_ascii=False, indent=1))
         return 0
     lecture = a3.lire(suites, rejeux, audits, plan["mondes"], plan["unites_par_case"], entropie, plan["fournisseurs"])
-    rapport = dict(commun(), preenregistrement=preenregistrement, lecture=lecture, suites=suites, rejeux=rejeux, audit_A2=audits)
+    rapport = dict(commun(), preenregistrement=preenregistrement, lecture=lecture, unites_sans_loi=a3.unites_sans_loi(suites),
+                   suites=suites, rejeux=rejeux, audit_A2=audits)
     ecrire_json_scelle(sortie, rapport)
     print(json.dumps({"mode": mode, "issues": lecture["issues"], "audits": {w: x["audits"] for w, x in lecture["mondes"].items()},
                       "appels": compteur.appels, "depense_usd": rapport["depense_usd"], "duree_s": rapport["duree_s"],
-                      "unites_basculees_sur_repli": compteur.replis}, ensure_ascii=False, indent=1))
+                      "unites_basculees_sur_repli": compteur.replis, "unites_sans_loi": rapport["unites_sans_loi"]["total_sans_loi"],
+                      "attentes_relais": compteur.attentes_relais, "appels_cout_inconnu": compteur.cout_inconnu},
+                     ensure_ascii=False, indent=1))
     return 0
 
 
