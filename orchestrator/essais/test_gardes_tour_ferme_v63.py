@@ -8,9 +8,12 @@
   dépassement → arrêt) et de bout en bout (`--duree-max-h` minuscule : code 3, relevé partiel scellé) ; cas sain : `--duree-max-h 24`.
 - **Garde 14, critères T2 à T5** (`pole/lecture_tour_ferme_v63.lire_etage1`) : relevés synthétiques de `releve_sain` modifiés, au
   bord exact de chaque seuil (cas sain : le bord tient ; artefact : un pas au-delà → « ne tient pas (Tk) », Tk seul).
-- **I30** : le devis (tailles moyennes de la section 12) rejoué étage par étage dans l'ordre du code sur le `Compteur` gelé et la
-  borne par carte du cœur v63 : la course va au bout à 6,5 tours par carte (et quel que soit le nombre de tours), parts inchangées
-  (12 et 3 USD), plafond 15 USD ; la règle v62 (0,5 USD par carte) s'y arrête.
+- **I30, brouillon 5** : la borne par carte du cœur v63 (0,80 USD) couvre les 12 tours du garde-fou anti-boucle de l'étage au prix
+  prudent du devis (0,06 USD par tour) ; le devis (tailles moyennes de la section 12) rejoué étage par étage dans l'ordre du code
+  sur le `Compteur` gelé, au plan du brouillon 5 (plafond 50 USD, parts 44 et 6 USD) : la course va au bout quel que soit le nombre
+  de tours (2 à 12, ou toutes les cartes à leur borne) ; 23,2 cartes testées de plus que le devis, toutes à leur borne, tiennent
+  encore, 23,3 s'arrêtent avant l'étage, sans dépassement. Historique : la règle v62 (0,5 USD par carte, plafond 15 USD) s'arrête
+  à 6,5 tours.
 
 Les six mutations survivantes des sondes de la contre-lecture 3 (T2, T3, T4, T5, plafond de l'étage, durée) et une mutation de bord
 par critère sont au banc `essais/mutations_tour_ferme_v63.py`. Aucun réseau, aucun modèle."""
@@ -275,14 +278,18 @@ class Garde14T5(_Lecture):
 # --- I30 : le devis rejoué sur le Compteur gelé ------------------------------------------------------------------------------------
 
 
-def jouer_devis(tours, prix=0.06, parts=(12.0, 3.0), borne=None, cartes_reelles=(4, 2, 2), carte_alea=1.5, temoins_par_passe=2.4,
-                verif=0.02, en_plus=0.0, proposeur=0.024):
+PLAFOND_B5, PARTS_B5 = 50.0, (44.0, 6.0)  # plan gelé du brouillon 5 (GO-2026-11-02-23)
+PRIX_TOUR_DEVIS = 0.06  # prix prudent d'un tour d'expérimentateur (devis, section 12)
+
+
+def jouer_devis(tours, prix=PRIX_TOUR_DEVIS, parts=PARTS_B5, borne=None, cartes_reelles=(4, 2, 2), carte_alea=1.5, temoins_par_passe=2.4,
+                verif=0.02, en_plus=0.0, proposeur=0.024, plafond=PLAFOND_B5):
     """Le devis (section 12 : tailles moyennes) étage par étage dans l'ordre du code (par génération : réel, recopie-mélange,
     aléatoire ; par bras : étage des cartes puis étage des témoins ; contrôle du pire cas avant chaque étage, dépense après) sur le
     `Compteur` gelé. Coût d'une carte pour l'expérimentateur : tours × prix, borné par la borne par carte que l'étage tient.
     Rend (motif d'arrêt ou None, marge de Kimi au-delà du pire cas au dernier étage contrôlé, compteur)."""
     borne = T.BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD if borne is None else borne
-    c = T.Compteur(15.0, 1e9, {"kimi": parts[0], "argon": parts[1]})
+    c = T.Compteur(plafond, 1e9, {"kimi": parts[0], "argon": parts[1]})
     cout_carte, marge = min(tours * prix, borne), None
     try:
         for g in (1, 2, 3):
@@ -306,28 +313,40 @@ def jouer_devis(tours, prix=0.06, parts=(12.0, 3.0), borne=None, cartes_reelles=
 
 
 class DevisI30(unittest.TestCase):
-    def test_v63_tient_a_6_5_tours_par_carte_sous_15_USD(self):
-        for tours in (2, 4, 5, 6, 6.5, 8, 12):
-            arret, marge, c = jouer_devis(tours, prix=0.04 if tours == 2 else 0.06)
-            self.assertIsNone(arret, f"I30 : la course s'arrête à {tours} tours par carte : {arret}")
-            self.assertLessEqual(c.usd, 15.0)
-            self.assertLessEqual(c.par_relais["kimi"], 12.0)
-        arret, marge, c = jouer_devis(6.5)
-        self.assertGreater(marge, 2.0, "I30 : marge de Kimi au dernier étage")
-        self.assertAlmostEqual(c.par_relais["kimi"], 0.072 + 31.7 * 0.30, places=6)
+    def test_b5_la_borne_couvre_les_12_tours_du_garde_fou(self):
+        self.assertEqual(T.v5.TOURS_MAX_PAR_FICHE, 12)
+        self.assertGreaterEqual(T.BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD, T.v5.TOURS_MAX_PAR_FICHE * PRIX_TOUR_DEVIS,
+                                "I30 (brouillon 5) : la borne par carte tronque une carte avant les 12 tours du garde-fou au prix du devis")
 
-    def test_v63_pire_cas_toutes_les_cartes_a_leur_borne(self):
-        self.assertIsNone(jouer_devis(100, en_plus=8)[0], "I30 : huit cartes de plus que le devis, toutes à leur borne")
-        self.assertIsNotNone(jouer_devis(100, en_plus=9)[0])  # la limite écrite : au-delà, arrêt avant l'étage, sans dépassement
-        self.assertIsNone(jouer_devis(6.5, verif=0.05)[0], "I30 : vérificateur à 2,5 fois le prix supposé")
+    def test_b5_course_au_bout_sous_50_USD_quel_que_soit_le_nombre_de_tours(self):
+        for tours in (2, 4, 5, 6, 8, 12, 100):
+            arret, marge, c = jouer_devis(tours, prix=0.04 if tours == 2 else PRIX_TOUR_DEVIS)
+            self.assertIsNone(arret, f"I30 (brouillon 5) : la course s'arrête à {tours} tours par carte : {arret}")
+            self.assertLessEqual(c.usd, PLAFOND_B5)
+            self.assertLessEqual(c.par_relais["kimi"], PARTS_B5[0])
+            self.assertLessEqual(c.par_relais["argon"], PARTS_B5[1])
+        arret, marge, c = jouer_devis(12)
+        self.assertAlmostEqual(c.par_relais["kimi"], 0.072 + 31.7 * 12 * PRIX_TOUR_DEVIS, places=6,
+                               msg="I30 (brouillon 5) : à 12 tours, une carte est tronquée par la borne")
+        self.assertAlmostEqual(c.usd, 23.602, places=6)
+        self.assertGreater(marge, 20.0, "I30 (brouillon 5) : marge de Kimi au dernier étage, à 12 tours par carte")
 
-    def test_regle_v62_casse_a_6_5_tours(self):
-        arret, marge, _ = jouer_devis(6.0, borne=0.5)
+    def test_b5_pire_cas_toutes_les_cartes_a_leur_borne(self):
+        for verif in (0.02, T.BUDGET_VERIFICATEUR_PAR_CARTE_USD):  # vérificateur au prix supposé, puis à sa borne
+            self.assertIsNone(jouer_devis(100, en_plus=23.2, verif=verif)[0],
+                              f"I30 (brouillon 5) : 23,2 cartes de plus que le devis, toutes à leur borne (vérificateur {verif})")
+            self.assertIsNotNone(jouer_devis(100, en_plus=23.3, verif=verif)[0],
+                                 "I30 (brouillon 5) : la limite écrite (au-delà, arrêt avant l'étage, sans dépassement) a bougé")
+        self.assertIsNone(jouer_devis(12, en_plus=29.0)[0], "I30 (brouillon 5) : 29 cartes de plus à 12 tours au prix du devis")
+
+    def test_regle_v62_casse_a_6_5_tours(self):  # historique : plan du brouillon 3 (15 USD, parts 12 et 3), borne de l'étage 0,5
+        anc = {"plafond": 15.0, "parts": (12.0, 3.0), "borne": 0.5}
+        arret, marge, _ = jouer_devis(6.0, **anc)
         self.assertIsNone(arret)
         self.assertAlmostEqual(marge, 0.18, places=2)  # contre-lecture 3, I30 : « ≈ 0,18 USD de marge »
-        arret, _, _ = jouer_devis(6.5, borne=0.5)
+        arret, _, _ = jouer_devis(6.5, **anc)
         self.assertIsNotNone(arret, "la règle v62 devait s'arrêter à 6,5 tours par carte (constat I30)")
-        self.assertIsNotNone(jouer_devis(6.0, borne=0.5, en_plus=1)[0], "v62 : une carte de plus et la course s'arrête")
+        self.assertIsNotNone(jouer_devis(6.0, en_plus=1, **anc)[0], "v62 : une carte de plus et la course s'arrête")
 
 
 if __name__ == "__main__":

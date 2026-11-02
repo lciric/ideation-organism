@@ -9,6 +9,8 @@ pendant une course contenue dans le bloc), I28 (aucune issue A4 sur un arrêt, d
 contexte → relevé invalide, de bout en bout ; touche de L* → audit avant lecture), I30 (borne par carte passée à l'étage, pire cas
 de l'étage calculé avec elle), I31 (gardes 7, 8 et 9 sur le code v63, dont le refus d'un témoin entré dans la sélection),
 mineurs 29, 30, 34, 35 et 37 (chemin réel jusqu'à `--verifier-seulement`, texte scellé, configuration et registre de GO factices).
+Brouillon 5 : borne par carte de 0,80 USD (`ReservationI30`, `EtageV63`, `CourseSaine`) ; rôles joués par les relais réels
+(`RolesDesRelais` ; `CheminReelVerifierSeulement.test_artefact_kimi_par_protocole`).
 Les gardes 5 (plafond de l'étage), 13 (durée) et 14 (T2 à T5) — B10 — sont dans `essais/test_gardes_tour_ferme_v63.py`.
 
 Chaque garde : un cas sain et un artefact (R5). Les courses passent par **le chemin réel** (`ProposeurAdaptateur`,
@@ -573,8 +575,8 @@ class PartsDesRelais(unittest.TestCase):
 
 
 class ReservationI30(unittest.TestCase):
-    """I30 : avant un étage, le pire cas réservé est cartes × la borne par carte de chaque rôle (expérimentateur : 0,30 USD,
-    vérificateur : 0,1 USD), pas cartes × 0,5 USD (v62)."""
+    """I30 : avant un étage, le pire cas réservé est cartes × la borne par carte de chaque rôle (expérimentateur : 0,80 USD au
+    brouillon 5, vérificateur : 0,1 USD), ni cartes × 0,5 USD (v62), ni cartes × 0,30 USD (brouillon 4)."""
 
     class Espion(T.Compteur):
         def verifier_parts_avant_etage(self, besoins):
@@ -582,7 +584,8 @@ class ReservationI30(unittest.TestCase):
             raise RuntimeError("espion : arrêt avant l'étage")
 
     def test_pire_cas_calcule_avec_la_borne(self):
-        self.assertEqual((T.BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD, T.BUDGET_VERIFICATEUR_PAR_CARTE_USD), (0.30, 0.1))
+        self.assertEqual((T.BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD, T.BUDGET_VERIFICATEUR_PAR_CARTE_USD), (0.80, 0.1),
+                         "I30 (brouillon 5) : bornes par carte")
         d = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, d, True)
         c = self.Espion(15.0, 3600.0, {"kimi": 12.0, "argon": 3.0})
@@ -590,12 +593,76 @@ class ReservationI30(unittest.TestCase):
         roles = {"experimentateur": ("e", "fa"), "verificateur": ("v", "fb"), "relais": {"experimentateur": "kimi", "verificateur": "argon"}}
         with self.assertRaisesRegex(RuntimeError, "espion"):
             T.jouer_etage(os.path.join(d, "etage"), cartes, {}, MONDE, 5, "essai|i30", None, None, roles, c, [])
-        self.assertAlmostEqual(c.besoins["kimi"], 0.9, msg="I30 : pire cas de l'expérimentateur ≠ 3 × 0,30 USD")
+        self.assertAlmostEqual(c.besoins["kimi"], 2.4, msg="I30 : pire cas de l'expérimentateur ≠ 3 × 0,80 USD")
         self.assertAlmostEqual(c.besoins["argon"], 0.3)
-        sain = T.Compteur(15.0, 3600.0, {"kimi": 1.0, "argon": 3.0})  # 1,0 USD couvre 3 × 0,30 (la v62 exigeait 1,5)
+        sain = T.Compteur(50.0, 3600.0, {"kimi": 2.4, "argon": 3.0})  # 2,4 USD couvre exactement 3 × 0,80 (permis)
         sain.verifier_parts_avant_etage(c.besoins)
         with self.assertRaises(T.ArretTour):
-            T.Compteur(15.0, 3600.0, {"kimi": 0.8, "argon": 3.0}).verifier_parts_avant_etage(c.besoins)
+            T.Compteur(50.0, 3600.0, {"kimi": 2.3, "argon": 3.0}).verifier_parts_avant_etage(c.besoins)
+
+
+# --- brouillon 5 : rôles joués par les relais (chemin réel) ------------------------------------------------------------------------
+
+
+class RolesDesRelais(unittest.TestCase):
+    """Brouillon 5 (R5) : les rôles que le tour fait jouer sont acceptés par les adaptateurs **réels** du pôle. Cas sain : commande
+    externe v56 (une commande locale qui rend le rôle et le modèle reçus) pour le proposeur, l'expérimentateur et le vérificateur ;
+    artefacts : Kimi par protocole (ne joue pas l'expérimentateur), adaptateur sans liste de rôles, rôle « proposeur » de la v61 à
+    la v63 du brouillon 4, doublures sollicitées hors de leur rôle. Aucun réseau (commande locale, ouvreur factice jamais appelé)."""
+
+    def commande(self):
+        from pole.adaptateurs_v56 import AdaptateurCommandeExterneV56
+        d = tempfile.mkdtemp(prefix="essai-v63-roles-")
+        self.addCleanup(shutil.rmtree, d, True)
+        chemin = os.path.join(d, "relais_factice.py")
+        with open(chemin, "w", encoding="utf-8") as f:
+            f.write("import json, os, sys\nsys.stdin.read()\nprint(json.dumps({'texte': 'role=' + os.environ.get('ROLE_POLE', ''), "
+                    "'cout_usd': 0.001, 'modele_servi': os.environ.get('MODELE_DEMANDE_POLE', '')}))\n")
+        return d, AdaptateurCommandeExterneV56([sys.executable, "-I", "-B", chemin], environnement={"PATH": os.defpath},
+                                               exiger_modele_servi=True)
+
+    def test_sain_commandes_externes(self):
+        d, ext = self.commande()
+        p = T.ProposeurAdaptateur("kimi", "kimi", ext, d, 0.05, "kimi-k3.1-pro")
+        self.assertEqual(p.proposer("c", {}, "essai|roles"), ("role=proposeur_ideation", 0.001),
+                         "brouillon 5 : rôle du proposeur refusé par la commande externe")
+        etage = T.AdaptateurEtageV63(ext, ext, "kimi", "argon")
+        for role in (v5.ROLE_EXPERIMENTATEUR, v5.ROLE_LECTEUR):
+            dd = os.path.join(d, role, "tour-001")
+            os.makedirs(dd)
+            r = etage.lancer(role, "c", dd, 0.5, 2, modele="gemini-argon")
+            self.assertEqual((r.statut, r.texte_brut, r.modele_servi), ("ok", "role=" + role, "gemini-argon"))
+        argon = T.ProposeurAdaptateur("argon", "argon", ext, d, 0.05, "gemini-argon")
+        self.assertTrue(T.exiger_roles_joues(T.paires_de_roles([p, argon], etage)))
+        self.assertEqual([(x[0], x[2]) for x in T.paires_de_roles([p, argon], etage)],
+                         [("kimi", "proposeur_ideation"), ("argon", "proposeur_ideation"), ("kimi", v5.ROLE_EXPERIMENTATEUR),
+                          ("argon", v5.ROLE_LECTEUR)])
+
+    def test_artefacts(self):
+        from pole.adaptateur_kimi_v53 import AdaptateurKimiProtocole
+        d, ext = self.commande()
+        kp = AdaptateurKimiProtocole("http://127.0.0.1:9", modele="kimi-k3.1-pro", prix_entree=1.0, prix_sortie=1.0,
+                                     max_sortie_jetons=10, sortie_min_jetons=1, delai_s=1.0, ouvreur=object())
+        props = [T.ProposeurAdaptateur("kimi", "kimi", kp, d, 0.05, "kimi-k3.1-pro"), T.ProposeurAdaptateur("argon", "argon", ext, d, 0.05, "m")]
+        with self.assertRaisesRegex(T.TourRefuse, "experimentateur_test", msg="brouillon 5 : Kimi par protocole accepté comme expérimentateur"):
+            T.exiger_roles_joues(T.paires_de_roles(props, T.AdaptateurEtageV63(kp, ext, "kimi", "argon")))
+        with self.assertRaises(ValueError):  # sans la garde : l'arrêt au premier étage de la course
+            kp.lancer(v5.ROLE_EXPERIMENTATEUR, "c", d, 0.5, 2)
+
+        class SansRoles:
+            def lancer(self, *a, **k):
+                raise AssertionError("jamais appelé")
+
+        with self.assertRaisesRegex(T.TourRefuse, "rôles permis : None", msg="brouillon 5 : adaptateur sans liste de rôles accepté"):
+            T.exiger_roles_joues([("argon", SansRoles(), T.ROLE_PROPOSEUR)])
+        with self.assertRaisesRegex(T.TourRefuse, "« proposeur »", msg="brouillon 5 : rôle « proposeur » (v61 à v63 du brouillon 4) accepté"):
+            T.exiger_roles_joues([("kimi", ext, "proposeur")])
+        with self.assertRaises(ValueError):
+            ext.lancer("proposeur", "c", d, 0.05, 1, modele="m")  # ce que la v63 du brouillon 4 faisait au premier appel réel
+        for doublure, autre in ((T.AdaptateurProposeurScripte("x"), v5.ROLE_EXPERIMENTATEUR),
+                                (T.AdaptateurExperimentateurScripte(), T.ROLE_PROPOSEUR), (T.AdaptateurVerificateurScripte(), "proposeur")):
+            with self.subTest(doublure=type(doublure).__name__), self.assertRaises(ValueError):
+                doublure.lancer(autre, "c", os.path.join(d, "tour-001"), 0.5, 2)
 
 
 # --- C14 (I14) : pleine précision et contre-calcul ---------------------------------------------------------------------------
@@ -644,9 +711,9 @@ class EtageV63(Tranche):
         self.assertEqual(resume["comptes"]["survit"], 1)
         self.assertTrue(all(x["ok"] and not x["sans_objet"] for x in cc.values()))
         self.assertEqual(resume["quotas"]["memoire_mo"], 768)
-        self.assertEqual(resume["quotas"]["budget_test_usd"], 0.30, "I30 : la borne par carte n'est pas passée à l'étage")
+        self.assertEqual(resume["quotas"]["budget_test_usd"], 0.80, "I30 : la borne par carte n'est pas passée à l'étage")
         self.assertEqual(resume["quotas"]["budget_lecteur_usd"], 0.1)
-        self.assertTrue(all(a["budget_passe_usd"] <= 0.30 for a in ad.appels if a["role"] == v5.ROLE_EXPERIMENTATEUR))
+        self.assertTrue(all(a["budget_passe_usd"] <= 0.80 for a in ad.appels if a["role"] == v5.ROLE_EXPERIMENTATEUR))
         with self.assertRaises(Exception) as e:
             self.jouer("claude-sdk")
         self.assertIn("factice", str(e.exception))
@@ -805,9 +872,10 @@ class SondeDuBac(unittest.TestCase):
         shutil.rmtree(parent)
 
 
-def preparer_chemin_reel(dossier, go_montant="15 USD"):
+def preparer_chemin_reel(dossier, go_montant="15 USD", kimi_par_protocole=False):
     """Texte scellé (dans `dossier/prereg`), configuration v56 d'essai (relais Kimi et Argon par commandes factices, budget
-    15 USD) et registre de GO d'essai ; rend (argv sans --verifier-seulement, dossier prereg). Aucun réseau, aucune clé."""
+    15 USD) et registre de GO d'essai ; rend (argv sans --verifier-seulement, dossier prereg). Aucun réseau, aucune clé.
+    `kimi_par_protocole` (brouillon 5, artefact) : Kimi déclaré `kimi_protocole` (adaptateur construit, jamais appelé)."""
     import aides_v54 as A54
     import aides_v56 as A56
     conf = A56.configuration(dossier)
@@ -815,7 +883,10 @@ def preparer_chemin_reel(dossier, go_montant="15 USD"):
     conf["fournisseurs"] = {
         "kimi": {"type": "commande_externe", "porte_plafond": {"type": "environnement"},
                  "commande": A56.commande_factice(dossier, "kimi", {"texte": "x", "cout_usd": 0.001, "modele_servi": "kimi-k3.1-pro"})
-                 + ["--registre", "{REGISTRE}"]},
+                 + ["--registre", "{REGISTRE}"]} if not kimi_par_protocole else
+                {"type": "kimi_protocole", "url_relais": "http://127.0.0.1:9", "modele": "kimi-k3.1-pro", "prix_entree": 0.6,
+                 "prix_sortie": 2.5, "max_sortie_jetons": 4000, "sortie_min_jetons": 16, "delai_s": 60.0,
+                 "porte_plafond": {"type": "commande", "commande": A56.porte_factice(dossier, "porte-kimi"), "delai_s": 10.0}},
         "argon": {"type": "commande_externe", "porte_plafond": {"type": "environnement"},
                   "commande": A56.commande_factice(dossier, "argon", {"texte": "x", "cout_usd": 0.001, "modele_servi": "gemini-4-argon"})
                   + ["--registre", "{REGISTRE}", "--plafond-cumule-usd", "15"]}}
@@ -879,6 +950,17 @@ class CheminReelVerifierSeulement(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertIn("pas exactement", err)
 
+    def test_artefact_kimi_par_protocole(self):
+        """Brouillon 5 : Kimi par protocole ne joue pas l'expérimentateur ; refus avant toute porte et tout appel (code 2) dès le
+        passage `--verifier-seulement` (la même fonction, `roles_reels`, sert le lancement), rien écrit, aucun dossier temporaire
+        resté. (Le lancement lui-même n'est pas joué ici : sous mutation, il tenterait le relais local factice.)"""
+        argv, self.dp = preparer_chemin_reel(self.d, kimi_par_protocole=True)
+        code, _, err = self.jouer(argv, self.ENV)
+        self.assertEqual(code, 2, f"brouillon 5 (lanceur) : Kimi par protocole accepté ; sortie : {err[-600:]}")
+        self.assertIn("rôle « experimentateur_test »", err)
+        self.assertFalse(os.path.exists(argv[0]))
+        self.assertEqual(os.listdir(self.tmp), [], "mineur 34 : un refus laisse un dossier temporaire")
+
     def test_sonde_refusee_rien_ne_reste(self):
         argv, self.dp = preparer_chemin_reel(self.d)
 
@@ -918,7 +1000,7 @@ class CourseSaine(unittest.TestCase):
         self.assertIsInstance(self.r["releve"]["vd_distinctes"], dict)
         m = json.load(open(os.path.join(self.s, "manifeste.json")))
         self.assertEqual((m["moteur_etage"], set(m["code_sha256"])), ("simule", set(LANCEUR.FICHIERS_GELES)))
-        self.assertEqual((m["version"], m["bornes_par_carte_usd"]["experimentateur"]), ("tour-ferme-v63", 0.30))
+        self.assertEqual((m["version"], m["bornes_par_carte_usd"]["experimentateur"]), ("tour-ferme-v63", 0.80))
         self.assertEqual(self.r["releve"]["version"], "tour-ferme-v63")
 
     def test_C8_chaque_consigne_porte_sa_loi_et_l_experimentateur_la_lit(self):

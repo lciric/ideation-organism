@@ -1,8 +1,9 @@
 """Cœur du tour fermé, version 63 (fichier neuf, R12 ; tâches A2 et A4) — **étage 1 seul** (monde à loi plantée, trois bras).
 
-Préenregistrement : `prereg/preenregistrement-tour-ferme-v1-brouillon4.md` (étage 1 ; le texte de l'étage 2 y est hors de ce
-scellement). Contre-lectures appliquées : `prereg/contre-lecture-preenregistrement-tour-ferme-v2.md` (B7, B8, B9, C8 à C21,
-code v62) puis `prereg/contre-lecture-preenregistrement-tour-ferme-v3.md` (I26 et I27, option A décidée par le directeur ; v63).
+Préenregistrement : `prereg/preenregistrement-tour-ferme-v1-brouillon5.md` (étage 1 ; le texte de l'étage 2 y est hors de ce
+scellement ; le brouillon 4 portait la v63 avant les points C et E ci-dessous). Contre-lectures appliquées :
+`prereg/contre-lecture-preenregistrement-tour-ferme-v2.md` (B7, B8, B9, C8 à C21, code v62) puis
+`prereg/contre-lecture-preenregistrement-tour-ferme-v3.md` (I26 et I27, option A décidée par le directeur ; v63).
 Ce module **ne lit aucune issue** : il produit le relevé que lit `pole/lecture_tour_ferme_v63.py`.
 
 Ce qui change par rapport à la v62 (`pole/tour_ferme_v62.py`, inchangée) :
@@ -20,14 +21,23 @@ A. **I26 — le gardien ne laisse passer aucune loi que le juge ne sait pas éva
 B. **I27** : aucun changement de ce module ; la fermeture mesurée **pendant une course** est celle du lanceur v63
    (`FICHIERS_GELES`, qui couvre `pole/ideation.py` et `pole/tests_de_mort.py`, chargés par l'import tardif de
    `dossier_ferme.charger_dossier_ferme` à chaque création de tranche).
-C. **I30 — la dépense tient sous 15 USD sans part relevée** : la dépense de l'expérimentateur par carte est bornée d'avance à
-   `BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD` = 0,30 USD (5 tours au prix du devis, 0,06 USD), passée à l'étage v5 qui la tient
-   (`budget_test_usd` ; la v62 laissait le défaut de l'étage, 0,5 USD) ; le pire cas d'un étage, contrôlé avant l'étage contre
-   la part restante de chaque relais (garde 5, C13), se calcule avec cette borne (cartes × 0,30 USD pour Kimi, × 0,1 USD pour
-   Argon) ; parts des relais inchangées (12 et 3 USD, plan gelé).
+C. **I30, borne par carte relevée (brouillon 5)** : la dépense de l'expérimentateur par carte est bornée d'avance à
+   `BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD` = 0,80 USD, passée à l'étage v5 qui la tient (`budget_test_usd` ; la v62 laissait le
+   défaut de l'étage, 0,5 USD ; le brouillon 4 bornait à 0,30 USD, 5 tours) : elle couvre les 12 tours du garde-fou anti-boucle
+   de l'étage (`TOURS_MAX_PAR_FICHE`) au prix prudent du devis (12 × 0,06 = 0,72 USD), pour qu'aucune carte ne soit jugée sur
+   une exécution tronquée par la borne (décision de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC : budgets et plafonds très
+   larges ; GO-2026-11-02-23, 50 USD). Le pire cas d'un étage, contrôlé avant l'étage contre la part restante de chaque relais
+   (garde 5, C13), se calcule avec cette borne (cartes × 0,80 USD pour Kimi, × 0,1 USD pour Argon) ; plafond de l'étage et
+   parts des relais au plan gelé.
 D. Nom des tâches (graines, R9) : `VERSION` = « tour-ferme-v63 ». Doublures du mode à blanc : scénarios « refus:N[,M] »
    (refus R-764 aux appels nommés), « indice_flottant » et « seuil_infini » (une proposition plausible que la v62 laissait
    arrêter la course) ; elles restent branchées sur le chemin réel et ne lisent que le texte servi.
+E. **Rôles joués par les relais (brouillon 5)** : le proposeur appelle son adaptateur sous le rôle `ROLE_PROPOSEUR` =
+   « proposeur_ideation » (la v61 à la v63 du brouillon 4 passaient « proposeur », que ni la commande externe ni Kimi par
+   protocole n'acceptent : `ValueError` au premier appel réel, arrêt) ; `exiger_roles_joues` vérifie avant tout appel que chaque
+   adaptateur accepte le rôle qu'il jouera (proposeur ; expérimentateur « experimentateur_test » pour Kimi ; vérificateur
+   « lecteur_test » pour Argon) — Kimi par protocole, qui ne joue pas l'expérimentateur, est refusé avant tout appel ; les
+   doublures déclarent et tiennent les mêmes rôles que les adaptateurs réels.
 
 Ce que la v62 avait changé par rapport à la v61 (`pole/tour_ferme_v61.py`, inchangée), repris tel quel :
 
@@ -65,6 +75,7 @@ import platform
 import random
 import re
 import subprocess
+import sys
 import time
 
 from . import a_blanc_v59 as A
@@ -104,12 +115,18 @@ MARQUE_LOI = "Loi gelée L (JSON canonique) : "
 TITRE_NEUTRE = "Loi à éprouver"
 HYPOTHESE_NEUTRE = "La loi gelée L prédit l'issue mieux que la marginale empirique de la tranche."
 MEMOIRE_BAC_MO = 768  # la borne que tient l'exécuteur du bac (`a_blanc_v59.choisir_executeur`), annoncée dans la consigne
-# I30 (contre-lecture 3) : borne écrite d'avance de la dépense de l'expérimentateur par carte, passée à l'étage v5 qui la tient
-# (session refusée au-delà du reste de la fiche, fin des tours à la borne) : 0,30 USD = 5 tours au prix du devis (0,06 USD par
-# tour) ; la v62 laissait le défaut de l'étage, 0,5 USD. Le pire cas d'un étage (garde 5, C13) se calcule avec elle. Vérificateur :
-# le défaut de l'étage, 0,1 USD par carte (inchangé).
-BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD = 0.30
+# I30 (contre-lecture 3), relevée au brouillon 5 : borne écrite d'avance de la dépense de l'expérimentateur par carte, passée à
+# l'étage v5 qui la tient (session plafonnée au reste de la fiche, fin des tours à la borne). 0,80 USD couvre les 12 tours du
+# garde-fou anti-boucle de l'étage (`v5.TOURS_MAX_PAR_FICHE`) au prix prudent du devis, 0,06 USD par tour (12 × 0,06 = 0,72) :
+# aucune carte n'est jugée sur une exécution tronquée par la borne (décision de Lazar, 2 novembre 2026, 18:26 à 18:29 UTC). La v62
+# laissait le défaut de l'étage, 0,5 USD ; le brouillon 4, 0,30 USD (5 tours). Le pire cas d'un étage (garde 5, C13) se calcule
+# avec elle. Vérificateur : le défaut de l'étage, 0,1 USD par carte (inchangé).
+BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD = 0.80
 BUDGET_VERIFICATEUR_PAR_CARTE_USD = v5.BUDGET_LECTEUR_USD_DEFAUT
+# Brouillon 5 : le rôle sous lequel un proposeur appelle son adaptateur — celui que la commande externe (`AdaptateurCommandeExterne
+# .ROLES_PERMIS`) et Kimi par protocole (`adaptateur_kimi_v53.ROLES_PERMIS`) acceptent ; « proposeur » (v61 à v63 du brouillon 4)
+# n'est accepté par aucun adaptateur réel. Rôles de l'étage : ceux de l'étage v5 (`ROLE_EXPERIMENTATEUR`, `ROLE_LECTEUR`).
+ROLE_PROPOSEUR = "proposeur_ideation"
 SEUIL_TEST, SEUIL_T_ELIM = "au moins 0,02", "au moins 2,0"
 ENV_A_BLANC = dict(A.ENV_A_BLANC)  # déclaration du mode à blanc ; le mode réel passe l'environnement du processus (C11)
 DEUX_DECIMALES = 0.005
@@ -519,7 +536,8 @@ def extraire_propositions(texte):
 
 class ProposeurAdaptateur:
     """Proposeur du chemin réel **et** du mode à blanc (C12) : un appel par génération par un adaptateur du pôle (rôle
-    « proposeur ») ; tout statut autre que « ok », toute erreur, tout refus R-764 ou modèle servi non conforme → `ArretTour`."""
+    `ROLE_PROPOSEUR`, « proposeur_ideation », brouillon 5) ; tout statut autre que « ok », toute erreur, tout refus R-764 ou
+    modèle servi non conforme → `ArretTour`."""
 
     def __init__(self, nom, relais, adaptateur, dossier, budget_usd, modele):
         self.nom, self.relais, self.ad, self.dossier, self.budget, self.modele = nom, relais, adaptateur, dossier, budget_usd, modele
@@ -529,7 +547,7 @@ class ProposeurAdaptateur:
         d = os.path.join(self.dossier, re.sub(r"[^A-Za-z0-9=|-]", "_", tache))
         os.makedirs(d, exist_ok=True)
         texte = consigne + "\n\n```json\n" + json.dumps(contexte, ensure_ascii=False) + "\n```\n"
-        r = self.ad.lancer("proposeur", texte, d, self.budget, 1, modele=self.modele)
+        r = self.ad.lancer(ROLE_PROPOSEUR, texte, d, self.budget, 1, modele=self.modele)
         cout = float(r.cout_declare_usd or 0.0)
         refus = getattr(r, "refus", None)
         if refus is None and r.statut != "refus":
@@ -648,6 +666,34 @@ def exiger_familles_separees(experimentateur, verificateur):
         raise FamillesNonSeparees(f"expérimentateur {experimentateur} et vérificateur {verificateur} : familles non séparées")
 
 
+def roles_permis(adaptateur):
+    """Les rôles qu'un adaptateur accepte : son attribut `ROLES_PERMIS` (commande externe, doublures), sinon la liste
+    `ROLES_PERMIS` de son module (Kimi par protocole, `adaptateur_kimi_v53`) ; None si aucune n'est dite."""
+    r = getattr(adaptateur, "ROLES_PERMIS", None)
+    if r is None:
+        r = getattr(sys.modules.get(type(adaptateur).__module__), "ROLES_PERMIS", None)
+    return tuple(r) if isinstance(r, (tuple, list)) else None
+
+
+def paires_de_roles(proposeurs, adaptateur_etage):
+    """(relais, adaptateur, rôle) de chaque rôle que le tour fera jouer : chaque proposeur sous `ROLE_PROPOSEUR`, puis
+    l'expérimentateur et le vérificateur de l'étage sous les rôles de l'étage v5."""
+    return ([(p.relais, p.ad, ROLE_PROPOSEUR) for p in proposeurs]
+            + [(relais, ad, role) for role, (ad, relais) in sorted(adaptateur_etage.roles.items())])
+
+
+def exiger_roles_joues(paires):
+    """Brouillon 5, avant tout appel (code 2) : chaque adaptateur accepte le rôle qu'il jouera ; sinon `TourRefuse`. Un rôle
+    refusé n'apparaîtrait qu'au premier appel (`ValueError` de l'adaptateur), après le manifeste : arrêt de la course."""
+    for relais, adaptateur, role in paires:
+        permis = roles_permis(adaptateur)
+        if permis is None or role not in permis:
+            raise TourRefuse(f"relais {relais} ({type(adaptateur).__name__}) : rôle « {role} » non joué par cet adaptateur (rôles "
+                             f"permis : {permis}) ; Kimi doit être une commande externe (Kimi par protocole ne joue pas "
+                             "l'expérimentateur) : refus avant tout appel")
+    return True
+
+
 class AdaptateurEtageV63:
     """L'adaptateur de l'étage v5, le même en mode réel et à blanc : expérimentateur et vérificateur routés vers leurs
     adaptateurs (réels : Kimi et Argon ; à blanc : doublures scriptées qui ne lisent que la consigne) ; dépense comptée par relais ;
@@ -751,7 +797,7 @@ def jouer_etage(dossier_etage, cartes, lois_par_ident, monde, racine, tache, exe
         return None, chemin, ecrire_json_scelle(chemin, selection_entre_generations({"par_fiche": [], "version_etage": None})), tranche, {}
     n = len(cartes)
     # garde 5, C13, I30 : pire cas de l'étage = cartes × borne par carte de chaque rôle (expérimentateur : la borne écrite
-    # d'avance, 0,30 USD, que l'étage tient ; vérificateur : 0,1 USD)
+    # d'avance, 0,80 USD au brouillon 5, que l'étage tient ; vérificateur : 0,1 USD)
     compteur.verifier_parts_avant_etage({roles["relais"]["experimentateur"]: n * BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD,
                                          roles["relais"]["verificateur"]: n * BUDGET_VERIFICATEUR_PAR_CARTE_USD})
     if tranche is None:
@@ -1126,13 +1172,17 @@ class AdaptateurProposeurScripte:
     Scénarios : « hors_gabarit » (clés en trop), « illisible », « muet:1,2 » (aucune proposition aux appels nommés), « refus »
     (statut R-764 à chaque appel), « refus:2 » (statut R-764 aux appels nommés, v63), « erreur » (session en échec),
     « indice_flottant » et « seuil_infini » (v63, I26 : la première proposition de chaque appel est une loi `si_sinon` plausible
-    dont `condition.indice` vaut 1.0, ou dont le seuil vaut Infinity ; la v62 la laissait arrêter la course)."""
+    dont `condition.indice` vaut 1.0, ou dont le seuil vaut Infinity ; la v62 la laissait arrêter la course). Brouillon 5 : elle
+    ne joue que `ROLE_PROPOSEUR`, comme un adaptateur réel (autre rôle → `ValueError`)."""
+    ROLES_PERMIS = (ROLE_PROPOSEUR,)
 
     def __init__(self, nom, ecart=0.4, scenario=None, cout_par_appel=0.0):
         self.nom, self.ecart, self.scenario, self.cout = nom, ecart, scenario or "", cout_par_appel
         self.appels = []
 
     def lancer(self, role, texte, dossier, budget_usd, max_tours, modele=None):
+        if role not in self.ROLES_PERMIS:
+            raise ValueError(f"la doublure du proposeur ne joue que {self.ROLES_PERMIS}, pas {role!r}")
         self.appels.append({"role": role, "texte_sha256": hashlib.sha256(texte.encode()).hexdigest()})
         n_appel = len(self.appels)
         with open(os.path.join(dossier, f"servi-{n_appel:02d}.md"), "w", encoding="utf-8") as f:
@@ -1202,12 +1252,16 @@ def lire_loi_de_la_consigne(consigne):
 class AdaptateurExperimentateurScripte:
     """Doublure scriptée de l'expérimentateur, branchée derrière `AdaptateurEtageV63` : elle lit la loi **dans la consigne**
     (préenregistrement court) et nulle part ailleurs (C8) ; loi absente → elle finit sans script (« non concluant »). Scénarios :
-    « arrondi:N » (gains arrondis à N décimales), « fabrique » (gains fabriqués), « erreur » (session en échec), « refus » (R-764)."""
+    « arrondi:N » (gains arrondis à N décimales), « fabrique » (gains fabriqués), « erreur » (session en échec), « refus » (R-764).
+    Brouillon 5 : elle ne joue que le rôle de l'expérimentateur de l'étage v5 (autre rôle → `ValueError`)."""
+    ROLES_PERMIS = (v5.ROLE_EXPERIMENTATEUR,)
 
     def __init__(self, scenario=None, cout_par_session=0.0):
         self.scenario, self.cout, self.appels = scenario or "", cout_par_session, []
 
     def lancer(self, role, consigne, dossier, budget_usd, max_tours, modele=None):
+        if role not in self.ROLES_PERMIS:
+            raise ValueError(f"la doublure de l'expérimentateur ne joue que {self.ROLES_PERMIS}, pas {role!r}")
         tour = int(os.path.basename(dossier).split("-")[1])
         loi, motif = lire_loi_de_la_consigne(consigne)
         self.appels.append({"role": role, "tour": tour, "loi_lue": loi is not None, "motif": motif})
@@ -1230,12 +1284,16 @@ class AdaptateurExperimentateurScripte:
 
 
 class AdaptateurVerificateurScripte:
-    """Doublure du vérificateur (lecteur témoin) : lit la seule consigne (`a_blanc_v59.verificateur_temoin`)."""
+    """Doublure du vérificateur (lecteur témoin) : lit la seule consigne (`a_blanc_v59.verificateur_temoin`). Brouillon 5 : elle
+    ne joue que le rôle du lecteur de l'étage v5 (autre rôle → `ValueError`)."""
+    ROLES_PERMIS = (v5.ROLE_LECTEUR,)
 
     def __init__(self, cout_par_session=0.0):
         self.cout, self.appels = cout_par_session, []
 
     def lancer(self, role, consigne, dossier, budget_usd, max_tours, modele=None):
+        if role not in self.ROLES_PERMIS:
+            raise ValueError(f"la doublure du vérificateur ne joue que {self.ROLES_PERMIS}, pas {role!r}")
         self.appels.append({"role": role})
         return Resultat(A.verificateur_temoin(consigne), [], self.cout, "ok")
 
@@ -1248,4 +1306,4 @@ __all__ = ("jouer_etage_1", "jouer_generation", "juger", "completer_carte", "tem
            "chercher_loi_plantee", "creer_tranche", "decouvertes_distinctes", "evaluer_sur_jeu_factice", "noeuds_de_la_loi",
            "TourRefuse", "TemoinRetenu", "FamillesNonSeparees", "ArretTour", "VERSION", "BRAS_ETAGE1", "TEMOINS", "DECISIONS", "ALPHA",
            "GRAMMAIRE", "TYPES_PERMIS", "JEU_FACTICE_DU_GARDIEN", "BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD",
-           "BUDGET_VERIFICATEUR_PAR_CARTE_USD")
+           "BUDGET_VERIFICATEUR_PAR_CARTE_USD", "ROLE_PROPOSEUR", "roles_permis", "paires_de_roles", "exiger_roles_joues")

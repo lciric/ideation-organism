@@ -10,6 +10,10 @@ Ce qui change par rapport au lanceur v62 (`demonstrations/tour_ferme_v62.py`, in
 - **mineur 34** : la sonde du bac refusée ne laisse plus son dossier temporaire ; un refus après la création du dossier des
   sessions (mode réel) le retire aussi ;
 - cœur et lecture v63 (I26, I28, I29, I30) ; le reste est la v62.
+- **brouillon 5** : chaque adaptateur doit accepter le rôle qu'il jouera (proposeur « proposeur_ideation », expérimentateur et
+  vérificateur de l'étage v5), vérifié avant toute porte et tout appel, dans les deux modes (`T.exiger_roles_joues`) : Kimi par
+  protocole, qui ne joue pas l'expérimentateur, est refusé (code 2) ; borne par carte de 0,80 USD (cœur) ; le plan du texte
+  porte le plafond de 50 USD et ses parts (GO-2026-11-02-23).
 
 Deux modes, exclusifs, qui passent par **le même chemin** (contre-lecture 2, C8, C9, C22) : les proposeurs sont des
 `ProposeurAdaptateur` et l'étage reçoit un `AdaptateurEtageV63` dans les deux modes ; seules changent les feuilles —
@@ -25,7 +29,8 @@ Gardes avant tout appel (code 2) : dossier de sortie non vide ; `--etage 2` (auc
 `prereg/preenregistrement-tour-ferme-v1-v<N>.md`, non scellé, nom à « brouillon », marqueur `<<…>>` hors des zones de l'étage 2
 (`<!-- etage-2-hors-scellement : début/fin -->`), zones mal formées, code gelé non conforme, entropie < 2⁶⁴ (garde 6) ; plan
 absent ou hors bornes (parts des relais de somme ≠ plafond) ; configuration d'une autre empreinte ou d'un autre plafond ; GO
-autre ou d'un autre montant ; variable de clé ; machine non jetable ou variable hors de la liste blanche (garde 15, C11).
+autre ou d'un autre montant ; variable de clé ; machine non jetable ou variable hors de la liste blanche (garde 15, C11) ;
+adaptateur qui n'accepte pas le rôle qu'il jouera (brouillon 5).
 Codes : 0 relevé écrit (le code ne décide rien) ; 2 refus ; 3 arrêt (toute exception après le manifeste : relevé partiel scellé,
 aucune issue lue, C12).
 
@@ -260,10 +265,11 @@ def roles_reels(conf, plan, base_sessions, sortie, transmettre=True):
     adaptateurs, portes = v8.adaptateurs_reels_v56(conf2, sortie, base_sessions)
     if sorted(n for n in adaptateurs if n in ("kimi", "argon")) != ["argon", "kimi"]:
         raise T.TourRefuse(f"configuration : adaptateurs « kimi » et « argon » exigés, trouvés {sorted(adaptateurs)}")
-    accuses = {n: portes[n].transmettre(ETAPE, plan["parts"][n]) for n in ("kimi", "argon")} if transmettre else "non relancées (vérification seule)"
     proposeurs = [T.ProposeurAdaptateur(n, n, adaptateurs[n], os.path.join(base_sessions, "proposeur-" + n), budget, modeles[n])
                   for n in ("kimi", "argon")]
     etage = T.AdaptateurEtageV63(adaptateurs["kimi"], adaptateurs["argon"], "kimi", "argon")
+    T.exiger_roles_joues(T.paires_de_roles(proposeurs, etage))  # brouillon 5 : avant toute porte et tout appel
+    accuses = {n: portes[n].transmettre(ETAPE, plan["parts"][n]) for n in ("kimi", "argon")} if transmettre else "non relancées (vérification seule)"
     roles = {"experimentateur": ("experimentateur-kimi", modeles["kimi"]), "verificateur": ("verificateur-argon", modeles["argon"]),
              "familles": {"experimentateur": "kimi", "verificateur": "argon"}, "relais": {"experimentateur": "kimi", "verificateur": "argon"}}
     infos = {"budget_appel_usd": budget, "modeles_demandes": modeles, "substitutions_dans_les_commandes": substitutions,
@@ -285,6 +291,7 @@ def roles_a_blanc(args, sortie):
     fa, fb = (fam.split(",") + [""])[:2]
     roles = {"experimentateur": ("experimentateur-scripte", "famille-" + fa), "verificateur": ("verificateur-scripte", "famille-" + fb),
              "familles": {"experimentateur": fa, "verificateur": fb}, "relais": {"experimentateur": "kimi", "verificateur": "argon"}}
+    T.exiger_roles_joues(T.paires_de_roles(proposeurs, etage))  # brouillon 5 : les doublures tiennent les rôles des relais réels
     return proposeurs, etage, roles
 
 

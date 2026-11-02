@@ -9,8 +9,9 @@ Trois groupes : (1) les 24 mutations du banc v62, portées sur le code v63 ; (2)
 survivantes de B10 (T2, T3, T4, T5, plafond de l'étage, durée), le témoin dans la sélection (I31), l'appel de la machine jetable au
 lanceur (garde 15), l'étage 2 non refusé (garde 12) — plus une mutation de bord par critère de la garde 14 et par garde 5 et 13 ;
 (3) une mutation au moins par correction v63 (I26, I27, I28, I29, I30, mineurs 29, 30, 34, garde 7, 8 et 9 sur le code v63, version
-du relevé). La sonde « entropie non exigée au chemin réel » n'est pas au banc : son artefact (un texte scellé d'empreinte < 2⁶⁴)
-ne se fabrique pas ; l'unité `entropie_decisive` est essayée (`Garde6Complete`).
+du relevé), et, au brouillon 5, la borne par carte ramenée à 0,30 USD et les rôles joués par les relais (rôle « proposeur », garde
+des rôles neutralisée, garde retirée au lanceur). La sonde « entropie non exigée au chemin réel » n'est pas au banc : son artefact
+(un texte scellé d'empreinte < 2⁶⁴) ne se fabrique pas ; l'unité `entropie_decisive` est essayée (`Garde6Complete`).
 
   python3 -I -B essais/mutations_tour_ferme_v63.py [--raisons] [--seulement MOT]      (depuis le dossier orchestrator)
 """
@@ -190,10 +191,17 @@ CORRECTIONS_V63 = [
      "(dernier < premier) if (premier is not None and dernier is not None) else None", "None", [TT + "LectureV63"], r"mineur_30"),
     ("I30 : borne par carte non passée à l'étage", TF, "jouer_etage", '"budget_test_usd": BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD, ', "",
      [TT + "EtageV63"], r"I30"),
-    ("I30 : pire cas de l'étage à 0,5 USD par carte (règle v62)", TF, "jouer_etage", "n * BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD,",
+    ("I30 : pire cas de l'étage à 0,5 USD par carte (règle v62, sous la borne)", TF, "jouer_etage", "n * BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD,",
      "n * v5.BUDGET_TEST_USD_DEFAUT,", [TT + "ReservationI30"], r"I30"),
-    ("I30 : borne par carte relevée à 0,5 USD (constante)", constante(TF), "BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD", None, 0.5,
-     [TG + "DevisI30", TT + "ReservationI30"], r"I30"),
+    ("I30 : borne par carte ramenée à 0,30 USD (brouillon 4 : 5 tours, cartes tronquées)", constante(TF),
+     "BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD", None, 0.30, [TG + "DevisI30", TT + "ReservationI30"], r"I30"),
+    ("brouillon 5 : rôle « proposeur » (v61 à v63 du brouillon 4) passé aux relais", constante(TF), "ROLE_PROPOSEUR", None, "proposeur",
+     [TT + "RolesDesRelais"], r"pas 'proposeur'"),
+    ("brouillon 5 : garde des rôles neutralisée", TF, "exiger_roles_joues", "if permis is None or role not in permis:", "if False:",
+     [TT + "RolesDesRelais"], NR),
+    ("brouillon 5 : garde des rôles retirée au lanceur (chemin réel)", LANCEUR, "roles_reels",
+     "    T.exiger_roles_joues(T.paires_de_roles(proposeurs, etage))  # brouillon 5 : avant toute porte et tout appel\n", "",
+     [TT + "CheminReelVerifierSeulement"], r"brouillon 5 \(lanceur\)"),
     ("mineur 34 : dossier du bac laissé par une sonde refusée", LANCEUR, "preparer_bac",
      "        if parent:\n            shutil.rmtree(parent, True)\n        raise", "        raise",
      [TT + "SondeDuBac", TT + "CheminReelVerifierSeulement"], r"mineur 34"),
