@@ -1,0 +1,889 @@
+# Préenregistrement — le tour fermé pour de vrai (tâches A2, A3 et A4), brouillon 6 (scellement de l'étage 1 seul)
+
+Statut : **brouillon 6, non contre-lu, non scellé ; portée et décisions D2 à D9 prises par Lazar (GO-2026-11-02-18) ; GO de calcul GO-2026-11-02-23, plafond exactement 50 USD (parts : 44 USD pour Kimi, 6 USD pour Argon) ; borne de l'expérimentateur 0,80 USD par carte (les 12 tours du garde-fou) ; durée de l'étage 72 heures (décision de Lazar, registre privé, ligne R-1294 ; 24 heures au brouillon 5), garde contre une boucle folle, jamais un couperet ; code `_v64` (« TF-02, options (a) et (c), décision du directeur, 3 novembre 2026 »).** Contre-lecture courte du brouillon 5 appliquée (`prereg/contre-lecture-courte-preenregistrement-tour-ferme-v5.md`, sha256 `3b525f9e…`, verdict « scellable après couples » ; couples T101 à T112, `prereg/couples-contre-lecture-tour-ferme-v5.json`, sha256 `40bb0d17…`) ; contre-lecture 3 appliquée au brouillon 4 (`prereg/contre-lecture-preenregistrement-tour-ferme-v3.md`, sha256 `0ecd37a2…`, verdict « non scellable ») avec le code `_v63` ; **contre-lecture R2 courte et neuve à faire** (ce texte, le diff v63 → v64 — code `_v64` : code 4 « rien envoyé » lu « budget_depasse », barème prudent passé à l'étage, durée de 72 heures — et les essais neufs). Portée : l'étage 1 seul (décision de Lazar, GO-2026-11-02-18). Brouillon 6 rédigé du 2 novembre 2026, 23:30 UTC, au 3 novembre 2026, 00:50 UTC (heures de `date -u`), par un sixième sous-agent rédacteur-développeur, développeur neuf (il n'a écrit ni le code du tour fermé `_v60` à `_v63`, ni l'étage des tests de mort, ni les préenregistrements du tour fermé, ni leurs contre-lectures), sans appel de modèle ni de réseau, sans clé, sans commit, sous `nice -n 10`, dans une copie de travail isolée du dépôt ; rapport `prereg/rapport-redaction-tour-ferme-v6.md`. Brouillon 5 rédigé le 2 novembre 2026, de 18:45 à 19:11 UTC (heures de `date -u`), par un cinquième sous-agent rédacteur-développeur, qui reprend la tâche après un développeur coupé par une panne de crédits (il n'a écrit ni le préenregistrement, ni le code `_v61` à `_v63`, ni aucune contre-lecture), sans appel de modèle, sans clé, sans commit, sous `nice -n 10` ; rapport `prereg/rapport-redaction-tour-ferme-v5.md`. Brouillon 4 rédigé le 2 novembre 2026, de 17:11 à 18:15 UTC (heures de `date -u`), par un quatrième sous-agent rédacteur-développeur (qui n'a écrit ni le préenregistrement, ni le code `_v61` ou `_v62`, ni aucune des trois contre-lectures), sans appel de modèle, sans clé, sans commit, sous `nice -n 10` ; rapport `prereg/rapport-redaction-tour-ferme-v4.md`. Brouillon 3 rédigé le 2 novembre 2026 par un troisième sous-agent rédacteur-développeur (qui n'a écrit ni les contre-lectures ni les brouillons précédents), sans appel de modèle, sans clé, sans commit, sous `nice -n 10` ; rapport `prereg/rapport-redaction-tour-ferme-v3.md`. Brouillon 1 rédigé le 2 novembre 2026, de 07:02 à 07:45 UTC ; brouillon 2 le 2 novembre, achevé à 09:23 UTC (fichier écrit à 09:23, commit `7d3aa82` à 09:25 UTC ; les heures « 09:30 à 11:10 » du rapport de rédaction sont fausses), par
+un second sous-agent rédacteur-développeur (qui n'a écrit ni le brouillon 1 ni la contre-lecture), sans aucun appel de modèle, sans clé, sans commit ni `git fetch`, sous `nice -n 10`. Dépôt public à
+la tête `c47b608` pour le brouillon 2 (fichiers `_v61` non suivis), à la tête `82ad7a8` pour le brouillon 3 (fichiers `_v62` non suivis), à la tête `9ad3ebe` pour le brouillon 4 (fichiers `_v63` non suivis), à la tête `e58cfec` pour le brouillon 5 (fichiers `_v63` suivis depuis `af92034`, cinq d'entre eux modifiés dans l'arbre de travail, non commités à l'écriture du texte, commités depuis au commit `a12713a`), à la tête `66dbcf1` pour le brouillon 6 (copie de travail isolée ; sept fichiers `_v64` neufs, non suivis, non commités). Le scellement (compagnon `.sha256` écrit par le directeur, sur une version contre-lue renommée
+`preenregistrement-tour-ferme-v1-v<N>.md`, sans « brouillon ») fixe la graine (section 8) ; le lanceur (section 13, v64)
+refuse tout fichier dont le nom contient « brouillon » et tout fichier non scellé. **Aucune course réelle avant le
+scellement et la contre-lecture courte de ce brouillon (règle R2) ; les décisions D2, D3, D4, D6 (seconde partie), D7 et D9 sont prises par Lazar (section 14, GO-2026-11-02-18 ; D1 est prise ; D5, D8 et la première partie de D6 relèvent de l'étage 2) et son feu vert de calcul sur le devis est GO-2026-11-02-23, plafond exactement 50 USD
+(section 12 ; il remplace, pour cette course, le GO de 15 USD du brouillon 4).** Les cases de la section 5.2 relèvent de l'étage 2, hors de ce scellement ; pour l'étage 1, la session-depot porte l'empreinte de la configuration v3 (section 13 et annexe A ; le GO est pris, GO-2026-11-02-23) ; un texte qui garde un marqueur hors des zones de l'étage 2 ne se scelle pas (le lanceur le refuse, garde 6) ; au brouillon 6, trois cases restent hors de ces zones : l'empreinte de la configuration v3 (section 13, plan gelé), les chemins et empreintes des commandes v3 de la session-depot (section 13) et la ligne de précision attendue du directeur humain sur GO-2026-11-02-23 (section 14, point (6)).
+
+## 0. En dix lignes
+
+**Portée de ce scellement : l'étage 1 seul (A2 et A4) ; décision de Lazar, GO-2026-11-02-18.** Les sections de l'étage 2 (A3) restent dans ce texte, entre les balises `etage-2-hors-scellement`, **hors de ce scellement : texte de l'étage 2 à sceller plus tard, avant toute lecture de T**, non corrigées par les contre-lectures 2 et 3 ; le lanceur v64 ne lit pas ces zones (marqueurs compris) et refuse tout étage 2. L'étage 2 sera un préenregistrement à part (texte, code, configuration et GO à lui), dont la porte lira la lecture scellée de l'étage 1.
+
+**Changements du brouillon 5 au brouillon 6** (décision du directeur sur TF-02 : « TF-02, options (a) et (c), décision du directeur, 3 novembre 2026 » ; décision de Lazar sur la durée, registre privé, ligne R-1294 ; mot de Lazar : « je ne veux pas de blocage, de résultats non concluants par défaut de conception, de plafond ou que sais-je ») :
+
+1. **TF-02, option (a) : code 4 « rien envoyé » lu « budget_depasse »** (code `_v64` : `pole/adaptateur_commande_v64.py` et l'adaptateur de l'étage `AdaptateurEtageV64` de `pole/tour_ferme_v64.py`). Constat de la session-depot (message n° 294, § 4, lecture du code des deux commandes, aucun appel) : quand le pire cas d'une session dépasse son plafond, la commande n'envoie rien et sort en code 4, sa dernière ligne JSON portant `"envoye": false` ; la v63 lisait tout code non nul « erreur », et l'étage v5 arrêtait alors la course entière (code 3), après les propositions payées — pour un vérificateur jamais décisif dont la consigne dépasserait ≈ 15 000 caractères (sortie minimale de 1 000 jetons), ou pour un expérimentateur dont le reste de borne tomberait sous ≈ 0,05 USD. En v64, un code 4 dont la dernière ligne porte `"envoye": false` (le booléen faux, rien d'autre) est lu « budget_depasse » pour cette session : fin des tours de cette carte pour ce rôle (expérimentateur : la carte est jugée sur ce qu'elle a exécuté ; vérificateur : témoin « non concluant », jamais décisif), rien compté, jamais « erreur » ni arrêt de la course ; tout autre code non nul garde sa lecture (erreur, arrêt) ; la part du relais épuisée reste un arrêt (C13) ; un proposeur qui rend « budget_depasse », « rien envoyé » compris, arrête la course comme avant (annexe A, A.5). L'option (c), sortie minimale par rôle (le vérificateur rend une ligne : 200 jetons), est dans les commandes v3 de la session-depot (section 13).
+2. **Barème prudent passé à l'étage** (point 2 de la décision) : le prix d'entrée de chaque commande, en dollars par million de jetons (`fournisseurs.<kimi, argon>.prix_entree_usd_par_million_jetons`, clé neuve de la configuration v3, aucun défaut ; annexe A, A.6), donne le prix d'un caractère d'entrée (prix / 10⁶ / 3 : trois caractères par jeton, le barème prudent des commandes) ; il est passé à l'étage pour l'expérimentateur (`prix_caractere_usd` : la vérification préalable de l'étage v5, inactive en v63, joue — consigne au-delà du reste de la borne → fin des tours, rien envoyé) et appliqué au vérificateur par l'adaptateur de l'étage v64 (consigne au-delà de 0,1 USD → témoin « non concluant », rien lancé).
+3. **Durée de l'étage 1 : 72 heures** (décision de Lazar, R-1294 ; 24 heures au brouillon 5) : garde contre une boucle folle, sans coût en dollars ; gelée dans le code (`DUREE_ETAGE_1_H`) et au plan (`duree_etage_1_h: 72`) ; le lanceur v64 refuse en mode décisif tout plan d'une autre durée ; seuils recalculés (section 12 : à 60,7 cartes et témoins testés, ≈ 299 s par session au lieu de ≈ 81 s, ≈ 3,7 fois plus large).
+4. **Mesures** (point 3 de la décision ; rapport `prereg/rapport-redaction-tour-ferme-v6.md`) : taille réelle des consignes du vérificateur et de l'expérimentateur dans la course à blanc L2b-v64-b6, et taille maximale permise par l'étage ; la consigne du vérificateur peut dépasser ce que son plafond de 0,1 USD paie avec une sortie minimale de 200 jetons (≈ 27 000 caractères au barème d'Argon) : en v64, son témoin est alors « non concluant », jamais un arrêt ; relever ce plafond est proposé au rapport, non fait.
+5. **Code `_v64`** (fichiers neufs, règle R12 ; aucun fichier existant modifié, la v63 intacte) : `pole/tour_ferme_v64.py`, `pole/adaptateur_commande_v64.py`, `demonstrations/tour_ferme_v64.py`, `demonstrations/lire_tour_ferme_v64.py` (la lecture gelée `pole/lecture_tour_ferme_v63.py` est inchangée : aucun critère, aucune issue ne change), `essais/test_tour_ferme_v64.py`, `essais/test_gardes_tour_ferme_v64.py`, `essais/mutations_tour_ferme_v64.py` ; tâches des graines nommées « tour-ferme-v64 » (section 8) ; bloc d'empreintes recalculé, 92 fichiers (section 13) ; essais, banc et courses à blanc (sections 7, 9 et 10, ligne L2b-v64-b6).
+6. **Couples T101 à T112** de la contre-lecture courte, appliqués dans l'ordre (chaque « ancien » présent une seule fois), puis mis au code `_v64` là où il le faut (section 7, garde 13 ; section 12 ; annexe A, A.6 bis) ; sections 9, 13, 14 et annexe A mises au code `_v64`.
+7. **Dépendances** : la course dépend des commandes v3 de la session-depot (TF-01 : rôles de l'étage acceptés, sortie minimale par rôle ; chemins et empreintes en section 13) ; la configuration v3 porte la clé du barème de chaque commande (annexe A, A.6) ; une ligne de précision du directeur humain sur GO-2026-11-02-23 est attendue (section 14, point (6)). Aucune prédiction, aucun critère, aucune issue ne change ; les sept zones de l'étage 2 sont identiques à l'octet à celles du brouillon 5.
+
+**Changements du brouillon 4 au brouillon 5** (décision de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC : « prends des budgets et plafonds très larges » ; « je ne veux pas de résultats non concluants par défaut de conception, de plafond » ; « arrête de mettre des budgets temps et de les couper » ; GO de calcul neuf GO-2026-11-02-23, 50 USD) :
+
+1. **Borne de l'expérimentateur par carte : 0,80 USD** au lieu de 0,30 (code v63, `BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD`) : elle couvre les 12 tours du garde-fou anti-boucle de l'étage (`TOURS_MAX_PAR_FICHE`, `pole/tests_de_mort_v2.py:139`) au prix prudent du devis (12 × 0,06 = 0,72 USD) ; à ce prix, aucune carte n'est jugée sur une exécution tronquée par la borne ; au-delà de 0,067 USD par tour en moyenne (prix réel d'un tour inconnu, C7), ce que la borne coûte est écrit en section 12 (sections 4.1 et 12).
+2. **Plafond de l'étage 1 : 50 USD** (GO-2026-11-02-23), **parts : 44 USD pour Kimi, 6 USD pour Argon** (somme égale au plafond au centime, exigée par le lanceur). Pire cas avant chaque étage recalculé avec la borne de 0,80 USD et rejoué sur le `Compteur` gelé, à trois générations : la course va au bout quel que soit le nombre de tours par carte ; à 12 tours, Kimi dépense ≈ 22,9 USD et garde ≈ 20,9 USD au-delà du pire cas réservé au dernier étage ; 23,2 cartes testées de plus que les 31,7 du devis, toutes à leur borne, tiennent encore (section 12).
+3. **Durée de l'étage 1 : 24 heures** (4 au brouillon 4 ; 72 au brouillon 6, décision de Lazar, R-1294) : garde contre une boucle folle, qui ne coupe jamais une carte ni un étage en cours ; si elle mordait, la course s'arrêterait sans issue (code 3) : seuils en section 12.
+4. **Défaut de conception corrigé, trouvé en relisant le chemin réel (changement non demandé mot pour mot)** : les proposeurs appelaient leur relais sous le rôle « proposeur », qu'aucun adaptateur réel n'accepte (commande externe : `proposeur_ideation`, `juge_ideation`, `experimentateur_test`, `lecteur_test` ; Kimi par protocole : `proposeur_ideation`, `juge_ideation`, `fusion_ideation`) : en mode réel, le premier appel de proposeur levait `ValueError`, arrêt de la course (code 3), avant toute dépense ; les doublures du mode à blanc acceptaient tout rôle, d'où le silence des courses à blanc. Code v63 : rôle `proposeur_ideation` ; garde neuve, avant toute porte et tout appel (code 2) : chaque adaptateur accepte le rôle qu'il jouera — Kimi doit donc être une commande externe (Kimi par protocole ne joue pas l'expérimentateur, `experimentateur_test`) ; les doublures tiennent les mêmes rôles que les adaptateurs réels (section 7, garde 13 ; section 13 ; annexe A).
+5. **GO** : GO-2026-11-02-23 dans le plan gelé et dans la commande de la section 9 ; le GO de 15 USD du brouillon 4 n'est plus cité.
+6. **Annexe A** (neuve) : ce que le code v63 lit dans la configuration v3 et autour d'elle (registre de GO, environnement, bac), clé par clé, avec le domaine de chaque valeur et la garde qui la refuse.
+7. Essais, banc et course à blanc rejoués sur le code modifié (sections 7, 9 et 10, ligne L2b-v63-b5) ; bloc d'empreintes recalculé (section 13) ; aucune prédiction changée ; les sept zones de l'étage 2 identiques à l'octet à celles du brouillon 4 ; hors de ces zones, une seule case reste à remplir : l'empreinte de la configuration v3 (clé `configuration_sha256` du plan gelé, chez la session-depot).
+
+Deux étages ; ce texte ne scelle que le premier (section 0, portée). **Étage 1 (A2 et A4)** : la boucle fermée de la v59 (`pole/boucle_fermee_v59.py`)
+jouée avec de vrais modèles sur un monde à loi plantée connue hors du système (S-V1 de `exemples/temoins-pari-demo-v1.json`),
+trois générations, trois bras : le **bras réel** (Kimi et Argon proposent), le **bras aléatoire** et le **bras qui recopie
+ou mélange** les lois déjà retenues, tous passés par la même chaîne — gardien, juge statistique sous le nul v8, tests de mort
+exécutés dans le vrai bac à sable, vérificateur d'une autre famille, sélection scellée lue par la génération suivante. Des
+témoins plantés (la loi vraie, quatre lois fausses, deux cas d'instrument) sont mêlés à chaque génération de chaque bras.
+**Étage 2 (A3)** : le même tour sur la vraie question du 1er novembre, sur la banque d'épisodes réels, avec des **données
+tenues à l'écart réservées par empreinte avant la course** ; joué **seulement si l'étage 1 tient** (critère gelé, section
+4.6). Zéro promotion à l'étage 2 est un résultat et se rapporte tel quel (règle R3 : aucun run visant un signe).
+
+## 1. Question, motivation, ce qui existe
+
+- **Question (Lazar, addendum au brief de reprise du 2 novembre)** : la chaîne entière — proposition, garde de forme,
+  jugement statistique, test de mort exécuté, vérification croisée, sélection — tient-elle quand elle est fermée et jouée
+  avec de vrais modèles (A2) ? Quel est son taux de fausses découvertes face à des proposeurs sans intelligence (A4) ?
+  Promeut-elle au moins une hypothèse réelle qui survit à un test exécuté sur des données tenues à l'écart (A3) ?
+- **Pour le mentor** (Jan Kirchner, « chercheurs d'alignement automatisés ») : l'étage des tests de mort et la boucle entre
+  générations n'ont jamais tourné pour de vrai (README, section 4 : « Death tests and generation-to-generation loop :
+  implemented, tested offline, never run for real ») ; les lancements réels du 27 octobre exécutaient déjà du code en bac à
+  sable, mais dans un monde tautologique (plomberie, pas découverte). Ce tour serait le premier où une hypothèse écrite par un
+  modèle sur une question réelle peut être promue par le juge figé puis vérifiée par exécution sur des données tenues à
+  l'écart.
+- **Ce qui existe** (rapport `prereg/rapport-code-boucle-fermee-v1.md`, sha256 `884b4f4f…`) : la v59 ferme la flèche
+  « sélection → génération suivante » (bilan scellé, lecture vérifiée par empreinte, contre-vérification des retenues contre
+  les verdicts scellés du noyau, vue des proposeurs sans verdict), les deux proposeurs de référence
+  (`pole/proposeurs_references_v59.py`), un mode à blanc joué dans le vrai bac à sable (`bwrap` 0.9.0), 28 essais et 9 mutations
+  tuées sur 9. **Ce qui manque** pour ce tour, dit en section 13 : un lanceur à vrais modèles (écrit en `_v61`, puis en `_v62` et en `_v63`, remplacé pour ce texte par `demonstrations/tour_ferme_v64.py`, étage 1 seul, section 13 ; cœur de l'étage 2 non écrit), des témoins exclus de
+  l'archive, un gabarit de test de mort imposé aux proposeurs, un contre-calcul de la statistique par l'orchestrateur, la porte entre étages. Sont écrits avec ce brouillon : la réserve par empreinte des données tenues à l'écart
+  (`pole/reserve_tenue_a_l_ecart_v60.py`), l'oracle avec le classement gelé des cartes et les intervalles
+  (`pole/oracle_tour_ferme_v60.py`) et la lecture gelée des deux étages (`pole/lecture_tour_ferme_v60.py`, remplacée par `pole/lecture_tour_ferme_v61.py`, puis par `pole/lecture_tour_ferme_v62.py`, puis, pour ce texte, par `pole/lecture_tour_ferme_v63.py`, section 4.6) : 46 essais,
+  17 mutations tuées sur 17 pour la raison attendue.
+
+## 2. Ce que voient les proposeurs (point ouvert (i) du développeur — décision D1, prise par Lazar : GO-2026-11-02-06, registres/go.md, 2 novembre 2026)
+
+**Changement par rapport à la v57 et aux tours réels précédents.** Jusqu'à la v56, la génération suivante héritait du
+**classement des juges**, écrit avant l'étage des tests de mort (README, section 2, étape 9). En v59 et dans ce tour, chaque
+proposeur reçoit **seulement** (`boucle_fermee_v59.vue_pour_proposeur`, garde `exiger_vue_sans_verdict`) :
+
+1. la **liste des lois retenues** de son bras (identifiant opaque `F-<12 hexadécimaux>`, empreinte de l'identifiant réel, et loi prédictive, rien d'autre ; l'identifiant réel d'une carte, `G<g>-<proposeur>-<nn>`, qui dit sa génération et son auteur, n'est jamais servi : code v62, C15) : celles dont le verdict
+   scellé du noyau au test de mort est « survit », cumulées depuis la génération 1 ;
+2. la description publique du monde (traits, sous-populations, nombre d'issues ; jamais une issue de l'épreuve), le gabarit (types de loi permis **avec les champs exacts de chaque type, ceux de `selection_pari.valider_loi`, et un exemple valide par type**, borne des poids ; section 4.1) et, à l'étage 1, **200 épisodes de développement** tirés à chaque génération dans le
+   monde planté (traits, sous-population, issue ; graine de la tâche « développement ») ; à l'étage 2, la partie
+   « développement » de la banque (section 5.3) et le texte de la question ;
+3. une consigne figée (empreinte consignée au manifeste) : « propose au plus 6 lois qui prédisent l'issue mieux que la
+   marginale et mieux que les lois déjà retenues ».
+
+**Jamais** : un verdict, une richesse, un log e, une promotion, un rang, un motif d'élimination, un compte, une carte non
+retenue (y compris les siennes), une carte d'un autre bras, un témoin. La garde lève `VueAvecVerdict` sur toute clé interdite
+à toute profondeur (essais v59 : cas sain et artefact ; mutation « garde neutralisée » tuée).
+
+Conséquence à lire honnêtement : le seul canal d'information du juge vers les proposeurs est **un bit par carte testée**
+(retenue ou non), porté par la présence d'une loi dans la vue. Le préenregistrement de l'attaque de Goodhart (A1, brouillon 1)
+mesure le pire cas où ce canal serait large (verdict et richesse rendus) ; ici il reste étroit, par construction.
+
+## 3. Définitions gelées (point ouvert (ii) — décision D2)
+
+**Oracle** (audit seulement : jamais servi, jamais décisif pour la chaîne ; `pole/oracle_tour_ferme_v60.py`, écrit avec ce
+brouillon, 14 essais, 4 mutations tuées sur 4) :
+sur 4 000 instances tirées une fois (tâche « oracle|instances », racine des graines de la section 8), avec L* la loi plantée,
+m* la marginale du monde et q la loi d'une carte :
+
+- **G(q)** = E_x E_{y∼L*(x)} [log q(y|x) − log m*(y)] : gain attendu de log-score sur la marginale, en nat par épisode
+  (exemples, lecture L1 : L* 0,523 ; S-F2 −0,133 ; loi plantée restreinte au trait z1 0,402) ;
+- **D(q)** = E_x KL(L*(x) ‖ q(x)) : divergence de Kullback-Leibler moyenne de la loi plantée à la carte ;
+- **G_arch** : meilleur gain connu de l'archive que la carte a affrontée au jugement, dans la classe du nul v8 calculée au
+  niveau de l'oracle : max(0 ; G de chaque loi de l'archive ; G de la mise en commun linéaire des lois de l'archive, de
+  l'uniforme et des trois lois certaines, poids ajustés par maximum de vraisemblance sur les 4 000 instances ; G de chaque loi
+  de l'archive tempérée et inclinée, p(k) ∝ S(k)^a·exp(β_k), ajustée de même) ; **ΔG = G(q) − G_arch**.
+
+Seuil gelé **g₀ = 0,02 nat par épisode** (le seuil du test de mort des cartes, section 4.1).
+
+| issue d'une carte (non témoin) | définition gelée |
+|---|---|
+| **promue** | retenue par la règle de Benjamini-Hochberg sur e-valeurs (e-BH) de sa génération et de son bras, au niveau α = 0,05 |
+| **promue puis survivante** (PS) | promue **et** verdict scellé du noyau « survit » au test de mort (seul ce cas entre à l'archive) |
+| **vraie découverte** (VD) | PS **et** ΔG ≥ g₀ (G ≥ g₀ en découle, puisque G_arch ≥ 0 ; l'oracle rapporte les deux) : la carte porte au moins 0,02 nat d'information sur le monde au-delà de sa marginale **et** au-delà de ce que l'archive savait déjà |
+| **loi plantée retrouvée** (VD*) | VD **et** D ≤ 0,05 nat |
+| **fausse découverte** (FD) | PS **et** (G < g₀ **ou** ΔG < g₀). Toute PS du bras « recopie-mélange » est une FD par construction (sa loi est fonction des seules lois de l'archive), quel que soit l'oracle |
+| **fausse promotion du juge** | promue **et** (G < g₀ ou ΔG < g₀), quel que soit le test de mort (erreur du juge que le test de mort doit rattraper) |
+| **inconclusive** | verdict du noyau « non concluant » (aucune exécution réussie, fichier brut absent ou illisible, plafond de la fiche atteint sans fichier, incident de la fiche). Une session en échec, un refus de modèle (R-764) ou un contre-calcul en désaccord **arrêtent** la course (section 7, gardes 10 et 13) : ce ne sont pas des « non concluant » |
+
+Pourquoi cette définition : le mode à blanc v59 a vu une loi aléatoire promue et survivante qui porte une vraie information
+(G1-ALEA-06 : +0,30 nat, divergence 0,22 nat à la loi plantée) ; la lecture L2 (section 10) montre que, dans ce monde,
+**13 % des lois aléatoires de la grammaire portent G ≥ 0,02** (159 sur 1 200). Appeler « fausse » toute découverte qui n'est
+pas la loi plantée compterait comme erreurs de la chaîne des découvertes partielles vraies ; appeler « vraie » toute loi qui
+survit compterait comme découvertes des redites de l'archive. La définition retenue sépare les deux : information sur le
+monde (G) **et** nouveauté par rapport à l'archive (ΔG). Limite dite : ΔG est mesuré contre la classe du nul v8 calculée à
+l'oracle, pas contre toute recombinaison concevable de l'archive.
+
+## 4. Étage 1 — monde à loi plantée, bras réel et deux bras de référence (A2 et A4)
+
+### 4.1 Plan
+
+- **Monde** : la loi plantée L* est celle du témoin vrai S-V1 de `exemples/temoins-pari-demo-v1.json` (sha256
+  `fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877`) : softmax, 3 issues, 2 traits gaussiens, 2
+  sous-populations — la classe de mondes du banc des tricheurs v8, sur laquelle le nul v8 a été validé
+  (`prereg/preenregistrement-validation-nul-v8-v2.md`, sha256 `7f37631d…` ; issue « confirmée »). Monde jamais servi.
+- **Générations** : 3 par bras (la boucle se referme deux fois) ; la génération g+1 de chaque bras lit le bilan scellé de la
+  génération g (`lire_heritage`, empreinte passée par l'orchestrateur) avant toute proposition.
+- **Bras réel** : Kimi (K3.1 Pro) et Argon (Gemini), modèles et adaptateurs de la configuration du second tour réel du
+  1er novembre (`demonstrations/ideation_v8.adaptateurs_reels_v56`) ; un appel par proposeur et par génération (rôle `proposeur_ideation`, brouillon 5), au plus
+  6 cartes chacun (12 emplacements par génération). Gabarit fermé de la proposition : `{enonce (≤ 400 caractères),
+  loi_predictive}` (types softmax, par_sous_population, si_sinon, melange, fixe, transformee ; dimension 2 ; 3 issues ; poids
+  bornés à ±4 ; la consigne figée sert la grammaire exacte : champs de chaque type selon `selection_pari.valider_loi` et un exemple valide par type, chacun essayé par `valider_loi` ; v62 ; v63 : indices entiers, nombres finis et évaluation de chaque loi par le gardien sur un jeu factice, dits dans la grammaire servie). **L'orchestrateur complète** tous les autres champs, dont le test de mort : le proposeur ne choisit ni la
+  statistique, ni le seuil, ni les données (garde neuve, section 7).
+- **Bras aléatoire** : `proposeurs_references_v59.proposer_aleatoire`, 12 cartes par génération (softmax sur un ou deux traits,
+  poids gaussiens d'écart-type 1,2 bornés à ±4, biais nuls) ; vue vérifiée, jamais lue. Décision D7 (paramètre `d7` du plan gelé ; acceptée telle qu'écrite : GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC) : « archive_du_bras_reel » = ses cartes sont jugées contre l'archive du bras réel de la même génération (même nul que les cartes réelles) et ses retenues ne sont jamais utilisées au jugement ni servies (son bilan v59 existe, lu et vérifié, archive jamais lue) ; « archive_propre » = sa propre boucle. Ordre dans une génération : réel, puis recopie-mélange, puis aléatoire. Les témoins sont testés dans leur propre étage (même tranche que les cartes), ce qui les tient hors de la sélection v57 et de l'archive.
+- **Bras recopie-mélange** : `proposeurs_references_v59.proposer_recopie_melange`, au plus 12 cartes par génération, faites des
+  seules lois **retenues par le bras réel** jusqu'à g−1 (décision D4 : il lit, vérifié par empreinte, le bilan du bras réel,
+  et ses cartes sont jugées contre l'archive du bras réel, c'est-à-dire contre le même nul que les cartes réelles de la même
+  génération). Génération 1 : archive vide, aucune carte (motif consigné, aucun repli). S'il n'a aucune carte en générations
+  2 et 3, sa mesure est « non mesurable » (issue écrite, section 4.7). Limite connue (mineur 36 de la contre-lecture 3) : une carte de ce bras faite d'une loi retenue de plus de ≈ 1 860 caractères (JSON canonique ; mélange à l'uniforme, loi tempérée et inclinée au-delà de ≈ 1 900) ou de deux lois retenues de plus de ≈ 1 925 caractères à elles deux dépasse la borne de 2 000 caractères de la loi servie : refusée au gardien, au seul bras recopie-mélange ; mesuré par S5 et P8, motifs lus (mesures de la section 4.5).
+- **Témoins** (ajoutés à chaque génération de chaque bras qui joue ; identifiants opaques ; servis à l'expérimentateur sous le même titre et le même énoncé neutres que les cartes, sans bras ni statut de témoin, v62 ; jugés comme témoins,
+  sans membres d'archive, comme `cycle.Generation.geler` ; **jamais retenus, jamais servis**, décision D3) :
+  T-VRAIE = L* ; T-F1, T-F2, T-F4 = S-F1, S-F2, S-F4 (G = −2,35 ; −0,13 ; −0,91) ; T-ANTI = poids opposés à L* (G = −3,81) ;
+  T-ELIM (instrument du test de mort) = L* accentuée (puissance 1,25) dont le test exige un gain d'au moins 2,0 nat
+  (inatteignable ; ce seuil servi le distingue des autres fiches pour l'expérimentateur, sans effet sur son verdict, calculé par le noyau sur le fichier brut et contre-calculé : mineur 38 de la contre-lecture 3) ; T-MAL (instrument du gardien) = carte sans bloc `statistique`. Le cas « inconclusif » scripté du mode à
+  blanc v59 n'est pas repris (un expérimentateur modèle ne se scénarise pas) ; il reste dans la répétition à blanc.
+- **Gardien** : deux couches, la même pour les trois bras et les témoins. (a) mécanique : gabarit, `selection_pari.valider_loi`,
+  `tests_de_mort_v5.valider_champ_test` (bloc `statistique` exigé) ; (b) **retirée** (décision D9, recommandation de la contre-lecture, I6 : gardien mécanique seul, décisif, pour les trois bras ; l'aiguilleur v53 est hors de portée ; le lanceur refuse `d9 = aiguilleur` avant tout appel). Gardien v63 (I26, option A de la contre-lecture 3, décidée par le directeur) : au gabarit des proposeurs et au gardien, indices entiers exigés (`condition.indice`, `condition.sous_population`, `oscillation.trait`, `oscillation.issue` ; `1.0` refusé, motif dit) et seuil fini ; puis le gardien évalue chaque loi sur un jeu factice fixe (98 instances, traits jusqu'à ±8, deux sous-populations ; chaque nœud par `selection_pari.proba`, fonction du juge et du contre-calcul, et la loi entière aussi par l'évaluateur servi) : toute exception, probabilité non finie, négative ou non normalisée, ou écart de l'évaluateur servi au-delà de 10⁻⁹ → carte refusée au gardien, motif dit, jamais un plantage du juge ni un arrêt de course ; le même pour les trois bras et les témoins ; la loi de la contre-lecture 3 (`{"indice": 1.0}`) est refusée au gabarit (essais `GardienEntiers`, `GardienJeuFactice`, `AucuneExceptionQuiRemonte`, `CourseIndiceFlottant`).
+- **Juge** : `a_blanc_v59.juger_carte` (appel pour appel `banc_tricheurs_v8.juger_v8`, genre « fraîche ») : bibliothèque
+  aveugle + marginale d'entraînement (100 tirages) + membres d'archive du nul v8 (`nul_v8.membres_archive_v8` sur l'archive du
+  bras), engagement gelé, ordre secret, 200 tirages frais liés à l'empreinte de l'engagement, lecture aux instants fixés ;
+  puis e-BH par (bras, génération) avec **m fixé à 19** avant toute issue (12 emplacements de cartes + 7 témoins, les témoins
+  comptant dans m mais lus hors famille (au seuil m/α, sans peser sur k*, comme le témoin vrai de `cycle.appliquer_multiplicite`) ; un emplacement vide vaut e = 0) — le même m dans les trois bras.
+- **Tests de mort** : étage v5 (`tests_de_mort_v5`) par `etage_entre_generations_v57.jouer_etage_v57`, dans le **vrai bac à
+  sable** (`bwrap`, sans réseau, un seul dossier, 768 Mo tenus par le bac et annoncés dans la consigne de l'étage (v62 ; la v61 annonçait le quota par défaut de l'étage, 1 024 Mo, non tenu), filtre d'appels système, identité dédiée sans privilège ; jamais de
+  repli sur l'exécuteur factice), pour toutes les cartes promues et tous les témoins promus de la génération. Tranche : 400
+  épisodes frais du monde planté par (bras, génération). Gabarit gelé du test (`proposeurs_references_v59.TEST_DE_MORT`) :
+  gain moyen par épisode du log-score de la loi sur la marginale empirique de la tranche (comptes + 0,5), fichier brut
+  `gains.csv`, colonne `gain`, statistique « moyenne », seuil « au moins 0,02 », valeurs écrites en pleine précision (`repr` de Python). **Loi servie** : la loi gelée de la carte (JSON canonique, borné en taille) et l'évaluateur de référence de la grammaire (le code du contre-calcul, fichier de la tranche, même empreinte pour toutes les cartes) sont servis à l'expérimentateur dans le préenregistrement court ; le mode à blanc ne lui passe rien d'autre (v62). **Expérimentateur** : Kimi (session modèle,
+  au plus 12 tours, 3 exécutions de 120 s au plus, plafond 0,80 USD (dollars américains) par carte : borne écrite d'avance, qui couvre les 12 tours au prix prudent du devis, 12 × 0,06 = 0,72 USD, passée à l'étage qui la tient, v63, I30, relevée au brouillon 5 pour qu'aucune carte ne soit jugée sur une exécution tronquée par la borne ; 0,30 USD au brouillon 4, 0,5 USD en v62 ; v64 : la consigne de chaque tour est d'abord comparée au reste de la borne au barème prudent de la commande de Kimi — au-delà, fin des tours, rien envoyé — et un code 4 « rien envoyé » de la commande est lu « budget_depasse » : fin des tours de la carte, rien compté, jamais un arrêt ; section 0). **Vérificateur** : Argon,
+  lecteur témoin d'une autre famille que l'expérimentateur (plafond 0,1 USD par carte), jamais décisif ; une session qu'il ne peut pas jouer sous ce plafond (consigne au-delà au barème prudent de la commande d'Argon, ou code 4 « rien envoyé ») rend son témoin « non concluant », jamais un arrêt (v64). Verdict : celui du noyau
+  v5 sur la copie scellée du fichier brut, **plus** le contre-calcul de l'orchestrateur (section 7, garde 10).
+- **Sélection et bilan** : `selection_entre_generations` (v57 : « survit » seulement, témoins exclus), bilan v59 scellé, lu par
+  la génération suivante.
+
+### 4.2 Hypothèses
+
+- **H-A2-1 (la loi vraie survit)** : le témoin T-VRAIE est promu et reçoit « survit » du noyau dans presque toutes ses
+  passes.
+- **H-A2-2 (les fausses sont éliminées)** : aucun témoin faux n'est retenu par la chaîne (promu puis survivant), et T-ELIM
+  testé reçoit « éliminée ».
+- **H-A2-3 (l'instrument conclut)** : la part de « non concluant » parmi les cartes testées reste sous un seuil.
+- **H-A2-4 (la boucle est fermée)** : chaque génération g ≥ 2 de chaque bras lit le bilan scellé de g−1, à l'empreinte
+  consignée, et ne sert aucune information du juge aux proposeurs.
+- **H-A4-1 (taux de fausses découvertes de la chaîne)** : sous les deux bras de référence, la part de cartes qui deviennent
+  des fausses découvertes est petite (bornée par α par carte pour les recombinaisons de l'archive, argument de Ville, et
+  par le test de mort pour les lois sans information).
+- **H-A4-2 (la chaîne distingue le bras réel du hasard)** : le bras réel produit plus de cartes promues puis survivantes, et
+  plus de vraies découvertes, que le bras aléatoire.
+
+### 4.3 Prédictions chiffrées et signées (ouvertes dans les deux sens)
+
+Écrites après les lectures préalables L0 à L4, L2b-v61 et L2b-v62 (section 10 ; L2b-v63, L2b-v63-b5 et L2b-v64-b6, plus tardives, n'en ont changé aucune), qui n'utilisent ni modèle ni vrai expérimentateur ; elles ne
+décident pas des issues, qui suivent les critères des sections 4.6 et 4.7.
+
+- **P1 (signe +, loi plantée)** : T-VRAIE « survit » dans **8 passes sur 8** (L1 : promue et statistique ≥ 0,02 dans 200
+  graines sur 200). Ouverte : ≤ 6 sur 8 dirait que le vrai expérimentateur (ou le gardien modèle) perd une loi que le juge
+  promeut toujours.
+- **P2 (signe −, fausses)** : **0** témoin faux promu puis survivant sur 32 passes (T-F1, T-F2, T-F4, T-ANTI × 8) ; T-F2
+  promu par le juge dans 0 à 4 passes (L1 : 83 sur 200 seul ; e-BH à m = 19 l'abaisse), éliminé au test de mort dans
+  toutes (L1 : la statistique de T-F2 n'atteint 0,02 que dans 3 graines sur 200) ; T-ELIM « éliminée » dans toutes ses passes
+  testées. Ouverte : un témoin faux retenu dirait que le test de mort ne rattrape pas une fausse promotion.
+- **P3 (inconclusif)** : part de « non concluant » parmi les cartes et témoins testés **≤ 0,10** dans chaque bras (le seuil
+  gelé est 0,20, section 4.6). Ouverte : au-dessus de 0,20, l'instrument ne conclut pas.
+- **P4 (bras aléatoire, sous D7 « archive du bras réel »)** : génération 1 (archive vide dans tous les cas) : PS **entre 1 et 4 cartes sur 12** (L2b : 35/288 = 0,122 par carte ; probabilité ≈ 0,78 ; 0 sur 12 a une probabilité ≈ 0,21). Générations 2 et 3, jugées contre l'archive du bras réel : ≈ 0 si elle porte une loi voisine de L* (L2b-v61, une répétition : 0 sur 24), ≈ 0,12 par carte si elle reste vide. Trois générations : **entre 1 et 6 cartes sur 36** si l'archive réelle est informative dès la génération 1 ; **entre 1 et 8** si elle reste vide (binomiale (36 ; 0,122) : P(≤ 8) ≈ 0,97, P(≥ 7) ≈ 0,14) ; L2b (archive propre, 0,056) n'est une borne haute que dans le premier cas. FD du bras aléatoire **≤ 1 carte sur 36** (L2 : 3 sur 1 200 = 0,0025). Ouverte : une part hors de la bande de son cas dirait que le juge ou le test de mort ne se comporte pas comme sur L2 et L2b ; rapportée, auditée (S2), non décisive. Cas lu par la lecture gelée (v62, inchangé en v63) sur la taille de l'archive de jugement du bras aléatoire en génération 2 : non vide → « informative » (1 à 6) ; vide, qu'elle le reste ou non en génération 3 → bande 1 à 8, borne haute.
+- **P5 (bras recopie-mélange)** : **0 FD** (L2 : 0 promue sur 300 face à une archive informative ; validation du nul v8 :
+  0 sur 1 000 pour T02, T03b, T04, T05s, T17s). Ouverte : une FD, possible au niveau α par carte, est rapportée et auditée.
+- **P6 (signe +, bras réel)** : part PS du bras réel **≥ 0,30 en génération 1** (parmi les cartes jugées de la génération 1 ; au moins 4 sur 12 si toutes passent le gardien) et part VD ≥ 0,25 en génération 1 ; sur trois générations, rapportée sans seuil (un bras qui trouve la loi en génération 1 sature son archive : L2b, 0/96 ensuite), donc au-dessus du bras
+  aléatoire (Newcombe, borne basse > 0 attendue). Ouverte dans l'autre sens : PS réel ≤ 0,15 dirait que les vrais proposeurs,
+  avec 200 épisodes de développement, ne font pas mieux que le hasard dans ce monde. Aucune lecture préalable ne porte sur ce
+  bras (aucun modèle appelé) : prédiction de rédacteur.
+- **P7 (loi plantée retrouvée par les proposeurs)** : **aucune VD*** (D ≤ 0,05 nat) en génération 1 ; la plus petite
+  divergence D parmi les VD du bras réel **décroît** de la génération 1 à la génération 3 (mesurée, sans seuil ; calculée par la lecture v63, `predictions.P7` : plus petite `divergence_nat` des VD du bras réel par génération ; « décroît » = valeur de la génération 3 < valeur de la génération 1 ; mineur 30). Ouverte : une
+  VD* dès la génération 1 dirait que 200 épisodes suffisent à un modèle de langage pour ajuster la loi à 0,05 nat près.
+- **P8 (gardien)** : part de cartes refusées par le gardien mécanique ≤ 0,10 dans chaque bras ; écart entre bras ≤ 0,15. Ouverte : au-dessus, le gabarit fermé est mal compris par un proposeur (refus mesurés, motifs lus, S5).
+
+### 4.4 Métriques et taille
+
+- Par bras b : N_b cartes jugées (passées au gardien) ; PS_b, VD_b, FD_b, cartes testées, « non concluant » ; parts
+  r_b = PS_b / N_b, vd_b = VD_b / N_b, fd_b = FD_b / N_b ; **intervalle de Wilson (score) bilatéral à 95 %** pour chacune ;
+  **intervalle de Newcombe** (méthode 10, hybride de Wilson) pour r_réel − r_aléatoire et vd_réel − vd_aléatoire.
+- Diagnostic de la chaîne (oracle, tous bras réunis) : sensibilité P(PS | carte informative et nouvelle, G ≥ g₀ et ΔG ≥ g₀) et
+  part P(PS | carte non informative) ; Wilson.
+- Témoins : passes et verdicts par témoin (8 passes de chacun : 3 réel, 3 aléatoire, 2 recopie-mélange ; 6 si le bras
+  recopie-mélange ne joue pas).
+- **Taille** : bras réel ≤ 36 cartes, bras aléatoire 36, bras recopie-mélange ≤ 24, témoins 56 passes. Ce qu'elle tranche
+  (Wilson 95 %) : 0/36 → [0 ; 0,096] ; 2/36 → [0,015 ; 0,181] ; 4/36 → [0,044 ; 0,253] ; 14/36 → [0,248 ; 0,551] ;
+  T-VRAIE 8/8 → [0,676 ; 1]. Écart réel − aléatoire : avec 4/36 au bras aléatoire, la borne basse de Newcombe dépasse 0 dès
+  **11/36** au bras réel (0,31) ; à 9/36 elle vaut −0,042. **Un écart inférieur à environ 0,2 n'est pas décidable** à cette
+  taille ; un taux de fausses découvertes de la chaîne au-dessus d'environ 0,10 par carte serait visible (borne haute de
+  Wilson de 0/36 = 0,096). Doubler le bras aléatoire (une seconde réplique de 36 cartes, ≈ 2,5 USD) resserrerait la référence :
+  option laissée à Lazar (D6).
+
+### 4.5 Ce qui est mesuré sans critère
+
+Trajectoire de la meilleure D et du meilleur G du bras réel par génération ; refus du gardien par bras et motifs ; log W
+maximal et membre dominant du nul par carte ; sessions, exécutions et coût par carte testée ; désaccords du vérificateur
+avec le noyau. Les deux premières sont calculées par la lecture v63 (`mesures_sans_critere`, mineur 30) ; les autres se lisent au journal du relevé.
+
+### 4.6 Critère gelé « l'étage 1 tient » (porte vers l'étage 2)
+
+Calculé par `pole/lecture_tour_ferme_v63.lire_etage1`, appelée par `lire_tour_etage_1` (programme `demonstrations/lire_tour_ferme_v64.py`, qui n'accepte que les relevés du cœur v64, la lecture elle-même étant inchangée, section 9 ; C10 et C16 de la contre-lecture 2, I28, I29 et mineurs 29 et 30 de la contre-lecture 3 appliqués ; les lectures v60, v61 et v62 restent inchangées, hors du code gelé de ce texte) sur le relevé scellé, dans cet ordre ;
+**tous** doivent tenir :
+
+1. **T1 — boucle** : aucune `SelectionNonVerifiee`, `HeritageRefuse` ni `VueAvecVerdict` ; chaque génération g ≥ 2 de chaque bras qui joue a lu le bilan
+   de g−1 à l'empreinte consignée (journal ; une lecture vérifiée par génération g ≥ 2 de chaque bras, qu'il joue ou non : le bras recopie-mélange lit le bilan du bras réel même quand l'archive vide l'empêche de jouer ; attendu = lu ; lectures v62 et v63) ; aucun arrêt de la liste d'arrêt.
+2. **T2 — loi plantée** : T-VRAIE « survit » dans **toutes ses passes sauf au plus une** (une passe par génération jouée de chaque bras, nombre compté sur le journal : 8 si le bras recopie-mélange joue en
+   générations 2 et 3, 7 s'il ne joue qu'en génération 3, 6 s'il ne joue pas), « éliminée » dans aucune.
+3. **T3 — fausses** : au plus **1** passe de témoin faux promue puis survivante sur 32 (24 si le bras recopie-mélange ne joue
+   pas) ; T-ELIM testé et « éliminée » dans toutes ses passes sauf au plus une, jamais « survit » ; T-MAL présent et refusé au gardien dans chaque génération jouée de chaque bras.
+4. **T4 — inconclusif** : « non concluant » / testées ≤ **0,20** sur les trois bras réunis et ≤ 0,40 dans chaque bras (cartes et témoins) ;
+   chaque carte testée porte un contre-calcul (absent : relevé invalide, issue N) ; aucun désaccord du contre-calcul (un désaccord arrête la course, garde 10 : relevé partiel scellé, sans les cartes de la génération arrêtée ; T1 manqué par l'arrêt).
+5. **T5 — fausses découvertes** : FD du bras aléatoire ≤ **1** (sur 36 cartes ; L2 attend 0,0025 par carte) ; FD du bras
+   recopie-mélange ≤ **1** (ou bras « non mesurable »).
+
+Un critère manqué : **l'étage 2 n'est pas joué** ; l'issue est « étage 1 ne tient pas (Tk) », publiée telle quelle avec ses
+chiffres, et A3 est « non jugée ». Aucune reprise du même texte scellé après lecture : toute réparation est une version
+nouvelle avec un préenregistrement nouveau.
+
+### 4.7 Lecture A4 gelée et issues écrites d'avance
+
+1. **Taux de fausses découvertes de la chaîne** : fd_aléatoire et fd_recopie avec Wilson ; c'est le taux par carte proposée
+   auquel la chaîne transforme une proposition sans information, ou une redite de l'archive, en découverte retenue.
+2. **Lecture de Lazar, gelée telle quelle** : r_réel, r_aléatoire, r_recopie (part de cartes promues puis survivantes) avec
+   Wilson ; **si la borne basse de Newcombe de r_réel − r_aléatoire est ≤ 0 (« le bras aléatoire promeut autant que le bras
+   réel »), la chaîne ne distingue pas les vrais proposeurs du hasard dans ce monde : réserve majeure pour A3**, écrite dans
+   la phrase au mentor (section 4.8).
+3. **Ce qui départage, écrit d'avance** : l'oracle sépare les causes d'un écart non positif, par la part de cartes informatives et nouvelles à l'oracle (G ≥ g₀ et ΔG ≥ g₀, mesurée sur toutes les cartes jugées, promues ou non) : si sa borne basse de Newcombe réel − aléatoire est > 0, les proposeurs produisent de l'information que la chaîne ne retient pas (« sensibilité de la chaîne insuffisante ») ; sinon « on ne peut pas dire, à cette taille, que les vrais proposeurs battent le hasard dans ce monde ». Puissance dite : à 36 contre 36, un écart vrai de 0,10 sur r est déclaré « discrimine » avec une probabilité d'environ 0,2, un écart de 0,20 avec environ 0,6. Si T5 tient (la chaîne ne
+   transforme presque aucune loi sans information ni aucune redite en découverte), un écart nul dit que **les vrais proposeurs
+   ne font pas mieux que le hasard dans ce monde** (où 13 % des lois aléatoires sont informatives) ; si T5 manque, c'est **la
+   chaîne qui ne discrimine pas**, et l'étage 2 n'est pas joué. Sensibilité de la chaîne rapportée, sans seuil.
+4. **Issues (exhaustives)** : T5 manque → « la chaîne ne discrimine pas » (étage 2 non joué) ; T5 tient et borne basse de
+   Newcombe de r_réel − r_aléatoire > 0 → « discrimine » ; T5 tient et borne ≤ 0 → « le bras aléatoire promeut autant que le
+   bras réel à cette taille : la chaîne ne distingue pas les vrais proposeurs du hasard dans ce monde » (phrase de Lazar ; réserve majeure pour A3, point 2), suivie de la cause lue au point 3 ; la comparaison de la seule génération 1 est rapportée à côté, sans décider. Le bras
+   recopie-mélange sans aucune carte en générations 2 et 3 → « recopie non mesurable », dit à côté de l'issue. Bras réel sans aucune carte jugée → issue A4 « non mesurable (aucune carte réelle jugée) », jamais « promeut autant » (lectures v62 et v63). Relevé d'arrêt : aucune issue A4 (lecture v63 : « non lue (arrêt) », I28 ; section 7).
+
+### 4.8 Phrases préparées pour le mentor, étage 1 seul (anglais ; chiffres de la sortie scellée, sans autre changement)
+
+- **N1** (« ne tient pas », critère) : « The closed loop did not pass its own planted-world gate ([criterion]); we did not run it on the real question. »
+- **N1, arrêt** (T1 manqué par un arrêt de la liste d'arrêt ; champ `n1 = arret` de la lecture v63, y compris pour un relevé d'arrêt jugé invalide : mineur 29) : « The planted-world run was stopped before its end ([stop: budget / duration / recomputation disagreement / session failure / model refusal / other: (type)]); we did not run the loop on the real question. »
+- **Tient, « discrimine »** : « We ran our automated research loop closed, for real, on a planted-law world: two proposer models (Kimi, Gemini Argon) that never see a verdict, a form gatekeeper, a frozen statistical judge, death tests executed in a network-less sandbox, a verifier from another model family, and a sealed selection read by the next generation. The chain kept the planted law in [k] of [n] passes, and promoted and kept [r_real] (Wilson 95 % [a, b]) of the models' proposals against [r_random] of random proposals ([x] of the random proposals kept carried no new information by an oracle that knows the planted law); the difference is above zero at 95 % (Newcombe [c, d]). This is one planted world, three generations, [n_real] model proposals and [n_random] random proposals judged. »
+- **Tient, autre issue A4** : la même phrase, la dernière proposition remplacée par l'issue A4 gelée (section 4.7) : « at this size we could not show that the models' proposals do better than random ones ([cause]) » ou « not measurable: no proposal from the models was judged ». Si S1 est déclenché et audité sans défaut (section 6), la phrase « tient » se termine par : « The run was flagged as too clean and audited; no defect was found. »
+
+En français, pour le dossier : N1 — « la boucle n'a pas passé sa propre porte sur monde planté » ; tient — « la chaîne fermée a tourné pour de vrai sur un monde planté et a gardé la loi plantée ; [issue A4] ».
+
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+## 5. Étage 2 — la vraie question (A3), joué seulement si l'étage 1 tient
+
+### 5.1 Question et monde
+
+- **Question** : celle du second tour réel du 1er novembre (Kimi et Argon, 62 appels, 1,47 USD ; préenregistrement sha256
+  `6fcb1035aa46be34caba9b381b1f9bf0a054fc6d3e9b4430b18e680c101c7481`, **introuvable dans les arbres lus** — README, section 4,
+  et message n° 334 de conv-audit). Le texte servi et son empreinte sont **à nommer par la session-depot avant scellement**
+  (case Q ci-dessous). Candidats trouvés, sans preuve qu'ils soient le texte servi le 1er novembre : le texte I de la course 2
+  (`question-course-2-defense-fusion-v5.md`, sha256 `a7501449…`, en-tête « brouillon, non servi ») et la question du
+  collisionneur de la course 2 (`docs/notes/ideation-organisme-v1/course-2/question-course-2-v1.md`).
+- **Forme testable** : le juge statistique ne juge que des lois prédictives sur un monde d'épisodes. L'étage 2 sert la question
+  comme contexte et demande des **lois du score d'un des 13 moniteurs réels en fonction des traits de l'épisode** (4 traits :
+  `log_jetons_total`, `actions_valides`, `jetons_par_action_ecart_type`, `bruit` ; 2 sous-populations ; 2 ou 3 issues selon le
+  moniteur) — la forme des lectures sur banque déjà faites (README, section 4). Portée dite : **la vraie question, restreinte
+  à ce que la banque T0.5 peut trancher.** La traduction des fiches d'idées du 1er novembre par le pont
+  (`pont-fiche-loi-v1/`) est une autre voie, hors de ce texte.
+- **Monde de l'étage 2** (construit par la session-depot, scellé avant la course) : épisodes publics de `exemples/banque-t05-v2.json`
+  (120 épisodes, 60 tâches, sha256 `f26cc857…`) et 288 épisodes à graines neuves du 2 novembre (96 tâches × 3, privés, ceux
+  de la lecture `preenregistrement-lecture-t05-graines-neuves-v2.md`, sha256 `93923d71…`), **moins toutes les tâches réservées**
+  (section 5.2). Parties, par tâche entière : calibrage (partie « calibrage » de la banque publique : prédicteur connu de
+  chaque moniteur), développement (servi aux proposeurs, traits et issues) et épreuve (paris du juge), réparties par la
+  graine de la tâche « etage=2|partition » (un tiers développement, deux tiers épreuve, parmi les tâches non réservées hors
+  calibrage).
+
+### 5.2 Données tenues à l'écart (réserve par empreinte, avant la course)
+
+**Ce qui existe** : aucune donnée réelle neuve n'a été produite pour ce tour ; les seules données réelles du pôle sont la banque
+T0.5 (publique, 120 épisodes) et les 288 épisodes à graines neuves (privés, lus **une fois** par le juge dans la lecture du
+2 novembre, pour les lois des 13 moniteurs, jamais par un proposeur). **Plus petite réserve honnête proposée** :
+
+- **Règle (fixée ici, indépendante de la graine scellée et de toute issue)** : une tâche t est réservée si et seulement si
+  `int(sha256("tour-ferme-v1|tenue-a-l-ecart|" + t).hexdigest(), 16) % 3 == 0` (environ un tiers des tâches). Les **données
+  tenues à l'écart T** = tous les épisodes **privés à graines neuves** des tâches réservées (attendu ≈ 96 épisodes, ≈ 32
+  tâches) ; les épisodes **publics** des tâches réservées sont retirés de tout (ni monde du juge, ni T), pour que T ne
+  contienne que des épisodes jamais publiés ni servis et qu'aucune tâche de T n'apparaisse dans ce que voient les
+  proposeurs ou le juge.
+- **Exécution** : par la session-depot (qui garde `donnees/`), avec le module public `pole/reserve_tenue_a_l_ecart_v60.py`
+  (écrit avec ce brouillon ; commande en section 9), **avant scellement** ; elle rend au rédacteur les seules empreintes et les seuls comptes (aucun contenu), qui
+  sont recopiés ici ; T est scellé, gardé chez elle, et n'est monté que dans la tranche du bac à sable de l'étage des tests de
+  mort de l'étage 2.
+
+| case (à remplir avant scellement par la session-depot) | valeur |
+|---|---|
+| Q — texte de la question servie à l'étage 2 : le texte du 1er novembre reste introuvable ; **défaut** (contre-lecture, B2) : la question du collisionneur de la course 2, nommée comme telle (`docs/notes/ideation-organisme-v1/course-2/question-course-2-v1.md`), sans prétendre être le texte du 1er novembre ; sha256 : <<CASE_Q>> |
+| E0 — fichier des 288 épisodes à graines neuves (entrée de la réserve), sha256 | <<CASE_E0>> (session-depot) |
+| R — liste triée des tâches réservées, sha256 ; nombre de tâches | <<CASE_R>> (session-depot ; sur les 60 tâches publiques : 16 réservées, L4) |
+| T — fichier des données tenues à l'écart, sha256 ; épisodes ; épisodes par moniteur | <<CASE_T>> (session-depot) |
+| M2 — monde de l'étage 2 (sans les tâches réservées), sha256 ; épisodes par partie | <<CASE_M2>> (session-depot ; vérifié par `verifier_disjonction`) |
+| V — sha256 du module de réserve exécuté et de son manifeste | module v60 `2399d5eca73e5a5f832c72a0b62c0c9110ae238ea2b48a31cab318a00e43edc0`, v61 `b99fe5a58d6348e80e9ff0b3184a69b4602951d8c8e439a59c240e3ef5883ff9` ; manifeste : <<CASE_V>> (session-depot ; recopié dans `reserve_manifeste_sha256` du plan gelé) |
+
+- **Essai de la règle sur les seuls identifiants de tâches publics** (lecture L4, aucune issue lue) : sur les 60 tâches de
+  `banque-t05-v2.json`, 16 sont réservées (32 épisodes publics, retirés de tout), 44 restent (88 épisodes). Sur les 96 tâches
+  à graines neuves, environ 32 sont attendues (≈ 96 épisodes dans T) ; le compte exact est celui de la case R.
+- **Jamais vues** : T n'entre ni dans le contexte d'un proposeur, ni dans le monde du juge, ni dans une vue ; le lanceur
+  vérifie l'empreinte de T avant de le monter et cherche, dans chaque contexte servi et dans M2, chaque tâche réservée sous sa forme normalisée (sans suffixe de version), chaque identifiant d'épisode de T et chaque vecteur de traits de T arrondi à 4 décimales (garde 11, section 7 ; `pole/reserve_tenue_a_l_ecart_v61.py`) ; la session-depot vérifie que les tâches communes à E0 et à la banque publique y sont écrites à l'identique (refus sinon). T est lu, dans le bac, par l'expérimentateur (Kimi) et le vérificateur (Argon) de l'étage 2 : c'est la seule lecture de T par un modèle.
+- **Une lecture par génération décisive** : T sert aux tests de mort des **deux** générations de l'étage 2 ; seule la
+  **génération 1** est décisive pour A3 (T n'y a influencé aucune proposition). En génération 2, la vue des proposeurs porte les
+  lois retenues sur T en génération 1 (un bit par carte testée) : ses survivantes sont rapportées comme « survivantes sur T
+  relue », exploratoires (décision D5 ; l'alternative, T coupé en deux moitiés par tâche, une par génération, coûte la moitié
+  des épisodes à chaque test de mort).
+
+### 5.3 Plan de l'étage 2
+
+Même chaîne que l'étage 1, avec : deux générations ; bras réel (Kimi, Argon, 6 cartes chacun, gabarit fermé `{enonce, moniteur,
+loi_predictive}`, le test de mort complété par l'orchestrateur) ; **bras aléatoire de contrôle** (12 lois par génération tirées
+dans la grammaire du monde de l'étage 2, moniteur tiré au hasard ; décision D6) ; pas de bras recopie-mélange. Témoins
+d'instrument seulement (aucune vérité connue sur des données réelles) : T2-CONNU (le prédicteur connu d'un moniteur, membre du
+nul : ne doit jamais être promu) et T2-MAL (carte sans bloc : refusée au gardien). Juge : configuration du juge de production à
+plan pleine épreuve (`juge_plan_plein_v1` : nul v8, monde informé avec le membre « connu:<moniteur> », e-BH, α = 0,05, plan =
+tout le réservoir d'épreuve du moniteur de la carte) **étendue aux membres d'archive du bras** pour la génération 2 (la garde
+`verifier_archive_vide` de la v1 l'interdit : variante `_v60` à écrire). m fixé à 14 (12 cartes + 2 témoins). Test de mort :
+gain moyen du log-score de la loi sur le prédicteur connu du moniteur (membre « connu:<moniteur> », ajusté sur la seule partie calibrage, gelé avant la course ; décision D8, <<DECISION_D8>> ; le gain sur la marginale empirique de T, comptes + 0,5, est rapporté à côté), calculé sur les épisodes de T qui portent une
+issue pour le moniteur de la carte ; seuil « au moins 0,02 » ; fichier brut `gains.csv`.
+
+### 5.4 Hypothèse et prédictions (étage 2)
+
+- **H-A3** : au moins une loi proposée par le bras réel en génération 1 est promue par le juge puis survit à son test de mort
+  exécuté sur T.
+- **P9 (signe : zéro, ouverte dans les deux sens)** : l'issue la plus probable est **Z, aucune promotion survivante**
+  (probabilité de rédacteur ≈ 0,75) : la lecture à graines neuves borne les lois de moniteur de la forme plantée sous
+  0,057 à 0,117 nat par épisode (puissance 0,9) et n'en a promu aucune ; le juge sur cette banque est faible sous 0,06 nat.
+  Ouverte : une promotion survivante viendrait d'un lien d'une autre forme (si_sinon, par_sous_population) au-dessus de cette
+  borne.
+- **P10 (contrôle)** : le bras aléatoire de l'étage 2 n'a **aucune** carte promue puis survivante (le membre « connu » du nul
+  absorbe le signal linéaire). Ouverte : une PS aléatoire dirait que la chaîne laisse passer le hasard sur cette banque.
+
+### 5.5 Puissance (calcul approché, marqué SUPPOSÉ là où il l'est)
+
+- Juge : courbe de puissance sur cette banque (README, section 4) : force 0,5 (≈ 0,06 nat par épisode) promue 65 à 73 % entre
+  120 et 180 épisodes d'épreuve avec le plan gelé, 0,9 vers 233 épisodes avec le plan plein ; ici ≈ 180 épisodes d'épreuve
+  au total, moins par moniteur (SUPPOSÉ : 75 à 150).
+- Test de mort sur T (≈ 40 à 85 épisodes par moniteur ; écart-type du gain par épisode SUPPOSÉ 0,5 nat) : une loi qui porte
+  0,06 nat survit avec une probabilité ≈ 0,69 à 0,77 ; 0,12 nat ≈ 0,90 à 0,97 ; une loi sans information (gain ≈ −0,03)
+  ≈ 0,18 à 0,26 (approximation normale de la moyenne, n = 40 à 85, épisodes SUPPOSÉS indépendants ; ils ne le sont pas, 3 par tâche : à corrélation ρ entre épisodes d'une même tâche, n effectif ≈ n / (1 + 2ρ), et la survie d'une loi sans information monte).
+- Conjointe (juge SUPPOSÉ à 0,4 à 0,7 pour 0,06 nat et ≥ 0,9 pour 0,12 nat à ces tailles) : une loi réelle de 0,06 nat a
+  ≈ 0,3 à 0,55 de passer les deux ; de 0,12 nat, ≈ 0,8 ou plus. **Zéro promotion ne dira donc
+  rien des liens sous ≈ 0,06 à 0,12 nat par épisode**, ce que la phrase au mentor dit.
+
+### 5.6 Issues écrites d'avance et phrase pour le mentor
+
+Calculées par `pole/lecture_tour_ferme_v61.lire_etage2`, dans cet ordre :
+
+1. **N — non jugée** : étage 1 ne tient pas (section 4.6) ; ou arrêt de la liste d'arrêt à l'étage 2 ; ou « non concluant »
+   > 0,20 des cartes testées de l'étage 2 ; ou contre-calcul en désaccord.
+2. **P — promotion** : au moins une carte du bras réel de **génération 1** promue (e-BH) **et** « survit » au noyau sur T, contre-
+   calcul concordant. Rapporté par carte : moniteur, forme de la loi, log e, statistique sur T, empreintes ; plus les
+   survivantes de génération 2 « sur T relue » (exploratoires). Réserves automatiques : (a) celle de A4 si l'issue A4 n'est
+   pas « discrimine » ; (b) « le hasard passe aussi » si le bras aléatoire de l'étage 2 a une carte promue puis survivante.
+3. **Z — zéro** : aucune carte du cas P. Rapporté tel quel, avec la borne de la section 5.5.
+
+Phrases préparées pour Jan Kirchner (anglais), à compléter par les chiffres de la sortie scellée, sans autre changement :
+
+- **P** : « We ran our automated research loop closed, for real: two proposer models (Kimi, Gemini Argon) that never see a
+  verdict, a form gatekeeper, a frozen statistical judge, death tests executed in a network-less sandbox, a verifier from
+  another model family, and a sealed selection read by the next generation. On our real question, restricted to laws of monitor scores that our episode bank can test, [n] hypothesis(es) written
+  by the models was promoted by the judge and then survived a preregistered death test run on held-out episodes reserved by
+  hash before the run (fresh-seed episodes of the same tasks, never shown to a proposer or to this run's judge; read once before by our judge for other laws). On a planted-law world the same chain [kept / lost] the planted law and promoted and kept [r] (Wilson 95 % [a, b])
+  of random proposals, [x] of which carried no new information by an oracle that knows the planted law; copy-and-mix proposals, restricted to forms our judge's null covers by construction, gave [y]. This is a first hypothesis out of a
+  verdict-blind pipeline, not a validated finding: it holds on fresh episodes of the same tasks, and needs new tasks. »
+  [+ réserve (a) : « Caveat: on the planted world, we could not show, at 36 proposals per arm, that our proposers produce more surviving
+  discoveries than a random proposer ([cause]), so this promotion cannot yet be credited to their judgement. »] [+ réserve (b) : « Caveat: a random proposer also
+  got through on the real bank. »]
+- **Z** : « We ran the loop closed, for real, on our real question: it promoted nothing that survived the held-out death test,
+  and we report that zero as preregistered. On a planted-law world the same chain [kept the planted law] and promoted and kept [r] of
+  random proposals, [x] of them without new information by the oracle; on our real episode bank, links weaker than about 0.06 to 0.12 nat per episode
+  would pass unseen. The pipeline now runs end to end; at this data size, the real question did not yield a hypothesis it
+  could confirm. »
+- **N** : N1 (étage 1) : « The closed loop did not pass its own planted-world gate ([criterion]); we did not run it on the real question. » N2 (étage 2) : « We ran the closed loop on the real question, but the run is not judgeable ([stop / inconclusive share above 0.20 / recomputation disagreement]); we report no outcome for the real question. »
+
+En français, pour le dossier : P — « une hypothèse écrite par les modèles, promue par le juge figé, a survécu à un test de mort
+exécuté sur des épisodes tenus à l'écart » ; Z — « la boucle fermée a tourné pour de vrai sur la vraie question et n'a rien
+promu qui survive ; zéro est le résultat » ; N — « la boucle n'a pas passé sa propre porte sur monde planté ».
+
+<!-- etage-2-hors-scellement : fin -->
+
+## 6. Audit de symétrie (règle R4), écrit d'avance
+
+Un résultat trop propre, dans un sens ou dans l'autre, déclenche le même audit **avant** toute lecture d'issue. Le point (3) de S1 (poids de L* et lignes de tranche dans les contextes servis) est fait à chaque course, déclenchée ou non, par le code gelé (champ `recherche_loi_plantee` du relevé, calculé ; absent ou `null` : relevé invalide ; v62 et v63). S1 ou S3 déclenché sans défaut trouvé : l'issue porte la réserve « trop beau, audité sans défaut » (R4). Point (3), S1 déclenché ou non : une ligne de tranche dans un contexte servi est un défaut (course invalide, aucune issue) ; une touche des paramètres de L* est auditée avant toute lecture d'issue (coïncidence d'un nombre servi, par exemple d'un épisode de développement, ou fuite : défaut) ; la lecture v63 applique la première règle (relevé invalide : « ne tient pas (relevé invalide : défaut …) », aucune issue A4, champ `defaut` ; I29) et porte toute touche de L* dans `audit_avant_lecture`, avec S1, S2 et S5 déclenchés.
+
+- **S1 — trop beau (étage 1)** : aucune FD dans aucun bras **et** aucun « non concluant » **et** T-VRAIE « survit » 8 fois sur
+  8 **et** une VD* du bras réel dès la génération 1. Audit : (1) contre-calcul hors bac de chaque statistique testée depuis la
+  loi gelée et la tranche scellée ; (2) lecture de chaque script d'expérimentateur : le fichier brut est-il calculé depuis
+  `episodes.csv`, ou fabriqué ? (3) recherche, dans chaque contexte servi aux proposeurs, des poids de L* (exacts et arrondis à
+  deux décimales) et de toute ligne de tranche ; (4) vérification que les témoins ont été jugés sans membres d'archive et
+  exclus de l'archive ; (5) oracle rejoué sur un cas connu (G(L*) = 0,523). Un défaut trouvé : course invalide, aucune issue.
+- **S2 — trop laid (étage 1)** : T-VRAIE « éliminée » ou « non concluant » dans au moins 2 passes, ou fd_aléatoire > 0,05, ou
+  une FD du bras recopie-mélange. Audit : les cinq points de S1, puis : rejouer chaque carte en cause avec l'exécuteur factice (même tranche, mêmes graines)
+  et comparer les verdicts du noyau ; vérifier les membres ajustés du nul (`nul_v8.exiger_membres_ajustes`) ; relire les
+  sessions de l'expérimentateur ; puis lecture des critères, sans les changer.
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+- **S3 — trop beau (étage 2)** : une carte P avec log e > 20, ou une statistique sur T > 0,3 nat (bien au-dessus de la borne
+  de 0,06 à 0,12 nat de la lecture à graines neuves). Audit : empreinte de T au montage ; recherche des tâches réservées dans les
+  contextes servis ; la loi encode-t-elle l'identité d'une tâche (trait `bruit`, valeurs exactes) ? contre-calcul.
+- **S4 — décevant (étage 2)** : issue Z ou N. Même profondeur d'audit que S3 : plans du juge de la taille prévue, cartes
+  valides, refus du gardien par bras, témoins d'instrument conformes, borne de puissance recalculée.
+<!-- etage-2-hors-scellement : fin -->
+
+- **S5 — asymétrie du gardien et de l'expérimentateur** : part de refus du gardien mécanique, ou part de « non concluant », d'un bras supérieure de plus de 0,15 à la même part d'un autre bras : motifs
+  lus avant lecture des parts (un gardien qui refuse les cartes réelles et non les scriptées fausserait A4).
+
+## 7. Liste d'arrêt (chaque garde essayée sur un cas sain et sur un artefact, règle R5)
+
+| # | garde | cas sain | artefact | essai |
+|---|---|---|---|---|
+| 1 | lecture vérifiée de l'héritage | bilan, sélection, cartes, verdicts aux empreintes consignées | sélection réécrite avec sceau juste ; bilan d'une autre empreinte ; lien symbolique ; retenue non survivante → `SelectionNonVerifiee` / `HeritageRefuse` | existe : `essais/test_v59_boucle_fermee.py` |
+| 2 | vue sans verdict | lois seules | clé `log_richesse_max`, `promue`, `comptes` à toute profondeur → `VueAvecVerdict` | existe (v59) |
+| 3 | vrai bac à sable, aucun repli | `bwrap` présent, sonde réussie | `bwrap` absent ; superutilisateur sans identité dédiée → `BacASableIndisponible` | existe (v59) ; v63 : sonde refusée → aucun dossier temporaire laissé (`SondeDuBac`, `CheminReelVerifierSeulement` ; mineur 34), mutations tuées |
+| 4 | graines dérivées de la tâche (R9) | deux tâches → deux graines | `spawn_key=()` → graines égales (mutation tuée) | existe (v59) |
+| 5 | plafond de dépense par étage, vérifié après chaque appel de proposeur et chaque étage de tests de mort ; plafond dur tenu par les relais (registre cumulé ; part de chaque relais fixée au plan, v62 et v63) | appels à 0,01 USD : étage complet | plafond franchi → arrêt, code 3, sortie scellée, aucune issue lue ; plafond d'un relais atteint (« budget_depasse » hors plafond de la fiche, sauf session « rien envoyé », garde 16) → arrêt, jamais « non concluant » | v63 : `Garde5PlafondEtage` (unité : plafond atteint permis, franchi → `ArretTour`, sans parts et derrière des parts) et `Garde5DeBoutEnBout` (course à blanc, coût simulé des proposeurs : plafond franchi → code 3, relevé partiel scellé, N1 d'arrêt, issue A4 non lue ; plafond large → code 0) de `essais/test_gardes_tour_ferme_v64.py`, mutations tuées (plafond neutralisé, égalité refusée) ; parts des relais : `PartsDesRelais` et `Arrets` (v63 : part franchie, pire cas avant l'étage, « budget_depasse » d'un relais hors du plafond de la fiche → arrêt, code 3) ; pire cas de l'étage calculé avec la borne par carte de 0,80 USD, qui couvre les 12 tours (`ReservationI30`, `EtageV64`, `DevisI30` : borne ≥ 12 × 0,06 USD, devis rejoué au plan de 50 USD, parts 44 et 6 USD ; I30, brouillon 5), mutations tuées (dont la borne ramenée à 0,30 USD) |
+| 6 | préenregistrement scellé exigé | fichier scellé, bloc de code gelé conforme | nom avec « brouillon », sceau absent ou faux, marqueur restant, empreinte de code différente, entropie < 2⁶⁴ → code 2, rien écrit | v63 : `Garde6Complete` (cas sain complet accepté ; sceau faux, marqueur hors de l'étage 2, empreinte de code, zone ouverte, nom « brouillon », hors du dossier, bloc sans `pole/ideation.py` (I27) refusés ; entropie < 2⁶⁴ : à l'unité seulement, un texte scellé d'empreinte < 2⁶⁴ ne se fabrique pas), mutations tuées ; `Garde6` : v61 |
+| 7 | témoins jamais retenus ni servis | témoin promu et survivant : absent de la sélection, de l'archive, de la vue | témoin introduit dans l'archive → refus | v63 : `Garde7` (archive et vue ; identifiant réel ou servi d'un témoin → `TemoinRetenu`) et `Garde7Selection` (témoins entrés dans la sélection d'un étage de cartes → `TemoinRetenu`, arrêt scellé, code 3 ; même course sans eux : code 0, aucun témoin dans aucune sélection), mutations tuées (archive et vue ; sélection, la sonde survivante de la contre-lecture 3 ; I31) |
+| 8 | gabarit du test de mort imposé | carte du proposeur complétée par l'orchestrateur | carte d'un proposeur qui porte son propre seuil, sa propre statistique ou ses propres données → refusée au gardien mécanique | v63 : `GrammaireServie` (proposition complétée acceptée ; `test_de_mort` porté, clé manquante, clés en trop, énoncé trop long → refusée), `Garde8Course` (course `--scenario-proposeur hors_gabarit` : chaque proposition refusée au gabarit, aucun arrêt), `GardienEntiers`, `GardienJeuFactice`, `AucuneExceptionQuiRemonte` et `CourseIndiceFlottant` (I26) ; mutations tuées (borne ±4, clés en trop, indices entiers, jeu factice, exceptions ; I31) |
+| 9 | familles séparées | expérimentateur Kimi, vérificateur Argon | même famille → refus avant toute session | v63 : `Garde9` (même famille ou famille vide → `FamillesNonSeparees` ; course `--familles-a-blanc a,a` → code 2, rien écrit) et `RefusAvantToutAppel` ; familles distinctes : toutes les courses d'essai v63 ; mutation tuée (I31) |
+| 10 | contre-calcul de la statistique | gain recalculé par l'orchestrateur depuis la loi gelée et la tranche = statistique du noyau à 10⁻⁶ près | script qui écrit des gains fabriqués → **arrêt de la course**, code 3, relevé partiel scellé, audit S1 | v63 : `PleinePrecision` (unité : pleine précision, écart au-delà de 10⁻⁶ en désaccord, copie de la tranche vérifiée) et `Arrets` (gains arrondis à 2 décimales et gains fabriqués → code 3, relevé partiel scellé, issue A4 non lue), mutations tuées ; `Garde10` : v61 |
+| 11 | **étage 2 : hors de ce scellement** — données tenues à l'écart jamais servies | empreinte de T conforme au montage ; aucun identifiant de tâche réservée dans les contextes | T altéré, rescellé ; tâche réservée déplacée au reste ; liste des tâches incohérente ; tâche réservée dans un contexte → refus | **écrite pour la réserve** (`verifier_reserve`, `taches_reservees_dans` ; `essais/test_v60_reserve_tenue_a_l_ecart.py`, 15 essais ; `essais/mutations_v60.py`, 8 mutations de la réserve tuées sur 8) ; appel au montage et balayage des contextes par le lanceur **à écrire** |
+| 12 | porte entre étages | lecture scellée de l'étage 1 « tient » | étage 2 lancé sans elle, ou avec « ne tient pas » → code 2 | `Garde12` (v61) ; **sous ce texte (étage 1 seul)** : `--etage 2` → code 2 avant tout appel (`RefusAvantToutAppel`, v63) ; la porte relèvera du préenregistrement de l'étage 2 |
+| 13 | modèle servi inconnu, session en échec, durée ; rôles des relais (brouillon 5) | modèle attendu ; chaque adaptateur accepte le rôle qu'il jouera (commandes externes) | autre modèle servi (refus R-764) ou session en échec, chez un proposeur comme à l'étage → arrêt, code 3, sortie scellée ; durée > plafond (72 h étage 1 — décision de Lazar, R-1294 ; 24 h au brouillon 5 —, garde contre une boucle folle, qui ne coupe jamais une carte ni un étage en cours, seuils en section 12 ; 2 h étage 2 ; en mode décisif, un plan d'une autre durée que 72 h est refusé avant tout appel, code 2), vérifiée entre deux appels (un étage en cours n'est pas interrompu) → arrêt, code 3 ; adaptateur qui n'accepte pas son rôle (Kimi par protocole comme expérimentateur, rôle « proposeur », adaptateur sans liste de rôles) → refus avant toute porte et tout appel, code 2 | durée : v63, `Garde13Duree` (horloge factice : égalité permise, dépassement → `ArretTour`, aussi après un appel) et `Garde13DeBoutEnBout` (`--duree-max-h` minuscule → code 3, relevé partiel scellé ; `--duree-max-h 72` et durée par défaut, 72 h → code 0) de `essais/test_gardes_tour_ferme_v64.py`, mutations tuées (durée neutralisée, égalité refusée) ; v64 (R-1294) : `DureeR1294` (constante 72 h ; plan à 72 h accepté ; 24, 71,5, 72,5, 4 et 10⁹ h refusées ; `Compteur` à 72 h : égalité permise, une seconde au-delà → arrêt) et `CheminReelVerifierSeulement.test_artefact_duree_24_h` (texte scellé à 24 h → code 2, rien écrit), 3 mutations tuées (vérification du plan neutralisée, constante ramenée à 24 h, défaut à blanc ramené à 24 h) ; modèle servi et session en échec sur le chemin du tour : `ProposeurChemin`, `Arrets` et `ArretEnGeneration2` (v63 : refus R-764 d'un proposeur, aussi en génération 2 après une génération 1 complète, session en échec à l'étage → code 3, relevé partiel scellé, issue A4 non lue), mutations tuées ; rôles (brouillon 5) : `RolesDesRelais` (commande externe réelle, une commande locale : proposeur, expérimentateur et vérificateur acceptés ; artefacts refusés) et `CheminReelVerifierSeulement.test_artefact_kimi_par_protocole` (code 2 au passage `--verifier-seulement`, rien écrit), 3 mutations tuées (rôle « proposeur », garde neutralisée, garde retirée au lanceur) |
+| 14 | lecture gelée | relevé sain **produit par le cœur** → « tient », « discrimine », P | chaque critère T1 à T5 manqué → « ne tient pas » ; survivante de génération 2 seule → Z ; contre-calcul absent → N ; étage 1 manqué → N1 | v63 : T2, T3, T4 et T5, chacun au bord de son seuil, cas sain et artefacts (`Garde14T2`, `Garde14T3`, `Garde14T4`, `Garde14T5` de `essais/test_gardes_tour_ferme_v64.py` : un pas au-delà → « ne tient pas (Tk) », Tk seul) ; 4 mutations de neutralisation (sondes de la contre-lecture 3) et 8 mutations de bord tuées ; relevés produits par le cœur (bras réel muet en génération 1, puis en générations 1 et 2) : `CourseMuette` (v63, « tient ») ; lecture v63 : `LectureV63` (I28 : aucune issue A4 sur un arrêt ; I29 : ligne de tranche → relevé invalide, touche de L* → audit ; mineurs 29 et 30) et `FuiteDansLesContextes` (fuite simulée de bout en bout), mutations tuées |
+| 15 | machine jetable (R-640, CL20-14) | `POLE_MACHINE_JETABLE_V56=1` déclaré, environnement dans la liste blanche | variable absente ou variable hors liste → code 2, avant tout appel | `MachineJetable` (fonction : environnement du processus et liste permise de la configuration) et `CheminReelVerifierSeulement` (v63 : chemin réel jusqu'à `--verifier-seulement`, texte scellé, configuration et registre de GO factices ; variable de déclaration absente ou variable hors liste → code 2, rien écrit ; cas sain → code 0, rien écrit, aucun dossier temporaire ; mineurs 35 et 37), mutations tuées (fonction ; appel au lanceur, la sonde de la contre-lecture 3) ; la v61 passait à l'étage un environnement constant, `ENV_A_BLANC`, aussi en mode réel |
+| 16 | session « rien envoyé » (v64 ; TF-02, option (a)) et vérification préalable au barème prudent (point 2) | commande en code 4 dont la dernière ligne porte `"envoye": false` → « budget_depasse » pour cette session, coût 0, marqué : fin des tours de la carte pour ce rôle, carte jugée sur ce qu'elle a exécuté, témoin du vérificateur « non concluant », aucun arrêt ; consigne au-delà du plafond passé au barème prudent → rien lancé, même lecture | tout autre code non nul, `envoye` absent, vrai, `0` ou « false » en texte, refus dit (R-764), ligne illisible → lecture inchangée (erreur et arrêt ; refus) ; « budget_depasse » non marqué sous le plafond passé (402 d'un relais) ou part du relais épuisée → arrêt (C13) ; proposeur « rien envoyé » → arrêt (A.5) ; prix absent de la configuration → refus avant toute porte et tout appel, code 2 | v64 : `CommandeCode4` (vraie commande locale : trois formes saines ; sept artefacts ; la commande externe v56 lit le même code 4 « erreur »), `EtageRienEnvoye` (l'adaptateur de l'étage v64 rend la session ; artefacts : arrêt C13 gardé, l'adaptateur de l'étage v63 arrêtait la course), `EtageV64CommandesReelles` (étage v5 et vraies commandes locales : carte « survit » sur son tour 1, témoin « non concluant », rien compté ; artefact : commande externe v56 → `EtageInterrompu`), `CourseRienEnvoye` (course à blanc : « rien envoyé » au tour 2 et au vérificateur → code 0, « tient » ; dès le tour 1 → code 0, cartes « non concluant », lecture par critère, jamais un arrêt), `ProposeurRienEnvoye`, `CommandesV64`, `BaremeDesCommandes`, `VerificationPrealable`, `PrixPasseALEtage` (l. 468 de l'étage active ; vérificateur non appelé au-delà de son plafond) et `CheminReelVerifierSeulement.test_artefact_bareme_absent` de `essais/test_tour_ferme_v64.py` ; 15 mutations tuées (banc v64 : 10 pour le code 4 « rien envoyé », 5 pour le barème) |
+
+Essais v64 de l'étage 1, sur le code gelé seul : `essais/test_tour_ferme_v64.py` (87 essais : les 68 essais v63 de `essais/test_tour_ferme_v63.py`, portés tels quels — mêmes classes, mêmes noms — sur le code v64 (gardes 3, 5 à 10, 12 à 15, corrections C8 à C21, I26 à I31, mineurs 29, 30, 34, 35 et 37, rôles des relais, fermetures statique et mesurée, course à blanc dans le vrai bac), plus 19 essais neufs : la garde 16 (ci-dessus), la durée de 72 h (`DureeR1294`, et au chemin réel), le barème absent au chemin réel ; le seul essai du vrai bac, `BacReelV64`, est sauté avec son motif sans `bwrap` ou si `POLE_ESSAI_BAC_REEL_NON_JOUE=1`) et `essais/test_gardes_tour_ferme_v64.py` (21 essais : les 19 essais v63 portés — B10, gardes 5, 13 et 14 au bord de chaque seuil, I30 et le devis rejoué au plan de 50 USD —, plus la durée par défaut de 72 h de bout en bout et les seuils de durée recalculés, `SeuilsDeDuree`) ; chaque garde sur un cas sain et un artefact. Banc `essais/mutations_tour_ferme_v64.py` : 91 mutations du code gelé, 91 tuées pour la raison attendue (les 72 du banc v63 portées sur la v64 — 24 du banc v62, 19 sondes et bords de la contre-lecture 3, 29 corrections v63 —, une seule réécrite : la condition d'arrêt C13 de l'adaptateur de l'étage ; 19 pour les changements v64 : 10 pour le code 4 « rien envoyé », 5 pour le barème, 3 pour la durée, 1 pour le programme de lecture) ; la sonde « entropie non exigée au chemin réel » n'y est pas (artefact non fabricable, unité essayée). Les essais et bancs v59 à v63 portent sur leur code.
+
+Arrêt = sortie scellée telle quelle, code 3, aucune issue lue : la lecture v63 rend « ne tient pas (T1) », `n1 = arret` (phrase N1 d'arrêt, section 4.8) et l'issue A4 « non lue (arrêt) » (I28) ; ses chiffres, rapportés avec `chiffres_partiels`, ne sont cités que comme partiels ; toute exception (classe Python `Exception`) après le manifeste est un arrêt (v62, C12 ; inchangé en v63) ; une interruption par signal ou une panne de la machine ne laisse que le manifeste, sans relevé : course sans issue, reprise selon la phrase suivante ; reprise seulement dans un dossier neuf, avec le même fichier
+scellé, si l'arrêt vient d'une panne d'infrastructure consignée (règle de la section 8 du préenregistrement du nul v8).
+
+## 8. Graines (règle R9)
+
+Entropie racine **E = int(sha256 du fichier scellé, 16)** (entier gros-boutiste de l'empreinte des octets ; E ≥ 2⁶⁴ exigé en mode
+réel, E < 2⁶⁴ exigé à blanc : espaces disjoints). Toute graine est `boucle_fermee_v59.graine_de_tache(E, tâche)` =
+`numpy.random.SeedSequence(E, spawn_key=(cle_de_tache(tâche),))`, avec les tâches nommées
+`tour-ferme-v64|etage=1|bras=<b>|generation=<g>` (préfixe = `VERSION` du cœur gelé `pole/tour_ferme_v64.py` ; règle recopiée au manifeste, champ `regle_des_graines`) suivies de `|carte=<id>|plan`, `|noyau`, `|frais|<empreinte de
+l'engagement>`, `|tranche`, `|developpement`, `|proposeur=aleatoire`, `|proposeur=recopie_melange`, `|temoin=<id>` ; oracle :
+`oracle|instances` ; partition du monde de l'étage 2 : `tour-ferme-v1|etage=2|partition`. La réserve de T ne dépend pas de E
+(section 5.2). E est public dès la poussée du texte scellé : tranches et épisodes de développement se calculent d'avance ; sans effet tant que proposeurs et expérimentateur n'ont ni outil ni accès au dépôt. Les sorties des modèles ne sont pas reproductibles ; elles sont gardées (texte caviardé, empreinte de chaque
+consigne et de chaque contexte servi).
+
+## 9. Commandes exactes
+
+Depuis `orchestrator/`, dossiers de sortie neufs.
+
+- **Répétition à blanc avec le code existant** (v59, aucun modèle ; faite en L3) :
+  `nice -n 10 python3 -I -B demonstrations/mode_a_blanc_v59.py SORTIE --graine 20261102 --bac reel --utilisateur-bac 64097 --generations 3 --cartes-reference 12`
+- **Essais et banc** avant scellement : `nice -n 10 python3 -I -B -m pytest -q -p no:cacheprovider essais/test_v59_boucle_fermee.py essais/test_v60_reserve_tenue_a_l_ecart.py essais/test_v60_oracle_tour_ferme.py essais/test_v60_lecture_tour_ferme.py essais/test_v61_lecture_tour_ferme.py essais/test_v61_reserve_tenue_a_l_ecart.py essais/test_v61_tour_ferme.py essais/test_tour_ferme_v64.py essais/test_gardes_tour_ferme_v64.py` (les trois essais du vrai bac, `TestBacReelV59`, `TestBacReelV61` et `BacReelV64`, exigent un TMPDIR que l'identité dédiée traverse, par exemple `/tmp` : sinon les deux premiers échouent à la sonde du bac et le troisième est sauté, motif dit ; `POLE_ESSAI_BAC_REEL_NON_JOUE=1` les fait sauter, motif dit) ;
+  `nice -n 10 python3 -I -B essais/mutations_v59.py` ; `… essais/mutations_v60.py` ; `… essais/mutations_v61.py` ; `… essais/mutations_tour_ferme_v64.py` (les essais v61 et leurs bancs portent sur le code v61, les essais et le banc v63 sur le code v63, hors du code gelé de ce texte).
+- **Réserve des données tenues à l'écart** (session-depot, avant scellement) :
+  `nice -n 10 python3 -I -B demonstrations/reserve_tenue_a_l_ecart_v60.py EPISODES_GRAINES_NEUVES.json SORTIE_RESERVE [--cle-tache NOM]`
+  (rend les empreintes et les comptes de la case 5.2, aucun contenu).
+- **Répétition à blanc du lanceur v64** (vrai bac ; doublures scriptées branchées sur le chemin réel, une seule course à la fois par identité dédiée ; TMPDIR que l'identité dédiée traverse ; PRIX_KIMI et PRIX_ARGON : les valeurs `prix_entree_usd_par_million_jetons` de la configuration v3) : `TMPDIR=/tmp nice -n 10 python3 -I -B demonstrations/tour_ferme_v64.py SORTIE --etage 1 --a-blanc --graine 20261102 --bac reel --utilisateur-bac 64097 --prix-entree-kimi-usd-par-million-jetons PRIX_KIMI --prix-entree-argon-usd-par-million-jetons PRIX_ARGON` (au brouillon 6, jouée seulement dans le bac factice, `--bac factice` : ligne L2b-v64-b6 ; à rejouer dans le vrai bac avant le scellement)
+- **Étage 1, réel** (chez la session-depot, clés et `bwrap`) :
+  `TMPDIR=/tmp nice -n 10 python3 -I -B demonstrations/tour_ferme_v64.py ../resultats/tour-ferme-v1-etage1 --etage 1 --preenregistrement prereg/preenregistrement-tour-ferme-v1-v<N>.md --configuration CONF_V3 --moteur reel --confirmer-moteur-reel --registre-go registres/go.md --go GO-2026-11-02-23 --bac reel --utilisateur-bac UID` (GO-2026-11-02-23 : GO de calcul de Lazar, plafond exactement 50 USD ; d'abord avec `--verifier-seulement`, qui doit rendre « conforme » ; TMPDIR : un dossier que l'identité dédiée traverse, `/tmp` par défaut ; configuration, registre, environnement et bac : annexe A)
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+- **Étage 2, réel**, seulement sur lecture scellée « tient » :
+  `nice -n 10 python3 -I -B demonstrations/tour_ferme_v61.py ../resultats/tour-ferme-v1-etage2 --etage 2 --lecture-etage-1 LECTURE.json --lecture-etage-1-sha256 SHA --tenue-a-l-ecart DOSSIER_RESERVE (mêmes options)` — refusé par cette version après la porte et le montage (cœur de l'étage 2 non écrit).
+
+<!-- etage-2-hors-scellement : fin -->
+
+- **Lecture gelée de l'étage 1** (après la course, par un lecteur neuf, R13) : `nice -n 10 python3 -I -B demonstrations/lire_tour_ferme_v64.py ../resultats/tour-ferme-v1-etage1 LECTURE.json --releve-sha256 SHA` (SHA : l'empreinte du relevé imprimée par le lanceur à la fin de la course et commitée avec lui ; le programme vérifie le sceau et cette empreinte, refuse un relevé d'une autre version du cœur que la v64 (la lecture gelée, `pole/lecture_tour_ferme_v63.py`, est celle de ce texte), applique `lire_tour_etage_1` au seul champ `releve`, écrit la lecture scellée sans jamais écraser une lecture existante ; c'est elle que lira la porte du préenregistrement de l'étage 2).
+
+Sorties : `manifeste.json` (écrit avant le premier appel : empreintes du code gelé, configuration, E, consignes) et
+`tour-ferme-v1-etage<e>.json`, chacun avec son `.sha256`. Codes : 0 (sortie écrite), 2 (refus avant tout appel), 3 (arrêt) ;
+**le code de sortie ne décide rien.**
+
+## 10. Lectures préalables déclarées
+
+| # | qui, quand (UTC, 2 novembre) | course | racines | vu |
+|---|---|---|---|---|
+| L0 | développeur v59, avant 07:00 | mode à blanc v59, 2 générations, 3 bras, vrai bac | 20261102 | rapport v59 § 4 : G1-FAUSSE-2 promue puis éliminée ; G1-ALEA-06 promue et survivante (+0,30 nat) ; zéros de la génération 2 |
+| L1 | rédacteur, ≈ 07:09 | juge seul (archive vide) et statistique du test de mort calculée en processus, sans bac : L*, S-F1, S-F2, S-F4, anti-loi, L* tempérée, L* restreinte à z0 et à z1, 200 graines chacune ; 1 000 lois aléatoires | 1000–1199, 5000–5999 ; oracle 20261102 | L* promue 200/200, statistique ≥ 0,02 200/200, G = 0,523 ; S-F2 promue seule 83/200, statistique ≥ 0,02 3/200 ; S-F1, S-F4, anti-loi 0/200 ; L* restreinte à z1 G = 0,402 promue 200/200 ; restreinte à z0 G = −0,154, 0 PS ; aléatoires : G ≥ 0,02 pour 120/1 000, PS 112, dont 2 avec G < 0,02 ; 35 promues avec G < 0,02, dont 1 survivante |
+| L2 | rédacteur, ≈ 07:11 | bras aléatoire (12 cartes, e-BH de la génération) et recopie-mélange face à l'archive {L* restreinte à z1}, 100 répétitions, statistique en processus | 9000–9099 | aléatoire : 1 200 cartes, 175 promues, PS 150 (0,125), informatives 159, FD 3 (0,0025), VD 147 ; recopie : 300 cartes, 0 promue |
+| L3 | rédacteur, ≈ 07:16 | mode à blanc v59, 3 générations, 12 cartes de référence, vrai bac (`bwrap`, identité 64097), 24 s, code 0 | 20261102 | journal sha256 `474d005a5e7383d8ccb4f3a59638f639149a2bb8d1d4a309d6e0ffd0caaf15a0` : en v59 la loi plantée de l'amorce entre à l'archive de chaque bras en génération 1, et les générations 2 et 3 ne promeuvent plus rien (par construction) — d'où la décision D3 |
+| L2b | contre-lecteur, ≈ 07:40 | bras aléatoire et « bon proposeur » simulés, trois générations, chaque bras contre sa propre archive, e-BH m = 19 avec témoins, statistique en processus, oracle v60 ; 24 et 8 répétitions | 31000– | PS aléatoire 35/288 (g1), 13/576 (g2–3), 48/864 = 0,056 [0,042 ; 0,073] ; FD 1/864 ; bon proposeur 48/48 puis 0/96 |
+| L2b-v61 | rédacteur 2, 09:10 à 09:12 (manifeste `debut_utc` 09:10:08 Z, relevé `fin_utc` 09:11:40 Z) | répétition à blanc du lanceur v61 aux conditions exactes du plan (D7 archive du bras réel, D9 mécanique, témoins hors famille, trois bras, trois générations, vrai bac `bwrap`, proposeurs réels simulés par L* bruitée), **une répétition** | 20261102 | relevé sha256 `d1bc9283deebf79a8d4363e5d6eca82ddc8abbcadba27f9e1761bcdb18f3a1a3` : étage 1 « tient », A4 « discrimine » (Newcombe [0,147 ; 0,469]) ; réel 36 jugées, PS 11, VD 11, FD 0 ; aléatoire 36, PS 0 (génération 1 jugée contre une archive réelle encore vide : 0 sur 12, probabilité ≈ 0,21 ; générations 2 et 3 contre l'archive réelle informative) ; recopie 24, PS 0 ; 0 non concluant, 30 contre-calculs concordants, 8 passes de témoins, 6 lectures ; 91 s. Audit S1 « trop beau » déclenché (proposeurs scriptés voisins de L* : VD* en génération 1, attendu à blanc). Conséquence lue : sous D7, la part PS du bras aléatoire dépend de l'archive réelle (ici 0/36) ; P4 est écrite par cas (section 4.3). **Limite** : les deux rôles modèles y reçoivent hors bande ce que les vrais ne reçoivent pas (la loi éprouvée pour l'expérimentateur, la grammaire des lois pour les proposeurs) : cette répétition n'essaie pas le chemin réel |
+| L2b-v62 | rédacteur 3, 13:41:23 à 13:51:43 UTC (une course à la fois) | répétitions à blanc du lanceur v62 aux conditions du plan (D7 archive du bras réel, D9 mécanique, trois bras, trois générations, vrai bac `bwrap`, identité 64097), **doublures scriptées branchées sur le chemin réel** : proposeurs derrière `ProposeurAdaptateur` (softmax ajustée sur les 200 épisodes de développement servis, écrite selon la grammaire servie), expérimentateur derrière `AdaptateurEtageV62` (loi lue dans le préenregistrement court, évaluateur de la tranche) ; aucun canal hors bande ; 5 racines ; la racine 20261104 sur le code gelé (81 empreintes égales au manifeste), les quatre autres sur un lanceur antérieur d'une modification (paramètre d'essai `dossier_prereg` de `lire_preenregistrement`, chemin réel seulement ; cœur, évaluateur et lecture identiques) | 20261102, 20261103, 20261104, 20261105, 20261106 | 20261102 : code 0, 97.8 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 1, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 60/60, S1 déclenché, touches de L* 0 sur 6 contextes, relevé `8ce5c8bce0716a35…`; 20261103 : code 0, 102.1 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 1, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 66/66, S1 déclenché, touches de L* 0 sur 6 contextes, relevé `6f339f730bb652fc…`; 20261104 : code 0, 107.5 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 2, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 66/66, S1 déclenché, touches de L* 0 sur 6 contextes, relevé `26a19fa12ffee3b7…`; 20261105 : code 0, 127.3 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 1, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 60/60, S1 déclenché, touches de L* 0 sur 6 contextes, relevé `9aebaa914b9c45c1…`; 20261106 : code 0, 110.3 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 1, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 64/64, S1 déclenché, touches de L* 0 sur 6 contextes, relevé `ac25158a666ed8fe…` |
+| L2b-v63 | rédacteur 4, 18:05:15 à 18:07:24 UTC | course à blanc du lanceur v63 aux conditions du plan (D7 archive du bras réel, D9 mécanique, trois bras, trois générations, borne de 0,30 USD par carte, gardien v63), vrai bac `bwrap`, identité 64097, TMPDIR `/tmp` (l'identité dédiée ne traverse pas le dossier de travail du rédacteur : la même commande avec un TMPDIR sous ce dossier est refusée à la sonde du bac, code 2, aucun dossier laissé) ; doublures scriptées branchées sur le chemin réel ; une racine, sur le code v63 du brouillon 4 (borne de 0,30 USD ; rôle « proposeur » accepté par les doublures ; remplacé au brouillon 5) | 20261102 | code 0, 127.3 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 3, 0], recopie jugées/PS [24, 0], non concluant 0, consignes d'expérimentateur avec loi 64/64, S1 déclenché (doublures voisines de L*, attendu à blanc), touches de L* 0 sur 6 contextes, lignes de tranche 0, refus du gardien 0 dans les trois bras, lecture v63 rejouée (issue « tient », lecture `2b19a38174197b22…`), relevé `d5d9f0d6fad20d97…`, manifeste : 91 empreintes de code, égales au bloc du brouillon 4 ; aucun dossier `bac-tour-ferme-v63-*` ni `tour-ferme-v63-sessions-*` resté |
+| L2b-v63-b5 | rédacteur 5, 19:04:58 à 19:07:03 UTC (lecture à 19:07:10) | la course à blanc de la section 9 sur le code gelé de ce texte (borne de 0,80 USD par carte, rôle `proposeur_ideation`, garde des rôles, doublures qui tiennent les rôles des adaptateurs réels), aux conditions du plan (D7 archive du bras réel, D9 mécanique, trois bras, trois générations, gardien v63), vrai bac `bwrap`, identité 64097, TMPDIR `/tmp` ; une racine | 20261102 | code 0, 125 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 3, 0], recopie jugées/PS [24, 0], non concluant 0, 32 cartes et témoins testés (génération 1 : 12 cartes réelles et 4 aléatoires ; 16 passes de témoins), 32 contre-calculs concordants, consignes d'expérimentateur avec loi 64/64 (plafond de session passé ≤ 0,80 USD), S1 déclenché (doublures voisines de L*, attendu à blanc), touches de L* 0 sur 6 contextes, lignes de tranche 0, refus du gardien 0 dans les trois bras, lecture v63 rejouée (issue « tient », lecture `edb42838c95631d3…`), relevé `ade7d47e4e25471e…`, manifeste : commit `c15a073` (arbre modifié), 91 empreintes de code égales au bloc de ce texte ; aucun dossier `bac-tour-ferme-v63-*` ni `tour-ferme-v63-sessions-*` resté ; mêmes comptes que L2b-v63 (même racine ; à blanc, les doublures ne coûtent rien et finissent en deux tours : ni la borne ni les rôles n'y changent un verdict) |
+| L2b-v64-b6 | rédacteur 6, 3 novembre, 00:23:02 à 00:24:34 UTC (lecture à 00:24:46) ; seconde course de 00:28:55 à 00:30:13 UTC | la course à blanc de la section 9 sur le code gelé de ce texte (adaptateur de l'étage v64 ; barème d'essai de 10 USD par million de jetons pour les deux relais, valeur d'essai et non celle des commandes v3 ; durée par défaut, 72 h), aux conditions du plan (D7 archive du bras réel, D9 mécanique, trois bras, trois générations, borne de 0,80 USD par carte, gardien v63), **bac factice** (`--bac factice` : `bwrap` absent de la copie de travail ; l'identité dédiée sert à une autre course ; à rejouer dans le vrai bac avant le scellement) ; une racine ; seconde course aux mêmes conditions, « rien envoyé » au tour 2 de chaque carte et à chaque session du vérificateur (`--scenario-experimentateur rien_envoye:2 --scenario-verificateur rien_envoye`) | 20261102 | code 0, 92,3 s, « tient », A4 « discrimine », réel jugées/PS/VD/FD/refus [36, 12, 12, 0, 0], aléatoire jugées/PS/FD [36, 0, 0], recopie jugées/PS [24, 0], non concluant 0, 30 cartes et témoins testés (génération 1 : 12 cartes réelles ; 18 passes de témoins), 30 contre-calculs concordants, 60 sessions d'expérimentateur (consignes de 10 591 à 12 072 caractères, plafond passé ≤ 0,80 USD) et 30 de vérificateur (8 115 à 8 220 caractères), consignes des 6 proposeurs de 13 519 à 15 736 caractères, aucune vérification préalable ni session « rien envoyé », S1 déclenché (doublures voisines de L*, attendu à blanc), touches de L* 0 sur 6 contextes, lignes de tranche 0, refus du gardien 0 dans les trois bras, lecture rejouée par le programme v64 (« tient », lecture `3dd8517cb8f98b5e…`), relevé `13b0e20ac95f14f7…`, manifeste `4d3f4522c942e7f2…` : 92 empreintes de code égales au bloc de ce texte ; aucun dossier `bac-tour-ferme-v64-*` ni `tour-ferme-v64-sessions-*` resté ; comptes différents de L2b-v63-b5 à la même racine (tâches des graines nommées « tour-ferme-v64 » : autres tirages) ; seconde course : code 0, 77,3 s, « tient », A4 « discrimine », 90 sessions de l'étage dont 60 « rien envoyé » (30 d'expérimentateur au tour 2, 30 de vérificateur), coût 0, aucun arrêt, 30 testés (20 « survit », 10 « éliminée », 0 « non concluant »), lecture `9333bbd3821ee5e7…`, relevé `7cf91149046adbfd…` |
+| L4 | rédacteur, ≈ 07:24 | règle de réserve (section 5.2) appliquée aux identifiants de tâches de la banque **publique** par `demonstrations/reserve_tenue_a_l_ecart_v60.py` ; aucune issue lue, aucun contenu imprimé | — (aucune graine) | 16 tâches sur 60 réservées, 32 épisodes sur 120 ; manifeste sha256 `2c20acf7c6edf3df4c0c398516bf41c18948b118a91d2675c94c8530c57cb7be` (dossier de travail du rédacteur) |
+
+Scripts d'exploration L1 et L2 : hors de l'arbre (dossier de travail du rédacteur), cités au rapport de rédaction. Aucune lecture
+n'a utilisé de modèle, de vrai expérimentateur, de donnée privée ni l'entropie décisive (inexistante avant scellement). Les
+prédictions ont été écrites après L0 à L4 (P4 récrite par la contre-lecture 2 après L2b-v61 ; son cas intermédiaire ajouté par le rédacteur 3, avec L2b-v62 ; aucune n'a changé après L2b-v63, L2b-v63-b5 ni L2b-v64-b6) : déclaré ; aucune ne porte sur un modèle de langage, sauf P6 et P7 (sans lecture).
+
+## 10 bis. Contre-lecture (règle R2)
+
+Première contre-lecture : `prereg/contre-lecture-preenregistrement-tour-ferme-v1.md` (2 novembre 2026, 07:05 à 07:55 UTC, sous-agent neuf), verdict **non scellable** : bloquants B1 à B6, importants I1 à I9, mineurs 1 à 10, remplacements T1 à T18, changements de code C1 à C7, décisions D7 à D9 proposées. Ce brouillon 2 applique T1 à T18 (T7 adapté : borne haute de P4 à 6 cartes sur 36 et mention de L2b-v61 ; T12 dans sa forme D9), les constats B1 (code écrit, essayé, à blanc ; étage 2 non écrit, dit), B2 (cases : défaut Q, marqueurs pour les cases privées), B3 à B6, I1 à I9 et les mineurs 1 à 9 ; mineur 10 (découvertes distinctes) : champ `vd_distinctes` du relevé, vide dans le code v61 : calculé par le cœur v62 avant toute lecture (`decouvertes_distinctes` : par bras et génération, divergence symétrique < 0,05 nat sur les instances de l'oracle) ; jamais calculée après lecture. Rapport de rédaction : `prereg/rapport-redaction-tour-ferme-v2.md`. Seconde contre-lecture : `prereg/contre-lecture-preenregistrement-tour-ferme-v2.md` (sha256 `8a74dfd2d455c977c2f14bafcdfd217e86e191661cec59929666410b5ac82b7d`), verdict **non scellable** : bloquants B7 à B9, importants I10 à I24, mineurs 11 à 25, couples T19 à T63, changements de code C8 à C22. Ce brouillon 3 applique T19 à T63 pour l'étage 1 (T22, T26, T32, T52, T55 autrement, dit au rapport v3), et le code `_v62` applique C8 à C22 pour l'étage 1. Rapport : `prereg/rapport-redaction-tour-ferme-v3.md`. Troisième contre-lecture : `prereg/contre-lecture-preenregistrement-tour-ferme-v3.md` (sha256 `0ecd37a2ff0c247752dcc97921cb207d6c6a49714846f01cf06907a694a4ff45`), verdict **non scellable** : bloquant B10, importants I25 à I31, mineurs 26 à 38, couples T64 à T97 (`prereg/couples-contre-lecture-tour-ferme-v3.json`, `7aa25f19…`). Ce brouillon 4 applique les 33 couples à la lettre (texte de contrôle égal à celui de la contre-lecture, `a6337d96…`), puis les adapte au code `_v63` là où ils nomment le code v62 (T69 et T93 remplacés par leur version v63 : option A de I26 et I27, décidée par le directeur) ; il écrit les cellules T85, T98, T99 et T100 avec les essais de B10, porte les décisions de Lazar (GO-2026-11-02-18) et un GO de calcul de 15 USD (remplacé au brouillon 5), et le code `_v63` répond à I26 à I31. Rapport : `prereg/rapport-redaction-tour-ferme-v4.md`. Ce brouillon 5 applique la décision de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC (budgets et plafonds très larges ; aucun résultat non concluant par défaut de conception ou de plafond ; aucun budget de temps qui coupe) : borne par carte de 0,80 USD, plafond de 50 USD (GO-2026-11-02-23 ; parts 44 et 6 USD), durée de 24 heures (garde, jamais un couperet), rôle des proposeurs corrigé et garde des rôles, annexe A (section 0). Rapport : `prereg/rapport-redaction-tour-ferme-v5.md`. Contre-lecture R2 courte et neuve, sur ce texte, le diff v62 → v63 (code v63 du brouillon 5) et les essais neufs : `prereg/contre-lecture-courte-preenregistrement-tour-ferme-v5.md` (2 novembre 2026, sous-agent neuf), verdict « scellable après couples » (aucun bloquant ; important I32 ; mineurs 39 à 44) ; ses couples T101 à T112 (`prereg/couples-contre-lecture-tour-ferme-v5.json`) sont appliqués à ce texte ; empreintes des deux fichiers dans leurs compagnons `.sha256`. Ce brouillon 6 applique la décision du directeur sur TF-02 (« TF-02, options (a) et (c), décision du directeur, 3 novembre 2026 ») et la décision de Lazar sur la durée (72 heures, R-1294) : code `_v64`, mesures, couples T101 à T112 (section 0) ; rapport : `prereg/rapport-redaction-tour-ferme-v6.md`. **Contre-lecture R2 courte et neuve à faire, sur ce texte, le diff v63 → v64 et les essais neufs.**
+
+## 11. Portée
+
+- **Étage 1** : un seul monde planté (facile : 13 % des lois aléatoires y sont informatives ; z1 porte l'essentiel de
+  l'information), deux fournisseurs, trois générations, un expérimentateur (Kimi) et un vérificateur (Argon) fixes pour tous
+  les bras (symétrie exacte ; le vérificateur partage la famille des cartes d'Argon, l'expérimentateur celle des cartes de
+  Kimi : le verdict ne dépend d'aucun des deux, il est calculé par le noyau et contre-calculé). Le gardien est la couche mécanique seule, la même pour les trois bras (décision D9, acceptée telle qu'écrite : GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC) ; l'aiguilleur v53 (fiches d'idées) est hors de portée. Le bras recopie-mélange ne propose que des formes couvertes par le nul v8 : sa FD est nulle par construction ; il vérifie que l'archive du bras réel entre au nul, il ne mesure pas les recombinaisons non couvertes (si/sinon, produits).
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+- **Étage 2** : la vraie question restreinte aux lois de moniteurs sur la banque T0.5 ; T est fait d'épisodes neufs **des mêmes
+  tâches** que la banque (aucune tâche nouvelle : rien ne se transporte à d'autres tâches) ; ces épisodes ont été lus une fois
+  par le juge pour d'autres lois (lecture du 2 novembre), jamais par un proposeur ; puissance faible sous 0,06 à 0,12 nat.
+
+<!-- etage-2-hors-scellement : fin -->
+
+- **Hors portée** : proposeurs de la famille Claude ; bisociateur ; moisson ; juges d'idéation croisés ; mondes à plusieurs lois
+  plantées ; attaques contre le juge (A1) ; traduction des fiches par le pont.
+
+## 12. Devis
+
+Calé sur le second tour réel du 1er novembre (62 appels, 1,47 USD, soit **0,0237 USD par appel**, préenregistrement
+`6fcb1035…`) pour les appels simples (proposeurs, gardien), et sur les appels par carte du rapport v59 (section 9) pour les tests
+de mort. Session d'expérimentateur SUPPOSÉE à 0,04 USD (consigne plus tranche lue ; ordre de grandeur des lancements réels du
+27 octobre, 136 appels pour 5,89 USD avec d'autres modèles), session de vérificateur SUPPOSÉE à 0,02 USD ; en moyenne 2 sessions
+d'expérimentateur (un tour d'exécution, un tour de fin) et 1 de vérificateur par carte testée.
+
+| étage, bras | appels attendus | dont tests de mort | USD attendus |
+|---|---|---|---|
+| 1, réel (3 générations : 2 proposeurs + 18 au gardien ; ≈ 4, 2, 2 cartes et ≈ 2,4 témoins testés) | ≈ 106 | ≈ 46 | ≈ 2,9 |
+| 1, aléatoire (3 générations : 18 au gardien ; ≈ 1,5 carte et 2,4 témoins testés) | ≈ 89 | ≈ 35 | ≈ 2,5 |
+| 1, recopie-mélange (générations 2 et 3 : ≈ 15 au gardien ; ≈ 2,5 testés) | ≈ 45 | ≈ 15 | ≈ 1,2 |
+| **étage 1** (sans gardien modèle, D9 : − 138 appels, − ≈ 3,3 USD) | **≈ 102** (2 tours par carte) à ≈ 418 (12 tours) | | **≈ 3,3** (2 tours par carte) à ≈ 23,6 (12 tours ; aucune carte tronquée par la borne de 0,80 USD) ; ≈ 26,1 si chaque carte atteignait sa borne |
+| 2, réel (2 générations : 2 proposeurs + 13 au gardien ; ≈ 0,5 testée) | ≈ 33 | ≈ 3 | ≈ 0,8 à 1,2 (contexte plus long) |
+| 2, aléatoire de contrôle (2 générations : 13 au gardien) | ≈ 27 | ≈ 1 | ≈ 0,7 |
+| **étage 2** | **≈ 60** | | **≈ 1,5 à 2** |
+| **total** | **≈ 160** (2 tours par carte) | | **≈ 5 à 28** (plafonds 50 + 5) |
+
+**Plafonds durs** dans le lanceur (plan gelé) : **50 USD pour l'étage 1** (GO-2026-11-02-23, plafond exactement 50 USD), dont **44 USD pour le relais de Kimi et 6 USD pour celui d'Argon** (parts au plan gelé ; leur somme égale le plafond au centime, garde du lanceur). Décision de Lazar (2 novembre 2026, 18:26 à 18:29 UTC) : budgets et plafonds très larges, aucun résultat non concluant par défaut de conception ou de plafond, aucun budget de temps qui coupe (au brouillon 4 : 15 USD, parts 12 et 3 USD, borne de 0,30 USD par carte ; la règle v62, 0,5 USD par carte, s'y arrêtait à 6,5 tours, contre-lecture 3, I30). **Borne de l'expérimentateur par carte : 0,80 USD**, écrite d'avance dans le code gelé (`BUDGET_EXPERIMENTATEUR_PAR_CARTE_USD`), passée à l'étage qui la tient (chaque session a pour plafond le reste de la fiche ; reste nul → fin des tours ; v64 : consigne d'un tour au-delà de ce reste au barème prudent de la commande → fin des tours, rien envoyé ; refus de la commande sans rien envoyer, code 4 → fin des tours, rien compté) : elle couvre les **12 tours** du garde-fou anti-boucle de l'étage (`TOURS_MAX_PAR_FICHE`) au prix prudent de 0,06 USD par tour (12 × 0,06 = 0,72 USD ; la borne ne mord qu'au-delà de 0,067 USD par tour en moyenne, prix réel d'un tour de Kimi inconnu, C7) : à ce prix, aucune carte n'est jugée sur une exécution tronquée par la borne. Prix de la borne, si ce prix était dépassé : une carte qui voudrait ses 12 tours finirait ses tours à la borne (champ `fin_des_tours` de son `resultat.json` scellé : « plafond de la fiche … atteint », « budget_depasse » ou, v64, « la consigne … dépasse le plafond restant … : fin des tours, rien envoyé ») et serait jugée sur ce qu'elle a exécuté — « non concluant » sans exécution réussie, compté par T4 —, jamais un arrêt du fait du code ni, en v64, d'une commande qui refuse sans rien envoyer (code 4 ; annexe A, A.6 bis). Vérificateur : 0,1 USD par carte (défaut de l'étage ; une session par carte testée, jamais décisive) ; une consigne que ce plafond ne paie pas au barème prudent de la commande d'Argon, ou un refus « rien envoyé » de sa commande, rend son témoin « non concluant », sans coût ni arrêt (v64) ; à ce barème (10 et 50 USD par million de jetons, trois caractères par jeton, selon la session-depot, message n° 294), la consigne la plus longue que 0,1 USD paie avec une sortie minimale de 200 jetons fait ≈ 27 000 caractères : celles de la course à blanc L2b-v64-b6 en font de 8 115 à 8 220, celle de trois exécutions aux sorties pleines peut en faire 26 822 (texte ordinaire), 40 322 (fins de ligne) ou davantage (mesures au rapport v6). La v64 ne change pas le devis : une session « rien envoyé » ne coûte rien et la vérification préalable ne fait qu'arrêter des tours. Le nombre réel de tours par carte reste inconnu (contre-lecture 1, C7 : journaux du 27 octobre et du 1er novembre privés). **Pire cas avant chaque étage** (garde 5, C13, I30) : la part restante de chaque relais doit couvrir les cartes de l'étage × 0,80 USD (Kimi) et × 0,1 USD (Argon) ; sinon arrêt avant l'étage, code 3, sans dépassement. **Rejoué étage par étage dans l'ordre du code sur le `Compteur` gelé** (essai `DevisI30`), aux tailles moyennes ci-dessus (cartes réelles testées ≈ 4, 2, 2 ; ≈ 1,5 carte aléatoire et ≈ 2,4 témoins par génération et par bras : **31,7 cartes et témoins testés en trois générations** ; 6 appels de proposeur à 0,024 USD ; session de vérificateur à 0,02 USD, SUPPOSÉ) :
+
+| tours par carte (prix du tour) | arrêt | dépense de Kimi | dépense d'Argon | total de l'étage | marge de Kimi au-delà du pire cas du dernier étage |
+|---|---|---|---|---|---|
+| 2 (0,04 USD) | aucun | 2,61 | 0,71 | 3,31 | 39,66 |
+| 4 (0,06 USD) | aucun | 7,68 | 0,71 | 8,39 | 34,98 |
+| 6 (0,06 USD) | aucun | 11,48 | 0,71 | 12,19 | 31,46 |
+| 8 (0,06 USD) | aucun | 15,29 | 0,71 | 15,99 | 27,94 |
+| 12 (0,06 USD) | aucun | 22,90 | 0,71 | 23,60 | 20,91 |
+| chaque carte à sa borne (0,80 USD) | aucun | 25,43 | 0,71 | 26,14 | 18,57 |
+
+**Jusqu'où** : 23,2 cartes testées de plus que le devis, toutes à leur borne, tiennent encore (54,9 cartes et témoins testés ; Kimi ≤ 44 USD), même si chaque session du vérificateur atteint sa borne de 0,1 USD (5 fois le prix SUPPOSÉ) ; à 12 tours au prix du devis, 29 de plus (60,7) ; au-delà, arrêt avant l'étage, code 3, sans dépassement. Les comptes exacts de la course à blanc L2b-v63-b5 (32 cartes et témoins testés, dont les 12 cartes réelles de la génération 1 : doublures voisines de L*), rejoués de même : Kimi ≈ 23,1 USD à 12 tours par carte (≈ 25,7 USD, toutes à leur borne), marge ≈ 20,7 USD (≈ 18,3). **Pourquoi 44 et 6** : une carte au pire cas de ses deux rôles coûte 0,80 + 0,1 USD ; le partage de 50 USD qui couvre le plus de cartes à ce pire cas est ≈ 44,4 et 5,6 USD, dont 44 et 6 est l'arrondi (40 et 10 : 18,2 cartes de plus seulement ; 45 et 5 : 17,5 si le vérificateur atteint sa borne). **Ce que 50 USD ne couvre pas, dit** : le maximum théorique de l'étage 1 est de 144 cartes et témoins testés (36 réelles, 36 aléatoires, 24 recopies, 6 témoins jugeables × 8 passes), ≈ 130 USD à leurs bornes ; il faudrait que le juge promeuve presque tout, témoins faux compris, ce que L1, L2 et L2b excluent. L'arrêt viendrait bien avant ce maximum : dès ≈ 55 cartes et témoins testés si chacun dépense sa borne (≈ 61 à 12 tours au prix du devis ; davantage si les tours coûtent moins), soit ≈ 1,7 fois le devis — par exemple un bras réel promu presque entier à chaque génération, ou un juge laxiste ; la course s'arrêterait alors avant un étage (arrêt de la liste, code 3, aucune issue lue, chiffres partiels rapportés), jamais sur une carte tronquée. Asymétrie dite (R4) : seul un excès de cartes testées, c'est-à-dire de promotions, peut faire mordre ce plafond, et l'arrêt prendrait alors la place de l'issue qu'il aurait fallu lire (« ne tient pas (T3, T5) » d'un juge laxiste, ou l'issue A4 d'un bras réel très fécond). Plafond de session de chaque proposeur : `plafonds_session.proposeur` de la configuration (annexe A, A.5 ; une session au-delà arrête la course, un code 4 « rien envoyé » d'un proposeur aussi : à prendre large ; consignes des proposeurs de la course à blanc L2b-v64-b6 : 13 519 à 15 736 caractères, quand 0,50 USD en paie ≈ 135 000 au barème d'Argon). **5 USD pour l'étage 2** (hors de ce scellement ; arrêt, code 3, au-delà). **Durée** : appels en série à 10 à 40 s ; à 12 tours par carte (31,7 × 13 sessions + 6 appels de proposeur), ≈ 1,2 à 4,6 heures, plus au plus ≈ 3,2 heures si chaque exécution du bac atteignait 120 s (en pratique quelques secondes) ; calcul du juge négligeable (L1 : 2 600 jugements en 56 s sur 2 cœurs). **Plafond de durée de l'étage 1 : 72 heures, garde contre une boucle folle, jamais un couperet** (décision de Lazar, registre privé, ligne R-1294 ; 24 heures au brouillon 5 ; gelé dans le code v64, `DUREE_ETAGE_1_H`, et au plan) : vérifié entre deux appels (un étage en cours n'est jamais interrompu), il mord avant le plafond de dépense si la durée moyenne d'une session dépasse (72 h − durée des exécutions du bac) / nombre de sessions : à 12 tours par carte, ≈ 593 s aux tailles du devis (31,7 testés), ≈ 333 s à 54,9 testés (tous à leur borne), ≈ 299 s à 60,7 testés (12 tours au prix du devis), moins encore si des tours moins chers laissaient tester plus de cartes ; à 3 tours par carte aux tailles du devis, ≈ 1 866 s (exécutions comptées à 3 × 120 s par carte) ; à 24 heures, ces seuils valaient ≈ 179, 93, 81 et 565 s (≈ 3,7 fois plus étroits à 60,7 testés ; essai `SeuilsDeDuree`) ; la latence réelle d'une session de Kimi expérimentateur n'est pas mesurée (devis : 10 à 40 s par appel) ; une course aux tailles du devis ne l'atteint pas, et s'il mordait ce serait un arrêt de la liste (code 3), jamais une carte jugée sur une exécution coupée. Étage 2 : 2 heures (hors de ce scellement). Option D6 (seconde réplique du bras aléatoire de l'étage 1, non retenue : D6) : + ≈ 90 appels, + ≈ 2,5 USD.
+
+## 13. Code gelé (bloc vérifié par le lanceur) et plan gelé
+
+**Brouillon 6 : code `_v64`** (fichiers neufs, règle R12 ; aucun fichier existant modifié ; la v63 reste intacte et n'est plus dans le code gelé de ce texte, sauf la lecture) : `pole/tour_ferme_v64.py` (cœur : celui de la v63 décrit ci-dessous, plus — F — l'adaptateur de l'étage `AdaptateurEtageV64`, qui rend à l'étage une session « rien envoyé » sans arrêt, sauf part du relais épuisée ; — G — le prix d'un caractère d'entrée du relais de l'expérimentateur passé à l'étage, `prix_caractere_usd`, le même contrôle pour le vérificateur, la taille de chaque consigne consignée ; — H — `DUREE_ETAGE_1_H` = 72 ; — I — `VERSION` « tour-ferme-v64 »), `pole/adaptateur_commande_v64.py` (commande externe v64 au-dessus de la v56 : code 4 dont la dernière ligne porte `"envoye": false` → « budget_depasse », coût 0, marqué ; barème prudent : prix d'entrée par million de jetons / 10⁶ / 3, lu dans la configuration, aucun défaut ; relais Kimi et Argon passés à la v64, porte refaite), `demonstrations/tour_ferme_v64.py` (lanceur : celui de la v63, plus les commandes v64, le barème lu dans la configuration avant toute porte et tout appel, la durée du plan exigée égale à 72 h en mode décisif, l'étape `tour_ferme_v64`), `demonstrations/lire_tour_ferme_v64.py` (programme de lecture : relevés du cœur v64 seuls ; la lecture `pole/lecture_tour_ferme_v63.py` est inchangée), `essais/test_tour_ferme_v64.py`, `essais/test_gardes_tour_ferme_v64.py`, `essais/mutations_tour_ferme_v64.py`. La course dépend des **commandes v3 de la session-depot** (TF-01 : rôles `experimentateur_test` et `lecteur_test` acceptés, sortie minimale par rôle — l'option (c) de TF-02 —, `"envoye": false` sur la dernière ligne de toute sortie en code 4 où rien n'est parti) ; chemins et empreintes : <<COMMANDES_V3>>.
+
+Écrit avec le brouillon 3 en `_v62`, puis, pour le brouillon 4, en `_v63` (fichiers neufs, règle R12 ; aucun `_v62` modifié) : `pole/tour_ferme_v63.py` (cœur de l'étage 1 : celui de la v62 — loi gelée et évaluateur servis à l'expérimentateur par le préenregistrement court, grammaire des lois servie aux proposeurs, étage servi à l'aveugle, arrêts scellés, parts des relais, recopie sur le bilan réel de g−1, recherche de L* et découvertes distinctes au relevé, doublures scriptées branchées sur le chemin réel — plus le gardien v63 (indices entiers, jeu factice, aucune exception qui remonte ; I26), la borne de 0,80 USD par carte (I30, relevée au brouillon 5 : les 12 tours) et, au brouillon 5, le rôle `proposeur_ideation` passé aux relais et la garde des rôles, `exiger_roles_joues`), `pole/evaluateur_lois_v62.py` (évaluateur de référence, bibliothèque standard, servi tel quel dans la tranche ; inchangé), `pole/lecture_tour_ferme_v63.py` (lecture gelée de l'étage 1 : C10, C16 ; I28, I29, mineurs 29 et 30), `demonstrations/tour_ferme_v63.py` (lanceur de l'étage 1 : plan d'étage 1, zones de l'étage 2 ignorées, garde 6 complète, machine jetable, monde gelé, moteur de l'étage : « claude-sdk » en mode réel, mot de l'étage v5 pour « coûts réels, exécuteur factice refusé » ; aucun modèle Claude n'est appelé ; fermeture mesurée, I27 ; dossiers temporaires retirés sur un refus, mineur 34 ; garde des rôles des relais avant toute porte et tout appel, brouillon 5), `demonstrations/lire_tour_ferme_v63.py` (lecture scellée, C18 ; relevé d'une autre version du cœur refusé), `essais/test_tour_ferme_v63.py`, `essais/test_gardes_tour_ferme_v63.py`, `essais/mutations_tour_ferme_v63.py`. Les codes `_v61`, `_v62` et `_v63` (sauf `pole/lecture_tour_ferme_v63.py`) restent tels quels ; ils ne sont plus dans le code gelé de ce texte.
+
+**Le lanceur lit les décisions D7 et D9 dans le bloc `plan-gele` ci-dessous** (D8 relève de l'étage 2, hors de ce scellement ; D2 à D6 sont écrites dans le code gelé : un refus de l'une d'elles exige un code nouveau) (`d7`, `d9`, plafond de l'étage et parts des relais, m, générations, empreintes
+de la configuration et du monde planté, GO) et refuse toute valeur hors liste ou tout marqueur restant :
+un changement de décision est une version nouvelle du texte, jamais un choix enfoui dans le code. La configuration exigée est
+une **configuration à empreinte neuve (v3)** dérivée de celle du 1er novembre (`configuration-mini-course-kimi-argon-v2.json`,
+sha256 `4ae5a1e0947d44c1a08548d1b0197bfd96a2264f455189713b06183b2bc83108`), dont `budget.plafond_usd` vaut le plafond de
+l'étage, et qui porte, pour Kimi et Argon, le prix d'entrée de chaque commande (`fournisseurs.<relais>.prix_entree_usd_par_million_jetons`, v64 ; annexe A, A.6) ; le lanceur refuse toute autre empreinte ; dans la copie servie aux relais, il remplace le jeton `{REGISTRE}` des
+commandes externes **et** la valeur de `--plafond-cumule-usd` par le plafond de l'étage (`attaque_goodhart_v2.substituer_commandes`, substitutions déclarées au manifeste), puis transmet à la porte de chaque relais un plafond d'étape (v61 : la moitié du plafond de l'étage ; v62 à v64 : la part fixée au plan). GO de calcul : GO-2026-11-02-23 (Lazar, type « calcul », plafond exactement 50 USD), à la clé `go` du plan ; le lanceur le vérifie au registre avant tout appel (`configuration_v56.verifier_go_v56`, alias de `configuration_v55.verifier_go_v55` : identifiant, type « calcul », accordé par Lazar, période de validité, aucune révocation, montant en USD exactement égal au plafond de l'étage). Ce que le lanceur lit dans la configuration et autour d'elle, clé par clé, avec le domaine de chaque valeur et la garde qui la refuse : annexe A.
+
+<!-- plan-gele : début -->
+generations_etage_1: 3
+cartes_par_proposeur: 6
+cartes_reference: 12
+m_e_bh_etage_1: 19
+plafond_etage_1_usd: 50
+plafond_kimi_usd: 44
+plafond_argon_usd: 6
+duree_etage_1_h: 72
+d7: archive_du_bras_reel
+d9: mecanique
+configuration_sha256: <<CASE_CONFIGURATION_V3>>
+go: GO-2026-11-02-23
+monde_sha256: fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877
+ordre_des_bras: reel, recopie_melange, aleatoire
+<!-- plan-gele : fin -->
+
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.** Plan de l'étage 2 (non lu par le lanceur v62 ; à reprendre dans le préenregistrement de l'étage 2) : `generations_etage_2: 2`, `m_e_bh_etage_2: 14`, `plafond_etage_2_usd: 5`, `duree_etage_2_h: 2`, `d8: predicteur_connu`, `reserve_manifeste_sha256: <<CASE_V>>`.
+
+<!-- etage-2-hors-scellement : fin -->
+
+**Étage 2 : aucun code sous ce texte, dit** : le lanceur v64 refuse `--etage 2` avant tout appel (code 2) ; le cœur de l'étage 2 (juge à plan plein étendu aux membres d'archive, constructeur du monde M2, test de mort contre le prédicteur connu, D8, garde 11 branchée) relève du préenregistrement de l'étage 2 ; ce texte ne revendique aucun essai de l'étage 2.
+
+Empreintes du code gelé (I27, option A, décidée par le directeur : le bloc est la fermeture statique des imports des deux programmes — arbre syntaxique, imports tardifs compris, fichiers chargés par chemin, évaluateur servi : 92 fichiers en v64, égalité exacte essayée par `Fermeture` — qui contient la fermeture mesurée pendant une course : modules chargés par les deux programmes, par une course à blanc du chemin réel, par la lecture et par un passage `--verifier-seulement` du chemin réel, dans un processus neuf, essai `FermetureEnCourse` ; elle comprend `pole/ideation.py` et `pole/tests_de_mort.py`, que l'import tardif de `dossier_ferme.charger_dossier_ferme` charge et exécute à chaque création de tranche, absents du bloc v62 ; les huit fichiers que seule la fermeture statique ajoute sont importés par des chemins non joués ici ; le lanceur vérifie chaque empreinte avant tout appel, garde 6 ; recalculées ci-dessous pour le code v64 du brouillon 6 sur une copie de travail isolée à la tête `66dbcf1` (quatre fichiers du bloc sont neufs, non suivis, à revérifier après commit : `demonstrations/tour_ferme_v64.py`, `demonstrations/lire_tour_ferme_v64.py`, `pole/tour_ferme_v64.py` et `pole/adaptateur_commande_v64.py` ; les 88 autres empreintes sont égales à la tête `66dbcf1` et aux empreintes de mêmes noms du bloc du brouillon 5 ; trois fichiers du bloc du brouillon 5 en sortent : `demonstrations/tour_ferme_v63.py`, `demonstrations/lire_tour_ferme_v63.py` et `pole/tour_ferme_v63.py` ; au brouillon 5, les 91 empreintes avaient été revérifiées par la contre-lecture courte du 2 novembre 2026, égales à l'arbre de travail, à `a12713a` et à la tête `08b1f17`) ; les 81 empreintes v62 ont été revérifiées par la contre-lecture 3 aux commits `8247cac` et `421d090`) :
+
+<!-- empreintes-du-code : début -->
+98c1a1a205cfe58ec277b64fbf4778e567246cfb1f0cc6882c1071704c01ae01  demonstrations/tour_ferme_v64.py
+393b17cc859a634036778cab364c5fb2ae2ff1aa7c34ddec27b2246732b9952b  demonstrations/lire_tour_ferme_v64.py
+58609e0c9fc5c5eea5de1dbb8c9b8235fd85a9884d326ffe09dfb50b21af79cf  demonstrations/attaque_goodhart_v2.py
+bc5e9c98acff41b97487e2345d33768c8cdf41f0ededf8b2eed0bf842c889845  demonstrations/ideation_v2.py
+4212d4c9d014a265847d4c4ed87a8cd804fdafa73f85fd8947874d63fca1c36d  demonstrations/ideation_v4.py
+1894f250264eaaccbf891dfa255e71dc587fe415c8d21e283391203a2fe73444  demonstrations/ideation_v5.py
+4c302e5b97b229d5b3edd9e9a427f1e50796c10f7081f63132165ffeef854ba4  demonstrations/ideation_v6.py
+7b90e65e1308b1c230b3f804743cfc42b9dc571d93b73ed6c5f3f8c9d2b481b2  demonstrations/ideation_v7.py
+2e2be8d72c548e183b94c14de20c971f241f998f54f64c5281b2427fdd64e9d1  demonstrations/ideation_v8.py
+f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b  pole/__init__.py
+606aa8b4fcc38786b38cf2954da46533eed9384232a56100d22ff30b8ce0826c  pole/a_blanc_v59.py
+adb7328721342601eb487856840e385493e6e35c522c90d804a4f8c96bfb5700  pole/adaptateur_commande_v64.py
+09a46515ff30a99f360fcbc7d4c613c35cb511439a5b6c249327e477fdee4ada  pole/adaptateur_kimi_v53.py
+a1a8ede8d38884a28365ee797dcd3018dbf09ea1baefa3f57cfcb3281c529c99  pole/adaptateurs.py
+d36c79b272af450b8d67313f44068743d80f0204bcedbd30f5d879829c945a17  pole/adaptateurs_v56.py
+a856cdaa37e8fb1f3b873ef2c0d9aa439ee0a8838f5ee9a2910cb3c0dcf8007f  pole/aiguilleur_v53.py
+3c9de8b83b6fcf198d12cacf6a6738c2fc3fe4ade9391f943b3924592959e703  pole/attaque_goodhart_v2.py
+962eb8ce22d5af1bf59970e9ef9cab15620edef4d5e9746161bc302e97c2af02  pole/bisociateur_v53.py
+20d938b2dcafcd4bb7c9777a0182a3590b390a146a8375590905741ea0e250f8  pole/bisociateur_v54.py
+d9521311a96384494871e9f9fcd4b4554548b9f45fdc28e8e75ca30d4c54d22f  pole/bisociateur_v55.py
+a2de486592fc98c14e13bb9071d272fb65d4f49de38dd188ee64857698177681  pole/boucle_fermee_v59.py
+a4a70be0090f5c94852dae7b6192486a97b50ec5c901b27ed01ccb40fdde9368  pole/bras_attaque_v54.py
+cefc7e76322b8f8266ec77f31ecb06bf1ea21633ab5dec1e1b91dc62e4374345  pole/budget_v53.py
+220d25e6ce5a7eed008c095ef1a9f66e84b4e98f801dfee2f74bdda02ba5ac62  pole/budget_v54.py
+3a672aceeeee3cf83cd4e46ca461fdbaf3acd0a9552be24d2566627ce6b7c13e  pole/budget_v56.py
+78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85  pole/caviardage.py
+f8a70c8f71c380689b2979e3c212d09379ceee1973465b2b207b493cbd73c380  pole/coffre_v53.py
+ef10fe044608fda51d5cd4b3b855da677845be83d1367ca3aa33fe45337e33fd  pole/coffre_v55.py
+ef72ffbf6b5ba546fb5e509502b59f0d9ac4f78772dcb9570ef36086639f4a78  pole/configuration_v53.py
+3424ca7fa8911e5c2656cb56632f7d74c958008b9366af0ac45e6a62e4d16d66  pole/configuration_v54.py
+2e6237c0a8b1c823fa17ddd6c680357a59ec4030bfbe9ac6ba970a700a864071  pole/configuration_v55.py
+122405228d6ec550b2120114e87a1e70bcc74c14eee17342605d8402bd015d6b  pole/configuration_v56.py
+fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c  pole/controles_pari.py
+8f2d035828df913d8fa92e1b7d0c8e41ac73e8416e60f3b674753c27f5c61237  pole/course2_v53.py
+ac1980d04eb88d8fbb9a073902e47146ab9eadd3375a41cd72835fa5acf20342  pole/course2_v54.py
+ee6a861e7f8db32a9545372a51f902389cdbea809b0ba354e621a3681e541a70  pole/course2_v55.py
+14f655696876afc8453ec5237236b3f9daf8d87844c4acc9d5189b3e61b310f1  pole/course2_v56.py
+798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18  pole/cycle.py
+62fd284519278382592a4684e9d4ecd32baad5e11491c256ef64ee844f08d087  pole/dossier_ferme.py
+d568d25bf7d96011cfdcda12e7bc2c1933a61827b237f8c8c363b4055122ad4b  pole/etage_entre_generations_v53.py
+86a6bec00c3fee9b4ea510cf8dad8d899b9c96adef1e5ae4f8a8281d658143e5  pole/etage_entre_generations_v54.py
+865bd7e5734618a2e989bdd14726ff7db53e014963cbc93b48be1892c7ab4dd9  pole/etage_entre_generations_v55.py
+f0c80e2d9801d4a928574f7f442e2950c2d130d77015b30102911bfa87dd6eba  pole/etage_entre_generations_v56.py
+e4bf36819d18844079a2bb4996991fd65c233a51d76b7d3daf5b866a71328318  pole/etage_entre_generations_v57.py
+26613fe72da7f049d5dd076aab51a3808221bf52686b9d0258a201c8b38b8632  pole/evaluateur_lois_v62.py
+ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074  pole/fiche.py
+7cfcf8329c66c7a37ceb2992cc96e21aedbfa0a10525467672794090a128eda6  pole/fiches_v53.py
+1ab0796dd5d9de14ea84953b0307a065572bc300ebe45209ca207d7880bbaebf  pole/fiches_v54.py
+3abd0e19a8f16cc1c2a8f2590ea04831a7d9ba25c02129fb881b87be3983f390  pole/garde_outils.py
+83b54b816b3277d97f5340ad4a316094a492bc2090c782b3e134092a97ca1edf  pole/gardes_e0_v54.py
+e46c5cd0a301c89830d97c098ee52b33ead6b01cafe15ab8454e6b7957c54db1  pole/gardes_e0_v55.py
+921e59f23753666d6367678447edf4ee2964dc6ec3d382aefa8582b996e123b9  pole/gardes_e0_v56.py
+7eb838958b28c7b7a5ee20177dfc3d0c194002b99b2382e019fe7d91c3090dc0  pole/graines_v53.py
+4ee70d25567a9b3ac90911cc5ebee8cebba0537d541e7a0ebc1fa3ed170abdc2  pole/ideation.py
+67d2ad3591b21601ece4101154138f532ba519024761beb8c9738181f8f3fefc  pole/ideation_v2.py
+c4c6ab12dc471eef078c116a4205a22d9b498da720ce71e37a0a6edae6c4239b  pole/juges_croises_v53.py
+2e2c695abcfe2715ca29101c434346658949a2c86be86ed8f9d6f68a408f94ea  pole/lecture_tour_ferme_v63.py
+71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e  pole/memoire.py
+43b01b43b1ec347ff02b456975d74c17e7a0e974e9b95e9ba4935bdb895f31a0  pole/memoire_v53.py
+8f3f57fc98972fbcf6aefb27fd37298ac67f249cd295c7127b47ab8e77626c08  pole/mesures_v54.py
+35d9a996aaacf6d61e84762a2173e73e3c1a90eda730cce122a0f321b038d0e1  pole/moisson.py
+33088eb9088549a20ffd489687928a1f1469d1df85a025db29bc9ce3f93e7b18  pole/monde_banque.py
+b2aaf3958525e399f0c6453eace41550146327623f95578d64e158bb13e8cae0  pole/monde_noyau.py
+711a32679164bd63605f0bcc2a96f37d53260c479004d04d887d8228ac7d431b  pole/noyau_v54.py
+ca0f2dda980777da9c549519c6b15994309722353b22f88d117e95aa2c2d4035  pole/noyau_v55.py
+eb5a003e8f23b0882e5588fe537e8b65b890f0d7d19560896be4e85a0731543b  pole/noyau_v56.py
+0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910  pole/nul_filles_v2.py
+cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888  pole/nul_v8.py
+514864b7879e5131ee37f7a57951db5ece514abe9acbd90b1294e0d914041669  pole/oracle_tour_ferme_v60.py
+966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444  pole/outils.py
+ec6c2cf64d0c9a3bcb3484f2bc58ca986c89e97829bd45fdb96cbc42bf094fef  pole/pari_apparie.py
+77056684e5d1b2149521878da396d51bb3f16834de85ca9e86acdc7e1998592d  pole/prepilote_v54.py
+e91e07e4f3bf67cd5106129586048abb3b06284eb9812f8e4da4082087859f05  pole/prepilote_v55.py
+dfce55061c65b5ae7526161c54be17005ddef631cb539463cd2c23b32b87b087  pole/prepilote_v56.py
+7d00371a8fcfa3efc2c17b2f0ab33d18ef83b41f3988744ea12dcf823806f68f  pole/proposeurs_references_v59.py
+0657eec8e0b1a3d2a3f57f37aad59c34554a2352be4e42ed2c3395e9e94fe2b5  pole/protocole_outils.py
+b5a76343e458cf8fb91ee1928244f9cb65d50c27ab9b1bae91c21a5c82349da3  pole/relais.py
+1b90b020287e575b5564508f9ba33b87bbc051c1015f4198e6b6e648d50ee153  pole/relais_reel.py
+359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc  pole/selection_pari.py
+be14d44e7a8ebf6b2a71f16b5290555f5d7a11309e5dbf309ce9097f19ae7892  pole/simulation.py
+27129c62498e3d5b801eb4d882b8abb7db2c3a0bfb2205829a62d7f0c69a353c  pole/simulation_v53.py
+de2232922516f0d3fa2ca664ff80800d0ac53ff8e823b784864aab375e01941c  pole/simulation_v54.py
+91ac1c345c3670dd232b0c1da63825608aac1a840192639dd01e7fb175efbf4f  pole/simulation_v55.py
+bcafca44c5117dfd30262ee520a67944d051208f1b1deac6fac016e8cb95dc76  pole/simulation_v56.py
+620225973d68670a56ca913cdd02709fa576fa43e1393d166915ea67c1d7c3bb  pole/suivi_roles_v54.py
+1a8267fea6d147b070d697ccd2c9d33f2514be6fcba106dca8ca123be1cb7403  pole/tableau_v53.py
+fc5d3507b33e13094d64751ff2b4564ba5ed4c238f93aaae808c458b3c123252  pole/tests_de_mort.py
+363a3725885da08412f25b28defba7a8d204d883c3637f1de1df83686d93a41a  pole/tests_de_mort_v2.py
+ea05eb55f9d179501fb091d25298deaf36cd66ad16fd65bdca4dcf5e4ba74bba  pole/tests_de_mort_v3.py
+35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a  pole/tests_de_mort_v4.py
+da524871b9b498693d67cc099240acb98c4c84c800ee4c69f0a1cb5fe60b64f1  pole/tests_de_mort_v5.py
+35a8294e24c870685435b990d6c03cd33cb5b2e288bcb2cc91cd9af04679c2da  pole/tour_ferme_v64.py
+<!-- empreintes-du-code : fin -->
+
+## 14. Décisions, et ce qui manque pour lancer
+
+- **D1** — **prise** par Lazar (`GO-2026-11-02-06`, registre privé, 2 novembre 2026) : les proposeurs ne reçoivent que les lois retenues, sans verdict ni rang.
+
+Décisions écrites selon la recommandation de la contre-lecture (section 5 de celle-ci) et prises par Lazar le 2 novembre 2026 à 17:24 UTC (GO-2026-11-02-18) : portée de ce scellement, l'étage 1 seul ; D2, D3, D4, D7, D9 et la seconde partie de D6 acceptées telles qu'écrites ; D5, D8 et la première partie de D6 reportées au texte de l'étage 2. Un changement = version nouvelle (D7 et D9 sont des paramètres du plan gelé de l'étage 1, lus par le lanceur ; D8 est un paramètre de l'étage 2, hors de ce scellement ; D2 à D6 sont écrites dans le code gelé : un refus de l'une d'elles exige aussi un code nouveau) :
+- **D2** — définition de la fausse découverte par l'oracle, g₀ = 0,02 nat, nouveauté contre l'archive (section 3) (oui). Mot de Lazar : acceptée telle qu'écrite (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC).
+- **D3** — témoins jamais retenus ni servis, contrairement au mode à blanc v59 où l'amorce entre à l'archive (oui ; L3 montre
+  qu'autrement les générations 2 et 3 ne mesurent plus rien). Mot de Lazar : acceptée telle qu'écrite (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC).
+- **D4** — bras recopie-mélange nourri par l'archive du bras réel (oui ; sinon il ne recopie que ce que le hasard a retenu). Mot de Lazar : acceptée telle qu'écrite (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC).
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+- **D5** — T entier pour les deux générations de l'étage 2, génération 1 seule décisive (oui) ; ou T coupé en deux. Mot de Lazar : <<DECISION_D5>>.
+<!-- etage-2-hors-scellement : fin -->
+
+- **D6** (pour ce scellement, sa seule partie de l'étage 1) — seconde réplique du bras aléatoire de l'étage 1 : non (recommandation : les 2,5 USD servent mieux au plafond). Mot de Lazar : acceptée telle qu'écrite, pas de seconde réplique (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC). La première partie de D6, le bras aléatoire de contrôle de l'étage 2 (oui, ≈ 0,7 USD), est reportée par Lazar au texte de l'étage 2.
+- **D7** — le bras aléatoire est jugé contre l'archive du bras réel de la même génération, ses retenues ne servent à rien (`d7 = archive_du_bras_reel`) ; alternative `archive_propre`. Acceptée telle qu'écrite (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC).
+<!-- etage-2-hors-scellement : début -->
+
+**Étage 2 — hors de ce scellement, texte de l'étage 2 à sceller plus tard, avant toute lecture de T.**
+
+- **D8** — statistique du test de mort de l'étage 2 = gain sur le prédicteur connu du moniteur (`d8 = predicteur_connu`) ; alternative `marginale`.
+<!-- etage-2-hors-scellement : fin -->
+
+- **D9** — gardien mécanique seul pour les trois bras (`d9 = mecanique`) ; l'alternative `aiguilleur` n'est pas écrite (refus du lanceur). Acceptée telle qu'écrite (GO-2026-11-02-18, mot de Lazar du 2 novembre 2026 à 17:24 UTC).
+
+Ce qui manque, dans l'ordre : (1) fait pour l'étage 1 : le code `_v62` (contre-lecture 2 : loi servie à l'expérimentateur, grammaire servie aux proposeurs, lectures d'héritage, arrêts scellés, relais, machine jetable) puis `_v63` (contre-lecture 3 : gardien qui exige des indices entiers et évalue chaque loi sur un jeu factice, fermeture mesurée pendant une course, aucune issue A4 sur un arrêt, fuite de tranche → relevé invalide, borne par carte, essais de B10 ; au brouillon 5 : borne de 0,80 USD qui couvre les 12 tours, rôle `proposeur_ideation` et garde des rôles), leurs essais, leurs bancs de mutations, cinq répétitions à blanc v62 (L2b-v62) et deux courses à blanc v63 (L2b-v63, puis L2b-v63-b5 sur le code du brouillon 5) où les rôles scriptés ne reçoivent que ce que reçoivent les modèles ; au brouillon 6, le code `_v64` (TF-02, option (a) : code 4 « rien envoyé » ; barème prudent passé à l'étage ; durée de 72 h, R-1294), ses essais, son banc et deux courses à blanc dans le bac factice (L2b-v64-b6) — **une course à blanc v64 dans le vrai bac reste à jouer** (section 9) ; le cœur de l'étage 2 relève du préenregistrement de l'étage 2 ;
+(2) fait : la contre-lecture R2 courte et neuve du brouillon 5, du diff v62 → v63 et des essais neufs, par un sous-agent neuf (`prereg/contre-lecture-courte-preenregistrement-tour-ferme-v5.md`), ses couples appliqués ; à faire : la contre-lecture R2 courte et neuve de ce brouillon 6, du diff v63 → v64 et des essais neufs, par un sous-agent neuf ; (3) fait : les décisions D2, D3, D4, D7, D9 et la seconde partie de D6, acceptées par Lazar telles qu'écrites, et la portée, l'étage 1 seul (GO-2026-11-02-18, mot du 2 novembre 2026 à 17:24 UTC) ; D5, D8 et la première partie de D6 sont reportées au texte de l'étage 2 ; (4) chez la
+session-depot : la configuration v3 de l'étage 1 (modèles et adaptateurs du tour du 1er novembre, `budget.plafond_usd` = 50, relais de Kimi et d'Argon, tous deux en commande externe ; liste exacte de ce que le code lit : annexe A ; son empreinte va à la clé `configuration_sha256` du plan gelé ; avant d'écrire ce fichier, le constat de l'annexe A, A.6 bis : rôles et plafonds de session acceptés par ses deux commandes ; v64 : les commandes v3 et leurs empreintes, section 13, et la clé du barème de chaque commande, A.6), les clés, **`bwrap` 0.9.0 et une identité
+dédiée sans privilège sur son instance**, avec un dossier temporaire (TMPDIR) que cette identité traverse (par exemple `/tmp` ; sinon la sonde du bac refuse, code 2 : L2b-v63), la machine jetable (`POLE_MACHINE_JETABLE_V56=1`, environnement dans la liste blanche) et un passage `--verifier-seulement` ; la question du 1er novembre, la réserve, les cases de la section 5.2 et le monde M2 relèvent de l'étage 2 ; (5) le scellement par le directeur, commit et poussée du texte scellé **avant** la
+course ; (6) fait : le GO de calcul de Lazar sur ce devis, GO-2026-11-02-23, plafond **exactement** 50 USD (mot de Lazar du 2 novembre 2026, 18:26 à 18:29 UTC ; il remplace, pour cette course, le GO de 15 USD du brouillon 4) ; sa ligne au registre cite le commit `af92034` (code du brouillon 4) et un attendu de « ≈ 3,3 à 12 USD », alors que le code gelé sera la v64 et que le devis va jusqu'à ≈ 23,6 USD (≈ 26,1 si chaque carte atteint sa borne ; section 12) : le lanceur n'en lit que l'identifiant, le type, l'auteur, les dates, les révocations et le montant, tous conformes ; une ligne de précision du directeur humain est attendue au registre : <<PRECISION_GO_23>> ; le lanceur exige sa ligne dans `registres/go.md` : type « calcul », accordée par Lazar, en cours de validité le jour de la course, non révoquée, d'un montant exactement égal au plafond de l'étage (`configuration_v55.verifier_go_v55` refuse tout autre montant, plus petit ou plus grand) ; l'étage 2 exige un GO et une configuration à lui (5 USD) ; (7) après la course : sortie
+scellée avant lecture, lecture par le code gelé, verdict par un lecteur neuf (règle R13).
+
+## Annexe A — ce que le code v64 lit dans la configuration v3 et autour d'elle (pour la session-depot)
+
+Écrite au brouillon 5 depuis le code v63, mise au code gelé de ce texte au brouillon 6 (`demonstrations/tour_ferme_v64.py` : `principal`, `roles_reels`,
+`exiger_machine_jetable_reel` ; `pole/tour_ferme_v64.py` : `exiger_roles_joues`, `AdaptateurEtageV64` ; `pole/adaptateur_commande_v64.py` : `commandes_v64`, `bareme_depuis_configuration` ; et les modules qu'ils appellent), dans l'ordre
+où le lanceur lit, mode réel. **Toute valeur refusée l'est avant tout appel de modèle** : « refus : <classe> : <motif> » sur la
+sortie d'erreur, code 2, rien écrit, aucun dossier temporaire laissé (mineur 34) ; seules exceptions, dites en A.6 et A.8 : ce
+qu'un relais rend pendant la course (arrêt, code 3). Le passage `--verifier-seulement` joue tout ce qui suit sauf la relance des
+portes de plafond (A.6, dernier point) et doit rendre « conforme » avant le lancement. **Rien d'autre n'est lu** : en particulier,
+aucune clé « port » ni « effort » (A.7).
+
+**A.1 — Ligne de commande et texte scellé.**
+
+| ce qui est lu | domaine | garde qui refuse (code 2) |
+|---|---|---|
+| `SORTIE` (premier argument) | dossier absent ou vide | `FileExistsError` (« on n'écrase jamais ») |
+| `--etage` | `1` | `TourRefuse` (aucun étage 2 sous ce texte) |
+| `--preenregistrement` | `prereg/preenregistrement-tour-ferme-v1-v<N>.md` du dépôt, nom sans « brouillon », scellé (compagnon `.sha256` égal), aucun marqueur hors des zones de l'étage 2, bloc d'empreintes égal au disque et à la liste des 92 fichiers gelés, plan conforme (dont `duree_etage_1_h` = 72, v64), entropie ≥ 2⁶⁴ | `PreenregistrementRefuse` (garde 6) |
+| `--configuration`, `--moteur reel`, `--confirmer-moteur-reel` | tous trois exigés ; aucune option du mode à blanc, ni `--graine` | `TourRefuse` |
+| `--registre-go`, `--go` | le registre (A.3) ; `--go` égal à la clé `go` du plan gelé : `GO-2026-11-02-23` | `TourRefuse` |
+| `--bac`, `--utilisateur-bac` | `reel` ; l'identité dédiée (A.8) | `TourRefuse` ; `BacASableIndisponible` |
+
+**A.2 — Empreinte de la configuration.** sha256 des **octets** du fichier passé à `--configuration` = clé `configuration_sha256` du
+plan gelé (64 hexadécimaux minuscules ; c'est la seule case à remplir hors des zones de l'étage 2). Un octet de plus ou de moins
+(espace, fin de ligne) change l'empreinte : refus (`TourRefuse`, « configuration d'empreinte … : le texte scellé gèle … »). Ordre :
+la session-depot écrit le fichier définitif, calcule `sha256sum`, porte la valeur dans le plan, puis le directeur scelle ; aucune
+retouche du fichier ensuite.
+
+**A.3 — Registre de GO** (`configuration_v56.verifier_go_v56` = `configuration_v55.verifier_go_v55`, lecture
+`configuration_v53.lire_registre_go`). Une ligne de tableau à 8 colonnes :
+`| GO-2026-11-02-23 | AAAA-MM-JJ | calcul | <périmètre> | 50 USD | AAAA-MM-JJ | Lazar | <référence> |` (identifiant, accordé le,
+type, périmètre, plafond, échéance, accordé par, référence). Exigé : identifiant présent une seule fois ; type exactement
+« calcul » ; « accordé par » exactement « Lazar » ; dates ISO, et la date UTC du jour de la course entre « accordé le » et
+« échéance », bornes comprises ; aucune ligne de type « révocation » dont le périmètre ou la référence cite `GO-2026-11-02-23` ;
+cellule « plafond » : **un seul montant, exactement 50**, en `USD`, `$` ou `dollars`, aucun autre nombre hors identifiants
+`GO-…` et dates ISO, ni « ≈ », « ~ », « environ », « env. », « approx », ni « par lancement, run, appel, session, jour, instance,
+génération, étape » ; séparateur de milliers permis (espace, espace fine). Garde : `GoRefuse` (A15).
+
+**A.4 — Lecture complète de la configuration** (`configuration_v56.lire_configuration_v56`, qui enchaîne les lectures v53, v54 et
+v56 de la course 2). Le schéma de la course 2 est lu en entier et doit être conforme, **même pour les clés que le tour fermé
+n'utilise pas** (« inertes » ci-dessous : lues, jamais employées par la v64). Tous les manques sont dits en une fois
+(`ConfigurationRefusee`). Conseil : partir de la configuration v2 du 1er novembre (`configuration-mini-course-kimi-argon-v2.json`,
+sha256 `4ae5a1e0…`, lue par le lanceur `ideation_v8` du tour réel de ce jour-là), garder ses clés inertes telles quelles et ne
+changer que celles des points A.5 à A.7.
+
+| clé (inerte pour la v64 sauf mention) | domaine exigé |
+|---|---|
+| toute chaîne du fichier | ne contient pas le marqueur de remplissage des configurations (`configuration_v53.MARQUEUR`) |
+| `racine_graines` | entier ≥ 0 |
+| `champs_fiche` ; `champ_titre` | liste non vide de chaînes ; chaîne non vide |
+| `budget.plafond_usd` | **lue** : A.5 |
+| `budget.arret_etape_usd` | « sans » ou réel > 0 |
+| `budget.etapes` | liste non vide d'objets : `nom` (unique), `attendu_usd` ≥ 0, `plafond_relais_usd` ≥ 0, `role` ∈ {protegee, sacrifiable, reductible, protegee_hors_porte}, `rang` entier ≥ 1 (unique) pour sacrifiable et reductible, `reduite` {attendu_usd, plafond_relais_usd} pour reductible ; aucune clé `reservation_usd` |
+| `budget.portee_plafond` | « par_generation » ou « course » (la v64 n'en tire rien : le montant du GO est le plafond du plan) |
+| `juges` | liste non vide de {`etiquette` (unique), `modele`, `fournisseur`, `consigne` (nom de pièce)} |
+| `items_juge` | liste non vide de chaînes distinctes |
+| `agregation.regle` ; `agregation.q` | ∈ {au_moins, unanimite, majorite_stricte} ; si « au_moins », entier de 1 au nombre de juges |
+| `aiguilleur.etiquette`, `.modele`, `.consigne` (pièce), `.fournisseur` | chaînes non vides (aucun aiguilleur n'est appelé : D9) |
+| `garde_kimi.debordement_max` ; `.refus_aiguilleur` ; `.arret_metteur_fusion` | réel dans [0 ; 1] ; « debordement » ou « technique » ; booléen |
+| `tableau.longueur_max_titre`, `.longueur_max_resume` ; `.champ_resume` ; `.juger_passe_tableau` | entiers ≥ 1 ; chaîne ; booléen |
+| `memoire.methode` ; `.taille_bardeau` ; `.seuil` | « bardeaux » ou « plongement » ; entier ≥ 1 ; réel dans [0 ; 1] |
+| `bisociateur.bras` ; `.k_paires` ; `.fournisseurs_entree` | sous-ensemble sans double de {meta, gu_krenn, basique} ; entier ≥ 0 ; liste non vide de chaînes |
+| clés de chaque bras déclaré | meta : `annexe.chemin`, `annexe.sha256` (64 hexadécimaux), `regle_divergence` ∈ {fiche_ecartee, premier_lecteur}, `structures` ∈ {union, intersection}, `definitions` ∈ {annexe, consigne}, `s28` (« annexe » ou {kappa_min ∈ [−1 ; 1], jaccard_min ∈ [0 ; 1]}), `desaccord.paires_max` entier ≥ 0, `desaccord.champ_affirmation` chaîne, `desaccord.consigne` (pièce) ; gu_krenn : `mode` = « substitut », `source.chemin`, `source.sha256`, `oeuvres_min_vocabulaire` et `actif_min_oeuvres` entiers ≥ 1, `date_debut`, `date_coupure`, `actif_depuis` dates ISO ; basique : `exposant` > 0, `decalage` ≥ 0, `liste_concepts` (pièce) |
+| `bisociateur.consigne_fusion`, `.consigne_lecteur_etiquettes` | noms de pièces, exigés si des bras sont déclarés et `k_paires` > 0 |
+| `etiquettes_interdites` | liste non vide de chaînes |
+| `a4.mode` ; `a4.action` | « mot_entier » ou « prefixe » ; « arret » ou « fiche_exclue » |
+| `graines.prefixe` | `[a-z0-9]+` |
+| `arrets.a3_echecs_consecutifs` ; `.a3_delai_s` ; `.a14_part_max` ; `.a11_modeles` | entier ≥ 1 ; objet avec la clé « * » et des réels > 0 ; réel dans [0 ; 1] ; liste de chaînes |
+| `pieces` | objet non vide {nom: {`chemin`, `sha256`}} ; chaque fichier présent à son empreinte (chemin relatif : au dossier du fichier de configuration) ; chaque pièce citée (consignes des juges, de l'aiguilleur, des bras) présente |
+| `dependances.dep4_phrase` | **absente** (refusée par la v56) |
+| `specification` | facultative ; si présente, {`preenregistrement`, `contre_lecture`}, chacun {chemin, sha256 de 64 hexadécimaux} (non relus ici) |
+| `fournisseurs.<nom>.porte_plafond` | **lue** : A.6 |
+
+**A.5 — Budget.**
+
+| clé | domaine | garde |
+|---|---|---|
+| `budget.plafond_usd` | **50** (réel ; comparé au plafond du plan gelé, `float(…) != 50.0` → refus) | `TourRefuse` : « configuration : budget.plafond_usd = … ≠ plafond de l'étage 1 (50.0 USD) : demander une configuration à empreinte neuve » |
+| `plafonds_session.proposeur` | réel fini > 0, aucun défaut ; plafond de **chaque** session de proposeur (6 sessions : 2 relais × 3 générations), transmis à la commande (`PLAFOND_SESSION_USD`) | `AttaqueRefusee` (absent, booléen, ≤ 0) ; **pendant la course**, une session qui le dépasse rend « budget_depasse » et **arrête la course** (code 3 ; v64 : un code 4 « rien envoyé » d'un proposeur est lu de même) : à prendre large ; conseillé : 0,50 USD au moins (≈ 20 fois le prix moyen d'un appel du 1er novembre, 0,0237 USD ; au pire 6 × 0,50 = 3 USD, dans les parts) |
+| autres `plafonds_session.*` | inertes | — |
+
+**A.6 — Relais de Kimi et d'Argon.**
+
+| clé | domaine | garde |
+|---|---|---|
+| `proposeurs` | exactement **une** entrée `fournisseur: "kimi"` et **une** `fournisseur: "argon"`, chacune avec `modele` = l'identifiant exact demandé (chaîne non vide) ; d'autres entrées sont ignorées. Ce modèle est celui de **tous** les rôles du relais : Kimi proposeur **et** expérimentateur ; Argon proposeur **et** vérificateur | `AttaqueRefusee` |
+| `fournisseurs.kimi.type` | **`commande_externe`**. `kimi_protocole` passe le contrôle de type mais ne joue pas l'expérimentateur (`experimentateur_test`) | `TourRefuse` (garde des rôles, brouillon 5) : « relais kimi (AdaptateurKimiProtocole) : rôle « experimentateur_test » non joué par cet adaptateur … » |
+| `fournisseurs.argon.type` | `commande_externe` | `AttaqueRefusee` |
+| `fournisseurs.<kimi, argon>.commande` | liste non vide de chaînes ; lancée à chaque appel, consigne sur l'entrée standard, dossier de la session pour dossier courant | `ValueError` à la construction (code 2) |
+| `fournisseurs.<kimi, argon>.prix_entree_usd_par_million_jetons` (v64, clé neuve) | réel fini > 0, **aucun défaut** : le prix d'entrée du barème prudent de la commande du relais, en dollars par million de jetons (celui que la commande emploie pour son pire cas) ; prix d'un caractère d'entrée = prix / 10⁶ / 3 ; celui de Kimi est passé à l'étage (`prix_caractere_usd` : consigne de l'expérimentateur au-delà du reste de la borne → fin des tours, rien envoyé), celui d'Argon sert au même contrôle du vérificateur (au-delà de 0,1 USD → témoin « non concluant », rien lancé) ; un prix plus bas que celui de la commande affaiblit ce contrôle (le code 4 « rien envoyé » reste lu sans arrêt), un prix plus haut finit des tours plus tôt | `TourRefuse` (« configuration : fournisseurs.<relais>.prix_entree_usd_par_million_jetons exigé … »), code 2, avant toute porte et tout appel |
+| ce que la commande reçoit (environnement minimal, jamais une clé) | `PATH`, `HOME`, `LANG`, `LC_ALL`, `TMPDIR` s'ils sont présents ; `PLAFOND_SESSION_USD` (proposeur : A.5 ; expérimentateur : le reste de la borne de 0,80 USD de la carte ; vérificateur : 0,1) ; `ROLE_POLE` ∈ {`proposeur_ideation`, `experimentateur_test` (Kimi), `lecteur_test` (Argon)} ; `MODELE_DEMANDE_POLE` (le modèle de `proposeurs`) ; porte « environnement » : `ETAPE_POLE=tour_ferme_v64` (`tour_ferme_v63` au brouillon 5 : une commande qui contrôle cette valeur doit accepter la nouvelle), `PLAFOND_ETAPE_USD` = la part du relais (`44.00` ou `6.00`) | — |
+| ce que la commande rend | dernière ligne JSON `{"texte": chaîne, "cout_usd": réel fini > 0, "modele_servi": chaîne}` ; `modele_servi` = le modèle demandé, ou suivi d'un suffixe de date strict `-AAAAMMJJ`, ou dans `fournisseurs.<nom>.modeles_servis_permis[modèle]` (facultatif : {modèle demandé: [identifiants admis]}) ; délai : 1 800 s par appel (défaut de la classe, non réglable ici), groupe de processus arrêté au-delà | **pendant la course** : autre modèle servi ou modèle servi absent → refus R-764, arrêt (code 3) ; session en erreur → arrêt ; « budget_depasse » d'un proposeur → arrêt ; « budget_depasse » de l'expérimentateur ou du vérificateur à son plafond de session → fin des tours de la carte, pas un arrêt ; « budget_depasse » sous ce plafond ou part du relais épuisée → arrêt (C13) ; v64 (TF-02, option (a)) : sortie en code 4 dont la dernière ligne porte `"envoye": false` (le booléen faux) → lue « budget_depasse » pour cette session, coût compté 0 : expérimentateur ou vérificateur → fin des tours de la carte pour ce rôle (vérificateur : témoin « non concluant »), jamais un arrêt ; proposeur → arrêt (A.5) ; tout autre code non nul (ou `envoye` absent, vrai, autre que le booléen faux) → session en erreur, arrêt |
+| substitutions dans `commande` | tout argument qui contient `{REGISTRE}` devient `<SORTIE absolue>/registre-depense-cumulee-v1.jsonl` ; l'argument qui suit `--plafond-cumule-usd` devient `50` (déclarées au manifeste). Aucune garde ne les exige : sans ces arguments, rien n'est remplacé et le relais garde ce que porte sa commande — à vérifier par la session-depot ; conseillé : les deux commandes portent `--registre {REGISTRE}` et `--plafond-cumule-usd`, comme la configuration d'essai du lanceur | — |
+| `fournisseurs.<nom>.porte_plafond`, pour **chaque** entrée de `fournisseurs` | `{"type": "environnement"}` (commande externe seulement) ou `{"type": "commande", "commande": [chaînes], "delai_s": réel > 0}` | `ConfigurationRefusee` (A.4) ; `RelaisSansPlafond` |
+| autres entrées de `fournisseurs` (par exemple « claude ») | type ∈ {`kimi_protocole`, `commande_externe`, `claude_sdk`} ; construites (adresse `url_relais` locale vérifiée pour `claude_sdk` et `kimi_protocole` : `http://127.0.0.1:PORT` ou `localhost`), **jamais appelées** | `ConfigurationRefusee` (type inconnu) ; `RelaisInvalide`, `ReglageKimiRefuse` |
+| environnement de l'orchestrateur | aucune variable de clé (`ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, `CLAUDE_CODE_OAUTH_TOKEN`, `OPENAI_API_KEY`, `GOOGLE_API_KEY`, `GEMINI_API_KEY`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `GITHUB_TOKEN`, `GH_TOKEN`, `HF_TOKEN`) : les relais tiennent les clés | `TourRefuse` |
+| relance des portes (au lancement, pas sous `--verifier-seulement`) | `transmettre("tour_ferme_v64", part)` : porte « environnement » → les deux variables ci-dessus ; porte « commande » → la commande de l'opérateur, lancée avec `PATH`, `HOME`, `LANG`, `LC_ALL`, `TMPDIR`, `ETAPE_POLE`, `PLAFOND_ETAPE_USD`, doit sortir avec le code 0 avant `delai_s` et imprimer en dernière ligne `{"etape": "tour_ferme_v64", "plafond_usd": 44.0}` (Kimi) ou `6.0` (Argon), égal au centime | `RelaisSansPlafond` (code 2) |
+
+**A.6 bis — Ce que les commandes des relais doivent accepter (contre-lecture courte, I32).** Le code ne voit d'une commande que son code de sortie et sa dernière ligne : il ne peut savoir ni si elle joue le rôle qu'il lui donne (`ROLE_POLE`), ni si elle refuse une session dont `PLAFOND_SESSION_USD` est sous sa propre réservation de pire cas (sortie maximale de son rôle, plancher de sortie). Depuis la v64 (« TF-02, options (a) et (c), décision du directeur, 3 novembre 2026 »), une commande qui refuse **sans rien envoyer en sortant en code 4, sa dernière ligne portant `"envoye": false`**, est lue « budget_depasse » pour cette session : fin des tours de la carte pour ce rôle (vérificateur : témoin « non concluant »), rien compté, jamais un arrêt — sauf pour un proposeur (arrêt, A.5). Une commande qui refuse autrement — autre code de sortie non nul, `envoye` absent ou vrai, ou coût absent ou nul en code 0 — rend « erreur » : session en échec, **arrêt de la course** (code 3, aucune issue), même pour le vérificateur, qui n'est jamais décisif ; la configuration étant gelée par son empreinte, la corriger exige un texte nouveau (la reprise de la section 7 ne vaut que pour une panne d'infrastructure). Une limite propre du relais que la commande lit aussi en code 4 « rien envoyé » (refus 402 du plafond du relais, 429 de son nombre d'appels : message n° 294 de la session-depot) serait lue de même, sans arrêt : chaque carte suivante finirait ses tours sans exécution (« non concluant », compté par T4) au lieu d'un arrêt. Le passage `--verifier-seulement` n'appelle rien et ne le voit pas ; aucune course à blanc ne l'a joué (doublures) ; l'étage des tests de mort n'a jamais tourné pour de vrai avec ces relais (section 1). Avant d'écrire le fichier définitif et son empreinte (A.2), la session-depot vérifie par lecture du code de ses deux commandes (aucun appel) : Kimi accepte `proposeur_ideation` et `experimentateur_test`, Argon `proposeur_ideation` et `lecteur_test` ; aucune ne refuse avant dépense une session dont le plafond vaut, pour l'expérimentateur, le reste de la borne de 0,80 USD de la carte (0,80 USD au premier tour, parfois quelques centimes au dernier), pour le vérificateur 0,1 USD à chaque session (le plus bas des plafonds fixes de la course), pour un proposeur `plafonds_session.proposeur` ; au besoin, elle règle les options de ses commandes dans la configuration, gelées ensuite par son empreinte. v64 : elle vérifie aussi que toute sortie en code 4 où rien n'est parti porte `"envoye": false` (booléen) sur sa dernière ligne ; que le prix d'entrée porté à la configuration (A.6) est celui du barème de chaque commande ; que les limites propres de ses relais ne peuvent pas mordre pendant la course (plafond de chaque relais au moins égal à sa part, 44 ou 6 USD, sans autre usage du relais pendant la course ; nombre d'appels permis au moins égal au maximum structurel de la course : 1 731 pour Kimi — 3 propositions et 12 sessions par carte testée, 144 cartes et témoins testés au plus —, 147 pour Argon) ; et que ses commandes acceptent `ETAPE_POLE=tour_ferme_v64`. Elle écrit ce constat avec l'empreinte qu'elle remet.
+
+**A.7 — Vérificateur et expérimentateur : modèle, port, effort.**
+
+- **Modèle du vérificateur** : `proposeurs[fournisseur="argon"].modele` (le même que celui d'Argon proposeur), envoyé dans
+  `MODELE_DEMANDE_POLE` avec `ROLE_POLE=lecteur_test` ; famille « argon », distincte de « kimi » (garde 9) ; une session par carte
+  testée, plafond 0,1 USD ; lecteur témoin, jamais décisif. **Expérimentateur** : `proposeurs[fournisseur="kimi"].modele`,
+  `ROLE_POLE=experimentateur_test`, au plus 12 sessions par carte, plafond de session = reste de la borne de 0,80 USD de la carte.
+- **Port** : aucune clé lue pour Argon ni pour Kimi en commande externe. Un port n'apparaît que dans une adresse `url_relais`
+  (`kimi_protocole`, `claude_sdk` : `http://127.0.0.1:PORT`), et `kimi_protocole` est refusé pour ce tour. Si la commande d'Argon
+  ou de Kimi parle à un relais local sur un port, ce port est dans `fournisseurs.<nom>.commande` : opaque pour la v64, gelé par
+  l'empreinte de la configuration (A.2).
+- **Effort** (effort de raisonnement) : ni lu ni transmis (aucune variable d'environnement ne le porte). `EFFORT_PAR_ROLE` de
+  `pole/adaptateurs.py` ne concerne que l'adaptateur du kit Claude, jamais appelé ici. Un réglage d'effort d'Argon ou de Kimi se
+  fixe dans leur commande, explicitement (aucun défaut), où l'empreinte de la configuration le gèle ; le dire dans la
+  configuration (champ libre, inerte pour la v64).
+
+**A.8 — Machine, environnement, bac.**
+
+| quoi | domaine | garde |
+|---|---|---|
+| `POLE_MACHINE_JETABLE_V56` | `1` dans l'environnement du processus | `TourRefuse` « machine jetable (garde 15) » ; revérifié à chaque étage |
+| noms des variables de l'environnement du processus | chacun dans la liste fermée `NOMS_PERMIS` (`PATH`, `HOME`, `USER`, `LOGNAME`, `SHELL`, `PWD`, `OLDPWD`, `SHLVL`, `HOSTNAME`, `TERM`, `TZ`, `_`, `LANG`, `LANGUAGE`, `LC_ALL`, `LC_CTYPE`, `LC_MESSAGES`, `LC_NUMERIC`, `LC_COLLATE`, `LC_TIME`, `LC_MONETARY`, `TMPDIR`, `TMP`, `TEMP`, `PYTHONHASHSEED`, `PYTHONDONTWRITEBYTECODE`, `PYTHONIOENCODING`, `PYTHONUTF8`, `PYTHONUNBUFFERED`, `TOKENIZERS_PARALLELISM`, `OMP_NUM_THREADS`, `MKL_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `POLE_MACHINE_JETABLE_V53`, `POLE_MACHINE_JETABLE_V54`, `POLE_MACHINE_JETABLE_V56`, `POLE_ESSAI_BAC_REEL_NON_JOUE`) ou dans `etage_tests_de_mort.environnement_permis` | `TourRefuse` « machine jetable (garde 15) : … variable hors de la liste blanche » |
+| `etage_tests_de_mort.environnement_permis` | liste de noms **exacts** (aucun `*`, `?`, `[`, `]`), aucun nom de clé (refusé même listé : se termine par `_KEY`, `_PAT`, `_AUTH`, contient `SECRET`, `TOKEN`, `PASSWORD`, `PASSWD`, `CREDENTIAL`, `API_KEY`, `ACCESS_KEY`, `PRIVATE_KEY` ou `_KEY_`, ou vaut `KIMI_API_KEY`, `MOONSHOT_API_KEY`, `SSH_AUTH_SOCK`, `AUTH`). **Contenu attendu** : exactement les noms non secrets présents sur la machine hors de `NOMS_PERMIS` (`env` sans les valeurs, moins la liste ci-dessus) ; liste vide (ou clé absente) s'il n'y en a aucun ; seule clé de `etage_tests_de_mort` que lit la v64 | `TourRefuse` « machine jetable (garde 15) » |
+| `bwrap` | dans `PATH` (0.9.0 aux courses à blanc ; version écrite au manifeste) | `BacASableIndisponible` (garde 3) |
+| identité du bac | lanceur sous le superutilisateur : `--utilisateur-bac UID` **exigé**, UID numérique d'une identité dédiée sans privilège (le lanceur crée `bac-tour-ferme-v64-…` dans TMPDIR, mode 0711, et son sous-dossier `bac`, mode 0700, propriété `UID:UID` : le groupe porte le même numéro) ; lanceur sous un utilisateur ordinaire : l'option est ignorée, le bac tourne sous cet utilisateur ; une seule course à la fois par identité dédiée | `BacASableIndisponible` (« utilisateur dédié sans privilège et dossier racine à lui exigés ») |
+| `TMPDIR` | dossier que l'identité dédiée **traverse**, lui et chacun de ses ancêtres (bit x) : `/tmp` (1777) convient ; un TMPDIR sous un dossier en 0700 (le dossier de travail du rédacteur, `/tmp/claude-0/…`, aux courses à blanc) est refusé à la sonde du bac (« bwrap: Can't find source path … Permission denied »), code 2, rien laissé (L2b-v63). Python le lit par `tempfile.gettempdir()` (TMPDIR, sinon TEMP, TMP, puis `/tmp`) ; le dossier des sessions `tour-ferme-v64-sessions-…` y est créé aussi | `BacASableIndisponible` (garde 3) |
+| sonde du bac | réseau isolé, aucune capacité, aucune écriture hors du dossier de travail, filtre d'appels système, mémoire de 768 Mo tenue, pas de superutilisateur | `BacASableIndisponible`, aucun repli |
+
+**A.9 — Ce qui n'est lu nulle part par la v64** : aucun « port » ni « effort » ; aucun modèle Claude (`aiguilleur.modele` et
+`juges[].modele` ne sont que contrôlés en A.4, `lecteurs_etiquettes` n'est pas lu ; aucun modèle Claude n'est appelé) ; aucune clé de
+`etage_tests_de_mort` autre que `environnement_permis` ; ni `budget.etapes`, ni `budget.arret_etape_usd`, ni
+`budget.portee_plafond` au-delà de leur forme (A.4). La v64 lit en plus, pour Kimi et Argon, `fournisseurs.<relais>.prix_entree_usd_par_million_jetons` (A.6).
