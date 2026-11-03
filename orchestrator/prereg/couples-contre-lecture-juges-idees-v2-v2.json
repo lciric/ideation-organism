@@ -1,0 +1,50 @@
+[
+ {
+  "ancien": "`pole/attaque_goodhart_v3.py`, lignes 84-85 de ce dépôt, sha256 `b821bdb73a2829a41d519800859bbf10216254ca97228b5a179438eed38a1c6a`)",
+  "nouveau": "`pole/attaque_goodhart_v3.py` au commit `66dbcf1`, lignes 84-85, sha256 `b821bdb73a2829a41d519800859bbf10216254ca97228b5a179438eed38a1c6a` ; au commit `3e7ca5c`, ce fichier vaut `cb9cffe77fb858bf279c41881638edecba0166b034a05d44c2f62e2b25a45df3` et porte les mêmes valeurs aux lignes 105-106)"
+ },
+ {
+  "ancien": "borne de durée du plan 8 à 40 s (celle du plan (b′) d'A1, `pole/attaque_goodhart_v3.py`, ligne 91)",
+  "nouveau": "borne de durée du plan 8 à 40 s (celle du plan (b′) d'A1, `pole/attaque_goodhart_v3.py`, ligne 91 au commit `66dbcf1`, ligne 112 au commit `3e7ca5c`)"
+ },
+ {
+  "ancien": "`pole/attaque_goodhart_v3.py`, lignes 82-83)",
+  "nouveau": "`pole/attaque_goodhart_v3.py`, lignes 82-83 au commit `66dbcf1`, lignes 103-104 au commit `3e7ca5c`)"
+ },
+ {
+  "ancien": "`39ef7ecb153ae4af4d599886eecd02d0b6ce7a01e2e59932f7fc75ce01090201` ; le registre ne fait que croître : les lignes citées y ont été relues)",
+  "nouveau": "`39ef7ecb153ae4af4d599886eecd02d0b6ce7a01e2e59932f7fc75ce01090201` ; le registre ne fait que croître : les lignes citées y ont été relues, puis de nouveau, inchangées, par la contre-lecture v2 le 3 novembre 2026 vers 05:30 UTC, à `2d8d07f5fd7d69a873f3cc72b25022c1d912ba10755e2968d9aea7f13ad068e8` ; empreinte à relever encore au scellement)"
+ },
+ {
+  "ancien": "elle est chez la machine qui porte les\nclés ;",
+  "nouveau": "elle est chez la machine qui porte les\nclés : la fille neuve de session-depot, où Lazar a posé les clés Kimi et Astra, `registres/decisions.md` du dépôt de travail, R-1294 et R-1301 ;"
+ },
+ {
+  "ancien": "codes de sortie vus, budget de session minimal accepté, réglages `--effort` et `--reflexion` des commandes Astra et Argon tels que\nla configuration les fixe) : `<<EPREUVE_ASTRA_8807>>`.",
+  "nouveau": "codes de sortie vus et dernière ligne imprimée pour chacun (sur un code 5, la ligne dit-elle `modele_servi` et `refus` ?), identifiant exact du modèle servi, admis par `modele_conforme` ou par la liste explicite `modeles_servis_permis` de la configuration (un suffixe de date n'est admis que sous la forme `-AAAAMMJJ`), budget de session minimal accepté et pire cas réservé par appel pour l'entrée de comparaison la plus longue (environ 9 700 caractères) et pour l'entrée la plus longue de l'ancien protocole, réglages `--effort` et `--reflexion` d'Astra tels que la configuration les fixe ; et, pour Argon dans le rôle de juge, jamais mesuré sur une comparaison (A1 l'a mesuré en proposeur), deux ou trois appels sur l'entrée de comparaison la plus longue : coût, durée, sortie tronquée ou non sous `--max-sortie-court`, pire cas réservé ; Argon ne porte aucun réglage d'effort (défaut de l'interface : n° 294 de session-depot, sha256 `81e601fad368cbf06e8cce0ff30b79f97c5063f5bc263db042356e7bea2878c5`, section 4, TF-04) ; la dépense de l'épreuve est inscrite au registre des dépenses, sous le GO que le directeur désigne, hors du compteur de la course) : `<<EPREUVE_ASTRA_8807>>`."
+ },
+ {
+  "ancien": "au moins deux fois le prix de plan le plus haut\n(1,00 USD, refus sinon)",
+  "nouveau": "au moins deux fois le prix de plan le plus haut\n(1,00 USD, refus sinon), et au moins le budget minimal accepté par chaque commande pour l'entrée la plus longue et deux fois le coût par appel le plus haut, tous deux relevés à l'épreuve (vérifié par la session qui prépare la configuration ; sinon chaque appel sort en code 4 ou dépasse son budget)"
+ },
+ {
+  "ancien": "`plafonds_session.juge` ≥ 1,00 USD,\npièces `consigne_juge`, `question_course_2`, `lot_reel_juges_idees_v2`) ;",
+  "nouveau": "`plafonds_session.juge` ≥ 1,00 USD et au moins ce que l'épreuve demande (section 4),\npièces `consigne_juge`, `question_course_2`, `lot_reel_juges_idees_v2`) ;"
+ },
+ {
+  "ancien": "Argon pendant celle-ci (relais à un seul fil : un second appel attend et peut expirer en code 6) ;",
+  "nouveau": "Argon pendant celle-ci (relais à un seul fil : un second appel attend et peut expirer en code 6) — A1-v3, scellé (`registres/decisions.md`, R-1301), emploie le même relais jusqu'à 72 heures : les deux courses ne se chevauchent pas, et GO-2026-11-02-32 échoit le 16 novembre ; avant la course, la session qui tient les clés relève les réglages propres du relais 8805, `--plafond-usd` et `--max-appels`, avec le réglé et l'engagé à l'heure du relevé (leurs refus, HTTP 402 et 429, sortent en code 4 au plancher : n° 294 de session-depot, section 3), et vérifie qu'ils laissent la part d'Argon et tous les appels prévus, reprises comprises ;"
+ },
+ {
+  "ancien": "protocoles ; suite : diagnostic de l'instrument (relais, consigne, citations), nouveau texte.",
+  "nouveau": "protocoles ; suite : diagnostic de l'instrument (relais, consigne, citations), nouveau texte. Un arrêt de la course **après** la phase décisive de A (A2 d'un juge, plafond, garde de durée, étiquette interdite) n'est pas I0 par lui-même : l'issue est lue par `lire_validation` sur le journal partiel scellé ; la cause de l'arrêt (champ « arret » de la lecture) et les étapes non jouées (`etapes_non_jouees` des mesures) sont dites avec l'issue."
+ },
+ {
+  "ancien": "réponses ; les pertes n'y entrent pas) ; au moins 27 verdicts lisibles de l'ancien avec dossier sur 30.",
+  "nouveau": "réponses ; les pertes n'y entrent pas) ; au moins 27 verdicts lisibles de l'ancien avec dossier sur 30 (une perte définitive de l'un de ces 30 appels y compte comme un verdict manquant : au-delà de trois, c'est I0, même sous la règle des 15 %)."
+ },
+ {
+  "ancien": "Lecture. À 15 contre 15, D1 seul a une puissance de 0,927 à une aire vraie de 0,8",
+  "nouveau": "Lecture. À 15 contre 15, D1 seul a une puissance de 0,927 à une aire vraie de 0,8 (0,924 sur 200 000 répétitions, recalcul de la contre-lecture v2 ; l'écart est du bruit de simulation)"
+ }
+]
