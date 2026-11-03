@@ -1,0 +1,74 @@
+[
+ {
+  "ancien": "question du directeur, entre 00:30 et 00:39 heure de Paris)",
+  "nouveau": "question du directeur, entre 00:30 et 00:39 heure de Paris, soit le 2 novembre vers 23:35 UTC ; ligne R-1294 écrite à 23:36 UTC)"
+ },
+ {
+  "ancien": "branche `main`, que le directeur committera\ndepuis la copie de travail du développeur ; mêmes chemins que la v3, quatre fichiers modifiés ; empreintes relevées sur l'arbre de\ntravail le 3 novembre 2026 à 00:19 UTC, que le directeur vérifie égales au commit avant le scellement, comme le bloc de la\nsection 11)",
+  "nouveau": "branche `main`, committé par le directeur\nle 3 novembre 2026 à 00:56 UTC depuis la copie de travail du développeur (R-1299) ; mêmes chemins que la v3, quatre fichiers modifiés ; empreintes relevées sur l'arbre de\ntravail le 3 novembre 2026 à 00:19 UTC, égales à celles de ce commit (vérifié par la contre-lecture R2 n° 2) ; le directeur les revérifie au scellement, comme le bloc de la\nsection 11)"
+ },
+ {
+  "ancien": "une panne de l'interface coûte ≈ 17,7 USD comptés par demi-heure",
+  "nouveau": "une panne de l'interface coûte ≈ 17,8 USD comptés par demi-heure"
+ },
+ {
+  "ancien": "Déclaré ; le contrôle du relais avant le départ est au point 7 de la section 13.",
+  "nouveau": "Déclaré ; le contrôle du relais avant le départ (réglages relevés au journal, empreinte de la commande et du relais) et l'alerte écrite d'avance sur une cause durable (refus du relais, erreur permanente de l'interface : Lazar décide) sont au point 7 de la section 13."
+ },
+ {
+  "ancien": "le code gelé par ce\n  texte est la tête v3.1 que le directeur committera : `<<COMMIT_V3_1>>`.",
+  "nouveau": "le code gelé par ce\n  texte est la v3.1 que le directeur a committée (R-1299) : `<<COMMIT_V3_1>>`."
+ },
+ {
+  "ancien": "(≈ 1,6 USD : onze appels, ≈ 17,7 USD par demi-heure de panne de l'interface ; section 12)",
+  "nouveau": "(≈ 1,6 USD : onze appels, ≈ 17,8 USD par demi-heure de panne de l'interface ; section 12)"
+ },
+ {
+  "ancien": "du plafond de 400 USD — c'est alors la garde du registre (réglé + engagé + pire cas > plafond) qui a mordu,",
+  "nouveau": "du plafond de 400 USD — c'est alors, en pratique, la garde du registre (réglé + engagé + pire cas > plafond) qui a mordu (un refus d'une autre source dans cette bande de 1,8 USD serait dit « plafond » aussi : même arrêt, même règle de seconde course),"
+ },
+ {
+  "ancien": "`--max-appels`, plafond de session, ou registre étranger). Le code v3 reprenait une fois",
+  "nouveau": "`--max-appels`, plafond de session — exclu ici : la consigne la plus longue possible, 15 lois de 6 000 octets dans l'historique, 90 363 octets, tient sous 1,8 USD (vérification du lanceur, section 3.6 ; une loi plus longue n'entre dans l'historique que par son motif) —, ou registre étranger — exclu par VL-01 et le dossier de sortie neuf). Seul un réglage du relais sous la dépense (section 13, point 7 (a)) peut donc arrêter la course loin du plafond ; aucune de ces sources n'est passagère (le quota de l'interface revient en code 3, non en code 4 : n° 294). Le code v3 reprenait une fois"
+ },
+ {
+  "ancien": "tentative de plus : `Compteur.arreter_sur_refus_de_budget`, `:298-321` ; essai",
+  "nouveau": "tentative de plus : `Compteur.arreter_sur_refus_de_budget`, `pole/attaque_goodhart_v3.py:298-321` ; essai"
+ },
+ {
+  "ancien": "vidées en code 0 ; chaque appel en attente au pire cas est compté et réglé : la v3.1 paie une panne de l'interface en temps et en\n    dépense, non en tentatives ;",
+  "nouveau": "vidées en code 0 ; chaque appel en attente au pire cas est compté et réglé au pire cas réservé par la commande (≈ 1,61 USD), écriture\n    au pire cas et non dépense mesurée (pour une erreur de l'interface, la commande ne lit aucun coût et règle son pire cas : origine\n    « pire_cas », n° 294 ; le registre l'inscrit de même ; ce que le fournisseur facture ne se lit qu'à son compte) : la v3.1 paie une panne de l'interface en temps et en\n    dépense comptée, non en tentatives ; la même écriture borne les erreurs **intermittentes** (chaque appel en échec au pire cas\n    compte ≈ 1,61 USD même si l'appel suivant répond) : ≈ 206 appels en échec avant l'arrêt au plafond aux taux d'A1 (≈ 20 % des\n    ≈ 1 054 appels attendus), ≈ 166 à l'attendu haut du code (≈ 8 % de 2 112), ≈ 129 au maximum du devis (≈ 4 % de 3 072) ; une\n    erreur **permanente** de l'interface (clé, facturation, modèle, requête refusée) est attendue comme une panne, jusqu'à l'arrêt au\n    plafond après ≈ 6 à 12 h si rien ne l'interrompt (alerte écrite d'avance, section 13, point 7) ;"
+ },
+ {
+  "ancien": "ou tout chemin où le fichier a l'empreinte `e5306c47…` : le lanceur\n  vérifie l'empreinte, `:541-546`, pas le chemin)",
+  "nouveau": "ou tout chemin où le fichier a l'empreinte `e5306c47…` et où ses six\n  pièces sont présentes (`pieces/…`, chemins relatifs au fichier : consignes et liste de concepts ; `lire_configuration_v56` les\n  exige, sinon refus en code 2, sans dépense) : le lanceur vérifie l'empreinte, `:541-546`, pas le chemin)"
+ },
+ {
+  "ancien": "Le code gelé est celui du commit de la v3.1 que le directeur nommera, `<<COMMIT_V3_1>>` :",
+  "nouveau": "Le code gelé est celui du commit de la v3.1, `<<COMMIT_V3_1>>` (committé par le directeur, R-1299 ; les 73 empreintes ci-dessous sont celles de ce commit, vérifié par la contre-lecture R2 n° 2) :"
+ },
+ {
+  "ancien": "l'issue jusqu'à l'audit). Le plafond de 400 USD redevient une garde, non un piège.",
+  "nouveau": "l'issue jusqu'à l'audit). Le plafond de 400 USD redevient une garde contre une boucle folle et contre une panne courte ; une panne de\n  l'interface de plus de ≈ 6 à 12 h cumulées, ou des erreurs intermittentes au-delà de ≈ 4 à 20 % des appels selon la dépense (section 4,\n  choix (e)), y mènent encore, par l'écriture au pire cas des appels en échec : prix déclaré (R4) ; alerte écrite d'avance (section 13,\n  point 7)."
+ },
+ {
+  "ancien": "**à committer par le\n   directeur** — commit `<<COMMIT_V3_1>>` —, puis vérifier",
+  "nouveau": "**committé par le\n   directeur** (3 novembre 2026, 00:56 UTC, R-1299) — commit `<<COMMIT_V3_1>>` —, puis vérifier"
+ },
+ {
+  "ancien": "le vérificateur neuf de session-depot revérifie VL-01 et l'arrêt au plafond sur le vrai registre (n° 294).",
+  "nouveau": "le vérificateur neuf de session-depot revérifie VL-01 et la commande exacte (n° 294) ; l'arrêt au plafond sur le vrai registre lui est demandé en plus (sur le code v3 et le vrai registre, la vérification du lanceur, section 3.6, a vu le premier refus à 398,40 USD réglés au registre, le compteur comptant alors la même somme (398,4038 USD à la fin, dont 3 828 refus à 10⁻⁶ USD) : sous la v3.1, 398,40 + 1,8 > 400, nature « plafond »)."
+ },
+ {
+  "ancien": "leurs valeurs\n   au lancement restent à écrire au journal, et doivent être au moins 400 USD et au moins le nombre d'appels au plus de la course\n   (3 072, section 12 ; plus les appels en attente d'une panne) ;",
+  "nouveau": "leurs valeurs\n   au lancement restent à écrire au journal, et doivent être au moins 400 USD et au moins 8 000 appels, ou sans borne d'appels\n   (3 072 tentatives au plus, section 12, de deux appels chacune au plus hors attente sous la règle v2, soit 6 144 ; plus ≈ 247 appels\n   au pire cas que la marge de 400 USD absorbe en attente ; plus ≈ 1 584 refus du relais avant l'interface en 72 h d'attente) ; un relais\n   relancé par un guetteur reprend les mêmes valeurs ;"
+ },
+ {
+  "ancien": "   commande `commande_argon_v56_nuit_v2.py` et registre de dépense sous verrou exclusif (n° 286) ; aucun relais Kimi ;",
+  "nouveau": "   commande `commande_argon_v56_nuit_v2.py` d'empreinte `221df610…` (fait (xii) ; le relais 8805 est sa sous-commande `servir`, qui\n   charge `collisionneur_v7.py`, `c9725f02…`, n° 294), empreintes relevées au journal de lancement avant `--verifier-seulement` — la\n   table des codes (section 4) et les règles d'attente et d'arrêt de la v3.1 ont été établies sur ce code ; toute autre empreinte :\n   pas de course — ; registre de dépense sous verrou exclusif (n° 286) ; aucun relais Kimi ;"
+ },
+ {
+  "ancien": "   avec `relais_perdu_h: aucun`, la relance d'un relais mort est la seule voie de reprise : un guetteur actif pendant toute la\n   course.",
+  "nouveau": "   avec `relais_perdu_h: aucun`, la relance d'un relais mort est la seule voie de reprise : un guetteur actif pendant toute la\n   course ; **alerte écrite d'avance** (VL-03 ; prix de la v3.1, section 4, choix (e)) : dès qu'une tentative finit « échouée\n   (relais) » (1 800 s d'attente), session-depot lit les statuts du journal du relais (statuts et compteurs, n° 294) et les recopie\n   au journal de lancement avec l'heure UTC ; si la cause est durable — refus du relais avant l'interface (400, 403, 411, 413 :\n   modèle non permis, réglage) ou erreur de l'interface qui ne passera pas d'elle-même (clé, facturation, modèle, requête\n   refusée) ou quota de l'interface (429) qui dure plus d'une tentative (un quota quotidien se paie ≈ 33,9 USD comptés par\n   heure d'attente, section 12) —, il prévient le directeur, et Lazar décide par écrit de l'arrêt (écart déclaré avec son heure ; seconde course,\n   section 8) ou de la suite ; le guetteur n'arrête jamais rien lui-même."
+ }
+]

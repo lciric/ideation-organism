@@ -1,0 +1,98 @@
+[
+ {
+  "id": "T113",
+  "constat": "mineur 46 (en-tête : commit des fichiers `_v64`)",
+  "ancien": "(copie de travail isolée ; sept fichiers `_v64` neufs, non suivis, non commités)",
+  "nouveau": "(copie de travail isolée ; sept fichiers `_v64` neufs, non suivis, non commités à l'écriture du texte, commités depuis au commit `63ed933`)"
+ },
+ {
+  "id": "T114",
+  "constat": "B11, I33, I34 (section 0, point 7 : ce que les commandes v3 doivent faire)",
+  "ancien": "(TF-01 : rôles de l'étage acceptés, sortie minimale par rôle ; chemins et empreintes en section 13)",
+  "nouveau": "(TF-01 : rôles de l'étage acceptés, sortie minimale par rôle ; code 4 réservé aux refus que la session porte en elle-même, tout refus qui tient à l'état du relais ou de la commande hors du code 4, réponse coupée des rôles de l'étage rendue en code 0 : annexe A, A.6 bis ; chemins et empreintes en section 13)"
+ },
+ {
+  "id": "T115",
+  "constat": "B11 (section 6 : audit S6, fin des tours au premier tour d'une carte ; défense en profondeur, option recommandée)",
+  "ancien": "(un gardien qui refuse les cartes réelles et non les scriptées fausserait A4).",
+  "nouveau": "(un gardien qui refuse les cartes réelles et non les scriptées fausserait A4).\n- **S6 — fin des tours au premier tour d'une carte (v64 ; contre-lecture courte du brouillon 6, B11)**, vérifié à chaque course, déclenché ou non, par le lecteur neuf (R13) sur les `resultat.json` scellés, avant toute lecture d'issue : une carte dont le champ `fin_des_tours` commence par « tour 1 : » et dit « budget_depasse » ou « rien envoyé » n'a pas été coupée par sa borne (au premier tour, le plafond passé est la borne entière, 0,80 USD, quand la consigne et la sortie minimale en coûtent ≈ 0,08 au barème d'essai) : la limite vient d'ailleurs (relais, commande, prix de la configuration) ; une seule suffit : défaut, course invalide, aucune issue, chiffres partiels rapportés. Le témoin du vérificateur n'entre pas dans S6 (un « rien envoyé » y est permis, jamais décisif)."
+ },
+ {
+  "id": "T116",
+  "constat": "B11 (section 7, garde 5 : le plafond d'un relais reste un arrêt)",
+  "ancien": "plafond d'un relais atteint (« budget_depasse » hors plafond de la fiche, sauf session « rien envoyé », garde 16) → arrêt, jamais « non concluant »",
+  "nouveau": "plafond d'un relais atteint (« budget_depasse » hors plafond de la fiche ; refus propre du relais ou de la commande — 402, 429, plafond cumulé — que les commandes v3 sortent hors du code 4, annexe A, A.6 bis) → arrêt, jamais « non concluant » ; seule une session « rien envoyé » à son plafond de session finit les tours de la carte (garde 16)"
+ },
+ {
+  "id": "T117",
+  "constat": "mineur 45 (section 7, garde 16 : « 402 d'un relais » ne vaut pas pour une commande ; ligne de code 4 lue « refus »)",
+  "ancien": "« budget_depasse » non marqué sous le plafond passé (402 d'un relais) ou part du relais épuisée → arrêt (C13)",
+  "nouveau": "« budget_depasse » non marqué sous le plafond passé ou part du relais épuisée → arrêt (C13) ; ligne de code 4 au coût plancher qui porte aussi `modele_servi` nul ou vide, ou un refus → refus (R-764), arrêt (sonde de la contre-lecture courte du brouillon 6, hors des essais v64) ; refus propre d'un relais ou de la commande (402, 429, plafond cumulé) : hors du code 4 par les commandes v3, donc erreur et arrêt (annexe A, A.6 bis)"
+ },
+ {
+  "id": "T118",
+  "constat": "B11 (section 10 : course à blanc déclarée du contre-lecteur)",
+  "ancien": "| L4 | rédacteur, ≈ 07:24 |",
+  "nouveau": "| L2b-cl6 | contre-lecteur du brouillon 6, 3 novembre, 01:24:54 à 01:25:03 UTC (lecture juste après) | course à blanc du lanceur v64 sur le code gelé de ce texte, bac factice, aux conditions du plan, barème d'essai de 10 USD par million de jetons pour les deux relais, « rien envoyé » au premier tour de chaque carte (`--scenario-experimentateur rien_envoye:1` : ce que rendrait une limite du relais ou de la commande sortie en code 4) | 20261102 | code 0, 51 cartes et témoins testés, tous « non concluant », 51 sessions d'expérimentateur « rien envoyé » au plafond de 0,80 USD, lecture par le programme v64 : « ne tient pas (T2, T3, T4) », n1 « critère », A4 « le bras aléatoire promeut autant que le bras réel » (cause : sensibilité insuffisante), S2 seul déclenché ; relevé `389fc91575bdceba…`, lecture `1cdcdd23def75b1d…` ; prédictions inchangées |\n| L4 | rédacteur, ≈ 07:24 |"
+ },
+ {
+  "id": "T119",
+  "constat": "mineur 46 (section 10 bis : contre-lecture courte du brouillon 6 faite)",
+  "ancien": "**Contre-lecture R2 courte et neuve à faire, sur ce texte, le diff v63 → v64 et les essais neufs.**",
+  "nouveau": "Contre-lecture R2 courte et neuve, sur ce texte, le diff v63 → v64 et les essais neufs : `prereg/contre-lecture-courte-preenregistrement-tour-ferme-v6.md` (3 novembre 2026, sous-agent neuf), verdict « scellable après couples » (bloquant B11, levé par ses couples et par le constat de la session-depot sur ses commandes v3 ; importants I33 et I34 ; mineurs 45 à 54) ; ses couples T113 à T128 (`prereg/couples-contre-lecture-tour-ferme-v6.json`) sont appliqués à ce texte ; compagnons `.sha256` de ce rapport et de ces couples, comme de ceux de la contre-lecture courte du brouillon 5, à écrire au scellement (R6)."
+ },
+ {
+  "id": "T120",
+  "constat": "I34 (section 12 : sortie du vérificateur bornée par son plafond)",
+  "ancien": "celles de la course à blanc L2b-v64-b6 en font de 8 115 à 8 220, celle de trois exécutions aux sorties pleines peut en faire 26 822 (texte ordinaire), 40 322 (fins de ligne) ou davantage (mesures au rapport v6).",
+  "nouveau": "celles de la course à blanc L2b-v64-b6 en font de 8 115 à 8 220, celle de trois exécutions aux sorties pleines peut en faire 26 822 (texte ordinaire), 40 322 (fins de ligne) ou davantage (mesures au rapport v6) ; sa sortie, elle, est bornée par ce plafond à ≈ 1 460 jetons pour une consigne de 8 124 caractères (1 000 au brouillon 1 de la configuration v3, `--max-sortie-lecteur` ; la configuration du 1er novembre bornait à 4 000 jetons la sortie d'Argon hors proposeur, `--max-sortie-court`) : une réponse coupée reste un témoin « non concluant » si la commande la rend en code 0, et arrêterait la course en code non nul (annexe A, A.6 bis)."
+ },
+ {
+  "id": "T121",
+  "constat": "B11, I33, I34, mineur 50 (section 13 : ce que les commandes v3 doivent faire ; leurs empreintes au manifeste)",
+  "ancien": "`\"envoye\": false` sur la dernière ligne de toute sortie en code 4 où rien n'est parti) ; chemins et empreintes : ",
+  "nouveau": "code 4 réservé aux refus que la session porte en elle-même (pire cas au-dessus de `PLAFOND_SESSION_USD` ; consigne au-delà de la fenêtre d'entrée du modèle, si la commande la contrôle), rien parti, dernière ligne `\"envoye\": false` sans `modele_servi` nul ni refus ; tout refus qui tient à l'état du relais ou de la commande en un autre code non nul ; réponse coupée des rôles de l'étage rendue en code 0 : annexe A, A.6 bis) ; le lanceur ne vérifie pas leurs empreintes, il relève celle de chaque fichier de commande au manifeste (`configuration.adaptateurs.<relais>.empreintes`) : le lecteur neuf (R13) les compare à celles-ci, un écart est un défaut de course ; chemins et empreintes : "
+ },
+ {
+  "id": "T122",
+  "constat": "mineur 48 (section 13 : règle exacte de la fermeture statique)",
+  "ancien": "fichiers chargés par chemin, évaluateur servi : 92 fichiers en v64, égalité exacte essayée par `Fermeture`",
+  "nouveau": "fichiers chargés par chemin depuis leur propre dossier, évaluateur servi : 92 fichiers en v64, égalité exacte essayée par `Fermeture` ; `demonstrations/banc_tricheurs_v8.py` et `demonstrations/banc_tricheurs_v7.py`, que seule la fonction `banc()` de `pole/attaque_goodhart_v2.py` chargerait, par un chemin d'un autre dossier, n'y sont pas, et aucune course du tour n'appelle cette fonction"
+ },
+ {
+  "id": "T123",
+  "constat": "mineur 46 (section 13 : bloc revérifié après commit)",
+  "ancien": "(quatre fichiers du bloc sont neufs, non suivis, à revérifier après commit : `demonstrations/tour_ferme_v64.py`, `demonstrations/lire_tour_ferme_v64.py`, `pole/tour_ferme_v64.py` et `pole/adaptateur_commande_v64.py` ;",
+  "nouveau": "(quatre fichiers du bloc sont neufs, non suivis à l'écriture, commités depuis au commit `63ed933` : `demonstrations/tour_ferme_v64.py`, `demonstrations/lire_tour_ferme_v64.py`, `pole/tour_ferme_v64.py` et `pole/adaptateur_commande_v64.py` ; revérifiées par la contre-lecture courte du 3 novembre 2026 : les 92 empreintes égales à l'arbre de travail et à `63ed933` ;"
+ },
+ {
+  "id": "T124",
+  "constat": "mineur 46 (section 14, point (2))",
+  "ancien": "à faire : la contre-lecture R2 courte et neuve de ce brouillon 6, du diff v63 → v64 et des essais neufs, par un sous-agent neuf ;",
+  "nouveau": "fait : la contre-lecture R2 courte et neuve de ce brouillon 6, du diff v63 → v64 et des essais neufs, par un sous-agent neuf (`prereg/contre-lecture-courte-preenregistrement-tour-ferme-v6.md`), ses couples appliqués ;"
+ },
+ {
+  "id": "T125",
+  "constat": "mineur 49 (section 14, point (4) : crédit du compte Kimi, TF-06)",
+  "ancien": "), les clés, **`bwrap` 0.9.0 et une identité",
+  "nouveau": "), les clés et le crédit du compte Kimi (TF-06 : compte sans crédit le 2 novembre ; sans recharge, la première session de Kimi sort en erreur : arrêt, code 3, aucune issue), **`bwrap` 0.9.0 et une identité"
+ },
+ {
+  "id": "T126",
+  "constat": "B11 (annexe A, A.6 bis : le code 4 réservé au plafond de session)",
+  "ancien": "Une limite propre du relais que la commande lit aussi en code 4 « rien envoyé » (refus 402 du plafond du relais, 429 de son nombre d'appels : message n° 294 de la session-depot) serait lue de même, sans arrêt : chaque carte suivante finirait ses tours sans exécution (« non concluant », compté par T4) au lieu d'un arrêt.",
+  "nouveau": "**Le code 4 « rien envoyé » est réservé aux refus que la session porte en elle-même** (contre-lecture courte du brouillon 6, B11) — son pire cas au-dessus de `PLAFOND_SESSION_USD` ; une consigne au-delà de la fenêtre d'entrée du modèle, si la commande la contrôle avant envoi — : tout refus qui tient à l'état du relais ou de la commande — plafond ou nombre d'appels propres du relais (402, 429 : la commande d'Argon v2 les sortait en code 4, message n° 294 de la session-depot), plafond cumulé de la commande (`--plafond-cumule-usd`, registre), plafond d'étape (`PLAFOND_ETAPE_USD`), toute autre garde de la commande — sort en un autre code non nul (par exemple 3 au plancher, rien parti, comme les 400, 403, 411 et 413 du relais, et comme la commande de Kimi v1 pour tout refus du relais) : lu « erreur », arrêt de la course (code 3, relevé partiel scellé, aucune issue ; la reprise de la section 7 vaut pour cette panne d'infrastructure). Sans cette règle, une telle limite serait lue « rien envoyé » : chaque carte suivante finirait ses tours sans exécution, et la lecture gelée rendrait une issue fausse au lieu d'un arrêt (section 10, L2b-cl6 : « ne tient pas (T2, T3, T4) » et A4 « promeut autant », code 0) ; asymétrie (R4) : une limite d'infrastructure ne peut que faire manquer l'étage. Prix de la règle : une limite propre d'un relais ou d'une commande devient un arrêt, jamais une issue."
+ },
+ {
+  "id": "T127",
+  "constat": "I34 (annexe A, A.6 bis : l'exigence du brouillon 5 contredisait la v64 et l'option (c))",
+  "ancien": "aucune ne refuse avant dépense une session dont le plafond vaut, pour l'expérimentateur, le reste de la borne de 0,80 USD de la carte (0,80 USD au premier tour, parfois quelques centimes au dernier), pour le vérificateur 0,1 USD à chaque session (le plus bas des plafonds fixes de la course), pour un proposeur `plafonds_session.proposeur` ;",
+  "nouveau": "aucune ne refuse avant dépense, autrement qu'en code 4 « rien envoyé » (ci-dessous), une session dont le plafond vaut, pour l'expérimentateur, le reste de la borne de 0,80 USD de la carte (0,80 USD au premier tour, parfois quelques centimes au dernier : sous le prix de l'entrée et de la sortie minimale du rôle, le refus en code 4 est la fin des tours prévue en v64), pour le vérificateur 0,1 USD à chaque session (le plus bas des plafonds fixes de la course), pour un proposeur `plafonds_session.proposeur` ; la sortie minimale de chaque rôle reste celle d'une réponse entière du rôle (abaissée pour accepter les derniers centimes, elle rendrait des réponses coupées) ;"
+ },
+ {
+  "id": "T128",
+  "constat": "B11, I33, I34, mineur 51 (annexe A, A.6 bis : ce que la session-depot vérifie en v64)",
+  "ancien": "v64 : elle vérifie aussi que toute sortie en code 4 où rien n'est parti porte `\"envoye\": false` (booléen) sur sa dernière ligne ;",
+  "nouveau": "v64 : elle vérifie aussi que chaque commande ne sort en code 4 que pour un refus que la session porte en elle-même (ci-dessus), rien parti, sa dernière ligne portant `\"envoye\": false` (booléen), sans clé `modele_servi` (ou exactement le modèle demandé), sans `refus` ni `stop_reason` (une ligne au coût plancher qui porte `\"modele_servi\": null` ou vide est lue « refus », R-764 : arrêt ; I33), de préférence avec sa cause (`\"cause\": \"plafond_session\"`), écrite aussi à son registre ; que tout refus qui tient à l'état du relais ou de la commande sort en un autre code non nul (ci-dessus) ; que ses contrôles cumulés (plafond cumulé, `PLAFOND_ETAPE_USD`) portent sur ce que le noyau compte au même relais, le registre `{REGISTRE}` étant commun aux deux commandes ; que, pour `experimentateur_test` et `lecteur_test`, une réponse coupée par sa borne de sortie (`finish_reason` « length », `MAX_TOKENS`) est rendue en code 0 avec son texte, son coût et `modele_servi` (l'étage y lit une réponse sans demande, fin des tours, ou un témoin « non concluant ») et jamais en code non nul, qui arrêterait la course (la commande de Kimi v1 sort en code 5 sur une réponse tronquée ; I34) ; que la plus longue consigne d'expérimentateur que l'étage permet (≈ 393 000 caractères, mesure du rapport v6) tient dans la fenêtre d'entrée du modèle servi, ou que la commande la refuse avant envoi en code 4 (sinon l'erreur de l'interface sortirait en code 3 : arrêt ; I34) ; que sa réservation d'entrée compte au moins un jeton par trois caractères de consigne (sinon la vérification préalable de la v64 refuserait des sessions que la commande accepterait) ;"
+ }
+]
