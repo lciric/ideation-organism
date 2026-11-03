@@ -1,5 +1,5 @@
 """Essais de l'étage des juges d'idéation v2 (`pole/juges_idees_v2.py`) et de son lanceur de validation
-(`demonstrations/validation_juges_idees_v2.py`), brouillon 2 — R5 : chaque garde sur un cas sain et sur un artefact. Hors ligne :
+(`demonstrations/validation_juges_idees_v2.py`), brouillon 3 — R5 : chaque garde sur un cas sain et sur un artefact. Hors ligne :
 juges scriptés, relais scriptés en panne, horloge virtuelle, commandes externes factices (scripts Python locaux, aucun réseau),
 aucune clé, aucun appel de modèle.
 
@@ -51,6 +51,7 @@ B = dict(lanceur.JUGES_A_BLANC["juge_b"])
 CORRESP = dict(lanceur.CORRESPONDANCE_A_BLANC)
 CONSIGNES = {"ancien": J.CONSIGNE_ANCIENNE_SUBSTITUTION, "v2": J.CONSIGNE_PAIRE_V2}
 _MATERIAUX_B1 = {}
+_MATERIAUX_B2 = {}
 
 
 def materiaux():
@@ -61,6 +62,13 @@ def materiaux_brouillon1():
     if "m" not in _MATERIAUX_B1:
         _MATERIAUX_B1["m"] = J.construire_materiaux(jeu="mondes-brouillon1")
     return copy.deepcopy(_MATERIAUX_B1["m"])
+
+
+def materiaux_brouillon2():
+    """Les matériaux du brouillon 2 (`59737a16…`), reconstruits à l'octet (jeu « mondes-v2 ») : artefact de la contre-lecture v2, B8."""
+    if "m" not in _MATERIAUX_B2:
+        _MATERIAUX_B2["m"] = J.construire_materiaux(jeu="mondes-v2")
+    return copy.deepcopy(_MATERIAUX_B2["m"])
 
 
 def resceller(m):
@@ -121,7 +129,9 @@ def fiche(ident, **contenu):
 class Materiaux(unittest.TestCase):
     def test_cas_sain_deterministe_composition_et_gardes(self):
         self.assertEqual(J.construire_materiaux()["empreinte"], MATERIAUX["empreinte"])
-        self.assertEqual(MATERIAUX["jeu_de_mondes"], "mondes-v2")
+        self.assertEqual(MATERIAUX["jeu_de_mondes"], "mondes-v3")
+        self.assertEqual(MATERIAUX["version"], J.VERSION_MATERIAUX)
+        self.assertEqual(materiaux_brouillon2()["empreinte"], "59737a16d4f5250398ac52bc5b1e26952f356cd26fbafa9b1ed9a28afac5284d")
         self.assertEqual(J.verifier_materiaux(MATERIAUX), [])
         controles = J.exiger_materiaux(materiaux(), MATERIAUX["empreinte"])
         self.assertTrue(controles["forme"]["conforme"])
@@ -219,7 +229,9 @@ class Materiaux(unittest.TestCase):
                 if f["classe"] == "vraie_neuve":
                     f["contenu"]["metrique"] = "écart, en points"
                     f["contenu"]["test_de_mort"] = "Abandon sous 1 point."
-        aires = J.controle_forme(court)
+        vocabulaire_tenu = lambda *a, **k: {"mots": 0, "pire": None, "aire": 0.5, "conforme": True}  # noqa: E731
+        with unittest.mock.patch.object(J, "controle_vocabulaire", vocabulaire_tenu):  # seule la borne basse de l'indice joue
+            aires = J.controle_forme(court)
         self.assertLess(aires["aires"]["longueur"], 0.35)
         self.assertFalse(aires["conforme"])
 
@@ -239,7 +251,151 @@ class Materiaux(unittest.TestCase):
                     self.assertEqual(role == "etablie", f["classe"] == "copie_archive", f["ident"])
 
 
+    def test_ecarts_apparies_et_tables_lues(self):
+        """Contre-lecture v2, B8 : chaque loi fausse affirme l'écart d'une bonne loi d'évaluation du même monde et du même gabarit, à
+        un point près (les interactions fausses : les deux écarts) ; les interactions fausses sont contredites par la table 3 ; un
+        lecteur des tables qui ne lit que le texte servi (dossier et fiche) trouve exactement les lois fausses, et rien à vérifier
+        dans la définition et le texte long. Construit à neuf (pas la copie du module d'essai)."""
+        m = J.construire_materiaux()
+        specs = {sp["nom"]: sp for sp in J.MONDES_V3}
+        fausses = 0
+        for l in m["lots"]:
+            sp = specs[l["nom"]]
+            for f in l["fiches"]:
+                v = J.verifier_par_les_tables(f["contenu"], l["dossier"])
+                self.assertEqual(v is False, f["classe"] == "fausse_redigee", f["ident"])
+                self.assertEqual(v is None, f["classe"] in ("tautologie", "verbeuse"), f["ident"])
+                if f["classe"] != "fausse_redigee":
+                    continue
+                fausses += 1
+                loi = f["loi"]
+                if loi["type"] == "interaction":
+                    self.assertEqual(loi["table"], "table3")
+                    self.assertLessEqual(abs(loi["observe"][0] - loi["observe"][1]), J.ECART_INTERACTION_NUL_MAX)
+                    bons = J.ecarts_des_bonnes_lois(sp, l["tables"], "interaction")
+                    self.assertTrue(any(abs(loi["affirme"][0] - g1) <= 1 and abs(loi["affirme"][1] - g2) <= 1 for g1, g2 in bons), f["ident"])
+                else:
+                    famille = "gradue" if loi["type"] == "monotone" else "deux_groupes"
+                    e = abs(loi["affirme"][1] - loi["affirme"][0]) if famille == "gradue" else loi["affirme"][0] - loi["affirme"][1]
+                    self.assertTrue(any(abs(e - b) <= 1 for b in J.ecarts_des_bonnes_lois(sp, l["tables"], famille)), (f["ident"], e))
+                    centre = sum(loi["affirme"]) / 2  # taux écrits centrés comme ceux d'une bonne loi du même gabarit
+                    centres = [J._centre_affirme(sp, l["tables"], k) for k, _ in J._bonnes_lois_appariables(sp, l["tables"], famille)]
+                    self.assertTrue(any(abs(centre - c) <= 1 for c in centres), (f["ident"], centre, centres))
+        self.assertEqual(fausses, 10)  # 7 d'évaluation et 3 ancres mauvaises
+        gab = {q: sorted(f["gabarit"] for l in m["lots"] for f in l["fiches"] if f["role"] == "evaluation" and f["qualite"] == q)
+               for q in (0, 1)}
+        self.assertEqual(gab[1].count("interaction"), 3)
+        self.assertEqual(gab[0].count("interaction"), 2)  # le gabarit de l'interaction n'est plus propre aux bonnes lois
+
+    def test_artefact_forme_brouillon2_et_sous_ensemble_de_d1b(self):
+        """Contre-lecture v2, B8 et M12 : sur les matériaux du brouillon 2 (`59737a16…`), l'écart affirmé, le seuil de prédiction et
+        le seuil d'abandon séparent parfaitement bonnes lois et lois fausses (aire 1,0 sur le sous-ensemble de D1b) : refus ; sur
+        ceux de ce texte, chaque indice des deux comparaisons est dans [0,35 ; 0,65], le champ « signe » « - » compris."""
+        b2 = J.controle_forme(materiaux_brouillon2())
+        self.assertFalse(b2["conforme"])
+        self.assertFalse(b2["vocabulaire"]["d1b"]["conforme"])  # « point » (singulier des petits seuils) : aire 0,0
+        vocabulaire_tenu = lambda *a, **k: {"mots": 0, "pire": None, "aire": 0.5, "conforme": True}  # noqa: E731
+        with unittest.mock.patch.object(J, "controle_vocabulaire", vocabulaire_tenu):  # les indices seuls refusent aussi
+            self.assertFalse(J.controle_forme(materiaux_brouillon2())["conforme"])
+        with unittest.mock.patch.object(J, "indices_forme", lambda f: {k: 0.0 for k in J.INDICES_FORME}):  # le vocabulaire seul
+            self.assertFalse(J.controle_forme(materiaux_brouillon2())["conforme"])                         # refuse aussi
+        # Le sous-ensemble de D1b est contrôlé pour lui-même : un indice (synthétique) qui vaut 1 sur les 7 lois fausses et sur 6
+        # des 15 bonnes lois, 0 ailleurs, a une aire de 0,467 entre bons et mauvais témoins (dans les bornes) mais de 0,200 entre
+        # bonnes lois et lois fausses : refus, vocabulaire mis hors de cause.
+        bonnes = sorted(f["ident"] for l in MATERIAUX["lots"] for f in l["fiches"] if f["role"] == "evaluation" and f["qualite"] == 1)
+
+        def synthetique(f):
+            d = {k: 0.5 for k in J.INDICES_FORME}
+            d["ecart_affirme"] = 1.0 if f["classe"] == "fausse_redigee" or f["ident"] in bonnes[:6] else 0.0
+            return d
+        with unittest.mock.patch.object(J, "indices_forme", synthetique), \
+                unittest.mock.patch.object(J, "controle_vocabulaire", vocabulaire_tenu):
+            c = J.controle_forme(MATERIAUX)
+        self.assertAlmostEqual(c["aires"]["ecart_affirme"], 0.4667, places=3)
+        self.assertAlmostEqual(c["aires_d1b"]["ecart_affirme"], 0.2, places=3)
+        self.assertFalse(c["conforme"])
+        for k in ("ecart_affirme", "seuil_prediction", "seuil_abandon"):
+            self.assertEqual(b2["aires_d1b"][k], 1.0, k)
+        self.assertAlmostEqual(b2["aires"]["signe_negatif"], 0.6)  # trois bonnes fiches « - », aucune mauvaise (M12)
+        with self.assertRaisesRegex(J.ProtocoleRefuse, "indice de forme"):
+            J.exiger_materiaux(materiaux_brouillon2(), diagnosticite=False)
+        sain = J.controle_forme(MATERIAUX)
+        self.assertTrue(sain["conforme"])
+        self.assertEqual(set(sain["aires"]), set(J.INDICES_FORME))
+        for nom, aires in (("évaluation", sain["aires"]), ("D1b", sain["aires_d1b"])):
+            for k, v in aires.items():
+                self.assertTrue(0.35 <= v <= 0.65, (nom, k, v))
+        self.assertLessEqual(abs(sain["aires"]["signe_negatif"] - 0.5), 0.05)
+
+    def test_redite_lue_par_les_mots_propres_de_la_loi_etablie(self):
+        """Contre-lecture v2, M11 : le juge « dossier sans tables » voit la redite de monde-2 (« comportant un champ de paiement »),
+        que la loi établie dit sans nommer la caractéristique ; il ne prend aucune bonne loi pour une redite."""
+        ap = J.table_a_priori(MATERIAUX)
+        for l in MATERIAUX["lots"]:
+            for f in l["fiches"]:
+                d = J.defauts_hors_tables(f["contenu"], l["dossier"], ap)
+                self.assertEqual("redite" in d, f["classe"] == "copie_archive", f["ident"])
+                if f["classe"] == "vraie_neuve":
+                    self.assertEqual(d, [], f["ident"])
+
+    def test_constantes_mortes_retirees(self):
+        """Contre-lecture v2, M10."""
+        for nom in ("CLASSES_HORS_TABLES", "A_PRIORI", "ROLES"):
+            self.assertFalse(hasattr(J, nom), nom)
+
+
 class Diagnosticite(unittest.TestCase):
+    def test_cas_sain_juges_adverses_echouent_et_le_lecteur_des_tables_reussit(self):
+        """Contre-lecture v2, B8 : sur les matériaux de ce texte, chaque juge scripté de surface (ampleur, seuils, interaction, signe,
+        longueur, chiffres, vocabulaire, ordre des identifiants, position, et leurs combinaisons) échoue au contrôle de
+        diagnosticité — D1 au plus 2 fois sur 20, aire moyenne au plus 0,62, D1b au plus 2 fois sur 20, aire des lois fausses au
+        plus 0,62 — et le juge « lecteur des tables », qui ne lit que les tables, tient D1b au moins 18 fois sur 20."""
+        d = J.controle_diagnosticite(MATERIAUX)
+        self.assertTrue(d["conforme"], d["motifs"])
+        noms = set(d["forme"])
+        for n in ("ampleur", "modestie", "seuil", "seuil_bas", "interaction+seuil", "interaction+ampleur", "signe_moins+seuil",
+                  "seuil+signe_moins", "longueur", "brievete", "chiffres", "peu_chiffres", "mots_distincts", "mots_pauvres",
+                  "mots_dossier", "ordre", "position", "a_priori+gabarit+sens"):
+            self.assertIn(n, noms)
+        for n, v in d["forme"].items():
+            self.assertLessEqual(v["d1_tenus"], J.DIAGNOSTICITE_D1_MAX, n)
+            self.assertLessEqual(v["aire_moyenne"], J.DIAGNOSTICITE_AIRE_MAX, n)
+            self.assertLessEqual(v["d1b_tenus"], J.DIAGNOSTICITE_D1B_MAX, n)
+            self.assertLessEqual(v["aire_lois_fausses_moyenne"], J.DIAGNOSTICITE_AIRE_D1B_MAX, n)
+        self.assertLessEqual(d["dossier_sans_tables"]["d1b_tenus"], J.DIAGNOSTICITE_D1B_MAX)
+        self.assertGreaterEqual(d["lecteur_tables"]["d1b_tenus"], 18)
+        self.assertGreaterEqual(d["lecteur_tables"]["aire_lois_fausses_moyenne"], 0.9)
+
+    def test_artefact_diagnosticite_brouillon2(self):
+        """Contre-lecture v2, B8 : sur les matériaux du brouillon 2, les juges « ampleur » et « seuil » tiennent D1b 20 fois sur 20
+        sans lire une table : refus, même si le contrôle de forme était tenu."""
+        d = J.controle_diagnosticite(materiaux_brouillon2())
+        self.assertFalse(d["conforme"])
+        for n in ("ampleur", "seuil", "interaction+seuil", "signe_moins+seuil"):
+            self.assertEqual(d["forme"][n]["d1b_tenus"], 20, n)
+        self.assertTrue(any(x.startswith("juge de forme « ampleur » : D1b tenu 20 fois") for x in d["motifs"]), d["motifs"])
+        self.assertTrue(any(x.startswith("juge de forme « seuil » : D1b tenu 20 fois") for x in d["motifs"]), d["motifs"])
+        forme_ok = {"conforme": True, "aires": {}, "aires_d1b": {}, "seuil": J.SEUIL_FORME}
+        with unittest.mock.patch.object(J, "controle_forme", lambda m: forme_ok), \
+                self.assertRaisesRegex(J.ProtocoleRefuse, "ne lit pas les tables"):
+            J.exiger_materiaux(materiaux_brouillon2())
+
+    def test_artefact_temoin_qui_ne_lit_pas_les_tables(self):
+        """Le témoin positif est exigé : un « lecteur des tables » qui ne vérifie rien ne tient pas D1b, et les matériaux sont
+        refusés (sur 4 graines, pour la durée de l'essai ; mémoire du contrôle nettoyée avant et après)."""
+        cle = (MATERIAUX["empreinte"], 4, J.SEUILS_LECTURE_V2["alpha"])
+        J._DIAGNOSTICITES.pop(cle, None)
+        try:
+            sain = J.controle_diagnosticite(MATERIAUX, graines_plan=4)
+            self.assertFalse(any("témoin" in x for x in sain["motifs"]), sain["motifs"])
+            J._DIAGNOSTICITES.pop(cle, None)
+            with unittest.mock.patch.object(J, "verifier_par_les_tables", lambda c, d: None):
+                faux = J.controle_diagnosticite(MATERIAUX, graines_plan=4)
+            self.assertFalse(faux["conforme"])
+            self.assertTrue(any(x.startswith("témoin « lecteur des tables » : D1b tenu") for x in faux["motifs"]), faux["motifs"])
+        finally:
+            J._DIAGNOSTICITES.pop(cle, None)
+
     def test_artefact_diagnosticite_brouillon1(self):
         """Contrôle de diagnosticité : sur les matériaux du brouillon 1, des juges scriptés qui ne lisent pas les tables tiennent
         D1 (forme) et D1b (dossier sans tables) : refus ; sur les matériaux de ce texte, aucun ne passe."""
@@ -247,8 +403,8 @@ class Diagnosticite(unittest.TestCase):
         self.assertFalse(d["conforme"])
         self.assertGreater(d["forme"]["a_priori+gabarit+sens"]["d1_tenus"], J.DIAGNOSTICITE_D1_MAX)
         self.assertGreater(d["dossier_sans_tables"]["d1b_tenus"], J.DIAGNOSTICITE_D1B_MAX)
-        self.assertTrue(any(x.startswith("juge de forme") for x in d["motifs"]), d["motifs"])
-        self.assertTrue(any("dossier sans tables" in x for x in d["motifs"]), d["motifs"])
+        self.assertTrue(any(x.startswith("juge de forme « a_priori+gabarit+sens » : D1 tenu") for x in d["motifs"]), d["motifs"])
+        self.assertTrue(any(x.startswith("juge « dossier sans tables » : D1b tenu") for x in d["motifs"]), d["motifs"])
         sain = J.controle_diagnosticite(MATERIAUX)
         self.assertTrue(sain["conforme"])
         self.assertTrue(all(v["d1_tenus"] <= J.DIAGNOSTICITE_D1_MAX for v in sain["forme"].values()))
@@ -392,6 +548,7 @@ class Plan(unittest.TestCase):
         reel, _ = lot_reel()
         etapes, graphes = J.etapes_v2(MATERIAUX, A, B, Graines(9), lot_reel=reel)
         self.assertEqual([e["phase"] for e in etapes], sorted([e["phase"] for e in etapes], key=J.PHASES_V2.index))
+        self.assertEqual(J.PHASES_V2[:3], ("decisive-a", "sans-dossier-a", "decisive-b"))  # contre-lecture v2, I7
         n = {}
         for e in etapes:
             n[(e["phase"], e["juge"], e["protocole"])] = n.get((e["phase"], e["juge"], e["protocole"]), 0) + J.nombre_appels(e)
@@ -611,17 +768,20 @@ def ok(texte="```json\n{\"items\": {\"K1\": true, \"K2\": true, \"K3\": true, \"
 
 
 PLANCHER_3 = Resultat("", [], 1e-6, "erreur", "commande externe : code 3 : relais injoignable")
-PLANCHER_4 = Resultat("", [], 1e-6, "erreur", "commande externe : code 4 : 429")
+PIRE_CAS_3 = Resultat("", [], 0.23, "erreur", "commande externe : code 3 : echec HTTP 429 : quota de l'interface")
+PLANCHER_4 = Resultat("", [], 1e-6, "erreur", "commande externe : code 4 : relais : HTTP 402")
+REQUETE_3 = Resultat("", [], 1e-6, "erreur", "commande externe : code 3 : relais : HTTP 413")
 DELAI = Resultat("", [], 1.0, "erreur", "commande externe : délai de 1800 s dépassé, groupe de processus arrêté ; coût inconnu, "
                  "plafond de session compté", cout_inconnu=True)
 
 
 class Relais(unittest.TestCase):
-    def appeler(self, adaptateur, h=None, plafond=10.0, parts=None):
+    def appeler(self, adaptateur, h=None, plafond=10.0, parts=None, contexte=None, juge=None, compteur=None, plafond_session=1.0):
         h = h or J.HorlogeVirtuelle()
-        c = J.Compteur(plafond, 48 * 3600.0, h, {"j": 0.05}, parts=parts or {"j": plafond}, dormir=h.avancer)
+        c = compteur or J.Compteur(plafond, 48 * 3600.0, h, {"j": 0.05}, parts=parts or {"j": plafond}, dormir=h.avancer)
         journal = J.journal_vide()
-        texte, info = J.appeler(adaptateur, {"etiquette": "j", "modele": "gemini-4-argon"}, "entrée", os.devnull, c, 1.0, journal, {})
+        texte, info = J.appeler(adaptateur, juge or {"etiquette": "j", "modele": "gemini-4-argon"}, "entrée", os.devnull, c,
+                                plafond_session, journal, contexte or {})
         return texte, info, c, journal, h
 
     def test_classement_des_statuts(self):
@@ -631,7 +791,11 @@ class Relais(unittest.TestCase):
                (r("refus", "refus", refus={"evenement": "commande.modele_servi"}), "a2"),
                (r("refus", "refus", refus={"evenement": "commande.modele_servi_absent"}), "a2"),
                (r("refus", "refus", refus={"evenement": "commande.refus"}), "refus_modele"),
-               (r("erreur", "commande externe : code 3 : x"), "relais"), (r("erreur", "commande externe : code 4 : 429"), "quota"),
+               (r("erreur", "commande externe : code 3 : x"), "relais"), (r("erreur", "commande externe : code 4 : 429"), "refus_budget"),
+               (Resultat("", [], 1e-6, "erreur", "commande externe : code 3 : relais : HTTP 413"), "requete"),
+               (Resultat("", [], 1e-6, "erreur", "commande externe : code 3 : connexion refusée"), "relais"),
+               (Resultat("", [], 0.23, "erreur", "commande externe : code 3 : echec HTTP 413 de l'interface"), "relais"),
+               (Resultat("", [], 1.0, "erreur", "commande externe : code 3 : x ; coût inconnu", cout_inconnu=True), "relais_muet"),
                (r("erreur", "commande externe : code 5 : tronquée"), "non_conforme"), (r("erreur", "commande externe : code 6 : x"), "delai"),
                (r("erreur", "commande externe : code 2 : réglage"), "reglage"),
                (r("erreur", "commande externe : délai de 1800 s dépassé, groupe de processus arrêté"), "delai"),
@@ -669,27 +833,115 @@ class Relais(unittest.TestCase):
         self.assertEqual(info["issue_appel"], "refus_modele")
 
     def test_rien_d_envoye_attente_puis_reprise_sans_perte(self):
-        for nom, echec in (("relais injoignable", PLANCHER_3), ("quota", PLANCHER_4)):
+        """Code 3 à coût connu (contre-lecture v2, B9) : relais injoignable au plancher **et** quota de Google ou erreur de
+        l'interface au pire cas réservé → le même appel attendu puis repris, jamais une perte ; le pire cas compté dans la dépense,
+        jamais dans le prix observé."""
+        for nom, echec, depense in (("relais injoignable", PLANCHER_3, 3e-6), ("quota de Google au pire cas", PIRE_CAS_3, 0.69)):
             with self.subTest(cas=nom):
                 s = Suite(echec, echec, echec, ok())
                 texte, info, c, journal, h = self.appeler(s)
                 self.assertEqual(info["issue_appel"], "reponse")
                 self.assertEqual(s.appels, 4)
                 self.assertEqual([a["attente_s"] for a in journal["attentes"]], [15.0, 30.0, 60.0])
+                self.assertEqual([a["genre"] for a in journal["attentes"]], ["relais"] * 3)
                 self.assertEqual(h(), 105.0)
-                self.assertEqual(c.couts["j"], [0.05])  # le coût plancher n'entre pas dans le prix observé
+                self.assertEqual(c.couts["j"], [0.05])  # ni le plancher ni le pire cas n'entrent dans le prix observé
+                self.assertAlmostEqual(c.depense, 0.05 + depense, places=6)
 
     def test_artefact_relais_injoignable_trop_longtemps_juge_en_panne(self):
+        """Hors des phases décisives : panne après 6 h depuis le premier échec de la série (attentes 15 s à 1 800 s)."""
         s = Suite(PLANCHER_3)
         with self.assertRaises(J.ArretPanne) as e:
             self.appeler(s)
         self.assertIn("en panne", str(e.exception))
-        self.assertGreater(s.appels, 70)  # 6 h d'attentes (300 s à partir de la sixième)
+        self.assertEqual(s.appels, 19)  # 15 + 30 + … + 1 200 + 1 800 s, puis 1 800 s : 6 h dépassées au 19e échec
+
+    def test_code_3_au_pire_cas_en_rafale_attendu_sans_limite_de_nombre(self):
+        """Contre-lecture v2, B9 : douze codes 3 au pire cas réservé de suite (quota de Google), dans la phase décisive de A → le
+        même appel attendu (15 s à 1 800 s, puis 1 800 s) et repris, aucune perte, aucune panne, aucun compte d'échecs de suite ;
+        les douze pires cas comptés dans la dépense."""
+        s = Suite(*([PIRE_CAS_3] * 12), ok())
+        texte, info, c, journal, h = self.appeler(s, contexte={"phase": "decisive-a"})
+        self.assertEqual(info["issue_appel"], "reponse")
+        self.assertEqual(s.appels, 13)
+        self.assertEqual([a["attente_s"] for a in journal["attentes"]], list(J.ATTENTES_RELAIS_S) + [1800.0] * 4)
+        self.assertTrue(all(a["envoye"] for a in journal["attentes"]))
+        self.assertEqual(c.echecs_couteux_suite["j"], 0)
+        self.assertAlmostEqual(c.depense, 12 * 0.23 + 0.05, places=6)
+        self.assertAlmostEqual(c.incidents["j"]["usd"], 12 * 0.23, places=6)
+
+    def test_artefacts_code_4_et_refus_de_requete_arret_nomme_sans_attente(self):
+        """Contre-lecture v2, B9 : code 4 (402 ou 429 propres du relais, pire cas au-dessus du budget, registre) → jamais attendu,
+        `ArretRefusBudget` au premier appel ; borné par la part (ou le plafond), c'est la part (ou le plafond) qui est atteinte ;
+        code 3 au plancher portant HTTP 413 → `ArretRequete` au premier appel."""
+        for nom, res, arret in (("code 4", PLANCHER_4, J.ArretRefusBudget), ("413", REQUETE_3, J.ArretRequete)):
+            with self.subTest(cas=nom):
+                s = Suite(res, ok())
+                with self.assertRaises(arret) as e:
+                    self.appeler(s, contexte={"phase": "decisive-b"})
+                self.assertEqual(s.appels, 1)
+                self.assertIsInstance(e.exception, J.ArretJuge)
+        h = J.HorlogeVirtuelle()
+        part = J.Compteur(10.0, 1e9, h, {"j": 0.05}, parts={"j": 0.5}, dormir=h.avancer)
+        with self.assertRaises(J.ArretPart):
+            self.appeler(Suite(PLANCHER_4), compteur=part)
+        plafond = J.Compteur(0.5, 1e9, h, {"j": 0.05}, parts={"j": 0.5}, dormir=h.avancer)
+        plafond.parts["j"] = 10.0
+        with self.assertRaises(J.ArretDevis):
+            self.appeler(Suite(PLANCHER_4), compteur=plafond)
+
+    def test_horloge_de_panne_part_du_premier_echec_de_la_serie(self):
+        """Contre-lecture v2, I6 : réponse à t = 0, sept heures passées ailleurs, puis un échec au plancher → attente et reprise,
+        pas de panne ; une série de 5 h, une réponse, 5 h encore puis un échec → pas de panne (l'horloge revient à zéro) ; dans
+        une phase décisive, trente échecs (plus de 10 h d'attente) → toujours pas de panne."""
+        h = J.HorlogeVirtuelle()
+        c = J.Compteur(100.0, 1e9, h, {"j": 0.05}, dormir=h.avancer)
+        self.appeler(Suite(ok()), compteur=c)
+        h.avancer(7 * 3600.0)
+        texte, info, *_ = self.appeler(Suite(PLANCHER_3, ok()), compteur=c)
+        self.assertEqual(info["issue_appel"], "reponse")
+        c.echec("j")
+        h.avancer(5 * 3600.0)
+        c.succes("j")
+        h.avancer(5 * 3600.0)
+        c.echec("j")
+        c.verifier_panne("j")
+        h.avancer(3600.0)
+        c.verifier_panne("j")
+        texte, info, c2, journal, _ = self.appeler(Suite(*([PLANCHER_3] * 30), ok()), contexte={"phase": "decisive-a"},
+                                                   compteur=J.Compteur(100.0, 1e9, h, {"j": 0.05}, dormir=h.avancer))
+        self.assertEqual(info["issue_appel"], "reponse")
+        self.assertGreater(sum(a["attente_s"] for a in journal["attentes"]), 10 * 3600)
+
+    def test_artefact_serie_d_echecs_de_plus_de_6_heures_hors_des_phases_decisives(self):
+        """La série en cours dépasse 6 h (hors des phases décisives) : panne, dont le motif dit l'horloge de la série."""
+        h = J.HorlogeVirtuelle()
+        c = J.Compteur(100.0, 1e9, h, {"j": 0.05}, dormir=h.avancer)
+        c.echec("j")
+        h.avancer(6 * 3600.0 + 1)
+        with self.assertRaisesRegex(J.ArretPanne, "premier échec de la série"):
+            c.verifier_panne("j", "sans-dossier-a")
+        c.verifier_panne("j", "decisive-b")  # phase décisive : jamais
+
+    def test_attente_apres_un_echec_couteux(self):
+        """Contre-lecture v2, B9 : après un échec coûteux (délai, réponse tronquée…), attente avant l'appel suivant (relais à un fil)."""
+        parfait = J.AdaptateurScripte("parfait", J.oracle_depuis(MATERIAUX))
+        etape = {"phase": "decisive-a", "protocole": "v2", "lot": "monde-1", "juge": A["etiquette"], "tirage": 1,
+                 "appels": [("monde-1-01", "monde-1-07"), ("monde-1-02", "monde-1-08")]}
+        h = J.HorlogeVirtuelle()
+        c = J.Compteur(100.0, 1e9, h, {A["etiquette"]: 0.05}, dormir=h.avancer)
+        J.jouer_etape(etape, lots={l["nom"]: l for l in MATERIAUX["lots"]}, juges={A["etiquette"]: A},
+                      adaptateurs={A["fournisseur"]: J.AdaptateurPanneScripte(parfait, [(1, 2, "delai")])}, consignes=CONSIGNES,
+                      items=J.ITEMS_SUBSTITUTION, graines=Graines(3), compteur=c, plafond_session=1.0,
+                      interdites=J.ETIQUETTES_INTERDITES_TEMOINS, dossier_appel=lambda j, e: os.devnull, journal=J.journal_vide(),
+                      prevus={})
+        self.assertEqual(c.attentes[A["etiquette"]], {"nombre": 2, "secondes": 90.0})  # 30 s puis 60 s
 
     def test_echec_couteux_perdu_hors_du_prix_observe(self):
         for nom, echec, cause in (("délai", DELAI, "delai"),
                                   ("réponse tronquée", Resultat("", [], 0.3, "erreur", "commande externe : code 5 : tronquée"), "non_conforme"),
-                                  ("relais après envoi", Resultat("", [], 0.3, "erreur", "commande externe : code 3 : interface"), "relais"),
+                                  ("code 3 sans dernière ligne", Resultat("", [], 1.0, "erreur", "commande externe : code 3 : interface ; "
+                                                                           "coût inconnu", cout_inconnu=True), "relais_muet"),
                                   ("dépassement", Resultat("```json\n{}\n```", [], 1.6, "budget_depasse", "coût au-dessus",
                                                            texte_brut="```json\n{}\n```"), "depassement"),
                                   ("commande muette", Resultat("", [], 1.0, "erreur", "commande externe : dernière ligne non JSON ; "
@@ -893,23 +1145,117 @@ class Pannes(unittest.TestCase):
         self.assertEqual(mes["v2"][A["etiquette"]]["1"]["forces"], sain[1]["v2"][A["etiquette"]]["1"]["forces"])
         self.assertEqual(lec["issue"], sain[2]["issue"])
 
-    def test_b_hors_service_n_arrete_que_b(self):
-        journal, mes, lec, _ = course("indulgent", "parfait", pannes=(None, [(1, None, "relais_plancher")]))
-        self.assertEqual([x["type"] for x in journal["arrets_juges"]], ["ArretPanne"])
-        self.assertEqual(journal["arrets_juges"][0]["juge"], B["etiquette"])
+    def test_b_hors_service_attendu_jusqu_a_la_garde_de_duree(self):
+        """Relais de B injoignable pour toujours dans sa phase décisive (contre-lecture v2, B9) : aucune panne, B attendu jusqu'à la
+        garde de 48 heures (boucle folle) ; le bras sans dossier, joué avant B (I7), est complet ; lecture du journal partiel :
+        I1, réserve « accord du juge B non mesuré »."""
+        with self.assertRaises(J.ArretDuree) as e:
+            course("indulgent", "parfait", pannes=(None, [(1, None, "relais_plancher")]))
+        journal = e.exception.partiel
+        self.assertEqual(journal["arrets_juges"], [])
         self.assertTrue(all(e["juge"] == A["etiquette"] for e in journal["ancien"] + journal["v2"]))
-        self.assertEqual(sum(1 for e in journal["ancien"] if e["phase"] == "sans-dossier-a"), 30)  # le bras de A joué ensuite
+        self.assertEqual(sum(1 for e in journal["ancien"] if e["phase"] == "sans-dossier-a"), 30)
+        self.assertGreater(len(journal["attentes"]), 90)
+        lec = J.lire_validation(J.mesurer(journal, MATERIAUX, A, B, etapes=J.etapes_v2(MATERIAUX, A, B, Graines(11))[0]))
         self.assertIsNone(lec["criteres"]["D6"]["tenu"])
         self.assertEqual(lec["issue"], "I1")
         self.assertTrue(any("accord du juge B non mesuré" in r for r in lec["reserves"]))
-        self.assertTrue(any("instrument" in x for x in lec["audit"]["motifs"]))
 
     def test_artefact_a_hors_service_arrete_la_course_issue_i0(self):
-        with self.assertRaises(J.ArretPanne) as e:
+        """Relais de A injoignable pour toujours dans sa phase décisive : aucune panne, attente jusqu'à la garde de 48 heures, puis
+        arrêt de la course et I0 (la garde contre une boucle folle, jamais un budget de temps plus court)."""
+        with self.assertRaises(J.ArretDuree) as e:
             course("indulgent", "parfait", pannes=([(50, None, "relais_plancher")], None))
         partiel = e.exception.partiel
+        self.assertEqual(partiel["pertes"], [])
         mes = J.mesurer(partiel, MATERIAUX, A, B, etapes=J.etapes_v2(MATERIAUX, A, B, Graines(11))[0])
         self.assertEqual(J.lire_validation(mes)["issue"], "I0")
+
+    def test_rafale_de_codes_3_au_pire_cas_dans_la_phase_decisive_de_a(self):
+        """Contre-lecture v2, B9 (course à blanc de la contre-lecture, rejouée en essai) : cinq codes 3 au pire cas de suite
+        (interface en erreur), puis vingt codes 3 de quota de Google, dans la phase décisive de A → attentes et reprises, aucune
+        perte, même résultat que la course sans panne (forces et issue)."""
+        sain = course_memo("indulgent", "parfait")
+        journal, mes, lec, _ = course("indulgent", "parfait", pannes=([(100, 104, "relais_pire_cas"), (150, 169, "quota")], None))
+        self.assertEqual(journal["pertes"], [])
+        self.assertEqual(len(journal["attentes"]), 25)
+        self.assertEqual(journal["arrets_juges"], [])
+        self.assertEqual(mes["v2"][A["etiquette"]]["1"]["forces"], sain[1]["v2"][A["etiquette"]]["1"]["forces"])
+        self.assertEqual(lec["issue"], sain[2]["issue"])
+        self.assertAlmostEqual(journal["compteur"]["incidents"][A["etiquette"]]["usd"], 25 * 0.30, places=6)
+
+    def test_relais_de_a_injoignable_sept_heures_puis_reprise(self):
+        """Contre-lecture v2, B9 (iii) : relais d'Argon injoignable plus de 7 heures au milieu de la phase décisive de A → aucune
+        panne, reprise, même issue (la panne de 6 heures du brouillon 2 aurait donné I0)."""
+        sain = course_memo("indulgent", "parfait")
+        journal, mes, lec, _ = course("indulgent", "parfait", pannes=([(60, 80, "relais_plancher")], None))
+        self.assertGreater(sum(a["attente_s"] for a in journal["attentes"]), 7 * 3600)
+        self.assertEqual(lec["issue"], sain[2]["issue"])
+        self.assertEqual(mes["v2"][A["etiquette"]]["1"]["forces"], sain[1]["v2"][A["etiquette"]]["1"]["forces"])
+
+    def test_code_4_de_b_n_arrete_que_b(self):
+        """Contre-lecture v2, B9 : un code 4 du relais de B (refus de budget, jamais passager) arrête B au premier appel, sans
+        attente ; A, son bras sans dossier compris, va au bout ; issue lue avec la réserve « accord du juge B non mesuré »."""
+        journal, mes, lec, _ = course("indulgent", "parfait", pannes=(None, [(3, 3, "refus_budget")]))
+        self.assertEqual([x["type"] for x in journal["arrets_juges"]], ["ArretRefusBudget"])
+        self.assertEqual(sum(1 for e in journal["v2"] if e["juge"] == B["etiquette"]), 2)
+        self.assertEqual(sum(1 for e in journal["ancien"] if e["phase"] == "sans-dossier-a"), 30)
+        self.assertEqual(lec["issue"], "I1")
+        self.assertIsNone(lec["criteres"]["D6"]["tenu"])
+
+    def test_artefact_code_4_de_a_arrete_la_course(self):
+        """Dans la phase décisive de A, un code 4 arrête la course au premier appel (nature écrite : refus de budget), issue I0."""
+        with self.assertRaises(J.ArretRefusBudget) as e:
+            course("indulgent", "parfait", pannes=([(40, None, "refus_budget")], None))
+        partiel = e.exception.partiel
+        self.assertEqual(len(partiel["ancien"]) + len(partiel["v2"]), 39)
+        self.assertEqual(partiel["attentes"], [])
+        mes = J.mesurer(partiel, MATERIAUX, A, B, etapes=J.etapes_v2(MATERIAUX, A, B, Graines(11))[0])
+        self.assertEqual(J.lire_validation(mes)["issue"], "I0")
+
+    def test_a2_de_b_apres_le_bras_sans_dossier(self):
+        """Contre-lecture v2, I7 : le bras sans dossier est joué juste après la phase décisive de A ; un A2 au premier appel de B
+        arrête la course sans le perdre (30 verdicts) ; la lecture du journal partiel mesure le bras (S2)."""
+        with self.assertRaises(J.ArretModeleServi) as e:
+            course("indulgent", "parfait", pannes=(None, [(1, 1, "autre_modele")]))
+        partiel = e.exception.partiel
+        self.assertEqual(sum(1 for x in partiel["ancien"] if x["phase"] == "sans-dossier-a"), 30)
+        self.assertEqual([p["phase"] for p in partiel["phases"]], ["decisive-a", "sans-dossier-a"])
+        lec = J.lire_validation(J.mesurer(partiel, MATERIAUX, A, B, etapes=J.etapes_v2(MATERIAUX, A, B, Graines(11))[0]))
+        self.assertEqual(lec["bras_sans_dossier"]["lecture"], "S2")
+        self.assertEqual(lec["issue"], "I1")
+
+    def test_journal_au_fil_de_l_eau_et_interruption(self):
+        """Contre-lecture v2, I8 : chaque entrée du journal passe par le fil au moment où elle est écrite ; une interruption de
+        l'orchestrateur (signal, clavier) au 40e appel devient `ArretInterruption`, journal partiel gardé, fil à jour."""
+        lignes = []
+        journal = J.journal_vide(lambda cle, e: lignes.append((cle, e)))
+        J.ajouter(journal, "v2", {"x": 1})
+        self.assertEqual(lignes, [("v2", {"x": 1})])
+
+        class Interrompu(J.AdaptateurScripte):
+            def lancer(self, *a, **kw):
+                if self.appels >= 39:
+                    raise KeyboardInterrupt("signal 15")
+                return super().lancer(*a, **kw)
+        oracle = J.oracle_depuis(MATERIAUX)
+        vu = []
+        g = Graines(11)
+        etapes, _ = J.etapes_v2(MATERIAUX, A, B, g)
+        h = J.HorlogeVirtuelle()
+        c = J.Compteur(60.0, 1e9, h, {A["etiquette"]: 0.0, B["etiquette"]: 0.0}, dormir=h.avancer)
+        try:
+            J.executer_validation(etapes, materiaux=MATERIAUX, juges={A["etiquette"]: A, B["etiquette"]: B},
+                                  adaptateurs={A["fournisseur"]: Interrompu("parfait", oracle), B["fournisseur"]: J.AdaptateurScripte("parfait", oracle)},
+                                  consignes=CONSIGNES, items=J.ITEMS_SUBSTITUTION, graines=g, compteur=c, plafond_session=1.0,
+                                  interdites=J.ETIQUETTES_INTERDITES_TEMOINS, dossier_appel=lambda j, e: os.devnull,
+                                  fil=lambda cle, e: vu.append(cle))
+            obtenu = None
+        except BaseException as x:  # noqa: BLE001 — une interruption non convertie ne doit pas arrêter la suite d'essais
+            obtenu = x
+        self.assertIsInstance(obtenu, J.ArretInterruption)
+        self.assertEqual(len(obtenu.partiel["ancien"]) + len(obtenu.partiel["v2"]), 39)
+        self.assertEqual(vu.count("ancien") + vu.count("v2"), 39)
 
     def test_b_illisible_n_arrete_que_b_pour_la_phase(self):
         journal, mes, lec, _ = course("indulgent", "illisible")
@@ -1046,10 +1392,12 @@ class LanceurABlanc(unittest.TestCase):
     def test_a_blanc_juge_b_en_panne(self):
         with tempfile.TemporaryDirectory() as d:
             sortie = os.path.join(d, "s")
-            with unittest.mock.patch("sys.stdout", new_callable=io.StringIO):
-                self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--panne-b", "relais_plancher:1-"]), 0)
+            with unittest.mock.patch("sys.stderr", new_callable=io.StringIO):  # B attendu jusqu'à la garde de 48 h : code 3
+                self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--panne-b", "relais_plancher:1-"]), 3)
             with open(os.path.join(sortie, lanceur.SORTIES["lecture"]), encoding="utf-8") as f:
                 lec = json.load(f)
+            self.assertTrue(lec["partielle"])
+            self.assertIn("ArretDuree", lec["arret"])
             self.assertEqual(lec["issue"], "I1")
             self.assertIsNone(lec["criteres"]["D6"]["tenu"])
 
@@ -1067,6 +1415,55 @@ class LanceurABlanc(unittest.TestCase):
             open(os.path.join(sortie, "f"), "w").close()
             with unittest.mock.patch("sys.stderr", new_callable=io.StringIO):
                 self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7"]), 2)
+
+    def test_journal_au_fil_de_l_eau_scelle_et_complet(self):
+        """Contre-lecture v2, I8 : le journal au fil de l'eau porte une ligne par entrée du journal final, dans l'ordre, plus le
+        bilan ; il est scellé à la fin ; le manifeste écrit la règle d'une course tuée."""
+        from pole.outils import verifier_scelle
+        with tempfile.TemporaryDirectory() as d:
+            sortie = os.path.join(d, "s")
+            with unittest.mock.patch("sys.stdout", new_callable=io.StringIO):
+                self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--sans-lot-reel"]), 0)
+            chemin = os.path.join(sortie, lanceur.SORTIES["fil"])
+            self.assertTrue(verifier_scelle(chemin))
+            with open(chemin, encoding="utf-8") as f:
+                lignes = [json.loads(x) for x in f]
+            with open(os.path.join(sortie, lanceur.SORTIES["journal"]), encoding="utf-8") as f:
+                journal = json.load(f)
+            self.assertEqual([x["n"] for x in lignes], list(range(1, len(lignes) + 1)))
+            self.assertEqual(lignes[-1]["cle"], "bilan")
+            for cle in ("ancien", "v2", "etapes", "phases", "projections"):
+                self.assertEqual(sum(1 for x in lignes if x["cle"] == cle), len(journal[cle]), cle)
+            self.assertEqual([x["entree"] for x in lignes if x["cle"] == "v2"], journal["v2"])
+            with open(os.path.join(sortie, lanceur.SORTIES["manifeste"]), encoding="utf-8") as f:
+                self.assertIn("I0", json.load(f)["regle_course_tuee"])
+
+    def test_interruption_journal_partiel_et_fil_scelles(self):
+        """Contre-lecture v2, I8 : une interruption (signal de fin ou clavier) au 40e appel du juge A : code 3, journal partiel,
+        mesures et lecture scellés, fil scellé ; issue I0 (phase décisive de A interrompue). Le signal de fin est converti."""
+        from pole.outils import verifier_scelle
+        with self.assertRaises(KeyboardInterrupt):
+            lanceur._interruption(15, None)
+        vrai = J.AdaptateurScripte.lancer
+
+        def lancer(self, *a, **kw):
+            if self.appels >= 39 and self.strategie == "indulgent":
+                raise KeyboardInterrupt("signal 15")
+            return vrai(self, *a, **kw)
+        with tempfile.TemporaryDirectory() as d:
+            sortie = os.path.join(d, "s")
+            try:
+                with unittest.mock.patch.object(J.AdaptateurScripte, "lancer", lancer), \
+                        unittest.mock.patch("sys.stderr", new_callable=io.StringIO):
+                    code = lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--sans-lot-reel"])
+            except BaseException as x:  # noqa: BLE001 — une interruption non convertie ne doit pas arrêter la suite d'essais
+                code = x
+            self.assertEqual(code, 3)
+            self.assertTrue(verifier_scelle(os.path.join(sortie, lanceur.SORTIES["fil"])))
+            with open(os.path.join(sortie, lanceur.SORTIES["lecture"]), encoding="utf-8") as f:
+                lec = json.load(f)
+            self.assertIn("ArretInterruption", lec["arret"])
+            self.assertEqual(lec["issue"], "I0")
 
     def test_arret_ecrit_un_journal_partiel_scelle(self):
         with tempfile.TemporaryDirectory() as d:
@@ -1276,6 +1673,8 @@ class LanceurCheminReel(_CheminReel):
             "non scellé": (self.argv(prereg=self.ecrire_prereg("preenregistrement-juges-idees-v2-v3.md", txt(), sceller=False)), "non scellé"),
             "marqueur restant": (self.argv(prereg=self.ecrire_prereg("preenregistrement-juges-idees-v2-v4.md",
                                                                      txt(marqueur="Épreuve : <<EPREUVE_ASTRA_8807>>"))), "marqueur"),
+            "marqueur « À REMPLIR » restant": (self.argv(prereg=self.ecrire_prereg("preenregistrement-juges-idees-v2-v41.md",
+                                                                                 txt(marqueur="Commit : À REMPLIR"))), "marqueur"),
             "code différent": (self.argv(prereg=self.ecrire_prereg("preenregistrement-juges-idees-v2-v5.md", txt(empreintes=faux_code))),
                                "code différent"),
             "fermeture incomplète": (self.argv(prereg=self.ecrire_prereg("preenregistrement-juges-idees-v2-v6.md",
@@ -1356,6 +1755,21 @@ class LanceurCheminReel(_CheminReel):
         self.assertIn("les relais tiennent les clés", err)  # la garde du lanceur, avant celle des adaptateurs
         self.assertFalse(os.path.exists(self.sortie))
 
+    def test_artefact_porte_de_plafond_absente_refus_nomme(self):
+        """Contre-lecture v2, M15 : une porte de plafond absente pour le relais d'un juge est un refus nommé (code 2), jamais une
+        erreur brute."""
+        v8 = lanceur.charger_ideation_v8()
+        vrai = v8.adaptateurs_reels_v56
+
+        def sans_porte(*a, **kw):
+            adaptateurs, portes = vrai(*a, **kw)
+            return adaptateurs, {k: v for k, v in portes.items() if k != "astra"}
+        with unittest.mock.patch.object(v8, "adaptateurs_reels_v56", sans_porte):
+            code, err, _ = self.lancer(self.argv("--verifier-seulement"))
+        self.assertEqual(code, 2, err)
+        self.assertIn("porte de plafond absente pour « astra »", err)
+        self.assertFalse(os.path.exists(self.sortie))
+
     def test_course_reelle_factice_arretee_par_la_garde_de_validite(self):
         """Commande factice qui rend des comparaisons sans citation de fiche (citation vide) : l'ancien protocole est lu, les
         comparaisons v2 sont nulles ; la garde de validité arrête la phase décisive de A, donc la course (code 3, journal
@@ -1374,29 +1788,80 @@ class LanceurCheminReel(_CheminReel):
         self.assertEqual(self.lire("lecture")["issue"], "I0")
 
     def test_statuts_du_relais_par_la_vraie_commande_externe(self):
-        """Par l'adaptateur réel (`AdaptateurCommandeExterneV56`) : code 4 au coût plancher puis code 3 au coût plancher → même
-        appel repris après attente ; code 3 sans ligne (coût inconnu, plafond de session compté) → perte reprise en fin d'étape,
-        hors du prix observé ; refus du modèle → réponse inexploitable ; autre modèle servi → arrêt A2 au premier appel."""
-        plancher = {"texte": "", "cout_usd": 1e-6}
-        self.fournisseurs(scenario_a=[{"type": "ligne", "ligne": plancher, "code": 4, "stderr": "429"},
-                                      {"type": "ligne", "ligne": plancher, "code": 3, "stderr": "relais injoignable"},
+        """Par l'adaptateur réel (`AdaptateurCommandeExterneV56`), avec la table des codes de la commande Argon réelle (n° 294 de
+        session-depot, § 3 ; contre-lecture v2, B9) : code 3 au plancher (relais injoignable) puis code 3 au pire cas réservé
+        (quota de Google) → même appel repris après attente, le pire cas compté ; code 3 sans ligne (coût inconnu, plafond de
+        session compté) → perte reprise en fin d'étape, hors du prix observé ; refus du modèle → réponse inexploitable ; autre
+        modèle servi → arrêt A2 au premier appel."""
+        plancher, pire = {"texte": "", "cout_usd": 1e-6}, {"texte": "", "cout_usd": 0.23}
+        self.fournisseurs(scenario_a=[{"type": "ligne", "ligne": plancher, "code": 3, "stderr": "relais injoignable"},
+                                      {"type": "ligne", "ligne": pire, "code": 3, "stderr": "echec HTTP 429 : quota"},
                                       {"type": "repondre"}, {"type": "rien", "code": 3, "stderr": "interface"},
                                       {"type": "repondre"}, {"type": "refus"},
                                       {"type": "repondre", "modele_servi": "gemini-4-argon-lite"}])
-        with unittest.mock.patch.object(J, "ATTENTES_RELAIS_S", (0.01, 0.01)):
+        with unittest.mock.patch.object(J, "ATTENTES_RELAIS_S", (0.01, 0.01)), \
+                unittest.mock.patch.object(J, "ATTENTES_ECHEC_S", (0.01,)):
             code, err, _ = self.lancer(self.argv())
         self.assertEqual(code, 3, err)
         journal = self.lire("journal")
         self.nettoyer_sessions()
         self.assertIn("ArretModeleServi", journal["arret"])
-        self.assertEqual([a["genre"] for a in journal["attentes"]], ["quota", "relais"])
-        self.assertEqual([(p["cause"], p["cout_inconnu"], p["definitive"]) for p in journal["pertes"]], [("relais", True, False)])
+        self.assertEqual([(a["genre"], a["envoye"]) for a in journal["attentes"]], [("relais", False), ("relais", True)])
+        self.assertEqual([(p["cause"], p["cout_inconnu"], p["definitive"]) for p in journal["pertes"]], [("relais_muet", True, False)])
         self.assertEqual([e.get("genre") for e in journal["ancien"]], ["reponse", "reponse", "refus_modele"])
         self.assertEqual([e["valide"] for e in journal["ancien"]], [True, True, False])
         bilan = journal["compteur"]
         self.assertEqual(bilan["reponses_a_cout_connu"]["juge-a"], 3)
         self.assertEqual(bilan["cout_inconnu"]["juge-a"]["appels"], 1)
         self.assertAlmostEqual(bilan["cout_inconnu"]["juge-a"]["usd"], 1.0)
+        # incidents : pire cas réservé (0,23), coût inconnu (plafond de session, 1,00) et l'appel A2 (0,001) comptés
+        self.assertAlmostEqual(bilan["incidents"]["juge-a"]["usd"], 1.231, places=6)
+
+    def test_artefacts_code_4_et_refus_de_requete_par_la_vraie_commande_externe(self):
+        """Code 4 au plancher (402 du relais) : refus de budget, jamais passager → arrêt nommé au premier appel, sans attente ; dans
+        la phase décisive de A, arrêt de la course (code 3), issue I0. Code 3 au plancher portant HTTP 413 : refus de requête,
+        arrêt nommé au premier appel (contre-lecture v2, B9)."""
+        plancher = {"texte": "", "cout_usd": 1e-6}
+        for nom, action, arret in (("code 4", {"type": "ligne", "ligne": plancher, "code": 4, "stderr": "relais : HTTP 402"},
+                                    "ArretRefusBudget"),
+                                   ("413", {"type": "ligne", "ligne": plancher, "code": 3, "stderr": "relais : HTTP 413"}, "ArretRequete")):
+            with self.subTest(cas=nom):
+                self.fournisseurs(scenario_a=[{"type": "repondre"}] * 2 + [action])
+                if os.path.exists(self.sortie):
+                    self.nettoyer_sessions()
+                    shutil.rmtree(self.sortie)
+                code, err, _ = self.lancer(self.argv())
+                self.assertEqual(code, 3, err)
+                journal = self.lire("journal")
+                self.assertIn(arret, journal["arret"])
+                self.assertEqual(journal["attentes"], [])
+                self.assertEqual(len(journal["ancien"]), 2)
+                self.assertEqual(self.lire("lecture")["issue"], "I0")
+
+    def test_identifiant_servi_admis_par_la_configuration(self):
+        """Identifiant servi daté à tirets (que `modele_conforme` refuse) admis par la liste explicite `modeles_servis_permis` de
+        la configuration : lu comme une réponse par le cœur aussi (contre-lecture v2, I7) ; sans la liste : A2 au premier appel."""
+        servi = "gemini-4-argon-2026-11-01"
+        self.fournisseurs(scenario_a=[{"type": "repondre", "modele_servi": servi}] * 2 + [{"type": "repondre", "modele_servi": "x"}])
+        self.conf["fournisseurs"]["argon"]["modeles_servis_permis"] = {"gemini-4-argon": [servi]}
+        with open(self.chemin_conf, "w", encoding="utf-8") as f:
+            json.dump(self.conf, f, ensure_ascii=False)
+        for x in (self.prereg, self.prereg + ".sha256"):
+            os.remove(x)
+        ecrire_scelle(self.prereg, texte_preenregistrement(conf_sha=sha256_fichier(self.chemin_conf)))
+        code, err, _ = self.lancer(self.argv())
+        self.assertEqual(code, 3, err)
+        journal, m = self.lire("journal"), self.nettoyer_sessions()
+        self.assertEqual(m["plan"]["juge_a"]["modeles_servis_permis"], [servi])
+        self.assertEqual([e["modele_servi"] for e in journal["ancien"]], [servi, servi])
+        self.assertIn("ArretModeleServi", journal["arret"])  # le troisième appel sert « x » : A2
+        shutil.rmtree(self.sortie)
+        self.fournisseurs(scenario_a=[{"type": "repondre", "modele_servi": servi}])
+        code, err, _ = self.lancer(self.argv())
+        self.assertEqual(code, 3, err)
+        self.nettoyer_sessions()
+        self.assertEqual(self.lire("journal")["ancien"], [])
+        self.assertIn("ArretModeleServi", self.lire("journal")["arret"])
 
 
 class LanceurCheminReelComplet(_CheminReel):

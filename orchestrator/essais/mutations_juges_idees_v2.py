@@ -1,4 +1,4 @@
-"""Banc de mutations de l'étage des juges d'idéation v2, brouillon 2 (R5 : chaque garde neutralisée doit faire échouer son essai,
+"""Banc de mutations de l'étage des juges d'idéation v2, brouillon 3 (R5 : chaque garde neutralisée doit faire échouer son essai,
 **pour la bonne raison**) — cœur `pole/juges_idees_v2.py` et lanceur `demonstrations/validation_juges_idees_v2.py`.
 
 Mécanique des bancs v55 et v56 (`essais/mutations_v55.py`) : la fonction visée est recompilée en mémoire avec le fragment
@@ -8,7 +8,10 @@ avec un texte qui correspond au **motif attendu** ; un échec d'une autre nature
 le module d'essais sont oubliées avant chaque mutation ; le contrôle de diagnosticité mémorisé est oublié avant et après chaque
 mutation qui vise la classe `Diagnosticite` (sinon un résultat calculé sous mutation resterait en mémoire).
 
-  python3 -I -B essais/mutations_juges_idees_v2.py [--raisons]      (depuis le dossier orchestrator)
+  python3 -I -B essais/mutations_juges_idees_v2.py [--raisons] [--seulement MOTIF]      (depuis le dossier orchestrator)
+
+`--seulement MOTIF` (expression régulière sur le libellé) ne joue que les mutations qu'elle retient (mise au point) ; le banc
+complet est celui sans `--seulement`.
 """
 
 import contextlib
@@ -77,8 +80,8 @@ MUTATIONS = [
      'if classe == "fausse_redigee" and not (xa - xb >= ECART_VRAI_MIN and abs(oa - ob) <= ECART_NUL_MAX):', "if False:",
      [P + "Materiaux"], VRAI),
     ("loi fausse graduée non contrôlée contre la table", J, "verifier_materiaux",
-     'if classe == "fausse_redigee" and not (loi["affirme"][1] - loi["affirme"][0] >= ECART_VRAI_MIN',
-     'if False and not (loi["affirme"][1] - loi["affirme"][0] >= ECART_VRAI_MIN', [P + "Materiaux"], VRAI),
+     'if classe == "fausse_redigee" and not (abs(loi["affirme"][1] - loi["affirme"][0]) >= ECART_VRAI_MIN',
+     'if False and not (abs(loi["affirme"][1] - loi["affirme"][0]) >= ECART_VRAI_MIN', [P + "Materiaux"], VRAI),
     ("signe contraire non contrôlé", J, "verifier_materiaux",
      'if classe == "signe_contraire" and loi.get("signe_prediction") == loi["signe"]:', "if False:", [P + "Materiaux"], VRAI),
     ("champ « signe » non contrôlé", J, "verifier_materiaux", 'if f["contenu"].get("signe") != loi.get("signe_prediction"):',
@@ -87,9 +90,45 @@ MUTATIONS = [
     ("contrôle de diagnosticité ignoré par la garde des matériaux", J, "exiger_materiaux", 'if not diag["conforme"]:', "if False:",
      [P + "Diagnosticite"], r"ProtocoleRefuse not raised"),
     ("diagnosticité : juges de forme jamais retenus contre les matériaux", J, "controle_diagnosticite",
-     'if d1 > DIAGNOSTICITE_D1_MAX or resume["aire_moyenne"] > DIAGNOSTICITE_AIRE_MAX:', "if False:", [P + "Diagnosticite"], VRAI),
+     'if nom != "dossier_sans_tables" and (d1 > DIAGNOSTICITE_D1_MAX or resume["aire_moyenne"] > DIAGNOSTICITE_AIRE_MAX):',
+     "if False:", [P + "Diagnosticite"], VRAI),
     ("diagnosticité : D1b du juge « dossier sans tables » jamais retenu", J, "controle_diagnosticite",
-     "if d1b > DIAGNOSTICITE_D1B_MAX:", "if False:", [P + "Diagnosticite"], VRAI),
+     "if d1b > DIAGNOSTICITE_D1B_MAX or (af is not None and af > DIAGNOSTICITE_AIRE_D1B_MAX):",
+     'if nom != "dossier_sans_tables" and (d1b > DIAGNOSTICITE_D1B_MAX or (af is not None and af > DIAGNOSTICITE_AIRE_D1B_MAX)):',
+     [P + "Diagnosticite"], VRAI),
+    # --- brouillon 3 : B8, la lecture des tables ne s'obtient plus sans lire une table (contre-lecture v2) ------------------------
+    ("B8 : écart d'une loi fausse non apparié (écarts fixes du brouillon 2)", J, "_ecart_apparie",
+     "return int(max(ECART_VRAI_MIN, base + _choisir(rng, JITTER_APPARIE))), k", "return int(_choisir(rng, ECARTS_FAUX)), k",
+     [P + "Materiaux"], r"test_ecarts_apparies_et_tables_lues.*(False is not true|\(')"),
+    ("B8 : interaction fausse non appariée (écarts décalés de 9 points)", J, "_ecart_apparie",
+     "return (base[0] + _choisir(rng, JITTER_APPARIE), max(0, base[1] + _choisir(rng, JITTER_APPARIE))), k",
+     "return (base[0] + 9, base[1] + 9), k",
+     [P + "Materiaux"], r"test_ecarts_apparies_et_tables_lues.*False is not true"),
+    ("B8 : contrôle de forme sans le sous-ensemble de D1b", J, "controle_forme",
+     "for a in list(aires.values()) + list(aires_d1b.values()))", "for a in list(aires.values()))",
+     [P + "Materiaux"], r"test_artefact_forme_brouillon2_et_sous_ensemble_de_d1b.*(True is not false|not raised)"),
+    ("B8 : vocabulaire non contrôlé", J, "controle_forme", "            and all(v[\"conforme\"] for v in vocabulaire.values())}",
+     "            and True}", [P + "Materiaux"], r"test_artefact_forme_brouillon2_et_sous_ensemble_de_d1b.*True is not false"),
+    ("B8 : centre des taux d'une loi fausse non apparié (centré sur la table)", J, "_fiches_du_monde",
+     "centre = _centre_affirme(spec, tables, k_bonne)", 'centre = sum(l["taux"] for l in tables["table1"][cle]) / 3 if genre != "interaction_fausse" else None',
+     [P + "Materiaux"], r"test_ecarts_apparies_et_tables_lues.*(False is not true|!=)"),
+    ("B8 : écart annoncé hors des indices de forme", J, "indices_forme", '"ecart_affirme": ampleur_annoncee(c)', '"ecart_affirme": 0.0',
+     [P + "Materiaux"], r"0\.5 != 1\.0"),
+    ("B8 : champ « signe » « - » hors des indices de forme (M12)", J, "indices_forme",
+     '"signe_negatif": 1.0 if str(c.get("signe")) == "-" else 0.0', '"signe_negatif": 0.5', [P + "Materiaux"],
+     r"0\.5 != 0\.6"),
+    ("B8 : juges adverses retirés (juges de forme du brouillon 2 seulement)", J, "juges_du_controle",
+     'juges = {"+".join(o): ("forme", o, "surface") for o in VARIANTES_FORME}',
+     'juges = {"+".join(o): ("forme", o, "surface") for o in VARIANTES_FORME[:6]}', [P + "Diagnosticite"],
+     r"KeyError: 'ampleur'|'ampleur' not found"),
+    ("B8 : D1b des juges de surface jamais retenu", J, "controle_diagnosticite",
+     "if d1b > DIAGNOSTICITE_D1B_MAX or (af is not None and af > DIAGNOSTICITE_AIRE_D1B_MAX):", "if False:",
+     [P + "Diagnosticite"], r"test_artefact_diagnosticite_brouillon2.*False is not true"),
+    ("B8 : témoin « lecteur des tables » jamais exigé", J, "controle_diagnosticite",
+     "if d1b < DIAGNOSTICITE_TEMOIN_D1B_PART_MIN * graines_plan - 1e-9:", "if False:", [P + "Diagnosticite"],
+     r"test_artefact_temoin_qui_ne_lit_pas_les_tables.*(True is not false|False is not true)"),
+    ("B8 : lecteur des tables sans comparaison des chiffres", J, "verifier_par_les_tables", "tol = TOLERANCE_LECTEUR_POINTS",
+     "tol = 1e9", [P + "Materiaux"], r"test_ecarts_apparies_et_tables_lues.*(False != True|True != False)"),
     # --- plan, famille -------------------------------------------------------------------------------------------------------
     ("règle de famille désactivée", J, "juge_admissible", "return all(famille_juge not in f for f in familles)", "return True",
      [P + "Plan"], r"False is not true|ProtocoleRefuse not raised"),
@@ -139,21 +178,24 @@ MUTATIONS = [
     ("seuil binomial décalé d'un cran", J, "seuil_binomial", "return k + 1", "return k", [P + "Statistiques"],
      r"not less than or equal to 0\.1"),
     # --- statuts du relais, appels, reprises (contre-lecture v1, B2) -----------------------------------------------------------
-    ("A2 : modèle servi différent sur « ok » non contrôlé", J, "classer_resultat", "if not modele_conforme(modele, r.modele_servi):",
-     "if False:", [P + "Relais"], r"ArretModeleServi not raised|'reponse' != 'a2'"),
+    ("A2 : modèle servi différent sur « ok » non contrôlé", J, "classer_resultat",
+     "if not modele_conforme(modele, r.modele_servi, permis):", "if False:", [P + "Relais"],
+     r"ArretModeleServi not raised|'reponse' != 'a2'"),
     ("A2 : modèle servi absent admis (contre-lecture v1, B7)", J, "classer_resultat",
-     "if not modele_conforme(modele, r.modele_servi):",
-     "if r.modele_servi is not None and not modele_conforme(modele, r.modele_servi):", [P + "Relais"],
+     "if not modele_conforme(modele, r.modele_servi, permis):",
+     "if r.modele_servi is not None and not modele_conforme(modele, r.modele_servi, permis):", [P + "Relais"],
      r"ArretModeleServi not raised|'reponse' != 'a2'"),
     ("A2 : statut « refus » de la commande v56 lu comme un refus du modèle", J, "classer_resultat", "if ev in EVENEMENTS_A2:",
      "if False:", [P + "Relais"], r"ArretModeleServi not raised|'refus_modele' != 'a2'"),
     ("refus du modèle lu comme une réponse", J, "appeler",
      'texte = (r.texte_brut or r.texte_final) if c["genre"] == "reponse" else None', "texte = (r.texte_brut or r.texte_final)",
      [P + "Relais"], r"is not None"),
-    ("rien d'envoyé compté comme une perte (aucune attente)", J, "appeler", "if rien_envoye:", "if False:", [P + "Relais"],
-     r"'perte' != 'reponse'"),
-    ("quota (code 4) non repris après attente", J, "appeler", 'rien_envoye = (c["genre"] in ("relais", "quota")',
-     'rien_envoye = (c["genre"] in ("relais",)', [P + "Relais"], r"'perte' != 'reponse'"),
+    ("code 3 (rien d'envoyé ou pire cas) compté comme une perte (aucune attente)", J, "appeler", 'if c["genre"] == "relais":',
+     "if False:", [P + "Relais"], r"'perte' != 'reponse'"),
+    ("B9 : quota de Google (code 3 au pire cas) non repris après attente", J, "classer_resultat",
+     'return {"genre": "relais", "code": code, "motif": erreur[:200], "envoye": not plancher}',
+     'return {"genre": "relais" if plancher else "non_conforme", "code": code, "motif": erreur[:200], "envoye": not plancher}',
+     [P + "Relais"], r"'perte' != 'reponse'"),
     ("panne du juge jamais déclarée (attente sans fin)", J.Compteur, "verifier_panne", "if sans_reponse > PANNE_DUREE_S:",
      "if False:", [P + "Relais"], r"ArretDuree"),
     ("échecs coûteux consécutifs jamais une panne", J.Compteur, "verifier_echecs_couteux",
@@ -165,6 +207,40 @@ MUTATIONS = [
      r"ArretInfrastructure not raised"),
     ("incident compté dans le prix observé", J.Compteur, "noter", "if connu and dans_le_prix:", "if connu:", [P + "Relais"],
      r"Lists differ"),
+    # --- brouillon 3 : B9, table des codes de la commande réelle ; I6, horloge de panne (contre-lecture v2) -----------------------
+    ("B9 : code 4 attendu comme un code 3 (prémisse du brouillon 2)", J, "appeler", 'if c["genre"] == "relais":',
+     'if c["genre"] in ("relais", "refus_budget"):', [P + "Relais"], r"ArretPanne|ArretDuree|ArretRefusBudget not raised"),
+    ("B9 : code 4 au budget borné par la part lu comme un refus de budget", J, "appeler",
+     "if budget < float(plafond_session) - 1e-12:", "if False:", [P + "Relais"], r"ArretRefusBudget"),
+    ("B9 : refus de requête (413) attendu comme un relais injoignable", J, "classer_resultat",
+     "if plancher and _REQUETE.search(erreur):", "if False:", [P + "Relais"], r"ArretPanne|ArretDuree|'relais' != 'requete'"),
+    ("B9 : panne de 6 h dans les phases décisives (budget de temps qui coupe la mesure)", J.Compteur, "verifier_panne",
+     "if phase in PHASES_SANS_PANNE:", "if False:", [P + "Relais"], r"ArretPanne"),
+    ("B9 : compte d'échecs de suite appliqué au code 3", J, "appeler",
+     "compteur.echec(j)\n            attente = ATTENTES_RELAIS_S",
+     "compteur.echec_couteux(j)\n            compteur.verifier_echecs_couteux(j)\n            attente = ATTENTES_RELAIS_S",
+     [P + "Relais"], r"ArretPanne"),
+    ("B9 : attentes du code 3 bornées à 300 s (brouillon 2)", J, "appeler",
+     "attente = ATTENTES_RELAIS_S[min(rang, len(ATTENTES_RELAIS_S) - 1)]", "attente = ATTENTES_RELAIS_S[min(rang, 4)]",
+     [P + "Relais"], r"Lists differ|!= 19"),
+    ("B9 : aucune attente après un échec coûteux", J, "jouer_etape", 'compteur.attendre_apres_echec(juge["etiquette"])', "pass",
+     [P + "Relais"], r"\{'nombre': 0"),
+    ("I6 : horloge de panne partie du dernier succès (brouillon 2)", J.Compteur, "echec",
+     "self.debut_serie.setdefault(juge, self.horloge())",
+     "self.debut_serie.setdefault(juge, self.dernier_succes.get(juge, self.horloge()))", [P + "Relais"], r"ArretPanne"),
+    ("I6 : horloge de panne non remise à zéro sur une réponse", J.Compteur, "succes", "self.debut_serie.pop(juge, None)", "pass",
+     [P + "Relais"], r"ArretPanne"),
+    ("I7 : bras sans dossier joué après B (ordre du brouillon 2)", J, "executer_validation", "for phase in PHASES_V2:",
+     'for phase in ("decisive-a", "decisive-b", "sans-dossier-a", "reel-ancien", "reel-v2"):', [P + "Pannes"],
+     r"0 != 30|Lists differ"),
+    ("I7 : identifiants servis admis par la configuration ignorés (A2)", J, "appeler",
+     'c = classer_resultat(r, juge["modele"], juge.get("modeles_servis_permis", ()))', 'c = classer_resultat(r, juge["modele"])',
+     CHEMIN, r"Lists differ|\[\] != \["),
+    ("I8 : journal non écrit au fil de l'eau", J, "ajouter", "if fil is not None:", "if False:", [P + "Pannes"],
+     r"Lists differ|0 != 39"),
+    ("I8 : interruption de l'orchestrateur non convertie (journal perdu)", J, "executer_validation",
+     'raise ArretInterruption(f"interruption de l\'orchestrateur pendant la course ({type(erreur).__name__})", journal) from erreur',
+     "raise", [P + "Pannes"], r"KeyboardInterrupt"),
     # --- compteur ------------------------------------------------------------------------------------------------------------
     ("plafond de dépense de la course ignoré", J.Compteur, "budget_appel", "if self.reste() < MINIMUM_APPEL_USD:", "if False:",
      [P + "Compteur"], r"ArretPart|ArretDevis not raised"),
@@ -175,7 +251,8 @@ MUTATIONS = [
     ("projection : reste du plafond ignoré", J.Compteur, "tient", "if p > self.reste() + 1e-9:", "if False:", [P + "Compteur"],
      r"ArretDevis not raised"),
     ("durée maximale ignorée", J.Compteur, "verifier_duree", "if ecoule > self.duree_max_s:", "if False:",
-     [P + "Compteur", P + "Pannes"], r"ArretDuree not raised"),
+     [P + "Compteur", P + "Pannes.test_artefact_duree_maximale"], r"ArretDuree not raised"),  # brouillon 3 : sans la garde, les
+    # essais de relais injoignable pour toujours dans une phase décisive ne finiraient pas (aucune panne par la durée) : exclus ici
     ("durée maximale nulle admise (cœur)", J.Compteur, "__init__",
      "if isinstance(duree_max_s, bool) or not (isinstance(duree_max_s, (int, float)) and math.isfinite(duree_max_s) and duree_max_s > 0):",
      "if False:", [P + "Compteur"], r"ProtocoleRefuse not raised"),
@@ -269,7 +346,28 @@ MUTATIONS = [
      'if d["duree_h"][1] * 3600.0 > plan["duree_max_s"] + 1e-9:', "if False:", CHEMIN, REFUS),
     ("lanceur : relais d'un juge absent admis", L, "juges_reels", 'if j["fournisseur"] not in adaptateurs:', "if False:", CHEMIN,
      r"'relais' not found"),
+    # --- brouillon 3 : lanceur (contre-lecture v2, I7, I8, M15) et juge « dossier sans tables » (M11) ----------------------------
+    ("lanceur : marqueur « À REMPLIR » non cherché (seuls les marqueurs <<…>>)", L, "lire_preenregistrement",
+     "restants = sorted(set(MARQUEUR.findall(texte)))", 'restants = sorted(set(re.findall(r"<<[A-Z0-9_]+>>", texte)))', CHEMIN,
+     REFUS),
+    ("lanceur : porte de plafond absente admise (M15)", L, "juges_reels", 'if j["fournisseur"] not in portes:', "if False:", CHEMIN,
+     r"'porte de plafond absente pour « astra »' not found"),
+    ("lanceur : identifiants servis de la configuration non transmis au cœur (I7)", L, "preparer_reel",
+     'plan[cle]["modeles_servis_permis"] = list(infos["modeles_servis_permis"].get(plan[cle]["etiquette"], []))', "pass", CHEMIN,
+     r"KeyError: 'modeles_servis_permis'|Lists differ"),
+    ("lanceur : journal au fil de l'eau non scellé sur un arrêt (I8)", L, "principal",
+     "        fil.sceller(compteur.bilan())\n        journal = dict(e.partiel", "        journal = dict(e.partiel",
+     [P + "LanceurABlanc"], r"False is not true"),
+    ("M11 : redite lue par le seul nom de la caractéristique (brouillon 2)", J, "defauts_hors_tables",
+     "if (nom is not None and nom in etablies) or lexicale:", "if nom is not None and nom in etablies:", [P + "Materiaux"],
+     r"test_redite_lue_par_les_mots_propres_de_la_loi_etablie.*False != True"),
 ]
+
+
+# fonctions du cœur que le contrôle de diagnosticité n'appelle jamais (sa mémoire peut rester pendant leurs mutations)
+HORS_DU_CONTROLE = frozenset(("lire_validation", "audit_symetrie", "kappa_cohen", "kappa_paires", "plafond_spearman_binaire",
+                              "test_binomial_unilateral", "seuil_binomial", "exiger_materiaux", "controle_forme", "indices_forme",
+                              "verifier_materiaux", "lot_reel_depuis", "executer_validation", "delong_difference"))
 
 
 def _proprietaire(cible, nom):
@@ -327,7 +425,11 @@ def _derniere_ligne(txt):
 def principal(argv=None):
     argv = list(argv if argv is not None else sys.argv[1:])
     raisons = "--raisons" in argv
-    noms = sorted({x for m in MUTATIONS for x in m[5]})
+    choisies = MUTATIONS
+    if "--seulement" in argv:
+        motif = re.compile(argv[argv.index("--seulement") + 1])
+        choisies = [m for m in MUTATIONS if motif.search(m[0])]
+    noms = sorted({x for m in choisies for x in m[5]})
     for n in noms:
         unittest.defaultTestLoader.loadTestsFromName(n)
     temoin = jouer(noms)
@@ -335,9 +437,12 @@ def principal(argv=None):
     for t, txt in temoin[1][:5]:
         print(f"      {t} : {_derniere_ligne(txt)}")
     comptes = {}
-    for libelle, cible, nom, ancien, nouveau, essais, motif in MUTATIONS:
-        diagnostic = any(e.endswith("Diagnosticite") for e in essais)
-        if diagnostic:
+    propre = dict(J._DIAGNOSTICITES)
+    for libelle, cible, nom, ancien, nouveau, essais, motif in choisies:
+        # brouillon 3 : la mémoire du contrôle de diagnosticité est restaurée après chaque mutation (un contrôle calculé sous mutation,
+        # par exemple du lecteur des tables, ne sert jamais aux mutations suivantes) ; elle est vidée avant toute mutation du cœur
+        # qui peut toucher le chemin du contrôle (tout le cœur sauf `HORS_DU_CONTROLE`) ; une mutation du lanceur la garde
+        if cible is not L and nom not in HORS_DU_CONTROLE:
             J._DIAGNOSTICITES.clear()
         try:
             restaurer = appliquer(cible, nom, ancien, nouveau)
@@ -351,8 +456,8 @@ def principal(argv=None):
             n, echecs = 0, [("chargement", traceback.format_exc())]
         finally:
             restaurer()
-            if diagnostic:
-                J._DIAGNOSTICITES.clear()
+            J._DIAGNOSTICITES.clear()
+            J._DIAGNOSTICITES.update(propre)
         verdict = classer(echecs, motif)
         comptes[verdict] = comptes.get(verdict, 0) + 1
         print(f"{verdict}  {libelle} : {len(echecs)}/{n} essais en échec", flush=True)
@@ -360,8 +465,8 @@ def principal(argv=None):
             for t, txt in echecs[:3]:
                 print(f"      {t} : {_derniere_ligne(txt)}")
     apres = jouer(noms)
-    total = len(MUTATIONS)
-    print(f"mutations juges-idees-v2 (brouillon 2) : {total} ; tuées pour la raison attendue : {comptes.get('tuée', 0)} ; tuées pour "
+    total = len(choisies)
+    print(f"mutations juges-idees-v2 (brouillon 3) : {total}{'' if choisies is MUTATIONS else ' (sélection --seulement)'} ; tuées pour la raison attendue : {comptes.get('tuée', 0)} ; tuées pour "
           f"une autre raison : {comptes.get('TUÉE POUR UNE AUTRE RAISON', 0)} ; défaut du banc : {comptes.get('DÉFAUT DU BANC', 0)} ; "
           f"survivantes : {comptes.get('SURVIVANTE', 0)} ; non appliquées : {comptes.get('NON APPLIQUÉE', 0)}")
     print(f"témoin après restauration : {apres[0]} essais, {len(apres[1])} en échec")

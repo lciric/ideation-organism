@@ -18,7 +18,7 @@ Trois modes, exclusifs :
 
 Gardes avant tout appel et toute écriture dans la sortie (code 2) : dossier de sortie non vide ; en mode réel, texte autre que
 `prereg/preenregistrement-juges-idees-v2-v<N>.md` dans le dossier `prereg/` (un brouillon est refusé), non scellé, portant un
-marqueur `<<…>>`, sans bloc `empreintes-du-code` couvrant exactement `FICHIERS_GELES` ou dont une empreinte diffère du fichier
+marqueur `<<…>>` ou « À REMPLIR », sans bloc `empreintes-du-code` couvrant exactement `FICHIERS_GELES` ou dont une empreinte diffère du fichier
 présent, sans bloc `plan-gele` conforme (clés exactes, valeurs fixes égales au code, consigne v2 à l'empreinte du code, plafond
 au plus 60 USD, parts positives dans le plafond, durée maximale positive, juges d'étiquettes, de familles et de relais
 distincts) ; option de plan ou graine en ligne de commande ; configuration d'une autre empreinte que celle du plan ; GO autre
@@ -45,6 +45,7 @@ import json
 import os
 import platform
 import re
+import signal
 import subprocess
 import sys
 import tempfile
@@ -60,20 +61,26 @@ from pole import juges_idees_v2 as J  # noqa: E402
 from pole.graines_v53 import Graines  # noqa: E402
 from pole.outils import ecrire_json_scelle, sha256_fichier, verifier_scelle  # noqa: E402
 
-VERSION = "lanceur-validation-juges-idees-v2 (brouillon 2)"
+VERSION = "lanceur-validation-juges-idees-v2 (brouillon 3)"
 ETAPE = "juges_idees_v2"
 DOSSIER_PREREG = os.path.join(RACINE, "prereg")
 NOM_PREREG = re.compile(r"^preenregistrement-juges-idees-v2-v[1-9][0-9]*\.md$")
 DEBUT_EMPREINTES, FIN_EMPREINTES = "<!-- empreintes-du-code : début -->", "<!-- empreintes-du-code : fin -->"
 DEBUT_PLAN, FIN_PLAN = "<!-- plan-gele : début -->", "<!-- plan-gele : fin -->"
-MARQUEUR = re.compile(r"<<[A-Z0-9_]+>>")
+MARQUEUR = re.compile(r"<<[A-Z0-9_]+>>|À REMPLIR")  # brouillon 3 : le seul marqueur du texte est « À REMPLIR » (commit cité)
 SHA = re.compile(r"^[0-9a-f]{64}$")
 PLAFOND_MAX_USD = 60.0  # GO-2026-11-02-32 : le plafond du texte scellé doit être exactement 60 USD (le GO exige le montant exact)
 FACTEUR_BUDGET_APPEL = 2.0  # `plafonds_session.juge` ≥ 2 × le prix de plan le plus haut (un appel deux fois plus cher passe)
 REGISTRE_COURSE = "registre-depense-cumulee-v1.jsonl"
 SORTIES = {"manifeste": "manifeste.json", "materiaux": "materiaux-temoins-juges-idees-v2.json", "plan": "plan-des-appels.json",
            "journal": "journal-juges-idees-v2.json", "mesures": "mesures-juges-idees-v2.json",
-           "lecture": "lecture-juges-idees-v2.json"}
+           "lecture": "lecture-juges-idees-v2.json", "fil": "journal-au-fil-juges-idees-v2.jsonl"}
+# Règle écrite d'avance pour une course tuée (brouillon 3, contre-lecture v2, I8) : le journal au fil de l'eau (une ligne JSON vidée
+# sur disque par réponse, perte, attente, étape, projection) est la seule trace ; issue I0 « infrastructure » ; dépense relue au
+# registre des commandes de la sortie ; aucune relance sans GO de Lazar.
+REGLE_COURSE_TUEE = ("course tuée (processus arrêté sans journal scellé) : issue I0 « infrastructure » ; le journal au fil de l'eau "
+                     f"({SORTIES['fil']}) est la seule trace, scellé par le lecteur tel qu'il est ; dépense relue au registre des "
+                     "commandes de la sortie ; aucune relance sans GO de Lazar")
 # Fermeture des imports du chemin réel (essai `Fermeture` de `essais/test_juges_idees_v2.py`) : le texte scellé gèle
 # l'empreinte de chacun, le lanceur refuse tout écart.
 FICHIERS_GELES = (
@@ -113,7 +120,7 @@ def seuils_texte():
     return ", ".join(f"{k}={v}" for k, v in J.SEUILS_LECTURE_V2.items())
 
 
-PLAN_FIXE = {"version_plan": J.VERSION_PLAN, "jeu_de_mondes": "mondes-v2", "temoins_par_classe": str(J.TEMOINS_PAR_CLASSE),
+PLAN_FIXE = {"version_plan": J.VERSION_PLAN, "jeu_de_mondes": J.JEU_DU_TEXTE, "temoins_par_classe": str(J.TEMOINS_PAR_CLASSE),
              "degre": str(J.DEGRE), "tirages_a": str(len(J.TIRAGES_A)), "degre_reel": str(J.DEGRE_REEL),
              "paires_b_max_par_lot": str(J.PAIRES_B_MAX_PAR_LOT), "part_budget": repr(J.PART_BUDGET),
              "ridge_forces": repr(J.RIDGE_FORCES), "ridge_position": repr(J.RIDGE_POSITION), "seuils": seuils_texte(),
@@ -323,14 +330,20 @@ def juges_reels(conf, plan, base_sessions, sortie):
     b = budget_par_appel(conf, plan)
     conf, substitutions = substituer_commandes(conf, os.path.join(os.path.abspath(sortie), REGISTRE_COURSE), plan["plafond_usd"])
     adaptateurs, portes = charger_ideation_v8().adaptateurs_reels_v56(conf, sortie, base_sessions)
-    accuses = {}
+    accuses, permis = {}, {}
     for cle in ("juge_a", "juge_b"):
         j = plan[cle]
         if j["fournisseur"] not in adaptateurs:
             raise J.ProtocoleRefuse(f"configuration : relais « {j['fournisseur']} » du {cle} absent (trouvés {sorted(adaptateurs)})")
+        if j["fournisseur"] not in portes:  # contre-lecture v2, M15 : refus nommé, jamais une erreur brute
+            raise J.ProtocoleRefuse(f"configuration : porte de plafond absente pour « {j['fournisseur']} » ({cle})")
         part = plan[f"plafond_{cle}_usd"]
         accuses[j["etiquette"]] = portes[j["fournisseur"]].transmettre(etape_du_juge(j["etiquette"]), part)
-    infos = {"budget_appel_usd": b, "substitutions_dans_les_commandes": substitutions,
+        # brouillon 3 (contre-lecture v2, I7) : identifiants servis que l'adaptateur admet (liste explicite de la configuration,
+        # `modeles_servis_permis`), repris tels quels par le contrôle A2 du cœur (`classer_resultat`)
+        liste = (getattr(adaptateurs[j["fournisseur"]], "modeles_servis_permis", None) or {}).get(j["modele"], ())
+        permis[j["etiquette"]] = [x for x in liste if isinstance(x, str) and x]
+    infos = {"budget_appel_usd": b, "substitutions_dans_les_commandes": substitutions, "modeles_servis_permis": permis,
              "adaptateurs": {n: (a.description() if hasattr(a, "description") else type(a).__name__) for n, a in adaptateurs.items()},
              "portes": {n: p.description() for n, p in portes.items()}}
     return adaptateurs, accuses, infos
@@ -403,6 +416,8 @@ def preparer_reel(args, cfg):
         import shutil
         shutil.rmtree(base_sessions, ignore_errors=True)  # refus : le dossier des sessions, vide, n'est pas gardé
         raise
+    for cle in ("juge_a", "juge_b"):
+        plan[cle]["modeles_servis_permis"] = list(infos["modeles_servis_permis"].get(plan[cle]["etiquette"], []))
     return {"mode": "reel (decisif)", "entropie": entropie, "plan": plan, "graines": graines, "materiaux": materiaux,
             "controles": controles, "lot_reel": lot_reel, "etapes": etapes, "graphes": graphes, "devis": devis,
             "adaptateurs": adaptateurs, "consignes": {"ancien": ancienne, "v2": J.CONSIGNE_PAIRE_V2}, "items": items,
@@ -520,6 +535,38 @@ def dossier_appel_pour(base):
     return dossier
 
 
+class FilJournal:
+    """Journal au fil de l'eau (brouillon 3, contre-lecture v2, I8) : une ligne JSON par entrée du journal (réponse, perte, attente,
+    étape, projection, arrêt d'un juge, phase), écrite, vidée et synchronisée sur disque aussitôt ; scellé (compagnon `.sha256`) à
+    la fin de la course, qu'elle aille à son terme ou s'arrête. Un processus tué laisse le fichier tel quel (règle
+    `REGLE_COURSE_TUEE`)."""
+
+    def __init__(self, chemin):
+        if os.path.exists(chemin):
+            raise FileExistsError(f"journal au fil de l'eau déjà présent : {chemin} (on n'écrase jamais)")
+        self.chemin, self.lignes = chemin, 0
+        self.f = open(chemin, "x", encoding="utf-8")
+
+    def __call__(self, cle, entree):
+        self.f.write(json.dumps({"n": self.lignes + 1, "cle": cle, "entree": entree}, ensure_ascii=False, sort_keys=True,
+                                default=str) + "\n")
+        self.f.flush()
+        os.fsync(self.f.fileno())
+        self.lignes += 1
+
+    def sceller(self, bilan=None):
+        if bilan is not None:
+            self("bilan", bilan)
+        self.f.close()
+        with open(self.chemin + ".sha256", "x", encoding="utf-8") as g:
+            g.write(f"{sha256_fichier(self.chemin)}  {os.path.basename(self.chemin)}\n")
+        return self.lignes
+
+
+def _interruption(signum, frame):  # brouillon 3 (I8) : un signal de fin devient une interruption, journal partiel scellé
+    raise KeyboardInterrupt(f"signal {signum}")
+
+
 def ecrire_resultats(sortie, ctx, journal, arret=None):
     juge_a, juge_b = ctx["plan"]["juge_a"], ctx["plan"]["juge_b"]
     ecrire_json_scelle(os.path.join(sortie, SORTIES["journal"]), dict(journal, arret=arret))
@@ -616,6 +663,7 @@ def principal(argv=None):
                  "materiaux_empreinte": ctx["materiaux"]["empreinte"], "controles_des_materiaux": ctx["controles"],
                  "lot_reel": ({"fiches": len(ctx["lot_reel"]["fiches"]), "familles": {f["ident"]: f["familles"] for f in ctx["lot_reel"]["fiches"]}}
                               if ctx["lot_reel"] else None),
+                 "journal_au_fil": SORTIES["fil"], "regle_course_tuee": REGLE_COURSE_TUEE,
                  "numpy": np.__version__, "python": platform.python_version(), "depot": commit(),
                  "code_sha256": {r: sha256_fichier(os.path.join(RACINE, r)) for r in FICHIERS_GELES},
                  "regle_des_graines": ("graines_v53.Graines(entropie) : SeedSequence(entropie, spawn_key=(cle_de_tache(tâche),)) ; "
@@ -632,17 +680,29 @@ def principal(argv=None):
     compteur = J.Compteur(plan["plafond_usd"], plan["duree_max_s"], ctx["horloge"], {j: v["prix_usd"] for j, v in juges.items()},
                           parts={plan["juge_a"]["etiquette"]: plan["plafond_juge_a_usd"],
                                  plan["juge_b"]["etiquette"]: plan["plafond_juge_b_usd"]}, dormir=ctx["dormir"])
+    fil = FilJournal(os.path.join(sortie, SORTIES["fil"]))
+    precedent = signal.getsignal(signal.SIGTERM)
+    try:
+        signal.signal(signal.SIGTERM, _interruption)
+    except ValueError:  # hors du fil principal : le signal garde son traitement (le journal au fil de l'eau reste la trace)
+        precedent = None
     try:
         journal = J.executer_validation(ctx["etapes"], materiaux=ctx["materiaux"], juges=juges, adaptateurs=ctx["adaptateurs"],
                                         consignes=ctx["consignes"], items=ctx["items"], graines=ctx["graines"], compteur=compteur,
                                         plafond_session=ctx["plafond_session"], interdites=J.ETIQUETTES_INTERDITES_TEMOINS,
-                                        dossier_appel=dossier_appel_pour(ctx["base_sessions"]), lot_reel=ctx["lot_reel"])
+                                        dossier_appel=dossier_appel_pour(ctx["base_sessions"]), lot_reel=ctx["lot_reel"], fil=fil)
     except J.ArretJuges as e:
+        if precedent is not None:
+            signal.signal(signal.SIGTERM, precedent)
+        fil.sceller(compteur.bilan())
         journal = dict(e.partiel, depense_usd=round(compteur.depense, 4), appels=compteur.appels)
         lecture = ecrire_resultats(sortie, ctx, journal, arret=f"{type(e).__name__} : {e}")
         print(json.dumps({"mode": ctx["mode"], "arret": str(e), "appels": compteur.appels, "depense_usd": round(compteur.depense, 4),
                           "issue": lecture["issue"], "partielle": True}, ensure_ascii=False), file=sys.stderr)
         return 3
+    if precedent is not None:
+        signal.signal(signal.SIGTERM, precedent)
+    fil.sceller(compteur.bilan())
     journal = dict(journal, depense_usd=round(compteur.depense, 4), appels=compteur.appels,
                    duree_s=round(ctx["horloge"]() - compteur.debut, 1))
     lecture = ecrire_resultats(sortie, ctx, journal)
