@@ -1,0 +1,1073 @@
+{
+ "version": "T0.3-grille-v2",
+ "preenregistrement": "prereg/T0.3-simulation-lemme-theoreme-v1.md",
+ "alpha": 0.05,
+ "entropie": "179038975902893800976156754715385090228",
+ "tailles": {
+  "R": 20000,
+  "R_cal": 100000,
+  "R0": 100000,
+  "R_P2": 100000,
+  "equivalence": 200
+ },
+ "replication": {
+  "facteur_R": 5
+ },
+ "configs": {
+  "gauss_1x200": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 1,
+    "T": 200
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "somme_bilat",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "somme_bilat",
+    "max",
+    "glissante_5",
+    "glissante_10",
+    "balayage_multi",
+    "page",
+    "detecteur_e",
+    "e_unilat_ville",
+    "e_unilat_cal",
+    "e_bilat_ville",
+    "e_terminal_ville",
+    "autocorr",
+    "autocorr_abs",
+    "suites"
+   ]
+  },
+  "gauss_5x40": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 5,
+    "T": 40
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "somme_bilat",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "somme_bilat",
+    "max",
+    "glissante_5",
+    "glissante_10",
+    "balayage_multi",
+    "page",
+    "detecteur_e",
+    "e_unilat_ville",
+    "e_unilat_cal",
+    "e_bilat_ville",
+    "e_terminal_ville",
+    "autocorr",
+    "autocorr_abs",
+    "suites",
+    "co_elevation_2",
+    "co_elevation_3",
+    "co_elevation_N",
+    "correlation_agents"
+   ]
+  },
+  "gauss_10x20": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 10,
+    "T": 20
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "somme_bilat",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "somme_bilat",
+    "max",
+    "glissante_5",
+    "glissante_10",
+    "balayage_multi",
+    "page",
+    "detecteur_e",
+    "e_unilat_ville",
+    "e_unilat_cal",
+    "e_bilat_ville",
+    "e_terminal_ville",
+    "autocorr",
+    "autocorr_abs",
+    "suites",
+    "co_elevation_2",
+    "co_elevation_3",
+    "co_elevation_N",
+    "correlation_agents"
+   ]
+  },
+  "gauss_1x50": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 1,
+    "T": 50
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville"
+   ]
+  },
+  "gauss_1x100": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 1,
+    "T": 100
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville"
+   ]
+  },
+  "gauss_1x500": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 1,
+    "T": 500
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville"
+   ]
+  },
+  "gauss_5x100": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 5,
+    "T": 100
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville"
+   ]
+  },
+  "gauss_1x1000": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 1,
+    "T": 1000
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville",
+    "page"
+   ]
+  },
+  "gauss_10x100": {
+   "loi": {
+    "type": "iid",
+    "marginale": "gauss",
+    "N": 10,
+    "T": 100
+   },
+   "garde": true,
+   "exacts": [
+    "somme",
+    "max"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "e_unilat_ville",
+    "e_terminal_ville"
+   ]
+  },
+  "exp_1x200": {
+   "loi": {
+    "type": "iid",
+    "marginale": "exp",
+    "N": 1,
+    "T": 200
+   },
+   "garde": true,
+   "exacts": [],
+   "garde_exclus": [
+    "e_unilat_ville",
+    "e_bilat_ville"
+   ],
+   "alarmes": [
+    "somme",
+    "somme_bilat",
+    "max",
+    "glissante_10",
+    "page",
+    "e_unilat_ville",
+    "e_bilat_ville",
+    "autocorr",
+    "autocorr_abs"
+   ]
+  },
+  "hetero_3x40": {
+   "loi": {
+    "type": "moyennes",
+    "mus": [
+     -0.5,
+     0.0,
+     0.5
+    ],
+    "N": 3,
+    "T": 40
+   },
+   "garde": true,
+   "exacts": [],
+   "alarmes": [
+    "dispersion_agents"
+   ]
+  },
+  "ar05_1x300": {
+   "loi": {
+    "type": "ar1",
+    "phi": 0.5,
+    "marginale": "gauss",
+    "N": 1,
+    "T": 300
+   },
+   "garde": true,
+   "exacts": [
+    "somme"
+   ],
+   "alarmes": [
+    "somme",
+    "max",
+    "autocorr",
+    "page",
+    "glissante_10",
+    "e_unilat_cal"
+   ]
+  }
+ },
+ "configs_par_bloc": {
+  "P1a": [
+   "gauss_1x200",
+   "gauss_5x40",
+   "gauss_10x20"
+  ],
+  "P1b": [
+   "gauss_1x50",
+   "gauss_1x100",
+   "gauss_1x200",
+   "gauss_5x40",
+   "gauss_1x500",
+   "gauss_5x100",
+   "gauss_1x1000",
+   "gauss_10x100"
+  ],
+  "P2": [
+   "gauss_1x200"
+  ],
+  "P3": [],
+  "P34": [
+   "gauss_1x200"
+  ],
+  "P4": [
+   "gauss_1x200",
+   "gauss_5x40"
+  ],
+  "P43": [
+   "hetero_3x40"
+  ],
+  "P5_temps": [
+   "gauss_1x200"
+  ],
+  "P5_agents": [
+   "gauss_5x40"
+  ],
+  "P6": [
+   "gauss_1x200",
+   "exp_1x200",
+   "gauss_5x40",
+   "ar05_1x300"
+  ],
+  "P7": [
+   "gauss_1x200"
+  ],
+  "P8": [
+   "gauss_1x200",
+   "gauss_1x1000",
+   "gauss_5x40"
+  ]
+ },
+ "P1a": {
+  "configs": [
+   [
+    1,
+    200
+   ],
+   [
+    5,
+    40
+   ],
+   [
+    10,
+    20
+   ]
+  ],
+  "B": [
+   10,
+   20,
+   30
+  ],
+  "m": [
+   1,
+   2,
+   5,
+   10,
+   20,
+   50,
+   100,
+   200
+  ],
+  "schemas": [
+   "aleatoire",
+   "un_agent",
+   "reparti",
+   "bloc",
+   "debut",
+   "fin",
+   "adaptatif"
+  ]
+ },
+ "P1b": {
+  "configs": [
+   [
+    1,
+    50
+   ],
+   [
+    1,
+    100
+   ],
+   [
+    1,
+    200
+   ],
+   [
+    5,
+    40
+   ],
+   [
+    1,
+    500
+   ],
+   [
+    5,
+    100
+   ],
+   [
+    1,
+    1000
+   ],
+   [
+    10,
+    100
+   ]
+  ],
+  "B": [
+   10,
+   20,
+   30
+  ],
+  "m": 10
+ },
+ "P2": {
+  "config": [
+   1,
+   200
+  ],
+  "B": [
+   10,
+   20,
+   30
+  ],
+  "m": [
+   1,
+   2,
+   5,
+   10,
+   20,
+   50,
+   100,
+   200
+  ]
+ },
+ "P3": {
+  "configs": [
+   [
+    1,
+    200
+   ],
+   [
+    5,
+    40
+   ]
+  ],
+  "B": [
+   15,
+   25,
+   35
+  ],
+  "m": [
+   1,
+   10,
+   50
+  ],
+  "calendriers": [
+   "debut",
+   "uniforme",
+   "aleatoire",
+   "fin"
+  ]
+ },
+ "P34": {
+  "config": [
+   1,
+   200
+  ],
+  "B": [
+   15,
+   25
+  ],
+  "m": [
+   5,
+   10,
+   20
+  ],
+  "alarmes": [
+   "e_unilat_cal",
+   "e_unilat_ville",
+   "page",
+   "detecteur_e",
+   "glissante_10",
+   "balayage_multi"
+  ]
+ },
+ "P4": {
+  "configs": [
+   [
+    1,
+    200
+   ],
+   [
+    5,
+    40
+   ]
+  ],
+  "arrangements_T1": [
+   "tri_croissant",
+   "bloc_top_5",
+   "top_10_fin",
+   "apparie_autocorr"
+  ],
+  "arrangements_T2": [
+   "tri_croissant",
+   "bloc_top_5"
+  ],
+  "iterations_appariement": 6000
+ },
+ "P43": {
+  "config": "hetero_3x40"
+ },
+ "P5_temps": {
+  "T": 200,
+  "r": [
+   3,
+   5,
+   10
+  ],
+  "alarmes": [
+   "glissante_5",
+   "glissante_10",
+   "balayage_multi",
+   "page",
+   "autocorr",
+   "suites",
+   "max",
+   "e_unilat_ville"
+  ],
+  "iterations_appariement": 6000,
+  "tolerance_autocorr": 0.0001,
+  "tolerance_suites": 1
+ },
+ "P5_agents": {
+  "config": [
+   5,
+   40
+  ],
+  "mc": 3,
+  "alarmes": [
+   "co_elevation_3",
+   "co_elevation_N",
+   "page",
+   "glissante_5",
+   "somme",
+   "max",
+   "correlation_agents"
+  ]
+ },
+ "P6": {
+  "cellules": [
+   {
+    "nom": "ar_gauss_phi-0.50",
+    "role": "copule_temps",
+    "cfg": "gauss_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": -0.5,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_gauss_phi-0.25",
+    "role": "copule_temps",
+    "cfg": "gauss_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": -0.25,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_gauss_phi+0.25",
+    "role": "copule_temps",
+    "cfg": "gauss_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.25,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_gauss_phi+0.50",
+    "role": "copule_temps",
+    "cfg": "gauss_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.5,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_exp_phi-0.50",
+    "role": "copule_temps",
+    "cfg": "exp_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": -0.5,
+     "marginale": "exp",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_exp_phi-0.25",
+    "role": "copule_temps",
+    "cfg": "exp_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": -0.25,
+     "marginale": "exp",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_exp_phi+0.25",
+    "role": "copule_temps",
+    "cfg": "exp_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.25,
+     "marginale": "exp",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "ar_exp_phi+0.50",
+    "role": "copule_temps",
+    "cfg": "exp_1x200",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.5,
+     "marginale": "exp",
+     "N": 1,
+     "T": 200
+    },
+    "alarmes": [
+     "somme",
+     "somme_bilat",
+     "max",
+     "e_unilat_ville",
+     "e_bilat_ville",
+     "page",
+     "glissante_10",
+     "autocorr",
+     "autocorr_abs"
+    ]
+   },
+   {
+    "nom": "equi_c0.2",
+    "role": "equicorrelation",
+    "cfg": "gauss_5x40",
+    "loi": {
+     "type": "equicorrelation",
+     "c": 0.2,
+     "N": 5,
+     "T": 40
+    },
+    "alarmes": [
+     "somme",
+     "max",
+     "e_unilat_ville",
+     "co_elevation_N",
+     "correlation_agents",
+     "page",
+     "autocorr"
+    ]
+   },
+   {
+    "nom": "equi_c0.4",
+    "role": "equicorrelation",
+    "cfg": "gauss_5x40",
+    "loi": {
+     "type": "equicorrelation",
+     "c": 0.4,
+     "N": 5,
+     "T": 40
+    },
+    "alarmes": [
+     "somme",
+     "max",
+     "e_unilat_ville",
+     "co_elevation_N",
+     "correlation_agents",
+     "page",
+     "autocorr"
+    ]
+   },
+   {
+    "nom": "construction_2606_phi0.59",
+    "role": "construction_2606",
+    "cfg": "ar05_1x300",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.59,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 300
+    },
+    "alarmes": [
+     "somme",
+     "max",
+     "autocorr",
+     "page",
+     "glissante_10",
+     "e_unilat_cal"
+    ]
+   },
+   {
+    "nom": "construction_2606_phi0.725",
+    "role": "construction_2606",
+    "cfg": "ar05_1x300",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.725,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 300
+    },
+    "alarmes": [
+     "somme",
+     "max",
+     "autocorr",
+     "page",
+     "glissante_10",
+     "e_unilat_cal"
+    ]
+   },
+   {
+    "nom": "construction_2606_phi0.9",
+    "role": "construction_2606",
+    "cfg": "ar05_1x300",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.9,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 300
+    },
+    "alarmes": [
+     "somme",
+     "max",
+     "autocorr",
+     "page",
+     "glissante_10",
+     "e_unilat_cal"
+    ]
+   }
+  ]
+ },
+ "P7": {
+  "T": 200,
+  "arrangements": [
+   "tri_croissant",
+   "top_10_fin",
+   "top_20_fin"
+  ],
+  "alarmes": [
+   "e_unilat_ville",
+   "e_bilat_ville",
+   "page",
+   "glissante_10"
+  ]
+ },
+ "P8": {
+  "reglages": [
+   {
+    "nom": "1x200_gauss",
+    "loi": {
+     "type": "iid",
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_student5",
+    "loi": {
+     "type": "iid",
+     "marginale": "student5",
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_exp",
+    "loi": {
+     "type": "iid",
+     "marginale": "exp",
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_gumbel",
+    "loi": {
+     "type": "iid",
+     "marginale": "gumbel",
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_sigma0.8",
+    "loi": {
+     "type": "iid",
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "sigma_utilise": 0.8
+   },
+   {
+    "nom": "1x200_sigma0.9",
+    "loi": {
+     "type": "iid",
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    },
+    "sigma_utilise": 0.9
+   },
+   {
+    "nom": "1x200_tau0.05",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.05,
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_tau0.1",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.1,
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_tau0.2",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.2,
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x200_ar0.2",
+    "loi": {
+     "type": "ar1",
+     "phi": 0.2,
+     "marginale": "gauss",
+     "N": 1,
+     "T": 200
+    }
+   },
+   {
+    "nom": "1x1000_gauss",
+    "loi": {
+     "type": "iid",
+     "marginale": "gauss",
+     "N": 1,
+     "T": 1000
+    }
+   },
+   {
+    "nom": "1x1000_tau0.05",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.05,
+     "N": 1,
+     "T": 1000
+    }
+   },
+   {
+    "nom": "1x1000_tau0.1",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.1,
+     "N": 1,
+     "T": 1000
+    }
+   },
+   {
+    "nom": "1x1000_tau0.2",
+    "loi": {
+     "type": "effet_episode",
+     "tau": 0.2,
+     "N": 1,
+     "T": 1000
+    }
+   },
+   {
+    "nom": "5x40_gauss",
+    "loi": {
+     "type": "iid",
+     "marginale": "gauss",
+     "N": 5,
+     "T": 40
+    }
+   },
+   {
+    "nom": "5x40_equi0.2",
+    "loi": {
+     "type": "equicorrelation",
+     "c": 0.2,
+     "N": 5,
+     "T": 40
+    }
+   },
+   {
+    "nom": "5x40_equi0.4",
+    "loi": {
+     "type": "equicorrelation",
+     "c": 0.4,
+     "N": 5,
+     "T": 40
+    }
+   }
+  ],
+  "alarmes": [
+   "e_unilat_ville",
+   "somme",
+   "max",
+   "page"
+  ],
+  "conforme": {
+   "K": 1000,
+   "n_test": 400,
+   "L": 50,
+   "statistiques": [
+    "e_unilat",
+    "somme"
+   ]
+  },
+  "lecture": {
+   "bien_specifies": [
+    "1x200_gauss",
+    "1x1000_gauss",
+    "5x40_gauss"
+   ],
+   "signe": {
+    "1x200_sigma0.8": "1x200_gauss",
+    "1x200_sigma0.9": "1x200_gauss",
+    "1x200_tau0.05": "1x200_gauss",
+    "1x200_tau0.1": "1x200_gauss",
+    "1x200_tau0.2": "1x200_gauss",
+    "1x200_ar0.2": "1x200_gauss",
+    "1x1000_tau0.05": "1x1000_gauss",
+    "1x1000_tau0.1": "1x1000_gauss",
+    "1x1000_tau0.2": "1x1000_gauss",
+    "5x40_equi0.2": "5x40_gauss",
+    "5x40_equi0.4": "5x40_gauss"
+   },
+   "depasse": [
+    "1x200_tau0.2",
+    "1x1000_tau0.2",
+    "5x40_equi0.4",
+    "1x200_sigma0.8"
+   ]
+  }
+ },
+ "remplace": {
+  "grille": "prereg/T0.3-grille-v1.json",
+  "sha256": "b84aad4f2a12db2e7faeae45d5bbd3b6b8952bea140490f370f03006785dd7d1",
+  "motif": "contre-lecture R2, Rem-22 : tolérances d'appariement de P5.3 resserrées (seul changement ; même entropie, jamais utilisée)"
+ }
+}
