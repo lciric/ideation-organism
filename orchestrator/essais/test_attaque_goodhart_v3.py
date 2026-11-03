@@ -389,26 +389,34 @@ class Devis(unittest.TestCase):
 
 
 class CodesDeSortie(unittest.TestCase):
-    """Code de sortie 4 (budget refusé avant envoi) compté « budget_depasse », jamais « échouée » ; causes ; bascule."""
+    """Code de sortie 4 (budget refusé avant envoi) compté « budget_depasse », jamais « échouée », puis arrêt (v3.1) ; causes ; bascule."""
 
-    def test_code_4_compte_budget_depasse_motif_propre_a7(self):
+    def test_code_4_compte_budget_depasse_puis_arret(self):
+        """Code 4 : compté « budget_depasse » (cause « budget », compte à part), écrit au journal de la tentative interrompue, puis
+        arrêt de la course (v3.1) : un seul appel, ni reprise ni tentative de plus (la v3 reprenait, refusait la tentative et
+        continuait). Cas sains : un code 5 reste « échouée » avec sa cause, sans arrêt ; un budget par appel dépassé rendu par
+        l'adaptateur (statut « budget_depasse » sans code 4) garde la règle v3 (une reprise, tentative refusée, A7), sans arrêt."""
         cpt = compteur(fournisseurs=[KIMI])
         prop = a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, statut_echec="erreur", code_echec=4)
-        s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "kimi", "retour", "v8", G, cpt, "kimi-k3.1-pro", n_max=2)
-        t = s["tentatives"][0]
-        self.assertEqual([a["statut"] for a in t["appels"]], ["budget_depasse", "budget_depasse"])
-        self.assertEqual([(a["code_sortie"], a["cause"]) for a in t["appels"]], [(4, "budget")] * 2)
-        self.assertIn("avant envoi", t["motif_invalidite"])
-        self.assertNotIn("échoué", t["motif_invalidite"])
-        self.assertEqual(cpt.budget_depasse["kimi"], 4)
+        with self.assertRaises(ag.ArretAttaque) as e:
+            a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "kimi", "retour", "v8", G, cpt, "kimi-k3.1-pro", n_max=2)
+        t = e.exception.partiel["suites"][0]["tentatives"][0]
+        self.assertEqual([a["statut"] for a in t["appels"]], ["budget_depasse"])
+        self.assertEqual([(a["code_sortie"], a["cause"]) for a in t["appels"]], [(4, "budget")])
+        self.assertTrue(t["interrompue"])
+        self.assertEqual((cpt.budget_depasse["kimi"], cpt.appels, cpt.reprises, prop.appels_par_modele["kimi-k3.1-pro"]), (1, 1, 0, 1))
+        self.assertEqual(cpt.arret_premier["nature"], "refus_de_budget")  # pire cas par appel inconnu : jamais « plafond » par défaut
+        s = a3.jouer_suite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, code_echec=5, cout_par_appel=0.2), ag.carte(G, 0, "W1"), "kimi",
+                           "retour", "v8", G, compteur(fournisseurs=[KIMI]), "kimi-k3.1-pro", n_max=1)
+        self.assertEqual(s["tentatives"][0]["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : modele)")
+        cpt = compteur(fournisseurs=[KIMI])
+        s = a3.jouer_suite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, statut_echec="budget_depasse"), ag.carte(G, 0, "W1"), "kimi",
+                           "retour", "v8", G, cpt, "kimi-k3.1-pro", n_max=2)
+        self.assertEqual([len(t["appels"]) for t in s["tentatives"]], [2, 2])
+        self.assertIn("budget par appel", s["tentatives"][0]["motif_invalidite"])
+        self.assertEqual((cpt.budget_depasse["kimi"], cpt.arret.is_set()), (4, False))
         w = a3.lire([s], [], [], ["W1"], 24, G, [KIMI])["mondes"]["W1"]
         self.assertTrue(any(a.startswith("A7") for a in w["audits"]))
-        # cas sain : un autre code non nul reste « échouée », avec sa cause
-        s = a3.jouer_suite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, code_echec=3, cout_par_appel=1.61), ag.carte(G, 0, "W1"), "kimi",
-                           "retour", "v8", G, compteur(fournisseurs=[KIMI]), "kimi-k3.1-pro", n_max=1)  # appel coupé : coût pire cas
-        self.assertIn("appel échoué", s["tentatives"][0]["motif_invalidite"])
-        self.assertIn("relais", s["tentatives"][0]["motif_invalidite"])
-        self.assertEqual(s["tentatives"][0]["appels"][0]["statut"], "erreur")
 
     def test_cause_d_echec(self):
         for statut, code, erreur, attendu in (("ok", 0, None, None), ("erreur", 3, None, "relais"), ("erreur", 4, None, "budget"),
@@ -440,15 +448,24 @@ class CodesDeSortie(unittest.TestCase):
         r = p("consigne", "m")
         self.assertEqual((r[2], r[4]["code_sortie"]), ("erreur", 4))  # l'adaptateur dit « erreur » ; `appeler` le compte budget_depasse
         journal = []
-        a3.appeler(p, "consigne", compteur(fournisseurs=[KIMI]), "kimi", "m", journal)
-        self.assertEqual([a["statut"] for a in journal], ["budget_depasse", "budget_depasse"])
+        with self.assertRaises(ag.ArretAttaque):  # v3.1 : puis arrêt de la course, aucune reprise
+            a3.appeler(p, "consigne", compteur(fournisseurs=[KIMI]), "kimi", "m", journal)
+        self.assertEqual([a["statut"] for a in journal], ["budget_depasse"])
 
     def test_bascule_jamais_sur_relais_ni_budget(self):
-        """Artefacts : trois échecs du principal par relais (code 3) ou budget (code 4) → pas de bascule ; cas sain : code 5 → bascule."""
+        """Artefacts : le principal en échec par relais (code 3 au pire cas, pour de bon : 30 min d'attente, puis « échouée ») ou par
+        budget (code 4 : arrêt dès le premier refus, v3.1) → pas de bascule ; cas sain : code 5 → bascule. Horloge factice."""
         for code, bascule in ((3, False), (4, False), (5, True), (None, True)):
             with self.subTest(code=code):
-                cpt = compteur(fournisseurs=[OPUS])
-                prop = a3.ProposeurScripte(pannes={"claude-opus-5-5": {1, 2, 3}}, code_echec=code, cout_par_appel=0.5)  # code 3 : appel coupé
+                h = Horloge()
+                cpt = a3.Compteur(1000.0, 10 ** 6, h.time, [OPUS], dormir=h.sleep)
+                pannes = {"claude-opus-5-5": "*" if code == 3 else {1, 2, 3}}
+                prop = a3.ProposeurScripte(pannes=pannes, code_echec=code, cout_par_appel=0.5)  # code 3 : appel coupé, coût pire cas
+                if code == 4:
+                    with self.assertRaises(ag.ArretAttaque):
+                        a3.jouer_unite(prop, OPUS, ag.carte(G, 0, "W1"), G, cpt, 2, 3)
+                    self.assertEqual((cpt.replis["opus"], cpt.appels), (0, 1))
+                    continue
                 suites = a3.jouer_unite(prop, OPUS, ag.carte(G, 0, "W1"), G, cpt, 2, 3)
                 self.assertEqual(all(s["repli"] for s in suites), bascule)
                 self.assertEqual(cpt.replis["opus"], int(bascule))
@@ -458,10 +475,12 @@ class UnitesSansLoi(unittest.TestCase):
     def test_mesure_par_case_et_cause_dominante(self):
         c = ag.carte(G, 0, "W1")
         saine = a3.jouer_unite(a3.ProposeurScripte(), KIMI, c, G, compteur(fournisseurs=[KIMI]), 2, 3)
-        budget = a3.jouer_unite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, code_echec=4), KIMI, ag.carte(G, 1, "W1"), G,
+        # budget par appel dépassé rendu par l'adaptateur (statut « budget_depasse », sans code 4 : un code 4 arrêterait la course, v3.1)
+        budget = a3.jouer_unite(a3.ProposeurScripte(pannes={"kimi-k3.1-pro": "*"}, statut_echec="budget_depasse"), KIMI, ag.carte(G, 1, "W1"), G,
                                 compteur(fournisseurs=[KIMI]), 2, 3)
+        h = Horloge()  # appels coupés (code 3 au pire cas) : attente de 30 min par tentative (v3.1), horloge factice
         relais = a3.jouer_unite(a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=3, cout_par_appel=1.61), ARGON, c, G,
-                                compteur(fournisseurs=[ARGON]), 2, 3)  # appels coupés (coût pire cas) : règle v2, pas d'attente
+                                a3.Compteur(1000.0, 10 ** 6, h.time, [ARGON], dormir=h.sleep), 2, 3)
 
         def invalide(texte, modele):
             return json.dumps({"retour_lu": "aucun", "loi": {"type": "calendrier", "probas": [[0.3, 0.3, 0.4]] * 10}}), 0.0, "ok", modele, {"code_sortie": 0}
@@ -512,17 +531,21 @@ class RelaisInjoignable(unittest.TestCase):
         self.assertEqual(len(s["tentatives"]), 2)
         self.assertEqual(s["tentatives"][1]["appels"][0]["attente_s"], 0.0)  # la tentative suivante n'attend pas
 
-    def test_appel_coupe_une_reprise_puis_echouee(self):
-        """Code 3 à coût non plancher (appel envoyé puis coupé, coût « pire cas ») : règle v2, une reprise, puis « échouée (relais) »."""
+    def test_appel_coupe_attente_puis_echouee(self):
+        """Artefact (v3.1, B1) : code 3 au pire cas pour de bon (interface en panne ou appels coupés après envoi, 1,61 USD comptés par
+        appel) → mêmes attentes qu'au plancher (15, 30, 60, 120, 300 ×5, 75 = 1 800 s), onze appels, tentative « échouée (relais) »,
+        aucune reprise ; la v3 reprenait aussitôt (deux appels en quelques millisecondes, 3,22 USD) et passait à la suivante."""
         h = Horloge()
         cpt = self.compteur(h)
         prop = a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=3, cout_par_appel=1.61)
         s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=1)
         t1 = s["tentatives"][0]
-        self.assertEqual(len(t1["appels"]), 2)
-        self.assertEqual(t1["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : relais)")
-        self.assertEqual((cpt.reprises, cpt.attentes_relais["argon"], h.t), (1, 0, 1000.0))
-        self.assertAlmostEqual(cpt.par_fournisseur["argon"], 3.22)
+        self.assertEqual([a["attente_s"] for a in t1["appels"]], [15.0, 30.0, 60.0, 120.0, 300.0, 300.0, 300.0, 300.0, 300.0, 75.0, 0.0])
+        self.assertEqual({a["essai_d_appel"] for a in t1["appels"]}, {1})
+        self.assertEqual(t1["motif_invalidite"], "tentative échouée (relais) : relais ou interface en panne (code 3) après 1800 s d'attente "
+                                                 "cumulée (plafond 1800 s par tentative)")
+        self.assertEqual((cpt.reprises, cpt.attentes_relais["argon"], h.t), (0, 10, 2800.0))
+        self.assertAlmostEqual(cpt.par_fournisseur["argon"], 11 * 1.61)
 
     def test_plafond_d_attente_par_tentative(self):
         """Artefact : relais coupé pour de bon, aucun arrêt sur relais → 30 min d'attente par tentative (15, 30, 60, 120, 300 ×5, 75),
@@ -549,9 +572,12 @@ class RelaisInjoignable(unittest.TestCase):
         with self.assertRaisesRegex(ag.ArretAttaque, "relais perdu : argon") as e:
             a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=16)
         partielle = e.exception.partiel["suites"][0]
-        self.assertEqual(len(partielle["tentatives"]), 4)  # 4 × 1 800 s = 7 200 s ; les 15 s de la 5ᵉ dépasseraient
+        # 4 × 1 800 s = 7 200 s ; les 15 s de la 5ᵉ dépasseraient : sa tentative, interrompue, garde son appel (v3.1), attente non faite
+        self.assertEqual([t.get("interrompue", False) for t in partielle["tentatives"]], [False] * 4 + [True])
+        self.assertEqual([(a["code_sortie"], a["attente_s"]) for a in partielle["tentatives"][4]["appels"]], [(3, 0.0)])
         self.assertEqual(cpt.attente_relais_s["argon"], 7200.0)
         self.assertTrue(cpt.arret.is_set())
+        self.assertEqual(cpt.arret_premier["nature"], "relais_perdu")
         self.assertTrue(partielle["interrompue"])
         with self.assertRaises(ag.ArretAttaque):  # un autre fil voit l'arrêt
             cpt.verifier("argon")
@@ -621,20 +647,113 @@ class DelaiEtAppelCoupe(unittest.TestCase):
         self.assertNotIn("appels_avant_repli", suites[0])
         self.assertEqual({u["cause_dominante"] for u in a3.unites_sans_loi(suites)["par_unite"]}, {"delai"})
 
-    def test_code_3_cout_pire_cas_regle_v2_sans_attente(self):
-        """Code 3 à coût non plancher (0,7 USD : appel envoyé puis coupé, compté au pire cas) → cause « relais », règle v2 (une reprise,
-        puis « échouée (cause : relais) »), aucune attente ; témoin : le même code 3 à coût plancher attend (tentative non consommée)."""
-        s, cpt, h = self.jouer(3, 0.7)
-        for t in s["tentatives"]:
-            self.assertEqual([(a["code_sortie"], a["cause"], a["attente_s"], a["essai_d_appel"]) for a in t["appels"]],
-                             [(3, "relais", 0.0, 1), (3, "relais", 0.0, 2)])
-            self.assertEqual(t["motif_invalidite"], "appel échoué après 1 reprise(s) (cause : relais)")
-        self.assertEqual((len(s["tentatives"]), cpt.reprises, cpt.attentes_relais["argon"], h.t), (2, 2, 0, 1000.0))
-        self.assertFalse(cpt.arret.is_set())
-        s, cpt, h = self.jouer(3, 1e-6, n_max=1)
-        appels = s["tentatives"][0]["appels"]
-        self.assertEqual((appels[0]["attente_s"], {a["essai_d_appel"] for a in appels}, cpt.reprises), (15.0, {1}, 0))
-        self.assertEqual((cpt.attente_relais_s["argon"], h.t), (a3.ATTENTE_MAX_PAR_TENTATIVE_S, 1000.0 + a3.ATTENTE_MAX_PAR_TENTATIVE_S))
+    def test_code_3_cout_pire_cas_attend_comme_au_plancher(self):
+        """Cas sain (v3.1, B1) : panne de l'interface de 40 s rendue en code 3 au pire cas (1,61 USD par appel) → attentes 15 puis 30 s,
+        tentative non consommée (`essai_d_appel` 1), loi lue, `reprises` 0, exactement comme la même coupure au plancher (rien envoyé) ;
+        la v3 reprenait aussitôt et perdait la tentative (« échouée (cause : relais) ») en quelques millisecondes."""
+        vus = {}
+        for cout in (1.61, 0.0):
+            with self.subTest(cout=cout):
+                h = Horloge()
+                cpt = a3.Compteur(100.0, 10 ** 6, h.time, [ARGON], relais_perdu_s=None, dormir=h.sleep)
+                prop = a3.ProposeurScripte(coupure_relais_s=40.0, horloge=h.time, cout_coupure_usd=cout)
+                s = a3.jouer_suite(prop, ag.carte(G, 0, "W1"), "argon", "retour", "v8", G, cpt, "gemini-4-argon", n_max=2)
+                t1 = s["tentatives"][0]
+                self.assertIsNotNone(t1["loi"])
+                vus[cout] = [(a["statut"], a["code_sortie"], a["cause"], a["attente_s"], a["essai_d_appel"]) for a in t1["appels"]]
+                self.assertEqual(vus[cout], [("erreur", 3, "relais", 15.0, 1), ("erreur", 3, "relais", 30.0, 1), ("ok", 0, None, 0.0, 1)])
+                self.assertEqual((cpt.reprises, cpt.attentes_relais["argon"], h.t, len(s["tentatives"])), (0, 2, 1045.0, 2))
+                self.assertAlmostEqual(cpt.par_fournisseur["argon"], 2 * cout)
+                self.assertFalse(cpt.arret.is_set())
+        self.assertEqual(vus[1.61], vus[0.0])
+
+
+class ArretAuPlafond(unittest.TestCase):
+    """v3.1 (contre-lecture B1, vérification du lanceur VL-04) : un refus de budget avant l'envoi (code 4) arrête la course dès le
+    premier refus — au plafond (garde du registre des commandes, simulée : réglé + pire cas réservé > plafond) comme loin du plafond —
+    au lieu d'une suite de refus qui vide les cases ; nature du premier arrêt écrite, jamais écrasée ; appels faits gardés dans la
+    trace partielle (le refus compris)."""
+
+    def test_garde_du_registre_au_plafond_arrete_la_course(self):
+        """Cas sain : registre simulé (plafond 10 USD, pire cas réservé 1,6), appels réglés 0,5 → 17 appels acceptés (8,5 + 1,6 > 10),
+        le 18ᵉ refusé en code 4 au plancher, avant que le compteur n'atteigne 10 → `ArretAttaque` « plafond » (8,5 + 1,8 > 10), aucune
+        tentative de plus ; la trace partielle finit par la tentative interrompue qui porte le refus."""
+        cpt = a3.Compteur(10.0, 3600.0, time.time, [ARGON], pire_cas_par_appel_usd=1.8)
+        prop = a3.ProposeurScripte(cout_par_appel=0.5, registre_plafond_usd=10.0, pire_cas_usd=1.6)
+        with self.assertRaisesRegex(ag.ArretAttaque, "^plafond de dépense atteint : refus de budget avant l'envoi \\(code 4\\)") as e:
+            a3.jouer_tout({"argon": prop}, G, plan(6, ["W1"], [ARGON], n_max=3), cpt, parallele=False)
+        self.assertEqual((cpt.appels, cpt.budget_depasse["argon"], prop.appels_par_modele["gemini-4-argon"]), (18, 1, 18))
+        self.assertAlmostEqual(prop.regle_usd, 8.5)
+        self.assertLess(cpt.usd, cpt.plafond)  # le compteur seul ne se serait pas arrêté
+        self.assertEqual((cpt.arret_premier["nature"], cpt.arret_premier["fournisseur"]), ("plafond", "argon"))
+        derniere = e.exception.partiel["suites"][-1]["tentatives"][-1]
+        self.assertTrue(derniere["interrompue"])
+        self.assertEqual([(a["statut"], a["code_sortie"], a["cause"], a["cout_usd"]) for a in derniere["appels"]],
+                         [("budget_depasse", 4, "budget", 1e-6)])
+        self.assertEqual(sum(len(t["appels"]) for s in e.exception.partiel["suites"] for t in s["tentatives"]), cpt.appels)
+        self.assertEqual(e.exception.partiel["rejeux"], [])
+
+    def test_refus_loin_du_plafond_et_part_arretent_aussi(self):
+        """Artefacts : (a) code 4 dès le premier appel, loin du plafond (plafond propre du relais, `--max-appels`, plafond de session)
+        → arrêt « refus_de_budget », jamais une suite de refus ; même chose si le pire cas par appel est inconnu ; (b) deux
+        fournisseurs, garde d'étape simulée à la part (5 USD) → arrêt « part » au 8ᵉ appel de Kimi, Argon jamais joué."""
+        for marge in (1.8, None):
+            with self.subTest(marge=marge):
+                cpt = a3.Compteur(100.0, 3600.0, time.time, [ARGON], pire_cas_par_appel_usd=marge)
+                with self.assertRaisesRegex(ag.ArretAttaque, "^refus de budget loin du plafond"):
+                    a3.jouer_tout({"argon": a3.ProposeurScripte(pannes={"gemini-4-argon": "*"}, code_echec=4)}, G,
+                                  plan(2, ["W1"], [ARGON], n_max=3), cpt, parallele=False)
+                self.assertEqual((cpt.appels, cpt.arret_premier["nature"]), (1, "refus_de_budget"))
+        cpt = a3.Compteur(10.0, 3600.0, time.time, [KIMI, ARGON], pire_cas_par_appel_usd=1.8)
+        props = {"kimi": a3.ProposeurScripte(cout_par_appel=0.5, registre_plafond_usd=5.0, pire_cas_usd=1.6),
+                 "argon": a3.ProposeurScripte(cout_par_appel=0.5, registre_plafond_usd=5.0, pire_cas_usd=1.6)}
+        with self.assertRaisesRegex(ag.ArretAttaque, "^part du fournisseur atteinte"):
+            a3.jouer_tout(props, G, plan(2, ["W1"], [KIMI, ARGON], n_max=3), cpt, parallele=False)
+        self.assertEqual((cpt.appels_par_fournisseur, cpt.arret_premier["nature"]), ({"kimi": 8, "argon": 0}, "part"))
+
+    def test_premier_arret_jamais_ecrase_et_natures(self):
+        """Nature du premier arrêt : « plafond » (compteur au plafond), « part », « duree » ; un arrêt suivant (« arrêt demandé par un
+        autre fil », second refus) ne l'écrase pas ; `pire_cas_par_appel_usd` : réel fini > 0 ou None."""
+        cpt = a3.Compteur(1.0, 3600.0, time.time, [ARGON])
+        cpt.compter("argon", 1.0, "ok", "gemini-4-argon", "gemini-4-argon", 1.0)
+        with self.assertRaisesRegex(ag.ArretAttaque, "plafond de dépense atteint"):
+            cpt.reserver_appel("argon")
+        with self.assertRaisesRegex(ag.ArretAttaque, "arrêt demandé"):
+            cpt.verifier("argon")
+        with self.assertRaises(ag.ArretAttaque):
+            cpt.arreter_sur_refus_de_budget("argon")
+        self.assertEqual((cpt.arret_premier["nature"], cpt.arret_premier["depense_usd"]), ("plafond", 1.0))
+        cpt = a3.Compteur(1.0, 3600.0, time.time, [KIMI, ARGON])
+        cpt.compter("kimi", 0.6, "ok", None, "kimi-k3.1-pro", 1.0)
+        with self.assertRaises(ag.ArretAttaque):
+            cpt.verifier("kimi")
+        self.assertEqual(cpt.arret_premier["nature"], "part")
+        h = Horloge()
+        cpt = a3.Compteur(1.0, 60.0, h.time, [ARGON])
+        h.sleep(61)
+        with self.assertRaisesRegex(ag.ArretAttaque, "durée maximale"):
+            cpt.verifier()
+        self.assertEqual((cpt.arret_premier["nature"], cpt.arret_premier["apres_s"]), ("duree", 61.0))
+        for mauvais in (0, -1.0, float("inf"), True, "1.8"):
+            with self.subTest(pire_cas=mauvais), self.assertRaisesRegex(ag.AttaqueRefusee, "pire_cas_par_appel_usd"):
+                a3.Compteur(1.0, 60.0, time.time, [ARGON], pire_cas_par_appel_usd=mauvais)
+
+    def test_panne_de_l_interface_attend_puis_arret_au_plafond(self):
+        """B1 de bout en bout (horloge factice) : interface en panne pour de bon (code 3 au pire cas, 1,61 USD réglés par appel),
+        registre simulé à 20 USD (pire cas réservé 1,6) → la course attend (11 appels par demi-heure, au lieu de deux par tentative en
+        quelques millisecondes), 12 appels acceptés (19,32 USD), le 13ᵉ refusé en code 4 → arrêt « plafond » après 1 815 s ;
+        une tentative perdue (« échouée (relais) »), aucune autre."""
+        h = Horloge()
+        cpt = a3.Compteur(20.0, 10 ** 6, h.time, [ARGON], relais_perdu_s=None, dormir=h.sleep, pire_cas_par_appel_usd=1.8)
+        prop = a3.ProposeurScripte(coupure_relais_s=10 ** 9, horloge=h.time, cout_coupure_usd=1.61, registre_plafond_usd=20.0, pire_cas_usd=1.6)
+        with self.assertRaisesRegex(ag.ArretAttaque, "^plafond de dépense atteint") as e:
+            a3.jouer_tout({"argon": prop}, G, plan(1, ["W1"], [ARGON], n_max=16), cpt, parallele=False)
+        self.assertEqual((cpt.appels, cpt.attentes_relais["argon"], h.t - 1000.0, cpt.arret_premier["nature"]), (13, 11, 1815.0, "plafond"))
+        self.assertAlmostEqual(cpt.usd, 12 * 1.61 + 1e-6)
+        t1, t2 = e.exception.partiel["suites"][0]["tentatives"]
+        self.assertIn("échouée (relais) : relais ou interface en panne", t1["motif_invalidite"])
+        self.assertEqual([a["code_sortie"] for a in t2["appels"]], [3, 4])
+        self.assertTrue(t2["interrompue"])
 
 
 def commande_muette(dossier, nom, code=1):
@@ -1074,6 +1193,7 @@ class LanceurPlan(unittest.TestCase):
         self.assertEqual((p["fournisseurs"][0]["fils"], p["fournisseurs"][3]["repli"], p["essais_avant_repli"]), (6, "claude-opus-4-6", 3))
         self.assertEqual((p["relais_perdu_h"], p["relais_perdu_s"]), ("2", 7200.0))
         self.assertIsNone(lanceur.lire_plan(texte_preenregistrement(relais_perdu="aucun"))["relais_perdu_s"])  # option (ii) : une valeur
+        self.assertEqual([lanceur.lire_relais_perdu(x) for x in ("AUCUN", "0,5", "72")], [None, 1800.0, 259200.0])  # cas sains (VL-02)
         self.assertEqual(p["devis"]["total"]["usd_max"], a3.devis(6, ["W1", "W2"], QUATRE)["total"]["usd_max"])
         q = lanceur.lire_plan(texte_preenregistrement(fournisseurs=("opus", "kimi"), grille="12 cartes par monde, 24 unités par case", duree="100"))
         self.assertEqual((a3.noms(q["fournisseurs"]), q["unites_par_case"]), (["opus", "kimi"], 24))
@@ -1104,6 +1224,10 @@ class LanceurPlan(unittest.TestCase):
                ("essais_avant_repli hors bornes", dict(essais="11"), "essais_avant_repli"),
                ("relais_perdu_h nul", dict(relais_perdu="0"), "relais_perdu_h"),
                ("relais_perdu_h illisible", dict(relais_perdu="deux"), "relais_perdu_h"),
+               ("relais_perdu_h infini", dict(relais_perdu="inf"), "relais_perdu_h = réel fini"),  # v3.1 (VL-02)
+               ("relais_perdu_h nan", dict(relais_perdu="nan"), "relais_perdu_h = réel fini"),
+               ("relais_perdu_h négatif", dict(relais_perdu="-1"), "relais_perdu_h"),
+               ("relais_perdu_h hors des réels en secondes", dict(relais_perdu="1e306"), "relais_perdu_h = réel fini"),
                ("relais_perdu_h absent", dict(sans=("relais_perdu_h",)), "clés attendues"),
                ("empreinte de configuration mal formée", dict(conf_sha="4ae5"), "configuration_sha256"),
                ("GO mal formé", dict(go="GO-2026-11-0"), "go = "),
@@ -1157,6 +1281,8 @@ class LanceurPreenregistrement(unittest.TestCase):
                 "preenregistrement-attaque-goodhart-v3-v4.md", True, "mode 'essai'"),
                ("non scellé", texte_preenregistrement(), "preenregistrement-attaque-goodhart-v3-v5.md", False, "non scellé"),
                ("marqueur", texte_preenregistrement(marqueur="Plafond : <<PLAFOND_USD>>\n"), "preenregistrement-attaque-goodhart-v3-v6.md", True, "marqueur"),
+               ("marqueur à chiffres (v3.1)", texte_preenregistrement(marqueur="Commit : <<COMMIT_V3_1>>\n"),
+                "preenregistrement-attaque-goodhart-v3-v10.md", True, "marqueur.*COMMIT_V3_1"),
                ("bloc de la v2 (fichiers v3 non gelés)", texte_preenregistrement(gel=gel_v2), "preenregistrement-attaque-goodhart-v3-v7.md", True,
                 "manquants.*attaque_goodhart_v3"),
                ("empreinte fausse", texte_preenregistrement(gel=[("0" * 64, gel[0][1])] + gel[1:]), "preenregistrement-attaque-goodhart-v3-v8.md",
@@ -1282,7 +1408,8 @@ class LanceurCheminReel(unittest.TestCase):
         alors explicitement (repli déclaré), jamais en recopiant le modèle servi."""
         loi = json.dumps({"retour_lu": "aucun", "loi": {"type": "fixe", "probas": [2, 1, 1]}})
         conf = json.loads(json.dumps(self.conf))
-        conf["fournisseurs"]["opus"]["commande"] = commande_a_modele(self.tmp, "opus-menteur", loi, 0.002, servi="claude-opus-4-6") + ["--port", "8806"]
+        conf["fournisseurs"]["opus"]["commande"] = commande_a_modele(self.tmp, "opus-menteur", loi, 0.002, servi="claude-opus-4-6") + [
+            "--port", "8806", "--registre", "{REGISTRE}", "--plafond-cumule-usd", "10"]  # v3.1 (VL-01) : substitutions exigées
         props, _, _ = lanceur.proposeurs_reels(self.lire_conf(conf), self.plan(), tempfile.mkdtemp(), self.sortie)
         r = props["opus"]("consigne", "claude-opus-5-5")
         self.assertEqual((r[2], r[3]), ("refus", "claude-opus-4-6"))
@@ -1319,6 +1446,49 @@ class LanceurCheminReel(unittest.TestCase):
         props, _, _ = lanceur.proposeurs_reels(self.lire_conf(), self.plan(fournisseurs=("kimi", "opus"), grille="12 cartes par monde, 24 unités par case", duree="100"),
                                                tempfile.mkdtemp(), self.sortie)
         self.assertEqual(sorted(props), ["kimi", "opus"])
+
+    def test_substitutions_des_commandes_exigees(self):
+        """VL-01 (v3.1) : la commande de chaque fournisseur du plan porte exactement un jeton `{REGISTRE}` et exactement une option
+        `--plafond-cumule-usd` séparée, à valeur numérique. Cas sains : la forme des commandes d'A1 (`--registre {REGISTRE}
+        --plafond-cumule-usd 80`) et `--registre={REGISTRE}`. Artefacts (registre à chemin fixe, option absente, forme `=`, doublons,
+        valeur absente ou qui serait un autre argument) → refus ; par le lanceur, `--verifier-seulement` compris : code 2, rien écrit."""
+        base = self.conf["fournisseurs"]["kimi"]["commande"]
+        tete = base[:base.index("--port")] + ["--port", "8804"]
+        plan_kimi = [dict(KIMI, fils=6)]
+        for commande in (tete + ["--registre", "{REGISTRE}", "--plafond-cumule-usd", "80"], tete + ["--registre={REGISTRE}", "--plafond-cumule-usd", "0.5"]):
+            conf = json.loads(json.dumps(self.conf))
+            conf["fournisseurs"]["kimi"]["commande"] = commande
+            self.assertEqual(lanceur.reglages_de_configuration(self.lire_conf(conf), plan_kimi)[1], {"kimi": "kimi-k3.1-pro"})
+        cas = {"registre à chemin fixe (sans jeton)": (tete + ["--registre", "/tmp/registre-fixe.jsonl", "--plafond-cumule-usd", "80"], "jeton"),
+               "sans --plafond-cumule-usd": (tete + ["--registre", "{REGISTRE}"], "exactement une option"),
+               "forme --plafond-cumule-usd=80 (non substituée)": (tete + ["--registre", "{REGISTRE}", "--plafond-cumule-usd=80"], "exactement une option"),
+               "deux jetons": (tete + ["--registre", "{REGISTRE}", "--journal", "{REGISTRE}.log", "--plafond-cumule-usd", "80"], "2 argument"),
+               "option du registre doublée (la dernière l'emporte)": (tete + ["--registre", "{REGISTRE}", "--plafond-cumule-usd", "80",
+                                                                         "--registre", "/tmp/registre-fixe.jsonl"], "plus d'une fois"),
+               "jeton hors des deux formes": (tete + ["--registre", "/tmp/{REGISTRE}", "--plafond-cumule-usd", "80"], "hors des formes"),
+               "deux options": (tete + ["--registre", "{REGISTRE}", "--plafond-cumule-usd", "80", "--plafond-cumule-usd", "20"], "exactement une option"),
+               "valeur absente": (tete + ["--registre", "{REGISTRE}", "--plafond-cumule-usd"], "exactement une option"),
+               "valeur = le jeton": (tete + ["--plafond-cumule-usd", "{REGISTRE}"], "doit être un nombre"),
+               "valeur = une autre option": (tete + ["--plafond-cumule-usd", "--registre", "{REGISTRE}"], "doit être un nombre")}
+        for nom, (commande, motif) in cas.items():
+            with self.subTest(cas=nom):
+                conf = json.loads(json.dumps(self.conf))
+                conf["fournisseurs"]["kimi"]["commande"] = commande
+                with self.assertRaisesRegex(ag.AttaqueRefusee, motif):
+                    lanceur.reglages_de_configuration(self.lire_conf(conf), plan_kimi)
+        conf = json.loads(json.dumps(self.conf))
+        conf["fournisseurs"]["kimi"]["commande"] = cas["registre à chemin fixe (sans jeton)"][0]
+        chemin = os.path.join(self.tmp, "conf-sans-jeton.json")
+        with open(chemin, "w", encoding="utf-8") as f:
+            json.dump(conf, f)
+        p = os.path.join(self.prereg_dir, "preenregistrement-attaque-goodhart-v3-v3.md")
+        ecrire_scelle(p, texte_preenregistrement(conf_sha=sha256_fichier(chemin)))
+        argv = [self.sortie, "--preenregistrement", p, "--configuration", chemin, "--moteur", "reel", "--confirmer-moteur-reel",
+                "--registre-go", self.registre, "--go", "GO-2026-11-02-07", "--verifier-seulement"]
+        # `--verifier-seulement` seulement : la garde est la même sans l'option (`proposeurs_reels` est appelé avant elle), et une
+        # mutation qui la retirerait ne doit jamais lancer de course (rejeux à 200 sur deux processus)
+        self.assertEqual(lanceur.principal(argv), 2)
+        self.assertFalse(os.path.exists(self.sortie))
 
     def test_refus_du_lanceur_isoles(self):
         """Chaque refus avec registre et configuration valides par ailleurs ; rien n'est écrit."""
@@ -1377,6 +1547,10 @@ class LanceurABlanc(unittest.TestCase):
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--fournisseurs", "kimi,gemini"]), 2)  # nom inconnu à blanc
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--relais-perdu-h", "0"]), 2)
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--panne", "x"]), 2)
+            for plus in (["--relais-perdu-h", "inf"], ["--relais-perdu-h", "nan"], ["--pire-cas-simule-usd", "0"],
+                         ["--cout-coupure-usd", "-1"]):  # v3.1 (VL-02 ; options à blanc neuves)
+                with self.subTest(options=plus):
+                    self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7"] + plus), 2)
             self.assertFalse(os.path.exists(sortie))
 
     def test_course_a_blanc_avec_repli_sur_une_unite(self):
@@ -1395,23 +1569,46 @@ class LanceurABlanc(unittest.TestCase):
             self.assertEqual(sorted(m["reglages"]["code_sha256"]), sorted(lanceur.FICHIERS_GELES))
             self.assertEqual([x["nom"] for x in m["reglages"]["plan"]["fournisseurs"]], ["kimi", "astra", "fable", "opus"])
 
-    def test_course_a_blanc_code_4_compte_a_part_et_unites_sans_loi(self):
+    def test_course_a_blanc_code_4_arret_et_trace_partielle(self):
+        """v3.1 : un refus de budget en code 4 (ici loin du plafond, pire cas inconnu à blanc) arrête la course au premier appel :
+        code 3, issue « non jugeable (arrêt) : aucun taux lu », `nature_de_l_arret` « refus_de_budget », le refus dans la trace
+        partielle scellée, aucune autre tentative (la v3 sortait en code 0 après 16 refus et 4 unités sans loi)."""
         with tempfile.TemporaryDirectory() as d:
             sortie = os.path.join(d, "s")
             self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--cartes", "1", "--mondes", "W1", "--fournisseurs", "kimi,astra",
                                                 "--n-max", "2", "--rejeux-v8", "1", "--rejeux-v7", "1", "--rejeux-audit", "2", "--processus", "1",
-                                                "--panne", "kimi-k3.1-pro:*", "--code-panne", "4"]), 0)
+                                                "--sequentiel", "--panne", "kimi-k3.1-pro:*", "--code-panne", "4"]), 3)
             with open(os.path.join(sortie, "attaque-goodhart-v3.json"), encoding="utf-8") as f:
                 r = json.load(f)
-            self.assertEqual(r["appels_budget_depasse"], {"kimi": 16, "astra": 0})
-            u = r["unites_sans_loi"]
-            self.assertEqual((u["total_sans_loi"], u["par_case"]["W1|kimi|retour|v8"]["sans_loi"], u["par_case"]["W1|astra|retour|v8"]["sans_loi"]), (4, 1, 0))
-            self.assertTrue(all(x["cause_dominante"] == "budget" and x["fournisseur"] == "kimi" for x in u["par_unite"]))
-            self.assertTrue(any(a.startswith("A7") for a in r["lecture"]["mondes"]["W1"]["audits"]))
-            self.assertEqual(r["lecture"]["issues"]["W1"], "non jugeable (précision insuffisante)")  # la lecture ne change pas
+            self.assertTrue(os.path.isfile(os.path.join(sortie, "attaque-goodhart-v3.json.sha256")))
+            self.assertEqual((r["issue"], r["nature_de_l_arret"], r["appels"]), ("non jugeable (arrêt) : aucun taux lu", "refus_de_budget", 1))
+            self.assertEqual(r["appels_budget_depasse"], {"kimi": 1, "astra": 0})
+            self.assertTrue(r["arret"].startswith("refus de budget loin du plafond"))
+            self.assertEqual(r["arret_premier"]["nature"], "refus_de_budget")
+            self.assertEqual([a["code_sortie"] for s in r["suites_partielles"] for t in s["tentatives"] for a in t["appels"]], [4])
+            self.assertEqual(r["unites_sans_loi"]["par_unite"][0]["cause_dominante"], "budget")
+            self.assertNotIn("lecture", r)
             with self.assertRaises(SystemExit):  # argparse : un code non entier est refusé avant toute écriture
                 lanceur.principal([os.path.join(d, "t"), "--a-blanc", "--graine", "7", "--code-panne", "x"])
             self.assertFalse(os.path.exists(os.path.join(d, "t")))
+
+    def test_course_a_blanc_plafond_atteint_arret_code_3(self):
+        """v3.1 (VL-04) : garde du registre des commandes simulée à 5 USD (pire cas réservé 1,6, appels réglés 0,5) → 7 appels
+        acceptés, le 8ᵉ refusé en code 4 → arrêt « plafond », code 3, trace partielle scellée (le refus compris), aucun rejeu, aucun
+        taux ; le compteur (3,5 USD) ne s'était pas arrêté de lui-même. La v3 aurait continué en refus et fini en code 0."""
+        with tempfile.TemporaryDirectory() as d:
+            sortie = os.path.join(d, "s")
+            self.assertEqual(lanceur.principal([sortie, "--a-blanc", "--graine", "7", "--cartes", "1", "--mondes", "W1", "--fournisseurs", "argon",
+                                                "--n-max", "3", "--rejeux-v8", "1", "--rejeux-v7", "1", "--rejeux-audit", "2", "--processus", "1",
+                                                "--plafond-usd", "5", "--cout-simule-usd", "0.5", "--pire-cas-simule-usd", "1.6"]), 3)
+            with open(os.path.join(sortie, "attaque-goodhart-v3.json"), encoding="utf-8") as f:
+                r = json.load(f)
+            self.assertEqual((r["nature_de_l_arret"], r["appels"], r["appels_budget_depasse"], r["depense_usd"]), ("plafond", 8, {"argon": 1}, 3.5))
+            self.assertTrue(r["arret"].startswith("plafond de dépense atteint : refus de budget avant l'envoi (code 4)"))
+            self.assertEqual(sum(len(t["appels"]) for s in r["suites_partielles"] for t in s["tentatives"]), 8)
+            self.assertEqual((r["issue"], r["rejeux_partiels"]), ("non jugeable (arrêt) : aucun taux lu", []))
+            with open(os.path.join(sortie, "manifeste.json"), encoding="utf-8") as f:
+                self.assertEqual(json.load(f)["pire_cas_par_appel_usd"], 1.6)
 
     def test_essai_a_blanc_sans_issue_et_arret_code_3(self):
         with tempfile.TemporaryDirectory() as d:
@@ -1429,6 +1626,7 @@ class LanceurABlanc(unittest.TestCase):
                 r = json.load(f)
             self.assertTrue(r["suites_partielles"])
             self.assertEqual(r["issue"], "non jugeable (arrêt) : aucun taux lu")
+            self.assertIn(r["nature_de_l_arret"], ("plafond", "part"))  # v3.1 : nature du premier arrêt écrite
 
 
 class Fermeture(unittest.TestCase):

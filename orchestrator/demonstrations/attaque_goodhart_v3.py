@@ -27,8 +27,15 @@ ou dont la commande manque ou n'est pas une commande externe ; port absent de la
 d'un autre modèle que le plan ; `modeles_servis_permis` non vide pour un fournisseur du plan (un identifiant servi admis
 autre que le modèle demandé serait un repli muet) ; plafond sous le maximum du devis par fournisseur ; durée sous la durée
 attendue haute avec `fils` fils ; grille non admise ou unités ≠ cartes × fournisseurs ; repli déclaré sans identifiant.
-Codes : 0 course ou essai complet (le code ne décide rien) ; 2 refus ; 3 arrêt (plafond, part d'un fournisseur ou durée :
-trace partielle écrite et scellée, aucun taux lu).
+Codes : 0 course ou essai complet (le code ne décide rien) ; 2 refus ; 3 arrêt (plafond, part d'un fournisseur, refus de budget
+d'une commande en code 4, durée ou « relais perdu » : trace partielle écrite et scellée, aucun taux lu, `nature_de_l_arret` écrite).
+
+Version 3.1 (décision du directeur, nuit du 2 au 3 novembre 2026 ; vérification du lanceur VL-01, VL-02, VL-04 ; contre-lecture B1) : gardes
+neuves, toutes en code 2 avant toute écriture, `--verifier-seulement` compris : (VL-01) la commande de chaque fournisseur du plan
+porte exactement un jeton `{REGISTRE}` et exactement une option `--plafond-cumule-usd` suivie de sa valeur numérique
+(`exiger_substitutions`) ; (VL-02) `relais_perdu_h` vaut « aucun » ou un réel fini strictement positif (`inf`, `nan`, négatif ou
+zéro refusés) ; marqueurs : motif élargi aux chiffres (`<<[A-Z0-9_]+>>`, un marqueur comme celui du commit de la v3.1 est vu).
+(VL-04) Au plafond, la course s'arrête (code 3) au premier refus de la garde du registre des commandes (cœur v3.1).
 
 Étape de dépense : **une par fournisseur** (`etape_du_fournisseur`, `ETAPE_POLE = attaque_goodhart_v3/<nom>`, `PLAFOND_ETAPE_USD` =
 sa part), écrite au manifeste (`etapes_de_depense`, `accuses_plafond`) ; le registre de dépense cumulée reste commun (jeton
@@ -39,6 +46,7 @@ import argparse
 import datetime
 import importlib.util
 import json
+import math
 import os
 import platform
 import re
@@ -83,7 +91,11 @@ DOSSIER_PREREG = os.path.join(RACINE, "prereg")
 NOMS_PREREG = {"course": re.compile(r"^preenregistrement-attaque-goodhart-v3-v[1-9][0-9]*\.md$"),
                "essai": re.compile(r"^fiche-essai-attaque-goodhart-v3-v[1-9][0-9]*\.md$")}
 DEBUT_EMPREINTES, FIN_EMPREINTES, DEBUT_PLAN, FIN_PLAN = l2.DEBUT_EMPREINTES, l2.FIN_EMPREINTES, l2.DEBUT_PLAN, l2.FIN_PLAN
-MARQUEUR, SHA, GRILLE, REGISTRE_COURSE = l2.MARQUEUR, l2.SHA, l2.GRILLE, l2.REGISTRE_COURSE
+SHA, GRILLE, REGISTRE_COURSE = l2.SHA, l2.GRILLE, l2.REGISTRE_COURSE
+# v3.1 : le motif de la v2 (`<<[A-Z_]+>>`, `demonstrations/attaque_goodhart_v2.py:58`) ne voit pas un marqueur à chiffres (celui du
+# commit de la v3.1, par exemple) : un texte scellé qui en garderait un passerait ; motif élargi aux chiffres.
+MARQUEUR = re.compile(r"<<[A-Z0-9_]+>>")
+JETON_REGISTRE, OPTION_PLAFOND_CUMULE = "{REGISTRE}", "--plafond-cumule-usd"  # substitutions de `l2.substituer_commandes`
 PreenregistrementRefuse = l2.PreenregistrementRefuse
 # Valeurs fixes du bloc plan-gele (le texte les écrit, le lanceur vérifie qu'il dit la même chose que le code).
 PLAN_FIXE = {"course": {"tentatives": str(ag.N_MAX), "rejeux_v8": str(ag.REJEUX["v8"]), "rejeux_v7": str(ag.REJEUX["v7"]),
@@ -99,12 +111,13 @@ FICHIERS_GELES = tuple(sorted(set(l2.FICHIERS_GELES) | {"demonstrations/attaque_
 OPTIONS_DE_PLAN = ("mode", "cartes", "mondes", "fournisseurs", "fils", "panne", "code_panne", "muet", "coupure_relais_s", "relais_perdu_h",
                    "appels_max", "essais_avant_repli", "n_max", "rejeux_v8",
                    "rejeux_v7", "rejeux_audit", "plafond_usd", "duree_max_h", "processus", "sequentiel", "proposeur", "sans_echo",
-                   "cout_simule_usd")
+                   "cout_simule_usd", "cout_coupure_usd", "pire_cas_simule_usd")
 A_BLANC = {"mode": "course", "cartes": 6, "mondes": "W1,W2", "fournisseurs": ",".join(f["nom"] for f in a3.PLAN_A1_BIS), "fils": None,
            "panne": None, "code_panne": None, "muet": False, "coupure_relais_s": None, "relais_perdu_h": "2", "appels_max": 20,
            "essais_avant_repli": 3, "n_max": ag.N_MAX, "rejeux_v8": ag.REJEUX["v8"],
            "rejeux_v7": ag.REJEUX["v7"], "rejeux_audit": ag.REJEUX_AUDIT, "plafond_usd": 1e9, "duree_max_h": 24.0, "processus": 2,
-           "sequentiel": False, "proposeur": "sortant", "sans_echo": False, "cout_simule_usd": 0.0}
+           "sequentiel": False, "proposeur": "sortant", "sans_echo": False, "cout_simule_usd": 0.0, "cout_coupure_usd": 0.0,
+           "pire_cas_simule_usd": None}
 LIGNE_FOURNISSEUR = re.compile(r"^fournisseur_([a-z][a-z0-9]{0,15})$")
 PAIRE = re.compile(r"^([a-z_]+)=(\S+)$")
 SECONDES = re.compile(r"^(\d+(?:[.,]\d+)?)-(\d+(?:[.,]\d+)?)$")
@@ -223,12 +236,14 @@ def lire_plan(texte, mode_attendu=None):
 
 def lire_relais_perdu(texte):
     """`relais_perdu_h: H` (réel > 0 : arrêt « relais perdu » après H heures d'attente cumulée par fournisseur, option (i) du texte)
-    ou `relais_perdu_h: aucun` (option (ii) : aucun arrêt sur relais, seule la durée maximale arrête) ; rend les secondes ou None."""
+    ou `relais_perdu_h: aucun` (option (ii) : aucun arrêt sur relais, seule la durée maximale arrête) ; rend les secondes ou None.
+    v3.1 (VL-02) : un réel **fini** est exigé (`inf` passait `lire_plan` et `--verifier-seulement`, puis la course plantait à l'écriture
+    du manifeste) ; `nan`, négatif ou zéro restent refusés."""
     if texte.strip().lower() == "aucun":
         return None
     h = _nombre(texte, "relais_perdu_h")
-    if not h > 0:
-        raise PreenregistrementRefuse("plan-gele : relais_perdu_h = réel > 0 (heures) ou « aucun »")
+    if not math.isfinite(h) or not h > 0 or not math.isfinite(h * 3600.0):
+        raise PreenregistrementRefuse("plan-gele : relais_perdu_h = réel fini > 0 (heures) ou « aucun »")
     return h * 3600.0
 
 
@@ -284,9 +299,44 @@ def _port_dans_commande(f, port):
     return any(isinstance(x, str) and re.search(rf"(?<!\d){port}(?!\d)", x) for x in f.get("commande") or [])
 
 
+def exiger_substitutions(nom, commande):
+    """v3.1 (VL-01) : la commande d'un fournisseur du plan porte **exactement un** argument qui contient le jeton `{REGISTRE}`, en forme
+    « --option {REGISTRE} » ou « --option={REGISTRE} », option donnée une seule fois (le registre de dépense cumulée sera celui de
+    la course, neuf, dans la sortie) et **exactement une** option `--plafond-cumule-usd`,
+    en forme séparée, suivie de sa valeur numérique (que `l2.substituer_commandes` remplace par le plafond de la course) ; sinon
+    `AttaqueRefusee` (code 2 du lanceur, avant toute écriture, `--verifier-seulement` compris). Sans jeton, le registre est un chemin
+    fixe, qui peut déjà porter la dépense d'une course antérieure sous la même étape : premier appel refusé en code 4 (défaut de
+    classe d'A1) ; sans l'option, ou en forme `--plafond-cumule-usd=…` (non substituée), le plafond cumulé n'est pas celui de la
+    course, ou chaque appel sort en code 2 sans ligne, compté au plafond de session."""
+    jetons = [i for i, x in enumerate(commande) if isinstance(x, str) and JETON_REGISTRE in x]
+    options = [i for i, x in enumerate(commande) if isinstance(x, str) and x.split("=", 1)[0] == OPTION_PLAFOND_CUMULE]
+    if len(jetons) != 1:
+        raise ag.AttaqueRefusee(f"configuration : la commande de « {nom} » porte {len(jetons)} argument(s) avec le jeton {JETON_REGISTRE} "
+                                "(exactement un exigé : le registre de dépense cumulée doit être celui de la course, VL-01)")
+    j = jetons[0]
+    if commande[j] == JETON_REGISTRE and j >= 1 and isinstance(commande[j - 1], str) and commande[j - 1].startswith("--"):
+        option_registre = commande[j - 1]  # forme « --registre {REGISTRE} »
+    elif commande[j].startswith("--") and commande[j].split("=", 1)[1:] == [JETON_REGISTRE]:
+        option_registre = commande[j].split("=", 1)[0]  # forme « --registre={REGISTRE} »
+    else:
+        raise ag.AttaqueRefusee(f"configuration : la commande de « {nom} » porte le jeton {JETON_REGISTRE} hors des formes « --option "
+                                f"{JETON_REGISTRE} » et « --option={JETON_REGISTRE} » (trouvé {commande[j]!r}, VL-01)")
+    if sum(1 for x in commande if isinstance(x, str) and x.split("=", 1)[0] == option_registre) != 1:
+        raise ag.AttaqueRefusee(f"configuration : l'option {option_registre} de la commande de « {nom} » est donnée plus d'une fois (la "
+                                "dernière l'emporterait sur le registre de la course, VL-01)")
+    if len(options) != 1 or commande[options[0]] != OPTION_PLAFOND_CUMULE or options[0] + 1 >= len(commande):
+        raise ag.AttaqueRefusee(f"configuration : la commande de « {nom} » doit porter exactement une option {OPTION_PLAFOND_CUMULE} "
+                                f"suivie de sa valeur, en forme séparée (trouvé {[commande[i] for i in options]}, VL-01)")
+    valeur = commande[options[0] + 1]
+    if options[0] + 1 == jetons[0] or not isinstance(valeur, str) or not re.fullmatch(r"\d+(?:\.\d+)?", valeur):
+        raise ag.AttaqueRefusee(f"configuration : la valeur de {OPTION_PLAFOND_CUMULE} dans la commande de « {nom} » doit être un "
+                                f"nombre (trouvé {valeur!r}) : la substitution remplacerait un autre argument (VL-01)")
+
+
 def reglages_de_configuration(conf, fournisseurs):
     """Budget par appel = `plafonds_session.proposeur` (aucun défaut) ; pour chaque fournisseur du plan : relais de la
-    configuration présent, du type du plan (commande externe), commande présente et portant le port, aucun identifiant servi
+    configuration présent, du type du plan (commande externe), commande présente et portant le port, ainsi qu'un jeton `{REGISTRE}`
+    et une option `--plafond-cumule-usd` à valeur numérique, un de chaque (`exiger_substitutions`, v3.1), aucun identifiant servi
     admis en plus du modèle demandé (`modeles_servis_permis` vide : un repli n'est jamais muet), exactement un proposeur de la
     configuration pour ce fournisseur, au modèle du plan. Rend (budget, {nom: modèle})."""
     b = (conf.get("plafonds_session") or {}).get("proposeur")
@@ -306,6 +356,7 @@ def reglages_de_configuration(conf, fournisseurs):
         if not _port_dans_commande(f, spec["port"]):
             raise ag.AttaqueRefusee(f"configuration : le port {spec['port']} du plan n'apparaît ni dans la commande de « {n} » ni "
                                     "dans son champ « port »")
+        exiger_substitutions(n, f["commande"])  # v3.1 (VL-01)
         if f.get("modeles_servis_permis"):
             raise ag.AttaqueRefusee(f"configuration : fournisseurs.{n}.modeles_servis_permis non vide ({f['modeles_servis_permis']!r}) : "
                                     "un identifiant servi admis autre que le modèle demandé serait un repli muet ; le repli se "
@@ -426,7 +477,7 @@ def principal(argv=None):
     a.add_argument("--panne", help="à blanc : MODELE:I-J (appels I à J en échec) ou MODELE:* ; plusieurs séparés par « ; »")
     a.add_argument("--code-panne", type=int, help="à blanc : code de sortie simulé des pannes (3 relais, 4 budget, 5 modèle, 6 délai)")
     a.add_argument("--muet", action="store_true", default=None, help="à blanc : pannes muettes (aucune ligne de coût : plafond de session compté)")
-    a.add_argument("--coupure-relais-s", type=float, help="à blanc : relais coupé pendant N secondes depuis le premier appel (code 3, coût plancher)")
+    a.add_argument("--coupure-relais-s", type=float, help="à blanc : coupure pendant N secondes depuis le premier appel (code 3 ; coût : --cout-coupure-usd, plancher par défaut)")
     a.add_argument("--relais-perdu-h", help="à blanc : heures d'attente cumulée par fournisseur avant l'arrêt « relais perdu », ou « aucun »")
     a.add_argument("--appels-max", type=int, help="à blanc, mode essai : appels au plus par fournisseur")
     a.add_argument("--essais-avant-repli", type=int)
@@ -441,9 +492,14 @@ def principal(argv=None):
     a.add_argument("--proposeur", choices=("sortant", "melangeur"))
     a.add_argument("--sans-echo", action="store_true", default=None)
     a.add_argument("--cout-simule-usd", type=float, help="à blanc : coût fictif par appel scripté (liste d'arrêt)")
+    a.add_argument("--cout-coupure-usd", type=float, help="à blanc : coût des appels de la coupure (0 : code 3 au plancher ; > 0 : code 3 "
+                                                         "au pire cas, interface en panne)")
+    a.add_argument("--pire-cas-simule-usd", type=float, help="à blanc : garde du registre des commandes simulée (pire cas réservé par "
+                                                            "appel ; plafond du registre = part du fournisseur) ; aussi le pire cas "
+                                                            "par appel du compteur")
     args = a.parse_args(argv)
     from pole import configuration_v56 as cfg
-    base_sessions = None
+    base_sessions, pire_cas = None, None
     try:
         if os.path.exists(args.dossier) and os.listdir(args.dossier):
             raise FileExistsError(f"dossier de sortie non vide : {args.dossier} (on n'écrase jamais)")
@@ -469,6 +525,11 @@ def principal(argv=None):
             entropie = ag.verifier_entropie(args.graine, decisif=False)
             mode, preenregistrement, conf_info = f"a-blanc (exploratoire, {plan['mode']})", None, None
             pannes = pannes_a_blanc(r["panne"])
+            if not ag._reel(r["cout_coupure_usd"], 0.0):
+                raise ag.AttaqueRefusee("--cout-coupure-usd : réel fini ≥ 0")
+            pire_cas = r["pire_cas_simule_usd"]
+            if pire_cas is not None and (not ag._reel(pire_cas, 0.0) or not pire_cas > 0):
+                raise ag.AttaqueRefusee("--pire-cas-simule-usd : réel fini > 0")
         else:
             if args.graine is not None:
                 raise ag.AttaqueRefusee("mode réel : la graine est l'empreinte du préenregistrement, --graine refusée")
@@ -487,6 +548,7 @@ def principal(argv=None):
             conf = cfg.lire_configuration_v56(args.configuration)
             base_sessions = tempfile.mkdtemp(prefix="attaque-goodhart-v3-sessions-")  # hors de la sortie
             proposeurs, accuses, infos = proposeurs_reels(conf, plan, base_sessions, os.path.abspath(args.dossier))
+            pire_cas = infos["budget_appel_usd"]  # v3.1 : borne du pire cas réservé par appel (plafond de session des commandes)
             mode = f"reel (decisif, {plan['mode']})"
             preenregistrement = {"chemin": os.path.relpath(os.path.realpath(args.preenregistrement), RACINE), "sha256": empreinte,
                                  "empreintes_du_code_verifiees": gelees, "plan": {k: v for k, v in plan.items() if k != "devis"},
@@ -504,9 +566,12 @@ def principal(argv=None):
         print(f"refus : {type(e).__name__} : {e}", file=sys.stderr)
         return 2
     if args.a_blanc:
+        part = plan["plafond_usd"] / len(plan["fournisseurs"])  # registre simulé : la garde d'étape d'un fournisseur vaut sa part
         proposeurs = {f["nom"]: a3.ProposeurScripte(args.proposeur or A_BLANC["proposeur"], echo=not args.sans_echo,
                                                     cout_par_appel=args.cout_simule_usd or 0.0, pannes=pannes, code_echec=args.code_panne,
-                                                    muet=bool(args.muet), coupure_relais_s=args.coupure_relais_s)
+                                                    muet=bool(args.muet), coupure_relais_s=args.coupure_relais_s,
+                                                    cout_coupure_usd=args.cout_coupure_usd or 0.0,
+                                                    registre_plafond_usd=part if pire_cas is not None else None, pire_cas_usd=pire_cas)
                       for f in plan["fournisseurs"]}
     os.makedirs(args.dossier, exist_ok=True)
     m = manifeste(attaque=a3.VERSION, mode=mode, entropie_racine=str(entropie),
@@ -521,11 +586,12 @@ def principal(argv=None):
                               "rejeu r : (cle('rejeu|<monde>|…'), c, k, 1 + r) ; audit A2 : (cle('audit|<monde>|…'), c, k, 1 + r) ; "
                               "rééchantillonnage : (cle('bootstrap'), cle('<monde>|<juge>')) ; le modèle (principal ou repli) n'entre "
                               "pas dans l'étiquette : une unité est jouée sous un seul modèle")
-    for k in ("regle_du_repli", "regle_des_unites_jouees", "regle_de_l_attente", "regle_du_cout_inconnu"):
+    for k in ("regle_du_repli", "regle_des_unites_jouees", "regle_de_l_attente", "regle_du_cout_inconnu", "regle_du_refus_de_budget"):
         m[k] = a3.description()[k]
+    m["pire_cas_par_appel_usd"] = pire_cas  # v3.1 : qualifie un refus de budget (code 4) : plafond, part, ou loin du plafond
     ecrire_json_scelle(os.path.join(args.dossier, "manifeste.json"), m)
     compteur = a3.Compteur(plan["plafond_usd"], plan["duree_max_s"], time.time, plan["fournisseurs"], plan.get("appels_max_par_fournisseur"),
-                           relais_perdu_s=plan.get("relais_perdu_s"))
+                           relais_perdu_s=plan.get("relais_perdu_s"), pire_cas_par_appel_usd=pire_cas)
     sortie = os.path.join(args.dossier, SORTIES[plan["mode"]])
     commun = lambda: {"attaque": a3.VERSION, "mode": mode, "appels": compteur.appels, "reprises": compteur.reprises,  # noqa: E731
                       "depense_usd": round(compteur.usd, 4), "depense_par_fournisseur_usd": compteur.par_fournisseur,
@@ -535,20 +601,23 @@ def principal(argv=None):
                       "attente_relais_s": {f: round(v, 1) for f, v in compteur.attente_relais_s.items()},
                       "appels_cout_inconnu": compteur.cout_inconnu, "cout_inconnu_usd": compteur.cout_inconnu_usd,
                       "relais_perdu_s": plan.get("relais_perdu_s"), "duree_s": round(time.time() - compteur.debut, 1),
+                      "arret_premier": compteur.arret_premier,
                       "fin_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
     try:
         suites, rejeux, audits = a3.jouer_tout(proposeurs, entropie, plan, compteur, decisif=not args.a_blanc,
                                                parallele=plan["parallele"], processus=plan["processus"])
     except ag.ArretAttaque as e:
-        rapport = dict(commun(), arret=str(e), suites_partielles=e.partiel.get("suites", []),
-                       unites_sans_loi=a3.unites_sans_loi(e.partiel.get("suites", [])))
+        # v3.1 (VL-04) : code 3 et issue écrits d'avance ; nature du premier arrêt (plafond, part, refus_de_budget, duree, relais_perdu)
+        rapport = dict(commun(), arret=str(e), nature_de_l_arret=(compteur.arret_premier or {}).get("nature"),
+                       suites_partielles=e.partiel.get("suites", []), unites_sans_loi=a3.unites_sans_loi(e.partiel.get("suites", [])))
         if plan["mode"] == "course":
             rapport.update(issue="non jugeable (arrêt) : aucun taux lu", rejeux_partiels=e.partiel.get("rejeux", []))
         else:
             rapport["arret_essai"] = "aucune mesure calculée : trace partielle seule"
             a3.verifier_sortie_essai(rapport)
         ecrire_json_scelle(sortie, rapport)
-        print(json.dumps({k: rapport[k] for k in ("mode", "arret", "appels", "depense_usd", "duree_s")}, ensure_ascii=False), file=sys.stderr)
+        print(json.dumps({k: rapport[k] for k in ("mode", "arret", "nature_de_l_arret", "appels", "depense_usd", "duree_s")}, ensure_ascii=False),
+              file=sys.stderr)
         return 3
     if plan["mode"] == "essai":
         rapport = dict(commun(), preenregistrement=preenregistrement, mesures=a3.rapport_essai(suites, plan["fournisseurs"])["mesures"],

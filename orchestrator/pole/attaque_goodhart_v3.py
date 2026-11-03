@@ -27,6 +27,22 @@ Ce qui change (décision de Lazar du 2 novembre 2026, GO-2026-11-02-13 ; session
    jamais « échouée » (`appeler`) ; cause de chaque échec écrite (`cause_d_echec`) ; **unités sans aucune loi valide** mesurées
    par case et par unité avec leur cause dominante (`unites_sans_loi`), sans effet sur la lecture. Le lanceur v3 donne à
    chaque fournisseur **sa propre étape de dépense** (`ETAPE_POLE = attaque_goodhart_v3/<nom>`, `PLAFOND_ETAPE_USD` = sa part).
+
+Version 3.1 (décision du directeur, nuit du 2 au 3 novembre 2026, avant le scellement d'A1-v3 ; contre-lecture du brouillon 3, B1, et vérification
+du lanceur, VL-04) — mêmes fichiers, aucune autre règle changée :
+8. **Code 3 à tout coût = attente** (`appeler`) : une sortie en code 3 au pire cas (panne de l'interface rendue par le relais, appel
+   coupé après envoi) attend comme une sortie en code 3 au plancher (mêmes attentes 15, 30, 60, 120 puis 300 s, même plafond de
+   1 800 s par tentative, même « relais perdu » du plan), tentative non consommée ; la v3 la comptait selon la règle v2 (une
+   reprise, puis tentative « échouée »), sans attente : une panne de l'interface brûlait la marge du plafond en minutes.
+9. **Refus de budget avant l'envoi (code 4) = arrêt** (`Compteur.arreter_sur_refus_de_budget`) : le premier refus arrête la course
+   (`ArretAttaque`, code 3 du lanceur, trace partielle scellée, aucune tentative de plus), qualifié « plafond » (ou « part ») quand
+   le compteur est à moins d'un pire cas par appel du plafond (ou de la part du fournisseur : c'est la garde du registre des
+   commandes, réglé + engagé + pire cas > plafond, qui mord avant le compteur), « refus_de_budget » sinon (arrêt d'infrastructure
+   loin du plafond : plafond propre du relais, `--max-appels`, plafond de session, registre étranger) ; la v3 continuait en refus
+   (« budget_depasse », une reprise, tentative refusée) jusqu'à la fin et sortait en code 0 avec des cases vidées.
+10. **Nature du premier arrêt** écrite (`Compteur.arret_premier` : plafond, part, refus_de_budget, duree, relais_perdu) ; trace
+   partielle complète : la tentative en cours à l'arrêt (appels déjà faits, dont le refus) gardée (`jouer_suite`, `interrompue`), et
+   les suites déjà finies de l'unité en cours aussi (`jouer_unite`) — la v3 perdait les unes et les autres de la trace scellée.
 """
 
 import concurrent.futures
@@ -46,7 +62,7 @@ from .attaque_goodhart_v2 import (ALPHA, CONDITIONS, JUGES, MONDES, N_MAX, PRESS
 from .caviardage import caviarder
 from .outils import sha256_fichier
 
-VERSION = "attaque-goodhart-v3"
+VERSION = "attaque-goodhart-v3.1"
 MODES = ("course", "essai")
 TYPES_ADAPTATEUR = ("commande_externe",)
 # Grilles admises en mode course : unités par case (cartes × fournisseurs) → ε de « résiste » (section 5 du texte d'A1 pour
@@ -63,12 +79,17 @@ ECHECS_POUR_BASCULE = ("erreur", "refus")  # statuts d'appel qui comptent pour l
 # illisible, coût au-dessus du pire cas) ; 6 délai dépassé ou signal, au pire cas (cause « delai », jamais d'attente) ; 2 réglage sans
 # envoi et tout autre code non nul : « autre » ; commande muette : plafond de session compté, `cout_inconnu`.
 CODES_DE_SORTIE = {3: "relais", 4: "budget", 5: "modele", 6: "delai"}
-CODE_BUDGET_REFUSE = 4  # refus du registre de dépense cumulée AVANT l'envoi (`envoye: false`, coût 10⁻⁶) : « budget_depasse », A7
+CODE_BUDGET_REFUSE = 4  # refus de budget AVANT l'envoi (`envoye: false`, coût 10⁻⁶) : « budget_depasse », puis arrêt de la course (v3.1)
+# Nature du premier arrêt (v3.1, `Compteur.arret_premier`) : plafond ou part atteints (compteur, ou garde du registre des commandes
+# lue en code 4 à moins d'un pire cas par appel), refus de budget loin du plafond (code 4), durée maximale, « relais perdu ».
+NATURES_D_ARRET = ("plafond", "part", "refus_de_budget", "duree", "relais_perdu")
 CAUSES_HORS_BASCULE = ("relais", "budget")  # un relais en panne ou un budget refusé n'est pas un modèle indisponible : aucune bascule
 CAUSES = ("relais", "budget", "modele", "delai", "autre", "loi_invalide")
-# Attente sur relais injoignable (texte v3, section 4) : un appel en cause « relais » à coût plancher (rien n'a été envoyé) ne
-# consomme pas la tentative ; attentes croissantes puis 300 s, au plus 30 min cumulées par tentative ; « relais perdu » = arrêt
-# après `relais_perdu_s` d'attente cumulée par fournisseur (valeur du bloc plan-gele ; None = aucun arrêt sur relais).
+# Attente sur relais ou interface en panne (texte v3, section 4 ; v3.1) : un appel en cause « relais » (code 3), **à coût plancher
+# (rien n'a été envoyé) comme au pire cas (interface en panne, appel coupé après envoi)**, ne consomme pas la tentative ; attentes
+# croissantes puis 300 s, au plus 30 min cumulées par tentative ; « relais perdu » = arrêt après `relais_perdu_s` d'attente cumulée
+# par fournisseur (valeur du bloc plan-gele ; None = aucun arrêt sur relais). `COUT_PLANCHER_USD` ne décide plus de l'attente
+# (v3 : seul le plancher attendait) ; il qualifie l'appel au journal des motifs (« relais injoignable » ou « interface en panne »).
 COUT_PLANCHER_USD = 1e-5
 ATTENTES_RELAIS_S = (15.0, 30.0, 60.0, 120.0, 300.0)
 ATTENTE_MAX_PAR_TENTATIVE_S = 1800.0
@@ -206,16 +227,23 @@ def table_des_grilles():
 class Compteur(ag.Compteur):
     """Dépense et durée partagées entre tous les fils de tous les fournisseurs, sous verrou (`compter` et `verifier`) ; part
     du plafond = plafond / nombre de fournisseurs ; comptes par (fournisseur, modèle demandé) : appels, réussis, en échec,
-    USD, durées ; en mode essai, `appels_max` appels par fournisseur (`LimiteAppelsEssai`, pas un arrêt)."""
+    USD, durées ; en mode essai, `appels_max` appels par fournisseur (`LimiteAppelsEssai`, pas un arrêt).
+    v3.1 : `pire_cas_par_appel_usd` (budget par appel de la configuration, borne du pire cas que réserve une commande) qualifie un
+    refus de budget (code 4) ; `arret_premier` garde la nature et le motif du premier arrêt, jamais écrasés par un arrêt suivant."""
 
-    def __init__(self, plafond_usd, duree_max_s, horloge, fournisseurs, appels_max=None, relais_perdu_s=None, dormir=time.sleep):
+    def __init__(self, plafond_usd, duree_max_s, horloge, fournisseurs, appels_max=None, relais_perdu_s=None, dormir=time.sleep,
+                 pire_cas_par_appel_usd=None):
         self.fournisseurs = verifier_fournisseurs(fournisseurs)
         super().__init__(plafond_usd, duree_max_s, horloge, fournisseurs=noms(self.fournisseurs))
         if appels_max is not None and not _entier(appels_max, 1, 10 ** 6):
             raise AttaqueRefusee("appels_max : entier ≥ 1 (mode essai) ou None")
         if relais_perdu_s is not None and (not ag._reel(relais_perdu_s, 0.0) or not relais_perdu_s > 0):
             raise AttaqueRefusee("relais_perdu_s : réel > 0 (arrêt « relais perdu ») ou None (aucun arrêt sur relais)")
+        if pire_cas_par_appel_usd is not None and (not ag._reel(pire_cas_par_appel_usd, 0.0) or not pire_cas_par_appel_usd > 0):
+            raise AttaqueRefusee("pire_cas_par_appel_usd : réel fini > 0 (budget par appel) ou None (inconnu, à blanc)")
         self.appels_max, self.relais_perdu_s, self.dormir = appels_max, relais_perdu_s, dormir
+        self.pire_cas_par_appel_usd = None if pire_cas_par_appel_usd is None else float(pire_cas_par_appel_usd)
+        self.arret_premier = None
         self.appels_par_fournisseur = {f: 0 for f in self.par_fournisseur}
         self.appels_reserves = {f: 0 for f in self.par_fournisseur}
         self.par_modele = {f: {} for f in self.par_fournisseur}
@@ -233,22 +261,70 @@ class Compteur(ag.Compteur):
                 raise ArretAttaque("arrêt demandé par un autre fil (liste d'arrêt)")
             cumul = self.attente_relais_s[fournisseur] + float(attente_s)
             if self.relais_perdu_s is not None and cumul > self.relais_perdu_s:
-                self.arret.set()
-                raise ArretAttaque(f"relais perdu : {fournisseur} ({self.attente_relais_s[fournisseur]:.0f} s d'attente cumulée, la "
-                                   f"prochaine attente de {attente_s:.0f} s dépasserait {self.relais_perdu_s:.0f} s)")
+                motif = (f"relais perdu : {fournisseur} ({self.attente_relais_s[fournisseur]:.0f} s d'attente cumulée, la "
+                         f"prochaine attente de {attente_s:.0f} s dépasserait {self.relais_perdu_s:.0f} s)")
+                self._noter_arret("relais_perdu", motif, fournisseur)
+                raise ArretAttaque(motif)
             self.attente_relais_s[fournisseur] = cumul
             self.attentes_relais[fournisseur] += 1
         self.dormir(float(attente_s))
 
+    def _noter_arret(self, nature, motif, fournisseur=None):
+        """(Verrou tenu par l'appelant.) Lève le drapeau d'arrêt et garde le **premier** arrêt (nature, motif, fournisseur, instant
+        depuis le début, dépense comptée) ; un arrêt suivant (« arrêt demandé par un autre fil », second refus) ne l'écrase jamais."""
+        if self.arret_premier is None:
+            self.arret_premier = {"nature": nature, "motif": motif, "fournisseur": fournisseur,
+                                  "apres_s": round(self.horloge() - self.debut, 1), "depense_usd": round(self.usd, 6),
+                                  "depense_du_fournisseur_usd": round(self.par_fournisseur.get(fournisseur, 0.0), 6) if fournisseur else None,
+                                  "plafond_usd": self.plafond, "part_usd": self.part}
+        self.arret.set()
+
+    def _verifier_et_noter(self, fournisseur):
+        """(Verrou tenu.) Les gardes de la v2 (`attaque_goodhart_v2.Compteur.verifier` : arrêt d'un autre fil, plafond ou part,
+        durée) ; un arrêt qu'elles prononcent est noté avec sa nature (plafond, part ou durée) avant d'être relevé."""
+        premier = self.arret_premier is None and not self.arret.is_set()
+        try:
+            super().verifier(fournisseur)
+        except ArretAttaque as e:
+            if premier:
+                nature = ("duree" if "durée maximale" in str(e) else "plafond" if self.usd >= self.plafond else "part")
+                self._noter_arret(nature, str(e), fournisseur)
+            raise
+
     def verifier(self, fournisseur=None):
         with self.verrou:
-            super().verifier(fournisseur)
+            self._verifier_et_noter(fournisseur)
+
+    def arreter_sur_refus_de_budget(self, fournisseur):
+        """v3.1 (B1, VL-04) : appelé par `appeler` après un refus de budget avant l'envoi (code 4, déjà compté) ; lève toujours
+        `ArretAttaque` — jamais une suite de refus. Qualification : « plafond » si le compteur est à moins d'un pire cas par appel
+        du plafond, « part » s'il l'est de la part du fournisseur (la garde du registre des commandes refuse dès que réglé +
+        engagé + pire cas dépasseraient son plafond, donc avant le compteur ; le compteur compte au moins ce que le registre
+        règle et engage) ; « refus_de_budget » sinon, ou si le pire cas par appel est inconnu (arrêt d'infrastructure loin du
+        plafond : plafond propre du relais en 402, `--max-appels` en 429, plafond de session, registre étranger)."""
+        with self.verrou:
+            marge, usd, pf = self.pire_cas_par_appel_usd, self.usd, self.par_fournisseur[fournisseur]
+            base = (f"refus de budget avant l'envoi (code 4) pour {fournisseur} : {usd:.4f} USD comptés sur {self.plafond:g} (part de "
+                    f"{fournisseur} : {pf:.4f} sur {self.part:.2f}), pire cas par appel "
+                    + (f"{marge:g} USD" if marge is not None else "inconnu"))
+            if marge is not None and usd + marge > self.plafond:
+                nature, motif = "plafond", (f"plafond de dépense atteint : {base} ; garde du registre des commandes (réglé + engagé + "
+                                            "pire cas > plafond) ; arrêt au plafond, aucune tentative de plus")
+            elif marge is not None and pf + marge > self.part:
+                nature, motif = "part", (f"part du fournisseur atteinte : {base} ; garde d'étape du registre des commandes ; arrêt à la "
+                                         "part, aucune tentative de plus")
+            else:
+                nature, motif = "refus_de_budget", (f"refus de budget loin du plafond : {base} ; arrêt d'infrastructure (plafond propre "
+                                                    "du relais, --max-appels, plafond de session ou registre étranger), aucune "
+                                                    "tentative de plus")
+            self._noter_arret(nature, motif, fournisseur)
+        raise ArretAttaque(motif)
 
     def reserver_appel(self, fournisseur):
         """Avant chaque appel (`appeler`) : les gardes de `verifier`, puis, en mode essai, une réservation atomique d'un appel
         parmi `appels_max` (exacte sous plusieurs fils : `LimiteAppelsEssai` dès que la réserve est épuisée)."""
         with self.verrou:
-            super().verifier(fournisseur)
+            self._verifier_et_noter(fournisseur)
             if self.appels_max is not None:
                 if self.appels_reserves[fournisseur] >= self.appels_max:
                     raise LimiteAppelsEssai(f"mode essai : {self.appels_max} appels atteints pour {fournisseur}")
@@ -303,14 +379,17 @@ def appeler(proposeur, texte_consigne, compteur, fournisseur, modele, journal, e
     """`essais` appels consommés au plus (2 = règle v2 : une reprise consignée) du proposeur sous le modèle `modele` ; chaque appel
     écrit au journal son modèle demandé, son modèle servi, son statut, son coût, sa durée, le code de sortie de la commande, la
     cause de l'échec, `cout_inconnu` et `attente_s`. Rend (texte brut ou None, motif). Le texte brut ne sert qu'en mémoire (C10).
-    - Code de sortie 4 (budget refusé par le registre de dépense **avant** l'envoi) : « budget_depasse » (compte à part, A7,
-      motif propre), jamais « échouée » — la v2 le comptait « erreur » puis « échouée » (`pole/adaptateurs.py:751-760`,
-      `pole/attaque_goodhart_v2.py:505-510`) ; ne compte jamais pour la bascule.
-    - Cause « relais » (code 3) **à coût plancher** (≤ `COUT_PLANCHER_USD` : rien n'a été envoyé) : la tentative n'est pas consommée ;
-      attente croissante (`ATTENTES_RELAIS_S`, puis 300 s), au plus `ATTENTE_MAX_PAR_TENTATIVE_S` cumulées par tentative, chaque
-      appel en attente écrit avec son `attente_s` et compté dans `attentes_relais` (ni dans `reprises`, ni comme tentative) ; au-delà,
-      tentative « échouée (relais) » ; l'arrêt « relais perdu » est prononcé par `Compteur.attendre_relais` sur le cumul par
-      fournisseur, jamais sur un appel. Cause « relais » à coût non plancher (appel coupé), « delai », « modele », « autre » : règle v2.
+    - Code de sortie 4 (budget refusé **avant** l'envoi : garde du registre des commandes, plafond propre du relais, plafond de
+      session) : « budget_depasse » (compté à part, A7), écrit au journal, puis **arrêt de la course** (v3.1,
+      `Compteur.arreter_sur_refus_de_budget`, `ArretAttaque`) : ni reprise, ni tentative de plus, jamais une suite de refus — la v3
+      reprenait une fois puis refusait la tentative et continuait ; la v2 le comptait « erreur » puis « échouée »
+      (`pole/adaptateurs.py:751-760`, `pole/attaque_goodhart_v2.py:505-510`) ; ne compte jamais pour la bascule.
+    - Cause « relais » (code 3), **à coût plancher (rien n'a été envoyé) comme au pire cas (interface en panne rendue par le relais,
+      appel coupé après envoi ; v3.1) ou à coût inconnu** : la tentative n'est pas consommée ; attente croissante (`ATTENTES_RELAIS_S`,
+      puis 300 s), au plus `ATTENTE_MAX_PAR_TENTATIVE_S` cumulées par tentative, chaque appel en attente écrit avec son `attente_s`
+      et compté dans `attentes_relais` (ni dans `reprises`, ni comme tentative) ; au-delà, tentative « échouée (relais) » ; l'arrêt
+      « relais perdu » est prononcé par `Compteur.attendre_relais` sur le cumul par fournisseur, jamais sur un appel (l'attente
+      refusée n'est pas écrite comme faite). « delai », « modele », « autre » : règle v2 (une reprise, puis « échouée »).
     - Statut « ok » au texte vide : échec imputable au proposeur, cause « autre », statut gardé (la suite est « jouée »)."""
     essai, attente_cumulee, rang = 0, 0.0, 0
     while True:
@@ -332,16 +411,24 @@ def appeler(proposeur, texte_consigne, compteur, fournisseur, modele, journal, e
         if texte_ok:
             journal.append(entree)
             return texte, None
-        if cause == "relais" and cout <= COUT_PLANCHER_USD:
+        if code == CODE_BUDGET_REFUSE and statut != "ok":
+            journal.append(entree)
+            compteur.arreter_sur_refus_de_budget(fournisseur)  # v3.1 : lève toujours ArretAttaque (plafond, part ou refus de budget)
+        if cause == "relais":  # v3.1 : code 3 à coût plancher, au pire cas ou inconnu
             if attente_cumulee >= ATTENTE_MAX_PAR_TENTATIVE_S:
                 journal.append(entree)
-                return None, (f"tentative échouée (relais) : relais toujours injoignable après {attente_cumulee:.0f} s d'attente "
+                quoi = "relais injoignable" if cout <= COUT_PLANCHER_USD else "relais ou interface en panne"
+                return None, (f"tentative échouée (relais) : {quoi} (code 3) après {attente_cumulee:.0f} s d'attente "
                               f"cumulée (plafond {ATTENTE_MAX_PAR_TENTATIVE_S:.0f} s par tentative)")
             attente = min(ATTENTES_RELAIS_S[min(rang, len(ATTENTES_RELAIS_S) - 1)], ATTENTE_MAX_PAR_TENTATIVE_S - attente_cumulee)
             rang += 1
             entree["attente_s"] = attente
             journal.append(entree)
-            compteur.attendre_relais(fournisseur, attente)  # peut lever ArretAttaque (« relais perdu »)
+            try:
+                compteur.attendre_relais(fournisseur, attente)  # peut lever ArretAttaque (« relais perdu »)
+            except ArretAttaque:
+                entree["attente_s"] = 0.0  # l'arrêt est prononcé avant l'attente : elle n'a pas eu lieu
+                raise
             attente_cumulee += attente
             continue  # la tentative n'est pas consommée
         journal.append(entree)
@@ -386,6 +473,7 @@ def jouer_suite(proposeur, c, fournisseur, condition, juge, entropie, compteur, 
     historique, tentatives, premiere = [], [], None
     suite = {"monde": c["monde_nom"], "carte": c["index"], "fournisseur": fournisseur, "modele": modele, "repli": bool(repli),
              "condition": condition, "juge": juge, "premiere_promotion": None, "tentatives": tentatives}
+    k, texte_consigne, journal = 0, "", []
     try:
         for k in range(1, n_max + 1):
             texte_consigne = ag.consigne(c, historique, condition, k, juge)
@@ -429,6 +517,10 @@ def jouer_suite(proposeur, c, fournisseur, condition, juge, entropie, compteur, 
             if premiere is not None:
                 break
     except ArretAttaque as e:
+        if journal and not (tentatives and tentatives[-1]["appels"] is journal):  # v3.1 : la tentative en cours reste dans la trace
+            tentatives.append({"k": k, "appels": journal, "loi": None, "motif_invalidite": f"tentative interrompue par l'arrêt : {e}",
+                               "retour_lu": None, "consigne_sha256": hashlib.sha256(texte_consigne.encode("utf-8")).hexdigest(),
+                               "reponse_caviardee": None, "verdict": None, "interrompue": True})
         suite["premiere_promotion"] = premiere
         suite["interrompue"] = True
         e.partiel.setdefault("suites", []).append(suite)
@@ -450,7 +542,9 @@ def jouer_unite(proposeur, spec, c, entropie, compteur, n_max=N_MAX, essais_avan
     d'abord ; si le fournisseur déclare un repli et que la première tentative de la première suite échoue `essais_avant_repli`
     fois de suite (statuts « erreur » ou « refus »), l'unité **recommence depuis son début** sous le repli (rien de la
     tentative échouée n'est gardé hors du journal `appels_avant_repli`, écrit sur chaque suite) ; jamais de bascule après
-    le premier appel réussi ni au milieu d'une unité ; sans repli déclaré, la règle v2 s'applique. Rend la liste des suites."""
+    le premier appel réussi ni au milieu d'une unité ; sans repli déclaré, la règle v2 s'applique. Rend la liste des suites.
+    v3.1 : à un arrêt (`ArretAttaque`) au milieu de l'unité, ses suites déjà finies sont rattachées à la trace partielle (la v3 ne
+    gardait que la suite interrompue : les appels des suites finies manquaient à la trace scellée)."""
     if not _entier(essais_avant_repli, 1, ESSAIS_AVANT_REPLI_MAX):
         raise AttaqueRefusee(f"essais_avant_repli : entier dans [1 ; {ESSAIS_AVANT_REPLI_MAX}]")
     f = spec["nom"]
@@ -464,10 +558,17 @@ def jouer_unite(proposeur, spec, c, entropie, compteur, n_max=N_MAX, essais_avan
         modele, repli, avant = spec["repli"], True, b.journal
         compteur.compter_repli(f)
         suites = [jouer_suite(proposeur, c, f, SUITES[0][0], SUITES[0][1], entropie, compteur, modele, True, n_max)]
-    for condition, juge in SUITES[1:]:
-        if suites[-1].get("interrompue") not in (None, False):
-            break
-        suites.append(jouer_suite(proposeur, c, f, condition, juge, entropie, compteur, modele, repli, n_max))
+    try:
+        for condition, juge in SUITES[1:]:
+            if suites[-1].get("interrompue") not in (None, False):
+                break
+            suites.append(jouer_suite(proposeur, c, f, condition, juge, entropie, compteur, modele, repli, n_max))
+    except ArretAttaque as e:  # v3.1 : les suites déjà finies de l'unité en cours restent dans la trace partielle
+        for s in suites:
+            if avant is not None:
+                s["appels_avant_repli"] = avant
+        e.partiel.setdefault("suites", []).extend(suites)
+        raise
     for s in suites:
         if avant is not None:
             s["appels_avant_repli"] = avant
@@ -479,14 +580,22 @@ class ProposeurScripte:
     """Proposeur à blanc (sans réseau) à modèle : `(texte_consigne, modele)` → (texte, coût, statut, modèle servi). Le texte
     vient de `attaque_goodhart_v2.ProposeurScripte` ; le modèle servi est le modèle demandé ; `pannes` = {modèle : ensemble
     des numéros d'appel (de ce modèle) en échec, ou « * » pour tous} ; `statut_echec` « erreur », « refus » ou
-    « budget_depasse » ; `cout_par_modele` pour les devis à blanc."""
+    « budget_depasse » ; `cout_par_modele` pour les devis à blanc. v3.1 : `cout_coupure_usd` = coût des appels de la coupure
+    scriptée (0 : code 3 au plancher, relais injoignable ; > 0 : code 3 au pire cas, interface en panne) ; `registre_plafond_usd` et
+    `pire_cas_usd` simulent la garde du registre des commandes (réglé + pire cas réservé > plafond → code 4 au plancher, rien
+    envoyé, rien réglé ; réglé = somme des coûts rendus)."""
 
     def __init__(self, mode="sortant", echo=True, cout_par_appel=0.0, pannes=None, statut_echec="erreur", cout_par_modele=None,
-                 servi=None, code_echec=None, coupure_relais_s=None, horloge=time.time, muet=False):
+                 servi=None, code_echec=None, coupure_relais_s=None, horloge=time.time, muet=False, cout_coupure_usd=0.0,
+                 registre_plafond_usd=None, pire_cas_usd=None):
         self.interne = ag.ProposeurScripte(mode, echo=echo, cout_par_appel=cout_par_appel)
         self.pannes, self.statut_echec, self.code_echec = dict(pannes or {}), statut_echec, code_echec
         self.cout_par_modele, self.servi = dict(cout_par_modele or {}), dict(servi or {})
         self.coupure_relais_s, self.horloge, self.muet, self.debut = coupure_relais_s, horloge, bool(muet), None
+        self.cout_coupure_usd = float(cout_coupure_usd or 0.0)
+        if (registre_plafond_usd is None) != (pire_cas_usd is None):
+            raise AttaqueRefusee("registre simulé : registre_plafond_usd et pire_cas_usd ensemble, ou aucun")
+        self.registre_plafond_usd, self.pire_cas_usd, self.regle_usd = registre_plafond_usd, pire_cas_usd, 0.0
         self.appels_par_modele, self.verrou = {}, threading.Lock()
 
     def __call__(self, texte_consigne, modele):
@@ -494,10 +603,24 @@ class ProposeurScripte:
             n = self.appels_par_modele[modele] = self.appels_par_modele.get(modele, 0) + 1
             if self.debut is None:
                 self.debut = self.horloge()
+            if self.registre_plafond_usd is not None and self.regle_usd + self.pire_cas_usd > self.registre_plafond_usd + 1e-9:
+                # garde du registre des commandes simulée : réservation refusée, rien envoyé, rien réglé (code 4 au plancher)
+                return "", 1e-6, "erreur", None, {"code_sortie": 4, "erreur": (
+                    f"commande externe : code 4 : garde cumulée simulée : {self.regle_usd:.4f} réglés + pire cas {self.pire_cas_usd:g} > "
+                    f"{self.registre_plafond_usd:g} USD : appel refusé, rien envoyé")}
+        r = self._repondre(texte_consigne, modele, n)
+        if self.registre_plafond_usd is not None:
+            with self.verrou:
+                self.regle_usd += float(r[1])
+        return r
+
+    def _repondre(self, texte_consigne, modele, n):
         cout = float(self.cout_par_modele.get(modele, self.interne.cout))
         if self.coupure_relais_s is not None and self.horloge() - self.debut < self.coupure_relais_s:
-            # relais coupé pendant `coupure_relais_s` depuis le premier appel : code 3 à coût plancher (rien n'a été envoyé)
-            return "", 0.0, "erreur", None, {"code_sortie": 3, "erreur": "commande externe : code 3 : relais injoignable (coupure scriptée)"}
+            # coupure pendant `coupure_relais_s` depuis le premier appel : code 3, au plancher (relais injoignable, rien envoyé) ou,
+            # si `cout_coupure_usd` > 0, au pire cas (interface en panne rendue par le relais, appel envoyé)
+            quoi = "relais injoignable" if self.cout_coupure_usd <= COUT_PLANCHER_USD else "interface en panne, pire cas compté"
+            return "", self.cout_coupure_usd, "erreur", None, {"code_sortie": 3, "erreur": f"commande externe : code 3 : {quoi} (coupure scriptée)"}
         p = self.pannes.get(modele)
         if p == "*" or (p is not None and n in p):
             if self.muet:  # commande muette à l'échec : aucune ligne de coût, l'adaptateur v2 compterait le plafond de session
@@ -637,7 +760,8 @@ def jouer_tout(proposeurs, entropie, plan, compteur, decisif=False, parallele=Tr
         if len(arrets) != len(erreurs):
             raise next(e for e in erreurs if not isinstance(e, ArretAttaque))
         partielles = [s for e in arrets for s in e.partiel.get("suites", [])]
-        raise ArretAttaque(str(arrets[0]), {"suites": sorted(suites + partielles, key=cle_suite), "rejeux": [], "audits": []})
+        motif = (getattr(compteur, "arret_premier", None) or {}).get("motif") or str(arrets[0])  # v3.1 : le premier arrêt, pas un écho
+        raise ArretAttaque(motif, {"suites": sorted(suites + partielles, key=cle_suite), "rejeux": [], "audits": []})
     suites.sort(key=cle_suite)
     if plan["mode"] == "essai":
         return suites, [], []
@@ -1070,16 +1194,27 @@ def description():
                 "du modèle principal sur la première tentative de la première suite ; l'unité recommence sous le repli ; "
                 "jamais au milieu d'une unité ; jamais sur un relais en panne (code 3) ni un budget refusé (code 4) ; unités de "
                 "repli étiquetées et comptées à part (colonnes « <nom>-repli ») ; modèle demandé et servi écrits à chaque appel"),
-            "code_4": ("refus du registre de dépense avant l'envoi : compté « budget_depasse » (A7, motif propre), jamais « échouée » ; "
-                       "la v2 le comptait « erreur » puis « échouée »"),
+            "code_4": ("refus de budget avant l'envoi : compté « budget_depasse » (A7), jamais « échouée », puis arrêt de la course "
+                       "(v3.1) ; la v3 reprenait une fois puis refusait la tentative et continuait ; la v2 le comptait « erreur » puis "
+                       "« échouée »"),
+            "regle_du_refus_de_budget": (
+                "v3.1 : le premier refus de budget avant l'envoi (code 4) arrête la course (ArretAttaque, code 3 du lanceur, trace "
+                "partielle scellée avec l'appel refusé, aucune tentative de plus, jamais une suite de refus) ; nature « plafond » si le "
+                "compteur est à moins d'un pire cas par appel (budget par appel de la configuration) du plafond, « part » s'il l'est "
+                "de la part du fournisseur (garde du registre des commandes : réglé + engagé + pire cas > plafond), « refus_de_budget » "
+                "sinon (arrêt d'infrastructure loin du plafond : plafond propre du relais, --max-appels, plafond de session, registre "
+                "étranger)"),
+            "natures_d_arret": list(NATURES_D_ARRET),
             "unites_sans_loi": "mesure déclarée par case et par unité (cause dominante), sans effet sur la lecture",
             "regle_des_unites_jouees": ("une suite est non jouée si aucun de ses appels n'a le statut ok ; elle sort du dénominateur de sa "
                                         "case, de l'instrument (lois distinctes sur les tentatives répondues) et des paires ; comptes de "
                                         "lecture regles_de_lecture(u, ε) sur u jouées ; issue 6 « non jugeable (bras perdu) » si l'une des "
                                         "quatre cases du monde a moins de la moitié de ses unités jouées ; ordre 2, 6, 1, 3, 4, 5 ; audit A9"),
-            "regle_de_l_attente": (f"cause relais à coût ≤ {COUT_PLANCHER_USD:g} USD : tentative non consommée, attentes {ATTENTES_RELAIS_S} puis "
+            "regle_de_l_attente": (f"cause relais (code 3), à coût plancher (≤ {COUT_PLANCHER_USD:g} USD, rien envoyé), au pire cas (interface en "
+                                   f"panne, appel coupé après envoi ; v3.1) ou inconnu : tentative non consommée, attentes {ATTENTES_RELAIS_S} puis "
                                    f"300 s, au plus {ATTENTE_MAX_PAR_TENTATIVE_S:.0f} s par tentative ; relais perdu = arrêt code 3 quand le cumul "
-                                   "par fournisseur dépasserait relais_perdu_h du plan (« aucun » : aucun arrêt sur relais)"),
+                                   "par fournisseur dépasserait relais_perdu_h du plan (« aucun » : aucun arrêt sur relais) ; delai, modele, "
+                                   "autre : règle v2, sans attente"),
             "regle_du_cout_inconnu": ("commande muette à l'échec : plafond de session compté par l'adaptateur v2 (cout_inconnu), "
                                       "compté dans appels_cout_inconnu et cout_inconnu_usd, jamais en silence"),
             "unites_correlees": "quatre unités par carte (quatre fournisseurs sur la même carte) sont plus corrélées que deux : "

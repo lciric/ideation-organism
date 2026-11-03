@@ -6,6 +6,10 @@ Cibles : le cœur `pole/attaque_goodhart_v3.py` et le lanceur `demonstrations/at
 essais). Aucun fichier n'est modifié ; aucune mutation ne peut lancer une course réelle (les essais du chemin réel n'utilisent
 que des commandes factices locales). Les gardes de la v2 restent couvertes par le banc v2.
 
+v3.1 (nuit du 2 au 3 novembre 2026) : mutations 41 à 49 (attente sur code 3 au pire cas, arrêt sur refus de budget, qualification « plafond »,
+substitutions exigées, `relais_perdu_h` fini, marqueur à chiffres, trace partielle complète, premier arrêt jamais écrasé) ;
+24, 28 et 29 réalignées sur le code v3.1.
+
   python3 -I -B essais/mutations_attaque_goodhart_v3.py [--raisons]      (depuis orchestrator/ ; une ligne par mutation)
 """
 
@@ -120,7 +124,7 @@ MUTATIONS = [
      [T + "EtapeDeDepense.test_cas_sain_v3_une_etape_par_fournisseur_chacun_sa_part_entiere"], r"\(79, 0\) != \(79, 79\)"),
     ("code de sortie 4 compté « erreur » puis « échouée » (comportement v2)", A3, "appeler",
      "        if statut != \"ok\" and code == CODE_BUDGET_REFUSE:\n", "        if False:\n",
-     [T + "CodesDeSortie.test_code_4_compte_budget_depasse_motif_propre_a7"], r"\['erreur', 'erreur'\] != \['budget_depasse', 'budget_depasse'\]"),
+     [T + "CodesDeSortie.test_code_4_compte_budget_depasse_puis_arret"], r"\['erreur'\] != \['budget_depasse'\]"),
     ("bascule sur un relais en panne ou un budget refusé", A3, "_echecs_consecutifs_pour_bascule",
      ' and a.get("cause") not in CAUSES_HORS_BASCULE for a in journal)', " for a in journal)",
      [T + "CodesDeSortie.test_bascule_jamais_sur_relais_ni_budget"], r"code=3[\s\S]*True != False"),
@@ -133,11 +137,11 @@ MUTATIONS = [
      [T + "UnitesSansLoi.test_mesure_par_case_et_cause_dominante"], r"'sans_loi': 1[\s\S]*!= [\s\S]*'sans_loi': 2"),
     # --- attente sur relais, relais perdu, coût inconnu, unités jouées, issue 6, A9 (texte v3, section 8) ---
     ("attente retirée : tentative consommée sur code 3 à coût plancher", A3, "appeler",
-     "        if cause == \"relais\" and cout <= COUT_PLANCHER_USD:\n", "        if False:\n",
+     "        if cause == \"relais\":  # v3.1 : code 3 à coût plancher, au pire cas ou inconnu\n", "        if False:\n",
      [T + "RelaisInjoignable.test_attente_puis_loi"], r"test_attente_puis_loi[\s\S]*unexpectedly None"),
     ("arrêt sur un seul appel en code 3", A3, "appeler",
-     "            compteur.attendre_relais(fournisseur, attente)  # peut lever ArretAttaque (« relais perdu »)\n",
-     '            raise ArretAttaque(f"relais injoignable : {fournisseur}")\n',
+     "                compteur.attendre_relais(fournisseur, attente)  # peut lever ArretAttaque (« relais perdu »)\n",
+     '                raise ArretAttaque(f"relais injoignable : {fournisseur}")\n',
      [T + "RelaisInjoignable.test_attente_puis_loi"], r"ArretAttaque: relais injoignable"),
     ("« relais perdu » retiré", A3, "Compteur",
      "            if self.relais_perdu_s is not None and cumul > self.relais_perdu_s:\n", "            if False:\n",
@@ -176,6 +180,36 @@ MUTATIONS = [
      "    declenche = False\n", [T + "UnitesNonJouees.test_trois_non_jouees_comptes_et_A9"], r"test_trois_non_jouees[\s\S]*False is not true"),
     ("« aucun » lu comme 2 h (option ii impossible)", L, "lire_relais_perdu", "        return None\n", "        return 7200.0\n",
      [T + "LanceurPlan.test_plan_de_course_lu_du_texte"], r"7200\.0 is not None"),
+    # --- v3.1 : B1 (contre-lecture du brouillon 3), VL-01, VL-02, VL-04 (vérification du lanceur), marqueur, trace partielle ---
+    ("code 3 au pire cas sans attente (v3 : seul le plancher attendait ; B1)", A3, "appeler",
+     "        if cause == \"relais\":  # v3.1 : code 3 à coût plancher, au pire cas ou inconnu\n",
+     "        if cause == \"relais\" and cout <= COUT_PLANCHER_USD:\n",
+     [T + "DelaiEtAppelCoupe.test_code_3_cout_pire_cas_attend_comme_au_plancher"], r"cout=1\.61[\s\S]*unexpectedly None"),
+    ("refus de budget (code 4) sans arrêt : suite de refus jusqu'à la fin (v3 ; B1, VL-04)", A3, "appeler",
+     "        if code == CODE_BUDGET_REFUSE and statut != \"ok\":\n            journal.append(entree)\n"
+     "            compteur.arreter_sur_refus_de_budget(fournisseur)  # v3.1 : lève toujours ArretAttaque (plafond, part ou refus de budget)\n",
+     "", [T + "ArretAuPlafond.test_garde_du_registre_au_plafond_arrete_la_course"], r"ArretAttaque not raised"),
+    ("arrêt au plafond qualifié « part » (marge du pire cas ignorée)", A3, "Compteur",
+     "            if marge is not None and usd + marge > self.plafond:\n", "            if False:\n",
+     [T + "ArretAuPlafond.test_garde_du_registre_au_plafond_arrete_la_course"], r"does not match \"part du fournisseur atteinte"),
+    ("substitutions des commandes du plan non exigées (VL-01)", L, "reglages_de_configuration",
+     "        exiger_substitutions(n, f[\"commande\"])  # v3.1 (VL-01)\n", "",
+     [T + "LanceurCheminReel.test_substitutions_des_commandes_exigees"], r"cas='registre à chemin fixe \(sans jeton\)'[\s\S]*not raised"),
+    ("relais_perdu_h infini accepté (VL-02 : condition de la v3)", L, "lire_relais_perdu",
+     "    if not math.isfinite(h) or not h > 0 or not math.isfinite(h * 3600.0):\n", "    if not h > 0:\n",
+     [T + "LanceurPlan.test_artefacts_du_plan"], r"cas='relais_perdu_h infini'[\s\S]*not raised"),
+    ("marqueur à chiffres non vu (motif de la v2)", L, "lire_preenregistrement",
+     "    restants = sorted(set(MARQUEUR.findall(texte)))\n", "    restants = sorted(set(l2.MARQUEUR.findall(texte)))\n",
+     [T + "LanceurPreenregistrement.test_artefacts_isoles"], r"cas='marqueur à chiffres \(v3\.1\)'[\s\S]*not raised"),
+    ("tentative interrompue retirée de la trace partielle", A3, "jouer_suite",
+     "        if journal and not (tentatives and tentatives[-1][\"appels\"] is journal):  # v3.1 : la tentative en cours reste dans la trace\n",
+     "        if False:\n", [T + "ArretAuPlafond.test_garde_du_registre_au_plafond_arrete_la_course"], r"KeyError: 'interrompue'"),
+    ("suites finies de l'unité en cours perdues à l'arrêt (trace partielle v3)", A3, "jouer_unite",
+     "        e.partiel.setdefault(\"suites\", []).extend(suites)\n", "        pass\n",
+     [T + "ArretAuPlafond.test_garde_du_registre_au_plafond_arrete_la_course"], r"\d+ != 18"),
+    ("nature du premier arrêt écrasée par un arrêt suivant", A3, "Compteur",
+     "        if self.arret_premier is None:\n", "        if True:\n",
+     [T + "ArretAuPlafond.test_premier_arret_jamais_ecrase_et_natures"], r"\('refus_de_budget', 1\.0\) != \('plafond', 1\.0\)"),
 ]
 
 
