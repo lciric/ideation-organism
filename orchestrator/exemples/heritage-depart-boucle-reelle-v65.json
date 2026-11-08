@@ -1,0 +1,32 @@
+{
+  "generation": 0,
+  "lois": {
+    "K1": {
+      "loi": {
+        "biais": [
+          0.0,
+          0.941698,
+          0.721847
+        ],
+        "poids": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            -0.834964,
+            0.0
+          ],
+          [
+            -0.242046,
+            0.0
+          ]
+        ],
+        "type": "softmax"
+      },
+      "statut": "connue, déclarée"
+    }
+  },
+  "regle": "génération 0 déclarée, scellée par son empreinte dans le texte scellé de la course : la loi K1 est connue et déclarée d'avance (aucun test de mort) ; elle est membre du nul de toute loi jugée en génération 1 et visible des proposeurs ; aucune autre loi",
+  "version": "heritage-depart-v65"
+}
