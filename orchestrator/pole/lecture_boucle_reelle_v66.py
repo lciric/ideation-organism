@@ -7,9 +7,10 @@ Corrections de la contre-lecture du code v65 (`contre-lecture-code-v65-v2.md`, `
 CLV65-01 **Complétude exigée avant toute issue autre que C5** (`completude`) : deux générations jouées, un étage par génération,
     membres attendus des deux générations (> 0) ; V1 à V4, T-ELIM et T-MAL une fois chacune en génération 1 ; F1 à F4 une fois
     chacune dans chaque génération ; autant de copies que le plus petit de quatre et du nombre de retenues de la génération 1,
-    chacune d'une retenue ; **chaque fausse et chaque copie passée au gardien et jugée** (membres d'archive = membres attendus de
-    sa génération, log W maximal présent) ; toute loi plantée passée au gardien jugée de même ; vue servie consignée pour les deux
-    générations ; sélection finale relue. Sinon **C5 « relevé incomplet »**, manques écrits. L'audit A1 ne lit plus un log W
+    chacune d'une retenue ; **chaque fausse et chaque copie passée au gardien et jugée** (nombre de membres d'archive consigné,
+    log W maximal présent) ; toute loi plantée passée au gardien jugée de même ; en génération 1, membres d'archive de chaque loi
+    plantée = ceux qu'impose {K1} (garde 18 ; en génération 2, l'écart relève de P6, donc de C4, comme le dit la ligne C4 du
+    texte) ; vue servie consignée pour les deux générations ; sélection finale relue. Sinon **C5 « relevé incomplet »**, manques écrits. L'audit A1 ne lit plus un log W
     absent comme « ≤ 0 » (il est faux).
 CLV65-02 (b) **Héritage refusé lu comme un écart** : `lecture_selection.refus` (empreinte attendue, empreinte sur disque, motif)
     est un écart de P6 ; sous C5, « C4 (partielle) ». Les incidents de garde 7, 21 et 23 consignés par le cœur aussi.
@@ -72,10 +73,10 @@ def exiger_forme(releve):
     return releve
 
 
-def _jugee(p, attendus):
-    """Une loi plantée passée au gardien et jugée avec les membres d'archive de sa génération (log W maximal présent)."""
-    return (p.get("gardien") == "passe" and isinstance(attendus, int) and attendus > 0 and p.get("membres_d_archive") == attendus
-            and p.get("log_richesse_max") is not None)
+def _jugee(p):
+    """Une loi plantée passée au gardien et jugée : nombre de membres d'archive consigné, log W maximal présent."""
+    m = p.get("membres_d_archive")
+    return p.get("gardien") == "passe" and isinstance(m, int) and not isinstance(m, bool) and p.get("log_richesse_max") is not None
 
 
 def completude(releve):
@@ -107,13 +108,16 @@ def completude(releve):
         if c.get("source") not in retenues_g1:
             manques.append(f"copie {c.get('nom')} d'une carte que la génération 1 n'a pas retenue ({c.get('source')})")
     for p in _plantees(releve, noms=FAUSSES, copies=False) + copies:
-        if not _jugee(p, attendus.get(p.get("generation"))):
-            manques.append(f"{p.get('nom')} (génération {p.get('generation')}) non jugée avec l'archive de sa génération "
-                           f"(gardien {p.get('gardien')!r}, membres {p.get('membres_d_archive')!r} contre {attendus.get(p.get('generation'))!r}, "
-                           f"log W max {p.get('log_richesse_max')!r})")
+        if not _jugee(p):
+            manques.append(f"{p.get('nom')} (génération {p.get('generation')}) non jugée (gardien {p.get('gardien')!r}, membres "
+                           f"{p.get('membres_d_archive')!r}, log W max {p.get('log_richesse_max')!r})")
     for p in _plantees(releve, noms=VRAIES + INSTRUMENTS):
-        if p.get("gardien") == "passe" and not _jugee(p, attendus.get(p.get("generation"))):
-            manques.append(f"{p.get('nom')} passée au gardien mais non jugée avec l'archive de sa génération")
+        if p.get("gardien") == "passe" and not _jugee(p):
+            manques.append(f"{p.get('nom')} passée au gardien mais non jugée")
+    for p in _plantees(releve, 1):  # génération 1 : l'archive est {K1} ; un autre nombre de membres est le défaut de la v64 (garde 18)
+        if p.get("gardien") == "passe" and p.get("membres_d_archive") != attendus.get(1):
+            manques.append(f"{p.get('nom')} (génération 1) jugée avec {p.get('membres_d_archive')!r} membres d'archive ; {{K1}} en "
+                           f"impose {attendus.get(1)!r} (garde 18)")
     for g in ("1", "2"):
         if not isinstance((releve.get("vues_servies") or {}).get(g), dict):
             manques.append(f"vue servie aux proposeurs de la génération {g} non consignée")
@@ -157,10 +161,12 @@ def p6_ecarts(releve):
     v2 = vues.get("2")
     if isinstance(v2, dict) and sorted(v2.get("identifiants") or []) != attendue:
         ecarts.append(f"vue servie aux proposeurs de la génération 2 {sorted(v2.get('identifiants') or [])} ≠ {{K1}} ∪ retenues {attendue}")
+    # garde 7 lue : aucune loi plantée retenue ; les vues servies étant comparées exactement à {K1} et à {K1} ∪ retenues de la
+    # génération 1, une loi plantée servie est toujours vue par l'une de ces comparaisons ou par celle-ci
     plantes = {p.get("identifiant") for p in releve.get("plantees") or []} | {p.get("identifiant_servi") for p in releve.get("plantees") or []}
-    for g, v in sorted(vues.items()):
-        if isinstance(v, dict) and set(v.get("identifiants") or []) & plantes:
-            ecarts.append(f"loi plantée servie aux proposeurs en génération {g}")
+    for g, ret in sorted((releve.get("retenues") or {}).items()):
+        if set(ret or []) & plantes:
+            ecarts.append(f"loi plantée retenue en génération {g} (garde 7)")
     a2 = (releve.get("archives_de_jugement") or {}).get("2")
     if a2 is not None and sorted(a2) != attendue:
         ecarts.append(f"archive de jugement de la génération 2 {sorted(a2)} ≠ {{K1}} ∪ retenues {attendue}")

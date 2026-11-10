@@ -86,7 +86,8 @@ def _valeur(texte):
 
 def lire_part_d_enveloppe(cellule, part):
     """(montant de la part, total, {nom: montant}) d'une cellule « TOTAL USD (nom N, nom N[ ; texte sans nombre]) » ; lève
-    `GoRefuse` sur toute autre forme, sur un nombre qui n'est pas le montant d'une part nommée, sur un nom en double, sur une
+    `GoRefuse` sur toute autre forme, sur un nombre qui n'est pas le montant d'une part nommée, sur un nom en double (il laisse
+    moins de parts que de nombres), sur une
     somme des parts ≠ total (au centime) et sur une part demandée absente."""
     m = ENVELOPPE.match(cellule or "")
     if not m:
@@ -94,14 +95,9 @@ def lire_part_d_enveloppe(cellule, part):
     if c55.APPROX.search(cellule) or c55.PAR_UNITE.search(cellule):
         raise GoRefuse(f"A15 : plafond « {cellule} » : montant approché ou « par unité » refusé")
     total, dedans = _valeur(m.group(1)), m.group(2)
-    parts = {}
-    for nom, montant in PART.findall(dedans):
-        cle = nom.casefold()
-        if cle in parts:
-            raise GoRefuse(f"A15 : enveloppe « {cellule} » : part « {nom} » nommée deux fois")
-        parts[cle] = _valeur(montant)
-    if len(NOMBRE.findall(dedans)) != len(parts) or not parts:
-        raise GoRefuse(f"A15 : enveloppe « {cellule} » : nombre étranger aux parts nommées (ou aucune part) : refus")
+    parts = {nom.casefold(): _valeur(montant) for nom, montant in PART.findall(dedans)}
+    if len(NOMBRE.findall(dedans)) != len(parts) or not parts:  # un nom en double laisse moins de parts que de nombres
+        raise GoRefuse(f"A15 : enveloppe « {cellule} » : nombre étranger aux parts nommées, part nommée deux fois, ou aucune part : refus")
     if round(sum(parts.values()) * 100) != round(total * 100):
         raise GoRefuse(f"A15 : enveloppe « {cellule} » : somme des parts {sum(parts.values()):g} ≠ total {total:g} USD")
     cle = str(part).casefold()
