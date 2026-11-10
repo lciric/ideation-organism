@@ -1,0 +1,337 @@
+{
+ "_lisez_moi": "Configuration v6 de la plus petite course réelle de la boucle complète de l'organisme (code v66 ; GO-2026-11-08-02 ou part « organisme » de GO-2026-11-10-10 : 40 USD pour les modèles, parts Kimi 33 et Argon 7, et 5 USD pour la machine, 45 USD en tout). Copie de la configuration v5 (configuration-boucle-reelle-v5.json, sha256 bff138d8a30c57b898b84c5db49e00a501d15c158009deb12e697b9a13b0e322) ; ne changent que (CLV65-10 de la contre-lecture du code v65) : ce texte ; la section boucle_reelle_v65 devient boucle_reelle_v66, sans GO (le GO est lu dans le plan gelé du texte scellé seulement) ; les commandes v6 y sont nommées par des chemins RELATIFS au dossier de cette configuration (commandes-v6/…), et la commande lancée de chaque fournisseur porte le même chemin relatif, que le lanceur v66 résout en chemin absolu après avoir vérifié l'empreinte. Les pièces (pieces/…) sont celles de la v4, relatives au même dossier. Dossier de la course : cette configuration, pieces/ (six pièces de la v4) et commandes-v6/ (trois fichiers de la branche outils/commandes-tour-ferme-v1 du dépôt de travail, commit 12f9e0e38f2cf7adb61a9c3ddf0ee4c5c66556d9, R-1129). Aucune valeur n'est un seuil scientifique gelé.",
+ "racine_graines": 20261102,
+ "graines": {
+  "prefixe": "mc1"
+ },
+ "champs_fiche": [
+  "titre",
+  "hypothese",
+  "axe",
+  "quantite_lue",
+  "invariance",
+  "prediction",
+  "test_de_mort",
+  "cout"
+ ],
+ "champ_titre": "titre",
+ "champ_axe": "axe",
+ "budget": {
+  "plafond_usd": 40.0,
+  "arret_etape_usd": 9.0,
+  "portee_plafond": "course",
+  "etapes": [
+   {
+    "nom": "proposition",
+    "attendu_usd": 0.94,
+    "plafond_relais_usd": 2.5,
+    "role": "protegee"
+   },
+   {
+    "nom": "aiguillage",
+    "attendu_usd": 1.2,
+    "plafond_relais_usd": 2.6,
+    "role": "protegee"
+   },
+   {
+    "nom": "juges",
+    "attendu_usd": 1.87,
+    "plafond_relais_usd": 3.0,
+    "role": "protegee"
+   },
+   {
+    "nom": "passe_tableau",
+    "attendu_usd": 0,
+    "plafond_relais_usd": 0,
+    "role": "sacrifiable",
+    "rang": 2
+   },
+   {
+    "nom": "etiquettes",
+    "attendu_usd": 1.87,
+    "plafond_relais_usd": 3.0,
+    "role": "protegee"
+   },
+   {
+    "nom": "fusions",
+    "attendu_usd": 0.47,
+    "plafond_relais_usd": 1.1,
+    "role": "sacrifiable",
+    "rang": 1
+   }
+  ]
+ },
+ "proposeurs": [
+  {
+   "etiquette": "prop-kimi",
+   "modele": "kimi-k3.1-pro",
+   "fournisseur": "kimi",
+   "consigne": "consigne_proposeur"
+  },
+  {
+   "etiquette": "prop-argon",
+   "modele": "gemini-4-argon",
+   "fournisseur": "argon",
+   "consigne": "consigne_proposeur"
+  }
+ ],
+ "cases": [
+  [
+   "statistiques-qui-transferent",
+   "niveau-methode"
+  ]
+ ],
+ "aiguilleur": {
+  "etiquette": "aiguilleur-argon",
+  "modele": "gemini-4-argon",
+  "fournisseur": "argon",
+  "consigne": "consigne_aiguilleur"
+ },
+ "juges": [
+  {
+   "etiquette": "juge-kimi",
+   "modele": "kimi-k3.1-pro",
+   "fournisseur": "kimi",
+   "consigne": "consigne_juge"
+  },
+  {
+   "etiquette": "juge-argon",
+   "modele": "gemini-4-argon",
+   "fournisseur": "argon",
+   "consigne": "consigne_juge"
+  }
+ ],
+ "items_juge": [
+  "K1",
+  "K2",
+  "K3",
+  "K4",
+  "K5"
+ ],
+ "agregation": {
+  "regle": "unanimite"
+ },
+ "lecteurs_etiquettes": [
+  {
+   "etiquette": "lecteur-kimi",
+   "modele": "kimi-k3.1-pro",
+   "fournisseur": "kimi"
+  },
+  {
+   "etiquette": "lecteur-argon",
+   "modele": "gemini-4-argon",
+   "fournisseur": "argon"
+  }
+ ],
+ "garde_kimi": {
+  "debordement_max": 0.5,
+  "refus_aiguilleur": "technique",
+  "arret_metteur_fusion": false
+ },
+ "tableau": {
+  "longueur_max_titre": 80,
+  "longueur_max_resume": 160,
+  "champ_resume": "hypothese",
+  "consigne_passe": "sans objet (scénario B : passe « tableau » retirée, aucun appel)",
+  "juger_passe_tableau": false
+ },
+ "memoire": {
+  "methode": "bardeaux",
+  "taille_bardeau": 3,
+  "seuil": 0.6
+ },
+ "bisociateur": {
+  "bras": [
+   "basique"
+  ],
+  "k_paires": 1,
+  "fournisseurs_entree": [
+   "*"
+  ],
+  "basique": {
+   "exposant": 8.5,
+   "decalage": 0.05,
+   "liste_concepts": "liste_concepts"
+  },
+  "consigne_fusion": "consigne_fusion",
+  "consigne_lecteur_etiquettes": "consigne_lecteur",
+  "metteur_fusion": {
+   "etiquette": "metteur-argon",
+   "modele": "gemini-4-argon",
+   "fournisseur": "argon"
+  }
+ },
+ "plafonds_session": {
+  "proposeur": 0.5,
+  "aiguilleur": 0.25,
+  "juge": 0.25,
+  "fusion": 0.4,
+  "lecteur": 0.25
+ },
+ "etiquettes_interdites": [
+  "témoin",
+  "exploratoire",
+  "fusion",
+  "bras méta",
+  "gu et krenn",
+  "gu krenn",
+  "bisociation",
+  "kimi",
+  "moonshot",
+  "argon",
+  "gemini"
+ ],
+ "a4": {
+  "mode": "prefixe",
+  "action": "fiche_exclue"
+ },
+ "arrets": {
+  "a3_echecs_consecutifs": 3,
+  "a3_delai_s": {
+   "*": 900,
+   "kimi": 1800
+  },
+  "a14_part_max": 0.25,
+  "a11_modeles": []
+ },
+ "pieces": {
+  "consigne_proposeur": {
+   "chemin": "pieces/consigne-proposeur-mini-course-v1.md",
+   "sha256": "98185e70f5d4bd3f0574b7517858efbec982d6decea0e5493da6abe12e9607b1"
+  },
+  "consigne_aiguilleur": {
+   "chemin": "pieces/consigne-aiguilleur-mini-course-v1.md",
+   "sha256": "4b15b31add9fe8e3ae5a18a309fdc9a7165da3be0533c5240dd9854ba08e14e9"
+  },
+  "consigne_juge": {
+   "chemin": "pieces/consigne-juge-mini-course-v1.md",
+   "sha256": "df57bc9117e85b6a032355159a84451c4fe60a5c44793c5986ac6b1a89c45bd9"
+  },
+  "consigne_lecteur": {
+   "chemin": "pieces/consigne-lecteur-mini-course-v1.md",
+   "sha256": "016789aeb9fc4177d865634882e1e5bc18053d0a16b72ccc83c7abbc6fbcb636"
+  },
+  "consigne_fusion": {
+   "chemin": "pieces/consigne-metteur-mini-course-v1.md",
+   "sha256": "95b92e325ca95ded574073db8d13dcc8886c475d30dd01317c31fc40b96609e4"
+  },
+  "liste_concepts": {
+   "chemin": "pieces/concepts-mini-course-v1.json",
+   "sha256": "036de84a297f5c3e402caeb9069e4d8eb9d0d3ec4ef86a5fc6a039022c8b3874"
+  }
+ },
+ "canaris": {
+  "consigne_proposeur": "MC1-PROPOSEUR-c518922b",
+  "consigne_aiguilleur": "MC1-AIGUILLEUR-b7f5a763",
+  "consigne_juge": "MC1-JUGE-9e367345",
+  "consigne_lecteur": "MC1-LECTEUR-30741b8c",
+  "consigne_fusion": "MC1-METTEUR-4ec962f1"
+ },
+ "fournisseurs": {
+  "kimi": {
+   "type": "commande_externe",
+   "delai_s": 1800,
+   "porte_plafond": {
+    "type": "environnement"
+   },
+   "modeles_servis_permis": {},
+   "commande": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "commandes-v6/commande_kimi_v6.py",
+    "--url-relais",
+    "http://127.0.0.1:8804",
+    "--modele",
+    "kimi-k3.1-pro",
+    "--registre",
+    "{REGISTRE}",
+    "--plafond-cumule-usd",
+    "40",
+    "--max-sortie-proposeur",
+    "65536",
+    "--max-sortie-court",
+    "16000",
+    "--sortie-min-jetons",
+    "4096",
+    "--max-sortie-lecteur",
+    "1000",
+    "--sortie-min-jetons-lecteur",
+    "200",
+    "--delai-s",
+    "1750"
+   ],
+   "prix_entree_usd_par_million_jetons": 2.0
+  },
+  "argon": {
+   "type": "commande_externe",
+   "delai_s": 1800,
+   "porte_plafond": {
+    "type": "environnement"
+   },
+   "modeles_servis_permis": {},
+   "commande": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "commandes-v6/commande_argon_v56_nuit_v6.py",
+    "appeler",
+    "--url-relais",
+    "http://127.0.0.1:8805",
+    "--modele",
+    "gemini-4-argon",
+    "--registre",
+    "{REGISTRE}",
+    "--plafond-cumule-usd",
+    "40",
+    "--max-sortie-proposeur",
+    "32000",
+    "--max-sortie-court",
+    "4000",
+    "--sortie-min-jetons",
+    "1000",
+    "--max-sortie-lecteur",
+    "1000",
+    "--sortie-min-jetons-lecteur",
+    "200",
+    "--delai-s",
+    "1750"
+   ],
+   "prix_entree_usd_par_million_jetons": 10.0
+  }
+ },
+ "simulation": {
+  "cout_par_appel_usd": 0.01,
+  "fiches_par_appel": 6
+ },
+ "etage_tests_de_mort": {
+  "environnement_permis": []
+ },
+ "boucle_reelle_v66": {
+  "plafond_modeles_usd": 40.0,
+  "parts_usd": {
+   "kimi": 33.0,
+   "argon": 7.0
+  },
+  "plafond_machine_usd": 5.0,
+  "commandes_v6": {
+   "source": {
+    "depot": "lciric/controle-ia-travail",
+    "branche": "outils/commandes-tour-ferme-v1",
+    "commit": "12f9e0e38f2cf7adb61a9c3ddf0ee4c5c66556d9"
+   },
+   "kimi": {
+    "chemin": "commandes-v6/commande_kimi_v6.py",
+    "sha256": "889309305aeb37de9801c2f40c31769fd268abded1ac61ea94196fd0d51195ae"
+   },
+   "argon": {
+    "chemin": "commandes-v6/commande_argon_v56_nuit_v6.py",
+    "sha256": "5eae1a0468430e243c3c4e099b3969f949f62add688531aafdd7f0f44e036e55"
+   },
+   "registre_depense_cumulee": {
+    "chemin": "commandes-v6/registre_depense_cumulee_v1.py",
+    "sha256": "8ba92066b358ffb8206dea9e70251388c30620484fab1ac578778d9f21e578ff"
+   }
+  }
+ }
+}
