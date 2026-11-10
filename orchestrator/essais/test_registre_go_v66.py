@@ -149,7 +149,8 @@ class Verification(unittest.TestCase):
 
     def test_artefacts_enveloppe(self):
         cas = {"somme fausse": "120 USD (organisme 45, Bailey 70)", "nombre étranger": "120 USD (organisme 45, Bailey 75, 2 alertes)",
-               "part en double": "120 USD (organisme 45, organisme 75)", "part absente": "120 USD (bailey 120)",
+               "part en double": "120 USD (organisme 45, organisme 75)", "part absente": "120 USD (bailey 75, autre 45)",
+               "total seul déguisé": "120 USD (bailey 120)",
                "approché": "≈ 120 USD (organisme 45, Bailey 75)", "sans parenthèse": "120 USD organisme 45 Bailey 75",
                "total seul": "120 USD"}
         for nom, cellule in cas.items():

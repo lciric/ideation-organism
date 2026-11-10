@@ -492,11 +492,13 @@ class Gardes17Et19(unittest.TestCase):
                "clés": lambda o: (o["archive"].__setitem__("V1", JEU["vraies"]["V1"]), o["statut"].__setitem__("V1", B65.STATUT_K1)),
                "version": lambda o: o.__setitem__("version", "heritage-depart-boucle-reelle-v64"),
                "génération": lambda o: o.__setitem__("generation", 1)}
+        motifs = {"K1 altérée": "altérée", "statut": "déclarée", "clés": r"archive \['K1', 'V1'\]", "version": "version",
+                  "génération": "génération"}  # le motif nommé de chaque refus (R5 : aucun refus anonyme)
         for nom, f in cas.items():
             with self.subTest(nom):
                 self.setUp()
                 sha = self._reecrire(f)
-                with self.assertRaises(B.HeritageDepartRefuse):
+                with self.assertRaisesRegex(B.HeritageDepartRefuse, motifs[nom]):
                     B65.lire_heritage_depart(self.chemin, sha, JEU)
 
     def test_garde_19(self):
