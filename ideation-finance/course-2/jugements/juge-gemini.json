@@ -1,0 +1,233 @@
+[
+ {
+  "id": "H16",
+  "rang": 1,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 5,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "Le découpage hors échantillon fixe (estimation sur 1999-2009 puis gel des coefficients sur 2010-2025) traverse des changements structurels majeurs (ZLB, QE, inflation 2022) qui risquent de dégrader mécaniquement la prévision hors échantillon même si la prévisibilité existe en régression glissante."
+ },
+ {
+  "id": "H18",
+  "rang": 2,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "Les prévisions à horizon glissant (1 an et 2 ans en avant) ne visent pas exactement la même fenêtre d'un trimestre au suivant, de sorte que la différence calculée entre t et t-1 mélange une vraie révision d'information et un décalage d'un trimestre de la cible."
+ },
+ {
+  "id": "H13",
+  "rang": 3,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 4,
+  "faille": "En l'absence de données de consensus gratuites, régresser la variation du taux sur la révision future seule omet la partie fondamentale de la surprise du jour, ce qui biaise le coefficient si le bruit de première estimation est corrélé au cycle."
+ },
+ {
+  "id": "H15",
+  "rang": 4,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "La fiche admet ne pas avoir vérifié si la variable clé (le taux directeur anticipé au niveau individuel dans les fichiers historiques du SPF de la BCE) existe réellement dans l'archive publique, ce qui expose le projet à une mort technique dès le premier jour."
+ },
+ {
+  "id": "H17",
+  "rang": 5,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Les surprises de taux en fenêtre étroite (EA-MPD) ne représentent qu'une infime fraction de la variation mensuelle des coûts de financement bancaire et sont très asymétriques dans le temps (hausses concentrées en 2022-2023), confondant asymétrie de signe et régime d'inflation."
+ },
+ {
+  "id": "H10",
+  "rang": 6,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 5,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Les séries FRED à maturité constante (CMT) et la courbe lissée de Gürkaynak-Sack-Wright écrasent par construction la concession de prix spécifique au titre 'on-the-run' mis en adjudication, risquant d'effacer artificiellement le V inversé de Lou, Yan et Zhang (2013)."
+ },
+ {
+  "id": "H06",
+  "rang": 7,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "La taille du prêt (≤ 0,25 M€ contre > 1 M€) est un proxy endogène de la taille de l'entreprise : après un resserrement monétaire, la composition du pool d'emprunteurs et le fractionnement des lignes de crédit changent, ce qui invalide l'identification d'une prime de risque PME pure."
+ },
+ {
+  "id": "H14",
+  "rang": 8,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 3,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Avec un horizon de détention d'un an sur une fenêtre hors échantillon de 30 ans (1995-2025), il n'y a que 30 observations véritablement indépendantes, ce qui rend la détection d'un gain de R² hors échantillon de 4 à 8 % statistiquement très fragile."
+ },
+ {
+  "id": "H03",
+  "rang": 9,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "L'évaluation hors échantillon à un horizon de 4 trimestres sur 23 millésimes trimestriels (2020-2025) ne contient qu'environ 6 observations non chevauchantes dominées par un choc unique (2021-2022), rendant le test de Diebold-Mariano sans puissance."
+ },
+ {
+  "id": "H11",
+  "rang": 10,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "La fréquence trimestrielle du SPF (4 vagues par an) ne s'aligne pas avec les 8 publications annuelles du Livre beige, réduisant de moitié l'échantillon utile pour la dispersion du SPF et créant un décalage calendaire variable."
+ },
+ {
+  "id": "H19",
+  "rang": 11,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Tester une simple asymétrie de pente du taux de change euro/dollar aux surprises OIS sans décomposer d'emblée les chocs de politique monétaire purs et les chocs d'information (Jarociński-Karadi) mélange deux mécanismes aux signes opposés sur le change."
+ },
+ {
+  "id": "H07",
+  "rang": 12,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "Il s'agit d'une simple régression descriptive quotidienne du point mort 5y5y sur le WTI sans identification de chocs pétroliers (offre vs demande à la Kilian), sur un fait stylisé déjà abondamment commenté par les desks de taux et banques centrales."
+ },
+ {
+  "id": "H02",
+  "rang": 13,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "En l'absence d'identification structurelle des chocs pétroliers, l'interaction avec le régime d'inflation (CPI > 3 %) capture essentiellement la simultanéité de la reprise post-Covid et de la guerre en Ukraine en 2021-2022 plutôt qu'un désancrage structurel."
+ },
+ {
+  "id": "H08",
+  "rang": 14,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "L'identification d'un effet causal du TPI sur la base d'une rupture avant/après juillet 2022 avec seulement 26 réunions post-TPI est impossible, car cette date coïncide exactement avec la sortie des taux négatifs et le cycle de hausse des taux de la BCE."
+ },
+ {
+  "id": "H01",
+  "rang": 15,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Les projections de la BCE ayant un horizon maximal court (2 à 3 ans selon le trimestre de publication), la 'dernière année commune' entre deux millésimes capte la persistance mécanique des modèles macroéconomiques de staff à moyen terme et non l'ancrage de long terme."
+ },
+ {
+  "id": "H20",
+  "rang": 16,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Calculer la surprise mensuelle du CPI et des créations d'emplois (NFP) le jour de l'annonce en prenant comme référence la prévision du SPF du trimestre précédent génère une énorme erreur de mesure qui noie la surprise haute fréquence dans trois mois d'actualité."
+ },
+ {
+  "id": "H09",
+  "rang": 17,
+  "mention": "à écarter",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 2,
+  "nouveaute": 2,
+  "faille": "C'est une simple réplication hors échantillon de Savor et Wilson (2014) sur des portefeuilles actions qui fait doublon avec les projets existants du candidat et dont la non-disponibilité des portefeuilles quotidiens triés par bêta affaiblit la dispersion au premier degré."
+ },
+ {
+  "id": "H05",
+  "rang": 18,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 2,
+  "faille": "Contrôler l'information macroéconomique par le seul niveau d'inflation et de chômage courants omet toute la pente des taux futurs (Fed funds futures / OIS) déjà intégrée par le marché le jour du FOMC, attribuant aux dissidents une tendance déjà connue."
+ },
+ {
+  "id": "H04",
+  "rang": 19,
+  "mention": "à écarter",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 1,
+  "nouveaute": 2,
+  "faille": "Le sujet porte exclusivement sur les anomalies factorielles actions (redite directe du profil existant de l'étudiant et hors sujet par rapport à ses priorités monétaires/macro), et McLean et Pontiff (2016) incluent déjà des effets fixes temporels."
+ },
+ {
+  "id": "H12",
+  "rang": 20,
+  "mention": "à écarter",
+  "jury": 4,
+  "recruteurs": 2,
+  "tuable": 4,
+  "interet": 1,
+  "nouveaute": 3,
+  "faille": "Le sujet de fiscalité locale et d'économie publique immobilière française est totalement éloigné des priorités du candidat (politique monétaire, banque centrale, finance de marché) et l'exonération des primo-accédants non observable dans DVF biaise l'estimation."
+ },
+ {
+  "id": "H21",
+  "rang": 21,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 2,
+  "tuable": 2,
+  "interet": 2,
+  "nouveaute": 3,
+  "faille": "Avec une seule unité traitée (l'Allemagne) et deux événements simultanés au 1er janvier 2026 (baisse de la TVA et forte hausse du salaire minimum qui touche exactement la restauration), l'effet de la baisse de TVA n'est pas identifiable."
+ }
+]

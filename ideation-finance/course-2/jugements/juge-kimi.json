@@ -1,0 +1,233 @@
+[
+ {
+  "id": "H13",
+  "rang": 1,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 5,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "L'interprétation « bruit contre information » suppose que la révision est orthogonale à la vraie surprise et aux autres nouvelles du jour, condition non testée avec des variations quotidiennes et sans consensus."
+ },
+ {
+  "id": "H16",
+  "rang": 2,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Le test n'a de puissance que pour un R² vrai assez élevé et, même en cas de succès, la prévisibilité ne distinguerait pas une erreur d'anticipation d'une prime de risque."
+ },
+ {
+  "id": "H12",
+  "rang": 3,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 4,
+  "interet": 3,
+  "nouveaute": 4,
+  "faille": "Les dates d'adoption et les quelques départements témoins ne sont pas exogènes, donc des chocs immobiliers locaux contemporains peuvent encore produire le pic puis le creux attribués à la taxe."
+ },
+ {
+  "id": "H01",
+  "rang": 4,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "Avec environ 25 années réellement indépendantes, l'erreur type annoncée rend le verdict non concluant très probable et ne permet pas de séparer nettement 0,15 de 0,10."
+ },
+ {
+  "id": "H07",
+  "rang": 5,
+  "mention": "à retenir",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "T5YIFR mêle anticipations, primes de risque et de liquidité, donc même une rupture parfaitement estimée vis-à-vis d'un pétrole non identifié ne trancherait pas la question de l'ancrage."
+ },
+ {
+  "id": "H03",
+  "rang": 6,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Environ 23 millésimes hors échantillon, des erreurs autocorrélées et une perte dominée par 2021-2022 ne donnent pas au Diebold-Mariano la puissance nécessaire pour conclure sur un gain de 5 à 15 %."
+ },
+ {
+  "id": "H10",
+  "rang": 7,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 3,
+  "interet": 3,
+  "nouveaute": 3,
+  "faille": "Un écart entre rendement à échéance constante FRED et courbe ajustée n'est pas le rendement propre du titre adjugé et peut effacer précisément la pression d'échéance que la statistique V prétend mesurer."
+ },
+ {
+  "id": "H15",
+  "rang": 8,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 5,
+  "nouveaute": 2,
+  "faille": "La variable essentielle de taux individuel n'est pas vérifiée dans l'archive et, si elle existe, le basculement estimé resterait celui d'un seul cycle de resserrement, face à un plancher de taux mécaniquement compressif auparavant."
+ },
+ {
+  "id": "H09",
+  "rang": 9,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 2,
+  "nouveaute": 2,
+  "faille": "Avec une erreur type de 3 pb et des bêtas estimés avec erreur sur des portefeuilles non triés par bêta, un effet vrai proche de 4 pb peut être tué par simple manque de puissance ou d'atténuation."
+ },
+ {
+  "id": "H06",
+  "rang": 10,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Les 45 à 60 blocs indépendants et l'erreur type annoncée ne permettent généralement pas de borner l'effet sous 2 pb, tandis que la taille du prêt et la composition des emprunteurs brouillent encore le canal PME."
+ },
+ {
+  "id": "H21",
+  "rang": 11,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 4,
+  "nouveaute": 4,
+  "faille": "Deux épisodes uniques ne séparent pas l'asymétrie du signe de la TVA des contextes concurrents, en particulier la hausse du salaire minimum de 2026 qu'un contrôle interne imparfait ne neutralise pas nécessairement."
+ },
+ {
+  "id": "H04",
+  "rang": 12,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 2,
+  "nouveaute": 2,
+  "faille": "La publication n'est pas un traitement exogène, puisque la diffusion préalable en working paper et la sélection par les revues dépendent de la performance et de l'attention, ce qu'un estimateur à traitements échelonnés ne corrige pas."
+ },
+ {
+  "id": "H08",
+  "rang": 13,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 5,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "Vingt-six réunions post-TPI offrent trop peu de puissance et la rupture de 2022 confond TPI, resserrement, PEPP et risque budgétaire, donc aucun coefficient ne peut attribuer le changement au TPI."
+ },
+ {
+  "id": "H05",
+  "rang": 14,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 2,
+  "faille": "Une douzaine de cycles indépendants et des dissidences concentrées par président ne suffisent pas à distinguer un signal de 20 pb du prolongement du cycle déjà visible et anticipé."
+ },
+ {
+  "id": "H17",
+  "rang": 15,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Les chocs étant communs aux onze pays, Driscoll-Kraay ne crée pas d'observations indépendantes supplémentaires et l'asymétrie repose en réalité sur quelques cycles avec des réponses mensuelles chevauchantes."
+ },
+ {
+  "id": "H02",
+  "rang": 16,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Très peu d'épisodes d'inflation haute portent l'interaction et, avec une erreur type de 1,5 à 2,5 pb, la règle de mort à 2 pb restera souvent non concluante même en l'absence d'amplification."
+ },
+ {
+  "id": "H19",
+  "rang": 17,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Le rapport effet sur erreur type de 1,6 à 2,3 ne permet généralement pas de borner l'asymétrie sous le seuil de mort, qui restera donc non concluant ou dépendra de quelques réunions extrêmes."
+ },
+ {
+  "id": "H20",
+  "rang": 18,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Un SPF trimestriel antérieur ne fournit ni le consensus CPI de la veille ni une prévision mensuelle de l'emploi, donc la variable de surprise est trop mal mesurée pour identifier l'interaction avec l'ancrage."
+ },
+ {
+  "id": "H14",
+  "rang": 19,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 3,
+  "nouveaute": 2,
+  "faille": "Trente observations annuelles non chevauchantes ne suffisent pas à détecter un gain de R² de 4 à 8 % avec la précision revendiquée, et Clark-West ne crée pas la puissance manquante."
+ },
+ {
+  "id": "H18",
+  "rang": 20,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 2,
+  "tuable": 2,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "L'écart entre horizons peut être fabriqué par des cibles glissantes et des erreurs chevauchantes, tandis que l'interaction avec une pente commune et endogène n'identifie aucun mécanisme de rigidité."
+ },
+ {
+  "id": "H11",
+  "rang": 21,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 1,
+  "interet": 4,
+  "nouveaute": 4,
+  "faille": "La dispersion stylistique de chapitres régionaux lissés n'est ni une dissidence ni une mesure validée de désaccord, et le calcul de puissance traite à tort des réunions autocorrélées comme 176 observations indépendantes."
+ }
+]

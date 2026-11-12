@@ -1,0 +1,1044 @@
+{
+ "accord_spearman": {
+  "kimi-gemini": 0.062,
+  "kimi-claude": 0.874,
+  "gemini-claude": 0.151
+ },
+ "rang_agrege_moyen_par_famille": {
+  "claude": 5,
+  "course-1": 9.5,
+  "gemini": 17.2,
+  "kimi": 12.6
+ },
+ "rang_moyen_par_juge_et_famille": {
+  "kimi": {
+   "claude": 5.4,
+   "course-1": 8.33,
+   "gemini": 18.6,
+   "kimi": 12.2
+  },
+  "gemini": {
+   "claude": 8.2,
+   "course-1": 14.17,
+   "gemini": 8.2,
+   "kimi": 12.8
+  },
+  "claude": {
+   "claude": 3.8,
+   "course-1": 9.17,
+   "gemini": 19,
+   "kimi": 12.4
+  }
+ },
+ "propre_famille": {
+  "kimi": {
+   "sa_famille": 12.2,
+   "autres_proposeurs": 12
+  },
+  "gemini": {
+   "sa_famille": 8.2,
+   "autres_proposeurs": 10.5
+  },
+  "claude": {
+   "sa_famille": 3.8,
+   "autres_proposeurs": 15.7
+  }
+ },
+ "retenues": [
+  "H13",
+  "H16",
+  "H15",
+  "H03",
+  "H07",
+  "H10"
+ ],
+ "classement": [
+  {
+   "id": "H13",
+   "famille": "claude",
+   "origine": "2C3",
+   "borda": 5,
+   "rangs": {
+    "kimi": 1,
+    "gemini": 3,
+    "claude": 1
+   },
+   "jury_recruteurs": 28,
+   "ecarter": 0,
+   "retenir": 3,
+   "notes": {
+    "jury": [
+     5,
+     4,
+     4
+    ],
+    "recruteurs": [
+     5,
+     5,
+     5
+    ],
+    "tuable": [
+     4,
+     4,
+     4
+    ],
+    "interet": [
+     5,
+     4,
+     4
+    ],
+    "nouveaute": [
+     4,
+     4,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "L'interprétation « bruit contre information » suppose que la révision est orthogonale à la vraie surprise et aux autres nouvelles du jour, condition non testée avec des variations quotidiennes et sans consensus.",
+    "gemini": "En l'absence de données de consensus gratuites, régresser la variation du taux sur la révision future seule omet la partie fondamentale de la surprise du jour, ce qui biaise le coefficient si le bruit de première estimation est corrélé au cycle.",
+    "claude": "Un coefficient positif est attendu même d'un marché rationnel qui ne peut pas voir le bruit le jour même : il mesure la part de bruit dans les révisions (question proche de Gilbert 2011) et non un défaut de filtrage, et le retour à zéro qui trancherait n'a pas de puissance."
+   },
+   "rang_agrege": 1
+  },
+  {
+   "id": "H16",
+   "famille": "claude",
+   "origine": "2C1",
+   "borda": 5,
+   "rangs": {
+    "kimi": 2,
+    "gemini": 1,
+    "claude": 2
+   },
+   "jury_recruteurs": 26,
+   "ecarter": 0,
+   "retenir": 3,
+   "notes": {
+    "jury": [
+     4,
+     5,
+     5
+    ],
+    "recruteurs": [
+     4,
+     5,
+     3
+    ],
+    "tuable": [
+     4,
+     4,
+     4
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     4,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Le test n'a de puissance que pour un R² vrai assez élevé et, même en cas de succès, la prévisibilité ne distinguerait pas une erreur d'anticipation d'une prime de risque.",
+    "gemini": "Le découpage hors échantillon fixe (estimation sur 1999-2009 puis gel des coefficients sur 2010-2025) traverse des changements structurels majeurs (ZLB, QE, inflation 2022) qui risquent de dégrader mécaniquement la prévision hors échantillon même si la prévisibilité existe en régression glissante.",
+    "claude": "Des coefficients estimés une seule fois sur 1999-2009 puis gelés sur un régime tout autre (taux plancher, achats d'actifs) biaisent le test vers le nul, si bien qu'un échec ne prouverait pas que les surprises de la BCE sont imprévisibles ; zone non concluante large pour un R² vrai de 1 à 4 %."
+   },
+   "rang_agrege": 2
+  },
+  {
+   "id": "H15",
+   "famille": "claude",
+   "origine": "2C2",
+   "borda": 15,
+   "rangs": {
+    "kimi": 8,
+    "gemini": 4,
+    "claude": 3
+   },
+   "jury_recruteurs": 23,
+   "ecarter": 0,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     3,
+     4,
+     3
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     2,
+     4,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "La variable essentielle de taux individuel n'est pas vérifiée dans l'archive et, si elle existe, le basculement estimé resterait celui d'un seul cycle de resserrement, face à un plancher de taux mécaniquement compressif auparavant.",
+    "gemini": "La fiche admet ne pas avoir vérifié si la variable clé (le taux directeur anticipé au niveau individuel dans les fichiers historiques du SPF de la BCE) existe réellement dans l'archive publique, ce qui expose le projet à une mort technique dès le premier jour.",
+    "claude": "Le coefficient proche de zéro en 2014-2021 est en grande partie mécanique (taux attendus collés au plancher et arrondis), donc la hausse en 2022-2023 est presque acquise d'avance ; de plus la présence du taux directeur dans les fichiers individuels n'est pas vérifiée et Czudaj a déjà couvert l'essentiel."
+   },
+   "rang_agrege": 3
+  },
+  {
+   "id": "H03",
+   "famille": "course-1",
+   "origine": "F13",
+   "borda": 20,
+   "rangs": {
+    "kimi": 6,
+    "gemini": 9,
+    "claude": 5
+   },
+   "jury_recruteurs": 25,
+   "ecarter": 0,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     5
+    ],
+    "tuable": [
+     2,
+     2,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Environ 23 millésimes hors échantillon, des erreurs autocorrélées et une perte dominée par 2021-2022 ne donnent pas au Diebold-Mariano la puissance nécessaire pour conclure sur un gain de 5 à 15 %.",
+    "gemini": "L'évaluation hors échantillon à un horizon de 4 trimestres sur 23 millésimes trimestriels (2020-2025) ne contient qu'environ 6 observations non chevauchantes dominées par un choc unique (2021-2022), rendant le test de Diebold-Mariano sans puissance.",
+    "claude": "Environ 23 millésimes hors échantillon à erreurs chevauchantes, dominés par le seul épisode 2021-2022 : le test de Diebold-Mariano repose en pratique sur une poignée d'observations indépendantes et le succès viendrait d'un épisode unique."
+   },
+   "rang_agrege": 4
+  },
+  {
+   "id": "H07",
+   "famille": "claude",
+   "origine": "2C4",
+   "borda": 21,
+   "rangs": {
+    "kimi": 5,
+    "gemini": 12,
+    "claude": 4
+   },
+   "jury_recruteurs": 22,
+   "ecarter": 0,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     3
+    ],
+    "recruteurs": [
+     4,
+     4,
+     5
+    ],
+    "tuable": [
+     4,
+     4,
+     4
+    ],
+    "interet": [
+     4,
+     4,
+     4
+    ],
+    "nouveaute": [
+     3,
+     2,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "T5YIFR mêle anticipations, primes de risque et de liquidité, donc même une rupture parfaitement estimée vis-à-vis d'un pétrole non identifié ne trancherait pas la question de l'ancrage.",
+    "gemini": "Il s'agit d'une simple régression descriptive quotidienne du point mort 5y5y sur le WTI sans identification de chocs pétroliers (offre vs demande à la Kilian), sur un fait stylisé déjà abondamment commenté par les desks de taux et banques centrales.",
+    "claude": "La fenêtre de référence 2014-2019 est choisie précisément parce que l'effet y a été documenté comme fort, donc une baisse relève en partie du retour à la moyenne ; les variations du pétrole ne sont pas des chocs identifiés et le point mort mêle anticipation et primes."
+   },
+   "rang_agrege": 5
+  },
+  {
+   "id": "H10",
+   "famille": "course-1",
+   "origine": "F04",
+   "borda": 24,
+   "rangs": {
+    "kimi": 7,
+    "gemini": 6,
+    "claude": 11
+   },
+   "jury_recruteurs": 24,
+   "ecarter": 0,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     3
+    ],
+    "recruteurs": [
+     5,
+     5,
+     4
+    ],
+    "tuable": [
+     3,
+     5,
+     3
+    ],
+    "interet": [
+     3,
+     4,
+     3
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Un écart entre rendement à échéance constante FRED et courbe ajustée n'est pas le rendement propre du titre adjugé et peut effacer précisément la pression d'échéance que la statistique V prétend mesurer.",
+    "gemini": "Les séries FRED à maturité constante (CMT) et la courbe lissée de Gürkaynak-Sack-Wright écrasent par construction la concession de prix spécifique au titre 'on-the-run' mis en adjudication, risquant d'effacer artificiellement le V inversé de Lou, Yan et Zhang (2013).",
+    "claude": "L'écart entre rendement à échéance constante (titres courants) et courbe ajustée (titres anciens) saute mécaniquement quand le titre adjugé devient le titre courant : la statistique V mesure en partie ce changement de référence et non une pression de prix, et les dates fictives ne le neutralisent pas."
+   },
+   "rang_agrege": 6
+  },
+  {
+   "id": "H06",
+   "famille": "kimi",
+   "origine": "2K1",
+   "borda": 25,
+   "rangs": {
+    "kimi": 10,
+    "gemini": 7,
+    "claude": 8
+   },
+   "jury_recruteurs": 22,
+   "ecarter": 0,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     2,
+     4,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Les 45 à 60 blocs indépendants et l'erreur type annoncée ne permettent généralement pas de borner l'effet sous 2 pb, tandis que la taille du prêt et la composition des emprunteurs brouillent encore le canal PME.",
+    "gemini": "La taille du prêt (≤ 0,25 M€ contre > 1 M€) est un proxy endogène de la taille de l'entreprise : après un resserrement monétaire, la composition du pool d'emprunteurs et le fractionnement des lignes de crédit changent, ce qui invalide l'identification d'une prime de risque PME pure.",
+    "claude": "Les surprises à haute fréquence agrégées au mois sont minuscules (quelques points de base, pas 8 à 12) : l'arithmétique de puissance est optimiste et la projection locale à six mois finira très probablement non concluante, sans compter les effets de composition des emprunteurs."
+   },
+   "rang_agrege": 7
+  },
+  {
+   "id": "H01",
+   "famille": "kimi",
+   "origine": "2K3",
+   "borda": 29,
+   "rangs": {
+    "kimi": 4,
+    "gemini": 15,
+    "claude": 10
+   },
+   "jury_recruteurs": 20,
+   "ecarter": 1,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     3,
+     3
+    ],
+    "recruteurs": [
+     4,
+     3,
+     3
+    ],
+    "tuable": [
+     3,
+     3,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     4,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Avec environ 25 années réellement indépendantes, l'erreur type annoncée rend le verdict non concluant très probable et ne permet pas de séparer nettement 0,15 de 0,10.",
+    "gemini": "Les projections de la BCE ayant un horizon maximal court (2 à 3 ans selon le trimestre de publication), la 'dernière année commune' entre deux millésimes capte la persistance mécanique des modèles macroéconomiques de staff à moyen terme et non l'ancrage de long terme.",
+    "claude": "La dernière année des projections de la BCE revient par construction vers la cible et subit des effets d'acquis mécaniques : le résultat est en grande partie connu d'avance, et distinguer 0,15 de 0,10 avec une erreur type de 0,05 à 0,07 sur 25 années indépendantes mène au non concluant."
+   },
+   "rang_agrege": 8
+  },
+  {
+   "id": "H12",
+   "famille": "course-1",
+   "origine": "F11",
+   "borda": 30,
+   "rangs": {
+    "kimi": 3,
+    "gemini": 20,
+    "claude": 7
+   },
+   "jury_recruteurs": 20,
+   "ecarter": 1,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     4
+    ],
+    "recruteurs": [
+     3,
+     2,
+     3
+    ],
+    "tuable": [
+     4,
+     4,
+     5
+    ],
+    "interet": [
+     3,
+     1,
+     2
+    ],
+    "nouveaute": [
+     4,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Les dates d'adoption et les quelques départements témoins ne sont pas exogènes, donc des chocs immobiliers locaux contemporains peuvent encore produire le pic puis le creux attribués à la taxe.",
+    "gemini": "Le sujet de fiscalité locale et d'économie publique immobilière française est totalement éloigné des priorités du candidat (politique monétaire, banque centrale, finance de marché) et l'exonération des primo-accédants non observable dans DVF biaise l'estimation.",
+    "claude": "Sujet de fiscalité immobilière hors des centres d'intérêt monétaires ; l'échelonnement ne porte que sur trois mois, de sorte que le creux et l'effet net reposent sur une dizaine de départements jamais traités et atypiques, et le signe de l'anticipation est connu depuis 2014."
+   },
+   "rang_agrege": 9
+  },
+  {
+   "id": "H08",
+   "famille": "course-1",
+   "origine": "F12",
+   "borda": 33,
+   "rangs": {
+    "kimi": 13,
+    "gemini": 14,
+    "claude": 6
+   },
+   "jury_recruteurs": 22,
+   "ecarter": 2,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     2,
+     3,
+     3
+    ],
+    "recruteurs": [
+     5,
+     4,
+     5
+    ],
+    "tuable": [
+     2,
+     2,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     4,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Vingt-six réunions post-TPI offrent trop peu de puissance et la rupture de 2022 confond TPI, resserrement, PEPP et risque budgétaire, donc aucun coefficient ne peut attribuer le changement au TPI.",
+    "gemini": "L'identification d'un effet causal du TPI sur la base d'une rupture avant/après juillet 2022 avec seulement 26 réunions post-TPI est impossible, car cette date coïncide exactement avec la sortie des taux négatifs et le cycle de hausse des taux de la BCE.",
+    "claude": "Comparaison avant/après avec seulement 26 réunions post-TPI et de nombreux changements simultanés (resserrement, réduction du bilan, réinvestissements, budget italien) : ni la puissance ni l'attribution au TPI ne sont assurées, et empiler Italie et Espagne n'ajoute aucune réunion indépendante."
+   },
+   "rang_agrege": 10
+  },
+  {
+   "id": "H17",
+   "famille": "gemini",
+   "origine": "2G1",
+   "borda": 37,
+   "rangs": {
+    "kimi": 15,
+    "gemini": 5,
+    "claude": 17
+   },
+   "jury_recruteurs": 21,
+   "ecarter": 2,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     2
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     2,
+     4,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Les chocs étant communs aux onze pays, Driscoll-Kraay ne crée pas d'observations indépendantes supplémentaires et l'asymétrie repose en réalité sur quelques cycles avec des réponses mensuelles chevauchantes.",
+    "gemini": "Les surprises de taux en fenêtre étroite (EA-MPD) ne représentent qu'une infime fraction de la variation mensuelle des coûts de financement bancaire et sont très asymétriques dans le temps (hausses concentrées en 2022-2023), confondant asymétrie de signe et régime d'inflation.",
+    "claude": "Projection locale non linéaire par signe sur des surprises à haute fréquence minuscules, avec une erreur type annoncée irréaliste (0,14) ; l'échantillon de mise au point 2003-2019 est inclus dans l'échantillon de verdict, donc aucun vrai hors échantillon, et l'asymétrie de transmission est un sujet rebattu."
+   },
+   "rang_agrege": 11
+  },
+  {
+   "id": "H09",
+   "famille": "course-1",
+   "origine": "F16",
+   "borda": 38,
+   "rangs": {
+    "kimi": 9,
+    "gemini": 17,
+    "claude": 12
+   },
+   "jury_recruteurs": 24,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     3,
+     4,
+     3
+    ],
+    "interet": [
+     2,
+     2,
+     2
+    ],
+    "nouveaute": [
+     2,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Avec une erreur type de 3 pb et des bêtas estimés avec erreur sur des portefeuilles non triés par bêta, un effet vrai proche de 4 pb peut être tué par simple manque de puissance ou d'atténuation.",
+    "gemini": "C'est une simple réplication hors échantillon de Savor et Wilson (2014) sur des portefeuilles actions qui fait doublon avec les projets existants du candidat et dont la non-disponibilité des portefeuilles quotidiens triés par bêta affaiblit la dispersion au premier degré.",
+    "claude": "Redite d'un projet actions : simple test hors échantillon de Savor et Wilson, probablement déjà fait, avec une puissance limite (effet attendu d'environ deux erreurs types) et une dispersion de bêtas réduite faute de portefeuilles triés par bêta."
+   },
+   "rang_agrege": 12
+  },
+  {
+   "id": "H19",
+   "famille": "kimi",
+   "origine": "2K2",
+   "borda": 41,
+   "rangs": {
+    "kimi": 17,
+    "gemini": 11,
+    "claude": 13
+   },
+   "jury_recruteurs": 21,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     3
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     2,
+     4,
+     3
+    ],
+    "interet": [
+     5,
+     4,
+     4
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Le rapport effet sur erreur type de 1,6 à 2,3 ne permet généralement pas de borner l'asymétrie sous le seuil de mort, qui restera donc non concluant ou dépendra de quelques réunions extrêmes.",
+    "gemini": "Tester une simple asymétrie de pente du taux de change euro/dollar aux surprises OIS sans décomposer d'emblée les chocs de politique monétaire purs et les chocs d'information (Jarociński-Karadi) mélange deux mécanismes aux signes opposés sur le change.",
+    "claude": "Asymétrie de signe sans mécanisme économique ni justification de l'ordre de grandeur prédit ; le signe des surprises se confond avec les régimes (cycles de hausse ou de baisse, effets d'information) et le rapport effet sur erreur type de 1,6 à 2,3 laisse le non concluant probable."
+   },
+   "rang_agrege": 13
+  },
+  {
+   "id": "H21",
+   "famille": "claude",
+   "origine": "2C5",
+   "borda": 41,
+   "rangs": {
+    "kimi": 11,
+    "gemini": 21,
+    "claude": 9
+   },
+   "jury_recruteurs": 20,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     4
+    ],
+    "recruteurs": [
+     4,
+     2,
+     4
+    ],
+    "tuable": [
+     3,
+     2,
+     3
+    ],
+    "interet": [
+     4,
+     2,
+     3
+    ],
+    "nouveaute": [
+     4,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Deux épisodes uniques ne séparent pas l'asymétrie du signe de la TVA des contextes concurrents, en particulier la hausse du salaire minimum de 2026 qu'un contrôle interne imparfait ne neutralise pas nécessairement.",
+    "gemini": "Avec une seule unité traitée (l'Allemagne) et deux événements simultanés au 1er janvier 2026 (baisse de la TVA et forte hausse du salaire minimum qui touche exactement la restauration), l'effet de la baisse de TVA n'est pas identifiable.",
+    "claude": "Un seul pays traité et deux événements, la baisse de 2026 coïncidant avec une forte hausse du salaire minimum ; le résultat de 2026 est déjà public et commenté, ce qui vide le scellement de sa portée, et le sujet relève de l'incidence fiscale plus que du monétaire (source Eurostat non testée)."
+   },
+   "rang_agrege": 14
+  },
+  {
+   "id": "H18",
+   "famille": "gemini",
+   "origine": "2G2",
+   "borda": 42,
+   "rangs": {
+    "kimi": 20,
+    "gemini": 2,
+    "claude": 20
+   },
+   "jury_recruteurs": 17,
+   "ecarter": 2,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     2,
+     5,
+     2
+    ],
+    "recruteurs": [
+     2,
+     4,
+     2
+    ],
+    "tuable": [
+     2,
+     4,
+     3
+    ],
+    "interet": [
+     4,
+     5,
+     4
+    ],
+    "nouveaute": [
+     3,
+     4,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "L'écart entre horizons peut être fabriqué par des cibles glissantes et des erreurs chevauchantes, tandis que l'interaction avec une pente commune et endogène n'identifie aucun mécanisme de rigidité.",
+    "gemini": "Les prévisions à horizon glissant (1 an et 2 ans en avant) ne visent pas exactement la même fenêtre d'un trimestre au suivant, de sorte que la différence calculée entre t et t-1 mélange une vraie révision d'information et un décalage d'un trimestre de la cible.",
+    "claude": "Au niveau individuel les coefficients de Coibion-Gorodnichenko sont connus pour être négatifs (sur-réaction) : la prédiction de +0,25 à +0,50 contredit la littérature, l'interaction avec la pente des taux n'a pas de fondement, et les horizons glissants de l'enquête ne donnent pas de révisions à cible fixe."
+   },
+   "rang_agrege": 15
+  },
+  {
+   "id": "H04",
+   "famille": "course-1",
+   "origine": "F01",
+   "borda": 45,
+   "rangs": {
+    "kimi": 12,
+    "gemini": 19,
+    "claude": 14
+   },
+   "jury_recruteurs": 22,
+   "ecarter": 2,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     3,
+     4,
+     4
+    ],
+    "interet": [
+     2,
+     1,
+     1
+    ],
+    "nouveaute": [
+     2,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "La publication n'est pas un traitement exogène, puisque la diffusion préalable en working paper et la sélection par les revues dépendent de la performance et de l'attention, ce qu'un estimateur à traitements échelonnés ne corrige pas.",
+    "gemini": "Le sujet porte exclusivement sur les anomalies factorielles actions (redite directe du profil existant de l'étudiant et hors sujet par rapport à ses priorités monétaires/macro), et McLean et Pontiff (2016) incluent déjà des effets fixes temporels.",
+    "claude": "Sujet actions qui redouble les projets existants de l'étudiant, et McLean et Pontiff contrôlent déjà le temps calendaire : le résultat risque de n'être qu'une confirmation d'un fait connu, avec une année de publication mal datée et des anomalies fortement corrélées entre elles."
+   },
+   "rang_agrege": 16
+  },
+  {
+   "id": "H02",
+   "famille": "kimi",
+   "origine": "2K5",
+   "borda": 45,
+   "rangs": {
+    "kimi": 16,
+    "gemini": 13,
+    "claude": 16
+   },
+   "jury_recruteurs": 20,
+   "ecarter": 2,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     2
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     2,
+     3,
+     2
+    ],
+    "interet": [
+     5,
+     4,
+     4
+    ],
+    "nouveaute": [
+     3,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Très peu d'épisodes d'inflation haute portent l'interaction et, avec une erreur type de 1,5 à 2,5 pb, la règle de mort à 2 pb restera souvent non concluante même en l'absence d'amplification.",
+    "gemini": "En l'absence d'identification structurelle des chocs pétroliers, l'interaction avec le régime d'inflation (CPI > 3 %) capture essentiellement la simultanéité de la reprise post-Covid et de la guerre en Ukraine en 2021-2022 plutôt qu'un désancrage structurel.",
+    "claude": "L'état d'inflation supérieure à 3 % ne couvre que trois ou quatre épisodes (2008, 2011, 2021-2023) : l'interaction est une indicatrice de période déguisée, sans choc pétrolier identifié, et la fiche est dominée par H07 sur la même question."
+   },
+   "rang_agrege": 17
+  },
+  {
+   "id": "H05",
+   "famille": "kimi",
+   "origine": "2K4",
+   "borda": 47,
+   "rangs": {
+    "kimi": 14,
+    "gemini": 18,
+    "claude": 15
+   },
+   "jury_recruteurs": 19,
+   "ecarter": 3,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     2,
+     3
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4
+    ],
+    "tuable": [
+     2,
+     2,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     2,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Une douzaine de cycles indépendants et des dissidences concentrées par président ne suffisent pas à distinguer un signal de 20 pb du prolongement du cycle déjà visible et anticipé.",
+    "gemini": "Contrôler l'information macroéconomique par le seul niveau d'inflation et de chômage courants omet toute la pente des taux futurs (Fed funds futures / OIS) déjà intégrée par le marché le jour du FOMC, attribuant aux dissidents une tendance déjà connue.",
+    "claude": "Cinquante à soixante dissidences directionnelles regroupées en une douzaine de cycles : puissance insuffisante, la direction des dissidences reflète la tendance des taux déjà visible, et le contenu prédictif des votes dissidents a déjà été étudié."
+   },
+   "rang_agrege": 18
+  },
+  {
+   "id": "H14",
+   "famille": "gemini",
+   "origine": "2G4",
+   "borda": 48,
+   "rangs": {
+    "kimi": 19,
+    "gemini": 8,
+    "claude": 21
+   },
+   "jury_recruteurs": 21,
+   "ecarter": 2,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     2
+    ],
+    "recruteurs": [
+     4,
+     5,
+     3
+    ],
+    "tuable": [
+     2,
+     3,
+     2
+    ],
+    "interet": [
+     3,
+     4,
+     3
+    ],
+    "nouveaute": [
+     2,
+     3,
+     1
+    ]
+   },
+   "failles": {
+    "kimi": "Trente observations annuelles non chevauchantes ne suffisent pas à détecter un gain de R² de 4 à 8 % avec la précision revendiquée, et Clark-West ne crée pas la puissance manquante.",
+    "gemini": "Avec un horizon de détention d'un an sur une fenêtre hors échantillon de 30 ans (1995-2025), il n'y a que 30 observations véritablement indépendantes, ce qui rend la détection d'un gain de R² hors échantillon de 4 à 8 % statistiquement très fragile.",
+    "claude": "Résultat connu d'avance (la prévisibilité macroéconomique des rendements obligataires disparaît en temps réel, déjà montré par Ghysels, Horan et Moench), trente observations annuelles non chevauchantes seulement, facteur de Cochrane-Piazzesi mal défini sur une courbe lissée et méthode MIDAS peu lisible."
+   },
+   "rang_agrege": 19
+  },
+  {
+   "id": "H11",
+   "famille": "gemini",
+   "origine": "2G5",
+   "borda": 50,
+   "rangs": {
+    "kimi": 21,
+    "gemini": 10,
+    "claude": 19
+   },
+   "jury_recruteurs": 17,
+   "ecarter": 2,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     2,
+     3,
+     2
+    ],
+    "recruteurs": [
+     3,
+     4,
+     3
+    ],
+    "tuable": [
+     1,
+     3,
+     2
+    ],
+    "interet": [
+     4,
+     5,
+     4
+    ],
+    "nouveaute": [
+     4,
+     4,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "La dispersion stylistique de chapitres régionaux lissés n'est ni une dissidence ni une mesure validée de désaccord, et le calcul de puissance traite à tort des réunions autocorrélées comme 176 observations indépendantes.",
+    "gemini": "La fréquence trimestrielle du SPF (4 vagues par an) ne s'aligne pas avec les 8 publications annuelles du Livre beige, réduisant de moitié l'échantillon utile pour la dispersion du SPF et créant un décalage calendaire variable.",
+    "claude": "Deux variables expliquées au choix (critère « ou »), enquête trimestrielle appariée à huit publications par an, mécanisme peu plausible entre dispersion régionale et incertitude de taux, observations faussement comptées comme indépendantes et sources déclarées vérifiées par le brief alors qu'elles n'y figurent pas."
+   },
+   "rang_agrege": 20
+  },
+  {
+   "id": "H20",
+   "famille": "gemini",
+   "origine": "2G3",
+   "borda": 52,
+   "rangs": {
+    "kimi": 18,
+    "gemini": 16,
+    "claude": 18
+   },
+   "jury_recruteurs": 17,
+   "ecarter": 3,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     2,
+     2,
+     2
+    ],
+    "recruteurs": [
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     2,
+     2,
+     2
+    ],
+    "interet": [
+     5,
+     4,
+     4
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Un SPF trimestriel antérieur ne fournit ni le consensus CPI de la veille ni une prévision mensuelle de l'emploi, donc la variable de surprise est trop mal mesurée pour identifier l'interaction avec l'ancrage.",
+    "gemini": "Calculer la surprise mensuelle du CPI et des créations d'emplois (NFP) le jour de l'annonce en prenant comme référence la prévision du SPF du trimestre précédent génère une énorme erreur de mesure qui noie la surprise haute fréquence dans trois mois d'actualité.",
+    "claude": "La surprise macroéconomique construite sans consensus (publication moins prévision trimestrielle) est surtout du bruit, et le quartile supérieur de dispersion se concentre sur un ou deux épisodes (début des années 1990, 2022) : l'interaction est une indicatrice de période et la puissance annoncée est fictive."
+   },
+   "rang_agrege": 21
+  }
+ ]
+}
