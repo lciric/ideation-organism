@@ -1,0 +1,1 @@
+{"famille": "astra", "modele_demande": "gpt-6-astra", "modele_servi": "gpt-6-astra", "fin": "stop", "jetons": {"entree": 4889, "sortie": 12392}, "consigne_sha256": "21f90be94f98e52eb0268a49c2678c616263f874d8d7cbd13325c87bb96d117d", "date_utc": "2026-11-12T19:50:49Z"}
