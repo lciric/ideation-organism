@@ -1,0 +1,3203 @@
+{
+ "fichiers": {
+  "MPD_serieskeysonly.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD?detail=serieskeysonly&format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:21:41Z",
+   "sha256": "331b89ab836636fd374dc2fe375ee6825ad72338ade9fa5bfbc0b27072680877",
+   "octets": 279717,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:21:41Z",
+     "http": 200,
+     "octets": 279717,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W99.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W99.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:21:43Z",
+   "sha256": "69ca700031488ce7a4b46a5e21533e3cf919249ec08f0ea98c28b8fea54ff028",
+   "octets": 2935,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:21:43Z",
+     "http": 200,
+     "octets": 2935,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G99.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G99.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:21:47Z",
+   "sha256": "783b76644011413658701b1e9000ba134f6c60d765e33b37844880b48b35842a",
+   "octets": 3791,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:21:47Z",
+     "http": 200,
+     "octets": 3791,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S99.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S99.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:21:53Z",
+   "sha256": "82323bce4a04359ac8b9f9e7bf4964969c7e82f13df7de4d2264379db778cc5e",
+   "octets": 3869,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:21:53Z",
+     "http": 200,
+     "octets": 3869,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A99.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A99.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:21:58Z",
+   "sha256": "90dd9741e1d6b361b039e7fe682707253e4ebf49e7cc03fdd16c6d5db9252acb",
+   "octets": 3853,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:21:58Z",
+     "http": 200,
+     "octets": 3853,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W00.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W00.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:03Z",
+   "sha256": "5ffdd97be302bcc5ac04e65fae8c9d32b9fbca94636aabd03ee63c75f68d72d6",
+   "octets": 2929,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:03Z",
+     "http": 200,
+     "octets": 2929,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G00.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G00.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:11Z",
+   "sha256": "9202a57265395c424d78f8dc67751ada3492d700001068190a6308336eefeb20",
+   "octets": 3789,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:11Z",
+     "http": 200,
+     "octets": 3789,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S00.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S00.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:15Z",
+   "sha256": "f0203e8da0c8a894f792a3a973467503de471e18ae4e18cb60495d6c20525043",
+   "octets": 3859,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:15Z",
+     "http": 200,
+     "octets": 3859,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A00.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A00.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:21Z",
+   "sha256": "74b0385f6351182016736b03e7fd5f17d26eb3bdcbc31203d8b1bb655e2cdee9",
+   "octets": 3853,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:21Z",
+     "http": 200,
+     "octets": 3853,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W01.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W01.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:29Z",
+   "sha256": "91a29db83764d571e9735aa47289c90e21b495df113a3fc1bc700670b2fc42d6",
+   "octets": 3807,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:29Z",
+     "http": 200,
+     "octets": 3807,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G01.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G01.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:35Z",
+   "sha256": "99c715b5089c540c6310f67491823f889139d59163ac907182c39eb2450d4663",
+   "octets": 3791,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:35Z",
+     "http": 200,
+     "octets": 3791,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S01.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S01.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:42Z",
+   "sha256": "e9566b5e9c74256cba5b2f623d2cec011b7d13a3cd15076afe387de1aadcafb2",
+   "octets": 4757,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:42Z",
+     "http": 200,
+     "octets": 4757,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A01.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A01.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:45Z",
+   "sha256": "73d0aaeb6c55229f90e7ceb74d39fe89f150d80b1b98c1db1f08fe70b72b2e33",
+   "octets": 4737,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:45Z",
+     "http": 200,
+     "octets": 4737,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W02.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W02.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:49Z",
+   "sha256": "f336a1bb343dc6b81c696f52205c1143e1598d43c6973f7d2da600b6d03450df",
+   "octets": 4679,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:49Z",
+     "http": 200,
+     "octets": 4679,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G02.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G02.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:22:59Z",
+   "sha256": "b62323d31214ac924341897739c988b64a57bafedff5d75d7573c8c1e857432d",
+   "octets": 3787,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:22:59Z",
+     "http": 200,
+     "octets": 3787,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S02.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S02.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:03Z",
+   "sha256": "805586aa3618c33772c92da9c9e4dedd0e4f02ef44cdb80a7858db1eca3add54",
+   "octets": 4755,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:03Z",
+     "http": 200,
+     "octets": 4755,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A02.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A02.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:06Z",
+   "sha256": "3e912b48a51b2c754743c1c52214ed9723aa56bd9c134caec05e5d605b77a953",
+   "octets": 4735,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:06Z",
+     "http": 200,
+     "octets": 4735,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W03.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W03.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:10Z",
+   "sha256": "65c7632836758a190b4f6e294efea651d4c77537e86ed00107960d626b337159",
+   "octets": 4675,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:10Z",
+     "http": 200,
+     "octets": 4675,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G03.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G03.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:13Z",
+   "sha256": "4ba17109a6f59ee9d63728e558b630fadc54b02ee110599642246c1f95a45ee6",
+   "octets": 7474,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:13Z",
+     "http": 200,
+     "octets": 7474,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S03.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S03.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:17Z",
+   "sha256": "ce193ee0949d7a5899f632efa3acfb0adaa304da413d25a317804b8f1f585c21",
+   "octets": 7637,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:17Z",
+     "http": 200,
+     "octets": 7637,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A03.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A03.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:21Z",
+   "sha256": "1ac0e4c722396e02f6c9b9772493b1ab201b4a93dce4656e89be8e6ce1695c66",
+   "octets": 7604,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:21Z",
+     "http": 200,
+     "octets": 7604,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W04.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W04.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:25Z",
+   "sha256": "77ea6ebae47fba5e3c0f594c4c0f2527e4c836cd97cc17d16ccf5ff868b4d307",
+   "octets": 10773,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:25Z",
+     "http": 200,
+     "octets": 10773,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G04.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G04.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:29Z",
+   "sha256": "744f7b6ed7e96775e68342ed513d9563069f0190fb893c294e9c9918577762de",
+   "octets": 10723,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:29Z",
+     "http": 200,
+     "octets": 10723,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S04.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S04.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:37Z",
+   "sha256": "113b7688f79593bff217d0ee1eb0a2d3242f4dd40fc2f1c6788c3f52dea3922f",
+   "octets": 10965,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:37Z",
+     "http": 200,
+     "octets": 10965,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A04.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A04.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:43Z",
+   "sha256": "5dca83abe86627bdb7dc8c81ec9629a88d169702843818c903abc55c4b8c6594",
+   "octets": 10915,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:43Z",
+     "http": 200,
+     "octets": 10915,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W05.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W05.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:47Z",
+   "sha256": "1eb50c2d0ccdd61f0f45a1fd63ca8d759c2fd658b75f84705d54bfd6ade5724a",
+   "octets": 11645,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:47Z",
+     "http": 200,
+     "octets": 11645,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G05.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G05.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:51Z",
+   "sha256": "7e39469e8a1b7cd04ca3266aab71e74bb305965a3c0a5e0daa8454bbc4fb8ceb",
+   "octets": 11585,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:51Z",
+     "http": 200,
+     "octets": 11585,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S05.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S05.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:23:54Z",
+   "sha256": "1fc491510bdffcc9459c4e2a22a79953a930bcf6666a8bf911e154d86a32318d",
+   "octets": 11849,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:23:54Z",
+     "http": 200,
+     "octets": 11849,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A05.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A05.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:02Z",
+   "sha256": "e5ed7499961d2958f73576bd887c8280b4971c3b85e90deb653fffa0d08a0fd3",
+   "octets": 11789,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:02Z",
+     "http": 200,
+     "octets": 11789,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W06.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W06.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:11Z",
+   "sha256": "6ab7e0fce64a0b92d80df25e8b8576adf5399d3e9c5f1f32f79ca93e3b283781",
+   "octets": 10763,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:11Z",
+     "http": 200,
+     "octets": 10763,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G06.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G06.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:15Z",
+   "sha256": "b64e7bd6a204dc422a211593faa0f74418cda4910369bbed69a54d242c2e4f2e",
+   "octets": 9855,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:15Z",
+     "http": 200,
+     "octets": 9855,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S06.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S06.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:20Z",
+   "sha256": "f6e864036f31a0a89a0831f7cd8d670e9822f235579c14d655ec28294080470e",
+   "octets": 11849,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:20Z",
+     "http": 200,
+     "octets": 11849,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A06.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A06.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:24Z",
+   "sha256": "7d8399bed87bfb8082f74724af0c3f2b5827331d5693f5672803060ac779a8b5",
+   "octets": 11795,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:24Z",
+     "http": 200,
+     "octets": 11795,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W07.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:28Z",
+   "sha256": "3c4de8c887a356779adbba4638f6b6b1386535bb0bd2a34d885a24eb97c851fd",
+   "octets": 13377,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:28Z",
+     "http": 200,
+     "octets": 13377,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G07.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:35Z",
+   "sha256": "3a02e615d58ee462c0133f718a56f721ca92142372f3cf6c73040fcb61cbb692",
+   "octets": 13319,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:35Z",
+     "http": 200,
+     "octets": 13319,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S07.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:40Z",
+   "sha256": "e980a643eaab35fc48361544070d1a72654a9a868d1a8e6b06d5d028a563937e",
+   "octets": 13617,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:40Z",
+     "http": 200,
+     "octets": 13617,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A07.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:52Z",
+   "sha256": "ad880d28a333339c87793f45d9e0ecea36a963ba191ca11ac6c22bd3c587dc85",
+   "octets": 13563,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:52Z",
+     "http": 200,
+     "octets": 13563,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W08.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W08.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:24:56Z",
+   "sha256": "5bd4a624dbeb49cc85d9fb1a2c0c8f36de0bb1b65e5405234db80fae02095b83",
+   "octets": 14247,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:24:56Z",
+     "http": 200,
+     "octets": 14247,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G08.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G08.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:00Z",
+   "sha256": "8201bdd3d03577a5f73bef8324e439248ab40fdb7d1737b096f699d57a7b3c72",
+   "octets": 14191,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:00Z",
+     "http": 200,
+     "octets": 14191,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S08.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S08.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:05Z",
+   "sha256": "a0aa47d48f4dc06fe5d3f033f977d8c3cb17a14f971ced9c2dae8cea787cba29",
+   "octets": 14511,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:05Z",
+     "http": 200,
+     "octets": 14511,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A08.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A08.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:10Z",
+   "sha256": "e3be9ac73319a7fccc9c85e73ecfdeab19697e14f5f40bdb22a939b2afe9ae6b",
+   "octets": 14447,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:10Z",
+     "http": 200,
+     "octets": 14447,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W09.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W09.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:13Z",
+   "sha256": "8dec56ce79e0804371b9079419d59ce14a7776b79630fe2de8a4d97dc56ac67a",
+   "octets": 15126,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:13Z",
+     "http": 200,
+     "octets": 15126,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G09.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G09.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:19Z",
+   "sha256": "1f5ce04ff5694d049b736e8c05e5d7ae0834e1af47c9ad54427d550f3da0490c",
+   "octets": 15056,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:19Z",
+     "http": 200,
+     "octets": 15056,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S09.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S09.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:23Z",
+   "sha256": "ca5ed3984bc59af5f37de04799524cedc63ba6c4635b863fe3e778427ef73542",
+   "octets": 15400,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:23Z",
+     "http": 200,
+     "octets": 15400,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A09.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A09.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:26Z",
+   "sha256": "b874c69c9978e471047234e170d9ae20bece3dad6b71dbbe57a682c6386bd20e",
+   "octets": 15332,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:26Z",
+     "http": 200,
+     "octets": 15332,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W10.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W10.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:32Z",
+   "sha256": "33fdbe9c9a3a65311494b715a640d09bb86509463368da90cc89485b00a5a7a2",
+   "octets": 15998,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:32Z",
+     "http": 200,
+     "octets": 15998,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G10.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G10.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:39Z",
+   "sha256": "d318ac7c3b0a14b4d3f6938449b6dbf0f447cb958b24100e7a987ac3736886f6",
+   "octets": 15928,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:39Z",
+     "http": 200,
+     "octets": 15928,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S10.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S10.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:42Z",
+   "sha256": "faae3977a15944b05063a49b39b06fc6f0cd9802bf03558630abec1794cb2bca",
+   "octets": 16286,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:42Z",
+     "http": 200,
+     "octets": 16286,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A10.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A10.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:47Z",
+   "sha256": "37645a3fcae614b1110eaeb787ec8fa00e4cdd748ff427cd2579a159b48ca521",
+   "octets": 16212,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:47Z",
+     "http": 200,
+     "octets": 16212,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W11.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W11.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:55Z",
+   "sha256": "4956f8a477b227371067296ee5e7bcf6a992f5b002f18b226ed8ffe144afc377",
+   "octets": 16870,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:55Z",
+     "http": 200,
+     "octets": 16870,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G11.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G11.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:25:58Z",
+   "sha256": "eafee3a21eee91ffb63fa2004c3fc346c373ea9b41f4e7adfc8aa6b97f791ecd",
+   "octets": 16792,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:25:58Z",
+     "http": 200,
+     "octets": 16792,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S11.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S11.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:03Z",
+   "sha256": "4d7a7755f886609df06379de62f2e88447b78a8b6ba7575362085cad1b5fa405",
+   "octets": 17172,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:03Z",
+     "http": 200,
+     "octets": 17172,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A11.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A11.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:07Z",
+   "sha256": "db163b435b57d699a0ced7fced336ac648a8ab49b4f9e221ed41771e92e91a84",
+   "octets": 17092,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:07Z",
+     "http": 200,
+     "octets": 17092,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W12.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W12.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:10Z",
+   "sha256": "3c9f4f39d1f0e82d5e71494e1bf040f144f0618bd9a849e04668824597e87882",
+   "octets": 17742,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:10Z",
+     "http": 200,
+     "octets": 17742,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G12.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G12.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:13Z",
+   "sha256": "6b96e3d8d306403c1b3e549168ad6a5ce3812c33aeaf5f43c94bf0f7c8b5eef1",
+   "octets": 17662,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:13Z",
+     "http": 200,
+     "octets": 17662,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S12.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S12.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:17Z",
+   "sha256": "bac57b98e0bd5c29cc708c4c7d0f7490676e0c90d737aace4df46ec415f1193a",
+   "octets": 18060,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:17Z",
+     "http": 200,
+     "octets": 18060,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A12.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A12.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:23Z",
+   "sha256": "aeda1b297249eb82bb52aa3058852e54c2a2258932b150bd29deb19e053ba3f7",
+   "octets": 17982,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:23Z",
+     "http": 200,
+     "octets": 17982,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W13.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W13.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:28Z",
+   "sha256": "5a59fbad066d39e54b4da3c3456c2a857ca8e3a09f8e5bcd47dd22ae5914d1cb",
+   "octets": 18614,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:28Z",
+     "http": 200,
+     "octets": 18614,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G13.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G13.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:31Z",
+   "sha256": "3749498c5a6a5a34c507b34864a8110755c43ea7de12afbe88bc61f909329077",
+   "octets": 18530,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:31Z",
+     "http": 200,
+     "octets": 18530,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S13.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S13.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:35Z",
+   "sha256": "e3d6b8f07ec9582547fe87c184eae594e426e58d519b32d048c97ac64151cb78",
+   "octets": 18950,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:35Z",
+     "http": 200,
+     "octets": 18950,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A13.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A13.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:42Z",
+   "sha256": "100adf8ebbc39f09d3c7d31fab900fe860284a365fd0e56312023c03461f9c46",
+   "octets": 18862,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:42Z",
+     "http": 200,
+     "octets": 18862,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W14.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W14.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:45Z",
+   "sha256": "259ac6ce3cf97a9908461984a5317b736e47ba6fa1e9db00112a745cc4ea2a4b",
+   "octets": 19484,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:45Z",
+     "http": 200,
+     "octets": 19484,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G14.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G14.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:26:52Z",
+   "sha256": "78ef1c840a9c1b3db9d5fe1a19eb10e171417edb9acc08671ae702c252bb2866",
+   "octets": 19396,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:26:52Z",
+     "http": 200,
+     "octets": 19396,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S14.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S14.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:00Z",
+   "sha256": "b16c53a135ba29f80a164eceff2d0980569681e328f56bb43e1476ad7ad9c160",
+   "octets": 19838,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:00Z",
+     "http": 200,
+     "octets": 19838,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A14.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A14.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:04Z",
+   "sha256": "bcdf5ec41b1a06bd48e852a229a736d455dce0a5bca41c3b5160a8dc73aaaaf1",
+   "octets": 19750,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:04Z",
+     "http": 200,
+     "octets": 19750,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W15.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W15.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:07Z",
+   "sha256": "68448f32991cc3db80108774f08fad4d99187e169848395563d7b81cd3896219",
+   "octets": 20358,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:07Z",
+     "http": 200,
+     "octets": 20358,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G15.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G15.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:12Z",
+   "sha256": "316cc5ccf7376d9bb1970202062f2f89223f1983fc6d01bb899edd92d7438368",
+   "octets": 20267,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:12Z",
+     "http": 200,
+     "octets": 20267,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S15.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S15.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:16Z",
+   "sha256": "53d233289728ccc59d3ff4f7053afeffcdf797c279e013d38afad437e32c11b3",
+   "octets": 20727,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:16Z",
+     "http": 200,
+     "octets": 20727,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A15.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A15.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:24Z",
+   "sha256": "aba79f6f6c6de18801ef5947fdb92098fc1e0254ef263a437ca10e48a6615f58",
+   "octets": 20633,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:24Z",
+     "http": 200,
+     "octets": 20633,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W16.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W16.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:30Z",
+   "sha256": "8bf734333e2c6c4da5ca311c6b405a63fadcfea8cf1be41e6f916f90bd1b8ed2",
+   "octets": 20358,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:30Z",
+     "http": 200,
+     "octets": 20358,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G16.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G16.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:34Z",
+   "sha256": "86cf095d2225bee1ad468175c842d2f073c8180abe1dc55a982b9526fb45ec99",
+   "octets": 21136,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:34Z",
+     "http": 200,
+     "octets": 21136,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S16.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S16.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:43Z",
+   "sha256": "a1fd0711ea5d8f96c1a8685671e9126413ad8464a12cb1f391713d8c3cceaca8",
+   "octets": 21616,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:43Z",
+     "http": 200,
+     "octets": 21616,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A16.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A16.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:47Z",
+   "sha256": "252cbcb1a2157a3f4525849c22eb21b539c5e3864a338e5b351e7a5b5d058e52",
+   "octets": 22404,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:47Z",
+     "http": 200,
+     "octets": 22404,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W17.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W17.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:52Z",
+   "sha256": "f724cda84a1574fccc2a3f660a5c4fdd0bceb5e3a1a41c1c09da28654f4bf885",
+   "octets": 22104,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:52Z",
+     "http": 200,
+     "octets": 22104,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G17.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G17.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:27:56Z",
+   "sha256": "aa8fbc1bd52ccfcc8fed92a1eba53cc3c9aa590e21a1446e03ca46a2a9b15909",
+   "octets": 22002,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:27:56Z",
+     "http": 200,
+     "octets": 22002,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S17.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S17.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:01Z",
+   "sha256": "2402892ef22bebf813ba9677d991e87e8488f0ee07529ed9252bd8ebf46402ea",
+   "octets": 22504,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:01Z",
+     "http": 200,
+     "octets": 22504,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A17.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A17.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:08Z",
+   "sha256": "dfa2c9a9a2be2fba00f506d877e3f906e089f1590fdd295b1c5b4bcaa67cbce4",
+   "octets": 23288,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:08Z",
+     "http": 200,
+     "octets": 23288,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W18.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:13Z",
+   "sha256": "136dc62e1fb389b9d274ae8d321c4fdb985b2455039a58ed775bf60bd60192f1",
+   "octets": 22976,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:13Z",
+     "http": 200,
+     "octets": 22976,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G18.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:16Z",
+   "sha256": "5e12dc9b2ae578d94c695d3e649a5fe0ca5efc511f4de23ebdf9c55fb5a54756",
+   "octets": 22870,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:16Z",
+     "http": 200,
+     "octets": 22870,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S18.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:22Z",
+   "sha256": "9ce2761dda6c81df344f954cdcef0fe6042dfd174c50d172cb1596e595ca65e0",
+   "octets": 23392,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:22Z",
+     "http": 200,
+     "octets": 23392,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A18.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:25Z",
+   "sha256": "4f7e149097543399aa59ff7411bf3811e8fbeab42792975a3f681ac19dd233e1",
+   "octets": 24170,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:25Z",
+     "http": 200,
+     "octets": 24170,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W19.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:35Z",
+   "sha256": "6f9f946cd26bf1dec9087dfaeab168ca8fbc1907adb459d77fbe23b3bab22163",
+   "octets": 23846,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:35Z",
+     "http": 200,
+     "octets": 23846,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G19.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:39Z",
+   "sha256": "a6bb8693c1d21cd3a612e3c2352dbf6885d359e930020b4ca6350da1cdb58ac6",
+   "octets": 23744,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:39Z",
+     "http": 200,
+     "octets": 23744,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S19.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:46Z",
+   "sha256": "f9fc30c2ebd556e3976a57386784c28e95ecf1c334a555bfdc98d303d2e90ca1",
+   "octets": 24282,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:46Z",
+     "http": 200,
+     "octets": 24282,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A19.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:50Z",
+   "sha256": "94b0914123708b9c9e55817ba2f91f3558f73d76d4613d3683ddb35f8f4063e7",
+   "octets": 25054,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:50Z",
+     "http": 200,
+     "octets": 25054,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W20.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:28:54Z",
+   "sha256": "02a91b02a5f6bdb0f6d70686907c3c47345620144a5d5476dab6c038d40ab19d",
+   "octets": 24720,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:28:54Z",
+     "http": 200,
+     "octets": 24720,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G20.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:01Z",
+   "sha256": "ac6bd8da4867dafd409a3329feaacb2c93da068d42e6a6fc80a42dbf640127af",
+   "octets": 24602,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:01Z",
+     "http": 200,
+     "octets": 24602,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S20.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:09Z",
+   "sha256": "3bd904ad2465bb3998b2ea78fa7d02d405ed6f588a2d7ce3cdc0b1eb29f8baa6",
+   "octets": 25167,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:09Z",
+     "http": 200,
+     "octets": 25167,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A20.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:17Z",
+   "sha256": "808100fa0fdf88616dd917472ea32f6f6d74f3547c57b7885c1062272e94a301",
+   "octets": 25939,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:17Z",
+     "http": 200,
+     "octets": 25939,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W21.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:25Z",
+   "sha256": "c665a9983270e88c80497c36e6ef401c10efb260a60514a7cc270eca6f681a61",
+   "octets": 25585,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:25Z",
+     "http": 200,
+     "octets": 25585,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G21.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:28Z",
+   "sha256": "4fd840d07bd902aadbfeb461a49bfc5fc537b58edd3546083adac0b98d97fc29",
+   "octets": 25475,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:28Z",
+     "http": 200,
+     "octets": 25475,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S21.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:32Z",
+   "sha256": "8ce9447d06dc0a7bee83d500c370a9a34bb252c0fd64c96cddc22acb3a1ee031",
+   "octets": 26055,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:32Z",
+     "http": 200,
+     "octets": 26055,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A21.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:44Z",
+   "sha256": "695c19d11efc24b59c45080edaea51628b5465a81e609542cf16187a700b84f1",
+   "octets": 26821,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:44Z",
+     "http": 200,
+     "octets": 26821,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W22.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W22.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:46Z",
+   "sha256": "02e985af6a44ac1f5d9b74ca88ca0b40b8e8bea3e7bf1a5be30cf323cc3f4cc3",
+   "octets": 26459,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:46Z",
+     "http": 200,
+     "octets": 26459,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G22.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G22.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:49Z",
+   "sha256": "975a208d3c7d8193974f017404c1b11a79066ac65c2ccb3e4bf48fa40dcbd90c",
+   "octets": 26339,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:49Z",
+     "http": 200,
+     "octets": 26339,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S22.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S22.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:29:56Z",
+   "sha256": "181ca55abc26606bc608bfb4b4cfdf474ea23d6f4e12642683f1d521010bffef",
+   "octets": 26939,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:29:56Z",
+     "http": 200,
+     "octets": 26939,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A22.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A22.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:01Z",
+   "sha256": "05a1f85a7ed23c6bb6ad87a2fbae35732757a8067d2240492371287340e1a932",
+   "octets": 27700,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:01Z",
+     "http": 200,
+     "octets": 27700,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W23.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W23.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:04Z",
+   "sha256": "7ce1f46f8852898c7e550ec723d4428a154a65ab56b8377da969d2e609eea7da",
+   "octets": 27324,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:04Z",
+     "http": 200,
+     "octets": 27324,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G23.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G23.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:07Z",
+   "sha256": "760dc0e7c092391770250bd1d504f6e5eee5f80316710d38438f05a1f8726df0",
+   "octets": 27204,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:07Z",
+     "http": 200,
+     "octets": 27204,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S23.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S23.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:15Z",
+   "sha256": "fcad2903f719a4cd2b855305a87bb233ea23a534f98e18244d88424aedc366e4",
+   "octets": 27822,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:15Z",
+     "http": 200,
+     "octets": 27822,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A23.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A23.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:19Z",
+   "sha256": "034e849a0410ab456f2f23b825466ff39be65bd7bb1524e14e0c5a80a68d52ab",
+   "octets": 28580,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:19Z",
+     "http": 200,
+     "octets": 28580,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W24.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W24.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:21Z",
+   "sha256": "a5016ba3a7e93ad8d41e853f4f2131cfb23cf9b588951d478e9cbfe8727a3df8",
+   "octets": 28200,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:21Z",
+     "http": 200,
+     "octets": 28200,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G24.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G24.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:27Z",
+   "sha256": "63e27b20c47ef3dd901b27cf8c0111b05a891c70f9f804240ac08a963b421970",
+   "octets": 28070,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:27Z",
+     "http": 200,
+     "octets": 28070,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S24.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S24.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:37Z",
+   "sha256": "2c0179568ff2bb4727c367ae261a5eb074a7e6d30a25f97bee2a7fe41f42a3f6",
+   "octets": 28708,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:37Z",
+     "http": 200,
+     "octets": 28708,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A24.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A24.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:40Z",
+   "sha256": "0374d6af951d0124c4f382972829b1a7ecf302f79a2c7b516052b6a893362682",
+   "octets": 29462,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:40Z",
+     "http": 200,
+     "octets": 29462,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W25.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W25.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:43Z",
+   "sha256": "bfc6db175fa2cf1cbafc757d5d2c2bbd402d7441ee9432bbd07e00028a4ead52",
+   "octets": 29060,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:43Z",
+     "http": 200,
+     "octets": 29060,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G25.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G25.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:47Z",
+   "sha256": "8693b8c129ba64030acc184f1b90e6a6e01161dd9f1c35ec10a20e2e8811cd1b",
+   "octets": 29988,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:47Z",
+     "http": 200,
+     "octets": 29988,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S25.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S25.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:54Z",
+   "sha256": "e33f735aacf15922b0d7c0ed6c6a707cc47e013961e29631cbe76d3ab654567d",
+   "octets": 30648,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:54Z",
+     "http": 200,
+     "octets": 30648,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_A25.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A25.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:30:59Z",
+   "sha256": "a7426e4ef4a3064f9fb611a852e321ddb8301cade396936c27d5146b69eff4b5",
+   "octets": 31434,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:30:59Z",
+     "http": 200,
+     "octets": 31434,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_W26.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W26.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:31:06Z",
+   "sha256": "85ccde477b7218a1bf81c4e87795badff4e18ed8e181462eddd7210fdef1d44c",
+   "octets": 29220,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:31:06Z",
+     "http": 200,
+     "octets": 29220,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_G26.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G26.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:31:19Z",
+   "sha256": "fc64cb23881eee5bc369a8a2ad16cc1bba7919d5fd2abc7bfe45e5cd1b5a4c57",
+   "octets": 29086,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:31:19Z",
+     "http": 200,
+     "octets": 29086,
+     "entete_conforme": 1
+    }
+   ]
+  },
+  "MPD_Q_U2_HIC_A_S26.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S26.0000?format=csvdata",
+   "obtenu": 1,
+   "http": 200,
+   "date_utc": "2026-11-12T19:31:25Z",
+   "sha256": "1c9c0849f9eeb263ff70832bcd161de720bbaf88909bd4d9252c02bd97b4d287",
+   "octets": 29732,
+   "n_essais": 1,
+   "essais": [
+    {
+     "essai": 1,
+     "date_utc": "2026-11-12T19:31:25Z",
+     "http": 200,
+     "octets": 29732,
+     "entete_conforme": 1
+    }
+   ]
+  }
+ },
+ "n_millesimes_obtenus": 111,
+ "construction": {
+  "fichier_analyse": "H03-v2_analyse.csv",
+  "sha256_fichier_analyse": "6e5eb252e03aa2f01bb0906332207d07d10596cd2abdb999b2ebd81a6660f4d5",
+  "comptes": {
+   "lignes": 444,
+   "projection_presente": 444,
+   "projection_precedente_presente": 440,
+   "realise_present": 426,
+   "revision_presente": 440,
+   "erreur_presente": 426,
+   "completes_revision_et_erreur": 422,
+   "completes_cible_8016_8103": 352,
+   "lignes_cible_8016_8103": 352,
+   "ecart_lecture_2": 426,
+   "ecart_lecture_3": 0,
+   "ecart_lecture_4": 0,
+   "mois_titre_rempli": 444,
+   "t_premier_F_rempli": 444,
+   "t_premier_F_egal_t_millesime": 444,
+   "trimestres_cibles_avec_realise": 108,
+   "dernier_trimestre_cible_realise": "2026-Q1"
+  },
+  "controles_schema": {
+   "1": {
+    "ok": 1,
+    "detail": "15 colonnes conformes"
+   },
+   "2": {
+    "ok": 1,
+    "detail": "444 lignes, 444 couples distincts, 111 millésimes"
+   },
+   "3": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut"
+   },
+   "4": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut sur 444 lignes où mois_titre est rempli"
+   },
+   "5": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut sur 444 lignes où t_premier_F est rempli"
+   },
+   "6": {
+    "ok": 1,
+    "detail": "0 cellule(s) en défaut"
+   },
+   "7": {
+    "ok": 1,
+    "detail": "0 cellule(s) en défaut"
+   },
+   "8": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut"
+   },
+   "9": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut"
+   },
+   "10": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut ; 114 trimestres cibles distincts"
+   },
+   "11": {
+    "ok": 1,
+    "detail": "0 ligne(s) en défaut sur 333 lignes d'horizon ≤ 3"
+   }
+  },
+  "n_violations_schema": 0,
+  "millesimes": {
+   "W99": {
+    "t": 7996,
+    "mois_titre": 3,
+    "t_premier_F": 7996,
+    "n_lignes": 12,
+    "sha256": "69ca700031488ce7a4b46a5e21533e3cf919249ec08f0ea98c28b8fea54ff028",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 1999 staff macroeconomic projections"
+    ]
+   },
+   "G99": {
+    "t": 7997,
+    "mois_titre": 6,
+    "t_premier_F": 7997,
+    "n_lignes": 16,
+    "sha256": "783b76644011413658701b1e9000ba134f6c60d765e33b37844880b48b35842a",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 1999 staff macroeconomic projections"
+    ]
+   },
+   "S99": {
+    "t": 7998,
+    "mois_titre": 9,
+    "t_premier_F": 7998,
+    "n_lignes": 16,
+    "sha256": "82323bce4a04359ac8b9f9e7bf4964969c7e82f13df7de4d2264379db778cc5e",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 1999 staff macroeconomic projections"
+    ]
+   },
+   "A99": {
+    "t": 7999,
+    "mois_titre": 12,
+    "t_premier_F": 7999,
+    "n_lignes": 16,
+    "sha256": "90dd9741e1d6b361b039e7fe682707253e4ebf49e7cc03fdd16c6d5db9252acb",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 1999 staff macroeconomic projections"
+    ]
+   },
+   "W00": {
+    "t": 8000,
+    "mois_titre": 3,
+    "t_premier_F": 8000,
+    "n_lignes": 12,
+    "sha256": "5ffdd97be302bcc5ac04e65fae8c9d32b9fbca94636aabd03ee63c75f68d72d6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2000 staff macroeconomic projections"
+    ]
+   },
+   "G00": {
+    "t": 8001,
+    "mois_titre": 6,
+    "t_premier_F": 8001,
+    "n_lignes": 16,
+    "sha256": "9202a57265395c424d78f8dc67751ada3492d700001068190a6308336eefeb20",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2000 staff macroeconomic projections"
+    ]
+   },
+   "S00": {
+    "t": 8002,
+    "mois_titre": 9,
+    "t_premier_F": 8002,
+    "n_lignes": 16,
+    "sha256": "f0203e8da0c8a894f792a3a973467503de471e18ae4e18cb60495d6c20525043",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2000 staff macroeconomic projections"
+    ]
+   },
+   "A00": {
+    "t": 8003,
+    "mois_titre": 12,
+    "t_premier_F": 8003,
+    "n_lignes": 16,
+    "sha256": "74b0385f6351182016736b03e7fd5f17d26eb3bdcbc31203d8b1bb655e2cdee9",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2000 staff macroeconomic projections"
+    ]
+   },
+   "W01": {
+    "t": 8004,
+    "mois_titre": 3,
+    "t_premier_F": 8004,
+    "n_lignes": 16,
+    "sha256": "91a29db83764d571e9735aa47289c90e21b495df113a3fc1bc700670b2fc42d6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2001 staff macroeconomic projections"
+    ]
+   },
+   "G01": {
+    "t": 8005,
+    "mois_titre": 6,
+    "t_premier_F": 8005,
+    "n_lignes": 16,
+    "sha256": "99c715b5089c540c6310f67491823f889139d59163ac907182c39eb2450d4663",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2001 staff macroeconomic projections"
+    ]
+   },
+   "S01": {
+    "t": 8006,
+    "mois_titre": 9,
+    "t_premier_F": 8006,
+    "n_lignes": 20,
+    "sha256": "e9566b5e9c74256cba5b2f623d2cec011b7d13a3cd15076afe387de1aadcafb2",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2001 staff macroeconomic projections"
+    ]
+   },
+   "A01": {
+    "t": 8007,
+    "mois_titre": 12,
+    "t_premier_F": 8007,
+    "n_lignes": 20,
+    "sha256": "73d0aaeb6c55229f90e7ceb74d39fe89f150d80b1b98c1db1f08fe70b72b2e33",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2001 staff macroeconomic projections"
+    ]
+   },
+   "W02": {
+    "t": 8008,
+    "mois_titre": 3,
+    "t_premier_F": 8008,
+    "n_lignes": 20,
+    "sha256": "f336a1bb343dc6b81c696f52205c1143e1598d43c6973f7d2da600b6d03450df",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2002 staff macroeconomic projections"
+    ]
+   },
+   "G02": {
+    "t": 8009,
+    "mois_titre": 6,
+    "t_premier_F": 8009,
+    "n_lignes": 16,
+    "sha256": "b62323d31214ac924341897739c988b64a57bafedff5d75d7573c8c1e857432d",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2002 staff macroeconomic projections"
+    ]
+   },
+   "S02": {
+    "t": 8010,
+    "mois_titre": 9,
+    "t_premier_F": 8010,
+    "n_lignes": 20,
+    "sha256": "805586aa3618c33772c92da9c9e4dedd0e4f02ef44cdb80a7858db1eca3add54",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2002 staff macroeconomic projections"
+    ]
+   },
+   "A02": {
+    "t": 8011,
+    "mois_titre": 12,
+    "t_premier_F": 8011,
+    "n_lignes": 20,
+    "sha256": "3e912b48a51b2c754743c1c52214ed9723aa56bd9c134caec05e5d605b77a953",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2002 staff macroeconomic projections"
+    ]
+   },
+   "W03": {
+    "t": 8012,
+    "mois_titre": 3,
+    "t_premier_F": 8012,
+    "n_lignes": 20,
+    "sha256": "65c7632836758a190b4f6e294efea651d4c77537e86ed00107960d626b337159",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2003 staff macroeconomic projections"
+    ]
+   },
+   "G03": {
+    "t": 8013,
+    "mois_titre": 6,
+    "t_premier_F": 8013,
+    "n_lignes": 33,
+    "sha256": "4ba17109a6f59ee9d63728e558b630fadc54b02ee110599642246c1f95a45ee6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2003 staff macroeconomic projections"
+    ]
+   },
+   "S03": {
+    "t": 8014,
+    "mois_titre": 9,
+    "t_premier_F": 8014,
+    "n_lignes": 33,
+    "sha256": "ce193ee0949d7a5899f632efa3acfb0adaa304da413d25a317804b8f1f585c21",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2003 staff macroeconomic projections"
+    ]
+   },
+   "A03": {
+    "t": 8015,
+    "mois_titre": 12,
+    "t_premier_F": 8015,
+    "n_lignes": 33,
+    "sha256": "1ac0e4c722396e02f6c9b9772493b1ab201b4a93dce4656e89be8e6ce1695c66",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2003 staff macroeconomic projections"
+    ]
+   },
+   "W04": {
+    "t": 8016,
+    "mois_titre": 3,
+    "t_premier_F": 8016,
+    "n_lignes": 48,
+    "sha256": "77ea6ebae47fba5e3c0f594c4c0f2527e4c836cd97cc17d16ccf5ff868b4d307",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2004 staff macroeconomic projections"
+    ]
+   },
+   "G04": {
+    "t": 8017,
+    "mois_titre": 6,
+    "t_premier_F": 8017,
+    "n_lignes": 48,
+    "sha256": "744f7b6ed7e96775e68342ed513d9563069f0190fb893c294e9c9918577762de",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2004 staff macroeconomic projections"
+    ]
+   },
+   "S04": {
+    "t": 8018,
+    "mois_titre": 9,
+    "t_premier_F": 8018,
+    "n_lignes": 48,
+    "sha256": "113b7688f79593bff217d0ee1eb0a2d3242f4dd40fc2f1c6788c3f52dea3922f",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2004 staff macroeconomic projections"
+    ]
+   },
+   "A04": {
+    "t": 8019,
+    "mois_titre": 12,
+    "t_premier_F": 8019,
+    "n_lignes": 48,
+    "sha256": "5dca83abe86627bdb7dc8c81ec9629a88d169702843818c903abc55c4b8c6594",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2004 staff macroeconomic projections"
+    ]
+   },
+   "W05": {
+    "t": 8020,
+    "mois_titre": 3,
+    "t_premier_F": 8020,
+    "n_lignes": 52,
+    "sha256": "1eb50c2d0ccdd61f0f45a1fd63ca8d759c2fd658b75f84705d54bfd6ade5724a",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2005 staff macroeconomic projections"
+    ]
+   },
+   "G05": {
+    "t": 8021,
+    "mois_titre": 6,
+    "t_premier_F": 8021,
+    "n_lignes": 52,
+    "sha256": "7e39469e8a1b7cd04ca3266aab71e74bb305965a3c0a5e0daa8454bbc4fb8ceb",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2005 staff macroeconomic projections"
+    ]
+   },
+   "S05": {
+    "t": 8022,
+    "mois_titre": 9,
+    "t_premier_F": 8022,
+    "n_lignes": 52,
+    "sha256": "1fc491510bdffcc9459c4e2a22a79953a930bcf6666a8bf911e154d86a32318d",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2005 staff macroeconomic projections"
+    ]
+   },
+   "A05": {
+    "t": 8023,
+    "mois_titre": 12,
+    "t_premier_F": 8023,
+    "n_lignes": 52,
+    "sha256": "e5ed7499961d2958f73576bd887c8280b4971c3b85e90deb653fffa0d08a0fd3",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2005 staff macroeconomic projections"
+    ]
+   },
+   "W06": {
+    "t": 8024,
+    "mois_titre": 3,
+    "t_premier_F": 8024,
+    "n_lignes": 48,
+    "sha256": "6ab7e0fce64a0b92d80df25e8b8576adf5399d3e9c5f1f32f79ca93e3b283781",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2006 staff macroeconomic projections"
+    ]
+   },
+   "G06": {
+    "t": 8025,
+    "mois_titre": 6,
+    "t_premier_F": 8025,
+    "n_lignes": 44,
+    "sha256": "b64e7bd6a204dc422a211593faa0f74418cda4910369bbed69a54d242c2e4f2e",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2006 staff macroeconomic projections"
+    ]
+   },
+   "S06": {
+    "t": 8026,
+    "mois_titre": 9,
+    "t_premier_F": 8026,
+    "n_lignes": 52,
+    "sha256": "f6e864036f31a0a89a0831f7cd8d670e9822f235579c14d655ec28294080470e",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2006 staff macroeconomic projections"
+    ]
+   },
+   "A06": {
+    "t": 8027,
+    "mois_titre": 12,
+    "t_premier_F": 8027,
+    "n_lignes": 52,
+    "sha256": "7d8399bed87bfb8082f74724af0c3f2b5827331d5693f5672803060ac779a8b5",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2006 staff macroeconomic projections"
+    ]
+   },
+   "W07": {
+    "t": 8028,
+    "mois_titre": 3,
+    "t_premier_F": 8028,
+    "n_lignes": 60,
+    "sha256": "3c4de8c887a356779adbba4638f6b6b1386535bb0bd2a34d885a24eb97c851fd",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2007 staff macroeconomic projections"
+    ]
+   },
+   "G07": {
+    "t": 8029,
+    "mois_titre": 6,
+    "t_premier_F": 8029,
+    "n_lignes": 60,
+    "sha256": "3a02e615d58ee462c0133f718a56f721ca92142372f3cf6c73040fcb61cbb692",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2007 staff macroeconomic projections"
+    ]
+   },
+   "S07": {
+    "t": 8030,
+    "mois_titre": 9,
+    "t_premier_F": 8030,
+    "n_lignes": 60,
+    "sha256": "e980a643eaab35fc48361544070d1a72654a9a868d1a8e6b06d5d028a563937e",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2007 staff macroeconomic projections"
+    ]
+   },
+   "A07": {
+    "t": 8031,
+    "mois_titre": 12,
+    "t_premier_F": 8031,
+    "n_lignes": 60,
+    "sha256": "ad880d28a333339c87793f45d9e0ecea36a963ba191ca11ac6c22bd3c587dc85",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2007 staff macroeconomic projections"
+    ]
+   },
+   "W08": {
+    "t": 8032,
+    "mois_titre": 3,
+    "t_premier_F": 8032,
+    "n_lignes": 64,
+    "sha256": "5bd4a624dbeb49cc85d9fb1a2c0c8f36de0bb1b65e5405234db80fae02095b83",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2008 staff macroeconomic projections"
+    ]
+   },
+   "G08": {
+    "t": 8033,
+    "mois_titre": 6,
+    "t_premier_F": 8033,
+    "n_lignes": 64,
+    "sha256": "8201bdd3d03577a5f73bef8324e439248ab40fdb7d1737b096f699d57a7b3c72",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2008 staff macroeconomic projections"
+    ]
+   },
+   "S08": {
+    "t": 8034,
+    "mois_titre": 9,
+    "t_premier_F": 8034,
+    "n_lignes": 64,
+    "sha256": "a0aa47d48f4dc06fe5d3f033f977d8c3cb17a14f971ced9c2dae8cea787cba29",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2008 staff macroeconomic projections"
+    ]
+   },
+   "A08": {
+    "t": 8035,
+    "mois_titre": 12,
+    "t_premier_F": 8035,
+    "n_lignes": 64,
+    "sha256": "e3be9ac73319a7fccc9c85e73ecfdeab19697e14f5f40bdb22a939b2afe9ae6b",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2008 staff macroeconomic projections"
+    ]
+   },
+   "W09": {
+    "t": 8036,
+    "mois_titre": 3,
+    "t_premier_F": 8036,
+    "n_lignes": 68,
+    "sha256": "8dec56ce79e0804371b9079419d59ce14a7776b79630fe2de8a4d97dc56ac67a",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2009 staff macroeconomic projections"
+    ]
+   },
+   "G09": {
+    "t": 8037,
+    "mois_titre": 6,
+    "t_premier_F": 8037,
+    "n_lignes": 68,
+    "sha256": "1f5ce04ff5694d049b736e8c05e5d7ae0834e1af47c9ad54427d550f3da0490c",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2009 staff macroeconomic projections"
+    ]
+   },
+   "S09": {
+    "t": 8038,
+    "mois_titre": 9,
+    "t_premier_F": 8038,
+    "n_lignes": 68,
+    "sha256": "ca5ed3984bc59af5f37de04799524cedc63ba6c4635b863fe3e778427ef73542",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2009 staff macroeconomic projections"
+    ]
+   },
+   "A09": {
+    "t": 8039,
+    "mois_titre": 12,
+    "t_premier_F": 8039,
+    "n_lignes": 68,
+    "sha256": "b874c69c9978e471047234e170d9ae20bece3dad6b71dbbe57a682c6386bd20e",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2009 staff macroeconomic projections"
+    ]
+   },
+   "W10": {
+    "t": 8040,
+    "mois_titre": 3,
+    "t_premier_F": 8040,
+    "n_lignes": 72,
+    "sha256": "33fdbe9c9a3a65311494b715a640d09bb86509463368da90cc89485b00a5a7a2",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2010 staff macroeconomic projections"
+    ]
+   },
+   "G10": {
+    "t": 8041,
+    "mois_titre": 6,
+    "t_premier_F": 8041,
+    "n_lignes": 72,
+    "sha256": "d318ac7c3b0a14b4d3f6938449b6dbf0f447cb958b24100e7a987ac3736886f6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2010 staff macroeconomic projections"
+    ]
+   },
+   "S10": {
+    "t": 8042,
+    "mois_titre": 9,
+    "t_premier_F": 8042,
+    "n_lignes": 72,
+    "sha256": "faae3977a15944b05063a49b39b06fc6f0cd9802bf03558630abec1794cb2bca",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2010 staff macroeconomic projections"
+    ]
+   },
+   "A10": {
+    "t": 8043,
+    "mois_titre": 12,
+    "t_premier_F": 8043,
+    "n_lignes": 72,
+    "sha256": "37645a3fcae614b1110eaeb787ec8fa00e4cdd748ff427cd2579a159b48ca521",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2010 staff macroeconomic projections"
+    ]
+   },
+   "W11": {
+    "t": 8044,
+    "mois_titre": 3,
+    "t_premier_F": 8044,
+    "n_lignes": 76,
+    "sha256": "4956f8a477b227371067296ee5e7bcf6a992f5b002f18b226ed8ffe144afc377",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2011 staff macroeconomic projections"
+    ]
+   },
+   "G11": {
+    "t": 8045,
+    "mois_titre": 6,
+    "t_premier_F": 8045,
+    "n_lignes": 76,
+    "sha256": "eafee3a21eee91ffb63fa2004c3fc346c373ea9b41f4e7adfc8aa6b97f791ecd",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2011 staff macroeconomic projections"
+    ]
+   },
+   "S11": {
+    "t": 8046,
+    "mois_titre": 9,
+    "t_premier_F": 8046,
+    "n_lignes": 76,
+    "sha256": "4d7a7755f886609df06379de62f2e88447b78a8b6ba7575362085cad1b5fa405",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2011 staff macroeconomic projections"
+    ]
+   },
+   "A11": {
+    "t": 8047,
+    "mois_titre": 12,
+    "t_premier_F": 8047,
+    "n_lignes": 76,
+    "sha256": "db163b435b57d699a0ced7fced336ac648a8ab49b4f9e221ed41771e92e91a84",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2011 staff macroeconomic projections"
+    ]
+   },
+   "W12": {
+    "t": 8048,
+    "mois_titre": 3,
+    "t_premier_F": 8048,
+    "n_lignes": 80,
+    "sha256": "3c9f4f39d1f0e82d5e71494e1bf040f144f0618bd9a849e04668824597e87882",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2012 staff macroeconomic projections"
+    ]
+   },
+   "G12": {
+    "t": 8049,
+    "mois_titre": 6,
+    "t_premier_F": 8049,
+    "n_lignes": 80,
+    "sha256": "6b96e3d8d306403c1b3e549168ad6a5ce3812c33aeaf5f43c94bf0f7c8b5eef1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2012 staff macroeconomic projections"
+    ]
+   },
+   "S12": {
+    "t": 8050,
+    "mois_titre": 9,
+    "t_premier_F": 8050,
+    "n_lignes": 80,
+    "sha256": "bac57b98e0bd5c29cc708c4c7d0f7490676e0c90d737aace4df46ec415f1193a",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2012 staff macroeconomic projections"
+    ]
+   },
+   "A12": {
+    "t": 8051,
+    "mois_titre": 12,
+    "t_premier_F": 8051,
+    "n_lignes": 80,
+    "sha256": "aeda1b297249eb82bb52aa3058852e54c2a2258932b150bd29deb19e053ba3f7",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2012 staff macroeconomic projections"
+    ]
+   },
+   "W13": {
+    "t": 8052,
+    "mois_titre": 3,
+    "t_premier_F": 8052,
+    "n_lignes": 84,
+    "sha256": "5a59fbad066d39e54b4da3c3456c2a857ca8e3a09f8e5bcd47dd22ae5914d1cb",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2013 staff macroeconomic projections"
+    ]
+   },
+   "G13": {
+    "t": 8053,
+    "mois_titre": 6,
+    "t_premier_F": 8053,
+    "n_lignes": 84,
+    "sha256": "3749498c5a6a5a34c507b34864a8110755c43ea7de12afbe88bc61f909329077",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2013 staff macroeconomic projections"
+    ]
+   },
+   "S13": {
+    "t": 8054,
+    "mois_titre": 9,
+    "t_premier_F": 8054,
+    "n_lignes": 84,
+    "sha256": "e3d6b8f07ec9582547fe87c184eae594e426e58d519b32d048c97ac64151cb78",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2013 staff macroeconomic projections"
+    ]
+   },
+   "A13": {
+    "t": 8055,
+    "mois_titre": 12,
+    "t_premier_F": 8055,
+    "n_lignes": 84,
+    "sha256": "100adf8ebbc39f09d3c7d31fab900fe860284a365fd0e56312023c03461f9c46",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2013 staff macroeconomic projections"
+    ]
+   },
+   "W14": {
+    "t": 8056,
+    "mois_titre": 3,
+    "t_premier_F": 8056,
+    "n_lignes": 88,
+    "sha256": "259ac6ce3cf97a9908461984a5317b736e47ba6fa1e9db00112a745cc4ea2a4b",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2014 staff macroeconomic projections"
+    ]
+   },
+   "G14": {
+    "t": 8057,
+    "mois_titre": 6,
+    "t_premier_F": 8057,
+    "n_lignes": 88,
+    "sha256": "78ef1c840a9c1b3db9d5fe1a19eb10e171417edb9acc08671ae702c252bb2866",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2014 staff macroeconomic projections"
+    ]
+   },
+   "S14": {
+    "t": 8058,
+    "mois_titre": 9,
+    "t_premier_F": 8058,
+    "n_lignes": 88,
+    "sha256": "b16c53a135ba29f80a164eceff2d0980569681e328f56bb43e1476ad7ad9c160",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2014 staff macroeconomic projections"
+    ]
+   },
+   "A14": {
+    "t": 8059,
+    "mois_titre": 12,
+    "t_premier_F": 8059,
+    "n_lignes": 88,
+    "sha256": "bcdf5ec41b1a06bd48e852a229a736d455dce0a5bca41c3b5160a8dc73aaaaf1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2014 staff macroeconomic projections"
+    ]
+   },
+   "W15": {
+    "t": 8060,
+    "mois_titre": 3,
+    "t_premier_F": 8060,
+    "n_lignes": 92,
+    "sha256": "68448f32991cc3db80108774f08fad4d99187e169848395563d7b81cd3896219",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2015 staff macroeconomic projections"
+    ]
+   },
+   "G15": {
+    "t": 8061,
+    "mois_titre": 6,
+    "t_premier_F": 8061,
+    "n_lignes": 92,
+    "sha256": "316cc5ccf7376d9bb1970202062f2f89223f1983fc6d01bb899edd92d7438368",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2015 staff macroeconomic projections"
+    ]
+   },
+   "S15": {
+    "t": 8062,
+    "mois_titre": 9,
+    "t_premier_F": 8062,
+    "n_lignes": 92,
+    "sha256": "53d233289728ccc59d3ff4f7053afeffcdf797c279e013d38afad437e32c11b3",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2015 staff macroeconomic projections"
+    ]
+   },
+   "A15": {
+    "t": 8063,
+    "mois_titre": 12,
+    "t_premier_F": 8063,
+    "n_lignes": 92,
+    "sha256": "aba79f6f6c6de18801ef5947fdb92098fc1e0254ef263a437ca10e48a6615f58",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2015 staff macroeconomic projections"
+    ]
+   },
+   "W16": {
+    "t": 8064,
+    "mois_titre": 3,
+    "t_premier_F": 8064,
+    "n_lignes": 92,
+    "sha256": "8bf734333e2c6c4da5ca311c6b405a63fadcfea8cf1be41e6f916f90bd1b8ed2",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2016 staff macroeconomic projections"
+    ]
+   },
+   "G16": {
+    "t": 8065,
+    "mois_titre": 6,
+    "t_premier_F": 8065,
+    "n_lignes": 96,
+    "sha256": "86cf095d2225bee1ad468175c842d2f073c8180abe1dc55a982b9526fb45ec99",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2016 staff macroeconomic projections"
+    ]
+   },
+   "S16": {
+    "t": 8066,
+    "mois_titre": 9,
+    "t_premier_F": 8066,
+    "n_lignes": 96,
+    "sha256": "a1fd0711ea5d8f96c1a8685671e9126413ad8464a12cb1f391713d8c3cceaca8",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2016 staff macroeconomic projections"
+    ]
+   },
+   "A16": {
+    "t": 8067,
+    "mois_titre": 12,
+    "t_premier_F": 8067,
+    "n_lignes": 100,
+    "sha256": "252cbcb1a2157a3f4525849c22eb21b539c5e3864a338e5b351e7a5b5d058e52",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2016 staff macroeconomic projections"
+    ]
+   },
+   "W17": {
+    "t": 8068,
+    "mois_titre": 3,
+    "t_premier_F": 8068,
+    "n_lignes": 100,
+    "sha256": "f724cda84a1574fccc2a3f660a5c4fdd0bceb5e3a1a41c1c09da28654f4bf885",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2017 staff macroeconomic projections"
+    ]
+   },
+   "G17": {
+    "t": 8069,
+    "mois_titre": 6,
+    "t_premier_F": 8069,
+    "n_lignes": 100,
+    "sha256": "aa8fbc1bd52ccfcc8fed92a1eba53cc3c9aa590e21a1446e03ca46a2a9b15909",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2017 staff macroeconomic projections"
+    ]
+   },
+   "S17": {
+    "t": 8070,
+    "mois_titre": 9,
+    "t_premier_F": 8070,
+    "n_lignes": 100,
+    "sha256": "2402892ef22bebf813ba9677d991e87e8488f0ee07529ed9252bd8ebf46402ea",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2017 staff macroeconomic projections"
+    ]
+   },
+   "A17": {
+    "t": 8071,
+    "mois_titre": 12,
+    "t_premier_F": 8071,
+    "n_lignes": 104,
+    "sha256": "dfa2c9a9a2be2fba00f506d877e3f906e089f1590fdd295b1c5b4bcaa67cbce4",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2017 staff macroeconomic projections"
+    ]
+   },
+   "W18": {
+    "t": 8072,
+    "mois_titre": 3,
+    "t_premier_F": 8072,
+    "n_lignes": 104,
+    "sha256": "136dc62e1fb389b9d274ae8d321c4fdb985b2455039a58ed775bf60bd60192f1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2018 staff macroeconomic projections"
+    ]
+   },
+   "G18": {
+    "t": 8073,
+    "mois_titre": 6,
+    "t_premier_F": 8073,
+    "n_lignes": 104,
+    "sha256": "5e12dc9b2ae578d94c695d3e649a5fe0ca5efc511f4de23ebdf9c55fb5a54756",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2018 staff macroeconomic projections"
+    ]
+   },
+   "S18": {
+    "t": 8074,
+    "mois_titre": 9,
+    "t_premier_F": 8074,
+    "n_lignes": 104,
+    "sha256": "9ce2761dda6c81df344f954cdcef0fe6042dfd174c50d172cb1596e595ca65e0",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2018 staff macroeconomic projections"
+    ]
+   },
+   "A18": {
+    "t": 8075,
+    "mois_titre": 12,
+    "t_premier_F": 8075,
+    "n_lignes": 108,
+    "sha256": "4f7e149097543399aa59ff7411bf3811e8fbeab42792975a3f681ac19dd233e1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2018 staff macroeconomic projections"
+    ]
+   },
+   "W19": {
+    "t": 8076,
+    "mois_titre": 3,
+    "t_premier_F": 8076,
+    "n_lignes": 108,
+    "sha256": "6f9f946cd26bf1dec9087dfaeab168ca8fbc1907adb459d77fbe23b3bab22163",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2019 staff macroeconomic projections"
+    ]
+   },
+   "G19": {
+    "t": 8077,
+    "mois_titre": 6,
+    "t_premier_F": 8077,
+    "n_lignes": 108,
+    "sha256": "a6bb8693c1d21cd3a612e3c2352dbf6885d359e930020b4ca6350da1cdb58ac6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2019 staff macroeconomic projections"
+    ]
+   },
+   "S19": {
+    "t": 8078,
+    "mois_titre": 9,
+    "t_premier_F": 8078,
+    "n_lignes": 108,
+    "sha256": "f9fc30c2ebd556e3976a57386784c28e95ecf1c334a555bfdc98d303d2e90ca1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2019 staff macroeconomic projections"
+    ]
+   },
+   "A19": {
+    "t": 8079,
+    "mois_titre": 12,
+    "t_premier_F": 8079,
+    "n_lignes": 112,
+    "sha256": "94b0914123708b9c9e55817ba2f91f3558f73d76d4613d3683ddb35f8f4063e7",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2019 staff macroeconomic projections"
+    ]
+   },
+   "W20": {
+    "t": 8080,
+    "mois_titre": 3,
+    "t_premier_F": 8080,
+    "n_lignes": 112,
+    "sha256": "02a91b02a5f6bdb0f6d70686907c3c47345620144a5d5476dab6c038d40ab19d",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2020 staff macroeconomic projections"
+    ]
+   },
+   "G20": {
+    "t": 8081,
+    "mois_titre": 6,
+    "t_premier_F": 8081,
+    "n_lignes": 112,
+    "sha256": "ac6bd8da4867dafd409a3329feaacb2c93da068d42e6a6fc80a42dbf640127af",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2020 staff macroeconomic projections"
+    ]
+   },
+   "S20": {
+    "t": 8082,
+    "mois_titre": 9,
+    "t_premier_F": 8082,
+    "n_lignes": 112,
+    "sha256": "3bd904ad2465bb3998b2ea78fa7d02d405ed6f588a2d7ce3cdc0b1eb29f8baa6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2020 staff macroeconomic projections"
+    ]
+   },
+   "A20": {
+    "t": 8083,
+    "mois_titre": 12,
+    "t_premier_F": 8083,
+    "n_lignes": 116,
+    "sha256": "808100fa0fdf88616dd917472ea32f6f6d74f3547c57b7885c1062272e94a301",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2020 staff macroeconomic projections"
+    ]
+   },
+   "W21": {
+    "t": 8084,
+    "mois_titre": 3,
+    "t_premier_F": 8084,
+    "n_lignes": 116,
+    "sha256": "c665a9983270e88c80497c36e6ef401c10efb260a60514a7cc270eca6f681a61",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2021 staff macroeconomic projections"
+    ]
+   },
+   "G21": {
+    "t": 8085,
+    "mois_titre": 6,
+    "t_premier_F": 8085,
+    "n_lignes": 116,
+    "sha256": "4fd840d07bd902aadbfeb461a49bfc5fc537b58edd3546083adac0b98d97fc29",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2021 staff macroeconomic projections"
+    ]
+   },
+   "S21": {
+    "t": 8086,
+    "mois_titre": 9,
+    "t_premier_F": 8086,
+    "n_lignes": 116,
+    "sha256": "8ce9447d06dc0a7bee83d500c370a9a34bb252c0fd64c96cddc22acb3a1ee031",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2021 staff macroeconomic projections"
+    ]
+   },
+   "A21": {
+    "t": 8087,
+    "mois_titre": 12,
+    "t_premier_F": 8087,
+    "n_lignes": 120,
+    "sha256": "695c19d11efc24b59c45080edaea51628b5465a81e609542cf16187a700b84f1",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2021 staff macroeconomic projections"
+    ]
+   },
+   "W22": {
+    "t": 8088,
+    "mois_titre": 3,
+    "t_premier_F": 8088,
+    "n_lignes": 120,
+    "sha256": "02e985af6a44ac1f5d9b74ca88ca0b40b8e8bea3e7bf1a5be30cf323cc3f4cc3",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2022 staff macroeconomic projections"
+    ]
+   },
+   "G22": {
+    "t": 8089,
+    "mois_titre": 6,
+    "t_premier_F": 8089,
+    "n_lignes": 120,
+    "sha256": "975a208d3c7d8193974f017404c1b11a79066ac65c2ccb3e4bf48fa40dcbd90c",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2022 staff macroeconomic projections"
+    ]
+   },
+   "S22": {
+    "t": 8090,
+    "mois_titre": 9,
+    "t_premier_F": 8090,
+    "n_lignes": 120,
+    "sha256": "181ca55abc26606bc608bfb4b4cfdf474ea23d6f4e12642683f1d521010bffef",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2022 staff macroeconomic projections"
+    ]
+   },
+   "A22": {
+    "t": 8091,
+    "mois_titre": 12,
+    "t_premier_F": 8091,
+    "n_lignes": 124,
+    "sha256": "05a1f85a7ed23c6bb6ad87a2fbae35732757a8067d2240492371287340e1a932",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2022 staff macroeconomic projections"
+    ]
+   },
+   "W23": {
+    "t": 8092,
+    "mois_titre": 3,
+    "t_premier_F": 8092,
+    "n_lignes": 124,
+    "sha256": "7ce1f46f8852898c7e550ec723d4428a154a65ab56b8377da969d2e609eea7da",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2023 staff macroeconomic projections"
+    ]
+   },
+   "G23": {
+    "t": 8093,
+    "mois_titre": 6,
+    "t_premier_F": 8093,
+    "n_lignes": 124,
+    "sha256": "760dc0e7c092391770250bd1d504f6e5eee5f80316710d38438f05a1f8726df0",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2023 staff macroeconomic projections"
+    ]
+   },
+   "S23": {
+    "t": 8094,
+    "mois_titre": 9,
+    "t_premier_F": 8094,
+    "n_lignes": 124,
+    "sha256": "fcad2903f719a4cd2b855305a87bb233ea23a534f98e18244d88424aedc366e4",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2023 staff macroeconomic projections"
+    ]
+   },
+   "A23": {
+    "t": 8095,
+    "mois_titre": 12,
+    "t_premier_F": 8095,
+    "n_lignes": 128,
+    "sha256": "034e849a0410ab456f2f23b825466ff39be65bd7bb1524e14e0c5a80a68d52ab",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2023 staff macroeconomic projections"
+    ]
+   },
+   "W24": {
+    "t": 8096,
+    "mois_titre": 3,
+    "t_premier_F": 8096,
+    "n_lignes": 128,
+    "sha256": "a5016ba3a7e93ad8d41e853f4f2131cfb23cf9b588951d478e9cbfe8727a3df8",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2024 staff macroeconomic projections"
+    ]
+   },
+   "G24": {
+    "t": 8097,
+    "mois_titre": 6,
+    "t_premier_F": 8097,
+    "n_lignes": 128,
+    "sha256": "63e27b20c47ef3dd901b27cf8c0111b05a891c70f9f804240ac08a963b421970",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2024 staff macroeconomic projections"
+    ]
+   },
+   "S24": {
+    "t": 8098,
+    "mois_titre": 9,
+    "t_premier_F": 8098,
+    "n_lignes": 128,
+    "sha256": "2c0179568ff2bb4727c367ae261a5eb074a7e6d30a25f97bee2a7fe41f42a3f6",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2024 staff macroeconomic projections"
+    ]
+   },
+   "A24": {
+    "t": 8099,
+    "mois_titre": 12,
+    "t_premier_F": 8099,
+    "n_lignes": 132,
+    "sha256": "0374d6af951d0124c4f382972829b1a7ecf302f79a2c7b516052b6a893362682",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2024 staff macroeconomic projections"
+    ]
+   },
+   "W25": {
+    "t": 8100,
+    "mois_titre": 3,
+    "t_premier_F": 8100,
+    "n_lignes": 132,
+    "sha256": "bfc6db175fa2cf1cbafc757d5d2c2bbd402d7441ee9432bbd07e00028a4ead52",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2025 staff macroeconomic projections"
+    ]
+   },
+   "G25": {
+    "t": 8101,
+    "mois_titre": 6,
+    "t_premier_F": 8101,
+    "n_lignes": 132,
+    "sha256": "8693b8c129ba64030acc184f1b90e6a6e01161dd9f1c35ec10a20e2e8811cd1b",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Spring/June 2025  staff macroeconomic projections"
+    ]
+   },
+   "S25": {
+    "t": 8102,
+    "mois_titre": 9,
+    "t_premier_F": 8102,
+    "n_lignes": 132,
+    "sha256": "e33f735aacf15922b0d7c0ed6c6a707cc47e013961e29631cbe76d3ab654567d",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Summer/September 2025  staff macroeconomic projections"
+    ]
+   },
+   "A25": {
+    "t": 8103,
+    "mois_titre": 12,
+    "t_premier_F": 8103,
+    "n_lignes": 136,
+    "sha256": "a7426e4ef4a3064f9fb611a852e321ddb8301cade396936c27d5146b69eff4b5",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Autumn/December 2025  staff macroeconomic projections"
+    ]
+   },
+   "W26": {
+    "t": 8104,
+    "mois_titre": 3,
+    "t_premier_F": 8104,
+    "n_lignes": 128,
+    "sha256": "85ccde477b7218a1bf81c4e87795badff4e18ed8e181462eddd7210fdef1d44c",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Winter/March 2026  staff macroeconomic projections"
+    ]
+   },
+   "G26": {
+    "t": 8105,
+    "mois_titre": 6,
+    "t_premier_F": 8105,
+    "n_lignes": 128,
+    "sha256": "fc64cb23881eee5bc369a8a2ad16cc1bba7919d5fd2abc7bfe45e5cd1b5a4c57",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Spring/June 2026  staff macroeconomic projections"
+    ]
+   },
+   "S26": {
+    "t": 8106,
+    "mois_titre": 9,
+    "t_premier_F": 8106,
+    "n_lignes": 128,
+    "sha256": "1c9c0849f9eeb263ff70832bcd161de720bbaf88909bd4d9252c02bd97b4d287",
+    "titre": [
+     "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Summer/September 2026  staff macroeconomic projections"
+    ]
+   }
+  }
+ }
+}
