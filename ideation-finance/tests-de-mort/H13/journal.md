@@ -1,0 +1,1 @@
+- 2026-11-12T19:02:33Z — Étape 6 : `emploi_intermediaire.csv` écrit (431 lignes), sha256 `06d1166132eb6013152461f739b1a3c2101c57b0fc7b6c7ee28e1c03d687bab1`. D4 présent dans donnees/ : non ; D5 présent : non.

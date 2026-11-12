@@ -1,0 +1,83 @@
+{
+ "id": "H16",
+ "verdict": "éliminée",
+ "raisons": [],
+ "sceau_preenregistrement": "6862049133ba2826e17247ed7bdf04b100f2012a08bc5696d2a044898277c38c",
+ "chiffres_verificateur": {
+  "n_eval": 147,
+  "n_estim_init": 151,
+  "r2_oos": -0.00455409030564824,
+  "cw_fbar": 0.04794027157374743,
+  "cw_se": 0.08108109489628462,
+  "cw_t": 0.5912632486656788,
+  "cw_t_min_sans_une": 0.16292890694148474,
+  "zone_grise": 0,
+  "violations_schema": 0
+ },
+ "regle": {
+  "id": "H16",
+  "fichier_analyse": "analyse_H16.csv",
+  "champs_verification": [
+   "n_eval",
+   "n_estim_init",
+   "r2_oos",
+   "cw_fbar",
+   "cw_se",
+   "cw_t",
+   "cw_t_min_sans_une",
+   "zone_grise",
+   "violations_schema"
+  ],
+  "survit_si": [
+   {
+    "champ": "r2_oos",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "cw_t",
+    "operateur": ">=",
+    "seuil": 1.645
+   },
+   {
+    "champ": "cw_t_min_sans_une",
+    "operateur": ">=",
+    "seuil": 1.282
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "n_eval",
+    "operateur": "<",
+    "seuil": 140
+   },
+   {
+    "champ": "n_estim_init",
+    "operateur": "<",
+    "seuil": 140
+   },
+   {
+    "champ": "violations_schema",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "zone_grise",
+    "operateur": ">=",
+    "seuil": 1
+   }
+  ],
+  "tolerance": {
+   "n_eval": 0,
+   "n_estim_init": 0,
+   "r2_oos": 0.0005,
+   "cw_fbar": 0.0005,
+   "cw_se": 0.0005,
+   "cw_t": 0.005,
+   "cw_t_min_sans_une": 0.005,
+   "zone_grise": 0,
+   "violations_schema": 0
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}
