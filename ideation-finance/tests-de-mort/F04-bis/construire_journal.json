@@ -1,0 +1,220 @@
+{
+  "date_construction_utc": "2026-11-12T17:33:11Z",
+  "sha256": {
+    "F04_analyse.csv": "90d2cabe769dad36e56e3d5011d2ce11a8e351e86c6056049f9c8eecad98cac9",
+    "fy2021-mc-vs-hs-combined.csv": "d1111ffb985ea76a3291f0f006cca652c8f8126811e932182b507e2ce86f695d",
+    "DGS10.csv": "0a19145416475025a3db81f1d24cddde626211cc098ccba2c22c4baf426c5bb4"
+  },
+  "sha256_A_origine_F04": "90d2cabe769dad36e56e3d5011d2ce11a8e351e86c6056049f9c8eecad98cac9",
+  "B_marque_ordre_octets": 1,
+  "B_fins_de_ligne_CRLF": 252,
+  "B_fins_de_ligne_LF_total": 252,
+  "B_n_colonnes": 35,
+  "B_n_lignes_donnees": 251,
+  "B_lectures_de_date_valides": [
+    "MJ"
+  ],
+  "B_format_date": "mois/jour/année (M/J/AAAA, sans zéro initial)",
+  "B_n_dates": 251,
+  "B_premiere_date": "2020-10-01",
+  "B_derniere_date": "2021-09-30",
+  "B_dates_en_ordre_croissant_dans_le_fichier": 1,
+  "B_decimales_par_colonne": {
+    "nominal_hs_cmt_10yr": {
+      "2 décimale(s)": 231,
+      "1 décimale(s)": 20
+    },
+    "nominal_hs_cmt_20yr": {
+      "2 décimale(s)": 232,
+      "1 décimale(s)": 18,
+      "0 décimale(s)": 1
+    },
+    "nominal_hs_cmt_30yr": {
+      "2 décimale(s)": 220,
+      "1 décimale(s)": 29,
+      "0 décimale(s)": 2
+    },
+    "nominal_mc_cmt_10yr": {
+      "2 décimale(s)": 225,
+      "1 décimale(s)": 26
+    },
+    "nominal_mc_cmt_20yr": {
+      "2 décimale(s)": 235,
+      "1 décimale(s)": 15,
+      "0 décimale(s)": 1
+    },
+    "nominal_mc_cmt_30yr": {
+      "2 décimale(s)": 228,
+      "1 décimale(s)": 19,
+      "0 décimale(s)": 4
+    }
+  },
+  "B_decimales_max": 2,
+  "C_n_jours_dans_exercice": 251,
+  "C_jours_absents_de_B": [],
+  "B_dates_absentes_de_C": [],
+  "A_n_lignes": 1606,
+  "etape1_n_lignes": 24,
+  "filtres": {
+    "etape1_reelle_principal_exercice": 24,
+    "dans_exercice_1": 23,
+    "dans_exercice_1_et_complet_1": 23,
+    "P_dans_exercice_complet_fenetre_propre": 23,
+    "complet_A_egal_1 (six taux du premier test)": 24,
+    "fenetre_propre_1": 24
+  },
+  "P_n_mois": 8,
+  "P_par_echeance": {
+    "10": 7,
+    "20": 8,
+    "30": 8
+  },
+  "lignes_hors_P": [
+    {
+      "id_ligne": "91282CAE1_2020-10-07_reelle",
+      "dans_exercice": "0",
+      "complet": "0",
+      "fenetre_propre": "1",
+      "date_jm5": "2020-09-30",
+      "date_jp5": "2020-10-15"
+    }
+  ],
+  "dates_adjudication": [
+    [
+      "2020-10-07",
+      10
+    ],
+    [
+      "2020-10-08",
+      30
+    ],
+    [
+      "2020-10-21",
+      20
+    ],
+    [
+      "2020-12-09",
+      10
+    ],
+    [
+      "2020-12-10",
+      30
+    ],
+    [
+      "2020-12-21",
+      20
+    ],
+    [
+      "2021-01-12",
+      10
+    ],
+    [
+      "2021-01-13",
+      30
+    ],
+    [
+      "2021-01-20",
+      20
+    ],
+    [
+      "2021-03-10",
+      10
+    ],
+    [
+      "2021-03-11",
+      30
+    ],
+    [
+      "2021-03-16",
+      20
+    ],
+    [
+      "2021-04-12",
+      10
+    ],
+    [
+      "2021-04-13",
+      30
+    ],
+    [
+      "2021-04-21",
+      20
+    ],
+    [
+      "2021-06-09",
+      10
+    ],
+    [
+      "2021-06-10",
+      30
+    ],
+    [
+      "2021-06-15",
+      20
+    ],
+    [
+      "2021-07-12",
+      10
+    ],
+    [
+      "2021-07-13",
+      30
+    ],
+    [
+      "2021-07-21",
+      20
+    ],
+    [
+      "2021-09-08",
+      10
+    ],
+    [
+      "2021-09-09",
+      30
+    ],
+    [
+      "2021-09-21",
+      20
+    ]
+  ],
+  "taux_manquants_dans_exercice": [],
+  "controles": {
+    "1_colonnes": {
+      "ok": true
+    },
+    "2_domaines": {
+      "ok": true
+    },
+    "3_dates": {
+      "ok": true
+    },
+    "4_dans_exercice": {
+      "ok": true
+    },
+    "5_complet": {
+      "ok": true
+    },
+    "6_bornes": {
+      "ok": true,
+      "max_abs_cmt_moins_gsw": 0.08610002994537003
+    },
+    "7_hs_mc": {
+      "ok": true,
+      "max_abs_hs_moins_mc": 0.020000000000000018,
+      "n_paires": 71,
+      "n_paires_differentes": 45
+    },
+    "8_hs_egal_fred": {
+      "ok": true,
+      "max_abs_hs_moins_cmt": 0.0,
+      "n_paires": 71,
+      "n_depassements": 0
+    },
+    "9_comptes": {
+      "ok": true,
+      "n_lignes": 24,
+      "n_dans_exercice": 23
+    }
+  },
+  "schema_ok": 1
+}
