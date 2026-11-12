@@ -224,16 +224,10 @@ def main():
           "fenetre_max": fen.loc[fen["b_w"].idxmax(), ["debut", "fin"]].tolist(),
           "n_fenetres_basses": int((fen["b_w"] <= P["b_apres"]).sum()), "part_fenetres_basses": part,
           "b_apres": P["b_apres"]}
-    # variante de lecture : fenêtres entièrement dans `avant` (après l'OMT), information seulement
-    fen_av = fen[fen["debut"] >= "2012-10-04"]
-    S2["n_fenetres_entierement_avant"] = int(len(fen_av))
-    S2["part_fenetres_basses_entierement_avant"] = float((fen_av["b_w"] <= P["b_apres"]).mean())
     print(f"  {S2['n_reunions']} réunions, {S2['n_fenetres']} fenêtres de 26 ; b_w min = {S2['b_w_min']:.4f} "
           f"({S2['fenetre_min']}), médiane = {S2['b_w_mediane']:.4f}, max = {S2['b_w_max']:.4f} ({S2['fenetre_max']})")
     print(f"  part_fenetres_basses (b_w ≤ b_apres = {P['b_apres']:.4f}) = {S2['n_fenetres_basses']}/{len(fen)} = {part:.4f} "
           f"(seuil de lecture 0,10)")
-    print(f"  information : parmi les {len(fen_av)} fenêtres entièrement dans `avant` : "
-          f"{S2['part_fenetres_basses_entierement_avant']:.4f}")
     fen.to_csv(os.path.join(ICI, "S2_fenetres.csv"), index=False, float_format="%.6f")
     res["S2"] = S2
 

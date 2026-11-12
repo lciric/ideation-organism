@@ -125,9 +125,7 @@
     ],
     "n_fenetres_basses": 42,
     "part_fenetres_basses": 0.4421052631578947,
-    "b_apres": 0.2135490624020862,
-    "n_fenetres_entierement_avant": 62,
-    "part_fenetres_basses_entierement_avant": 0.16129032258064516
+    "b_apres": 0.2135490624020862
   },
   "S3": {
     "n_avant": 39,
