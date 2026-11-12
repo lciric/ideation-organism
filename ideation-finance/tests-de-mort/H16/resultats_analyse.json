@@ -1,0 +1,162 @@
+{
+  "principal": {
+    "P": 147,
+    "r2_oos": -0.004554090305648462,
+    "cw_fbar": 0.047940271573747466,
+    "cw_se": 0.08108109489628464,
+    "cw_t": 0.591263248665679,
+    "sse0": 421.39167811230453,
+    "sse1": 423.31073386847675,
+    "cw_t_min_sans_une": 0.16292890694148554,
+    "reunion_du_minimum": "2015-12-03",
+    "cw_t_max_sans_une": 1.5722333776559425,
+    "reunion_du_maximum": "2019-07-25",
+    "conditions_survie": {
+      "r2_oos>0": false,
+      "cw_t>=1.645": false,
+      "cw_t_min_sans_une>=1.282": false
+    },
+    "zone_grise": 0,
+    "controles_schema": {
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true,
+      "9": true,
+      "10": true
+    },
+    "somme_f": 7.0472199213408775,
+    "somme_e0e1": -1.919055756172174
+  },
+  "S1": {
+    "n": 298,
+    "r2": 0.02652814850711005,
+    "r2_ajuste": 0.009859109954149625,
+    "coefficients": {
+      "constante": {
+        "b": 0.12919145280146196,
+        "se_hc3": 0.10149756123745228,
+        "t_hc3": 1.2728527781984846
+      },
+      "act_eu_60j_pct": {
+        "b": 0.0038496210884856443,
+        "se_hc3": 0.012397250077216485,
+        "t_hc3": 0.3105221774593731
+      },
+      "brent_60j_pct": {
+        "b": -0.0030593563888715748,
+        "se_hc3": 0.005029776488383262,
+        "t_hc3": -0.6082489740721966
+      },
+      "eurusd_60j_pct": {
+        "b": -0.038718307323015816,
+        "se_hc3": 0.02244825616211585,
+        "t_hc3": -1.724780180847974
+      },
+      "us2a_60j_pp": {
+        "b": -0.1797011041253951,
+        "se_hc3": 0.3108174166130688,
+        "t_hc3": -0.5781564819744381
+      },
+      "cible_prec_norm": {
+        "b": -0.10135833779437223,
+        "se_hc3": 0.0826589975084443,
+        "t_hc3": -1.226222684155075
+      }
+    },
+    "lecture_actions": "signe non établi",
+    "lecture_cible_prec": "signe non établi",
+    "forme_previsible_apres_coup_pas_en_temps_reel": false
+  },
+  "S2": {
+    "a_gel_2009_reference_zero": {
+      "r2_oos": 0.029388044722355677,
+      "cw_t": 1.7959858592052025,
+      "cw_fbar": 0.13917350583090818,
+      "cw_se": 0.07749142629246433,
+      "r2_oos>0": true,
+      "cw_t>=1.645": true
+    },
+    "b_fenetre_glissante_100": {
+      "r2_oos": -0.11949359767007728,
+      "cw_t": 0.12960647076808987,
+      "cw_fbar": 0.030395619746306116,
+      "cw_se": 0.23452239356701748,
+      "r2_oos>0": false,
+      "cw_t>=1.645": false
+    },
+    "c_principal_reference_zero": {
+      "r2_oos": 0.002191365948238766,
+      "cw_t": 0.8761803452665612,
+      "cw_fbar": 0.07248679980499777,
+      "cw_se": 0.08273045634565683,
+      "r2_oos>0": true,
+      "cw_t>=1.645": false
+    }
+  },
+  "S3a": {
+    "sous_periodes": [
+      {
+        "debut": "2010-01-14",
+        "fin": "2014-05-08",
+        "nom": "taux positifs",
+        "n": 53,
+        "somme_f": 3.075659233950189,
+        "somme_e0_2": 84.33715424426404,
+        "somme_e1_2": 84.00250242009571,
+        "r2_oos": 0.003968023668418863,
+        "part_de_somme_f_totale": 0.4364358240951535
+      },
+      {
+        "debut": "2014-06-05",
+        "fin": "2022-06-09",
+        "nom": "taux négatifs et achats d'actifs",
+        "n": 67,
+        "somme_f": 0.9513057699230101,
+        "somme_e0_2": 279.0599102918435,
+        "somme_e1_2": 283.7669246054474,
+        "r2_oos": -0.016867397071407497,
+        "part_de_somme_f_totale": 0.13499022033386532
+      },
+      {
+        "debut": "2022-07-21",
+        "fin": "2025-10-30",
+        "nom": "resserrement puis détente",
+        "n": 27,
+        "somme_f": 3.0202549174676796,
+        "somme_e0_2": 57.99461357619706,
+        "somme_e1_2": 55.54130684293364,
+        "r2_oos": 0.04230232054292604,
+        "part_de_somme_f_totale": 0.4285739555709813
+      }
+    ],
+    "somme_f_totale": 7.0472199213408775,
+    "plus_de_la_moitie_dans_une_sous_periode": []
+  },
+  "S3b": {
+    "r2_oos": 0.06559531079372372,
+    "cw_t": 3.0675357765931084,
+    "cw_fbar": 1.8552860950129169,
+    "cw_se": 0.6048131888696177,
+    "r2_oos>0": true,
+    "cw_t>=1.645": true,
+    "depend_de_la_normalisation": true
+  },
+  "plancher": {
+    "reunions_rang>=17": 0,
+    "lignes_utilisables": 0,
+    "evaluation": 0,
+    "plus_petit_ecart_type_brut_pb": 0.28018297348670845,
+    "date_du_plus_petit": "2019-04-10"
+  },
+  "descriptif_cible_evaluation": {
+    "max_abs_y": 9.423403011502554,
+    "date_max_abs_y": "2019-06-06",
+    "max_abs_d": 1.5359705921749083,
+    "date_max_abs_d": "2019-07-25"
+  }
+}
