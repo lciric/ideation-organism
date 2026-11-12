@@ -1,0 +1,233 @@
+[
+ {
+  "id": "H13",
+  "rang": 1,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Un coefficient positif est attendu même d'un marché rationnel qui ne peut pas voir le bruit le jour même : il mesure la part de bruit dans les révisions (question proche de Gilbert 2011) et non un défaut de filtrage, et le retour à zéro qui trancherait n'a pas de puissance."
+ },
+ {
+  "id": "H16",
+  "rang": 2,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 3,
+  "tuable": 4,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Des coefficients estimés une seule fois sur 1999-2009 puis gelés sur un régime tout autre (taux plancher, achats d'actifs) biaisent le test vers le nul, si bien qu'un échec ne prouverait pas que les surprises de la BCE sont imprévisibles ; zone non concluante large pour un R² vrai de 1 à 4 %."
+ },
+ {
+  "id": "H15",
+  "rang": 3,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Le coefficient proche de zéro en 2014-2021 est en grande partie mécanique (taux attendus collés au plancher et arrondis), donc la hausse en 2022-2023 est presque acquise d'avance ; de plus la présence du taux directeur dans les fichiers individuels n'est pas vérifiée et Czudaj a déjà couvert l'essentiel."
+ },
+ {
+  "id": "H07",
+  "rang": 4,
+  "mention": "à retenir",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 4,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "La fenêtre de référence 2014-2019 est choisie précisément parce que l'effet y a été documenté comme fort, donc une baisse relève en partie du retour à la moyenne ; les variations du pétrole ne sont pas des chocs identifiés et le point mort mêle anticipation et primes."
+ },
+ {
+  "id": "H03",
+  "rang": 5,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Environ 23 millésimes hors échantillon à erreurs chevauchantes, dominés par le seul épisode 2021-2022 : le test de Diebold-Mariano repose en pratique sur une poignée d'observations indépendantes et le succès viendrait d'un épisode unique."
+ },
+ {
+  "id": "H08",
+  "rang": 6,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 4,
+  "faille": "Comparaison avant/après avec seulement 26 réunions post-TPI et de nombreux changements simultanés (resserrement, réduction du bilan, réinvestissements, budget italien) : ni la puissance ni l'attribution au TPI ne sont assurées, et empiler Italie et Espagne n'ajoute aucune réunion indépendante."
+ },
+ {
+  "id": "H12",
+  "rang": 7,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 5,
+  "interet": 2,
+  "nouveaute": 4,
+  "faille": "Sujet de fiscalité immobilière hors des centres d'intérêt monétaires ; l'échelonnement ne porte que sur trois mois, de sorte que le creux et l'effet net reposent sur une dizaine de départements jamais traités et atypiques, et le signe de l'anticipation est connu depuis 2014."
+ },
+ {
+  "id": "H06",
+  "rang": 8,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "Les surprises à haute fréquence agrégées au mois sont minuscules (quelques points de base, pas 8 à 12) : l'arithmétique de puissance est optimiste et la projection locale à six mois finira très probablement non concluante, sans compter les effets de composition des emprunteurs."
+ },
+ {
+  "id": "H21",
+  "rang": 9,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 3,
+  "nouveaute": 4,
+  "faille": "Un seul pays traité et deux événements, la baisse de 2026 coïncidant avec une forte hausse du salaire minimum ; le résultat de 2026 est déjà public et commenté, ce qui vide le scellement de sa portée, et le sujet relève de l'incidence fiscale plus que du monétaire (source Eurostat non testée)."
+ },
+ {
+  "id": "H01",
+  "rang": 10,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 3,
+  "faille": "La dernière année des projections de la BCE revient par construction vers la cible et subit des effets d'acquis mécaniques : le résultat est en grande partie connu d'avance, et distinguer 0,15 de 0,10 avec une erreur type de 0,05 à 0,07 sur 25 années indépendantes mène au non concluant."
+ },
+ {
+  "id": "H10",
+  "rang": 11,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 3,
+  "nouveaute": 3,
+  "faille": "L'écart entre rendement à échéance constante (titres courants) et courbe ajustée (titres anciens) saute mécaniquement quand le titre adjugé devient le titre courant : la statistique V mesure en partie ce changement de référence et non une pression de prix, et les dates fictives ne le neutralisent pas."
+ },
+ {
+  "id": "H09",
+  "rang": 12,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 2,
+  "nouveaute": 2,
+  "faille": "Redite d'un projet actions : simple test hors échantillon de Savor et Wilson, probablement déjà fait, avec une puissance limite (effet attendu d'environ deux erreurs types) et une dispersion de bêtas réduite faute de portefeuilles triés par bêta."
+ },
+ {
+  "id": "H19",
+  "rang": 13,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "Asymétrie de signe sans mécanisme économique ni justification de l'ordre de grandeur prédit ; le signe des surprises se confond avec les régimes (cycles de hausse ou de baisse, effets d'information) et le rapport effet sur erreur type de 1,6 à 2,3 laisse le non concluant probable."
+ },
+ {
+  "id": "H04",
+  "rang": 14,
+  "mention": "à écarter",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 4,
+  "interet": 1,
+  "nouveaute": 2,
+  "faille": "Sujet actions qui redouble les projets existants de l'étudiant, et McLean et Pontiff contrôlent déjà le temps calendaire : le résultat risque de n'être qu'une confirmation d'un fait connu, avec une année de publication mal datée et des anomalies fortement corrélées entre elles."
+ },
+ {
+  "id": "H05",
+  "rang": 15,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 2,
+  "faille": "Cinquante à soixante dissidences directionnelles regroupées en une douzaine de cycles : puissance insuffisante, la direction des dissidences reflète la tendance des taux déjà visible, et le contenu prédictif des votes dissidents a déjà été étudié."
+ },
+ {
+  "id": "H02",
+  "rang": 16,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "L'état d'inflation supérieure à 3 % ne couvre que trois ou quatre épisodes (2008, 2011, 2021-2023) : l'interaction est une indicatrice de période déguisée, sans choc pétrolier identifié, et la fiche est dominée par H07 sur la même question."
+ },
+ {
+  "id": "H17",
+  "rang": 17,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 4,
+  "tuable": 2,
+  "interet": 5,
+  "nouveaute": 2,
+  "faille": "Projection locale non linéaire par signe sur des surprises à haute fréquence minuscules, avec une erreur type annoncée irréaliste (0,14) ; l'échantillon de mise au point 2003-2019 est inclus dans l'échantillon de verdict, donc aucun vrai hors échantillon, et l'asymétrie de transmission est un sujet rebattu."
+ },
+ {
+  "id": "H20",
+  "rang": 18,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "La surprise macroéconomique construite sans consensus (publication moins prévision trimestrielle) est surtout du bruit, et le quartile supérieur de dispersion se concentre sur un ou deux épisodes (début des années 1990, 2022) : l'interaction est une indicatrice de période et la puissance annoncée est fictive."
+ },
+ {
+  "id": "H11",
+  "rang": 19,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 4,
+  "nouveaute": 3,
+  "faille": "Deux variables expliquées au choix (critère « ou »), enquête trimestrielle appariée à huit publications par an, mécanisme peu plausible entre dispersion régionale et incertitude de taux, observations faussement comptées comme indépendantes et sources déclarées vérifiées par le brief alors qu'elles n'y figurent pas."
+ },
+ {
+  "id": "H18",
+  "rang": 20,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 2,
+  "tuable": 3,
+  "interet": 4,
+  "nouveaute": 2,
+  "faille": "Au niveau individuel les coefficients de Coibion-Gorodnichenko sont connus pour être négatifs (sur-réaction) : la prédiction de +0,25 à +0,50 contredit la littérature, l'interaction avec la pente des taux n'a pas de fondement, et les horizons glissants de l'enquête ne donnent pas de révisions à cible fixe."
+ },
+ {
+  "id": "H14",
+  "rang": 21,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "interet": 3,
+  "nouveaute": 1,
+  "faille": "Résultat connu d'avance (la prévisibilité macroéconomique des rendements obligataires disparaît en temps réel, déjà montré par Ghysels, Horan et Moench), trente observations annuelles non chevauchantes seulement, facteur de Cochrane-Piazzesi mal défini sur une courbe lissée et méthode MIDAS peu lisible."
+ }
+]
