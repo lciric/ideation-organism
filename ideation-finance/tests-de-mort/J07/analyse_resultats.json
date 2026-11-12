@@ -1,0 +1,94 @@
+{
+ "principal": {
+  "schema_ok": 1,
+  "n_admissibles": 309,
+  "n_previsions": 248,
+  "premiere_prevision_aaaammjj": 19970207,
+  "cw_stat": 1.871964402071882,
+  "r2_hors_echantillon": 0.02156752167838727,
+  "reqm_reference_k": 57.92209717763372,
+  "reqm_modele_k": 57.294074453237165
+ },
+ "cw_statsmodels": 1.8719644020718824,
+ "f_moyen": 133.17674979368851,
+ "omega": 1255201.1617300557,
+ "n_apprentissage_premiere_prevision": 60,
+ "n_apprentissage_derniere_prevision": 307,
+ "derniere_prevision": "2025-11-20",
+ "S1_descriptif": {
+  "x1_seul": {
+   "P": 248,
+   "cw_stat": -1.1548880130230417,
+   "f_moyen": -21.740535519583684,
+   "omega": 87884.52475661346,
+   "r2_hors_echantillon": -0.009167730835911492,
+   "reqm_reference_k": 57.92209717763372,
+   "reqm_modele_k": 58.186998524932015
+  },
+  "x2_seul": {
+   "P": 248,
+   "cw_stat": 2.115866640639648,
+   "f_moyen": 131.14539766921226,
+   "omega": 952754.9344188557,
+   "r2_hors_echantillon": 0.024608220216146393,
+   "reqm_reference_k": 57.92209717763372,
+   "reqm_modele_k": 57.20497807955435
+  }
+ },
+ "S2_descriptif": {
+  "avant_2008": {
+   "P": 94,
+   "cw_stat": -0.7492775341466432,
+   "f_moyen": -36.479127614958564,
+   "omega": 222808.27627807594,
+   "r2_hors_echantillon": -0.028222352269704265,
+   "reqm_reference_k": 47.56821956756033,
+   "reqm_modele_k": 48.234792749257466
+  },
+  "2008_2019": {
+   "P": 107,
+   "cw_stat": -1.1026003460181677,
+   "f_moyen": -38.39833543125726,
+   "omega": 129769.40847892883,
+   "r2_hors_echantillon": -0.021937120189143622,
+   "reqm_reference_k": 51.945401842863596,
+   "reqm_modele_k": 52.512077158143434
+  },
+  "2020_et_apres": {
+   "P": 47,
+   "cw_stat": 3.720139520568417,
+   "f_moyen": 863.0956135273485,
+   "omega": 2529864.265978995,
+   "r2_hors_echantillon": 0.09159123815623105,
+   "reqm_reference_k": 83.87103927993485,
+   "reqm_modele_k": 79.93789020936417
+  }
+ },
+ "S3_descriptif": {
+  "coefficients": {
+   "constante": -6.198181291607886,
+   "x1": 0.034302882551778005,
+   "x2": -0.20220026080768136
+  },
+  "erreurs_types_nw4": {
+   "constante": 3.733821715063071,
+   "x1": 0.028158456741022114,
+   "x2": 0.08820772907271406
+  },
+  "t_nw4": {
+   "constante": -1.6600099749281114,
+   "x1": 1.2182088978549914,
+   "x2": -2.292319085110983
+  },
+  "r2_dans_echantillon": 0.04267319564712457,
+  "moyenne_y": -8.711974110032363,
+  "ecart_type_y": 58.533522576777145,
+  "ecart_type_y_ddof0": 58.438731384898766,
+  "n": 309,
+  "coefficients_derniere_prevision": {
+   "constante": -6.4142450582762995,
+   "x1": 0.03460174854845152,
+   "x2": -0.200623575580522
+  }
+ }
+}

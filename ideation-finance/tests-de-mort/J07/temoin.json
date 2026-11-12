@@ -1,0 +1,10 @@
+{
+ "schema_ok": 1,
+ "n_admissibles": 309,
+ "n_previsions": 248,
+ "premiere_prevision_aaaammjj": 19970207,
+ "cw_stat": 1.871964402071882,
+ "r2_hors_echantillon": 0.02156752167838727,
+ "reqm_reference_k": 57.92209717763372,
+ "reqm_modele_k": 57.294074453237165
+}
