@@ -18,3 +18,9 @@ pour laisser aveugle la préinscription corrigée.
 **Suite.** Une préinscription v2 (`tests-de-mort/H03-v2/`) reprend la v1 mot pour mot, sauf la correspondance des lettres et la
 colonne lue par le contrôle n° 4. Elle est scellée, puis rejouée par un expérimentateur et un vérificateur neufs. Ce qui a été vu
 avant de la sceller : les chiffres de la course annulée ci-dessus, et rien sous la bonne correspondance.
+
+**Confirmation indépendante.** Le vérificateur, qui n'a lu que la préinscription et le fichier d'analyse, a relevé la même
+anomalie sans connaître le constat de l'expérimentateur : dans le fichier, chaque millésime `S` a son premier trimestre projeté
+un trimestre après son rang, chaque `G` un trimestre avant, et les lignes `S` à l'horizon 1 ont 54 % d'erreurs exactement nulles
+(ce sont des estimations du trimestre en cours). Ses chiffres sont identiques à ceux de l'expérimentateur. `verdict.py` n'a pas
+été lancé sur cette course : il n'y a pas de `verdict.json` pour H03 v1.
