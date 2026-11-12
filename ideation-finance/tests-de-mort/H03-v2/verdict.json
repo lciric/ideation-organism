@@ -1,0 +1,136 @@
+{
+ "id": "H03-v2",
+ "verdict": "éliminée",
+ "raisons": [],
+ "sceau_preenregistrement": "ca1b83452e562a4bbb9f4ba309bc1b709ce199b2297d03d2a6e3b599930f6d6d",
+ "chiffres_verificateur": {
+  "n_violations_schema": 0,
+  "n_obs_evaluees": 352,
+  "n_blocs": 11,
+  "r_moyen": 0.015586119740319641,
+  "et_r_moyen": 0.049311696761201645,
+  "borne_basse_ic90": -0.07379133063935833,
+  "borne_haute_ic90": 0.10496357011999763,
+  "marge_indecision": -0.11503642988000237,
+  "r_hors_episode": -0.030034661612290483,
+  "rapport_eqm_geo": 1.0971651579165616,
+  "conflit_gardes": 0,
+  "n_obs_h4_2020": 21,
+  "rapport_eqm_h4_2020": 1.0101885615460962,
+  "p_dm_hln_h4_2020": 0.9106045060902525,
+  "rapport_eqm_global": 0.9698485809960057,
+  "rapport_eqm_hors_2021_2022": 1.0961786924110795,
+  "taux_amelioration": 0.44805194805194803,
+  "part_b_positif": 0.5994318181818182,
+  "r_moyen_h1": 0.14517982613443273,
+  "r_moyen_h2": 0.12773171109505846,
+  "r_moyen_h3": 0.11053697615419505,
+  "r_moyen_h4": -0.08666099131477774,
+  "r_moyen_placebo": 0.07474281768560104,
+  "et_r_placebo": 0.06246417237975448,
+  "n_blocs_placebo": 11
+ },
+ "regle": {
+  "id": "H03-v2",
+  "fichier_analyse": "H03-v2_analyse.csv",
+  "champs_verification": [
+   "n_violations_schema",
+   "n_obs_evaluees",
+   "n_blocs",
+   "r_moyen",
+   "et_r_moyen",
+   "borne_basse_ic90",
+   "borne_haute_ic90",
+   "marge_indecision",
+   "r_hors_episode",
+   "rapport_eqm_geo",
+   "conflit_gardes",
+   "n_obs_h4_2020",
+   "rapport_eqm_h4_2020",
+   "p_dm_hln_h4_2020",
+   "rapport_eqm_global",
+   "rapport_eqm_hors_2021_2022",
+   "taux_amelioration",
+   "part_b_positif",
+   "r_moyen_h1",
+   "r_moyen_h2",
+   "r_moyen_h3",
+   "r_moyen_h4",
+   "r_moyen_placebo",
+   "et_r_placebo",
+   "n_blocs_placebo"
+  ],
+  "survit_si": [
+   {
+    "champ": "borne_basse_ic90",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "r_hors_episode",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "rapport_eqm_geo",
+    "operateur": "<",
+    "seuil": 1
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "n_violations_schema",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "n_blocs",
+    "operateur": "<",
+    "seuil": 9
+   },
+   {
+    "champ": "n_obs_evaluees",
+    "operateur": "<",
+    "seuil": 220
+   },
+   {
+    "champ": "marge_indecision",
+    "operateur": ">=",
+    "seuil": 0
+   },
+   {
+    "champ": "conflit_gardes",
+    "operateur": ">=",
+    "seuil": 1
+   }
+  ],
+  "tolerance": {
+   "n_violations_schema": 0,
+   "n_obs_evaluees": 0,
+   "n_blocs": 0,
+   "r_moyen": 0.005,
+   "et_r_moyen": 0.005,
+   "borne_basse_ic90": 0.01,
+   "borne_haute_ic90": 0.01,
+   "marge_indecision": 0.01,
+   "r_hors_episode": 0.005,
+   "rapport_eqm_geo": 0.005,
+   "conflit_gardes": 0,
+   "n_obs_h4_2020": 0,
+   "rapport_eqm_h4_2020": 0.005,
+   "p_dm_hln_h4_2020": 0.005,
+   "rapport_eqm_global": 0.005,
+   "rapport_eqm_hors_2021_2022": 0.005,
+   "taux_amelioration": 0.005,
+   "part_b_positif": 0.005,
+   "r_moyen_h1": 0.005,
+   "r_moyen_h2": 0.005,
+   "r_moyen_h3": 0.005,
+   "r_moyen_h4": 0.005,
+   "r_moyen_placebo": 0.005,
+   "et_r_placebo": 0.005,
+   "n_blocs_placebo": 0
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}
