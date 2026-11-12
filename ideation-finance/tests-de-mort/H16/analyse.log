@@ -155,7 +155,7 @@ réunion dont le retrait donne le minimum : 2015-12-03 (f_t = 5.307436)
   "reunion_du_minimum": "2015-12-03",
   "cw_t_max_sans_une": 1.5722333776559425,
   "reunion_du_maximum": "2019-07-25",
-  "conditions_survie": {
+  "conditions_paragraphe_8": {
     "r2_oos>0": false,
     "cw_t>=1.645": false,
     "cw_t_min_sans_une>=1.282": false

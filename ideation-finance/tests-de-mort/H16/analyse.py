@@ -224,7 +224,7 @@ def main():
     res["principal"].update({"cw_t_min_sans_une": cw_min, "reunion_du_minimum": str(dates[eval_idx[k_min]]),
                              "cw_t_max_sans_une": float(cw_sans.max()),
                              "reunion_du_maximum": str(dates[eval_idx[int(np.argmax(cw_sans))]]),
-                             "conditions_survie": {"r2_oos>0": bool(survie[0]), "cw_t>=1.645": bool(survie[1]),
+                             "conditions_paragraphe_8": {"r2_oos>0": bool(survie[0]), "cw_t>=1.645": bool(survie[1]),
                                                    "cw_t_min_sans_une>=1.282": bool(survie[2])},
                              "zone_grise": zone_grise, "controles_schema": {str(k): bool(v) for k, v in ctrl.items()},
                              "somme_f": float(f.sum()), "somme_e0e1": float((S["e0"] ** 2 - S["e1"] ** 2).sum())})
