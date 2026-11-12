@@ -1,0 +1,93 @@
+{
+ "id": "H13",
+ "verdict": "survit",
+ "raisons": [],
+ "sceau_preenregistrement": "c5a6e2b1a2b5996b785ec42e344bbd6a9b1577e9d524e9fb2f411b88747b17e2",
+ "chiffres_verificateur": {
+  "schema_ok": 1,
+  "n_publications": 309,
+  "beta_pb_par_100k": 2.315513324801481,
+  "erreur_type_pb": 0.9447525999001786,
+  "t_stat": 2.450920299183231,
+  "borne_inf_95_pb": 0.46379822899713097,
+  "borne_sup_95_pb": 4.167228420605831,
+  "marge_zone_grise": -0.4909202991832311,
+  "t_placebo_abs": 0.9976626792832182
+ },
+ "regle": {
+  "id": "H13",
+  "fichier_analyse": "H13_analyse.csv",
+  "champs_verification": [
+   "schema_ok",
+   "n_publications",
+   "beta_pb_par_100k",
+   "erreur_type_pb",
+   "t_stat",
+   "borne_inf_95_pb",
+   "borne_sup_95_pb",
+   "marge_zone_grise",
+   "t_placebo_abs"
+  ],
+  "survit_si": [
+   {
+    "champ": "t_stat",
+    "operateur": ">=",
+    "seuil": 1.96
+   },
+   {
+    "champ": "beta_pb_par_100k",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "t_placebo_abs",
+    "operateur": "<",
+    "seuil": 1.96
+   },
+   {
+    "champ": "schema_ok",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "n_publications",
+    "operateur": ">=",
+    "seuil": 250
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "schema_ok",
+    "operateur": "<",
+    "seuil": 1
+   },
+   {
+    "champ": "n_publications",
+    "operateur": "<",
+    "seuil": 250
+   },
+   {
+    "champ": "t_placebo_abs",
+    "operateur": ">=",
+    "seuil": 1.96
+   },
+   {
+    "champ": "marge_zone_grise",
+    "operateur": ">",
+    "seuil": 0
+   }
+  ],
+  "tolerance": {
+   "schema_ok": 0,
+   "n_publications": 0,
+   "beta_pb_par_100k": 0.005,
+   "erreur_type_pb": 0.005,
+   "t_stat": 0.02,
+   "borne_inf_95_pb": 0.01,
+   "borne_sup_95_pb": 0.01,
+   "marge_zone_grise": 0.02,
+   "t_placebo_abs": 0.02
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}

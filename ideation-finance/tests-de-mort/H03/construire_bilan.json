@@ -1,0 +1,1971 @@
+{
+ "n_lignes": 444,
+ "n_projection_presente": 444,
+ "n_projection_precedente_presente": 440,
+ "n_realise_present": 426,
+ "n_revision_presente": 440,
+ "n_erreur_presente": 426,
+ "n_completes": 422,
+ "n_completes_cible_2004_2025": 352,
+ "n_realise_lu_a_q_plus": {
+  "2": 426,
+  "3": 0,
+  "4": 0
+ },
+ "lignes_incompletes": [
+  {
+   "millesime": "W99",
+   "horizon": 1,
+   "cible": "1999-Q2",
+   "projection": "0.7",
+   "projection_precedente": "",
+   "realise": "1.0"
+  },
+  {
+   "millesime": "W99",
+   "horizon": 2,
+   "cible": "1999-Q3",
+   "projection": "0.9",
+   "projection_precedente": "",
+   "realise": "1.1"
+  },
+  {
+   "millesime": "W99",
+   "horizon": 3,
+   "cible": "1999-Q4",
+   "projection": "1.4",
+   "projection_precedente": "",
+   "realise": "1.5"
+  },
+  {
+   "millesime": "W99",
+   "horizon": 4,
+   "cible": "2000-Q1",
+   "projection": "1.5",
+   "projection_precedente": "",
+   "realise": "2.0"
+  },
+  {
+   "millesime": "S25",
+   "horizon": 4,
+   "cible": "2026-Q2",
+   "projection": "1.8",
+   "projection_precedente": "2.0",
+   "realise": ""
+  },
+  {
+   "millesime": "G25",
+   "horizon": 3,
+   "cible": "2026-Q2",
+   "projection": "1.8",
+   "projection_precedente": "1.8",
+   "realise": ""
+  },
+  {
+   "millesime": "G25",
+   "horizon": 4,
+   "cible": "2026-Q3",
+   "projection": "1.6",
+   "projection_precedente": "1.6",
+   "realise": ""
+  },
+  {
+   "millesime": "A25",
+   "horizon": 2,
+   "cible": "2026-Q2",
+   "projection": "2.0",
+   "projection_precedente": "1.8",
+   "realise": ""
+  },
+  {
+   "millesime": "A25",
+   "horizon": 3,
+   "cible": "2026-Q3",
+   "projection": "1.9",
+   "projection_precedente": "1.6",
+   "realise": ""
+  },
+  {
+   "millesime": "A25",
+   "horizon": 4,
+   "cible": "2026-Q4",
+   "projection": "1.9",
+   "projection_precedente": "1.7",
+   "realise": ""
+  },
+  {
+   "millesime": "W26",
+   "horizon": 1,
+   "cible": "2026-Q2",
+   "projection": "3.1",
+   "projection_precedente": "2.0",
+   "realise": ""
+  },
+  {
+   "millesime": "W26",
+   "horizon": 2,
+   "cible": "2026-Q3",
+   "projection": "2.8",
+   "projection_precedente": "1.9",
+   "realise": ""
+  },
+  {
+   "millesime": "W26",
+   "horizon": 3,
+   "cible": "2026-Q4",
+   "projection": "2.7",
+   "projection_precedente": "1.9",
+   "realise": ""
+  },
+  {
+   "millesime": "W26",
+   "horizon": 4,
+   "cible": "2027-Q1",
+   "projection": "2.4",
+   "projection_precedente": "1.8",
+   "realise": ""
+  },
+  {
+   "millesime": "S26",
+   "horizon": 1,
+   "cible": "2026-Q3",
+   "projection": "3.3",
+   "projection_precedente": "2.8",
+   "realise": ""
+  },
+  {
+   "millesime": "S26",
+   "horizon": 2,
+   "cible": "2026-Q4",
+   "projection": "3.6",
+   "projection_precedente": "2.7",
+   "realise": ""
+  },
+  {
+   "millesime": "S26",
+   "horizon": 3,
+   "cible": "2027-Q1",
+   "projection": "3.3",
+   "projection_precedente": "2.4",
+   "realise": ""
+  },
+  {
+   "millesime": "S26",
+   "horizon": 4,
+   "cible": "2027-Q2",
+   "projection": "2.5",
+   "projection_precedente": "1.6",
+   "realise": ""
+  },
+  {
+   "millesime": "G26",
+   "horizon": 1,
+   "cible": "2026-Q4",
+   "projection": "3.4",
+   "projection_precedente": "3.6",
+   "realise": ""
+  },
+  {
+   "millesime": "G26",
+   "horizon": 2,
+   "cible": "2027-Q1",
+   "projection": "3.2",
+   "projection_precedente": "3.3",
+   "realise": ""
+  },
+  {
+   "millesime": "G26",
+   "horizon": 3,
+   "cible": "2027-Q2",
+   "projection": "2.3",
+   "projection_precedente": "2.5",
+   "realise": ""
+  },
+  {
+   "millesime": "G26",
+   "horizon": 4,
+   "cible": "2027-Q3",
+   "projection": "2.0",
+   "projection_precedente": "2.2",
+   "realise": ""
+  }
+ ],
+ "millesimes": {
+  "W99": {
+   "t_millesime": 7996,
+   "n_obs": 12,
+   "premiere_periode": "1998-Q1",
+   "derniere_periode": "2000-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 7996,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 1999 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S99": {
+   "t_millesime": 7997,
+   "n_obs": 16,
+   "premiere_periode": "1998-Q1",
+   "derniere_periode": "2001-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 7998,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 1999 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G99": {
+   "t_millesime": 7998,
+   "n_obs": 16,
+   "premiere_periode": "1998-Q1",
+   "derniere_periode": "2001-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 7997,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 1999 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A99": {
+   "t_millesime": 7999,
+   "n_obs": 16,
+   "premiere_periode": "1998-Q1",
+   "derniere_periode": "2001-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 7999,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 1999 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W00": {
+   "t_millesime": 8000,
+   "n_obs": 12,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2001-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8000,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2000 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S00": {
+   "t_millesime": 8001,
+   "n_obs": 16,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2002-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8002,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2000 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G00": {
+   "t_millesime": 8002,
+   "n_obs": 16,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2002-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8001,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2000 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A00": {
+   "t_millesime": 8003,
+   "n_obs": 16,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2002-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8003,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2000 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W01": {
+   "t_millesime": 8004,
+   "n_obs": 16,
+   "premiere_periode": "2000-Q1",
+   "derniere_periode": "2003-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8004,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2001 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S01": {
+   "t_millesime": 8005,
+   "n_obs": 20,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2003-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8006,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2001 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G01": {
+   "t_millesime": 8006,
+   "n_obs": 16,
+   "premiere_periode": "2000-Q1",
+   "derniere_periode": "2003-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8005,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2001 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A01": {
+   "t_millesime": 8007,
+   "n_obs": 20,
+   "premiere_periode": "1999-Q1",
+   "derniere_periode": "2003-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8007,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2001 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W02": {
+   "t_millesime": 8008,
+   "n_obs": 20,
+   "premiere_periode": "2000-Q1",
+   "derniere_periode": "2004-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8008,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2002 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S02": {
+   "t_millesime": 8009,
+   "n_obs": 20,
+   "premiere_periode": "2000-Q1",
+   "derniere_periode": "2004-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8010,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2002 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G02": {
+   "t_millesime": 8010,
+   "n_obs": 16,
+   "premiere_periode": "2001-Q1",
+   "derniere_periode": "2004-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8009,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2002 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A02": {
+   "t_millesime": 8011,
+   "n_obs": 20,
+   "premiere_periode": "2000-Q1",
+   "derniere_periode": "2004-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8011,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2002 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W03": {
+   "t_millesime": 8012,
+   "n_obs": 20,
+   "premiere_periode": "2001-Q1",
+   "derniere_periode": "2005-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8012,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2003 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S03": {
+   "t_millesime": 8013,
+   "n_obs": 33,
+   "premiere_periode": "1997-Q4",
+   "derniere_periode": "2005-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8014,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2003 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G03": {
+   "t_millesime": 8014,
+   "n_obs": 33,
+   "premiere_periode": "1997-Q4",
+   "derniere_periode": "2005-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8013,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2003 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A03": {
+   "t_millesime": 8015,
+   "n_obs": 33,
+   "premiere_periode": "1997-Q4",
+   "derniere_periode": "2005-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8015,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2003 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W04": {
+   "t_millesime": 8016,
+   "n_obs": 48,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2006-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8016,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2004 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S04": {
+   "t_millesime": 8017,
+   "n_obs": 48,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2006-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8018,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2004 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G04": {
+   "t_millesime": 8018,
+   "n_obs": 48,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2006-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8017,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2004 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A04": {
+   "t_millesime": 8019,
+   "n_obs": 48,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2006-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8019,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2004 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W05": {
+   "t_millesime": 8020,
+   "n_obs": 52,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2007-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8020,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2005 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S05": {
+   "t_millesime": 8021,
+   "n_obs": 52,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2007-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8022,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2005 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G05": {
+   "t_millesime": 8022,
+   "n_obs": 52,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2007-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8021,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2005 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A05": {
+   "t_millesime": 8023,
+   "n_obs": 52,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2007-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8023,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2005 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W06": {
+   "t_millesime": 8024,
+   "n_obs": 48,
+   "premiere_periode": "1997-Q1",
+   "derniere_periode": "2008-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8024,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2006 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S06": {
+   "t_millesime": 8025,
+   "n_obs": 52,
+   "premiere_periode": "1996-Q1",
+   "derniere_periode": "2008-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8026,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2006 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G06": {
+   "t_millesime": 8026,
+   "n_obs": 44,
+   "premiere_periode": "1998-Q1",
+   "derniere_periode": "2008-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8025,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2006 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A06": {
+   "t_millesime": 8027,
+   "n_obs": 52,
+   "premiere_periode": "1996-Q1",
+   "derniere_periode": "2008-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8027,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2006 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W07": {
+   "t_millesime": 8028,
+   "n_obs": 60,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2009-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8028,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2007 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S07": {
+   "t_millesime": 8029,
+   "n_obs": 60,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2009-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8030,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2007 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G07": {
+   "t_millesime": 8030,
+   "n_obs": 60,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2009-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8029,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2007 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A07": {
+   "t_millesime": 8031,
+   "n_obs": 60,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2009-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8031,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2007 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W08": {
+   "t_millesime": 8032,
+   "n_obs": 64,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2010-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8032,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2008 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S08": {
+   "t_millesime": 8033,
+   "n_obs": 64,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2010-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8034,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2008 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G08": {
+   "t_millesime": 8034,
+   "n_obs": 64,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2010-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8033,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2008 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A08": {
+   "t_millesime": 8035,
+   "n_obs": 64,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2010-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8035,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2008 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W09": {
+   "t_millesime": 8036,
+   "n_obs": 68,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2011-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8036,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2009 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S09": {
+   "t_millesime": 8037,
+   "n_obs": 68,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2011-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8038,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2009 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G09": {
+   "t_millesime": 8038,
+   "n_obs": 68,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2011-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8037,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2009 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A09": {
+   "t_millesime": 8039,
+   "n_obs": 68,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2011-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8039,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2009 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W10": {
+   "t_millesime": 8040,
+   "n_obs": 72,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2012-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8040,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2010 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S10": {
+   "t_millesime": 8041,
+   "n_obs": 72,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2012-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8042,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2010 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G10": {
+   "t_millesime": 8042,
+   "n_obs": 72,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2012-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8041,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2010 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A10": {
+   "t_millesime": 8043,
+   "n_obs": 72,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2012-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8043,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2010 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W11": {
+   "t_millesime": 8044,
+   "n_obs": 76,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2013-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8044,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2011 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S11": {
+   "t_millesime": 8045,
+   "n_obs": 76,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2013-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8046,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2011 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G11": {
+   "t_millesime": 8046,
+   "n_obs": 76,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2013-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8045,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2011 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A11": {
+   "t_millesime": 8047,
+   "n_obs": 76,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2013-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8047,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2011 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W12": {
+   "t_millesime": 8048,
+   "n_obs": 80,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2014-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8048,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2012 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S12": {
+   "t_millesime": 8049,
+   "n_obs": 80,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2014-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8050,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2012 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G12": {
+   "t_millesime": 8050,
+   "n_obs": 80,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2014-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8049,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2012 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A12": {
+   "t_millesime": 8051,
+   "n_obs": 80,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2014-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8051,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2012 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W13": {
+   "t_millesime": 8052,
+   "n_obs": 84,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2015-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8052,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2013 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S13": {
+   "t_millesime": 8053,
+   "n_obs": 84,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2015-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8054,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2013 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G13": {
+   "t_millesime": 8054,
+   "n_obs": 84,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2015-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8053,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2013 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A13": {
+   "t_millesime": 8055,
+   "n_obs": 84,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2015-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8055,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2013 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W14": {
+   "t_millesime": 8056,
+   "n_obs": 88,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2016-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8056,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2014 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S14": {
+   "t_millesime": 8057,
+   "n_obs": 88,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2016-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8058,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2014 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G14": {
+   "t_millesime": 8058,
+   "n_obs": 88,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2016-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8057,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2014 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A14": {
+   "t_millesime": 8059,
+   "n_obs": 88,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2016-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8059,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2014 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W15": {
+   "t_millesime": 8060,
+   "n_obs": 92,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2017-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8060,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2015 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S15": {
+   "t_millesime": 8061,
+   "n_obs": 92,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2017-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8062,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2015 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G15": {
+   "t_millesime": 8062,
+   "n_obs": 92,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2017-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8061,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2015 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A15": {
+   "t_millesime": 8063,
+   "n_obs": 92,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2017-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8063,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2015 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W16": {
+   "t_millesime": 8064,
+   "n_obs": 92,
+   "premiere_periode": "1996-Q1",
+   "derniere_periode": "2018-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8064,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2016 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S16": {
+   "t_millesime": 8065,
+   "n_obs": 96,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2018-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8066,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2016 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G16": {
+   "t_millesime": 8066,
+   "n_obs": 96,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2018-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8065,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2016 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A16": {
+   "t_millesime": 8067,
+   "n_obs": 100,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2019-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8067,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2016 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W17": {
+   "t_millesime": 8068,
+   "n_obs": 100,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2019-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8068,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2017 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S17": {
+   "t_millesime": 8069,
+   "n_obs": 100,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2019-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8070,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2017 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G17": {
+   "t_millesime": 8070,
+   "n_obs": 100,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2019-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8069,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2017 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A17": {
+   "t_millesime": 8071,
+   "n_obs": 104,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2020-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8071,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2017 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W18": {
+   "t_millesime": 8072,
+   "n_obs": 104,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2020-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8072,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2018 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S18": {
+   "t_millesime": 8073,
+   "n_obs": 104,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2020-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8074,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2018 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G18": {
+   "t_millesime": 8074,
+   "n_obs": 104,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2020-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8073,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2018 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A18": {
+   "t_millesime": 8075,
+   "n_obs": 108,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2021-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8075,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2018 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W19": {
+   "t_millesime": 8076,
+   "n_obs": 108,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2021-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8076,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2019 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S19": {
+   "t_millesime": 8077,
+   "n_obs": 108,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2021-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8078,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2019 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G19": {
+   "t_millesime": 8078,
+   "n_obs": 108,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2021-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8077,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2019 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A19": {
+   "t_millesime": 8079,
+   "n_obs": 112,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2022-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8079,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2019 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W20": {
+   "t_millesime": 8080,
+   "n_obs": 112,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2022-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8080,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2020 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S20": {
+   "t_millesime": 8081,
+   "n_obs": 112,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2022-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8082,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2020 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G20": {
+   "t_millesime": 8082,
+   "n_obs": 112,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2022-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8081,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2020 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A20": {
+   "t_millesime": 8083,
+   "n_obs": 116,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2023-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8083,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2020 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W21": {
+   "t_millesime": 8084,
+   "n_obs": 116,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2023-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8084,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2021 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S21": {
+   "t_millesime": 8085,
+   "n_obs": 116,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2023-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8086,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2021 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G21": {
+   "t_millesime": 8086,
+   "n_obs": 116,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2023-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8085,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2021 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A21": {
+   "t_millesime": 8087,
+   "n_obs": 120,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2024-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8087,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2021 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W22": {
+   "t_millesime": 8088,
+   "n_obs": 120,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2024-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8088,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2022 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S22": {
+   "t_millesime": 8089,
+   "n_obs": 120,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2024-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8090,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2022 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G22": {
+   "t_millesime": 8090,
+   "n_obs": 120,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2024-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8089,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2022 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A22": {
+   "t_millesime": 8091,
+   "n_obs": 124,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2025-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8091,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2022 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W23": {
+   "t_millesime": 8092,
+   "n_obs": 124,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2025-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8092,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2023 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S23": {
+   "t_millesime": 8093,
+   "n_obs": 124,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2025-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8094,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2023 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G23": {
+   "t_millesime": 8094,
+   "n_obs": 124,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2025-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8093,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2023 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A23": {
+   "t_millesime": 8095,
+   "n_obs": 128,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2026-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8095,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2023 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W24": {
+   "t_millesime": 8096,
+   "n_obs": 128,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2026-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8096,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2024 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S24": {
+   "t_millesime": 8097,
+   "n_obs": 128,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2026-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8098,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - September 2024 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G24": {
+   "t_millesime": 8098,
+   "n_obs": 128,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2026-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8097,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - June 2024 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A24": {
+   "t_millesime": 8099,
+   "n_obs": 132,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2027-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8099,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - December 2024 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W25": {
+   "t_millesime": 8100,
+   "n_obs": 132,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2027-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8100,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - March 2025 staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S25": {
+   "t_millesime": 8101,
+   "n_obs": 132,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2027-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8102,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Summer/September 2025  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G25": {
+   "t_millesime": 8102,
+   "n_obs": 132,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2027-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8101,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Spring/June 2025  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  },
+  "A25": {
+   "t_millesime": 8103,
+   "n_obs": 136,
+   "premiere_periode": "1995-Q1",
+   "derniere_periode": "2028-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8103,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Autumn/December 2025  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 12,
+   "anomalies": []
+  },
+  "W26": {
+   "t_millesime": 8104,
+   "n_obs": 128,
+   "premiere_periode": "1997-Q1",
+   "derniere_periode": "2028-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8104,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Winter/March 2026  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 3,
+   "anomalies": []
+  },
+  "S26": {
+   "t_millesime": 8105,
+   "n_obs": 128,
+   "premiere_periode": "1997-Q1",
+   "derniere_periode": "2028-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8106,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Summer/September 2026  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 9,
+   "anomalies": []
+  },
+  "G26": {
+   "t_millesime": 8106,
+   "n_obs": 128,
+   "premiere_periode": "1997-Q1",
+   "derniere_periode": "2028-Q4",
+   "statuts": [
+    "A",
+    "F"
+   ],
+   "t_premier_F": 8105,
+   "TITLE": "",
+   "TITLE_COMPL": "Euro area - Price and cost developments - HICP overall index - Annual growth rate - Spring/June 2026  staff macroeconomic projections",
+   "mois_titre": null,
+   "mois_titre_compl": 6,
+   "anomalies": []
+  }
+ }
+}

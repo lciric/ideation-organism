@@ -1,0 +1,11 @@
+{
+  "schema_ok": 1,
+  "n_publications": 309,
+  "beta_pb_par_100k": 2.315513324801481,
+  "erreur_type_pb": 0.9447525999001786,
+  "t_stat": 2.450920299183231,
+  "borne_inf_95_pb": 0.46379822899713097,
+  "borne_sup_95_pb": 4.167228420605831,
+  "marge_zone_grise": -0.4909202991832311,
+  "t_placebo_abs": 0.9976626792832182
+}
