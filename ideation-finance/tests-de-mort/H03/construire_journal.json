@@ -683,6 +683,132 @@
    "octets": 23288,
    "lignes_avec_entete": 105,
    "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_W18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W18.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:06:54Z",
+   "code_http": 200,
+   "sha256": "136dc62e1fb389b9d274ae8d321c4fdb985b2455039a58ed775bf60bd60192f1",
+   "octets": 22976,
+   "lignes_avec_entete": 105,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_S18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S18.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:06:59Z",
+   "code_http": 200,
+   "sha256": "9ce2761dda6c81df344f954cdcef0fe6042dfd174c50d172cb1596e595ca65e0",
+   "octets": 23392,
+   "lignes_avec_entete": 105,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_G18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G18.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:02Z",
+   "code_http": 200,
+   "sha256": "5e12dc9b2ae578d94c695d3e649a5fe0ca5efc511f4de23ebdf9c55fb5a54756",
+   "octets": 22870,
+   "lignes_avec_entete": 105,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_A18.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A18.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:13Z",
+   "code_http": 200,
+   "sha256": "4f7e149097543399aa59ff7411bf3811e8fbeab42792975a3f681ac19dd233e1",
+   "octets": 24170,
+   "lignes_avec_entete": 109,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_W19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W19.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:16Z",
+   "code_http": 200,
+   "sha256": "6f9f946cd26bf1dec9087dfaeab168ca8fbc1907adb459d77fbe23b3bab22163",
+   "octets": 23846,
+   "lignes_avec_entete": 109,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_S19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S19.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:19Z",
+   "code_http": 200,
+   "sha256": "f9fc30c2ebd556e3976a57386784c28e95ecf1c334a555bfdc98d303d2e90ca1",
+   "octets": 24282,
+   "lignes_avec_entete": 109,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_G19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G19.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:26Z",
+   "code_http": 200,
+   "sha256": "a6bb8693c1d21cd3a612e3c2352dbf6885d359e930020b4ca6350da1cdb58ac6",
+   "octets": 23744,
+   "lignes_avec_entete": 109,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_A19.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A19.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:31Z",
+   "code_http": 200,
+   "sha256": "94b0914123708b9c9e55817ba2f91f3558f73d76d4613d3683ddb35f8f4063e7",
+   "octets": 25054,
+   "lignes_avec_entete": 113,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_W20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W20.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:35Z",
+   "code_http": 200,
+   "sha256": "02a91b02a5f6bdb0f6d70686907c3c47345620144a5d5476dab6c038d40ab19d",
+   "octets": 24720,
+   "lignes_avec_entete": 113,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_S20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S20.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:38Z",
+   "code_http": 200,
+   "sha256": "3bd904ad2465bb3998b2ea78fa7d02d405ed6f588a2d7ce3cdc0b1eb29f8baa6",
+   "octets": 25167,
+   "lignes_avec_entete": 113,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_G20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G20.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:41Z",
+   "code_http": 200,
+   "sha256": "ac6bd8da4867dafd409a3329feaacb2c93da068d42e6a6fc80a42dbf640127af",
+   "octets": 24602,
+   "lignes_avec_entete": 113,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_A20.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A20.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:45Z",
+   "code_http": 200,
+   "sha256": "808100fa0fdf88616dd917472ea32f6f6d74f3547c57b7885c1062272e94a301",
+   "octets": 25939,
+   "lignes_avec_entete": 117,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_W21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W21.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:50Z",
+   "code_http": 200,
+   "sha256": "c665a9983270e88c80497c36e6ef401c10efb260a60514a7cc270eca6f681a61",
+   "octets": 25585,
+   "lignes_avec_entete": 117,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_S21.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S21.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:07:56Z",
+   "code_http": 200,
+   "sha256": "8ce9447d06dc0a7bee83d500c370a9a34bb252c0fd64c96cddc22acb3a1ee031",
+   "octets": 26055,
+   "lignes_avec_entete": 117,
+   "essai_retenu": 1
   }
  },
  "essais": [
@@ -1443,6 +1569,146 @@
    "date_utc": "2026-11-12T19:06:50Z",
    "code_http": 200,
    "duree_s": 6.95,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_W18.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W18.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:06:54Z",
+   "code_http": 200,
+   "duree_s": 3.03,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_S18.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S18.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:06:59Z",
+   "code_http": 200,
+   "duree_s": 3.74,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_G18.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G18.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:02Z",
+   "code_http": 200,
+   "duree_s": 1.1,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_A18.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A18.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:13Z",
+   "code_http": 200,
+   "duree_s": 9.66,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_W19.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W19.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:16Z",
+   "code_http": 200,
+   "duree_s": 1.43,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_S19.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S19.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:19Z",
+   "code_http": 200,
+   "duree_s": 1.18,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_G19.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G19.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:26Z",
+   "code_http": 200,
+   "duree_s": 5.31,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_A19.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A19.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:31Z",
+   "code_http": 200,
+   "duree_s": 4.37,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_W20.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W20.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:35Z",
+   "code_http": 200,
+   "duree_s": 1.78,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_S20.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S20.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:38Z",
+   "code_http": 200,
+   "duree_s": 1.78,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_G20.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G20.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:41Z",
+   "code_http": 200,
+   "duree_s": 1.77,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_A20.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.A20.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:45Z",
+   "code_http": 200,
+   "duree_s": 2.33,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_W21.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W21.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:50Z",
+   "code_http": 200,
+   "duree_s": 3.4,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_S21.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S21.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:07:56Z",
+   "code_http": 200,
+   "duree_s": 4.43,
    "retenu": 1,
    "erreur_curl": ""
   }
