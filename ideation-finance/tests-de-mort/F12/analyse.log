@@ -1,0 +1,47 @@
+Contrôles de schéma (§ 5) :
+   1 : OK  882 lignes, en-têtes conformes : True
+   2 : OK  882 clés distinctes
+   3 : OK  147 dates, 2010-01-14 → 2025-10-30, {'crise': 33, 'avant': 87, 'annonce': 1, 'apres': 26}
+   4 : OK  0 ligne(s) incohérente(s)
+   5 : OK  0 cellule(s) vide(s)/non numérique(s), 0 date(s) non constante(s)
+   6 : OK  0 cellule(s) vide(s), 0 date(s) où DE diffère
+   7 : OK  0 ligne(s) partiellement vide(s), 0 date(s) où DE diffère
+   8 : OK  0 ligne(s) en défaut
+   9 : OK  0 ligne(s) en défaut
+  10 : OK  0 cellule(s) en défaut
+violations_schema = 0
+
+STATISTIQUE PRINCIPALE (§ 6.1)
+  n_avant = 87
+  n_apres = 26
+  b_avant = 0.5614344319237992
+  b_apres = 0.2135490624020862
+  d_hat = -0.34788536952171295
+  se_d = 0.31586984765171383
+  d_borne_haute = 0.06906282937854935
+  d_borne_basse = -0.7648335684219753
+  t_b_avant = 1.8210278713230803
+  d_max_sans_une = -0.12532845524059866
+  non_informatif = 1
+  violations_schema = 0
+  se_b_avant = 0.308306 ; se_b_apres = 0.068709
+  retrait d'une réunion : d max = -0.125328 (sans 2020-03-12, avant) ; d min = -0.508702 (sans 2019-09-12, avant)
+  avant : {'sd_x': 3.113711047124691, 'sd_y': 5.493592720100733, 'sd_residu': 5.238573475858622, 'n_effectif_pente': 16.03548412036077, 'x_min': -6.7200005054, 'x_max': 11.57, 'levier_max': 0.16176441231672933, 'date_levier_max': '2015-12-03', 'n_restrictives': 39}
+  apres : {'sd_x': 7.317532216560294, 'sd_y': 2.361548325160295, 'sd_residu': 1.807112328497729, 'n_effectif_pente': 6.131082697084284, 'x_min': -19.5000171661, 'x_max': 18.4499979019, 'levier_max': 0.3211941479290791, 'date_levier_max': '2022-12-15', 'n_restrictives': 10}
+  contre-épreuve statsmodels HC3 : avant b=0.561434 se=0.308306 ; apres b=0.213549 se=0.068709
+
+S1 — PLACEBO PAYS PEU ENDETTÉS, JOURNALIER (descriptif)
+  (a) calage : kappa = 1.0596 (erreur type HC3 0.1082, n = 110, R² = 0.6011) ; seuil 0,5 → placebo retenu
+  (b) placebo NL/FI : n = 85/25 ; b_avant = 0.1016 (0.0424) ; b_apres = 0.0194 (0.0353) ; d_placebo = -0.0823 ; se_placebo = 0.0552 ; intervalle ±1,32 se : [-0.1551 ; -0.0094]
+  (c) pont FR journalier (RIKSBANK) : n = 85/25 ; b_avant = 0.3827 (0.2147) ; b_apres = 0.0865 (0.0381) ; d = -0.2962 ; se = 0.2181
+  (c) pont FR intrajournalier (EAMPD), toutes réunions : n = 87/26 ; b_avant = 0.2640 (0.1181) ; b_apres = 0.0719 (0.0173) ; d = -0.1920 ; se = 0.1193
+  (c) pont FR intrajournalier (EAMPD), mêmes dates que RIKSBANK : n = 85/25 ; b_avant = 0.2645 (0.1235) ; b_apres = 0.0716 (0.0178) ; d = -0.1928 ; se = 0.1248
+  lecture fixée : d_placebo + 1,32 × se_placebo = -0.0094 (< 0)
+
+S2 — STABILITÉ DE LA PENTE AVANT LE TPI (descriptif)
+  120 réunions, 95 fenêtres de 26 ; b_w min = -0.7143 (['2016-10-20', '2019-12-12']), médiane = 0.4839, max = 1.0049 (['2017-06-08', '2020-07-16'])
+  part_fenetres_basses (b_w ≤ b_apres = 0.2135) = 42/95 = 0.4421 (seuil de lecture 0,10)
+  information : parmi les 62 fenêtres entièrement dans `avant` : 0.1613
+
+S3 — SURPRISES RESTRICTIVES SEULEMENT (descriptif)
+  n = 39/10 ; b_avant = 0.7412 (0.4760) ; b_apres = 0.3698 (0.4773) ; d_restrictif = -0.3714 ; se = 0.6741

@@ -1,0 +1,34 @@
+EA-MPD, feuille 'Monetary Event Window' : 315 lignes datées, de 1999-01-07 à 2025-10-30
+Filtre 2010-01-14 ≤ date ≤ 2025-10-30 : 147 réunions
+Riksbank DEGVB10Y : 4018 observations, de 2009-12-01 à 2025-11-28
+Riksbank NLGVB10Y : 4016 observations, de 2009-12-02 à 2025-11-28
+Riksbank FIGVB10Y : 4016 observations, de 2009-12-02 à 2025-11-28
+Riksbank FRGVB10Y : 4016 observations, de 2009-12-02 à 2025-11-28
+Réunions par période : {'crise': 33, 'avant': 87, 'annonce': 1, 'apres': 26}
+Cellules EA-MPD vides ou non numériques (5 colonnes, 147 réunions) : 0
+RIKSBANK FR crise : 32 réunions renseignées
+RIKSBANK NL crise : 32 réunions renseignées
+RIKSBANK FI crise : 32 réunions renseignées
+RIKSBANK FR avant : 85 réunions renseignées
+RIKSBANK NL avant : 85 réunions renseignées
+RIKSBANK FI avant : 85 réunions renseignées
+RIKSBANK FR annonce : 1 réunions renseignées
+RIKSBANK NL annonce : 1 réunions renseignées
+RIKSBANK FI annonce : 1 réunions renseignées
+RIKSBANK FR apres : 25 réunions renseignées
+RIKSBANK NL apres : 25 réunions renseignées
+RIKSBANK FI apres : 25 réunions renseignées
+Dates de réunion avec au moins une ligne RIKSBANK vide : ['2012-06-06', '2013-06-06', '2019-06-06', '2024-06-06']
+Réunions où le jour coté précédent diffère entre séries Riksbank : []
+Écrit : /home/user/ideation-organism/ideation-finance/tests-de-mort/F12/analyse_F12.csv (882 lignes de données, 9 colonnes)
+  contrôle  1 : OK  882 lignes, en-têtes conformes : True
+  contrôle  2 : OK  882 clés distinctes
+  contrôle  3 : OK  147 dates, 2010-01-14 → 2025-10-30, {'crise': 33, 'avant': 87, 'annonce': 1, 'apres': 26}
+  contrôle  4 : OK  0 ligne(s) incohérente(s)
+  contrôle  5 : OK  0 cellule(s) vide(s)/non numérique(s), 0 date(s) non constante(s)
+  contrôle  6 : OK  0 cellule(s) vide(s), 0 date(s) où DE diffère
+  contrôle  7 : OK  0 ligne(s) partiellement vide(s), 0 date(s) où DE diffère
+  contrôle  8 : OK  0 ligne(s) en défaut
+  contrôle  9 : OK  0 ligne(s) en défaut
+  contrôle 10 : OK  0 cellule(s) en défaut
+violations_schema = 0
