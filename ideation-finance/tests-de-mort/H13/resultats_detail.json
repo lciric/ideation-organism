@@ -1,0 +1,109 @@
+{
+  "schema": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 1,
+    "8": 1,
+    "9": 1
+  },
+  "alignement_dgs2_sveny02": {
+    "max_ecart_j": 0.2548000144958501,
+    "max_ecart_veille": 0.25980002403259295,
+    "n_paires_j": 427,
+    "n_paires_veille": 431
+  },
+  "filtres": {
+    "lignes_fichier": 431,
+    "complet_0": 2,
+    "n_mois_nouveaux_2": 1,
+    "revision_large_1": 119,
+    "extreme_1": 6,
+    "sequentiel": {
+      "apres_complet": 429,
+      "apres_n_mois_nouveaux": 429,
+      "apres_revision_large": 312,
+      "apres_extreme": 309
+    },
+    "dates_complet_0": [
+      "1994-04-01",
+      "2025-12-16"
+    ],
+    "dates_n_mois_nouveaux_2": [
+      "2025-12-16"
+    ]
+  },
+  "principal": {
+    "coefficients": {
+      "constante": 0.24582265781837281,
+      "N": 2.315513324801481,
+      "R1": 2.727335197910361,
+      "R2": 3.970260388133456,
+      "U": -5.1409241277871685,
+      "T": -0.28860568422327165
+    },
+    "erreurs_type_hc3": {
+      "constante": 0.846392798155254,
+      "N": 0.9447525999001786,
+      "R1": 1.404596129694708,
+      "R2": 1.7321301796527555,
+      "U": 4.061709637655369,
+      "T": 0.3762400539742885
+    },
+    "r2": 0.06802292710847724,
+    "levier_max": 0.12068460202296509,
+    "ecart_type_N": 0.5853352257677715,
+    "ecart_type_y": 9.425876082099805,
+    "ecart_absolu_moyen_N": 0.44038834951456307,
+    "moyenne_N": -0.08711974110032362,
+    "moyenne_y": -0.016181229773462025,
+    "premiere_date": "1990-01-05",
+    "derniere_date": "2025-11-20"
+  },
+  "placebo": {
+    "coefficient_N": -0.7148868660071009,
+    "erreur_type_hc3": 0.716561700514566,
+    "t_abs": 0.9976626792832182
+  },
+  "recoupement_statsmodels": {
+    "beta": 2.3155133248014805,
+    "erreur_type": 0.9447525999001791
+  },
+  "S1": {
+    "p_hat": 0.07759972052139216,
+    "erreur_type_hc3": 0.18166860861725917,
+    "constante": -0.15205830266525602,
+    "n": 309,
+    "beta_sur_p_hat": null
+  },
+  "S2": {
+    "coefficient_Sn": 1.6655020912515557,
+    "erreur_type_Sn_hc3": 0.46175850396431756,
+    "coefficient_N_delta": 1.7868666310809045,
+    "erreur_type_N_hc3": 0.9323236246897241,
+    "rang_X": 7,
+    "conditionnement_X": 16.734198511224832,
+    "n": 309
+  },
+  "S3": {
+    "beta": 2.2107514725647013,
+    "erreur_type_hc3": 0.9271720615762457,
+    "n": 312,
+    "dates_extreme_1_dans_S3": [
+      "2020-07-02",
+      "2020-08-07",
+      "2020-09-04"
+    ],
+    "dates_extreme_1_fichier": [
+      "2020-04-03",
+      "2020-05-08",
+      "2020-06-05",
+      "2020-07-02",
+      "2020-08-07",
+      "2020-09-04"
+    ]
+  }
+}
