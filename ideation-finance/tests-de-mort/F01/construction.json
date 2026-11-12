@@ -1,0 +1,87 @@
+{
+  "fichiers": {
+    "SignalDoc.csv": {
+      "octets": 183100,
+      "octets_attendus": 183100,
+      "taille_conforme": 1,
+      "sha256": "0ceb11020c2138c2477b732948beaac2e67ccaad8428753e3a79af2bb5ea0178"
+    },
+    "PredictorLSretWide.parquet": {
+      "octets": 1439671,
+      "octets_attendus": 1439671,
+      "taille_conforme": 1,
+      "sha256": "fc01df25d4383153cb3ae9e0dd730cc34b6d15a5207abeff09f34beda45bca58"
+    }
+  },
+  "filtres": {
+    "lignes_SignalDoc": 331,
+    "predicteurs_table": 212,
+    "mois_parquet": 1200,
+    "colonnes_rendement_parquet": 212,
+    "predicteurs_gardes": 212,
+    "cases_anomalie_mois": 254400,
+    "cases_sans_rendement": 78871,
+    "rendements_exactement_zero_gardes": 0,
+    "lignes_panel": 175529,
+    "signaux_panel": 212,
+    "lignes_par_statut": {
+      "origine": 74384,
+      "apres": 40200,
+      "avant": 36843,
+      "publie": 12546,
+      "attente": 9024,
+      "annee_pub": 2532
+    }
+  },
+  "exclusions": {
+    "sans_colonne_parquet": [],
+    "annee_vide": [],
+    "colonnes_parquet_hors_table": [],
+    "moins_de_60_lignes_origine": {
+      "AnalystRevision": 58,
+      "ConsRecomm": 50,
+      "DownRecomm": 49,
+      "UpRecomm": 49
+    }
+  },
+  "controles": {
+    "1_colonnes": 1,
+    "2_cle_unique": 1,
+    "3_au_plus_212_signaux": 1,
+    "4_date_annee": 1,
+    "5_ret_fini_unite": 1,
+    "6_annees": 1,
+    "7_statut": 1,
+    "8_dans_fenetre": 1,
+    "9_moy_origine": 1,
+    "10_plein_rang": 1
+  },
+  "n_violations_schema": 0,
+  "mediane_abs_ret": 1.6457304964539,
+  "etape1": {
+    "lignes": 64885,
+    "colonnes": 686,
+    "rang": 686,
+    "anomalies": 206,
+    "mois": 480
+  },
+  "effectifs": {
+    "anomalies_K": 208,
+    "U_lignes": 64885,
+    "U_origine": 56173,
+    "U_attente": 8712,
+    "U_anomalies": 206,
+    "U_mois": 480,
+    "publie_dans_fenetre_avant_conditions": 10302,
+    "T_lignes": 9942,
+    "T_anomalies": 185,
+    "attendus_preenregistrement": {
+      "U_origine": 57204,
+      "U_attente": 8904,
+      "T_lignes": 10296,
+      "T_anomalies": 189,
+      "U_anomalies": 210
+    }
+  },
+  "panel_sha256": "0337dddecdbe9064ed4a22442cf74b7e9c310f034d05f6c92f183e4eb2e1af7a"
+}
