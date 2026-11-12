@@ -1,0 +1,14 @@
+{
+  "schema_ok": 1,
+  "n_adjudications": 23,
+  "n_grappes": 8,
+  "ecart_max_hs_fred_pb": 0.0,
+  "d_moyen_pb": 0.7826086956521756,
+  "d_erreur_type_pb": 0.1410567720693954,
+  "d_borne_inf_95_pb": 0.44900942970805546,
+  "d_borne_sup_95_pb": 1.1162079615962957,
+  "marge_zone_grise": 0.21620796159629563,
+  "v_hs_moyen_pb": 1.6360868793984882,
+  "v_mc_moyen_pb": 0.8534781837463127,
+  "v_mc_erreur_type_pb": 0.31962058554050155
+}
