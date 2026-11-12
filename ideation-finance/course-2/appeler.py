@@ -15,11 +15,27 @@ def poster(url, entetes, corps, delai):
 def appeler(famille, consigne, max_sortie, delai=1500):
     modele = MODELES[famille]
     if famille == "kimi":
-        d = poster("https://api.moonshot.ai/v1/chat/completions", {"Authorization": "Bearer " + os.environ["KIMI_API_KEY"]},
-                   {"model": modele, "messages": [{"role": "user", "content": consigne}], "max_tokens": max_sortie}, delai)
-        servi, ch = d.get("model", ""), d["choices"][0]
-        texte, fin = ch["message"].get("content") or "", ch.get("finish_reason")
-        u = d.get("usage", {}); jetons = {"entree": u.get("prompt_tokens"), "sortie": u.get("completion_tokens")}
+        # Écart 1 (course 2) : appel en flux. Sans flux, la connexion a été fermée sans réponse pendant la réflexion du modèle.
+        req = urllib.request.Request("https://api.moonshot.ai/v1/chat/completions", headers={"Content-Type": "application/json",
+            "Authorization": "Bearer " + os.environ["KIMI_API_KEY"]}, data=json.dumps({"model": modele, "max_tokens": max_sortie,
+            "messages": [{"role": "user", "content": consigne}], "stream": True, "stream_options": {"include_usage": True}}).encode())
+        servi, fin, morceaux, u = "", None, [], {}
+        with urllib.request.urlopen(req, timeout=delai) as r:
+            for ligne in r:
+                ligne = ligne.decode("utf-8", "replace").strip()
+                if not ligne.startswith("data:"): continue
+                donnee = ligne[5:].strip()
+                if donnee == "[DONE]": break
+                d = json.loads(donnee)
+                servi = d.get("model") or servi
+                if d.get("usage"): u = d["usage"]
+                for ch in d.get("choices", []):
+                    if ch.get("usage"): u = ch["usage"]
+                    morceaux.append((ch.get("delta") or {}).get("content") or "")
+                    fin = ch.get("finish_reason") or fin
+        texte = "".join(morceaux)
+        if fin is None: raise ConnectionError("flux interrompu avant la fin de la réponse")
+        jetons = {"entree": u.get("prompt_tokens"), "sortie": u.get("completion_tokens")}
         coupe = fin == "length"
     else:
         d = poster(f"https://generativelanguage.googleapis.com/v1beta/models/{modele}:generateContent",
@@ -44,6 +60,11 @@ if __name__ == "__main__":
     for essai in range(1, 5):
         try:
             texte, meta = appeler(famille, consigne, max_sortie); break
+        except (ConnectionError, TimeoutError, OSError) as e:
+            if isinstance(e, urllib.error.HTTPError): raise
+            print(f"essai {essai} : {type(e).__name__} {e}", file=sys.stderr)
+            if essai == 4: raise SystemExit("arrêt : connexion")
+            time.sleep(30 * essai)
         except urllib.error.HTTPError as e:
             corps = e.read()[:300].decode("utf8", "replace")
             print(f"essai {essai} : HTTP {e.code} {corps}", file=sys.stderr)
