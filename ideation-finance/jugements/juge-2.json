@@ -1,0 +1,222 @@
+[
+ {
+  "id": "F12",
+  "rang": 1,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 5,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 3,
+  "faille": "Seulement 26 réunions après le TPI et une période qui change aussi par le resserrement et le bilan : un d non nul ne s'attribue pas au seul TPI."
+ },
+ {
+  "id": "F06",
+  "rang": 2,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 4,
+  "faille": "Le test entre pays repose sur une vingtaine d'observations avec un choc mondial commun, donc la puissance est faible et une duration fixe de 8 approxime les rendements obligataires."
+ },
+ {
+  "id": "F13",
+  "rang": 3,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 3,
+  "faille": "Environ 23 millésimes hors échantillon dominés par 2021-2022 et des projections conditionnelles à des hypothèses techniques : peu de puissance et la littérature BCE couvre déjà le sujet."
+ },
+ {
+  "id": "F20",
+  "rang": 4,
+  "mention": "à retenir",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "C'est un fait descriptif avec un taux directeur commun à tous les pays, non causal, et probablement déjà publié par la BCE."
+ },
+ {
+  "id": "F01",
+  "rang": 5,
+  "mention": "possible",
+  "jury": 5,
+  "recruteurs": 4,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "McLean et Pontiff contrôlent déjà en partie le temps, donc le résultat risque de ne faire que confirmer l'existant, avec des anomalies corrélées et une date de publication imprécise."
+ },
+ {
+  "id": "F04",
+  "rang": 6,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 3,
+  "faille": "L'effet attendu de 0,5 à 1,5 point de base se noie dans le bruit des rendements interpolés et des annonces macro coïncidentes."
+ },
+ {
+  "id": "F15",
+  "rang": 7,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Sujet saturé depuis 2022 avec 27 pays dont les pays baltes peuvent porter tout le résultat, et une exposition non aléatoire (boucliers tarifaires, salaires)."
+ },
+ {
+  "id": "F16",
+  "rang": 8,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Sans portefeuilles triés par bêta et avec une puissance limite sur le rendement du marché, c'est une réplication hors échantillon de Savor et Wilson déjà probablement refaite."
+ },
+ {
+  "id": "F07",
+  "rang": 9,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Un spécialiste de la banque connaît déjà les résultats de 2022-2023 sur la taille contre la concentration : le protocole des 200 spécifications est le seul apport."
+ },
+ {
+  "id": "F11",
+  "rang": 10,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 3,
+  "faille": "Les primo-accédants exonérés sont invisibles dans DVF et les dates d'effet viennent d'un PDF à recompter : la mesure de l'anticipation peut être trop diluée."
+ },
+ {
+  "id": "F17",
+  "rang": 11,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 5,
+  "nouveaute": 4,
+  "faille": "Le test mesure la mémoire d'un modèle de langage sur le signe de surprises BCE, un sujet de méthode sans résultat économique en soi, avec peu de réunions après coupure."
+ },
+ {
+  "id": "F08",
+  "rang": 12,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Peu de crises dans l'échantillon de test, une chronologie arrêtée en 2016 et un résultat qualitatif que Gourinchas et Obstfeld couvrent déjà pour les émergents."
+ },
+ {
+  "id": "F02",
+  "rang": 13,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 2,
+  "tuable": 4,
+  "ia": 2,
+  "nouveaute": 4,
+  "faille": "Un solde net d'enquête bruité dans les petits pays crée une autocorrélation mécanique faible, et le sujet est trop confidentiel pour un recruteur hors banque centrale."
+ },
+ {
+  "id": "F18",
+  "rang": 14,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Données quotidiennes seulement, sans surprise intrajournalière, donc le ton est confondu avec le reste de l'actualité et les communiqués restent reconnaissables même anonymisés."
+ },
+ {
+  "id": "F09",
+  "rang": 15,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 5,
+  "nouveaute": 3,
+  "faille": "Douze districts et une table États-districts imparfaite donnent peu de variation par date, et l'anonymisation ne garantit pas l'absence de fuite."
+ },
+ {
+  "id": "F19",
+  "rang": 16,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 2,
+  "tuable": 3,
+  "ia": 1,
+  "nouveaute": 1,
+  "faille": "Sujet fait cent fois avec un débat où le choix de spécification décide du signe, et l'IA n'y apporte presque rien."
+ },
+ {
+  "id": "F03",
+  "rang": 17,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 4,
+  "faille": "Un modèle de 7 milliards de paramètres propose des liens banals et 143 semaines donnent une puissance faible : un échec ne distingue pas ignorance du modèle et absence de signal."
+ },
+ {
+  "id": "F05",
+  "rang": 18,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Le Spearman pour le pétrole est évident d'avance, et les bêtas réalisés sur douze mois sont trop bruités pour juger le reste."
+ },
+ {
+  "id": "F10",
+  "rang": 19,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 2,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Un banc d'essai de modèle de langage sur 36 mois et 11 pays avec 36 grappes, sans question économique, et dont le résultat nul est probable."
+ },
+ {
+  "id": "F14",
+  "rang": 20,
+  "mention": "à écarter",
+  "jury": 1,
+  "recruteurs": 2,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Comparer une réponse de vignette fictive à une élasticité observationnelle mesure deux objets différents, et un modèle qui récite le fait stylisé rend le test creux."
+ }
+]
