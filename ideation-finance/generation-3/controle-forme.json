@@ -1,0 +1,243 @@
+{
+ "bilan": {
+  "kimi": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  },
+  "gemini": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  },
+  "astra": {
+   "filles": 3,
+   "libres": 2,
+   "refusees": []
+  },
+  "claude": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  }
+ },
+ "fiches": [
+  {
+   "id": "4K1",
+   "famille": "kimi",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Je change l’échantillon, du total national à dix grands secteurs, et la statistique, d’un gain de prévision agrégé à des pentes transversales de Fama-MacBeth. Le test principal porte sur 1997-2019 : il peut ainsi révéler une inertie sectorielle stable que le test agrégé, dominé par 2020-2025, ne pouvait pas identifier."
+  },
+  {
+   "id": "4K2",
+   "famille": "kimi",
+   "parent": "B",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Je change l’échantillon, des projections du personnel de la BCE aux prévisions individuelles de son enquête auprès des professionnels, et l’identification : au lieu de régresser une erreur réalisée sur une révision, je compare le rattrapage après une non-révision à celui observé après une révision active. Cela teste directement un mécanisme de mises à jour asynchrones, sans dépendre de"
+  },
+  {
+   "id": "4K3",
+   "famille": "kimi",
+   "parent": "Q",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`Question ouverte`. Je remplace la courbe du Trésor comme la courbe de la Fed par le rendement de marché du même CUSIP et j’ajoute des titres témoins appariés. La statistique incorpore à la fois la dérive des cinq séances précédentes et le résultat de l’adjudication ; les dates sont des observations de marché, ce qui élimine le contrôle de calendrier défaillant de J05."
+  },
+  {
+   "id": "4K4",
+   "famille": "kimi",
+   "parent": "Q",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Question ouverte`. F04-bis calculait seulement l’écart moyen de pression sur 23 réouvertures. Je change la statistique et l’identification : double placebo en maturité et en date sur toutes les courbes quotidiennes de l’exercice 2021, avec inférence par réaffectation aléatoire des dates. Cela teste la localisation de l’écart de 0,78 pb, que la moyenne de F04-bis ne pouvait pas expliquer."
+  },
+  {
+   "id": "4K5",
+   "famille": "kimi",
+   "parent": "libre",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`libre`, motivée par l’élimination de la prévisibilité hors échantillon des surprises de la BCE (`R²` hors échantillon −0,5 %). Plutôt que de chercher encore à prévoir les décisions, je prends leurs variations de marché comme chocs mesurés et déplace la question vers leur transmission au crédit bancaire."
+  },
+  {
+   "id": "4G1",
+   "famille": "gemini",
+   "parent": "Q",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "source",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Question ouverte`. Nous changeons la **source de données** et l'**identification** par rapport aux tests F04, F04-bis et J05. Au lieu d'approximer la concession avec les courbes interpolées du Trésor ou de Gürkaynak-Sack-Wright (qui lissent les primes spécifiques aux titres et ont biaisé J05 en 2023), nous mesurons le rendement exact de l'obligation réouverte à partir de son prix de clôture sur l"
+  },
+  {
+   "id": "4G2",
+   "famille": "gemini",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Nous changeons l'**identification** et la **statistique** en croisant le Parent A (qui prévoit la révision $N_t$ le jour de l'annonce grâce à la somme des révisions des deux mois précédents $x_{2,t}$) avec son parent de génération 1 (réaction du taux à 2 ans à $N_t$). Au lieu de régresser la variation du taux à 2 ans sur la révision future totale $N_t$, nous décomposons $N_t$ en sa com"
+  },
+  {
+   "id": "4G3",
+   "famille": "gemini",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Nous changeons l'**identification** et la **statistique** par rapport au Parent B. Le Parent B a montré que les projections d'inflation de la BCE sous-réagissent ($\\beta = 0,44, t = 2,27$), mais que l'effet s'annule hors 2021-2022. Nous exploitons les variables d'hypothèses techniques publiées dans la même base MPD de la BCE (prix du pétrole en euros, taux de change effectif et taux co"
+  },
+  {
+   "id": "4G4",
+   "famille": "gemini",
+   "parent": "B",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Nous changeons l'**échantillon et le marché** ainsi que la **méthode** par rapport au Parent B. Le Parent B porte sur un seul horizon de la BCE ($h=2$). Nous construisons un panel multi-horizons ($h = 1, 2, 3, 4$ trimestres) et multi-banques centrales en réunissant les projections de la BCE (MPD, 1999-2026) et les prévisions des gouverneurs et présidents du FOMC américain (Summary of E"
+  },
+  {
+   "id": "4G5",
+   "famille": "gemini",
+   "parent": "libre",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`libre`. Motivée par deux résultats du registre : l'élimination de la prévisibilité directe des surprises de la BCE (R² hors échantillon -0,5 %, Clark-West 0,59) et l'échec par manque de puissance du test sur l'instrument de protection de la transmission (26 réunions seulement). Au lieu de chercher à prévoir le *signe* des surprises de la BCE ou de couper l'échantillon sur 26 réunions récentes, no"
+  },
+  {
+   "id": "4A1",
+   "famille": "astra",
+   "parent": "A",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "**Parent A**. Changement de **l’échantillon et de l’identification** : panel sectoriel plutôt que total agrégé, et signal excluant le secteur cible. L’exclusion supprime le partage mécanique de la même révision sectorielle entre prédicteur et variable expliquée."
+  },
+  {
+   "id": "4A2",
+   "famille": "astra",
+   "parent": "A",
+   "elements_cites": [
+    "statistique"
+   ],
+   "accepte": true,
+   "champ": "**Parent A**. Changement de **statistique et de cible** : la qualité de la troisième estimation est testée à un horizon ultérieur. Une prévision correcte de première moins troisième estimation ne garantit pas une meilleure mesure de l’évolution durable de l’emploi."
+  },
+  {
+   "id": "4A3",
+   "famille": "astra",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "**Parent B**. Changement de **marché de prévision, de statistique et d’identification** : prévisions individuelles SPF, ajustements à cible constante et absorption des nouvelles communes, plutôt qu’erreur réalisée sur révision agrégée. Le résultat peut exister même si la sous-réaction agrégée disparaît hors de 2021-2022."
+  },
+  {
+   "id": "4A4",
+   "famille": "astra",
+   "parent": "libre",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "**libre**. Motivation : le résultat éliminé « Les surprises de la BCE sont-elles prévisibles hors échantillon ? ». Le projet prédit une **variance**, pas une direction, et utilise une information d’enquête disponible avant la réunion."
+  },
+  {
+   "id": "4A5",
+   "famille": "astra",
+   "parent": "libre",
+   "elements_cites": [],
+   "accepte": true,
+   "champ": "**libre**. Motivation : le résultat non concluant sur les deux méthodes du Trésor et les résultats discordants avec la courbe de la Fed. Le nouvel objet est la **sélectivité événementielle du biais de mesure**, non une nouvelle estimation de la disparition après 2021. Sans prix indépendants par titre, ce projet ne prétend pas trancher entièrement cette disparition."
+  },
+  {
+   "id": "4C1",
+   "famille": "claude",
+   "parent": "Q",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "Question ouverte. Je change la statistique (mouvement de pente couvert contre le 5 ans, au lieu d'un niveau de rendement contre une courbe) et l'identification (double différence entre courbes, jours d'adjudication contre jours placebo, à la date du changement de méthode). F04 et F04-bis comparaient des niveaux sur une seule année ; J05 n'avait ni placebo ni couverture et a été piégé par le calend"
+  },
+  {
+   "id": "4C2",
+   "famille": "claude",
+   "parent": "A",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "Parent A. Je change l'échantillon (onze secteurs au lieu de l'agrégat) et l'identification (effets fixes de mois, qui retirent tout choc commun, dont la pandémie). Le parent ne pouvait pas dire si sa prévisibilité venait d'un mécanisme de collecte ou des seuls chocs de 2020-2025, puisqu'en agrégé les deux se confondent et qu'avant 2020 il n'avait plus de puissance ; ici la variation entre secteurs"
+  },
+  {
+   "id": "4C3",
+   "famille": "claude",
+   "parent": "B",
+   "elements_cites": [
+    "source",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "Parent B. Je change la source de données (prévisions individuelles de l'enquête de la BCE au lieu des seules projections du staff) et l'identification (variation entre prévisionnistes à cible et tour donnés, qui retire l'erreur commune due au choc de 2021-2022). Le parent ne pouvait pas séparer jugement et agrégation, et sa pente dépendait de 2021-2022 parce que toutes ses observations partagent l"
+  },
+  {
+   "id": "4C4",
+   "famille": "claude",
+   "parent": "libre",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "Libre. Motivée par le résultat du registre « Les surprises de la BCE sont-elles prévisibles hors échantillon avec des données publiques ? — éliminée (R² hors échantillon −0,5 % sur 147 réunions, Clark-West 0,59) » : le signe est imprévisible ; la fiche demande si la taille l'est, avec une variable (le désaccord individuel) que ce test n'utilisait pas."
+  },
+  {
+   "id": "4C5",
+   "famille": "claude",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "Parent B. Je change l'échantillon et le marché (États-Unis, 1968-2026, cinq variables, au lieu de la BCE 1999-2026 sur l'inflation seule) et la statistique (pente qui dépend de la taille de la révision au lieu d'une pente unique). Le parent repose sur un seul grand choc (sans 2021-2022, pente 0,05) ; avec cinq épisodes et cinq variables, on peut retirer chaque épisode à tour de rôle et voir si la "
+  }
+ ]
+}
