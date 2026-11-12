@@ -2,7 +2,7 @@
 Usage : python3 agreger_course_2.py <dossier jugements> <clé d'anonymat json> <sortie json>"""
 import json, sys, itertools, pathlib, statistics
 
-JUGES = ("kimi", "gemini", "claude")
+JUGES = ("kimi", "gemini", "astra", "claude")
 AXES = ("jury", "recruteurs", "tuable", "interet", "nouveaute", "apport")
 
 def charger(d, n):
@@ -12,7 +12,7 @@ def charger(d, n):
         assert len(L) == n and len({x["id"] for x in L}) == n, f"juge {j} : {n} fiches distinctes attendues"
         assert sorted(x["rang"] for x in L) == list(range(1, n + 1)), f"juge {j} : classement incomplet"
         m = [x["mention"] for x in L]
-        assert m.count("à retenir") <= 4 and m.count("à écarter") >= 6, f"juge {j} : quotas de mentions non tenus"
+        assert m.count("à retenir") <= 5 and m.count("à écarter") >= 8, f"juge {j} : quotas de mentions non tenus"
         assert all(str(x.get("faille", "")).strip() for x in L), f"juge {j} : faille manquante"
         assert all(isinstance(x[a], int) and 1 <= x[a] <= 5 for x in L for a in AXES), f"juge {j} : note hors de 1..5"
         J[j] = {x["id"]: x for x in L}

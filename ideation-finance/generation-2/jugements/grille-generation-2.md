@@ -1,13 +1,13 @@
 # Génération 2 — grille des juges et règle d'agrégation, figées avant la lecture de toute fiche de la génération 2
 
 ## Ce qui est jugé
-Un lot anonyme de quinze fiches (cinq par proposeur : Kimi, Gemini, Claude), sous identifiants opaques J01…J15, dans un ordre
+Un lot anonyme de vingt fiches (cinq par proposeur : Kimi, Gemini, Astra, Claude), sous identifiants opaques J01…J20, dans un ordre
 tiré par une graine dérivée du sha256 des fichiers de fiches. Le juge ne sait pas quelle famille a écrit une fiche. Il reçoit
 aussi le **registre des résultats** que les proposeurs ont reçu (faits mesurés sur les fiches déjà testées), pour pouvoir juger
 ce qu'une fiche ajoute. Il ne reçoit aucun classement ni aucune note d'un juge précédent.
 
 ## Les juges
-Trois juges de familles différentes — Kimi, Gemini, Claude — reçoivent exactement la même consigne. Aucun ne voit les autres.
+Quatre juges de familles différentes — Kimi, Gemini, Astra, Claude — reçoivent exactement la même consigne. Aucun ne voit les autres.
 
 ## Critère de choix
 Ce qui parle le plus au jury d'admission d'un master de recherche en économie et finance quantitatives **et** aux recruteurs de
@@ -24,15 +24,15 @@ finance de marché, et dont les projets existants portent sur les actions.
    3 = prolongement utile ; 5 = tranche une question qu'un résultat du registre a ouverte.
 
 ## Contraintes de forme
-- Classement complet du rang 1 au rang 15, sans ex æquo.
-- Mention : au plus **4** « à retenir », au moins **6** « à écarter », le reste « possible ».
+- Classement complet du rang 1 au rang 20, sans ex æquo.
+- Mention : au plus **5** « à retenir », au moins **8** « à écarter », le reste « possible ».
 - Pour chaque fiche, la **faille la plus grave** en une phrase.
 
 ## Sortie
-Uniquement un tableau JSON de 15 objets, sans texte autour :
+Uniquement un tableau JSON de 20 objets, sans texte autour :
 `{"id": "J07", "rang": 1, "mention": "à retenir", "jury": 5, "recruteurs": 4, "tuable": 5, "interet": 4, "nouveaute": 3, "apport": 4, "faille": "..."}`
 
 ## Agrégation (code de l'orchestrateur, `jugements/agreger_generation_2.py`)
-Somme des rangs des trois juges (Borda), départage par jury + recruteurs puis identifiant. Une fiche « à écarter » pour deux
+Somme des rangs des quatre juges (Borda), départage par jury + recruteurs puis identifiant. Une fiche « à écarter » pour deux
 juges ou plus sort des retenues. Les **cinq** premières sont retenues. Sont rapportés : le classement, l'accord entre juges, le
 rang moyen par famille de proposeur, et le rang que chaque juge donne aux fiches de sa propre famille et à celles des autres.

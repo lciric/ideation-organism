@@ -2,10 +2,13 @@
 generateContent). Aucune clé dans ce fichier : elles sont lues dans l'environnement et jamais écrites. Aucun outil n'est donné
 au modèle. Garde reprise de l'organisme : le modèle servi doit être le modèle demandé, sinon refus ; une réponse coupée par la
 borne de sortie est une erreur, pas un résultat. Chaque appel écrit sa réponse brute et son compte de jetons.
-Usage : python3 appeler.py <kimi|gemini> <fichier consigne> <fichier sortie> <max jetons de sortie>"""
+Usage : python3 appeler.py <kimi|gemini|astra> <fichier consigne> <fichier sortie> <max jetons de sortie>"""
 import json, os, sys, time, hashlib, urllib.request, urllib.error
 
-MODELES = {"kimi": "kimi-k3.1-pro", "gemini": "gemini-4-argon"}
+MODELES = {"kimi": "kimi-k3.1-pro", "gemini": "gemini-4-argon", "astra": "gpt-6-astra"}
+# Familles servies par une API compatible OpenAI, appelées en flux : adresse, variable de la clé, nom du paramètre de borne de sortie.
+COMPATIBLES = {"kimi": ("https://api.moonshot.ai/v1/chat/completions", "KIMI_API_KEY", "max_tokens"),
+               "astra": ("https://api.openai.com/v1/chat/completions", "OPENAI_API_KEY", "max_completion_tokens")}
 
 def poster(url, entetes, corps, delai):
     req = urllib.request.Request(url, data=json.dumps(corps).encode(), headers={"Content-Type": "application/json", **entetes})
@@ -14,10 +17,11 @@ def poster(url, entetes, corps, delai):
 
 def appeler(famille, consigne, max_sortie, delai=1500):
     modele = MODELES[famille]
-    if famille == "kimi":
+    if famille in COMPATIBLES:
+        url, cle, borne = COMPATIBLES[famille]
         # Écart 1 (course 2) : appel en flux. Sans flux, la connexion a été fermée sans réponse pendant la réflexion du modèle.
-        req = urllib.request.Request("https://api.moonshot.ai/v1/chat/completions", headers={"Content-Type": "application/json",
-            "Authorization": "Bearer " + os.environ["KIMI_API_KEY"]}, data=json.dumps({"model": modele, "max_tokens": max_sortie,
+        req = urllib.request.Request(url, headers={"Content-Type": "application/json",
+            "Authorization": "Bearer " + os.environ[cle]}, data=json.dumps({"model": modele, borne: max_sortie,
             "messages": [{"role": "user", "content": consigne}], "stream": True, "stream_options": {"include_usage": True}}).encode())
         servi, fin, morceaux, u = "", None, [], {}
         with urllib.request.urlopen(req, timeout=delai) as r:
