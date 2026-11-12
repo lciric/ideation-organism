@@ -1,0 +1,12 @@
+{
+ "famille": "kimi",
+ "modele_demande": "kimi-k3.1-pro",
+ "modele_servi": "kimi-k3.1-pro",
+ "fin": "stop",
+ "jetons": {
+  "entree": 3137,
+  "sortie": 37827
+ },
+ "consigne_sha256": "ab819bc0cf137846012915b0bfd6593d97a6bfb4efbaf905fda3db74016bb22b",
+ "date_utc": "2026-11-12T18:11:51Z"
+}
