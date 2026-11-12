@@ -1,0 +1,22 @@
+[
+ {
+  "ancien": "Un seul marqueur\nreste, celui du commit (section 11), et le lanceur refuse tout texte qui le porte encore (comme tout marqueur entre doubles chevrons). Deux pièces restent\nà produire avant le scellement, sans marqueur : l'empreinte de la configuration (ligne `configuration_sha256` du bloc `plan-gele`,\nque le lanceur refuse tant qu'elle n'est pas une empreinte) et le relevé de l'épreuve des commandes (section 4) ; la section 13 les\nordonne.",
+  "nouveau": "Deux marqueurs\nrestent, celui du commit (section 11) et celui du relevé de l'épreuve des commandes (section 4), et le lanceur refuse tout texte qui en porte encore un (comme tout marqueur entre doubles chevrons). L'empreinte de la configuration (ligne `configuration_sha256` du bloc `plan-gele`,\nsha256 du fichier tel que passé à `--configuration`) reste à produire sans marqueur : le lanceur la refuse tant qu'elle n'est pas une empreinte, puis tant qu'elle diffère du fichier ; la section 13 ordonne les trois pièces."
+ },
+ {
+  "ancien": "Relevé à faire avant le scellement et à recopier ici, à la place de cette phrase (section 13).",
+  "nouveau": "Relevé à faire avant le scellement et à recopier ici, à la place de cette phrase et de son marqueur (section 13) : À REMPLIR (le lanceur refuse le texte tant que ce marqueur reste)."
+ },
+ {
+  "ancien": "relevé recopié dans la section 4 à la place de la phrase qui l'annonce.",
+  "nouveau": "relevé recopié dans la section 4 à la place de la phrase qui l'annonce et de son marqueur. Si le coût moyen d'une comparaison d'Argon mesuré à l'épreuve dépasse 0,074 USD (276 appels requis : la marge d'incidents de la part de 24 USD tomberait sous la moitié de 6,89 USD), ou si la ligne d'erreur d'un 413 provoqué n'est pas reconnue par le motif `_REQUETE` du cœur, nouveau texte (rapport du brouillon 3, décisions 3 et 4)."
+ },
+ {
+  "ancien": "son empreinte écrite à la\n   ligne `configuration_sha256` du bloc `plan-gele`",
+  "nouveau": "son empreinte (sha256 du fichier tel que passé à `--configuration`) écrite à la\n   ligne `configuration_sha256` du bloc `plan-gele`"
+ },
+ {
+  "ancien": "au-delà, la part de A est atteinte et la phase décisive s'arrête (I0 « part ») : la seule borne qui reste est le plafond exact du GO, nommée et proposée au directeur (rapport, point 3)",
+  "nouveau": "au-delà, le bras sans dossier, projeté sur ce qui reste de la part, n'est pas joué (S0 ; course à blanc du rapport à 25 pires cas : I1a, S0, T1, rejouée par la contre-lecture v3) ; au-delà d'environ 24 − 15,25 = 8,75 USD d'incidents pendant la phase décisive de A, la part de A est atteinte et la phase décisive s'arrête (I0 « part ») : la seule borne qui reste est le plafond exact du GO, nommée et proposée au directeur (rapport, point 3)"
+ }
+]
