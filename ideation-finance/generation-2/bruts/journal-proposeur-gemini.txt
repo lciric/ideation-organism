@@ -1,0 +1,1 @@
+{"famille": "gemini", "modele_demande": "gemini-4-argon", "modele_servi": "gemini-4-argon", "fin": "STOP", "jetons": {"entree": 5307, "sortie": 8321}, "consigne_sha256": "c0a016983b55780578c8aa2dc483f6a73cdbd04651f29f63e68dcf070b765cd5", "date_utc": "2026-11-12T19:17:17Z"}
