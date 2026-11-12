@@ -18,8 +18,6 @@ REGISTRE = {  # titre, résultat en une ligne (faits mesurés), dans l'ordre des
          lambda c: f"sur {c['n_eval']:.0f} réunions (2010-2025), cinq prédicteurs publics réestimés avant chaque réunion : R² hors échantillon de {100*c['r2_oos']:.1f} %, statistique de Clark-West {c['cw_t']:.2f} (seuil 1,645)"),
  "H13": ("Emploi américain : le taux à 2 ans réagit-il à la part du chiffre qui sera révisée ?",
          lambda c: f"sur {c['n_publications']:.0f} publications (1990-2025), {c['beta_pb_par_100k']:.2f} pb par tranche de 100 000 emplois surestimés (erreur type {c['erreur_type_pb']:.2f}, t = {c['t_stat']:.2f}) ; placebo la veille : |t| = {c['t_placebo_abs']:.2f}"),
- "H03": ("Les erreurs de projection d'inflation de la BCE étaient-elles prévisibles en temps réel ?",
-         lambda c: f"corrélation moyenne entre la correction annoncée par la règle et l'erreur réalisée : {c['r_moyen']:.2f} (erreur type {c['et_r_moyen']:.2f}) sur {c['n_blocs']:.0f} blocs de deux ans et {c['n_obs_evaluees']:.0f} observations ; la projection corrigée a une erreur quadratique {100*(c['rapport_eqm_geo']-1):+.0f} % par rapport à la projection publiée"),
 }
 PARENTS_DETAIL = {
  "F04": """**Mesure.** V = 100 × [2·E(J) − E(J−5) − E(J+5)], en points de base, où E = rendement à échéance constante du Trésor (FRED `DGS10`, `DGS20`, `DGS30`) moins rendement au pair de la courbe ajustée de la Fed (`SVENPY10/20/30` de `feds200628.csv`) ; J = jour de l'adjudication, en jours ouvrés. Seules les réouvertures sont gardées (le titre de référence n'y change pas). Erreur type groupée par mois (134 mois).
@@ -43,7 +41,8 @@ def main():
     t2 = [t for f in ("kimi", "gemini", "claude") for t in re.findall(r"(?m)^### 2[KGC]\d — (.*)$", (R / "course-2" / "fiches" / f"proposeur-{f}.md").read_text())]
     assert len(t1) == 20 and len(t2) == 15, (len(t1), len(t2))
     parents = [i for i in REGISTRE if (R / "tests-de-mort" / i / "verdict.json").exists() and verdict(i) == "survit"]
-    lignes = [f"- **{REGISTRE[i][0]}** — verdict : *{verdict(i)}*. {REGISTRE[i][1](chiffres(i)).replace('.', ',') if False else REGISTRE[i][1](chiffres(i))}." for i in REGISTRE]
+    lignes = [f"- **{REGISTRE[i][0]}** — verdict : *{verdict(i)}*. {REGISTRE[i][1](chiffres(i))}." for i in REGISTRE]
+    lignes.append("- **Les erreurs de projection d'inflation de la BCE étaient-elles prévisibles en temps réel ?** — *test annulé, à refaire* : la préinscription rangeait à l'envers les exercices de juin et de septembre ; aucun résultat valide.")
     texte = v1 + f"""
 ---
 
