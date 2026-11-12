@@ -408,55 +408,73 @@ def figure(details, chemin):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    import matplotlib.ticker  # noqa: F401
 
-    encre, encre2, grille = "#0b0b0b", "#52514e", "#dddcd6"
-    bleu, gris = "#2a78d6", "#8a8984"
+    fond, encre, encre2, grille, bleu, gris = "#fcfcfb", "#0b0b0b", "#52514e", "#dddcd6", "#2a78d6", "#8a8984"
     blocs = details["blocs"]
     m5 = details["etape5"]
-    fig, ax = plt.subplots(figsize=(11, 5.6), dpi=160)
-    fig.patch.set_facecolor("#fcfcfb")
-    ax.set_facecolor("#fcfcfb")
+    fr = lambda v, nd=3: f"{v:+.{nd}f}".replace(".", ",").replace("-", "\u2212")
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(11.5, 5.8), dpi=160, sharey=True,
+                                  gridspec_kw={"width_ratios": [11, 2.6], "wspace": 0.04})
+    fig.patch.set_facecolor(fond)
     xs = list(range(11))
+    for a in (ax, ax2):
+        a.set_facecolor(fond)
+        a.yaxis.grid(True, color=grille, lw=0.6, zorder=0)
+        a.set_axisbelow(True)
+        a.axhline(0, color=encre, lw=1, zorder=2)
+        a.axhline(0.22, color=encre2, lw=1, ls=(0, (4, 3)), zorder=2)
+        for s in ("top", "right"):
+            a.spines[s].set_visible(False)
+        for s in ("left", "bottom"):
+            a.spines[s].set_color(grille)
+    # panneau de gauche : R_k bloc par bloc
     if m5["K"] >= 5:
-        ax.axhspan(m5["bas"], m5["haut"], color=bleu, alpha=0.13, lw=0, zorder=1)
-        ax.axhline(m5["r_moyen"], color=bleu, lw=2, zorder=2)
-    ax.axhline(0, color=encre, lw=1, zorder=2)
-    ax.axhline(0.22, color=encre2, lw=1, ls=(0, (4, 3)), zorder=2)
+        ax.axhspan(m5["bas"], m5["haut"], color=bleu, alpha=0.12, lw=0, zorder=1)
+        ax.axhline(m5["r_moyen"], color=bleu, lw=1.2, alpha=0.7, zorder=2)
     for k in xs:
         bk = blocs[str(k)]
         if bk["valide"]:
-            ax.bar(k, bk["R"], width=0.55, color=bleu if k not in (8, 9) else "#1a4f93", zorder=3,
-                   edgecolor="#fcfcfb", linewidth=1)
-            dy = 0.035 if bk["R"] >= 0 else -0.035
-            ax.text(k, bk["R"] + dy, f"{bk['R']:+.2f}".replace(".", ","), ha="center",
-                    va="bottom" if bk["R"] >= 0 else "top", fontsize=9, color=encre, zorder=4)
+            ax.bar(k, bk["R"], width=0.55, color=bleu, zorder=3, edgecolor=fond, linewidth=1)
+            dy = 0.02 if bk["R"] >= 0 else -0.02
+            ax.text(k, bk["R"] + dy, fr(bk["R"], 2), ha="center", va="bottom" if bk["R"] >= 0 else "top",
+                    fontsize=9, color=encre, zorder=4)
         else:
             ax.text(k, 0.03, "bloc\nnon valide", ha="center", va="bottom", fontsize=8, color=gris)
+    ax.plot([7.65, 7.65, 9.35, 9.35], [0.44, 0.47, 0.47, 0.44], color=encre2, lw=0.9)
+    ax.text(8.5, 0.485, "blocs exclus de la garde r_hors_episode", ha="center", va="bottom", fontsize=8,
+            color=encre2)
     ax.set_xticks(xs)
     ax.set_xticklabels([f"{blocs[str(k)]['libelle']}\n(n = {blocs[str(k)]['n']})" for k in xs], fontsize=8.5,
                        color=encre2)
-    ax.set_ylim(-1.05, 1.05)
-    ax.set_xlim(-0.6, 12.6)
-    ax.set_ylabel("R_k : corrélation non centrée correction × erreur, dans le bloc", fontsize=9, color=encre2)
-    ax.set_xlabel("Bloc de deux ans (trimestres cibles) ; n = lignes évaluées", fontsize=9, color=encre2)
-    ax.tick_params(axis="y", labelsize=8.5, colors=encre2)
-    ax.yaxis.grid(True, color=grille, lw=0.6, zorder=0)
-    ax.set_axisbelow(True)
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
-    for s in ("left", "bottom"):
-        ax.spines[s].set_color(grille)
+    ax.set_xlim(-0.6, 10.6)
+    ax.set_ylim(-0.65, 0.65)
+    ax.set_ylabel("R_k : corrélation non centrée entre correction et erreur\n(bornes possibles : \u22121 et +1)",
+                  fontsize=9, color=encre2)
+    ax.set_xlabel("Bloc de deux ans (trimestres cibles) ; n = lignes évaluées dans le bloc", fontsize=9,
+                  color=encre2)
+    ax.tick_params(axis="both", labelsize=8.5, colors=encre2)
+    ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(
+        lambda v, _: f"{v:.1f}".replace(".", ",").replace("-", "\u2212")))
+    # panneau de droite : moyenne des blocs et intervalle à 90 %
     if m5["K"] >= 5:
-        fr = lambda v: f"{v:+.3f}".replace(".", ",")
-        ax.text(10.75, m5["r_moyen"], f"R̄ = {fr(m5['r_moyen'])}\nIC 90 % :\n[{fr(m5['bas'])} ; {fr(m5['haut'])}]",
-                fontsize=9, color=encre, va="center", ha="left",
-                bbox=dict(facecolor="#fcfcfb", edgecolor="none", pad=1.5))
-    ax.text(12.55, 0.235, "0,22 : plus petit effet prédit", fontsize=8, color=encre2, va="bottom", ha="right")
-    ax.text(12.55, -0.015, "0 : aucune prévisibilité", fontsize=8, color=encre2, va="top", ha="right")
-    ax.set_title("H03 — Statistique principale bloc par bloc (barres), moyenne R̄ (trait) et son intervalle à 90 % "
-                 "(bande)\nBlocs 2020-2021 et 2022-2023 en bleu foncé (épisode exclu de la garde r_hors_episode)",
-                 fontsize=10, color=encre, loc="left")
-    fig.tight_layout()
+        ax2.errorbar([0], [m5["r_moyen"]], yerr=[[m5["r_moyen"] - m5["bas"]], [m5["haut"] - m5["r_moyen"]]],
+                     fmt="o", color=bleu, ecolor=bleu, elinewidth=2, capsize=5, capthick=2, markersize=8,
+                     markeredgecolor=fond, markeredgewidth=1.5, zorder=4)
+        ax2.set_xlabel(f"Moyenne des {m5['K']} blocs\nR̄ = {fr(m5['r_moyen'])}\nIC 90 % : [{fr(m5['bas'])} ; "
+                       f"{fr(m5['haut'])}]", fontsize=9, color=encre)
+    else:
+        ax2.set_xlabel(f"Moins de 5 blocs valides (K = {m5['K']})", fontsize=9, color=encre)
+    ax2.text(2.9, 0.232, "0,22 : plus petit effet\nprédit par la fiche", fontsize=8, color=encre2, va="bottom",
+             ha="right")
+    ax2.text(2.9, -0.012, "0 : aucune\nprévisibilité", fontsize=8, color=encre2, va="top", ha="right")
+    ax2.set_xlim(-1, 3)
+    ax2.set_xticks([])
+    ax2.tick_params(axis="y", length=0)
+    fig.suptitle("H03 — Corrélation entre la correction annoncée en temps réel et l'erreur de projection : "
+                 "bloc par bloc (barres),\nmoyenne R̄ et intervalle à 90 % (bande à gauche, point et barre à droite)",
+                 fontsize=10, color=encre, x=0.01, ha="left")
+    fig.subplots_adjust(left=0.085, right=0.99, top=0.88, bottom=0.17)
     fig.savefig(chemin, facecolor=fig.get_facecolor())
     plt.close(fig)
 

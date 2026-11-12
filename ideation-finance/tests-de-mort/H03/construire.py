@@ -25,6 +25,7 @@ ICI = os.path.dirname(os.path.abspath(__file__))
 DONNEES = os.path.join(ICI, "donnees")
 SORTIE = os.path.join(ICI, "H03_analyse.csv")
 BILAN = os.path.join(ICI, "construire_bilan.json")
+ANNEXE = os.path.join(ICI, "annexe_lecture_TITLE_COMPL", "H03_analyse_lecture_TITLE_COMPL.csv")
 
 COLONNES = ["millesime", "t_millesime", "mois_titre", "t_premier_F", "horizon", "cible", "t_cible",
             "projection", "millesime_precedent", "projection_precedente", "millesime_realise",
@@ -189,6 +190,18 @@ def main():
         w.writeheader()
         w.writerows(lignes)
 
+    # Annexe (hors préinscription, pour ecarts.md) : même fichier, mais `mois_titre` lu dans la colonne
+    # TITLE_COMPL au lieu de la colonne TITLE (vide dans les 111 fichiers). Ce n'est PAS le fichier d'analyse.
+    os.makedirs(os.path.dirname(ANNEXE), exist_ok=True)
+    lignes_b = []
+    for l in lignes:
+        m = infos[l["millesime"]]["mois_titre_compl"]
+        lignes_b.append(dict(l, mois_titre="" if m is None else m))
+    with open(ANNEXE, "w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=COLONNES, lineterminator="\n")
+        w.writeheader()
+        w.writerows(lignes_b)
+
     # bilan des filtres
     def n(pred):
         return sum(1 for l in lignes if pred(l))
@@ -215,14 +228,25 @@ def main():
         json.dump(bilan, f, ensure_ascii=False, indent=1)
 
     # contrôles de schéma, refaits sur le fichier écrit (même fonction que analyse.py)
+    sys.dont_write_bytecode = True
     sys.path.insert(0, ICI)
     from analyse import controles_schema  # noqa: E402
     viol = controles_schema(SORTIE)
+    viol_b = controles_schema(ANNEXE)
+    bilan["controles_schema_fichier_analyse"] = {str(k): v for k, v in viol.items()}
+    bilan["controles_schema_annexe_lecture_TITLE_COMPL"] = {str(k): v for k, v in viol_b.items()}
+    bilan["annexe_millesimes_mois_titre_different_de_3x_trimestre"] = sorted(
+        c for c, i in infos.items()
+        if i["mois_titre_compl"] is not None and i["mois_titre_compl"] != 3 * (i["t_millesime"] % 4 + 1))
+    with open(BILAN, "w", encoding="utf-8") as f:
+        json.dump(bilan, f, ensure_ascii=False, indent=1)
     print("Fichier écrit :", SORTIE)
     for k in ("n_lignes", "n_projection_presente", "n_projection_precedente_presente", "n_realise_present",
               "n_completes", "n_completes_cible_2004_2025", "n_realise_lu_a_q_plus"):
         print(f"  {k} = {bilan[k]}")
     print("Contrôles de schéma violés :", {k: v for k, v in viol.items() if v} or "aucun")
+    print("Annexe (mois_titre lu dans TITLE_COMPL) — contrôles violés {contrôle: lignes} :",
+          {k: v for k, v in viol_b.items() if v} or "aucun")
     return 0
 
 
