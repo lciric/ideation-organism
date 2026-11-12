@@ -245,22 +245,23 @@ def figure(par_an, t):
     ax.axvline(2021.5, color=encre, lw=1.2, ls="--")
     ax.errorbar(x, m, yerr=e, fmt="o", color=accent, ms=6, lw=1.6, capsize=3, label="K moyen par année (IC à 90 %, groupé par mois)")
     for p in par_an:
-        ax.annotate(f"n={p['n']}", (p["annee"], p["moyenne"] - Z90 * p["et"]), textcoords="offset points", xytext=(0, -12),
-                    ha="center", fontsize=7, color=gris)
-    ax.hlines(t["k_moyen_avant_pb"], 2009.6, 2021.4, color=encre, lw=2, label=f"moyenne 2010-2021 : {t['k_moyen_avant_pb']:.2f} pb")
-    ax.hlines(t["k_moyen_apres_pb"], 2021.6, 2026.4, color=encre, lw=2, ls=":", label=f"moyenne 2022-2026 : {t['k_moyen_apres_pb']:.2f} pb")
+        ax.text(p["annee"], 0.015, f"n={p['n']}", transform=ax.get_xaxis_transform(), ha="center", fontsize=7, color=gris)
+    ax.hlines(t["k_moyen_avant_pb"], 2009.6, 2021.4, color=encre, lw=2, label=f"moyenne simple 2010-2021 : {t['k_moyen_avant_pb']:.2f} pb")
+    ax.hlines(t["k_moyen_apres_pb"], 2021.6, 2026.4, color=encre, lw=2, ls=":", label=f"moyenne simple 2022-2026 : {t['k_moyen_apres_pb']:.2f} pb")
     yl = ax.get_ylim()
-    ax.text(2021.55, yl[1] - 0.05 * (yl[1] - yl[0]), "coupure 1er janv. 2022", fontsize=8, color=encre, va="top")
     ax.set_xticks(range(2010, 2027))
     ax.set_xlabel("année d'adjudication")
     ax.set_ylabel("K (pb)")
     ax.set_title(f"J05 — K par année, réouvertures à 10, 20 et 30 ans (échantillon P)\n"
-                 f"Δ̂ (effets fixes d'échéance) = {t['delta_k_pb']:.3f} pb, IC à 90 % [{t['borne_inf_90_pb']:.3f} ; {t['borne_sup_90_pb']:.3f}]",
+                 f"baisse estimée Δ (effets fixes d'échéance, ET groupée par mois) = {t['delta_k_pb']:.3f} pb, IC à 90 % [{t['borne_inf_90_pb']:.3f} ; {t['borne_sup_90_pb']:.3f}]",
                  fontsize=10)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     ax.grid(axis="y", color="#e4e7eb", lw=0.6)
-    ax.legend(fontsize=8, frameon=False, loc="lower left")
+    ax.legend(fontsize=8, frameon=False, loc="upper left")
+    yl = ax.get_ylim()
+    ax.set_ylim(yl[0] - 0.08 * (yl[1] - yl[0]), yl[1] + 0.12 * (yl[1] - yl[0]))
+    ax.text(2021.55, 0.985, "coupure 1er janv. 2022", transform=ax.get_xaxis_transform(), fontsize=8, color=encre, va="top")
     fig.tight_layout()
     fig.savefig(os.path.join(ICI, "figure.png"))
 
