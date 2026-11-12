@@ -1,0 +1,16 @@
+{
+  "schema_ok": 0,
+  "n_avant": 206,
+  "n_apres": 116,
+  "n_grappes_avant": 96,
+  "n_grappes_apres": 39,
+  "n_echec_convention": 0,
+  "ecart_max_rdt_pb": 5.702105454474804e-11,
+  "k_moyen_avant_pb": 0.681516111449835,
+  "k_moyen_apres_pb": 1.104340216607347,
+  "delta_k_pb": -0.6586503752200623,
+  "erreur_type_pb": 0.3733419017087957,
+  "borne_inf_90_pb": -1.2727978035310312,
+  "borne_sup_90_pb": -0.0445029469090934,
+  "marge_zone_grise": -0.5445029469090934
+}
