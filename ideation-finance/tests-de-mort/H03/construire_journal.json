@@ -287,6 +287,33 @@
    "octets": 11795,
    "lignes_avec_entete": 53,
    "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_W07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W07.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:03:49Z",
+   "code_http": 200,
+   "sha256": "3c4de8c887a356779adbba4638f6b6b1386535bb0bd2a34d885a24eb97c851fd",
+   "octets": 13377,
+   "lignes_avec_entete": 61,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_S07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S07.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:03:52Z",
+   "code_http": 200,
+   "sha256": "e980a643eaab35fc48361544070d1a72654a9a868d1a8e6b06d5d028a563937e",
+   "octets": 13617,
+   "lignes_avec_entete": 61,
+   "essai_retenu": 1
+  },
+  "MPD_Q_U2_HIC_A_G07.csv": {
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G07.0000?format=csvdata",
+   "date_utc": "2026-11-12T19:03:55Z",
+   "code_http": 200,
+   "sha256": "3a02e615d58ee462c0133f718a56f721ca92142372f3cf6c73040fcb61cbb692",
+   "octets": 13319,
+   "lignes_avec_entete": 61,
+   "essai_retenu": 1
   }
  },
  "essais": [
@@ -607,6 +634,36 @@
    "date_utc": "2026-11-12T19:03:46Z",
    "code_http": 200,
    "duree_s": 1.71,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_W07.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.W07.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:03:49Z",
+   "code_http": 200,
+   "duree_s": 1.02,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_S07.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.S07.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:03:52Z",
+   "code_http": 200,
+   "duree_s": 2.04,
+   "retenu": 1,
+   "erreur_curl": ""
+  },
+  {
+   "fichier": "MPD_Q_U2_HIC_A_G07.csv",
+   "url": "https://data-api.ecb.europa.eu/service/data/MPD/Q.U2.HIC.A.G07.0000?format=csvdata",
+   "essai": 1,
+   "date_utc": "2026-11-12T19:03:55Z",
+   "code_http": 200,
+   "duree_s": 1.62,
    "retenu": 1,
    "erreur_curl": ""
   }
