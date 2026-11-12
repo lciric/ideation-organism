@@ -1,0 +1,77 @@
+EA-MPD : 324 lignes sous l'en-tête ; 9 lignes sans date écartées ; 315 réunions datées (dont 16 dates en texte jj/mm/aaaa) ; 0 réunions postérieures au 2025-10-30 écartées ; 315 réunions retenues ; OIS_1Y manquant : 0
+Ken French : millésime = 'This file was created using the 202609 Bloomberg database.'
+Ken French : 9458 lignes de données, 0 manquantes (-99.99), 9458 valides, de 1990-07-02 à 2026-09-30
+DCOILBRENTEU.csv : 10295 lignes de données, 1173 manquantes, 9122 valides, de 1987-05-20 à 2026-11-03
+DEXUSEU.csv : 7265 lignes de données, 281 manquantes, 6984 valides, de 1999-01-04 à 2026-11-06
+feds200628.csv : 17063 lignes de données, 749 SVENY02 manquants (NA), 16314 valides, de 1961-06-14 à 2026-11-06
+Lignes écrites : 315 ; effectifs : {'rodage': 17, 'estimation': 151, 'evaluation': 147, 'exclue': 0}
+Repères : rang 1 = 1999-01-07, rang 17 = 1999-09-23, rang 18 = 1999-10-07, rang 168 = 2009-12-03, rang 169 = 2010-01-14, rang 315 = 2025-10-30
+Prédicteur act_eu_60j_pct manquant aux rangs : aucun
+Prédicteur brent_60j_pct manquant aux rangs : aucun
+Prédicteur eurusd_60j_pct manquant aux rangs : ['1', '2', '3', '4', '5']
+Prédicteur us2a_60j_pp manquant aux rangs : aucun
+Plancher de 0,25 pb actif : 0 réunions de rang ≥ 17 (rangs []) ; dont lignes utilisables : 0 ; dont évaluation : 0
+Retard (jours calendaires entre date_fin_act et la réunion), lignes utilisables : min 1, max 3
+Retard (jours calendaires entre date_fin_brent et la réunion), lignes utilisables : min 1, max 7
+Retard (jours calendaires entre date_fin_eurusd et la réunion), lignes utilisables : min 1, max 3
+Retard (jours calendaires entre date_fin_us2a et la réunion), lignes utilisables : min 1, max 3
+Contrôle d'antériorité par balayage complet : réussi pour les quatre séries sur toutes les lignes utilisables.
+
+Trois réunions tirées au sort parmi les 298 lignes utilisables (numpy default_rng(16).choice, sans remise) : rangs [177, 186, 263]
+
+--- rang 177, réunion du 2010-09-02 (evaluation) ---
+  EA-MPD : OIS_1Y = -0.900000000000001 pb ; 16 précédentes = [-2.89999999999999, 6.10000000000001, -6.05, 1.4, -5.949999999999999, -3.3, -0.800000000000001, -2.5, -2.3, -1.15, -0.949999999999995, 0.800000000000001, 0.600000000000001, 0.4, 5.600000000000009, -1.7] ; sigma16 = 3.368574129608354 ; cible_norm = -0.26717535828865346 ; cible_prec_norm = -0.4609463317398082
+  act_eu_60j_pct = 1.2057951391488574e+01
+    première des 60 lignes (j = i−59) : '20100610    ,2.70   ,-0.58    ,1.04    ,0.00'
+    dernière des 60 lignes (j = i)    : '20100901    ,3.54   ,-1.34    ,0.25    ,0.00'
+    observation valide suivante (non utilisée) : 2010-09-02 (≥ 2010-09-02 : True)
+  brent_60j_pct = 5.5811979158475324e+00
+    ligne v[i−60] : '2010-06-08,71.43'
+    ligne v[i]    : '2010-09-01,75.53'
+    observation valide suivante (non utilisée) : 2010-09-02 (≥ 2010-09-02 : True)
+  eurusd_60j_pct = 6.5970384235781259e+00
+    ligne v[i−60] : '2010-06-08,1.1995'
+    ligne v[i]    : '2010-09-01,1.2813'
+    observation valide suivante (non utilisée) : 2010-09-02 (≥ 2010-09-02 : True)
+  us2a_60j_pp = -2.6150000095367398e-01
+    ligne v[i−60] : '2010-06-08,…,SVENY02=0.750699996948242'
+    ligne v[i]    : '2010-09-01,…,SVENY02=0.489199995994568'
+    observation valide suivante (non utilisée) : 2010-09-02 (≥ 2010-09-02 : True)
+
+--- rang 186, réunion du 2011-06-09 (evaluation) ---
+  EA-MPD : OIS_1Y = -3.65000000000002 pb ; 16 précédentes = [-1.15, -0.949999999999995, 0.800000000000001, 0.600000000000001, 0.4, 5.600000000000009, -1.7, -0.900000000000001, -0.800000000000001, -1.2, -2.0, 6.10000000000001, -3.09999999999999, 16.3, 0.499999999999989, -12.5] ; sigma16 = 5.838293129559929 ; cible_norm = -0.625182723614829 ; cible_prec_norm = -2.602012390498875
+  act_eu_60j_pct = 9.2548645391695050e+00
+    première des 60 lignes (j = i−59) : '20110317    ,2.55   ,-0.79    ,0.48    ,0.00'
+    dernière des 60 lignes (j = i)    : '20110608   ,-1.68   ,-0.05   ,-0.12    ,0.00'
+    observation valide suivante (non utilisée) : 2011-06-09 (≥ 2011-06-09 : True)
+  brent_60j_pct = 3.7509773693597279e+00
+    ligne v[i−60] : '2011-03-10,114.07'
+    ligne v[i]    : '2011-06-08,118.43'
+    observation valide suivante (non utilisée) : 2011-06-09 (≥ 2011-06-09 : True)
+  eurusd_60j_pct = 4.3361722006829853e+00
+    ligne v[i−60] : '2011-03-15,1.3968'
+    ligne v[i]    : '2011-06-08,1.4587'
+    observation valide suivante (non utilisée) : 2011-06-09 (≥ 2011-06-09 : True)
+  us2a_60j_pp = -2.1029996871948203e-01
+    ligne v[i−60] : '2011-03-14,…,SVENY02=0.588599979877472'
+    ligne v[i]    : '2011-06-08,…,SVENY02=0.37830001115799'
+    observation valide suivante (non utilisée) : 2011-06-09 (≥ 2011-06-09 : True)
+
+--- rang 263, réunion du 2019-04-10 (evaluation) ---
+  EA-MPD : OIS_1Y = -0.4899978637695312 pb ; 16 précédentes = [-0.330000000000003, -0.2350002527236938, -0.845000147819519, -0.4999995231628418, 0.005000829696655273, -0.02000033855438232, -0.1450002193450928, -0.1450002193450928, -0.1599997282028198, -0.7899999618530273, 0.0, -0.1249998807907104, -0.1199990510940552, -0.2250015735626221, -0.3149986267089844, -0.7450014352798462] ; sigma16 = 0.28018297348670845 ; cible_norm = -1.7488495381136218 ; cible_prec_norm = -2.1968615080975065
+  act_eu_60j_pct = 9.1801568010631041e+00
+    première des 60 lignes (j = i−59) : '20190116    ,0.19    ,0.05    ,0.45    ,0.01'
+    dernière des 60 lignes (j = i)    : '20190409   ,-0.45    ,0.04    ,0.04    ,0.01'
+    observation valide suivante (non utilisée) : 2019-04-10 (≥ 2019-04-10 : True)
+  brent_60j_pct = 1.9137395241545732e+01
+    ligne v[i−60] : '2019-01-15,58.65'
+    ligne v[i]    : '2019-04-09,71.02'
+    observation valide suivante (non utilisée) : 2019-04-10 (≥ 2019-04-10 : True)
+  eurusd_60j_pct = -2.1577891837291880e+00
+    ligne v[i−60] : '2019-01-09,1.1524'
+    ligne v[i]    : '2019-04-09,1.1278'
+    observation valide suivante (non utilisée) : 2019-04-10 (≥ 2019-04-10 : True)
+  us2a_60j_pp = -1.9700002670287997e-01
+    ligne v[i−60] : '2019-01-11,…,SVENY02=2.52830004692078'
+    ligne v[i]    : '2019-04-09,…,SVENY02=2.3313000202179'
+    observation valide suivante (non utilisée) : 2019-04-10 (≥ 2019-04-10 : True)
