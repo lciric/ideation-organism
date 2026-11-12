@@ -1,0 +1,85 @@
+{
+ "id": "J07",
+ "verdict": "survit",
+ "raisons": [],
+ "sceau_preenregistrement": "2122df8e83b17a5dfdcfbbdce6bd5cc928507ee0590bb969d874d9075dc92fc3",
+ "chiffres_verificateur": {
+  "schema_ok": 1,
+  "n_admissibles": 309,
+  "n_previsions": 248,
+  "premiere_prevision_aaaammjj": 19970207,
+  "cw_stat": 1.871964,
+  "r2_hors_echantillon": 0.02156752,
+  "reqm_reference_k": 57.922097,
+  "reqm_modele_k": 57.294074
+ },
+ "regle": {
+  "id": "J07",
+  "fichier_analyse": "J07_analyse.csv",
+  "champs_verification": [
+   "schema_ok",
+   "n_admissibles",
+   "n_previsions",
+   "premiere_prevision_aaaammjj",
+   "cw_stat",
+   "r2_hors_echantillon",
+   "reqm_reference_k",
+   "reqm_modele_k"
+  ],
+  "survit_si": [
+   {
+    "champ": "cw_stat",
+    "operateur": ">=",
+    "seuil": 1.645
+   },
+   {
+    "champ": "r2_hors_echantillon",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "schema_ok",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "n_admissibles",
+    "operateur": ">=",
+    "seuil": 250
+   },
+   {
+    "champ": "n_previsions",
+    "operateur": ">=",
+    "seuil": 185
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "schema_ok",
+    "operateur": "<",
+    "seuil": 1
+   },
+   {
+    "champ": "n_admissibles",
+    "operateur": "<",
+    "seuil": 250
+   },
+   {
+    "champ": "n_previsions",
+    "operateur": "<",
+    "seuil": 185
+   }
+  ],
+  "tolerance": {
+   "schema_ok": 0,
+   "n_admissibles": 0,
+   "n_previsions": 0,
+   "premiere_prevision_aaaammjj": 0,
+   "cw_stat": 0.02,
+   "r2_hors_echantillon": 0.0005,
+   "reqm_reference_k": 0.05,
+   "reqm_modele_k": 0.05
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}
