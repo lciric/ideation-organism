@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 
 ICI = os.path.dirname(os.path.abspath(__file__))
+sys.dont_write_bytecode = True
 sys.path.insert(0, ICI)
 from controles_schema import controles  # noqa: E402
 
@@ -247,71 +248,80 @@ def main():
 
 
 # ---------------------------------------------------------------- figures
+def fr(v, nd=3, signe=True):
+    """Nombre au format français (virgule décimale, signe moins typographique)."""
+    t = f"{v:+.{nd}f}" if signe else f"{v:.{nd}f}"
+    return t.replace(".", ",").replace("-", "−")
+
+
 def figures(princ, P, d_sans_df, fen):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    from matplotlib.ticker import FuncFormatter
 
     SURF, INK, INK2, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#e4e3df"
     C = {"avant": "#2a78d6", "apres": "#eb6834"}
     NOM = {"avant": "Avant TPI (oct. 2012 – juin 2022, 87 réunions)",
            "apres": "Après TPI (sept. 2022 – oct. 2025, 26 réunions)"}
+    virgule = FuncFormatter(lambda v, _: f"{v:g}".replace(".", ",").replace("-", "−"))
     plt.rcParams.update({"font.size": 10, "axes.edgecolor": GRID, "axes.labelcolor": INK2,
                          "xtick.color": INK2, "ytick.color": INK2, "text.color": INK,
                          "axes.spines.top": False, "axes.spines.right": False,
                          "figure.facecolor": SURF, "axes.facecolor": SURF, "savefig.facecolor": SURF})
 
-    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(12.5, 5.6), gridspec_kw={"width_ratios": [1.55, 1]})
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(13, 5.8), gridspec_kw={"width_ratios": [1.35, 1]})
 
     # --- nuage : une réunion = un point, droites MCO par régime
     for r in ("avant", "apres"):
         s = princ[princ["periode"] == r]
-        ax.scatter(s["x"], s["y"], s=34, color=C[r], edgecolor=SURF, linewidth=0.8, zorder=3, label=NOM[r])
+        ax.scatter(s["x"], s["y"], s=34, color=C[r], edgecolor=SURF, linewidth=0.8, zorder=3,
+                   label=f"{NOM[r]} : pente {fr(P[f'b_{r}'])}")
         xs = np.array([s["x"].min(), s["x"].max()])
         ax.plot(xs, s["y"].mean() + P[f"b_{r}"] * (xs - s["x"].mean()), color=C[r], linewidth=2, zorder=2)
-        ax.annotate(f"pente {P[f'b_{r}']:+.3f}".replace(".", ","), (xs[1], s["y"].mean() + P[f"b_{r}"] * (xs[1] - s["x"].mean())),
-                    xytext=(6, 0), textcoords="offset points", va="center", color=INK, fontsize=9)
     ax.axhline(0, color=GRID, linewidth=1, zorder=1)
     ax.axvline(0, color=GRID, linewidth=1, zorder=1)
     ax.grid(color=GRID, linewidth=0.6, zorder=0)
+    ax.xaxis.set_major_formatter(virgule)
+    ax.yaxis.set_major_formatter(virgule)
     ax.set_xlabel("Surprise OIS 2 ans dans la fenêtre de la réunion (pb)")
     ax.set_ylabel("Variation de l'écart moyen IT/ES − DE à 10 ans (pb)")
     ax.set_title("Chaque point est une réunion ; droites MCO par régime", loc="left", fontsize=10.5, color=INK)
-    ax.legend(frameon=False, loc="upper left", fontsize=9)
-    ax.margins(x=0.12)
+    ax.legend(frameon=False, loc="upper left", fontsize=9, handletextpad=0.3, borderaxespad=0.2)
+    ax.set_ylim(top=max(princ["y"].max() * 1.32, 10))
 
     # --- estimations avec intervalles ± 1,32 × erreur type HC3
-    lignes = [("Pente avant  b_avant", P["b_avant"], P["se_b_avant"], C["avant"]),
-              ("Pente après  b_apres", P["b_apres"], P["se_b_apres"], C["apres"]),
-              ("Différence  d = après − avant", P["d"], P["se_d"], INK)]
-    ypos = [3, 2, 1]
+    lignes = [("Pente avant (b_avant)", P["b_avant"], P["se_b_avant"], C["avant"]),
+              ("Pente après (b_apres)", P["b_apres"], P["se_b_apres"], C["apres"]),
+              ("Différence (d_hat)", P["d"], P["se_d"], INK)]
+    ypos = [4, 3, 2]
+    etiq = []
     for (nom, v, se, col), yp in zip(lignes, ypos):
         ax2.plot([v - T_10 * se, v + T_10 * se], [yp, yp], color=col, linewidth=2, solid_capstyle="round", zorder=3)
         ax2.scatter([v], [yp], s=64, color=col, edgecolor=SURF, linewidth=1.2, zorder=4)
-        ax2.annotate(f"{v:+.3f}  (e.t. {se:.3f})".replace(".", ","), (v, yp), xytext=(0, 10),
-                     textcoords="offset points", ha="center", fontsize=9, color=INK)
-    # étendue de d quand on retire une réunion
+        etiq.append(f"{nom}\n{fr(v)}  (erreur type {fr(se, signe=False)})")
+    # étendue de d quand on retire une réunion (113 retraits)
     dmin, dmax = d_sans_df["d"].min(), d_sans_df["d"].max()
-    ax2.plot([dmin, dmax], [0.45, 0.45], color=INK2, linewidth=2, solid_capstyle="round", zorder=3)
-    ax2.scatter([dmin, dmax], [0.45, 0.45], s=30, color=INK2, marker="|", zorder=4)
-    ax2.annotate(f"d en retirant une réunion : de {dmin:+.3f} à {dmax:+.3f}".replace(".", ","),
-                 ((dmin + dmax) / 2, 0.45), xytext=(0, -15), textcoords="offset points", ha="center",
-                 fontsize=8.5, color=INK2)
+    ax2.plot([dmin, dmax], [1, 1], color=INK2, linewidth=2, solid_capstyle="butt", zorder=3)
+    ax2.scatter([dmin, dmax], [1, 1], s=90, color=INK2, marker="|", zorder=4)
+    etiq.append(f"d en retirant une réunion\nde {fr(dmin)} à {fr(dmax)}")
     ax2.axvline(0, color=INK2, linewidth=1, zorder=1)
     ax2.axvline(-0.15, color=INK2, linewidth=1, linestyle=(0, (4, 3)), zorder=1)
-    ax2.annotate("0", (0, 3.62), ha="center", fontsize=8.5, color=INK2)
-    ax2.annotate("seuil de taille\n−0,15", (-0.15, 3.62), ha="center", fontsize=8.5, color=INK2)
-    ax2.set_yticks(ypos)
-    ax2.set_yticklabels([l[0] for l in lignes], color=INK)
-    ax2.set_ylim(0.0, 4.0)
+    ax2.annotate("0", (0, 4.62), xytext=(4, 0), textcoords="offset points", ha="left", fontsize=8.5, color=INK2)
+    ax2.annotate("seuil de taille −0,15", (-0.15, 4.62), xytext=(-4, 0), textcoords="offset points",
+                 ha="right", fontsize=8.5, color=INK2)
+    ax2.set_yticks(ypos + [1])
+    ax2.set_yticklabels(etiq, color=INK, fontsize=9)
+    ax2.set_ylim(0.4, 4.9)
     ax2.tick_params(axis="y", length=0)
     ax2.grid(axis="x", color=GRID, linewidth=0.6, zorder=0)
+    ax2.xaxis.set_major_formatter(virgule)
     ax2.set_xlabel("pb d'écart par pb de surprise")
     ax2.set_title("Estimations ; barres = ± 1,32 × erreur type HC3\n(seuil unilatéral 10 % préinscrit)",
                   loc="left", fontsize=10.5, color=INK)
     lo = min(P["d"] - T_10 * P["se_d"], dmin, -0.15, P["b_apres"] - T_10 * P["se_b_apres"])
     hi = max(P["b_avant"] + T_10 * P["se_b_avant"], P["b_apres"] + T_10 * P["se_b_apres"], dmax, 0)
-    pad = 0.12 * (hi - lo)
+    pad = 0.08 * (hi - lo)
     ax2.set_xlim(lo - pad, hi + pad)
 
     fig.suptitle("F12 — Réponse de l'écart Italie/Espagne − Allemagne (10 ans) aux surprises OIS 2 ans, "
@@ -323,16 +333,16 @@ def figures(princ, P, d_sans_df, fen):
     # --- S2 : pente par fenêtre glissante de 26 réunions, selon la date de fin de fenêtre
     fig, ax = plt.subplots(figsize=(10, 4.8))
     fin = pd.to_datetime(fen["fin"])
-    ax.plot(fin, fen["b_w"], color=C["avant"], linewidth=2, zorder=3)
+    ax.plot(fin, fen["b_w"], color=C["avant"], linewidth=2, zorder=3,
+            label="b_w : pente sur 26 réunions consécutives (crise + avant, 95 fenêtres)")
     ax.scatter(fin, fen["b_w"], s=14, color=C["avant"], edgecolor=SURF, linewidth=0.5, zorder=4)
-    ax.axhline(P["b_apres"], color=C["apres"], linewidth=2, zorder=2)
-    ax.annotate(f"b_apres = {P['b_apres']:+.3f} (26 réunions après le TPI)".replace(".", ","),
-                (fin.iloc[0], P["b_apres"]), xytext=(0, 6), textcoords="offset points", fontsize=9, color=INK)
-    ax.annotate("b_w : pente sur 26 réunions consécutives\n(crise + avant, 95 fenêtres)",
-                (fin.iloc[-1], fen["b_w"].iloc[-1]), xytext=(-6, 14), textcoords="offset points",
-                ha="right", fontsize=9, color=INK)
+    ax.axhline(P["b_apres"], color=C["apres"], linewidth=2, zorder=2,
+               label=f"b_apres = {fr(P['b_apres'])} (26 réunions après le TPI)")
     ax.axhline(0, color=GRID, linewidth=1, zorder=1)
     ax.grid(color=GRID, linewidth=0.6, zorder=0)
+    ax.yaxis.set_major_formatter(virgule)
+    ax.set_ylim(top=fen["b_w"].max() + 0.45)
+    ax.legend(frameon=False, loc="upper left", fontsize=9)
     ax.set_xlabel("Date de fin de la fenêtre")
     ax.set_ylabel("Pente (pb d'écart par pb de surprise)")
     ax.set_title("F12, S2 (descriptif) — pente IT/ES − DE sur OIS 2 ans par fenêtre glissante de 26 réunions, "

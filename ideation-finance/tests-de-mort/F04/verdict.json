@@ -1,0 +1,116 @@
+{
+ "id": "F04",
+ "verdict": "survit",
+ "raisons": [],
+ "sceau_preenregistrement": "99e82a4c075afc13a15d760bb79bc6a1454a2bd956067c87ec1f7ecda152c6fc",
+ "chiffres_verificateur": {
+  "schema_ok": 1,
+  "n_adjudications": 321,
+  "n_grappes": 134,
+  "v_moyen_pb": 0.9061063126834,
+  "erreur_type_pb": 0.16135302809625449,
+  "t_stat": 5.615675908746293,
+  "borne_sup_95_pb": 1.2223582477520587,
+  "marge_zone_grise": -3.615675908746293,
+  "n_placebo": 318,
+  "t_placebo_abs": 0.27099669086712386
+ },
+ "regle": {
+  "id": "F04",
+  "fichier_analyse": "F04_analyse.csv",
+  "champs_verification": [
+   "schema_ok",
+   "n_adjudications",
+   "n_grappes",
+   "v_moyen_pb",
+   "erreur_type_pb",
+   "t_stat",
+   "borne_sup_95_pb",
+   "marge_zone_grise",
+   "n_placebo",
+   "t_placebo_abs"
+  ],
+  "survit_si": [
+   {
+    "champ": "v_moyen_pb",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "t_stat",
+    "operateur": ">=",
+    "seuil": 2
+   },
+   {
+    "champ": "t_placebo_abs",
+    "operateur": "<",
+    "seuil": 2
+   },
+   {
+    "champ": "schema_ok",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "n_adjudications",
+    "operateur": ">=",
+    "seuil": 290
+   },
+   {
+    "champ": "n_grappes",
+    "operateur": ">=",
+    "seuil": 120
+   },
+   {
+    "champ": "n_placebo",
+    "operateur": ">=",
+    "seuil": 250
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "schema_ok",
+    "operateur": "<",
+    "seuil": 1
+   },
+   {
+    "champ": "n_adjudications",
+    "operateur": "<",
+    "seuil": 290
+   },
+   {
+    "champ": "n_grappes",
+    "operateur": "<",
+    "seuil": 120
+   },
+   {
+    "champ": "n_placebo",
+    "operateur": "<",
+    "seuil": 250
+   },
+   {
+    "champ": "t_placebo_abs",
+    "operateur": ">=",
+    "seuil": 2
+   },
+   {
+    "champ": "marge_zone_grise",
+    "operateur": ">",
+    "seuil": 0
+   }
+  ],
+  "tolerance": {
+   "schema_ok": 0,
+   "n_adjudications": 0,
+   "n_grappes": 0,
+   "n_placebo": 0,
+   "v_moyen_pb": 0.005,
+   "erreur_type_pb": 0.005,
+   "t_stat": 0.02,
+   "borne_sup_95_pb": 0.01,
+   "marge_zone_grise": 0.02,
+   "t_placebo_abs": 0.02
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}

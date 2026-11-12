@@ -196,6 +196,7 @@ def main():
     print(f"Écrit : {SORTIE} ({len(lignes)} lignes de données, {len(COLONNES)} colonnes)")
 
     # Contrôles de schéma du § 5, refaits sur le fichier écrit
+    sys.dont_write_bytecode = True
     sys.path.insert(0, ICI)
     from controles_schema import controles
     res = controles(SORTIE)

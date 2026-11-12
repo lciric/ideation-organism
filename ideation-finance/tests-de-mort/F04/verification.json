@@ -1,0 +1,12 @@
+{
+  "schema_ok": 1,
+  "n_adjudications": 321,
+  "n_grappes": 134,
+  "v_moyen_pb": 0.9061063126834,
+  "erreur_type_pb": 0.16135302809625449,
+  "t_stat": 5.615675908746293,
+  "borne_sup_95_pb": 1.2223582477520587,
+  "marge_zone_grise": -3.615675908746293,
+  "n_placebo": 318,
+  "t_placebo_abs": 0.27099669086712386
+}
