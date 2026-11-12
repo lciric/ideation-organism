@@ -1,0 +1,5 @@
+# Données brutes : non versionnées (fichiers publics volumineux). Chaque dossier donnees/ garde PROVENANCE.md
+# (adresse, date, sha256, nombre de lignes) qui permet de les retélécharger et de vérifier qu'elles sont identiques.
+tests-de-mort/*/donnees/*
+!tests-de-mort/*/donnees/PROVENANCE.md
+__pycache__/

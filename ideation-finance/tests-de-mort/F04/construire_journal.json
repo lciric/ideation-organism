@@ -1,0 +1,93 @@
+{
+ "d1_lignes_api": 1639,
+ "d1_total_count_meta": 1639,
+ "d1_total_pages_meta": 1,
+ "d1_apres_filtres": 1285,
+ "d1_termes_ecartes": {},
+ "d1_retenues": 1285,
+ "d1_par_terme": {
+  "10-Year": 67,
+  "19-Year 10-Month": 25,
+  "19-Year 11-Month": 27,
+  "2-Year": 201,
+  "20-Year": 26,
+  "29-Year 10-Month": 67,
+  "29-Year 11-Month": 67,
+  "3-Year": 201,
+  "30-Year": 67,
+  "5-Year": 201,
+  "7-Year": 201,
+  "9-Year 10-Month": 67,
+  "9-Year 11-Month": 68
+ },
+ "d1_par_terme_conforme_attendu": 1,
+ "d2_DGS2_lignes": 13160,
+ "d2_DGS2_derniere_date": "2026-11-09",
+ "d2_DGS3_lignes": 16920,
+ "d2_DGS3_derniere_date": "2026-11-09",
+ "d2_DGS5_lignes": 16920,
+ "d2_DGS5_derniere_date": "2026-11-09",
+ "d2_DGS7_lignes": 14965,
+ "d2_DGS7_derniere_date": "2026-11-09",
+ "d2_DGS10_lignes": 16920,
+ "d2_DGS10_derniere_date": "2026-11-09",
+ "d2_DGS20_lignes": 16920,
+ "d2_DGS20_derniere_date": "2026-11-09",
+ "d2_DGS30_lignes": 12975,
+ "d2_DGS30_derniere_date": "2026-11-09",
+ "calendrier_n": 16199,
+ "calendrier_min": "1962-01-02",
+ "calendrier_max": "2026-11-09",
+ "d3_lignes_preambule": 9,
+ "d3_lignes": 17063,
+ "d3_derniere_date": "2026-11-06",
+ "n_principal_reelle": 321,
+ "n_principal_reopening_yes": 321,
+ "controle_reopening_yes_ok": 1,
+ "n_reopening_yes_hors_principal": {
+  "2-Year": 10,
+  "3-Year": 1,
+  "5-Year": 8
+ },
+ "n_dates_adjudication_hors_C": 0,
+ "tri_ex_aequo_departages_par_cusip": 0,
+ "controles_schema": {
+  "1_colonnes": 1,
+  "2_valeurs_permises": 1,
+  "3_dates": 1,
+  "4_periode_mois_montant": 1,
+  "5_principal_placebo": 1,
+  "6_complet": 1,
+  "7_bornes_rendements": 1,
+  "8_n_principal_300_330": 1
+ },
+ "schema_ok": 1,
+ "n_lignes": 1606,
+ "n_reelle": 1285,
+ "n_placebo_lignes": 321,
+ "n_reelle_principal": 321,
+ "filtres_reelle_principal": {
+  "lignes": 321,
+  "complet_1": 321,
+  "fenetre_propre_1": 321,
+  "complet_1_et_fenetre_propre_1": 321
+ },
+ "filtres_placebo": {
+  "lignes": 321,
+  "complet_1": 321,
+  "fenetre_propre_1": 318,
+  "complet_1_et_fenetre_propre_1": 318
+ },
+ "filtres_reelle_toutes": {
+  "lignes": 1285,
+  "complet_1": 1285,
+  "fenetre_propre_1": 1285,
+  "complet_1_et_fenetre_propre_1": 1285
+ },
+ "incomplets": [],
+ "fenetre_non_propre_principal_ou_placebo": [
+  "9128286T2_2019-06-12_placebo",
+  "9128286T2_2019-06-21_placebo",
+  "912810TC2_2021-12-02_placebo"
+ ]
+}
