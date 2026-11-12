@@ -1,0 +1,1269 @@
+{
+ "accord_spearman": {
+  "kimi-gemini": 0.149,
+  "kimi-astra": 0.774,
+  "kimi-claude": 0.535,
+  "gemini-astra": 0.168,
+  "gemini-claude": 0.383,
+  "astra-claude": 0.556
+ },
+ "rang_agrege_moyen_par_famille": {
+  "astra": 8.2,
+  "claude": 10.2,
+  "gemini": 16.4,
+  "kimi": 7.2
+ },
+ "rang_moyen_par_juge_et_famille": {
+  "kimi": {
+   "astra": 7.6,
+   "claude": 11.8,
+   "gemini": 17,
+   "kimi": 5.6
+  },
+  "gemini": {
+   "astra": 11.8,
+   "claude": 12.2,
+   "gemini": 9,
+   "kimi": 9
+  },
+  "astra": {
+   "astra": 5,
+   "claude": 9.8,
+   "gemini": 18,
+   "kimi": 9.2
+  },
+  "claude": {
+   "astra": 11,
+   "claude": 6.2,
+   "gemini": 15.8,
+   "kimi": 9
+  }
+ },
+ "propre_famille": {
+  "kimi": {
+   "sa_famille": 5.6,
+   "autres_proposeurs": 12.13
+  },
+  "gemini": {
+   "sa_famille": 9,
+   "autres_proposeurs": 11
+  },
+  "astra": {
+   "sa_famille": 5,
+   "autres_proposeurs": 12.33
+  },
+  "claude": {
+   "sa_famille": 6.2,
+   "autres_proposeurs": 11.93
+  }
+ },
+ "retenues": [
+  "J05",
+  "J02",
+  "J07",
+  "J13",
+  "J10"
+ ],
+ "classement": [
+  {
+   "id": "J05",
+   "famille": "kimi",
+   "origine": "3K1",
+   "borda": 14,
+   "rangs": {
+    "kimi": 1,
+    "gemini": 1,
+    "astra": 5,
+    "claude": 7
+   },
+   "jury_recruteurs": 34,
+   "ecarter": 0,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     4,
+     5,
+     3,
+     3
+    ],
+    "recruteurs": [
+     5,
+     5,
+     5,
+     4
+    ],
+    "tuable": [
+     4,
+     5,
+     3,
+     3
+    ],
+    "interet": [
+     4,
+     5,
+     4,
+     3
+    ],
+    "nouveaute": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "apport": [
+     5,
+     5,
+     4,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Une concession relative à GSW n'est pas le cycle temporaire V et sa dispersion est inconnue, donc même un avant-après précis ne trancherait pas entièrement « marché ou mesure ».",
+    "gemini": "Le prix théorique tiré de la courbe lissée GSW contient une erreur d'ajustement propre au titre (prime on-the-run ou liquidité) dont la variance ou le niveau a pu changer après 2021 indépendamment de la pression d'adjudication.",
+    "astra": "Une rupture de la concession adjudication–GSW peut venir de la liquidité ou du décalage horaire entre les prix, sans identifier une disparition de la pression temporaire mesurée par le parent.",
+    "claude": "La concession en niveau compare un rendement fixé à 13 h à une courbe de clôture qui exclut les titres récents : elle contient la prime de liquidité du titre et le mouvement de l'après-midi, qui ont changé dans le temps, si bien qu'une baisse après 2021 ne mesure pas la pression du parent."
+   },
+   "rang_agrege": 1
+  },
+  {
+   "id": "J02",
+   "famille": "kimi",
+   "origine": "3K5",
+   "borda": 17,
+   "rangs": {
+    "kimi": 2,
+    "gemini": 10,
+    "astra": 3,
+    "claude": 2
+   },
+   "jury_recruteurs": 33,
+   "ecarter": 0,
+   "retenir": 3,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     4,
+     5
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     4,
+     4,
+     3,
+     4
+    ],
+    "interet": [
+     5,
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "apport": [
+     4,
+     4,
+     4,
+     5
+    ]
+   },
+   "failles": {
+    "kimi": "La puissance suppose au moins 90 cibles appariées et une inflation de variance limitée, tandis qu'une pente positive peut aussi refléter un lissage optimal plutôt qu'une sous-réaction.",
+    "gemini": "L'imposition d'une seule observation par trimestre cible protège l'inférence mais réduit l'échantillon à environ 90 points dominés par la queue de distribution de 2021-2022.",
+    "astra": "Une observation par trimestre cible ne supprime pas le chevauchement de l'inflation annuelle ni les chocs persistants, rendant insuffisamment justifiée la majoration de seulement 40 % de l'erreur type.",
+    "claude": "Rien ne garantit que la base MPD fournisse des trajectoires trimestrielles d'inflation sur tout 1999-2025 : si l'appariement tombe sous 90 cibles le test devient non concluant, et les erreurs de 2021-2022 peuvent porter seules la pente."
+   },
+   "rang_agrege": 2
+  },
+  {
+   "id": "J07",
+   "famille": "astra",
+   "origine": "3A4",
+   "borda": 17,
+   "rangs": {
+    "kimi": 3,
+    "gemini": 5,
+    "astra": 1,
+    "claude": 8
+   },
+   "jury_recruteurs": 32,
+   "ecarter": 0,
+   "retenir": 3,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     5,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "interet": [
+     4,
+     4,
+     5,
+     3
+    ],
+    "nouveaute": [
+     3,
+     4,
+     3,
+     2
+    ],
+    "apport": [
+     4,
+     5,
+     5,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Même un nul bien obtenu ne conclurait qu'à l'échec de deux prédicteurs linéaires, pas à l'imprévisibilité publique du bruit ni à la rationalité du marché.",
+    "gemini": "La cible préinscrite d'une réduction de 15 % de l'erreur quadratique hors échantillon avec seulement deux prédicteurs linéaires simples est excessivement optimiste pour des révisions macroéconomiques en temps réel.",
+    "astra": "La puissance annoncée dépend essentiellement d'un gain prédictif de 15 % non étayé, et un échec ne renseignerait que sur cette règle particulière à deux prédicteurs.",
+    "claude": "Le seuil de 15 % de réduction d'erreur est très exigeant face à une prévisibilité connue mais faible : la mort probable apprendra peu, et une prévisibilité statistique ne dit rien du filtrage par les marchés."
+   },
+   "rang_agrege": 3
+  },
+  {
+   "id": "J13",
+   "famille": "claude",
+   "origine": "3C1",
+   "borda": 24,
+   "rangs": {
+    "kimi": 5,
+    "gemini": 12,
+    "astra": 6,
+    "claude": 1
+   },
+   "jury_recruteurs": 34,
+   "ecarter": 0,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     3,
+     4
+    ],
+    "recruteurs": [
+     5,
+     4,
+     5,
+     5
+    ],
+    "tuable": [
+     4,
+     4,
+     3,
+     4
+    ],
+    "interet": [
+     5,
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "apport": [
+     3,
+     3,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Très proche des faits connus sur les règlements et les réserves, le test mesure surtout un prix du financement et ne tranche pas la disparition de la pression d'adjudication du parent.",
+    "gemini": "En passant de la pression de prix sur les obligations aux adjudications vers la liquidité du marché monétaire (SOFR) aux jours de règlement, le projet change de sujet économique plutôt que de trancher l'énigme du Parent A.",
+    "astra": "La variation des règlements nets après neutralisation du calendrier et des régimes n'est pas documentée, alors que la puissance utilise leur dispersion brute comme si elle identifiait directement un effet d'offre.",
+    "claude": "Les règlements de coupons tombent le 15 et en fin de mois, dates où les bilans bancaires et les échéances fiscales font déjà bouger le SOFR, et le montant des tombées détenues par le public n'est pas garanti dans l'API : la pente peut refléter le calendrier plutôt que le Trésor, sur un fait déjà connu des opérateurs."
+   },
+   "rang_agrege": 4
+  },
+  {
+   "id": "J10",
+   "famille": "astra",
+   "origine": "3A3",
+   "borda": 25,
+   "rangs": {
+    "kimi": 9,
+    "gemini": 8,
+    "astra": 4,
+    "claude": 4
+   },
+   "jury_recruteurs": 32,
+   "ecarter": 0,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     4,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     5,
+     4
+    ],
+    "tuable": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "interet": [
+     4,
+     4,
+     5,
+     4
+    ],
+    "nouveaute": [
+     3,
+     4,
+     4,
+     3
+    ],
+    "apport": [
+     4,
+     4,
+     5,
+     5
+    ]
+   },
+   "failles": {
+    "kimi": "Les révisions arrivent avec un nouveau rapport d'emploi et, sans consensus, les contrôles n'isolent pas leur information, donc le prétendu retour en arrière n'est pas identifié.",
+    "gemini": "Lors des publications suivantes, la révision des mois passés est annoncée exactement à la même seconde que le nouveau chiffre d'emploi du mois en cours, dont le choc domine la variance du taux à 2 ans en l'absence de consensus.",
+    "astra": "Sans consensus sur les nouveaux chiffres publiés simultanément, les contrôles proposés ne garantissent pas que la correction estimée provienne des révisions de la cohorte étudiée.",
+    "claude": "Un retour en arrière à la publication de la révision est attendu aussi d'un marché rationnel, la pente 2-10 ans remplace sans raison le taux à 2 ans du parent, et la dispersion résiduelle de 5 pb qui fonde la puissance est une hypothèse non mesurée."
+   },
+   "rang_agrege": 5
+  },
+  {
+   "id": "J06",
+   "famille": "kimi",
+   "origine": "3K2",
+   "borda": 30,
+   "rangs": {
+    "kimi": 6,
+    "gemini": 4,
+    "astra": 9,
+    "claude": 11
+   },
+   "jury_recruteurs": 31,
+   "ecarter": 0,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     3,
+     4
+    ],
+    "recruteurs": [
+     4,
+     5,
+     4,
+     3
+    ],
+    "tuable": [
+     4,
+     5,
+     4,
+     4
+    ],
+    "interet": [
+     4,
+     4,
+     3,
+     3
+    ],
+    "nouveaute": [
+     2,
+     3,
+     2,
+     2
+    ],
+    "apport": [
+     3,
+     4,
+     2,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "C'est une décomposition algébrique des mêmes données, dont le retournement est déjà central dans la littérature d'adjudication, avec une erreur type de R simplement héritée de V.",
+    "gemini": "La décomposition utilise toujours l'écart avec la courbe officielle du Trésor (DGS) et reste donc exposée au biais méthodologique de la spline d'Hermite avant décembre 2021.",
+    "astra": "Le gonflement du rendement au jour J par l'ancienne méthode, déjà documenté dans le registre, produit lui-même une concession et un retournement positifs sans pression temporaire réelle.",
+    "claude": "Même échantillon et même mesure que le parent, pour un profil concession puis retournement déjà décrit par Lou, Yan et Zhang ; l'artefact de l'ancienne méthode du Trésor gonfle J par rapport à J-5 et J+5, donc C et R sont contaminés presque également."
+   },
+   "rang_agrege": 6
+  },
+  {
+   "id": "J04",
+   "famille": "astra",
+   "origine": "3A2",
+   "borda": 32,
+   "rangs": {
+    "kimi": 8,
+    "gemini": 9,
+    "astra": 2,
+    "claude": 13
+   },
+   "jury_recruteurs": 33,
+   "ecarter": 1,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     4,
+     5,
+     3
+    ],
+    "recruteurs": [
+     4,
+     4,
+     5,
+     4
+    ],
+    "tuable": [
+     4,
+     4,
+     4,
+     2
+    ],
+    "interet": [
+     4,
+     4,
+     5,
+     3
+    ],
+    "nouveaute": [
+     2,
+     3,
+     3,
+     2
+    ],
+    "apport": [
+     3,
+     4,
+     4,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Le contraste réutilise les 309 publications du parent et reste descriptif, avec une puissance conditionnée à deux dispersions non mesurées.",
+    "gemini": "Une réaction du taux à 2 ans plus forte que celle du taux à 10 ans reflète la sensibilité normale de la courbe aux nouvelles cycliques et ne permet pas d'isoler un phénomène spécifique au bruit de mesure.",
+    "astra": "La précision annoncée reste hypothétique : la dispersion du mouvement de pente n'est pas mesurée et celle du régresseur résidualisé ne se déduit pas fiablement de l'erreur type HC3 du parent.",
+    "claude": "Les annonces d'emploi déplacent aussi fortement le 10 ans (réponse en bosse sur 2-5 ans) : une différence de 2 pb pour un effet de 2,3 pb au 2 ans suppose un 10 ans immobile, et la vraie différence, plus petite, sera indétectable sur un effet parent déjà fragile."
+   },
+   "rang_agrege": 7
+  },
+  {
+   "id": "J14",
+   "famille": "claude",
+   "origine": "3C2",
+   "borda": 33,
+   "rangs": {
+    "kimi": 15,
+    "gemini": 3,
+    "astra": 12,
+    "claude": 3
+   },
+   "jury_recruteurs": 31,
+   "ecarter": 2,
+   "retenir": 2,
+   "notes": {
+    "jury": [
+     3,
+     5,
+     3,
+     4
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     2,
+     5,
+     2,
+     4
+    ],
+    "interet": [
+     4,
+     5,
+     5,
+     4
+    ],
+    "nouveaute": [
+     3,
+     4,
+     3,
+     2
+    ],
+    "apport": [
+     4,
+     5,
+     4,
+     5
+    ]
+   },
+   "failles": {
+    "kimi": "Au R² de 3 % prédit, environ 220 publications ne donnent pas une puissance Clark-West suffisante, donc le verdict « imprévisible » confondrait absence d'effet et manque de puissance.",
+    "gemini": "Même si la révision future est faiblement prévisible hors échantillon (R² de 3 %), la seconde étape reliant cette part prévue aux variations du taux à 2 ans manque totalement de puissance statistique pour prouver une irrationalité du marché.",
+    "astra": "La puissance hors échantillon est extrapolée sans justification d'un t en échantillon pour un gain très faible, puis l'échec serait abusivement interprété comme une preuve d'imprévisibilité du bruit.",
+    "claude": "La prévisibilité des révisions de l'emploi est déjà documentée en échantillon, et une révision imprévisible avec quatre variables publiques ne prouve pas que le marché, qui dispose du consensus et d'autres données, ne pouvait pas la voir ; la seconde étape, la seule qui touche les prix, est sans puissance."
+   },
+   "rang_agrege": 8
+  },
+  {
+   "id": "J18",
+   "famille": "kimi",
+   "origine": "3K4",
+   "borda": 38,
+   "rangs": {
+    "kimi": 7,
+    "gemini": 11,
+    "astra": 14,
+    "claude": 6
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     2,
+     4
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4,
+     3
+    ],
+    "tuable": [
+     3,
+     4,
+     2,
+     4
+    ],
+    "interet": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3,
+     2
+    ],
+    "apport": [
+     4,
+     4,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Le coefficient groupé suppose un effet commun par écart-type de révision malgré des sensibilités de marché très différentes, et sa puissance ignore la variance perdue en contrôlant les premiers chiffres.",
+    "gemini": "Le PIB est trimestriel tandis que la production industrielle et les ventes au détail sont mensuelles et réagissent différemment, rendant le coefficient moyen standardisé difficile à interpréter économiquement.",
+    "astra": "Contrôler le premier chiffre publié change précisément l'objet du coefficient de bruit, de sorte que la prédiction et la puissance transposées du parent ne correspondent plus à l'estimand testé.",
+    "claude": "Prédire pour les ventes au détail, la production et le PIB le même effet par écart-type que pour l'emploi est peu plausible vu la faible réaction habituelle du marché à ces chiffres : la mort est presque écrite d'avance, et les dates inférées d'ALFRED peuvent être décalées."
+   },
+   "rang_agrege": 9
+  },
+  {
+   "id": "J16",
+   "famille": "astra",
+   "origine": "3A1",
+   "borda": 43,
+   "rangs": {
+    "kimi": 4,
+    "gemini": 17,
+    "astra": 8,
+    "claude": 14
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 2,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     4,
+     2,
+     4,
+     3
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4,
+     3
+    ],
+    "tuable": [
+     4,
+     2,
+     3,
+     2
+    ],
+    "interet": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "apport": [
+     4,
+     3,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Un papillon nul dans une courbe GSW lissée ne distingue pas artefact CMT et pression propre au titre, et le test principal ne porte pas sur la rupture post-2021.",
+    "gemini": "La forme fonctionnelle de Svensson utilisée par GSW ne possède pas la flexibilité locale nécessaire pour capturer un papillon de courbure à trois ans d'intervalle entre 17, 20 et 23 ans, rendant le test aveugle au phénomène cherché.",
+    "astra": "La courbe GSW peut exclure ou lisser précisément la perturbation du titre adjugé, si bien que son contraste teste une propagation aux obligations voisines plutôt que l'authenticité du résultat parent.",
+    "claude": "La courbe GSW est un Svensson à six paramètres ajusté sans les titres récents : elle ne peut pas porter une bosse locale à l'échéance adjugée, donc un nul est attendu par construction et ne tranche pas entre marché et mesure."
+   },
+   "rang_agrege": 10
+  },
+  {
+   "id": "J01",
+   "famille": "gemini",
+   "origine": "3G3",
+   "borda": 45,
+   "rangs": {
+    "kimi": 11,
+    "gemini": 7,
+    "astra": 18,
+    "claude": 9
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     4,
+     1,
+     3
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     3,
+     4,
+     2,
+     3
+    ],
+    "interet": [
+     4,
+     4,
+     5,
+     3
+    ],
+    "nouveaute": [
+     3,
+     4,
+     3,
+     3
+    ],
+    "apport": [
+     4,
+     4,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Le test ne peut identifier une sur-réaction : faute de consensus, un coefficient positif est attendu même si le marché filtre rationnellement le bruit.",
+    "gemini": "L'absence de consensus de marché oblige à utiliser une prévision ARMA générée comme contrôle, et les dates exactes de publication dans ALFRED avant 2000 peuvent être décalées d'un jour par rapport à l'annonce.",
+    "astra": "THREEFY2 est un rendement ajusté, non la composante pure d'anticipation des taux courts, et le test de mort sur DGS2 ne teste donc pas la décomposition annoncée.",
+    "claude": "La décomposition de Kim et Wright vient d'un modèle affine lissé et sa variation quotidienne n'identifie pas les anticipations ; les millésimes avancés de RSAFS ne remontent probablement pas à 1992, ce qui ampute les 390 publications et la puissance."
+   },
+   "rang_agrege": 11
+  },
+  {
+   "id": "J17",
+   "famille": "claude",
+   "origine": "3C4",
+   "borda": 45,
+   "rangs": {
+    "kimi": 16,
+    "gemini": 13,
+    "astra": 11,
+    "claude": 5
+   },
+   "jury_recruteurs": 26,
+   "ecarter": 2,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     2,
+     2,
+     3,
+     3
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     4
+    ],
+    "tuable": [
+     3,
+     3,
+     3,
+     4
+    ],
+    "interet": [
+     5,
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2,
+     3
+    ],
+    "apport": [
+     2,
+     3,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Cinq cents variations quotidiennes ne remplacent pas des surprises monétaires : une rupture près de l'été 2022 pourrait refléter la politique italienne ou les fuites vers la qualité et n'identifierait pas le TPI.",
+    "gemini": "L'identification est gravement confondue : en données quotidiennes, les mouvements du taux à 2 ans reflètent des chocs d'aversion au risque (flight-to-safety) et la démission du gouvernement italien tombe le jour même de l'annonce du TPI (21 juillet 2022).",
+    "astra": "Remplacer les surprises monétaires par toutes les variations quotidiennes augmente l'effectif mais change l'objet identifié : une rupture peut refléter la composition des nouvelles plutôt que la transmission monétaire.",
+    "claude": "Une variation quotidienne du taux à 2 ans n'est pas une surprise monétaire, et une rupture datée à l'été 2022 se confond avec la crise politique italienne du 21 juillet et le début des hausses de taux : la date ne s'attribue pas à l'instrument."
+   },
+   "rang_agrege": 12
+  },
+  {
+   "id": "J08",
+   "famille": "claude",
+   "origine": "3C5",
+   "borda": 47,
+   "rangs": {
+    "kimi": 10,
+    "gemini": 18,
+    "astra": 7,
+    "claude": 12
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 1,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     3,
+     4
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4,
+     3
+    ],
+    "tuable": [
+     3,
+     2,
+     3,
+     2
+    ],
+    "interet": [
+     5,
+     4,
+     5,
+     4
+    ],
+    "nouveaute": [
+     3,
+     3,
+     4,
+     3
+    ],
+    "apport": [
+     3,
+     2,
+     3,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Des identifiants anonymes dont la stabilité n'est pas établie et des biais persistants de niveau peuvent produire la variance attribuée à une compétence durable.",
+    "gemini": "Entre 2012 et 2021, les taux directeurs de la BCE étaient collés au plancher et la quasi-totalité des prévisionnistes anticipaient le statu quo, ce qui réduit le nombre de vagues informatives indépendantes bien en deçà du seuil nécessaire.",
+    "astra": "L'échangeabilité des identités n'est pas établie dans ce panel déséquilibré exposé aux mêmes cycles de taux, de sorte que les permutations peuvent confondre compétence et composition temporelle des répondants.",
+    "claude": "Près de dix ans de taux plancher où tous répondent la même chose, un panel déséquilibré et des identifiants incertains laissent bien moins que les 12 blocs indépendants par prévisionniste supposés pour la puissance."
+   },
+   "rang_agrege": 13
+  },
+  {
+   "id": "J11",
+   "famille": "claude",
+   "origine": "3C3",
+   "borda": 51,
+   "rangs": {
+    "kimi": 13,
+    "gemini": 15,
+    "astra": 13,
+    "claude": 10
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 3,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     3,
+     4
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4,
+     3
+    ],
+    "tuable": [
+     2,
+     2,
+     2,
+     2
+    ],
+    "interet": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "nouveaute": [
+     3,
+     3,
+     2,
+     2
+    ],
+    "apport": [
+     4,
+     3,
+     3,
+     4
+    ]
+   },
+   "failles": {
+    "kimi": "Avec environ 70 % de puissance annoncée et des blocs qui partagent parfois le même jour de taux, le Z de Stouffer peut laisser l'idée en zone grise ou gonfler sa significativité.",
+    "gemini": "L'arithmétique de puissance avoue elle-même que la plupart des blocs individuels ont une statistique t attendue inférieure à 1 et que le test combiné laisse une chance sur quatre de finir dans la zone grise non concluante.",
+    "astra": "La combinaison de Stouffer suppose une indépendance non démontrée entre blocs partageant parfois des dates et des chocs macroéconomiques, fragilisant un test déjà peu puissant.",
+    "claude": "Puissance avouée de 70 % avec une zone grise dans un cas sur quatre, des t attendus de 0,5 à 1,7 par bloc et des millésimes d'avant 1990 incertains : le test risque de finir non concluant comme ceux de la génération 1."
+   },
+   "rang_agrege": 14
+  },
+  {
+   "id": "J15",
+   "famille": "gemini",
+   "origine": "3G2",
+   "borda": 52,
+   "rangs": {
+    "kimi": 19,
+    "gemini": 2,
+    "astra": 16,
+    "claude": 15
+   },
+   "jury_recruteurs": 29,
+   "ecarter": 3,
+   "retenir": 1,
+   "notes": {
+    "jury": [
+     2,
+     5,
+     2,
+     3
+    ],
+    "recruteurs": [
+     4,
+     5,
+     4,
+     4
+    ],
+    "tuable": [
+     1,
+     4,
+     2,
+     2
+    ],
+    "interet": [
+     5,
+     5,
+     5,
+     4
+    ],
+    "nouveaute": [
+     3,
+     4,
+     2,
+     2
+    ],
+    "apport": [
+     4,
+     5,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Le test de mort ne s'active que si les deux parties échouent et la puissance de l'interaction repose sur une variance du taux à deux ans au ZLB supposée presque nulle, donc il ne peut pas trancher.",
+    "gemini": "L'indicatrice de taux plancher (ZLB) coïncide presque entièrement avec la décennie 2010, ce qui ne permet pas de séparer parfaitement la censure monétaire d'une amélioration structurelle de la qualité des enquêtes ou du filtrage de marché sur cette période.",
+    "astra": "Le critère de mort exige l'échec simultané de deux tests distincts, permettant de maintenir l'explication conjointe par le plancher et la correction même lorsqu'une de ses deux composantes échoue.",
+    "claude": "L'insensibilité du taux à 2 ans au plancher est déjà connue (Swanson et Williams), la règle de mort en « ET » donne deux chances de survivre, le signe attendu du coefficient des révisions publiées est mal posé et l'erreur type est bricolée."
+   },
+   "rang_agrege": 15
+  },
+  {
+   "id": "J19",
+   "famille": "astra",
+   "origine": "3A5",
+   "borda": 60,
+   "rangs": {
+    "kimi": 14,
+    "gemini": 20,
+    "astra": 10,
+    "claude": 16
+   },
+   "jury_recruteurs": 27,
+   "ecarter": 3,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     2,
+     4,
+     3
+    ],
+    "recruteurs": [
+     4,
+     3,
+     5,
+     3
+    ],
+    "tuable": [
+     3,
+     3,
+     3,
+     3
+    ],
+    "interet": [
+     3,
+     2,
+     3,
+     2
+    ],
+    "nouveaute": [
+     3,
+     2,
+     3,
+     2
+    ],
+    "apport": [
+     2,
+     2,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "La classification par le signe des actions et l'utilisation du HML quotidien créent une sélection de styles et intègrent des nouvelles étrangères à la BCE, donc le contraste n'identifie pas les chocs monétaire et informationnel.",
+    "gemini": "Classer les annonces selon le signe du rendement boursier intrajournalier puis expliquer le facteur HML quotidien crée un biais de sélection mécanique (le style Value ayant un bêta conditionnel différent en hausse et en baisse) et ramène l'étudiant vers les actions.",
+    "astra": "Classer les annonces par la réaction des actions peut sélectionner mécaniquement des expositions sectorielles ou de style que la neutralisation du bêta de marché ne retire pas.",
+    "claude": "Lien faible au registre, et classement des réunions par la réaction des actions, mécaniquement corrélée au HML européen chargé en banques ; rendements quotidiens confrontés à une fenêtre intrajournalière, sur un sujet actions que l'étudiant a déjà."
+   },
+   "rang_agrege": 16
+  },
+  {
+   "id": "J03",
+   "famille": "gemini",
+   "origine": "3G5",
+   "borda": 60,
+   "rangs": {
+    "kimi": 20,
+    "gemini": 6,
+    "astra": 17,
+    "claude": 17
+   },
+   "jury_recruteurs": 25,
+   "ecarter": 3,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     2,
+     4,
+     2,
+     2
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     1,
+     4,
+     1,
+     1
+    ],
+    "interet": [
+     5,
+     5,
+     5,
+     5
+    ],
+    "nouveaute": [
+     2,
+     3,
+     2,
+     2
+    ],
+    "apport": [
+     3,
+     4,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Le « ET » entre deux échecs rend le test presque incapable de tuer l'idée et la partie hors échantillon reste sans puissance démontrée.",
+    "gemini": "Avec un horizon de quatre trimestres qui se chevauche, le nombre d'observations réellement indépendantes tombe autour de 25 à 30 et la flambée inflationniste de 2021-2022 risque de dominer toute l'estimation.",
+    "astra": "L'erreur type annoncée de 0,14 est incompatible avec les dispersions et le faible effectif indépendant indiqués, ce qui invalide l'argument central de puissance.",
+    "claude": "L'arithmétique de puissance est fausse : avec révisions d'écart-type 0,35, erreurs de 1,1 et 35-40 observations effectives, l'erreur type de beta est proche de 0,5 et non 0,14 ; et la règle de mort en « ET » laisse survivre au moindre des deux succès."
+   },
+   "rang_agrege": 17
+  },
+  {
+   "id": "J20",
+   "famille": "kimi",
+   "origine": "3K3",
+   "borda": 65,
+   "rangs": {
+    "kimi": 12,
+    "gemini": 19,
+    "astra": 15,
+    "claude": 19
+   },
+   "jury_recruteurs": 24,
+   "ecarter": 4,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     2,
+     3,
+     3
+    ],
+    "recruteurs": [
+     4,
+     3,
+     4,
+     2
+    ],
+    "tuable": [
+     3,
+     3,
+     1,
+     1
+    ],
+    "interet": [
+     4,
+     3,
+     3,
+     2
+    ],
+    "nouveaute": [
+     3,
+     2,
+     3,
+     3
+    ],
+    "apport": [
+     3,
+     2,
+     3,
+     3
+    ]
+   },
+   "failles": {
+    "kimi": "Les 300 événements après exclusions ne sont pas établis et les deux courbes lissées peuvent propager mécaniquement une déformation, donc S ne mesure pas nécessairement une transmission de marché.",
+    "gemini": "Les réouvertures à 10 et 30 ans ont lieu presque toujours la même semaine à un jour d'écart : exclure les échéances ayant leur propre adjudication entre J-5 et J+5 élimine la quasi-totalité des paires 10-30 ans de l'échantillon.",
+    "astra": "Les 300 événements exploitables sont insuffisamment crédibles sans audit du calendrier, les adjudications voisines à 10 et 30 ans et celles à 20 ans après 2020 éliminant précisément les échéances témoins nécessaires.",
+    "claude": "Les 10 et 30 ans sont adjugés la même semaine et le 20 ans à proximité, donc la règle d'exclusion vide l'échantillon d'échéances témoins : les 300 événements indépendants sont irréalistes, et le lissage GSW crée une propagation mécanique."
+   },
+   "rang_agrege": 18
+  },
+  {
+   "id": "J12",
+   "famille": "gemini",
+   "origine": "3G1",
+   "borda": 70,
+   "rangs": {
+    "kimi": 17,
+    "gemini": 16,
+    "astra": 19,
+    "claude": 18
+   },
+   "jury_recruteurs": 22,
+   "ecarter": 4,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     2,
+     2,
+     1,
+     2
+    ],
+    "recruteurs": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     2,
+     2,
+     2,
+     1
+    ],
+    "interet": [
+     4,
+     4,
+     4,
+     3
+    ],
+    "nouveaute": [
+     3,
+     3,
+     3,
+     2
+    ],
+    "apport": [
+     3,
+     3,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Changer à la fois d'échéances et de mesure sur une courbe paramétrique lissée ne permet pas d'attribuer la rupture post-2021 à la méthode du Trésor, et le sous-test post-2021 est peu puissant.",
+    "gemini": "La courbe GSW est une fonction paramétrique lisse à six facteurs (Nelson-Siegel-Svensson) sur toute la maturité : par construction mathématique, elle écrase les bosselures locales entre m-1, m et m+1 ans qu'on prétend mesurer.",
+    "astra": "Une courbure lissée sur les échéances de 2 à 7 ans mesure un autre objet que la concession des réouvertures longues et ne peut donc départager l'artefact méthodologique et la disparition réelle du résultat parent.",
+    "claude": "Un papillon à un an d'écart sur une courbe Svensson lissée qui exclut les titres récents ne peut pas voir une pression locale, et les adjudications à 2, 5 et 7 ans tombent la même semaine : un nul après 2021 ne « prouve » rien sur l'artefact du Trésor."
+   },
+   "rang_agrege": 19
+  },
+  {
+   "id": "J09",
+   "famille": "gemini",
+   "origine": "3G4",
+   "borda": 72,
+   "rangs": {
+    "kimi": 18,
+    "gemini": 14,
+    "astra": 20,
+    "claude": 20
+   },
+   "jury_recruteurs": 25,
+   "ecarter": 4,
+   "retenir": 0,
+   "notes": {
+    "jury": [
+     3,
+     3,
+     1,
+     2
+    ],
+    "recruteurs": [
+     5,
+     4,
+     4,
+     3
+    ],
+    "tuable": [
+     2,
+     2,
+     1,
+     1
+    ],
+    "interet": [
+     4,
+     4,
+     4,
+     2
+    ],
+    "nouveaute": [
+     4,
+     4,
+     3,
+     3
+    ],
+    "apport": [
+     3,
+     3,
+     2,
+     2
+    ]
+   },
+   "failles": {
+    "kimi": "Sous ses propres hypothèses optimistes, l'effet prédit ne donne que t ≈ 2,1 avant tout bruit européen supplémentaire, donc un non-rejet ne trancherait pas la transmission.",
+    "gemini": "Sur une fenêtre de dix jours ouvrés, les variations de niveau du rendement AAA européen ont un écart-type supérieur à 10 pb (et non 2,6 pb comme l'écart de courbes du Parent A), ce qui noie complètement un effet transmis de 0,4 pb.",
+    "astra": "La puissance transpose la faible dispersion d'un écart entre deux courbes américaines à des mouvements de rendements européens, puis change de variable vers une courbure pour justifier artificiellement la précision attendue.",
+    "claude": "La pression du parent est un écart d'un titre à la courbe ajustée, pas un niveau de taux : transposé à un taux européen brut, le V sur dix jours a un écart-type d'une dizaine de pb et non 2,6, ce qui rend un effet de 0,3 pb indétectable."
+   },
+   "rang_agrege": 20
+  }
+ ]
+}

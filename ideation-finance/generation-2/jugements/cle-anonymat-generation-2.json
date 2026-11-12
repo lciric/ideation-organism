@@ -1,0 +1,82 @@
+{
+ "J01": {
+  "famille": "gemini",
+  "origine": "3G3"
+ },
+ "J02": {
+  "famille": "kimi",
+  "origine": "3K5"
+ },
+ "J03": {
+  "famille": "gemini",
+  "origine": "3G5"
+ },
+ "J04": {
+  "famille": "astra",
+  "origine": "3A2"
+ },
+ "J05": {
+  "famille": "kimi",
+  "origine": "3K1"
+ },
+ "J06": {
+  "famille": "kimi",
+  "origine": "3K2"
+ },
+ "J07": {
+  "famille": "astra",
+  "origine": "3A4"
+ },
+ "J08": {
+  "famille": "claude",
+  "origine": "3C5"
+ },
+ "J09": {
+  "famille": "gemini",
+  "origine": "3G4"
+ },
+ "J10": {
+  "famille": "astra",
+  "origine": "3A3"
+ },
+ "J11": {
+  "famille": "claude",
+  "origine": "3C3"
+ },
+ "J12": {
+  "famille": "gemini",
+  "origine": "3G1"
+ },
+ "J13": {
+  "famille": "claude",
+  "origine": "3C1"
+ },
+ "J14": {
+  "famille": "claude",
+  "origine": "3C2"
+ },
+ "J15": {
+  "famille": "gemini",
+  "origine": "3G2"
+ },
+ "J16": {
+  "famille": "astra",
+  "origine": "3A1"
+ },
+ "J17": {
+  "famille": "claude",
+  "origine": "3C4"
+ },
+ "J18": {
+  "famille": "kimi",
+  "origine": "3K4"
+ },
+ "J19": {
+  "famille": "astra",
+  "origine": "3A5"
+ },
+ "J20": {
+  "famille": "kimi",
+  "origine": "3K3"
+ }
+}

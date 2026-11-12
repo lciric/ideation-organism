@@ -1,0 +1,3 @@
+essai 1 : ConnectionError flux interrompu avant la fin de la réponse
+essai 2 : ConnectionError flux interrompu avant la fin de la réponse
+{"famille": "kimi", "modele_demande": "kimi-k3.1-pro", "modele_servi": "kimi-k3.1-pro", "fin": "stop", "jetons": {"entree": 38093, "sortie": 32273}, "consigne_sha256": "bb8e6b4e028ea6bf7cbcfcd4a017c0f1928914db6448c2bd1613e60d7729b3ec", "date_utc": "2026-11-12T20:46:12Z"}
