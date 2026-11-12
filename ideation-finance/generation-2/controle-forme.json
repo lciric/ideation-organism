@@ -1,0 +1,241 @@
+{
+ "bilan": {
+  "kimi": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  },
+  "gemini": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  },
+  "astra": {
+   "filles": 4,
+   "libres": 1,
+   "refusees": []
+  },
+  "claude": {
+   "filles": 3,
+   "libres": 2,
+   "refusees": []
+  }
+ },
+ "fiches": [
+  {
+   "id": "3K1",
+   "famille": "kimi",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Je change la source de données et la statistique : le rendement effectivement obtenu à l’adjudication est comparé à un prix théorique calculé uniquement avec la courbe zéro-coupon de la Fed. Cette concession ne dépend donc ni des `DGS` ni de la méthode de courbe du Trésor, et peut révéler une rupture que le spread entre deux courbes ne voit pas."
+  },
+  {
+   "id": "3K2",
+   "famille": "kimi",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Je change la statistique et l’identification : au lieu du seul contraste symétrique \\(V\\), je sépare la concession avant l’adjudication du retournement après celle-ci. Le parent ne peut pas distinguer une pression temporaire d’un déplacement de niveau survenant le jour J."
+  },
+  {
+   "id": "3K3",
+   "famille": "kimi",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Je change la statistique et l’identification transversale : l’événement est une adjudication à l’échéance \\(m\\), mais le résultat est mesuré à une autre échéance \\(n\\), sans adjudication propre dans la fenêtre. Cela teste une propagation que la moyenne des seuls \\(V_m\\) ne peut pas identifier."
+  },
+  {
+   "id": "3K4",
+   "famille": "kimi",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Je change l’échantillon et les statistiques macroéconomiques : ventes au détail, production industrielle et PIB remplacent `PAYEMS`. J’agrège en outre par jour de publication pour ne pas compter deux fois la même variation du taux lorsque deux statistiques paraissent ensemble."
+  },
+  {
+   "id": "3K5",
+   "famille": "kimi",
+   "parent": "libre",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`libre`. Elle est motivée par le test des erreurs de projection de la BCE annulé dans le registre, mais en change la statistique et l’identification : un test révision-erreur à horizon fixe, avec une observation par trimestre cible, plutôt qu’une nouvelle recherche de prédicteurs. Le tri repose sur l’horodatage des millésimes, jamais sur les étiquettes « juin » et « septembre » à l’origine de l’an"
+  },
+  {
+   "id": "3G1",
+   "famille": "gemini",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Changement de **la statistique** (mesure de la pression par la courbure locale sur la seule courbe de la Fed GSW, sans utiliser la série `DGS` du Trésor) et de **l'échantillon** (extension aux échéances de 2, 3, 5 et 7 ans sur 1980-2026). Cela tranche la question ouverte par le parent : la disparition de l'effet après 2021 vient-elle du changement de méthode de la courbe du Trésor le 6"
+  },
+  {
+   "id": "3G2",
+   "famille": "gemini",
+   "parent": "B",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Changement de **l'identification** : passage d'une régression linéaire inconditionnelle à un modèle à interaction avec la contrainte de taux plancher (Zero Lower Bound, ZLB) et l'écart de chômage, complété par le test de retour en arrière aux dates $t+1$ et $t+2$ de publication des révisions. Cela résout les deux énigmes laissées ouvertes par le Parent B : l'absence totale d'effet dans"
+  },
+  {
+   "id": "3G3",
+   "famille": "gemini",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "`Parent B`. Changement de **la source de données** (passage de l'emploi `PAYEMS` aux ventes au détail avancées `RSAFS` dans ALFRED, qui subissent des révisions proportionnellement deux fois plus fortes et sont publiées un jour distinct du mois) et de **la statistique** (décomposition de la réaction du taux à 2 ans entre anticipation de taux court et prime de terme via le modèle DKW de la Fed). Cel"
+  },
+  {
+   "id": "3G4",
+   "famille": "gemini",
+   "parent": "A",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "`Parent A`. Changement **du marché** (passage du marché domestique américain à la transmission internationale vers les courbes souveraines de la zone euro via `Dataset_EA-MPD.xlsx` et les courbes quotidiennes de la BCE) et de **la méthode** (projections locales de Jordà de $J-5$ à $J+5$ au lieu d'une mesure ponctuelle unique). Cela tranche une question ouverte du Parent A : la pression d'adjudicat"
+  },
+  {
+   "id": "3G5",
+   "famille": "gemini",
+   "parent": "libre",
+   "elements_cites": [],
+   "accepte": true,
+   "champ": "`libre`. Motivée directement par l'entrée du registre de la génération 1 : *« Les erreurs de projection d'inflation de la BCE étaient-elles prévisibles en temps réel ? — test annulé, à refaire : la préinscription rangeait à l'envers les exercices de juin et de septembre ; aucun résultat valide. »* Cette fiche corrige l'ordonnancement chronologique des trimestres de la base MPD de la BCE et appliqu"
+  },
+  {
+   "id": "3A1",
+   "famille": "astra",
+   "parent": "A",
+   "elements_cites": [
+    "statistique",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "**Parent A** ; changement de **source de données pour la mesure du prix** et de **statistique** : aucune série CMT n’entre dans le résultat. Cela distingue une déformation présente dans les obligations servant à ajuster la courbe d’un artefact propre à la méthode du Trésor."
+  },
+  {
+   "id": "3A2",
+   "famille": "astra",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "**Parent B** ; changement de **marché observé** et de **statistique**, avec un contraste entre maturités plutôt qu’un seul coefficient sur le deux ans. Le parent ne distingue pas déplacement parallèle et mouvement de pente."
+  },
+  {
+   "id": "3A3",
+   "famille": "astra",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "**Parent B** ; changement de **statistique**, de **fenêtre événementielle** et d’**identification temporelle** : l’information est recherchée aux dates où l’erreur devient observable, et non seulement à sa création."
+  },
+  {
+   "id": "3A4",
+   "famille": "astra",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "identification"
+   ],
+   "accepte": true,
+   "champ": "**Parent B** ; changement d’**identification** et de **statistique**, d’une régression explicative ex post à une prévision séquentielle utilisant seulement l’information alors disponible."
+  },
+  {
+   "id": "3A5",
+   "famille": "astra",
+   "parent": "libre",
+   "elements_cites": [
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "**Libre** ; motivée par l’élimination de la prévision publique des surprises BCE et par la fragilité du résultat TPI. Plutôt que prévoir ces surprises ou isoler seulement l’après-2022, le projet utilise l’ensemble des réunions pour étudier leur contenu et leur transmission à un autre marché."
+  },
+  {
+   "id": "3C1",
+   "famille": "claude",
+   "parent": "A",
+   "elements_cites": [
+    "echantillon_ou_marche",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "Parent A. Je change le marché et la source de données. Le parent mesure la pression sur un rendement qui dépend de la courbe du Trésor, dont la méthode a changé le 6 décembre 2021 ; je la mesure le jour du règlement des adjudications sur le taux repo au jour le jour SOFR, que la Fed de New York calcule à partir de transactions. Cette mesure ne doit rien à la courbe du Trésor et couvre surtout l'ap"
+  },
+  {
+   "id": "3C2",
+   "famille": "claude",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche"
+   ],
+   "accepte": true,
+   "champ": "Parent B. Je change la statistique : la variable expliquée n'est plus le taux à 2 ans mais la révision elle-même (N = première moins troisième estimation), prévue hors échantillon avec ce qui est public à 8 h 30 le jour de la publication. Le parent ne peut pas dire si son coefficient positif est un défaut de filtrage, parce qu'un marché rationnel réagit aussi à une erreur qu'il ne peut pas voir. I"
+  },
+  {
+   "id": "3C3",
+   "famille": "claude",
+   "parent": "B",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "Parent B. Je change l'échantillon : mêmes régression et taux, mais sur des jours que le parent n'a jamais lus, soit les publications des ventes au détail, de l'estimation avancée du PIB, de la production industrielle et des commandes de biens durables, plus l'emploi de 1976 à 1989. Le parent tient à t = 2,45 et tombe à 1,75 sans les années 2020 ; seule une réplication sur données indépendantes dit"
+  },
+  {
+   "id": "3C4",
+   "famille": "claude",
+   "parent": "libre",
+   "elements_cites": [],
+   "accepte": true,
+   "champ": "libre. Motivée par le résultat « Instrument de protection de la transmission de la BCE et écarts souverains », non concluant faute d'observations (26 réunions après juillet 2022, variation de pente −0,35 avec une erreur type de 0,32). Je remplace les jours de réunion par tous les jours ouvrés et la comparaison avant/après par une date de rupture estimée, que l'on confronte au calendrier."
+  },
+  {
+   "id": "3C5",
+   "famille": "claude",
+   "parent": "libre",
+   "elements_cites": [
+    "statistique",
+    "echantillon_ou_marche",
+    "source"
+   ],
+   "accepte": true,
+   "champ": "libre. Motivée par le résultat « Les surprises de la BCE sont-elles prévisibles hors échantillon avec des données publiques ? », éliminé (R² hors échantillon de −0,5 %, Clark-West 0,59). Si aucun modèle public ne bat le marché, reste à savoir si certaines personnes le font durablement : je passe du prédicteur statistique au prévisionniste individuel, avec les hypothèses de taux directeur de l'enqu"
+  }
+ ]
+}
