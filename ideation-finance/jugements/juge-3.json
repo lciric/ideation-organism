@@ -1,0 +1,222 @@
+[
+ {
+  "id": "F11",
+  "rang": 1,
+  "mention": "à retenir",
+  "jury": 5,
+  "recruteurs": 3,
+  "tuable": 5,
+  "ia": 3,
+  "nouveaute": 4,
+  "faille": "L'échelonnement ne porte que sur un ou deux mois (avril, mai, juin 2025) : les témoins « pas encore traités » ont leur propre pic d'anticipation le mois suivant et les vrais jamais-traités ne sont qu'une dizaine de départements atypiques, si bien que le creux du mois 0 et l'effet net sont contaminés et que seul le pic du mois −1 est proprement identifié."
+ },
+ {
+  "id": "F16",
+  "rang": 2,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 4,
+  "ia": 3,
+  "nouveaute": 2,
+  "faille": "Sans portefeuilles triés par bêta la dispersion des bêtas est étroite et l'erreur type annoncée (3 pb pour un effet attendu de 4 à 8 pb) ne donne qu'environ une chance sur deux de passer t ≥ 1,645 même si l'effet est vrai, sur un résultat dont des mises à jour hors échantillon existent probablement déjà."
+ },
+ {
+  "id": "F04",
+  "rang": 3,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 5,
+  "tuable": 3,
+  "ia": 3,
+  "nouveaute": 3,
+  "faille": "Le rendement à échéance constante change de titre de référence au moment même de l'adjudication : l'écart à la courbe ajustée saute mécaniquement de la prime du titre le plus récent, d'un ordre de grandeur égal à l'effet prédit (0,5 à 1,5 pb), et les dates fictives ne contrôlent pas ce saut."
+ },
+ {
+  "id": "F01",
+  "rang": 4,
+  "mention": "à retenir",
+  "jury": 4,
+  "recruteurs": 4,
+  "tuable": 3,
+  "ia": 3,
+  "nouveaute": 2,
+  "faille": "McLean et Pontiff contrôlent déjà le temps et le chiffre est connu de tous, donc le verdict sur 2001-2011 ne peut guère surprendre ; avec des anomalies très corrélées et un rendement normalisé très bruité, l'erreur type réelle (de l'ordre de 0,15 à 0,20) laisse l'effet prédit (−0,2 à −0,4) à la limite du seuil."
+ },
+ {
+  "id": "F07",
+  "rang": 5,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 4,
+  "ia": 3,
+  "nouveaute": 2,
+  "faille": "L'indice de concentration agrégé par banque est exactement la version en coupe, sans identification intra-banque, que la critique a déjà démontée, et plusieurs articles publiés couvrent 2022-2023 : la fiche avoue elle-même que seule la procédure scellée est nouvelle."
+ },
+ {
+  "id": "F09",
+  "rang": 6,
+  "mention": "possible",
+  "jury": 4,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Les districts ne recouvrent pas les États et le rapport décrit des semaines dont l'emploi n'est pas encore publié : le ton peut ne capter que l'élan contemporain déjà acquis, tandis que la fenêtre propre (72 observations) ne teste rien et que des travaux de la Fed de Cleveland notent déjà le ton par district."
+ },
+ {
+  "id": "F20",
+  "rang": 7,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Il n'y a qu'un cycle de hausse et un cycle de baisse, communs à tous les pays : le test du signe sur 19 pays traite comme indépendantes des observations qui ne le sont pas, et l'asymétrie est quasi mécanique puisque la hausse part de taux négatifs avec des dépôts plancher à zéro."
+ },
+ {
+  "id": "F13",
+  "rang": 8,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Vingt-trois millésimes à horizons chevauchants font cinq ou six observations indépendantes, dominées par 2021-2022 dont chacun sait déjà que les révisions à la hausse y furent suivies d'erreurs de même signe : la règle a été choisie en connaissant l'épisode qui la juge."
+ },
+ {
+  "id": "F12",
+  "rang": 9,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 5,
+  "tuable": 2,
+  "ia": 2,
+  "nouveaute": 4,
+  "faille": "Avec 26 réunions après le TPI l'erreur type de la différence de pente (environ 0,2) est du même ordre que l'effet prédit (−0,15 à −0,50), et une simple comparaison avant-après ne peut de toute façon pas attribuer le changement au TPI plutôt qu'au resserrement, au bilan ou au budget italien."
+ },
+ {
+  "id": "F02",
+  "rang": 10,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 2,
+  "nouveaute": 4,
+  "faille": "Si l'anticipation déclarée n'est qu'une version atténuée du réalisé (les banques répondent « inchangé »), l'erreur hérite mécaniquement de la persistance du solde réalisé : ρ > 0,10 est presque acquis d'avance et ne dit rien de la rigidité d'information."
+ },
+ {
+  "id": "F17",
+  "rang": 11,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 3,
+  "ia": 5,
+  "nouveaute": 4,
+  "faille": "Avec environ 120 réunions à surprise ≥ 2 pb, le seuil de Bonferroni exige plus de 60 % de bons signes alors que la fiche en prédit 56 à 62 % : le test échouera souvent par manque de puissance et ce nul sera lu à tort comme « modèles propres », sur une question où l'économie n'est qu'un décor."
+ },
+ {
+  "id": "F15",
+  "rang": 12,
+  "mention": "possible",
+  "jury": 3,
+  "recruteurs": 4,
+  "tuable": 2,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Le verdict repose sur un rapport de pentes dont le dénominateur d'avant 2020 (0,05 à 0,20, mal estimé) est proche de zéro : l'intervalle du rapport explose, et l'exposition recouvre l'Europe de l'Est (guerre, salaires, change), de sorte que 27 pays n'identifient rien."
+ },
+ {
+  "id": "F06",
+  "rang": 13,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 5,
+  "tuable": 2,
+  "ia": 2,
+  "nouveaute": 2,
+  "faille": "Le test contre la persistance est gagné d'avance par la bascule mondiale de 2022 que chacun connaît, et le seul vrai test (pente entre une vingtaine de pays, dont une dizaine partagent la même politique monétaire, sur des moyennes mensuelles lissées) tient à deux ou trois points d'appui comme le Japon et la Suisse."
+ },
+ {
+  "id": "F08",
+  "rang": 14,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 3,
+  "tuable": 2,
+  "ia": 3,
+  "nouveaute": 2,
+  "faille": "Le seuil de mort (aire < 0,58) est la borne basse de la prédiction elle-même alors que quelques dizaines de crises donnent une erreur type d'environ 0,05 : le verdict se joue à pile ou face, sur un fait déjà établi pour les émergents et avec des chronologies de crises hétérogènes."
+ },
+ {
+  "id": "F03",
+  "rang": 15,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "ia": 5,
+  "nouveaute": 5,
+  "faille": "Sur 143 semaines l'erreur type de la statistique (environ 3 pb) égale ou dépasse l'effet prédit (1 à 3 pb) : l'idée mourra presque sûrement, que le modèle sache quelque chose ou non, et un petit modèle de 7 milliards de paramètres produira des listes concentrées sur quelques secteurs."
+ },
+ {
+  "id": "F10",
+  "rang": 16,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 2,
+  "tuable": 3,
+  "ia": 5,
+  "nouveaute": 3,
+  "faille": "C'est un banc d'essai de modèles déguisé en question d'inflation : les dates de coupure sont floues, les derniers mois avant coupure sont peu mémorisés pour les petits pays, il n'y a que 36 grappes mensuelles, et la mémorisation des séries macroéconomiques est déjà documentée."
+ },
+ {
+  "id": "F18",
+  "rang": 17,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 4,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 2,
+  "faille": "Rien ne dit qu'une fuite du futur doive apparaître dans la dérive à 20 jours du taux à 2 ans : le placebo ne mesure pas ce qu'il prétend, les données quotidiennes ne contrôlent pas la surprise de taux, neuf réunions propres ne testent rien, et le ton du FOMC noté par un modèle est déjà largement publié."
+ },
+ {
+  "id": "F19",
+  "rang": 18,
+  "mention": "à écarter",
+  "jury": 3,
+  "recruteurs": 2,
+  "tuable": 2,
+  "ia": 3,
+  "nouveaute": 1,
+  "faille": "L'hypothèse est un effet nul et elle ne meurt que si l'on rejette fortement dans l'autre sens : l'absence de preuve vaut survie, sur le débat le plus rebattu de l'économie du travail, avec des salaires minimums de 2023-2025 connus seulement à l'année et un nettoyage trop lourd pour six semaines."
+ },
+ {
+  "id": "F05",
+  "rang": 19,
+  "mention": "à écarter",
+  "jury": 2,
+  "recruteurs": 3,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "Le test principal ne peut pas tuer l'idée : classer les industries selon leur exposition au pétrole est trivial (les pétrolières aiment le pétrole cher), les bêtas sont persistants donc la « fenêtre propre » ne protège de rien, et la branche annoncée d'avance comme nulle n'apporte aucune économie."
+ },
+ {
+  "id": "F14",
+  "rang": 20,
+  "mention": "à écarter",
+  "jury": 1,
+  "recruteurs": 2,
+  "tuable": 2,
+  "ia": 4,
+  "nouveaute": 3,
+  "faille": "On compare une élasticité causale de vignette à une élasticité observationnelle de série temporelle, deux objets différents, avec une bande [1/3 ; 3] arbitraire, pendant que le modèle récite un fait stylisé qu'il a lu : aucun résultat sur l'économie n'en sort."
+ }
+]
