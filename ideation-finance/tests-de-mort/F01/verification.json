@@ -1,0 +1,16 @@
+{
+  "theta": -0.06391727110052878,
+  "se_theta": 0.12054932852652081,
+  "borne_basse_ic95": -0.3194818475767529,
+  "borne_haute_ic95": 0.19164730537569533,
+  "marge_ambiguite": 0.01948184757675292,
+  "tau_bar": -0.04434821870593814,
+  "m_bar": 0.6938377991167283,
+  "b_attente": -0.22570576029541967,
+  "t_avance": -1.148340910353292,
+  "n_lignes_traitees": 9942,
+  "n_anomalies_traitees": 185,
+  "n_lignes_attente": 8712,
+  "n_blocs": 40,
+  "n_violations_schema": 0
+}
