@@ -1,0 +1,329 @@
+{
+  "appels_etage": [],
+  "appels_proposeurs": [
+    [
+      {
+        "consigne_sha256": "9e2085990d20e9ee4a42ac6e17dbd8c6c5871b75ac01fddfc4aed8847c253078",
+        "cout_usd": 0.481706,
+        "erreur": "commande externe : code 5 : ",
+        "refus": null,
+        "statut": "erreur",
+        "tache": "boucle-reelle-v66|bras=reel|generation=1",
+        "taille_consigne": 13667
+      }
+    ],
+    []
+  ],
+  "arret": "ArretTour : ArretTour : proposeur kimi : session 'erreur', erreur 'commande externe : code 5 : ', refus None : arrêt (garde 13 ; jamais « réponse illisible »)",
+  "depense": {
+    "appels": 1,
+    "depense_usd": 0.481706,
+    "duree_s": 1553.0,
+    "par_relais_usd": {
+      "argon": 0.0,
+      "kimi": 0.481706
+    },
+    "par_role_usd": {
+      "proposeur": 0.481706
+    },
+    "parts_usd": {
+      "argon": 7.0,
+      "kimi": 33.0
+    }
+  },
+  "dossier_des_sessions": "/tmp/boucle-reelle-v66-sessions-eyadpnwb",
+  "fin_utc": "2026-11-12T08:34:56+00:00",
+  "journal": [
+    {
+      "depense": {
+        "appels": 1,
+        "depense_usd": 0.481706,
+        "duree_s": 1553.0,
+        "par_relais_usd": {
+          "argon": 0.0,
+          "kimi": 0.481706
+        },
+        "par_role_usd": {
+          "proposeur": 0.481706
+        },
+        "parts_usd": {
+          "argon": 7.0,
+          "kimi": 33.0
+        }
+      },
+      "evenement": "arret",
+      "motif": "ArretTour : proposeur kimi : session 'erreur', erreur 'commande externe : code 5 : ', refus None : arrêt (garde 13 ; jamais « réponse illisible »)"
+    }
+  ],
+  "lecture": "aucune ici : la lecture gelée (programme à part) dit l'issue",
+  "mode": "reel (decisif)",
+  "preenregistrement": {
+    "chemin": "prereg/preenregistrement-boucle-reelle-organisme-v1-v1.md",
+    "empreintes_du_code_verifiees": {
+      "demonstrations/attaque_goodhart_v2.py": "58609e0c9fc5c5eea5de1dbb8c9b8235fd85a9884d326ffe09dfb50b21af79cf",
+      "demonstrations/boucle_reelle_v66.py": "e2dd83ab6e4542de7c40ac4b5d59d8d817950d8327f4f9c4c595bb9b0f129d6b",
+      "demonstrations/ideation_v2.py": "bc5e9c98acff41b97487e2345d33768c8cdf41f0ededf8b2eed0bf842c889845",
+      "demonstrations/ideation_v4.py": "4212d4c9d014a265847d4c4ed87a8cd804fdafa73f85fd8947874d63fca1c36d",
+      "demonstrations/ideation_v5.py": "1894f250264eaaccbf891dfa255e71dc587fe415c8d21e283391203a2fe73444",
+      "demonstrations/ideation_v6.py": "4c302e5b97b229d5b3edd9e9a427f1e50796c10f7081f63132165ffeef854ba4",
+      "demonstrations/ideation_v7.py": "7b90e65e1308b1c230b3f804743cfc42b9dc571d93b73ed6c5f3f8c9d2b481b2",
+      "demonstrations/ideation_v8.py": "2e2be8d72c548e183b94c14de20c971f241f998f54f64c5281b2427fdd64e9d1",
+      "demonstrations/lire_boucle_reelle_v66.py": "e2183565c5867255addf0c74d6de9f1498e3129ded1161e1cf0c6f5f96844db8",
+      "demonstrations/lire_tour_ferme_v64.py": "393b17cc859a634036778cab364c5fb2ae2ff1aa7c34ddec27b2246732b9952b",
+      "demonstrations/tour_ferme_v64.py": "98c1a1a205cfe58ec277b64fbf4778e567246cfb1f0cc6882c1071704c01ae01",
+      "pole/__init__.py": "f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b",
+      "pole/a_blanc_v59.py": "606aa8b4fcc38786b38cf2954da46533eed9384232a56100d22ff30b8ce0826c",
+      "pole/adaptateur_commande_v64.py": "adb7328721342601eb487856840e385493e6e35c522c90d804a4f8c96bfb5700",
+      "pole/adaptateur_kimi_v53.py": "09a46515ff30a99f360fcbc7d4c613c35cb511439a5b6c249327e477fdee4ada",
+      "pole/adaptateurs.py": "a1a8ede8d38884a28365ee797dcd3018dbf09ea1baefa3f57cfcb3281c529c99",
+      "pole/adaptateurs_v56.py": "d36c79b272af450b8d67313f44068743d80f0204bcedbd30f5d879829c945a17",
+      "pole/aiguilleur_v53.py": "a856cdaa37e8fb1f3b873ef2c0d9aa439ee0a8838f5ee9a2910cb3c0dcf8007f",
+      "pole/attaque_goodhart_v2.py": "3c9de8b83b6fcf198d12cacf6a6738c2fc3fe4ade9391f943b3924592959e703",
+      "pole/bisociateur_v53.py": "962eb8ce22d5af1bf59970e9ef9cab15620edef4d5e9746161bc302e97c2af02",
+      "pole/bisociateur_v54.py": "20d938b2dcafcd4bb7c9777a0182a3590b390a146a8375590905741ea0e250f8",
+      "pole/bisociateur_v55.py": "d9521311a96384494871e9f9fcd4b4554548b9f45fdc28e8e75ca30d4c54d22f",
+      "pole/boucle_fermee_v59.py": "a2de486592fc98c14e13bb9071d272fb65d4f49de38dd188ee64857698177681",
+      "pole/boucle_reelle_v65.py": "5d20d9fb4d8bc53ff6c4ffb8f3f2442200c8d51c9075828cd183277cdbe8ff13",
+      "pole/boucle_reelle_v66.py": "ea17a4b8645ab4fc81df4702479fbdcd7ced912d9575190779b23fc334fb45b6",
+      "pole/bras_attaque_v54.py": "a4a70be0090f5c94852dae7b6192486a97b50ec5c901b27ed01ccb40fdde9368",
+      "pole/budget_v53.py": "cefc7e76322b8f8266ec77f31ecb06bf1ea21633ab5dec1e1b91dc62e4374345",
+      "pole/budget_v54.py": "220d25e6ce5a7eed008c095ef1a9f66e84b4e98f801dfee2f74bdda02ba5ac62",
+      "pole/budget_v56.py": "3a672aceeeee3cf83cd4e46ca461fdbaf3acd0a9552be24d2566627ce6b7c13e",
+      "pole/caviardage.py": "78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85",
+      "pole/coffre_v53.py": "f8a70c8f71c380689b2979e3c212d09379ceee1973465b2b207b493cbd73c380",
+      "pole/coffre_v55.py": "ef10fe044608fda51d5cd4b3b855da677845be83d1367ca3aa33fe45337e33fd",
+      "pole/configuration_v53.py": "ef72ffbf6b5ba546fb5e509502b59f0d9ac4f78772dcb9570ef36086639f4a78",
+      "pole/configuration_v54.py": "3424ca7fa8911e5c2656cb56632f7d74c958008b9366af0ac45e6a62e4d16d66",
+      "pole/configuration_v55.py": "2e6237c0a8b1c823fa17ddd6c680357a59ec4030bfbe9ac6ba970a700a864071",
+      "pole/configuration_v56.py": "122405228d6ec550b2120114e87a1e70bcc74c14eee17342605d8402bd015d6b",
+      "pole/controles_pari.py": "fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c",
+      "pole/course2_v53.py": "8f2d035828df913d8fa92e1b7d0c8e41ac73e8416e60f3b674753c27f5c61237",
+      "pole/course2_v54.py": "ac1980d04eb88d8fbb9a073902e47146ab9eadd3375a41cd72835fa5acf20342",
+      "pole/course2_v55.py": "ee6a861e7f8db32a9545372a51f902389cdbea809b0ba354e621a3681e541a70",
+      "pole/course2_v56.py": "14f655696876afc8453ec5237236b3f9daf8d87844c4acc9d5189b3e61b310f1",
+      "pole/cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+      "pole/dossier_ferme.py": "62fd284519278382592a4684e9d4ecd32baad5e11491c256ef64ee844f08d087",
+      "pole/etage_entre_generations_v53.py": "d568d25bf7d96011cfdcda12e7bc2c1933a61827b237f8c8c363b4055122ad4b",
+      "pole/etage_entre_generations_v54.py": "86a6bec00c3fee9b4ea510cf8dad8d899b9c96adef1e5ae4f8a8281d658143e5",
+      "pole/etage_entre_generations_v55.py": "865bd7e5734618a2e989bdd14726ff7db53e014963cbc93b48be1892c7ab4dd9",
+      "pole/etage_entre_generations_v56.py": "f0c80e2d9801d4a928574f7f442e2950c2d130d77015b30102911bfa87dd6eba",
+      "pole/etage_entre_generations_v57.py": "e4bf36819d18844079a2bb4996991fd65c233a51d76b7d3daf5b866a71328318",
+      "pole/evaluateur_lois_v62.py": "26613fe72da7f049d5dd076aab51a3808221bf52686b9d0258a201c8b38b8632",
+      "pole/fiche.py": "ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074",
+      "pole/fiches_v53.py": "7cfcf8329c66c7a37ceb2992cc96e21aedbfa0a10525467672794090a128eda6",
+      "pole/fiches_v54.py": "1ab0796dd5d9de14ea84953b0307a065572bc300ebe45209ca207d7880bbaebf",
+      "pole/garde_outils.py": "3abd0e19a8f16cc1c2a8f2590ea04831a7d9ba25c02129fb881b87be3983f390",
+      "pole/gardes_e0_v54.py": "83b54b816b3277d97f5340ad4a316094a492bc2090c782b3e134092a97ca1edf",
+      "pole/gardes_e0_v55.py": "e46c5cd0a301c89830d97c098ee52b33ead6b01cafe15ab8454e6b7957c54db1",
+      "pole/gardes_e0_v56.py": "921e59f23753666d6367678447edf4ee2964dc6ec3d382aefa8582b996e123b9",
+      "pole/graines_v53.py": "7eb838958b28c7b7a5ee20177dfc3d0c194002b99b2382e019fe7d91c3090dc0",
+      "pole/ideation.py": "4ee70d25567a9b3ac90911cc5ebee8cebba0537d541e7a0ebc1fa3ed170abdc2",
+      "pole/ideation_v2.py": "67d2ad3591b21601ece4101154138f532ba519024761beb8c9738181f8f3fefc",
+      "pole/juges_croises_v53.py": "c4c6ab12dc471eef078c116a4205a22d9b498da720ce71e37a0a6edae6c4239b",
+      "pole/lecture_boucle_reelle_v66.py": "0152103a9f2b33271eddfb6493368e387d5a6c5ade010e217c7abdfda43d52c6",
+      "pole/lecture_tour_ferme_v63.py": "2e2c695abcfe2715ca29101c434346658949a2c86be86ed8f9d6f68a408f94ea",
+      "pole/memoire.py": "71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e",
+      "pole/memoire_v53.py": "43b01b43b1ec347ff02b456975d74c17e7a0e974e9b95e9ba4935bdb895f31a0",
+      "pole/mesures_v54.py": "8f3f57fc98972fbcf6aefb27fd37298ac67f249cd295c7127b47ab8e77626c08",
+      "pole/moisson.py": "35d9a996aaacf6d61e84762a2173e73e3c1a90eda730cce122a0f321b038d0e1",
+      "pole/monde_banque.py": "33088eb9088549a20ffd489687928a1f1469d1df85a025db29bc9ce3f93e7b18",
+      "pole/monde_noyau.py": "b2aaf3958525e399f0c6453eace41550146327623f95578d64e158bb13e8cae0",
+      "pole/noyau_v54.py": "711a32679164bd63605f0bcc2a96f37d53260c479004d04d887d8228ac7d431b",
+      "pole/noyau_v55.py": "ca0f2dda980777da9c549519c6b15994309722353b22f88d117e95aa2c2d4035",
+      "pole/noyau_v56.py": "eb5a003e8f23b0882e5588fe537e8b65b890f0d7d19560896be4e85a0731543b",
+      "pole/nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+      "pole/nul_v8.py": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888",
+      "pole/oracle_tour_ferme_v60.py": "514864b7879e5131ee37f7a57951db5ece514abe9acbd90b1294e0d914041669",
+      "pole/outils.py": "966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444",
+      "pole/pari_apparie.py": "ec6c2cf64d0c9a3bcb3484f2bc58ca986c89e97829bd45fdb96cbc42bf094fef",
+      "pole/prepilote_v54.py": "77056684e5d1b2149521878da396d51bb3f16834de85ca9e86acdc7e1998592d",
+      "pole/prepilote_v55.py": "e91e07e4f3bf67cd5106129586048abb3b06284eb9812f8e4da4082087859f05",
+      "pole/prepilote_v56.py": "dfce55061c65b5ae7526161c54be17005ddef631cb539463cd2c23b32b87b087",
+      "pole/proposeurs_references_v59.py": "7d00371a8fcfa3efc2c17b2f0ab33d18ef83b41f3988744ea12dcf823806f68f",
+      "pole/protocole_outils.py": "0657eec8e0b1a3d2a3f57f37aad59c34554a2352be4e42ed2c3395e9e94fe2b5",
+      "pole/registre_go_v66.py": "4541ef7f53e2210bff7f74e1872ac46a10b29fda30f9cf4db568a99b03c04b4c",
+      "pole/relais.py": "b5a76343e458cf8fb91ee1928244f9cb65d50c27ab9b1bae91c21a5c82349da3",
+      "pole/relais_reel.py": "1b90b020287e575b5564508f9ba33b87bbc051c1015f4198e6b6e648d50ee153",
+      "pole/selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc",
+      "pole/simulation.py": "be14d44e7a8ebf6b2a71f16b5290555f5d7a11309e5dbf309ce9097f19ae7892",
+      "pole/simulation_v53.py": "27129c62498e3d5b801eb4d882b8abb7db2c3a0bfb2205829a62d7f0c69a353c",
+      "pole/simulation_v54.py": "de2232922516f0d3fa2ca664ff80800d0ac53ff8e823b784864aab375e01941c",
+      "pole/simulation_v55.py": "91ac1c345c3670dd232b0c1da63825608aac1a840192639dd01e7fb175efbf4f",
+      "pole/simulation_v56.py": "bcafca44c5117dfd30262ee520a67944d051208f1b1deac6fac016e8cb95dc76",
+      "pole/suivi_roles_v54.py": "620225973d68670a56ca913cdd02709fa576fa43e1393d166915ea67c1d7c3bb",
+      "pole/tableau_v53.py": "1a8267fea6d147b070d697ccd2c9d33f2514be6fcba106dca8ca123be1cb7403",
+      "pole/tests_de_mort.py": "fc5d3507b33e13094d64751ff2b4564ba5ed4c238f93aaae808c458b3c123252",
+      "pole/tests_de_mort_v2.py": "363a3725885da08412f25b28defba7a8d204d883c3637f1de1df83686d93a41a",
+      "pole/tests_de_mort_v3.py": "ea05eb55f9d179501fb091d25298deaf36cd66ad16fd65bdca4dcf5e4ba74bba",
+      "pole/tests_de_mort_v4.py": "35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a",
+      "pole/tests_de_mort_v5.py": "da524871b9b498693d67cc099240acb98c4c84c800ee4c69f0a1cb5fe60b64f1",
+      "pole/tour_ferme_v64.py": "35a8294e24c870685435b990d6c03cd33cb5b2e288bcb2cc91cd9af04679c2da"
+    },
+    "go": {
+      "accorde": "2026-11-10",
+      "echeance": "2026-11-30",
+      "enveloppe": null,
+      "extensions": [],
+      "forme_du_plafond": "montant seul",
+      "identifiant": "GO-2026-11-10-11",
+      "lecteur": "registre-go-v66",
+      "ligne": 301,
+      "montant_requis_usd": 45.0,
+      "par": "Lazar",
+      "perimetre": "**Course réelle de l'organisme d'idéation (boucle réelle, code v66)** : 40 USD de modèles (Kimi 33, Argon 7 ; plafond de chaque relais égal à sa part) et 5 USD de machine jetable (Hetzner CPX32) **louée sous cette ligne et validée par l'essai à blanc `--bac reel` avant tout appel payant** ; conditions toutes exigées : code v66 contre-lu (`7e415cbaaa3ff602db43a44dad6b4307c08352c7`, contre-lecture `a2880368…`), configuration v6 (`4743ddbe…`), préenregistrement de la course scellé (`docs/notes/organisme-boucle-reelle-v1/`, brouillon 3 `04598de6…` puis candidat) ; **remplace pour cette course GO-2026-11-08-02 et la part « organisme » de GO-2026-11-10-10, sans cumul** (ces lignes restent intactes) ; ne reçoit jamais de ligne d'extension (le lanceur la refuserait) ; arrêt par identifiant (R10), consignation dans `registres/depenses.md` et `registres/arrets.md`",
+      "plafond": "45 USD",
+      "plafond_lu_usd": 45.0,
+      "ref": "NL-2 (R-2248, R-2253, R-2254) ; mot direct de Lazar dans la session mère `session_01VJdZpSMxSdk2SJ1ScmdfNv`, reçu vers 16:53 UTC (heure relevée par `date -u`), verbatim : « NL-2 go, inscris GO-2026-11-10-11; Décisions qui t’attendent : : go recos »",
+      "type": "calcul"
+    },
+    "plan": {
+      "bras": [
+        "reel"
+      ],
+      "cartes_par_proposeur": 6,
+      "configuration_sha256": "4743ddbe4d294643ac8e1924476dec056b1a08dac9f8010cd647dd1861160b0d",
+      "decisions": {
+        "d7": "archive_propre",
+        "d9": "mecanique"
+      },
+      "duree_h": 72.0,
+      "generations": 2,
+      "go": "GO-2026-11-10-11",
+      "go_montant_usd": 45.0,
+      "heritage_depart_sha256": "93dcf51715f7a1aa4f313e9e1761c5a375a275d572ffcdb6969fbfaf2fb623c1",
+      "jeu_plante_sha256": "21b4b0058672deb36a2312370324f2fcc5065576f18f2b69a97eda84f84eb41e",
+      "m_e_bh": 22,
+      "monde_sha256": "fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877",
+      "plafond_argon_usd": 7.0,
+      "plafond_kimi_usd": 33.0,
+      "plafond_machine_usd": 5.0,
+      "plafond_modeles_usd": 40.0
+    },
+    "sha256": "46d7545b489a2037ede235d843ef8a0c504461a0a2d697af5db40de2400fd89d"
+  },
+  "releve": {
+    "archives_de_jugement": {},
+    "arret": "ArretTour : proposeur kimi : session 'erreur', erreur 'commande externe : code 5 : ', refus None : arrêt (garde 13 ; jamais « réponse illisible »)",
+    "bras": [
+      "reel"
+    ],
+    "cartes": [],
+    "complet": false,
+    "decisions": {
+      "d7": "archive_propre",
+      "d9": "mecanique"
+    },
+    "depense": {
+      "appels": 1,
+      "depense_usd": 0.481706,
+      "duree_s": 1553.0,
+      "par_relais_usd": {
+        "argon": 0.0,
+        "kimi": 0.481706
+      },
+      "par_role_usd": {
+        "proposeur": 0.481706
+      },
+      "parts_usd": {
+        "argon": 7.0,
+        "kimi": 33.0
+      }
+    },
+    "etages": [],
+    "generations_jouees": [],
+    "heritage_depart": {
+      "archive": [
+        "K1"
+      ],
+      "sha256": "93dcf51715f7a1aa4f313e9e1761c5a375a275d572ffcdb6969fbfaf2fb623c1"
+    },
+    "incidents": [],
+    "jetons": {
+      "appels": [
+        {
+          "entree": 7283,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 46714,
+          "usage": {
+            "completion_tokens": 46714,
+            "prompt_tokens": 7283,
+            "total_tokens": 53997
+          }
+        }
+      ],
+      "sommes_par_relais": {
+        "kimi": {
+          "appels_avec_usage": 1,
+          "appels_sans_usage": 0,
+          "entree": 7283,
+          "sortie": 46714
+        }
+      },
+      "source": "champ « usage » de la dernière ligne JSON des commandes externes"
+    },
+    "lecture_selection": null,
+    "lignes_de_tranche_dans_les_contextes": {
+      "communes": [],
+      "episodes_servis": 200,
+      "lignes_de_tranche": 400,
+      "precision": "6 décimales",
+      "taches_comparees": 1
+    },
+    "membres_attendus": {},
+    "monde_sha256": "fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877",
+    "moteur_etage": "claude-sdk",
+    "plan": {
+      "bras": [
+        "reel"
+      ],
+      "cartes_par_proposeur": 6,
+      "duree_max_s": 259200.0,
+      "generations": 2,
+      "m_e_bh": 22,
+      "parts": {
+        "argon": 7.0,
+        "kimi": 33.0
+      },
+      "plafond_usd": 40.0
+    },
+    "plantees": [],
+    "racine": "32042353727450165633743351355197549619582094426294128732508204266703610173597",
+    "recherche_loi_plantee": {
+      "attendu": "aucune touche hors de la loi gelée servie au test de mort (que l'expérimentateur doit voir)",
+      "experimentateur_et_verificateur": {
+        "consignes_cherchees": 0,
+        "par_role": {},
+        "touches_dans_la_loi_gelee": 0,
+        "touches_hors_loi_gelee": []
+      },
+      "formes": [
+        "exacte",
+        "deux décimales"
+      ],
+      "parametres_de_la_loi_plantee": 9,
+      "proposeurs": {
+        "contextes_cherches": 1,
+        "touches": []
+      }
+    },
+    "retenues": {},
+    "selection_finale": null,
+    "version": "boucle-reelle-v66",
+    "vues_servies": {
+      "1": {
+        "appels": [],
+        "attendus": [
+          "K1"
+        ],
+        "contexte_sha256": "1671d31016fcf7f910f5e9245bff66f76d12af23437984dfb3b99da18fb5a00c",
+        "identifiants": [
+          "K1"
+        ],
+        "lois_sha256": "8dbe546acefd10f921e03264f15b6623052c21679c6b03570561f639ace56020",
+        "texte_sha256": "9e2085990d20e9ee4a42ac6e17dbd8c6c5871b75ac01fddfc4aed8847c253078"
+      }
+    }
+  },
+  "version": "boucle-reelle-v66"
+}

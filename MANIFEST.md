@@ -338,6 +338,13 @@ Files added to this public tree after the extraction above, each as a new file (
 | `resultats/prelectures-nul-v8-2026-11-01/L8-banc-complet-20-graine7/banc-tricheurs-v8.json` | `483f2e05ee243053e1084a6837cf56a6da0da55f82f1c58deecc14ef6eb830e5` | v58 (adjusted null as the judge's only null) and its sealed validation |
 | `resultats/prelectures-nul-v8-2026-11-01/L8-banc-complet-20-graine7/manifeste.json` | `51195d44fd84830e0b905b530ea7160bf984e0f45997a50817d4feffe84a57b7` | v58 (adjusted null as the judge's only null) and its sealed validation |
 
+## Added on 12 November 2026 (smallest real run of the full loop)
+
+- Merged into `main`, commits unchanged: organism v65 (`cef5ea6`), v66 (`838fa68`, `3ba4727`, `7e415cb`) and v67 (`ab53b7f`) — 26 new files under `orchestrator/` (core, launchers, frozen readings, GO-register reader, tests, mutation benches, configurations v5, v6 and v8, the planted set of the run, which is also written in the sealed text); no existing file changed. The merge also brings to `main` three commits public since 7 November on `claude/new-session-7qxayx` (`08ad8f3`, `291e917`, `94bfd92`).
+- `orchestrator/prereg/preenregistrement-boucle-reelle-organisme-v1-v2.md` and its companion: sealed text v2, byte for byte (sha256 `80fe4f03b4905b2376b8cd16873c9ab93da3b97e4e01a9a2932be329bab0954d`).
+- `resultats/boucle-reelle-v66/`: status page (English), the two run reports of 12 November 2026 and, per run, the launcher's record and the frozen reading, byte for byte with their companions.
+- Excluded, with reasons: raw journals of the provider relays and machine console logs (provider logs are not published); run manifests, spending registers and machine sheets (work records); the two earlier stop reports (one names the address of a destroyed machine); anything from other tasks of the programme. Secret scan on everything added (Anthropic, OpenAI-style, GitHub, Hugging Face, AWS and Google key shapes): 0 match.
+
 ## Security scans run before publication
 
 - key and token patterns (Anthropic, GitHub, AWS, Slack, OpenAI, private-key blocks, literal `api_key=`): no match except the regular expression inside `pole/caviardage.py`, which is the redaction guard itself;

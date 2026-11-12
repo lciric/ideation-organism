@@ -1,0 +1,126 @@
+{
+  "audits": {
+    "A1": null,
+    "A2": null,
+    "A3": null,
+    "A4": null
+  },
+  "aussi": [],
+  "code": "C5",
+  "constats": {
+    "arret": "ArretTour : proposeur kimi : session 'erreur', erreur 'commande externe : code 5 : ', refus None : arrêt (garde 13 ; jamais « réponse illisible »)",
+    "cause_c5": "arrêt : ArretTour : proposeur kimi : session 'erreur', erreur 'commande externe : code 5 : ', refus None : arrêt (garde 13 ; jamais « réponse illisible ») ; manques : générations jouées [] ≠ [1, 2] ; étages consignés pour les générations [] ≠ [1, 2] ; membres d'archive attendus de la génération 1 absents ou nuls (None) ; membres d'archive attendus de la génération 2 absents ou nuls (None) ; loi plantée V1 présente 0 fois en génération 1 (une fois exigée) ; loi plantée V2 présente 0 fois en génération 1 (une fois exigée) ; loi plantée V3 présente 0 fois en génération 1 (une fois exigée) ; loi plantée V4 présente 0 fois en génération 1 (une fois exigée) ; loi plantée F1 présente 0 fois en génération 1 (une fois exigée) ; loi plantée F2 présente 0 fois en génération 1 (une fois exigée) ; loi plantée F3 présente 0 fois en génération 1 (une fois exigée) ; loi plantée F4 présente 0 fois en génération 1 (une fois exigée) ; loi plantée T-ELIM présente 0 fois en génération 1 (une fois exigée) ; loi plantée T-MAL présente 0 fois en génération 1 (une fois exigée) ; loi plantée F1 présente 0 fois en génération 2 (une fois exigée) ; loi plantée F2 présente 0 fois en génération 2 (une fois exigée) ; loi plantée F3 présente 0 fois en génération 2 (une fois exigée) ; loi plantée F4 présente 0 fois en génération 2 (une fois exigée) ; vue servie aux proposeurs de la génération 2 non consignée ; sélection de la génération 2 non relue",
+    "copies_promues": [],
+    "ecarts_p6": null,
+    "fausses_promues": [],
+    "manques": [
+      "générations jouées [] ≠ [1, 2]",
+      "étages consignés pour les générations [] ≠ [1, 2]",
+      "membres d'archive attendus de la génération 1 absents ou nuls (None)",
+      "membres d'archive attendus de la génération 2 absents ou nuls (None)",
+      "loi plantée V1 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée V2 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée V3 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée V4 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée F1 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée F2 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée F3 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée F4 présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée T-ELIM présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée T-MAL présente 0 fois en génération 1 (une fois exigée)",
+      "loi plantée F1 présente 0 fois en génération 2 (une fois exigée)",
+      "loi plantée F2 présente 0 fois en génération 2 (une fois exigée)",
+      "loi plantée F3 présente 0 fois en génération 2 (une fois exigée)",
+      "loi plantée F4 présente 0 fois en génération 2 (une fois exigée)",
+      "vue servie aux proposeurs de la génération 2 non consignée",
+      "sélection de la génération 2 non relue"
+    ],
+    "p1": false,
+    "p2_v1_v2": false,
+    "p3_mesure": {},
+    "p4": false,
+    "p5_copies_refusees": null,
+    "p6_tenue": false,
+    "partiel": true,
+    "t_elim": null,
+    "t_mal": null,
+    "vraies_promues_survivantes_g1": []
+  },
+  "issue": "non jugeable (arrêt)",
+  "lecteur": "lecture-boucle-reelle-v66",
+  "lu_utc": "2026-11-12T08:34:57+00:00",
+  "mesures_sans_issue": {
+    "depense": {
+      "appels": 1,
+      "depense_usd": 0.481706,
+      "duree_s": 1553.0,
+      "par_relais_usd": {
+        "argon": 0.0,
+        "kimi": 0.481706
+      },
+      "par_role_usd": {
+        "proposeur": 0.481706
+      },
+      "parts_usd": {
+        "argon": 7.0,
+        "kimi": 33.0
+      }
+    },
+    "jetons": {
+      "appels": [
+        {
+          "entree": 7283,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 46714,
+          "usage": {
+            "completion_tokens": 46714,
+            "prompt_tokens": 7283,
+            "total_tokens": 53997
+          }
+        }
+      ],
+      "sommes_par_relais": {
+        "kimi": {
+          "appels_avec_usage": 1,
+          "appels_sans_usage": 0,
+          "entree": 7283,
+          "sortie": 46714
+        }
+      },
+      "source": "champ « usage » de la dernière ligne JSON des commandes externes"
+    },
+    "lignes_de_tranche_dans_les_contextes": {
+      "communes": [],
+      "episodes_servis": 200,
+      "lignes_de_tranche": 400,
+      "precision": "6 décimales",
+      "taches_comparees": 1
+    },
+    "recherche_loi_plantee": {
+      "attendu": "aucune touche hors de la loi gelée servie au test de mort (que l'expérimentateur doit voir)",
+      "experimentateur_et_verificateur": {
+        "consignes_cherchees": 0,
+        "par_role": {},
+        "touches_dans_la_loi_gelee": 0,
+        "touches_hors_loi_gelee": []
+      },
+      "formes": [
+        "exacte",
+        "deux décimales"
+      ],
+      "parametres_de_la_loi_plantee": 9,
+      "proposeurs": {
+        "contextes_cherches": 1,
+        "touches": []
+      }
+    }
+  },
+  "phrase": "Issue C5 : « non jugeable (arrêt) » — course reel (decisif) (classe couverte du nul v8, monde jouet S-V1, une génération et demie ; rien sur la classe non couverte).",
+  "releve": {
+    "chemin": "/root/sorties/course-reelle/boucle-reelle-v66.json",
+    "mode": "reel (decisif)",
+    "sha256": "5a7fc27c7dfb1c7e0911cf9df3aa0b1c785e386bfa32de0294625c5709d52b9b"
+  },
+  "version": "lecture-boucle-reelle-v66"
+}
