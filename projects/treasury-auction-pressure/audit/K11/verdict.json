@@ -1,0 +1,196 @@
+{
+ "id": "K11",
+ "verdict": "non concluant",
+ "raisons": [
+  "condition de non-conclusion tenue : {'champ': 'schema_ok', 'operateur': '<', 'seuil': 1}",
+  "condition de non-conclusion tenue : {'champ': 'alerte_instrument', 'operateur': '>=', 'seuil': 1}"
+ ],
+ "sceau_preenregistrement": "3f4e97b4a2cb56624cc641af05ec19b292304f84681a718bf771fd39554d5597",
+ "chiffres_verificateur": {
+  "schema_ok": 0,
+  "n_apres": 113,
+  "n_grappes_apres": 39,
+  "n_avant_1030": 184,
+  "n_grappes_avant_1030": 96,
+  "n_temoins_figes": 7,
+  "ecart_max_rdt_pb": 7.815970093361102e-11,
+  "v_moyen_apres_pb": -0.010712612157839894,
+  "erreur_type_apres_pb": 0.06314836105215409,
+  "borne_inf_90_apres_pb": -0.11459166608863336,
+  "borne_sup_90_apres_pb": 0.09316644177295358,
+  "marge_zone_grise": -0.4068335582270464,
+  "v_moyen_apres_sans_2023_pb": -0.052369916037401744,
+  "v_moyen_apres_sans_30_pb": -0.04029595426288923,
+  "min_robustesse_pb": -0.052369916037401744,
+  "alerte_robustesse": 0,
+  "v_moyen_avant_1030_pb": -0.026404730295453715,
+  "erreur_type_avant_1030_pb": 0.079924859284888,
+  "v_moyen_apres_1030_pb": 0.04074068555836147,
+  "erreur_type_apres_1030_pb": 0.07159070894539452,
+  "baisse_1030_pb": -0.06714541585381519,
+  "erreur_type_baisse_pb": 0.107299639976159,
+  "borne_inf_90_baisse_pb": -0.24365332361459674,
+  "alerte_instrument": 1
+ },
+ "regle": {
+  "id": "K11",
+  "fichier_analyse": "K11_analyse.csv",
+  "champs_verification": [
+   "schema_ok",
+   "n_apres",
+   "n_grappes_apres",
+   "n_avant_1030",
+   "n_grappes_avant_1030",
+   "n_temoins_figes",
+   "ecart_max_rdt_pb",
+   "v_moyen_apres_pb",
+   "erreur_type_apres_pb",
+   "borne_inf_90_apres_pb",
+   "borne_sup_90_apres_pb",
+   "marge_zone_grise",
+   "v_moyen_apres_sans_2023_pb",
+   "v_moyen_apres_sans_30_pb",
+   "min_robustesse_pb",
+   "alerte_robustesse",
+   "v_moyen_avant_1030_pb",
+   "erreur_type_avant_1030_pb",
+   "v_moyen_apres_1030_pb",
+   "erreur_type_apres_1030_pb",
+   "baisse_1030_pb",
+   "erreur_type_baisse_pb",
+   "borne_inf_90_baisse_pb",
+   "alerte_instrument"
+  ],
+  "survit_si": [
+   {
+    "champ": "borne_inf_90_apres_pb",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "borne_sup_90_apres_pb",
+    "operateur": ">=",
+    "seuil": 0.5
+   },
+   {
+    "champ": "min_robustesse_pb",
+    "operateur": ">",
+    "seuil": 0
+   },
+   {
+    "champ": "schema_ok",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "n_apres",
+    "operateur": ">=",
+    "seuil": 105
+   },
+   {
+    "champ": "n_grappes_apres",
+    "operateur": ">=",
+    "seuil": 35
+   },
+   {
+    "champ": "n_avant_1030",
+    "operateur": ">=",
+    "seuil": 175
+   },
+   {
+    "champ": "n_grappes_avant_1030",
+    "operateur": ">=",
+    "seuil": 88
+   },
+   {
+    "champ": "n_temoins_figes",
+    "operateur": "<=",
+    "seuil": 47
+   },
+   {
+    "champ": "ecart_max_rdt_pb",
+    "operateur": "<=",
+    "seuil": 0.05
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "schema_ok",
+    "operateur": "<",
+    "seuil": 1
+   },
+   {
+    "champ": "n_apres",
+    "operateur": "<",
+    "seuil": 105
+   },
+   {
+    "champ": "n_grappes_apres",
+    "operateur": "<",
+    "seuil": 35
+   },
+   {
+    "champ": "n_avant_1030",
+    "operateur": "<",
+    "seuil": 175
+   },
+   {
+    "champ": "n_grappes_avant_1030",
+    "operateur": "<",
+    "seuil": 88
+   },
+   {
+    "champ": "n_temoins_figes",
+    "operateur": ">",
+    "seuil": 47
+   },
+   {
+    "champ": "ecart_max_rdt_pb",
+    "operateur": ">",
+    "seuil": 0.05
+   },
+   {
+    "champ": "marge_zone_grise",
+    "operateur": ">=",
+    "seuil": 0
+   },
+   {
+    "champ": "alerte_robustesse",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "alerte_instrument",
+    "operateur": ">=",
+    "seuil": 1
+   }
+  ],
+  "tolerance": {
+   "schema_ok": 0,
+   "n_apres": 0,
+   "n_grappes_apres": 0,
+   "n_avant_1030": 0,
+   "n_grappes_avant_1030": 0,
+   "n_temoins_figes": 0,
+   "ecart_max_rdt_pb": 0.05,
+   "v_moyen_apres_pb": 0.005,
+   "erreur_type_apres_pb": 0.005,
+   "borne_inf_90_apres_pb": 0.01,
+   "borne_sup_90_apres_pb": 0.01,
+   "marge_zone_grise": 0.01,
+   "v_moyen_apres_sans_2023_pb": 0.005,
+   "v_moyen_apres_sans_30_pb": 0.005,
+   "min_robustesse_pb": 0.005,
+   "alerte_robustesse": 0,
+   "v_moyen_avant_1030_pb": 0.005,
+   "erreur_type_avant_1030_pb": 0.005,
+   "v_moyen_apres_1030_pb": 0.005,
+   "erreur_type_apres_1030_pb": 0.005,
+   "baisse_1030_pb": 0.005,
+   "erreur_type_baisse_pb": 0.005,
+   "borne_inf_90_baisse_pb": 0.01,
+   "alerte_instrument": 0
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}

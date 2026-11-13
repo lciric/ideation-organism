@@ -1,0 +1,4 @@
+data/raw/*
+!data/raw/PROVENANCE.md
+__pycache__/
+.pytest_cache/

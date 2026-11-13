@@ -1,0 +1,119 @@
+{
+ "id": "F04-bis",
+ "verdict": "non concluant",
+ "raisons": [
+  "condition de non-conclusion tenue : {'champ': 'marge_zone_grise', 'operateur': '>', 'seuil': 0}"
+ ],
+ "sceau_preenregistrement": "f5f4b98dc3c87fdbc49738e7b0e84992219ace991bb8e1b59191338cafe5c78a",
+ "chiffres_verificateur": {
+  "schema_ok": 1,
+  "n_adjudications": 23,
+  "n_grappes": 8,
+  "ecart_max_hs_fred_pb": 0.0,
+  "d_moyen_pb": 0.7826086956521756,
+  "d_erreur_type_pb": 0.1410567720693954,
+  "d_borne_inf_95_pb": 0.44900942970805546,
+  "d_borne_sup_95_pb": 1.1162079615962957,
+  "marge_zone_grise": 0.21620796159629563,
+  "v_hs_moyen_pb": 1.6360868793984882,
+  "v_mc_moyen_pb": 0.8534781837463127,
+  "v_mc_erreur_type_pb": 0.31962058554050155
+ },
+ "regle": {
+  "id": "F04-bis",
+  "fichier_analyse": "F04-bis_analyse.csv",
+  "champs_verification": [
+   "schema_ok",
+   "n_adjudications",
+   "n_grappes",
+   "ecart_max_hs_fred_pb",
+   "d_moyen_pb",
+   "d_erreur_type_pb",
+   "d_borne_inf_95_pb",
+   "d_borne_sup_95_pb",
+   "marge_zone_grise",
+   "v_hs_moyen_pb",
+   "v_mc_moyen_pb",
+   "v_mc_erreur_type_pb"
+  ],
+  "survit_si": [
+   {
+    "champ": "d_borne_inf_95_pb",
+    "operateur": ">=",
+    "seuil": 0.9
+   },
+   {
+    "champ": "schema_ok",
+    "operateur": ">=",
+    "seuil": 1
+   },
+   {
+    "champ": "ecart_max_hs_fred_pb",
+    "operateur": "<=",
+    "seuil": 0.51
+   },
+   {
+    "champ": "n_adjudications",
+    "operateur": ">=",
+    "seuil": 20
+   },
+   {
+    "champ": "n_grappes",
+    "operateur": ">=",
+    "seuil": 8
+   },
+   {
+    "champ": "v_hs_moyen_pb",
+    "operateur": ">=",
+    "seuil": 0.9
+   }
+  ],
+  "non_concluant_si": [
+   {
+    "champ": "schema_ok",
+    "operateur": "<",
+    "seuil": 1
+   },
+   {
+    "champ": "ecart_max_hs_fred_pb",
+    "operateur": ">",
+    "seuil": 0.51
+   },
+   {
+    "champ": "n_adjudications",
+    "operateur": "<",
+    "seuil": 20
+   },
+   {
+    "champ": "n_grappes",
+    "operateur": "<",
+    "seuil": 8
+   },
+   {
+    "champ": "v_hs_moyen_pb",
+    "operateur": "<",
+    "seuil": 0.9
+   },
+   {
+    "champ": "marge_zone_grise",
+    "operateur": ">",
+    "seuil": 0
+   }
+  ],
+  "tolerance": {
+   "schema_ok": 0,
+   "n_adjudications": 0,
+   "n_grappes": 0,
+   "ecart_max_hs_fred_pb": 0.005,
+   "d_moyen_pb": 0.005,
+   "d_erreur_type_pb": 0.005,
+   "d_borne_inf_95_pb": 0.02,
+   "d_borne_sup_95_pb": 0.02,
+   "marge_zone_grise": 0.02,
+   "v_hs_moyen_pb": 0.005,
+   "v_mc_moyen_pb": 0.005,
+   "v_mc_erreur_type_pb": 0.005
+  }
+ },
+ "etiquette": "verdict calculé par l'orchestrateur"
+}
