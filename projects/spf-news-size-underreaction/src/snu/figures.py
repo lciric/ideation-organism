@@ -1,7 +1,7 @@
-"""The six figures (PNG, 200 dpi): four on the US survey, two comparing the US and the euro area. One idea
+"""The six figures (PNG, 200 dpi): four on the US SPF, two comparing the three surveys. One idea
 per figure; each title states the finding; every figure is labelled 'Descriptive, not preregistered' in
 its footnote.
-Colours: a colour-blind-safe categorical order (blue, orange) on a near-white surface, checked with a
+Colours: a colour-blind-safe categorical order (blue, orange, aqua) on a near-white surface, checked with a
 palette validator (deuteranopia / protanopia / tritanopia separation); text and reference lines stay in
 neutral greys, and identity is never carried by colour alone (legends and direct labels)."""
 import textwrap
@@ -164,45 +164,55 @@ def fig4_by_decade(table, pooled_full, path):
 EA_NAMES = {"HICP": "HICP inflation", "RGDP": "real GDP growth", "UNEM": "unemployment rate"}
 US_NAMES = {"PGDP": "GDP deflator inflation", "RGDP": "real GDP growth", "UNEMP": "unemployment rate",
             "CPI": "CPI inflation", "TBILL": "3-month T-bill rate"}
+LIV_NAMES = {"CPI": "CPI level", "UNPR": "unemployment rate", "PRIME": "prime rate", "TBILL": "3-month T-bill rate",
+             "TPHS": "housing starts"}
+AQUA = "#1baf7a"
+SURVEY_COLOURS = [BLUE, ORANGE, AQUA]
 
 
-def fig5_forest_c(us_pooled, us_vars, ea_pooled, ea_vars, path):
-    """Forest plot of the extra slope c after large news, with 90% intervals: pooled and by variable, for the
-    US SPF (K20) and the ECB SPF (K20-ZE). Each table has columns label, estimate, lo90, hi90."""
-    rows = ([("US SPF, all five variables (K20)", us_pooled, BLUE, True)]
-            + [(f"   {US_NAMES[r.label]}", r, BLUE, False) for r in us_vars.itertuples()]
-            + [("ECB SPF, all three variables (K20-ZE)", ea_pooled, ORANGE, True)]
-            + [(f"   {EA_NAMES[r.label]}", r, ORANGE, False) for r in ea_vars.itertuples()])
-    fig, ax = plt.subplots(figsize=(8.4, 5.6))
+def fig5_forest_c(blocks, path):
+    """Forest plot of the extra slope c after large news, with 90% intervals, pooled and by variable, one block
+    per survey. `blocks` = [(pooled label, pooled dict with estimate/lo90/hi90, per-variable table with columns
+    label/estimate/lo90/hi90, names of the variables)], drawn in the fixed colour order blue, orange, aqua."""
+    rows, gaps = [], []
+    for b, (title, pooled, table, names) in enumerate(blocks):
+        colour = SURVEY_COLOURS[b]
+        rows.append((title, pooled["estimate"], pooled["lo90"], pooled["hi90"], colour, True))
+        rows += [(f"   {names[r.label]}", r.estimate, r.lo90, r.hi90, colour, False) for r in table.itertuples()]
+        gaps.append(len(rows))
+    fig, ax = plt.subplots(figsize=(8.4, 2.2 + 0.36 * len(rows)))
     y = np.arange(len(rows))[::-1].astype(float)
-    y[len(us_vars) + 1:] -= 0.6          # a gap between the two surveys
+    for g in gaps[:-1]:
+        y[g:] -= 0.6                          # a gap between surveys
     ax.axvline(0, color=MUTED, lw=0.8)
     ax.axvline(0.40, color=INK, lw=1.2, ls=":")
     ax.text(0.395, y[0] + 0.55, "predicted c = +0.40", fontsize=8, color=INK, ha="right", va="bottom")
-    for yi, (label, r, colour, pooled) in zip(y, rows):
-        est, lo, hi = (r["estimate"], r["lo90"], r["hi90"]) if isinstance(r, dict) else (r.estimate, r.lo90, r.hi90)
+    for yi, (label, est, lo, hi, colour, pooled) in zip(y, rows):
         _interval(ax, yi, est, lo, hi, colour, horizontal=True, size=70 if pooled else 36)
-        ax.annotate(_num(est), (hi, yi), xytext=(5, -3), textcoords="offset points", fontsize=8, color=INK)
+        ax.annotate(_num(est), (hi, yi), xytext=(5, -3), textcoords="offset points", fontsize=8, color=INK,
+                    bbox=dict(facecolor=SURFACE, edgecolor="none", pad=0.6))
     ax.set_yticks(y)
     ax.set_yticklabels([r[0] for r in rows], fontsize=8.5)
-    for tick, (_, _, _, pooled) in zip(ax.get_yticklabels(), rows):
-        tick.set_fontweight("bold" if pooled else "normal")
+    for tick, row in zip(ax.get_yticklabels(), rows):
+        tick.set_fontweight("bold" if row[5] else "normal")
     ax.set_ylim(y[-1] - 0.7, y[0] + 1.1)
     ax.grid(axis="y", visible=False)
     ax.set_xlabel(f"extra slope after large news, c ({UNITS})")
-    ax.set_title("In both surveys the extra slope after large news is near zero; +0.40 is excluded")
+    ax.set_title(f"{'Three' if len(blocks) == 3 else 'All'} surveys: no extra under-reaction after large news, "
+                 "+0.40 far off")
     _footnote(fig, "The figure is new; its estimates are preregistered: pooled c is each test's primary statistic, the "
-                   "per-variable c its secondary analysis S1. Bars: 90% intervals, Driscoll-Kraay standard errors (US: 4 lags "
-                   "by target quarter, critical value 1.645; euro area: 8 lags by survey round, critical value 1.708). "
-                   "Large news: top third of the data surprise of each variable.")
-    _save(fig, path, bottom=0.12)
+                   "per-variable c its secondary analysis S1. Bars: 90% intervals, Driscoll-Kraay standard errors (US SPF: "
+                   "4 lags by target quarter, critical value 1.645; ECB SPF: 8 lags by survey round, 1.708; Livingston: 2 "
+                   "lags by half-year, 1.645). Large news: top third of the data surprise of each variable. Verdicts: "
+                   "US SPF non concluant (schema guard), ECB SPF and Livingston eliminated.")
+    _save(fig, path, bottom=0.08)
 
 
 def fig6_base_vs_c(table, c_pandemic, se_pandemic, path):
     """Base under-reaction slope (no size split) and extra slope c after large news, for each survey.
     `table` has one row per survey and quantity: survey, quantity ('base' or 'c'), estimate, lo90, hi90."""
     surveys = list(dict.fromkeys(table["survey"]))
-    fig, ax = plt.subplots(figsize=(8.4, 4.9))
+    fig, ax = plt.subplots(figsize=(9.2, 5.0))
     ax.axhline(0, color=MUTED, lw=0.8)
     for q, colour, shift, label in (("base", BLUE, -0.14, "base under-reaction slope (no split by news size)"),
                                     ("c", ORANGE, 0.14, "extra slope after large news, c")):
@@ -215,14 +225,16 @@ def fig6_base_vs_c(table, c_pandemic, se_pandemic, path):
         ax.hlines(0.40, i + 0.02, i + 0.30, color=INK, lw=1.2, ls=":")
     ax.text(len(surveys) - 1 + 0.31, 0.40, "predicted\nc = +0.40", fontsize=8, color=INK, va="center")
     ax.set_xticks(range(len(surveys)))
-    ax.set_xticklabels(surveys)
-    ax.set_xlim(-0.6, len(surveys) - 0.25)
+    ax.set_xticklabels(surveys, fontsize=9)
+    ax.set_xlim(-0.6, len(surveys) - 0.2)
     ax.grid(axis="x", visible=False)
     ax.set_ylabel(f"slope of error on revision\n({UNITS})")
-    ax.set_title("Under-reaction yes, size-dependence no: the same answer in two surveys", pad=30)
+    ax.set_title(f"Under-reaction yes, size-dependence no: the same answer in {'three' if len(surveys) == 3 else 'two'} surveys",
+                 pad=30)
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=8)
-    _footnote(fig, "Base slope: one constant per series and one common slope (US: descriptive, not preregistered; "
-                   "euro area: the preregistered positive control b_commun). c: each test's primary statistic. Bars: 90% "
-                   "intervals (US: Driscoll-Kraay 4 lags, 1.645; euro area: 8 lags, 1.708). Euro area: pandemic rows of "
-                   f"GDP and unemployment excluded, as preregistered; with them c = {_num(c_pandemic)} (se {se_pandemic:.2f}).")
+    _footnote(fig, "Base slope: one constant per series and one common slope (US SPF: descriptive, not preregistered; "
+                   "ECB SPF and Livingston: the preregistered positive controls). c: each test's primary statistic. Bars: "
+                   "90% intervals (US SPF: Driscoll-Kraay 4 lags, 1.645; ECB SPF: 8 lags, 1.708; Livingston: 2 lags, "
+                   "1.645). ECB SPF: pandemic rows of GDP and unemployment excluded, as preregistered; with them "
+                   f"c = {_num(c_pandemic)} (se {se_pandemic:.2f}).")
     _save(fig, path)

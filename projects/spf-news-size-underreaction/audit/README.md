@@ -1,17 +1,16 @@
 # Audit trail
 
-This folder holds byte-for-byte copies of the records of the two sealed tests this project rests on:
-K20 (US Survey of Professional Forecasters) and K20-ZE (its blind replication on the ECB Survey of
-Professional Forecasters). They are in French, as they were written. Nothing here was edited.
-`run_all.py` recomputes the sha256 of each `<ID>/preenregistrement.md` and stops if it differs from the
-seal.
+This folder holds byte-for-byte copies of the records of the three sealed tests this project rests on:
+- **K20**, on the US Survey of Professional Forecasters;
+- **K20-ZE**, its blind replication on the ECB Survey of Professional Forecasters;
+- **K20-LIV**, its blind replication on the US Livingston Survey.
 
-A third replication, K20-LIV (US Livingston Survey), is being preregistered; its records will go in
-`K20-LIV/` once it is sealed and judged.
+They are in French, as they were written. Nothing here was edited. `run_all.py` recomputes the sha256 of
+each `<ID>/preenregistrement.md` and stops if it differs from the seal.
 
 ## The sealed protocol
 
-Described here for K20; K20-ZE follows the same protocol (its differences are listed in its section below).
+Described here for K20; K20-ZE and K20-LIV follow the same protocol (their differences are listed in their sections below).
 
 - **`K20/preenregistrement.md` — the preregistration.** Written and sealed on 2026-11-12, *before* anyone
   computed an error, a revision, a surprise or a regression on the data. Its author could look only at file
@@ -137,3 +136,62 @@ formula are K20's. Its own section 2.2 lists the adaptations:
 
 `../results/reproduction.md` shows all 65 K20-ZE verifier numbers reproduced within the preregistered
 tolerances, and the sealed rule applied to them gives "éliminée" again.
+
+## K20-LIV: the blind Livingston replication — **éliminée**
+
+**Files** (`K20-LIV/`): `preenregistrement.md` (sealed on 2026-11-13, seal
+`e3afba764025ed5cd33b3caa8959d742f1d7d4e7616e28b4edaf153be811e505`), `preenregistrement.md.sha256`,
+`verdict.json` (computed mechanically from the verifier's 63 numbers), `verification.json`, `temoin.json`,
+`ecarts.md`, `rapport-experimentateur.md`, `rapport-verificateur.md` and `lecture-apres-coup.md`.
+
+**What it asks.** The same question on a third survey: the Livingston Survey of the Philadelphia Fed, run
+twice a year since 1946. It has five variables: CPI, unemployment, prime rate, 3-month bill and housing
+starts; targets run from 1947-12 to 2026-06. Its author knew K20's result but had seen no Livingston
+statistic.
+
+**What it adapts.** Its section 2 lists the adaptations:
+- **Revision.** The 12-month-ahead forecast of a survey is revised by the 6-month-ahead forecast of the
+  next survey, for the same June or December target.
+- **Targets.** Level targets, in 100 × log for CPI and housing starts. CPI forecasts are rebased with the
+  base value of the same questionnaire.
+- **News.** The surprise is the latest data known to the second survey minus the path the first survey
+  expected for that month.
+- **Outturns.** Latest FRED vintage throughout.
+- **Inference.** Driscoll-Kraay with 2 lags of half-years, and 11 NBER episode windows.
+- **The floor is measured, not assumed.** The survey publishes individual answers, so the share of the
+  revision variance due to the sampling noise of the consensus is measured, then doubled for prudence.
+- **Positive control.** As in K20-ZE.
+- **Schema checks.** Like K20-ZE's fix of K20's guard, they apply to the main rows only.
+
+**Verdict: éliminée.** The verifier's numbers, all reproduced here:
+- **Sample.** 548 rows, 158 half-years; 0 schema violations and 0 anomalies elsewhere.
+- **Positive control: passes.** Pooled slope 0.373, lower 90% bound 0.263.
+- **Primary statistic.** c = −0.122 (se 0.139), 90% interval [−0.351, +0.107].
+- **Why it is eliminated.** The upper bound is below 0.40.
+- **Episodes.** Without each of the eleven episodes c stays between −0.13 and −0.06.
+- **Floor.** Measured noise share 0.016, mechanical bias 0.122, floor 0.122. With K20's assumed 20% noise
+  the floor would have been 0.78.
+
+**What the after-verdict reading states plainly, repeated here.**
+1. **The dispersions were those of the writer's scenario S-b, not of K20.** Mean k is 1.02 (level targets)
+   and the variance ratio of revisions 10.1, against K20's 0.29 and 3.1 in the main scenario. In S-b the
+   preregistration's simulation eliminated a null effect only 78% of the time. The positive control passed
+   and the test decided.
+2. **One positive variable.** Unemployment is the only variable with a positive c: +0.38, se 0.29. In the
+   euro area, the only notable positive sign also came from unemployment, with the 2020-2021 targets. This is
+   a lead for later, found after the fact on a single variable, and not a result.
+
+The experimenter flagged one ambiguity (`K20-LIV/ecarts.md`, C3): whether a and A are pooled over variables.
+Both roles followed the letter and pooled; this project does the same. Its analysis dataset is
+bit-identical to the sealed `K20-LIV_analyse.csv`.
+
+`../results/reproduction.md` shows all 63 K20-LIV verifier numbers reproduced within the preregistered
+tolerances, and the sealed rule applied to them gives "éliminée" again.
+
+## What the three tests say together
+
+Three surveys, two continents, 1947-2026, the same answer:
+- **Under-reaction yes.** The base slope is 0.19 to 0.37.
+- **Size-dependence no.** c is −0.12 to −0.03. The predicted +0.40 is excluded in both conclusive tests,
+  K20-ZE and K20-LIV.
+- **K20 itself is inconclusive** only through its schema guard on a row outside every regression.

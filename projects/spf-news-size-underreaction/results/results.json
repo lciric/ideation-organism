@@ -828,82 +828,318 @@
    ]
   }
  },
+ "K20-LIV": {
+  "question": "Does the under-reaction of the Livingston Survey consensus grow after large news (extra slope c > 0)?",
+  "preregistered": {
+   "fields": {
+    "n_violations_schema": 0,
+    "n_principal": 548,
+    "c": -0.12219135136548764,
+    "et_c_dk2": 0.1390879487406192,
+    "t_c": -0.8785186097852267,
+    "borne_basse_ic90": -0.35099102704380625,
+    "borne_haute_ic90": 0.10660832431283093,
+    "rapport_variance_revision": 10.099932462552708,
+    "b_moyen": 0.4430504894118338,
+    "k_moyen": 1.015167413721023,
+    "pente_moyenne_grandes": 0.32085913804634614,
+    "b_regroupe": 0.3727715317700606,
+    "et_b_regroupe_dk2": 0.0668114494047032,
+    "borne_basse_b_ic90": 0.26286669749932384,
+    "controle_positif_ok": 1,
+    "nu_mesure": 0.015558463958500718,
+    "biais_mecanique_mesure": 0.12197673170800823,
+    "biais_mecanique_nu20": 0.783989550853852,
+    "seuil_survie_bas": 0.12197673170800823,
+    "borne_basse_moins_seuil": -0.47296775875181446,
+    "marge_indecision": -0.29339167568716906,
+    "t_min_sans_episode": -0.9201913920414401,
+    "c_min_sans_episode": -0.13061933305570136,
+    "episode_t_min": 6,
+    "conflit_robustesse": 0,
+    "n_grands": 182,
+    "n_dates": 158,
+    "n_dates_grands": 110,
+    "et_c_iid": 0.11483255628189311,
+    "n_effectif": 373.535273793072,
+    "c_sans_E1": -0.05635297731410694,
+    "c_sans_E2": -0.12330187603404759,
+    "c_sans_E3": -0.11846333326795516,
+    "c_sans_E4": -0.12467005918974884,
+    "c_sans_E5": -0.13061933305570136,
+    "c_sans_E6": -0.12882322836585927,
+    "c_sans_E7": -0.06933467855012836,
+    "c_sans_E8": -0.10259276596011746,
+    "c_sans_E9": -0.09190806948207414,
+    "c_sans_E10": -0.11141831412102941,
+    "c_sans_E11": -0.11242866907928571,
+    "et_c_dk4": 0.14059762241244603,
+    "et_c_dk0": 0.14136538376541907,
+    "c_avec_pandemie": -0.31986094660539754,
+    "et_c_avec_pandemie_dk2": 0.14900010879747425,
+    "c_depuis_1985": -0.03935192958498773,
+    "et_c_depuis_1985_dk2": 0.1526624547986633,
+    "c_avant_2020": -0.16115997009020624,
+    "et_c_avant_2020_dk2": 0.1543953730948356,
+    "c_mediane": -0.09477710072303877,
+    "et_c_mediane_dk2": 0.12339583588682392,
+    "c_coupure_revision": -0.18410606874706076,
+    "et_c_coupure_revision_dk2": 0.11262962870376218,
+    "c_CPI": -0.2235212282671227,
+    "c_UNPR": 0.3783616037574936,
+    "c_PRIME": -0.4420838066786223,
+    "c_TBILL": -0.02577440606211611,
+    "c_TPHS": -0.4690070297251759,
+    "et_c_CPI_dk2": 0.39229889304732257,
+    "et_c_UNPR_dk2": 0.2860924801435713,
+    "et_c_PRIME_dk2": 0.25533728232176334,
+    "et_c_TBILL_dk2": 0.26999941793405297,
+    "et_c_TPHS_dk2": 0.29307611783583964
+   },
+   "verdict_from_pipeline_numbers": "éliminée",
+   "non_conclusion_conditions_held": [],
+   "sealed_verdict": "éliminée",
+   "fields_reproduced": "63/63",
+   "anomalies_outside_main_rows": 0,
+   "nu_by_variable": {
+    "CPI": 0.009839183405889254,
+    "UNPR": 0.018618361363138252,
+    "PRIME": 0.011726819402810307,
+    "TBILL": 0.012848373907158182,
+    "TPHS": 0.024759581713507586
+   }
+  },
+  "descriptive_not_preregistered": {
+   "c_by_variable": [
+    {
+     "label": "CPI",
+     "estimate": -0.2235212283,
+     "se": 0.392298893,
+     "lo90": -0.8688529073,
+     "hi90": 0.4218104508,
+     "n": null
+    },
+    {
+     "label": "UNPR",
+     "estimate": 0.3783616038,
+     "se": 0.2860924801,
+     "lo90": -0.0922605261,
+     "hi90": 0.8489837336,
+     "n": null
+    },
+    {
+     "label": "PRIME",
+     "estimate": -0.4420838067,
+     "se": 0.2553372823,
+     "lo90": -0.8621136361,
+     "hi90": -0.0220539773,
+     "n": null
+    },
+    {
+     "label": "TBILL",
+     "estimate": -0.0257744061,
+     "se": 0.2699994179,
+     "lo90": -0.4699234486,
+     "hi90": 0.4183746364,
+     "n": null
+    },
+    {
+     "label": "TPHS",
+     "estimate": -0.4690070297,
+     "se": 0.2930761178,
+     "lo90": -0.9511172436,
+     "hi90": 0.0131031841,
+     "n": null
+    }
+   ],
+   "c_by_sample": [
+    {
+     "label": "main sample (preregistered test)",
+     "estimate": -0.1221913514,
+     "se": 0.1390879487,
+     "lo90": -0.350991027,
+     "hi90": 0.1066083243,
+     "n": 548.0
+    },
+    {
+     "label": "with the four UNPR targets 2020-06 to 2021-12 (S3)",
+     "estimate": -0.3198609466,
+     "se": 0.1490001088,
+     "lo90": -0.5649661256,
+     "hi90": -0.0747557676,
+     "n": 552.0
+    },
+    {
+     "label": "targets from 1985-06 (S4)",
+     "estimate": -0.0393519296,
+     "se": 0.1526624548,
+     "lo90": -0.2904816677,
+     "hi90": 0.2117778086,
+     "n": null
+    },
+    {
+     "label": "targets to 2019-12 (S5)",
+     "estimate": -0.1611599701,
+     "se": 0.1543953731,
+     "lo90": -0.4151403588,
+     "hi90": 0.0928204187,
+     "n": null
+    }
+   ],
+   "base_slope_by_variable": [
+    {
+     "label": "CPI",
+     "estimate": 0.5013034634,
+     "se": 0.1158859121,
+     "lo90": 0.310671138,
+     "hi90": 0.6919357888,
+     "n": 156
+    },
+    {
+     "label": "UNPR",
+     "estimate": 0.3288933947,
+     "se": 0.1146219623,
+     "lo90": 0.1403402667,
+     "hi90": 0.5174465228,
+     "n": 124
+    },
+    {
+     "label": "PRIME",
+     "estimate": 0.2137028068,
+     "se": 0.1513411434,
+     "lo90": -0.035253374,
+     "hi90": 0.4626589876,
+     "n": 89
+    },
+    {
+     "label": "TBILL",
+     "estimate": 0.496151167,
+     "se": 0.1031853745,
+     "lo90": 0.3264112259,
+     "hi90": 0.6658911081,
+     "n": 67
+    },
+    {
+     "label": "TPHS",
+     "estimate": 0.2946593995,
+     "se": 0.1096558352,
+     "lo90": 0.1142755506,
+     "hi90": 0.4750432485,
+     "n": 112
+    },
+    {
+     "label": "pooled",
+     "estimate": 0.3727715318,
+     "se": 0.0668114494,
+     "lo90": 0.2628666975,
+     "hi90": 0.482676366,
+     "n": 548
+    }
+   ]
+  }
+ },
  "comparison": {
   "table": [
    {
-    "quantity": "rows in the main sample",
-    "US SPF (K20)": "1004",
-    "ECB SPF (K20-ZE)": "578"
+    "quantity": "survey; targets",
+    "US SPF (K20)": "Philadelphia Fed SPF, quarterly growth or levels, 1969-2026",
+    "ECB SPF (K20-ZE)": "ECB SPF, calendar-year averages, 2000-2025",
+    "Livingston (K20-LIV)": "Livingston Survey, June and December levels, 1947-2026"
    },
    {
-    "quantity": "survey dates (clusters for the standard error)",
+    "quantity": "rows in the main sample",
+    "US SPF (K20)": "1004",
+    "ECB SPF (K20-ZE)": "578",
+    "Livingston (K20-LIV)": "548"
+   },
+   {
+    "quantity": "dates (clusters for the standard error)",
     "US SPF (K20)": "223 target quarters",
-    "ECB SPF (K20-ZE)": "107 rounds, 26 target years"
+    "ECB SPF (K20-ZE)": "107 rounds, 26 target years",
+    "Livingston (K20-LIV)": "158 half-years"
    },
    {
     "quantity": "standard error; critical value of the 90% interval",
     "US SPF (K20)": "Driscoll-Kraay, 4 lags; 1.645",
-    "ECB SPF (K20-ZE)": "Driscoll-Kraay, 8 lags; 1.708"
+    "ECB SPF (K20-ZE)": "Driscoll-Kraay, 8 lags; 1.708",
+    "Livingston (K20-LIV)": "Driscoll-Kraay, 2 lags; 1.645"
    },
    {
     "quantity": "base slope, no size split (one constant per series, one common slope)",
     "US SPF (K20)": "0.191 (se 0.047)",
-    "ECB SPF (K20-ZE)": "0.366 (se 0.057)"
+    "ECB SPF (K20-ZE)": "0.366 (se 0.057)",
+    "Livingston (K20-LIV)": "0.373 (se 0.067)"
    },
    {
-    "quantity": "base slope after small news (mean of the series' b)",
+    "quantity": "base slope after small news (mean of the b)",
     "US SPF (K20)": "0.194",
-    "ECB SPF (K20-ZE)": "0.447 (se 0.087)"
+    "ECB SPF (K20-ZE)": "0.447",
+    "Livingston (K20-LIV)": "0.443"
    },
    {
     "quantity": "slope after large news (mean b + c)",
     "US SPF (K20)": "0.164",
-    "ECB SPF (K20-ZE)": "0.341"
+    "ECB SPF (K20-ZE)": "0.341",
+    "Livingston (K20-LIV)": "0.321"
    },
    {
     "quantity": "**extra slope after large news, c (se)**",
     "US SPF (K20)": "**-0.030** (0.071)",
-    "ECB SPF (K20-ZE)": "**-0.106** (0.090)"
+    "ECB SPF (K20-ZE)": "**-0.106** (0.090)",
+    "Livingston (K20-LIV)": "**-0.122** (0.139)"
    },
    {
     "quantity": "90% interval of c",
     "US SPF (K20)": "[-0.146, 0.086]",
-    "ECB SPF (K20-ZE)": "[-0.259, 0.047]"
+    "ECB SPF (K20-ZE)": "[-0.259, 0.047]",
+    "Livingston (K20-LIV)": "[-0.351, 0.107]"
    },
    {
     "quantity": "variance ratio of revisions, large / small news",
     "US SPF (K20)": "3.06",
-    "ECB SPF (K20-ZE)": "8.42"
+    "ECB SPF (K20-ZE)": "8.42",
+    "Livingston (K20-LIV)": "10.10"
    },
    {
     "quantity": "k = s.d. revision / s.d. error (mean)",
     "US SPF (K20)": "0.294",
-    "ECB SPF (K20-ZE)": "0.427"
+    "ECB SPF (K20-ZE)": "0.427",
+    "Livingston (K20-LIV)": "1.015"
    },
    {
-    "quantity": "mechanical bias with 20% noise",
+    "quantity": "noise share of the revision variance, nu",
+    "US SPF (K20)": "assumed 0.20",
+    "ECB SPF (K20-ZE)": "assumed 0.20",
+    "Livingston (K20-LIV)": "measured 0.016 from the individual answers, doubled to 0.031"
+   },
+   {
+    "quantity": "mechanical bias",
     "US SPF (K20)": "0.081",
-    "ECB SPF (K20-ZE)": "0.425"
+    "ECB SPF (K20-ZE)": "0.425",
+    "Livingston (K20-LIV)": "0.122 (with the assumed 0.20: 0.784)"
    },
    {
-    "quantity": "mechanical-bias floor max(0.10, bias)",
+    "quantity": "survival floor max(0.10, bias)",
     "US SPF (K20)": "0.100",
-    "ECB SPF (K20-ZE)": "0.425"
+    "ECB SPF (K20-ZE)": "0.425",
+    "Livingston (K20-LIV)": "0.122"
    },
    {
     "quantity": "c without each episode (range)",
     "US SPF (K20)": "-0.084 to 0.014",
-    "ECB SPF (K20-ZE)": "-0.185 to -0.064"
+    "ECB SPF (K20-ZE)": "-0.185 to -0.064",
+    "Livingston (K20-LIV)": "-0.131 to -0.056"
    },
    {
     "quantity": "effective observations",
     "US SPF (K20)": "820",
-    "ECB SPF (K20-ZE)": "735"
+    "ECB SPF (K20-ZE)": "735",
+    "Livingston (K20-LIV)": "374"
    }
   ],
   "figures": [
-   "figures/fig5_forest_c_us_vs_euro_area.png",
-   "figures/fig6_base_slope_vs_c_two_surveys.png"
+   "figures/fig5_forest_c_three_surveys.png",
+   "figures/fig6_base_slope_vs_c_three_surveys.png"
   ]
  }
 }

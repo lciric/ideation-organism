@@ -11,9 +11,9 @@
 Optional: python run_all.py --seed <path to tests-de-mort> fills empty cache slots by copying the raw files
 the sealed tests downloaded (<ID>/donnees/; recorded as such in data/raw/PROVENANCE.md).
 
-Each study is one function `run_<id>()` registered in STUDIES: K20 (US SPF) and K20-ZE (ECB SPF). A later
-study (the US Livingston Survey, K20-LIV, being preregistered) is added as a new module in src/snu/, a new
-function here and a new entry in STUDIES; the functions below are shared.
+Each study is one function `run_<id>()` registered in STUDIES: K20 (US SPF), K20-ZE (ECB SPF) and K20-LIV
+(US Livingston Survey). A further study is added as a new module in src/snu/, a new function here and a new
+entry in STUDIES; the functions below are shared.
 """
 import hashlib
 import json
@@ -28,7 +28,7 @@ sys.path.insert(0, str(ROOT / "src"))
 warnings.filterwarnings("ignore", message="Cannot parse header or footer")
 warnings.filterwarnings("ignore", message="Workbook contains no default style")
 
-from snu import data, descriptive, figures, k20, k20ze, measures, simulation  # noqa: E402
+from snu import data, descriptive, figures, k20, k20liv, k20ze, measures, simulation  # noqa: E402
 
 RESULTS = ROOT / "results"
 SEALED_TESTS = ROOT.parents[1] / "ideation-finance" / "tests-de-mort"   # read only: sha256 comparison
@@ -359,42 +359,162 @@ def run_k20ze():
     return entry, L, (tid, n_ok, n, verdict, sealed["verdict"]), repro, ctx
 
 
+# ------------------------------------------------------------------------------------------ K20-LIV
+def run_k20liv():
+    """The Livingston study: preregistered test K20-LIV (blind replication on the US Livingston Survey,
+    1947-2026) plus descriptive analyses. Returns the same five items as run_k20."""
+    tid = "K20-LIV"
+    df = k20liv.build_k20liv()
+    df.to_csv(ROOT / "data" / "processed" / "K20-LIV_analysis.csv", index=False)
+
+    # ---- preregistered
+    fields, x = k20liv.run(df)
+    sealed = json.loads((ROOT / "audit" / tid / "verdict.json").read_text(encoding="utf-8"))
+    fields = {k: int(v) if isinstance(sealed["chiffres_verificateur"].get(k), int) else float(v)
+              for k, v in fields.items()}
+    verdict, held = verdict_from_rule(sealed["regle"], fields)
+    repro, n_ok, n = reproduction_table(tid, fields, sealed)
+    _, anomalies, _ = k20liv.schema_checks(df)
+    print(f"{tid}: {n_ok}/{n} fields reproduced; verdict from rule: {verdict} (sealed: {sealed['verdict']})")
+
+    # ---- descriptive, not preregistered
+    c_var = descriptive.liv_c_by_variable(fields)
+    samples = descriptive.liv_samples(fields)
+    slopes = descriptive.liv_base_slopes(x["base"])
+    entry = {
+        "question": "Does the under-reaction of the Livingston Survey consensus grow after large news (extra slope c > 0)?",
+        "preregistered": {"fields": fields, "verdict_from_pipeline_numbers": verdict,
+                          "non_conclusion_conditions_held": held, "sealed_verdict": sealed["verdict"],
+                          "fields_reproduced": f"{n_ok}/{n}", "anomalies_outside_main_rows": anomalies,
+                          "nu_by_variable": x["nu_by_variable"]},
+        "descriptive_not_preregistered": {"c_by_variable": records(c_var), "c_by_sample": records(samples),
+                                          "base_slope_by_variable": records(slopes)}}
+    f = fields
+    nu = x["nu_by_variable"]
+    L = ["## K20-LIV — Livingston Survey, five variables, targets 1947-2026", "",
+         "A blind replication of K20, preregistered and sealed on 2026-11-13 before any statistic was computed "
+         "(see `../audit/README.md`). Two surveys a year (June, December); for a June or December target, the "
+         "12-month-ahead forecast of the survey a year before is revised by the 6-month-ahead forecast of the "
+         "next survey. Level targets (100 x log for CPI and housing starts); the news is the latest data known "
+         "to the second survey minus the path the first survey expected for that month. The survey publishes "
+         "the individual answers, so the noise in the consensus is measured, not assumed.", "",
+         "### The preregistered test", "",
+         f"- Sample: {f['n_principal']} variable x target rows ({f['n_dates']} half-years), {f['n_grands']} after "
+         f"large news. Schema: `n_violations_schema` = {f['n_violations_schema']}; anomalies outside the main "
+         f"rows: {anomalies}.",
+         f"- **Extra slope after large news c = {f['c']:.3f}** (Driscoll-Kraay 2-lag se {f['et_c_dk2']:.3f}, "
+         f"t = {f['t_c']:.2f}); 90% interval [{f['borne_basse_ic90']:.3f}, {f['borne_haute_ic90']:.3f}]. The "
+         "prediction was +0.40.",
+         f"- **Positive control passed** (`controle_positif_ok` = {f['controle_positif_ok']}): pooled slope "
+         f"b_regroupe = {f['b_regroupe']:.3f} (se {f['et_b_regroupe_dk2']:.3f}, lower 90% bound "
+         f"{f['borne_basse_b_ic90']:.3f}); slope after small news {f['b_moyen']:.3f}, after large news "
+         f"{f['pente_moyenne_grandes']:.3f}.",
+         f"- **Floor measured, not assumed**: the sampling noise of the consensus is "
+         f"{f['nu_mesure']:.3f} of the revision variance (mean over variables of the median row; by variable "
+         + ", ".join(f"{v} {nu[v]:.3f}" for v in nu)
+         + f"), doubled as preregistered, so the mechanical bias is {f['biais_mecanique_mesure']:.3f} and the "
+         f"survival floor {f['seuil_survie_bas']:.3f}. With K20's assumed 20% noise the same formula would give "
+         f"{f['biais_mecanique_nu20']:.3f}. Revision variance ratio large/small {f['rapport_variance_revision']:.2f}; "
+         f"k = {f['k_moyen']:.2f}.",
+         f"- **Verdict from the sealed rule applied to this pipeline's numbers: {verdict}** (sealed verdict: "
+         f"{sealed['verdict']}); no non-conclusion condition holds. Elimination case (a): the upper bound "
+         f"{f['borne_haute_ic90']:.3f} is below 0.40. Without each of the eleven episodes c stays between "
+         f"{f['c_min_sans_episode']:.3f} and {max(f[f'c_sans_E{i}'] for i in range(1, 12)):.3f}.",
+         f"- The dispersions turned out to be those of the preregistration's scenario S-b (level targets: k about 1 "
+         f"and a variance ratio about 5 or more; here k = {f['k_moyen']:.2f} and the ratio "
+         f"{f['rapport_variance_revision']:.1f}), not the K20 dispersions of its main scenario. Under S-b the "
+         "simulated probability of eliminating a null effect was 0.78, just under the 0.80 required; the "
+         "positive control passed and the test decided.", "",
+         "Preregistered secondary analyses (computed by the rule, outside the verdict):", "",
+         "| analysis | c | se |", "|---|---|---|",
+         f"| S2: 4 / 0 lags | {f['c']:.3f} | {f['et_c_dk4']:.3f} / {f['et_c_dk0']:.3f} |",
+         f"| S3: with UNPR 2020-06 to 2021-12 | {f['c_avec_pandemie']:.3f} | {f['et_c_avec_pandemie_dk2']:.3f} |",
+         f"| S4: targets from 1985 | {f['c_depuis_1985']:.3f} | {f['et_c_depuis_1985_dk2']:.3f} |",
+         f"| S5: targets to 2019 | {f['c_avant_2020']:.3f} | {f['et_c_avant_2020_dk2']:.3f} |",
+         f"| S6: median consensus | {f['c_mediane']:.3f} | {f['et_c_mediane_dk2']:.3f} |",
+         f"| S7: card's cut, \\|revision\\| > 1 s.d. | {f['c_coupure_revision']:.3f} | {f['et_c_coupure_revision_dk2']:.3f} |",
+         "", "### 1. Extra slope c by variable", "", LABEL,
+         "The point estimates are the preregistered secondary S1; the intervals are added here. Unemployment is "
+         "the only variable with a positive c. In the euro area, the only notable positive sign also came from "
+         "unemployment, there with the 2020-2021 targets put back. This is a lead for later, noticed after the "
+         "verdicts on one variable, not a result.", "",
+         "| variable | c_v (se) | 90% interval |", "|---|---|---|"]
+    for _, r in c_var.iterrows():
+        L.append(f"| {r['label']} | {r['estimate']:+.3f} ({r['se']:.3f}) | {ci(r)} |")
+    L += ["", "### 2. c with the pandemic targets, since 1985 and before 2020", "", LABEL,
+          "The estimates are preregistered secondary analyses (S3, S4, S5); the intervals are added here. Unlike "
+          "the euro area, putting the pandemic targets back makes c more negative.", "",
+          "| sample | rows | c (se) | 90% interval |", "|---|---|---|---|"]
+    for _, r in samples.iterrows():
+        rows_ = "" if pd.isna(r["n"]) else int(r["n"])
+        L.append(f"| {r['label']} | {rows_} | {r['estimate']:+.3f} ({r['se']:.3f}) | {ci(r)} |")
+    L += ["", "### 3. Base under-reaction slope by variable", "", LABEL,
+          "One constant per variable, no split by news size, Driscoll-Kraay 2 lags; 'pooled' is the preregistered "
+          "positive control b_regroupe.", "",
+          "| variable | rows | slope (se) | 90% interval |", "|---|---|---|---|"]
+    for _, r in slopes.iterrows():
+        L.append(f"| {r['label']} | {r['n']} | {r['estimate']:.3f} ({r['se']:.3f}) | {ci(r)} |")
+    L += [""]
+    ctx = {"fields": fields, "c_by_variable": c_var, "base_pooled": slopes.iloc[-1].to_dict()}
+    return entry, L, (tid, n_ok, n, verdict, sealed["verdict"]), repro, ctx
+
+
 # ------------------------------------------------------------------------------------------ comparison
+SURVEYS = {"K20": "US SPF, 1969-2026 (K20)", "K20-ZE": "ECB SPF, 2000-2025 (K20-ZE)",
+           "K20-LIV": "Livingston, 1947-2026 (K20-LIV)"}
+
+
 def compare_studies(ctx):
-    """US (K20) and euro area (K20-ZE) side by side, and figures 5-6. Returns (results entry, RESULTS.md lines,
-    figure names)."""
-    us, ea = ctx["K20"], ctx["K20-ZE"]
-    u, e = us["fields"], ea["fields"]
-    table = descriptive.comparison(u, us["base_pooled"], e)
-    figs = ["fig5_forest_c_us_vs_euro_area.png", "fig6_base_slope_vs_c_two_surveys.png"]
-    us_pooled = {"estimate": u["c"], "lo90": u["borne_basse_ic90"], "hi90": u["borne_haute_ic90"]}
-    ea_pooled = {"estimate": e["c"], "lo90": e["borne_basse_ic90"], "hi90": e["borne_haute_ic90"]}
-    figures.fig5_forest_c(us_pooled, us["c_by_variable"], ea_pooled, ea["c_by_variable"], FIGURES / figs[0])
-    b_us, b_ea = us["base_pooled"], ea["base_pooled"]
-    two = [{"survey": "US SPF, 1969-2026 (K20)", "quantity": "base", **{k: b_us[k] for k in ("estimate", "lo90", "hi90")}},
-           {"survey": "US SPF, 1969-2026 (K20)", "quantity": "c", **us_pooled},
-           {"survey": "ECB SPF, 2000-2025 (K20-ZE)", "quantity": "base", **{k: b_ea[k] for k in ("estimate", "lo90", "hi90")}},
-           {"survey": "ECB SPF, 2000-2025 (K20-ZE)", "quantity": "c", **ea_pooled}]
-    figures.fig6_base_vs_c(pd.DataFrame(two), e["c_avec_pandemie"], e["et_c_avec_pandemie_dk8"], FIGURES / figs[1])
-    L = ["## Two surveys, two continents, the same answer", "", LABEL,
-         "Side by side, the quantities that decide or frame the two preregistered tests. Both consensus forecasts "
-         "under-react on average (positive base slope; in the euro area the preregistered positive control "
-         "passes), and in neither does the under-reaction grow after large news: both intervals for c contain 0 "
-         "and exclude the predicted +0.40. The euro-area floor for the mechanical bias "
-         f"({e['seuil_survie_bas']:.2f}) is far above the 0.10 that the decisiveness simulation of its "
-         "preregistration assumed (the variance ratio of revisions is "
-         f"{e['rapport_variance_revision']:.1f}, not about 3); that would have mattered for a survival, not for "
-         "the elimination, which rests on the upper bound of c alone.", "",
-         "| quantity | US SPF (K20) | ECB SPF (K20-ZE) |", "|---|---|---|"]
-    L += [f"| {r.quantity} | {r[2]} | {r[3]} |" for r in table.itertuples()]
-    L += ["", "The US base slope is the descriptive pooled slope of section K20.1; the euro-area one is the "
-          "preregistered b_commun. Both have one constant per series and one common slope, in standardised units.", ""]
+    """The surveys side by side (table), and figures 5-6. Returns (results entry, RESULTS.md lines, figure names)."""
+    tids = [t for t in ("K20", "K20-ZE", "K20-LIV") if t in ctx]
+    pooled = {t: {"estimate": ctx[t]["fields"]["c"], "lo90": ctx[t]["fields"]["borne_basse_ic90"],
+                  "hi90": ctx[t]["fields"]["borne_haute_ic90"]} for t in tids}
+    table = descriptive.comparison(*[(ctx[t]["fields"], ctx[t]["base_pooled"]) for t in tids])
+    figs = ["fig5_forest_c_three_surveys.png", "fig6_base_slope_vs_c_three_surveys.png"]
+    titles = {"K20": "US SPF, all five variables (K20)", "K20-ZE": "ECB SPF, all three variables (K20-ZE)",
+              "K20-LIV": "Livingston, all five variables (K20-LIV)"}
+    names = {"K20": figures.US_NAMES, "K20-ZE": figures.EA_NAMES, "K20-LIV": figures.LIV_NAMES}
+    figures.fig5_forest_c([(titles[t], pooled[t], ctx[t]["c_by_variable"], names[t]) for t in tids], FIGURES / figs[0])
+    rows = []
+    for t in tids:
+        b = ctx[t]["base_pooled"]
+        rows += [{"survey": SURVEYS[t].replace(", ", "\n", 1), "quantity": "base",
+                  **{k: b[k] for k in ("estimate", "lo90", "hi90")}},
+                 {"survey": SURVEYS[t].replace(", ", "\n", 1), "quantity": "c", **pooled[t]}]
+    e = ctx["K20-ZE"]["fields"]
+    figures.fig6_base_vs_c(pd.DataFrame(rows), e["c_avec_pandemie"], e["et_c_avec_pandemie_dk8"], FIGURES / figs[1])
+    base = [ctx[t]["base_pooled"]["estimate"] for t in tids]
+    cs = [ctx[t]["fields"]["c"] for t in tids]
+    L = [f"## {'Three' if len(tids) == 3 else 'Two'} surveys, two continents, the same answer", "", LABEL,
+         f"Side by side, the quantities that decide or frame the preregistered tests. Every consensus under-reacts "
+         f"on average (base slope {min(base):.2f} to {max(base):.2f}; the preregistered positive controls of the "
+         f"replications pass), and in none does the under-reaction grow after large news (c {min(cs):+.2f} to "
+         f"{max(cs):+.2f}; every 90% interval for c contains 0 and excludes the predicted +0.40). The two "
+         "conclusive tests (K20-ZE, K20-LIV) are eliminated; K20 itself is 'non concluant' only through a schema "
+         "guard on a row outside every regression.", "",
+         "Honest notes:",
+         f"- **K20 is inconclusive by its own rule.** The extra slope is near zero, but one schema check failed on a "
+         "row (CPI 2026-Q1) that enters no regression, and the sealed rule makes that 'non concluant'.",
+         f"- **The ECB SPF floor ({e['seuil_survie_bas']:.2f}) was far above the 0.10 assumed** in the decisiveness "
+         f"simulation of its preregistration (variance ratio {e['rapport_variance_revision']:.1f}, not about 3). That "
+         "would have blocked a survival; it does not touch the elimination, which rests on the upper bound of c."]
+    if "K20-LIV" in ctx:
+        l = ctx["K20-LIV"]["fields"]
+        L += [f"- **The Livingston dispersions were the preregistration's scenario S-b** (k = {l['k_moyen']:.2f}, "
+              f"variance ratio {l['rapport_variance_revision']:.1f}), where the simulated probability of eliminating a "
+              "null effect was 0.78, not the 0.94 of the main scenario. Its floor was measured from the individual "
+              f"answers (nu = {l['nu_mesure']:.3f}, doubled; floor {l['seuil_survie_bas']:.2f}), so a real +0.40 "
+              "effect would have had a fair chance to survive."]
+    L += ["", "| " + " | ".join(table.columns) + " |", "|" + "---|" * len(table.columns)]
+    L += ["| " + " | ".join(str(x) for x in r) + " |" for r in table.itertuples(index=False)]
+    L += ["", "Base slopes: one constant per series and one common slope, in standardised units (US SPF: the "
+          "descriptive pooled slope of section K20.1; ECB SPF: the preregistered b_commun; Livingston: the "
+          "preregistered b_regroupe).", ""]
     entry = {"table": records(table), "figures": [f"figures/{f}" for f in figs]}
     return entry, L, figs
 
 
-STUDIES = {"K20": run_k20, "K20-ZE": run_k20ze}
-# "K20-LIV": run_k20liv,   # US Livingston Survey: being preregistered; add its module, function and audit/K20-LIV/
+STUDIES = {"K20": run_k20, "K20-ZE": run_k20ze, "K20-LIV": run_k20liv}
 
 
 def main():
@@ -431,15 +551,20 @@ def main():
     head += [f"| {t} | {a} / {b} | {v} | {s} |" for t, a, b, v, s in summary] + [""]
     (RESULTS / "reproduction.md").write_text("\n".join(head + repro), encoding="utf-8")
     intro = ["# Results", "",
-             "Does forecasters' under-reaction grow with the size of news? Two preregistered tests answer it on two",
-             "surveys: K20 on the US Survey of Professional Forecasters (1969-2026) and K20-ZE, a blind replication",
-             "on the ECB Survey of Professional Forecasters (2000-2025). For each, the primary statistic, its",
-             "interval and the guards are computed exactly as sealed (see `../audit/`); only they enter the verdict.",
+             "Does forecasters' under-reaction grow with the size of news? Three preregistered tests answer it on three",
+             "surveys and two continents, 1947-2026: K20 on the US Survey of Professional Forecasters (1969-2026),",
+             "and two blind replications, K20-ZE on the ECB Survey of Professional Forecasters (2000-2025) and K20-LIV",
+             "on the US Livingston Survey (1947-2026). For each, the primary statistic, its interval and the guards",
+             "are computed exactly as sealed (see `../audit/`); only they enter the verdict.",
              "Every section marked *Descriptive, not preregistered* was added for this project and describes the",
              "data; none of it can change a verdict.", "",
+             "Answer: under-reaction yes, size-dependence no. Every consensus under-reacts on average, and in none",
+             "does the under-reaction grow after large news; the predicted extra slope (+0.40) is excluded in both",
+             "conclusive tests. Honest notes are in the comparison section at the end.", "",
              "| test | survey | extra slope after large news, c | 90% interval | verdict (sealed rule) |",
              "|---|---|---|---|---|"]
-    for tid, survey in (("K20", "US SPF, 1969-2026"), ("K20-ZE", "ECB SPF, 2000-2025")):
+    for tid, survey in (("K20", "US SPF, 1969-2026"), ("K20-ZE", "ECB SPF, 2000-2025"),
+                        ("K20-LIV", "Livingston Survey, 1947-2026")):
         if tid in results:
             f = results[tid]["preregistered"]["fields"]
             intro.append(f"| {tid} | {survey} | {f['c']:.3f} | [{f['borne_basse_ic90']:.3f}, {f['borne_haute_ic90']:.3f}] | "

@@ -5,8 +5,8 @@ otherwise it is downloaded (with retries and growing waits) and written without 
 URL, origin, date, sha256 and size go to data/raw/provenance.json, from which data/raw/PROVENANCE.md is
 written.
 
-The catalogue is grouped by test (`CATALOGUES`): K20 (US) and K20-ZE (euro area). A later test (the
-Livingston Survey replication K20-LIV) adds its own group of files here; nothing else in this module changes.
+The catalogue is grouped by test (`CATALOGUES`): K20 (US SPF), K20-ZE (ECB SPF) and K20-LIV (US Livingston
+Survey). A further test adds its own group of files here; nothing else in this module changes.
 """
 import datetime
 import hashlib
@@ -57,8 +57,22 @@ def k20ze_catalogue():
     }
 
 
-# K20-LIV (US Livingston Survey) is being preregistered; its file group will be added here.
-CATALOGUES = {"K20": k20_catalogue, "K20-ZE": k20ze_catalogue}
+LIVINGSTON = ("https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/livingston-survey/")
+LIV_FRED = ["CPIAUCNS", "CPIAUCSL", "UNRATE", "DPRIME", "DTB3", "HOUST", "USRECP", "USREC"]
+
+
+def k20liv_catalogue():
+    """K20-LIV files (US Livingston Survey): mean, median and individual forecasts, the survey documentation,
+    and eight FRED series (outturns; USRECP and USREC only to check the episode windows)."""
+    cat = {f"livingston/{f}.xlsx": (LIVINGSTON + f"historical-data/{f}.xlsx", b"PK")
+           for f in ["means", "medians", "individualdata"]}
+    cat["livingston/livingston-documentation.pdf"] = (LIVINGSTON + "livingston-documentation.pdf", b"%PDF")
+    for s in LIV_FRED:
+        cat[f"fred/{s}.csv"] = (FRED + s, b"observation_date")
+    return cat
+
+
+CATALOGUES = {"K20": k20_catalogue, "K20-ZE": k20ze_catalogue, "K20-LIV": k20liv_catalogue}
 
 # Name of each cache file in the raw-download folder (`donnees/`) of the sealed test, for seeding.
 SEALED_NAMES = {
@@ -67,6 +81,9 @@ SEALED_NAMES = {
                "eurostat/prc_hicp_ainr_A_RCH_A_AVG_TOTAL_EA.csv": "eurostat_prc_hicp_ainr.csv",
                "eurostat/nama_10_gdp_A_CLV_PCH_PRE_B1GQ_EA.csv": "eurostat_nama_10_gdp.csv",
                "eurostat/une_rt_m_M_NSA_TOTAL_PC_ACT_T_EA21.csv": "eurostat_une_rt_m.csv"},
+    "K20-LIV": {**{f"livingston/{f}": f for f in ["means.xlsx", "medians.xlsx", "individualdata.xlsx",
+                                                     "livingston-documentation.pdf"]},
+                **{f"fred/{s}.csv": f"FRED_{s}.csv" for s in LIV_FRED}},
 }
 
 
@@ -152,18 +169,19 @@ def seed_from(tests_dir):
 
 
 def compare_with_sealed(tests_dir):
-    """{cache name: True/False/None}: is the cached file byte-identical (sha256) to the sealed test's copy?
-    None when the sealed folder has no copy."""
+    """{cache name: True/False/None}: is the cached file byte-identical (sha256) to every sealed test's copy
+    of it (FRED's CPIAUCSL and UNRATE serve two tests)? None when no sealed folder has a copy."""
     tests_dir = Path(tests_dir)
     out = {}
     for tid, names in SEALED_NAMES.items():
         for name, sealed_name in names.items():
             source = tests_dir / tid / "donnees" / sealed_name
             if source.exists() and (RAW / name).exists():
-                out[name] = (hashlib.sha256(source.read_bytes()).hexdigest()
-                             == hashlib.sha256((RAW / name).read_bytes()).hexdigest())
+                same = (hashlib.sha256(source.read_bytes()).hexdigest()
+                        == hashlib.sha256((RAW / name).read_bytes()).hexdigest())
+                out[name] = same if out.get(name) is None else (out[name] and same)
             else:
-                out[name] = None
+                out.setdefault(name, None)
     return out
 
 
@@ -179,8 +197,11 @@ def read_excel(path, sheet):
 
 
 def count_rows(name):
-    """Data rows of a cache file (CSV: lines minus header; zip: rows of 1_HICP.csv; xlsx: first sheet)."""
+    """Data rows of a cache file (CSV: lines minus header; zip: rows of 1_HICP.csv; xlsx: first sheet;
+    '–' for a PDF)."""
     path = RAW / name
+    if name.endswith(".pdf"):
+        return "–"
     if name.endswith(".csv"):
         return max(len(path.read_bytes().splitlines()) - 1, 0)
     if name.endswith(".zip"):

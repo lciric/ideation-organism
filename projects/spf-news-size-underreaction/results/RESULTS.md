@@ -1,16 +1,22 @@
 # Results
 
-Does forecasters' under-reaction grow with the size of news? Two preregistered tests answer it on two
-surveys: K20 on the US Survey of Professional Forecasters (1969-2026) and K20-ZE, a blind replication
-on the ECB Survey of Professional Forecasters (2000-2025). For each, the primary statistic, its
-interval and the guards are computed exactly as sealed (see `../audit/`); only they enter the verdict.
+Does forecasters' under-reaction grow with the size of news? Three preregistered tests answer it on three
+surveys and two continents, 1947-2026: K20 on the US Survey of Professional Forecasters (1969-2026),
+and two blind replications, K20-ZE on the ECB Survey of Professional Forecasters (2000-2025) and K20-LIV
+on the US Livingston Survey (1947-2026). For each, the primary statistic, its interval and the guards
+are computed exactly as sealed (see `../audit/`); only they enter the verdict.
 Every section marked *Descriptive, not preregistered* was added for this project and describes the
 data; none of it can change a verdict.
+
+Answer: under-reaction yes, size-dependence no. Every consensus under-reacts on average, and in none
+does the under-reaction grow after large news; the predicted extra slope (+0.40) is excluded in both
+conclusive tests. Honest notes are in the comparison section at the end.
 
 | test | survey | extra slope after large news, c | 90% interval | verdict (sealed rule) |
 |---|---|---|---|---|
 | K20 | US SPF, 1969-2026 | -0.030 | [-0.146, 0.086] | non concluant |
 | K20-ZE | ECB SPF, 2000-2025 | -0.106 | [-0.259, 0.047] | éliminée |
+| K20-LIV | Livingston Survey, 1947-2026 | -0.122 | [-0.351, 0.107] | éliminée |
 
 ## K20 — US Survey of Professional Forecasters, five variables, targets 1969-2026
 
@@ -173,29 +179,99 @@ One constant per series (variable x horizon), no split by news size; 'pooled' is
 | target years 2010-2019 (44 rounds) | 240 | 0.318 (0.123) | [0.11, 0.53] |
 | target years 2020-2025 (28 rounds) | 104 | 0.232 (0.096) | [0.07, 0.40] |
 
-## Two surveys, two continents, the same answer
+## K20-LIV — Livingston Survey, five variables, targets 1947-2026
+
+A blind replication of K20, preregistered and sealed on 2026-11-13 before any statistic was computed (see `../audit/README.md`). Two surveys a year (June, December); for a June or December target, the 12-month-ahead forecast of the survey a year before is revised by the 6-month-ahead forecast of the next survey. Level targets (100 x log for CPI and housing starts); the news is the latest data known to the second survey minus the path the first survey expected for that month. The survey publishes the individual answers, so the noise in the consensus is measured, not assumed.
+
+### The preregistered test
+
+- Sample: 548 variable x target rows (158 half-years), 182 after large news. Schema: `n_violations_schema` = 0; anomalies outside the main rows: 0.
+- **Extra slope after large news c = -0.122** (Driscoll-Kraay 2-lag se 0.139, t = -0.88); 90% interval [-0.351, 0.107]. The prediction was +0.40.
+- **Positive control passed** (`controle_positif_ok` = 1): pooled slope b_regroupe = 0.373 (se 0.067, lower 90% bound 0.263); slope after small news 0.443, after large news 0.321.
+- **Floor measured, not assumed**: the sampling noise of the consensus is 0.016 of the revision variance (mean over variables of the median row; by variable CPI 0.010, UNPR 0.019, PRIME 0.012, TBILL 0.013, TPHS 0.025), doubled as preregistered, so the mechanical bias is 0.122 and the survival floor 0.122. With K20's assumed 20% noise the same formula would give 0.784. Revision variance ratio large/small 10.10; k = 1.02.
+- **Verdict from the sealed rule applied to this pipeline's numbers: éliminée** (sealed verdict: éliminée); no non-conclusion condition holds. Elimination case (a): the upper bound 0.107 is below 0.40. Without each of the eleven episodes c stays between -0.131 and -0.056.
+- The dispersions turned out to be those of the preregistration's scenario S-b (level targets: k about 1 and a variance ratio about 5 or more; here k = 1.02 and the ratio 10.1), not the K20 dispersions of its main scenario. Under S-b the simulated probability of eliminating a null effect was 0.78, just under the 0.80 required; the positive control passed and the test decided.
+
+Preregistered secondary analyses (computed by the rule, outside the verdict):
+
+| analysis | c | se |
+|---|---|---|
+| S2: 4 / 0 lags | -0.122 | 0.141 / 0.141 |
+| S3: with UNPR 2020-06 to 2021-12 | -0.320 | 0.149 |
+| S4: targets from 1985 | -0.039 | 0.153 |
+| S5: targets to 2019 | -0.161 | 0.154 |
+| S6: median consensus | -0.095 | 0.123 |
+| S7: card's cut, \|revision\| > 1 s.d. | -0.184 | 0.113 |
+
+### 1. Extra slope c by variable
 
 *Descriptive, not preregistered.*
-Side by side, the quantities that decide or frame the two preregistered tests. Both consensus forecasts under-react on average (positive base slope; in the euro area the preregistered positive control passes), and in neither does the under-reaction grow after large news: both intervals for c contain 0 and exclude the predicted +0.40. The euro-area floor for the mechanical bias (0.43) is far above the 0.10 that the decisiveness simulation of its preregistration assumed (the variance ratio of revisions is 8.4, not about 3); that would have mattered for a survival, not for the elimination, which rests on the upper bound of c alone.
+The point estimates are the preregistered secondary S1; the intervals are added here. Unemployment is the only variable with a positive c. In the euro area, the only notable positive sign also came from unemployment, there with the 2020-2021 targets put back. This is a lead for later, noticed after the verdicts on one variable, not a result.
 
-| quantity | US SPF (K20) | ECB SPF (K20-ZE) |
+| variable | c_v (se) | 90% interval |
 |---|---|---|
-| rows in the main sample | 1004 | 578 |
-| survey dates (clusters for the standard error) | 223 target quarters | 107 rounds, 26 target years |
-| standard error; critical value of the 90% interval | Driscoll-Kraay, 4 lags; 1.645 | Driscoll-Kraay, 8 lags; 1.708 |
-| base slope, no size split (one constant per series, one common slope) | 0.191 (se 0.047) | 0.366 (se 0.057) |
-| base slope after small news (mean of the series' b) | 0.194 | 0.447 (se 0.087) |
-| slope after large news (mean b + c) | 0.164 | 0.341 |
-| **extra slope after large news, c (se)** | **-0.030** (0.071) | **-0.106** (0.090) |
-| 90% interval of c | [-0.146, 0.086] | [-0.259, 0.047] |
-| variance ratio of revisions, large / small news | 3.06 | 8.42 |
-| k = s.d. revision / s.d. error (mean) | 0.294 | 0.427 |
-| mechanical bias with 20% noise | 0.081 | 0.425 |
-| mechanical-bias floor max(0.10, bias) | 0.100 | 0.425 |
-| c without each episode (range) | -0.084 to 0.014 | -0.185 to -0.064 |
-| effective observations | 820 | 735 |
+| CPI | -0.224 (0.392) | [-0.87, 0.42] |
+| UNPR | +0.378 (0.286) | [-0.09, 0.85] |
+| PRIME | -0.442 (0.255) | [-0.86, -0.02] |
+| TBILL | -0.026 (0.270) | [-0.47, 0.42] |
+| TPHS | -0.469 (0.293) | [-0.95, 0.01] |
 
-The US base slope is the descriptive pooled slope of section K20.1; the euro-area one is the preregistered b_commun. Both have one constant per series and one common slope, in standardised units.
+### 2. c with the pandemic targets, since 1985 and before 2020
+
+*Descriptive, not preregistered.*
+The estimates are preregistered secondary analyses (S3, S4, S5); the intervals are added here. Unlike the euro area, putting the pandemic targets back makes c more negative.
+
+| sample | rows | c (se) | 90% interval |
+|---|---|---|---|
+| main sample (preregistered test) | 548 | -0.122 (0.139) | [-0.35, 0.11] |
+| with the four UNPR targets 2020-06 to 2021-12 (S3) | 552 | -0.320 (0.149) | [-0.56, -0.07] |
+| targets from 1985-06 (S4) |  | -0.039 (0.153) | [-0.29, 0.21] |
+| targets to 2019-12 (S5) |  | -0.161 (0.154) | [-0.42, 0.09] |
+
+### 3. Base under-reaction slope by variable
+
+*Descriptive, not preregistered.*
+One constant per variable, no split by news size, Driscoll-Kraay 2 lags; 'pooled' is the preregistered positive control b_regroupe.
+
+| variable | rows | slope (se) | 90% interval |
+|---|---|---|---|
+| CPI | 156 | 0.501 (0.116) | [0.31, 0.69] |
+| UNPR | 124 | 0.329 (0.115) | [0.14, 0.52] |
+| PRIME | 89 | 0.214 (0.151) | [-0.04, 0.46] |
+| TBILL | 67 | 0.496 (0.103) | [0.33, 0.67] |
+| TPHS | 112 | 0.295 (0.110) | [0.11, 0.48] |
+| pooled | 548 | 0.373 (0.067) | [0.26, 0.48] |
+
+## Three surveys, two continents, the same answer
+
+*Descriptive, not preregistered.*
+Side by side, the quantities that decide or frame the preregistered tests. Every consensus under-reacts on average (base slope 0.19 to 0.37; the preregistered positive controls of the replications pass), and in none does the under-reaction grow after large news (c -0.12 to -0.03; every 90% interval for c contains 0 and excludes the predicted +0.40). The two conclusive tests (K20-ZE, K20-LIV) are eliminated; K20 itself is 'non concluant' only through a schema guard on a row outside every regression.
+
+Honest notes:
+- **K20 is inconclusive by its own rule.** The extra slope is near zero, but one schema check failed on a row (CPI 2026-Q1) that enters no regression, and the sealed rule makes that 'non concluant'.
+- **The ECB SPF floor (0.43) was far above the 0.10 assumed** in the decisiveness simulation of its preregistration (variance ratio 8.4, not about 3). That would have blocked a survival; it does not touch the elimination, which rests on the upper bound of c.
+- **The Livingston dispersions were the preregistration's scenario S-b** (k = 1.02, variance ratio 10.1), where the simulated probability of eliminating a null effect was 0.78, not the 0.94 of the main scenario. Its floor was measured from the individual answers (nu = 0.016, doubled; floor 0.12), so a real +0.40 effect would have had a fair chance to survive.
+
+| quantity | US SPF (K20) | ECB SPF (K20-ZE) | Livingston (K20-LIV) |
+|---|---|---|---|
+| survey; targets | Philadelphia Fed SPF, quarterly growth or levels, 1969-2026 | ECB SPF, calendar-year averages, 2000-2025 | Livingston Survey, June and December levels, 1947-2026 |
+| rows in the main sample | 1004 | 578 | 548 |
+| dates (clusters for the standard error) | 223 target quarters | 107 rounds, 26 target years | 158 half-years |
+| standard error; critical value of the 90% interval | Driscoll-Kraay, 4 lags; 1.645 | Driscoll-Kraay, 8 lags; 1.708 | Driscoll-Kraay, 2 lags; 1.645 |
+| base slope, no size split (one constant per series, one common slope) | 0.191 (se 0.047) | 0.366 (se 0.057) | 0.373 (se 0.067) |
+| base slope after small news (mean of the b) | 0.194 | 0.447 | 0.443 |
+| slope after large news (mean b + c) | 0.164 | 0.341 | 0.321 |
+| **extra slope after large news, c (se)** | **-0.030** (0.071) | **-0.106** (0.090) | **-0.122** (0.139) |
+| 90% interval of c | [-0.146, 0.086] | [-0.259, 0.047] | [-0.351, 0.107] |
+| variance ratio of revisions, large / small news | 3.06 | 8.42 | 10.10 |
+| k = s.d. revision / s.d. error (mean) | 0.294 | 0.427 | 1.015 |
+| noise share of the revision variance, nu | assumed 0.20 | assumed 0.20 | measured 0.016 from the individual answers, doubled to 0.031 |
+| mechanical bias | 0.081 | 0.425 | 0.122 (with the assumed 0.20: 0.784) |
+| survival floor max(0.10, bias) | 0.100 | 0.425 | 0.122 |
+| c without each episode (range) | -0.084 to 0.014 | -0.185 to -0.064 | -0.131 to -0.056 |
+| effective observations | 820 | 735 | 374 |
+
+Base slopes: one constant per series and one common slope, in standardised units (US SPF: the descriptive pooled slope of section K20.1; ECB SPF: the preregistered b_commun; Livingston: the preregistered b_regroupe).
 
 ## Figures
 
@@ -203,5 +279,5 @@ The US base slope is the descriptive pooled slope of section K20.1; the euro-are
 2. `figures/fig2_c_without_each_episode.png`
 3. `figures/fig3_sort_on_revision_vs_surprise.png`
 4. `figures/fig4_base_slope_by_decade.png`
-5. `figures/fig5_forest_c_us_vs_euro_area.png`
-6. `figures/fig6_base_slope_vs_c_two_surveys.png`
+5. `figures/fig5_forest_c_three_surveys.png`
+6. `figures/fig6_base_slope_vs_c_three_surveys.png`

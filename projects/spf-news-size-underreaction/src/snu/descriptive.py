@@ -6,7 +6,8 @@ error) and large (1 after a large surprise). Standard errors are Driscoll-Kraay 
 target quarter), as in the preregistered test; 90% intervals are estimate +/- 1.645 se.
 
 Euro area (K20-ZE, functions ea_*): the same ideas on k20ze.run's sample, with its six series, 8 lags by
-survey round and the critical value 1.708. `comparison` puts the two surveys side by side.
+survey round and the critical value 1.708. Livingston (K20-LIV, functions liv_*): k20liv.run's sample, 2 lags
+by half-year, 1.645. `comparison` puts the surveys side by side.
 """
 import math
 
@@ -21,10 +22,10 @@ DECADES = [("1969-1979", 7879, 7919), ("1980-1989", 7920, 7959), ("1990-1999", 7
            ("2000-2009", 8000, 8039), ("2010-2019", 8040, 8079), ("2020-2026", 8080, 8106)]
 
 
-def variables_in(D):
+def variables_in(D, order=k20.VARS):
     """Variables present in D, in the order of the preregistration."""
     present = set(D["variable"])
-    return [v for v in k20.VARS if v in present] + sorted(present - set(k20.VARS))
+    return [v for v in order if v in present] + sorted(present - set(order))
 
 
 def _fit(D, X, ze="z_e", lags=4):
@@ -38,18 +39,18 @@ def _row(label, est, se, n, **extra):
 
 
 # ------------------------------------------------------------------------- 1. base (Coibion-Gorodnichenko) slope
-def cg_slopes(D):
+def cg_slopes(D, lags=4, order=k20.VARS):
     """Slope of the standardised error on the standardised revision, with no split by surprise size:
     one constant per variable, and either one slope per variable or one pooled slope.
     Returns a DataFrame with one row per variable and a last row 'pooled'."""
     D = D.dropna(subset=["z_r", "z_e"])
-    vs = variables_in(D)
+    vs = variables_in(D, order)
     dv = [(D["variable"] == v).astype(float).values for v in vs]
-    beta, V = _fit(D, np.column_stack(dv + [d * D["z_r"].values for d in dv]))
+    beta, V = _fit(D, np.column_stack(dv + [d * D["z_r"].values for d in dv]), lags=lags)
     k = len(vs)
     rows = [_row(v, beta[k + i], math.sqrt(V[k + i, k + i]), int((D["variable"] == v).sum()))
             for i, v in enumerate(vs)]
-    beta, V = _fit(D, np.column_stack(dv + [D["z_r"].values]))
+    beta, V = _fit(D, np.column_stack(dv + [D["z_r"].values]), lags=lags)
     rows.append(_row("pooled", beta[-1], math.sqrt(V[-1, -1]), len(D)))
     return pd.DataFrame(rows)
 
@@ -207,33 +208,80 @@ def ea_by_period(base):
     return pd.DataFrame(rows)
 
 
-def comparison(us_fields, us_base_pooled, ea_fields):
-    """US (K20) and euro area (K20-ZE) side by side: the quantities that decide or frame the two tests."""
-    from .k20ze import CRIT
-    u, e = us_fields, ea_fields
+# ------------------------------------------------------------------------- Livingston (K20-LIV)
+# Same ideas for the Livingston replication: five variables, Driscoll-Kraay with 2 lags of half-years
+# (column t_target = half_year after k20liv.standardise) and the critical value 1.645.
+def liv_c_by_variable(fields):
+    """The preregistered S1 fields c_<v> and et_c_<v>_dk2 of K20-LIV, with 90% intervals."""
+    from .k20liv import VARIABLES
+    return pd.DataFrame([_row(v, fields[f"c_{v}"], fields[f"et_c_{v}_dk2"], None) for v in VARIABLES])
+
+
+def liv_samples(fields):
+    """c in the main sample and in the preregistered secondary samples S3 (with the four UNPR pandemic
+    targets), S4 (targets from 1985-06) and S5 (targets to 2019-12)."""
+    return pd.DataFrame([
+        _row("main sample (preregistered test)", fields["c"], fields["et_c_dk2"], fields["n_principal"]),
+        _row("with the four UNPR targets 2020-06 to 2021-12 (S3)", fields["c_avec_pandemie"],
+             fields["et_c_avec_pandemie_dk2"], fields["n_principal"] + 4),
+        _row("targets from 1985-06 (S4)", fields["c_depuis_1985"], fields["et_c_depuis_1985_dk2"], None),
+        _row("targets to 2019-12 (S5)", fields["c_avant_2020"], fields["et_c_avant_2020_dk2"], None)])
+
+
+def liv_base_slopes(base):
+    """Base slope by variable and pooled (the preregistered b_regroupe), no size split, DK 2 lags."""
+    from .k20liv import LAGS, VARIABLES
+    return cg_slopes(base, lags=LAGS, order=VARIABLES)
+
+
+def comparison(us, ea, liv=None):
+    """The surveys side by side: the quantities that decide or frame each preregistered test.
+    Each argument is (fields, pooled base-slope row); `liv` is optional."""
+    from .k20ze import CRIT as CRIT_EA
+    (u, ub), (e, eb) = us, ea
+    cols = ["quantity", "US SPF (K20)", "ECB SPF (K20-ZE)"] + (["Livingston (K20-LIV)"] if liv else [])
+    l, lb = liv if liv else ({}, {})
+
+    def row(name, fu, fe, fl=None):
+        return [name, fu, fe] + ([fl] if liv else [])
     rows = [
-        ("rows in the main sample", f"{u['n_principal']}", f"{e['n_principal']}"),
-        ("survey dates (clusters for the standard error)", f"{u['n_trimestres']} target quarters",
-         f"{e['n_tours']} rounds, {e['n_annees_cibles']} target years"),
-        ("standard error; critical value of the 90% interval", "Driscoll-Kraay, 4 lags; 1.645",
-         f"Driscoll-Kraay, 8 lags; {CRIT}"),
-        ("base slope, no size split (one constant per series, one common slope)",
-         f"{us_base_pooled['estimate']:.3f} (se {us_base_pooled['se']:.3f})",
-         f"{e['b_commun']:.3f} (se {e['et_b_commun_dk8']:.3f})"),
-        ("base slope after small news (mean of the series' b)", f"{u['b_moyen']:.3f}",
-         f"{e['b_moyen']:.3f} (se {e['et_b_moyen_dk8']:.3f})"),
-        ("slope after large news (mean b + c)", f"{u['pente_moyenne_grandes']:.3f}", f"{e['pente_moyenne_grandes']:.3f}"),
-        ("**extra slope after large news, c (se)**", f"**{u['c']:.3f}** ({u['et_c_dk4']:.3f})",
-         f"**{e['c']:.3f}** ({e['et_c_dk8']:.3f})"),
-        ("90% interval of c", f"[{u['borne_basse_ic90']:.3f}, {u['borne_haute_ic90']:.3f}]",
-         f"[{e['borne_basse_ic90']:.3f}, {e['borne_haute_ic90']:.3f}]"),
-        ("variance ratio of revisions, large / small news", f"{u['rapport_variance_revision']:.2f}",
-         f"{e['rapport_variance_revision']:.2f}"),
-        ("k = s.d. revision / s.d. error (mean)", f"{u['k_moyen']:.3f}", f"{e['k_moyen']:.3f}"),
-        ("mechanical bias with 20% noise", f"{u['biais_mecanique_nu20']:.3f}", f"{e['biais_mecanique_nu20']:.3f}"),
-        ("mechanical-bias floor max(0.10, bias)", f"{u['seuil_survie_bas']:.3f}", f"{e['seuil_survie_bas']:.3f}"),
-        ("c without each episode (range)", f"{u['c_min_sans_episode']:.3f} to {max(u[f'c_sans_E{i}'] for i in range(1, 8)):.3f}",
-         f"{e['c_min_sans_episode']:.3f} to {max(e[f'c_sans_E{i}'] for i in range(1, 4)):.3f}"),
-        ("effective observations", f"{u['n_effectif']:.0f}", f"{e['n_effectif']:.0f}"),
+        row("survey; targets", "Philadelphia Fed SPF, quarterly growth or levels, 1969-2026",
+            "ECB SPF, calendar-year averages, 2000-2025",
+            "Livingston Survey, June and December levels, 1947-2026" if liv else None),
+        row("rows in the main sample", f"{u['n_principal']}", f"{e['n_principal']}",
+            f"{l.get('n_principal', '')}"),
+        row("dates (clusters for the standard error)", f"{u['n_trimestres']} target quarters",
+            f"{e['n_tours']} rounds, {e['n_annees_cibles']} target years",
+            f"{l.get('n_dates', '')} half-years" if liv else None),
+        row("standard error; critical value of the 90% interval", "Driscoll-Kraay, 4 lags; 1.645",
+            f"Driscoll-Kraay, 8 lags; {CRIT_EA}", "Driscoll-Kraay, 2 lags; 1.645" if liv else None),
+        row("base slope, no size split (one constant per series, one common slope)",
+            f"{ub['estimate']:.3f} (se {ub['se']:.3f})", f"{e['b_commun']:.3f} (se {e['et_b_commun_dk8']:.3f})",
+            f"{l['b_regroupe']:.3f} (se {l['et_b_regroupe_dk2']:.3f})" if liv else None),
+        row("base slope after small news (mean of the b)", f"{u['b_moyen']:.3f}", f"{e['b_moyen']:.3f}",
+            f"{l['b_moyen']:.3f}" if liv else None),
+        row("slope after large news (mean b + c)", f"{u['pente_moyenne_grandes']:.3f}",
+            f"{e['pente_moyenne_grandes']:.3f}", f"{l['pente_moyenne_grandes']:.3f}" if liv else None),
+        row("**extra slope after large news, c (se)**", f"**{u['c']:.3f}** ({u['et_c_dk4']:.3f})",
+            f"**{e['c']:.3f}** ({e['et_c_dk8']:.3f})", f"**{l['c']:.3f}** ({l['et_c_dk2']:.3f})" if liv else None),
+        row("90% interval of c", f"[{u['borne_basse_ic90']:.3f}, {u['borne_haute_ic90']:.3f}]",
+            f"[{e['borne_basse_ic90']:.3f}, {e['borne_haute_ic90']:.3f}]",
+            f"[{l['borne_basse_ic90']:.3f}, {l['borne_haute_ic90']:.3f}]" if liv else None),
+        row("variance ratio of revisions, large / small news", f"{u['rapport_variance_revision']:.2f}",
+            f"{e['rapport_variance_revision']:.2f}", f"{l['rapport_variance_revision']:.2f}" if liv else None),
+        row("k = s.d. revision / s.d. error (mean)", f"{u['k_moyen']:.3f}", f"{e['k_moyen']:.3f}",
+            f"{l['k_moyen']:.3f}" if liv else None),
+        row("noise share of the revision variance, nu", "assumed 0.20", "assumed 0.20",
+            f"measured {l['nu_mesure']:.3f} from the individual answers, doubled to {2 * l['nu_mesure']:.3f}" if liv else None),
+        row("mechanical bias", f"{u['biais_mecanique_nu20']:.3f}", f"{e['biais_mecanique_nu20']:.3f}",
+            f"{l['biais_mecanique_mesure']:.3f} (with the assumed 0.20: {l['biais_mecanique_nu20']:.3f})" if liv else None),
+        row("survival floor max(0.10, bias)", f"{u['seuil_survie_bas']:.3f}", f"{e['seuil_survie_bas']:.3f}",
+            f"{l['seuil_survie_bas']:.3f}" if liv else None),
+        row("c without each episode (range)",
+            f"{u['c_min_sans_episode']:.3f} to {max(u[f'c_sans_E{i}'] for i in range(1, 8)):.3f}",
+            f"{e['c_min_sans_episode']:.3f} to {max(e[f'c_sans_E{i}'] for i in range(1, 4)):.3f}",
+            f"{l['c_min_sans_episode']:.3f} to {max(l[f'c_sans_E{i}'] for i in range(1, 12)):.3f}" if liv else None),
+        row("effective observations", f"{u['n_effectif']:.0f}", f"{e['n_effectif']:.0f}",
+            f"{l['n_effectif']:.0f}" if liv else None),
     ]
-    return pd.DataFrame(rows, columns=["quantity", "US SPF (K20)", "ECB SPF (K20-ZE)"])
+    return pd.DataFrame(rows, columns=cols)
