@@ -1,0 +1,72 @@
+== Controles de schema : {1: 1, 2: 1, 3: 1, 4: 1, 5: 0, '5bis': 1, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1, 11: 1}
+   schema_ok litteral = 0 ; schema_ok en lecture alternative (5bis) = 1
+== Temoin (statistique principale et regle)
+  schema_ok = 0
+  n_apres = 113
+  n_grappes_apres = 39
+  n_avant_1030 = 184
+  n_grappes_avant_1030 = 96
+  n_temoins_figes = 7
+  ecart_max_rdt_pb = 4.249933738265099e-11
+  v_moyen_apres_pb = -0.010712612158178265
+  erreur_type_apres_pb = 0.0631483610539182
+  borne_inf_90_apres_pb = -0.11459166609187371
+  borne_sup_90_apres_pb = 0.09316644177551717
+  marge_zone_grise = -0.40683355822448286
+  v_moyen_apres_sans_2023_pb = -0.052369916043071764
+  v_moyen_apres_sans_30_pb = -0.040295954261032454
+  min_robustesse_pb = -0.052369916043071764
+  alerte_robustesse = 0
+  v_moyen_avant_1030_pb = -0.026404730288271817
+  erreur_type_avant_1030_pb = 0.07992485928434677
+  v_moyen_apres_1030_pb = 0.04074068555950909
+  erreur_type_apres_1030_pb = 0.07159070894705444
+  baisse_1030_pb = -0.06714541584778091
+  erreur_type_baisse_pb = 0.10729963997686336
+  borne_inf_90_baisse_pb = -0.24365332360972114
+  alerte_instrument = 1
+  (comptes : P = 302 ; P_apres,10/30 = 76 en 39 mois ; sans 2023 = 93 ; sans 30 = 74)
+  (ecart max entre V du fichier et V du second code : 1.872e-10 pb)
+  (V moyen apres avec les V du fichier : -0.010712612158300095, ET 0.0631483610520919)
+== S1 (descriptif) : p_carte_pb, mesure de la fiche au rendement limite
+  P_apres                                       moyenne =   0.5569  ET =  0.2251  n = 112  mois =  39
+  P_avant,10/30                                 moyenne =   0.8750  ET =  0.2215  n = 184  mois =  96
+== S2 (descriptif) : montee, detente, V du premier ancien
+  montee_pb P_apres                             moyenne =   0.1065  ET =  0.0530  n = 113  mois =  39
+  detente_pb P_apres                            moyenne =  -0.1172  ET =  0.0398  n = 113  mois =  39
+  v_pa_pb P_apres                               moyenne =   0.0190  ET =  0.0610  n = 113  mois =  39
+  montee_pb P_avant,10/30                       moyenne =   0.1199  ET =  0.0873  n = 184  mois =  96
+  detente_pb P_avant,10/30                      moyenne =  -0.1463  ET =  0.0438  n = 184  mois =  96
+  v_pa_pb P_avant,10/30                         moyenne =  -0.0758  ET =  0.0752  n = 184  mois =  96
+== S3 (descriptif)
+  V apres, annee 2022                           moyenne =   0.0018  ET =  0.1889  n =  24  mois =   8
+  V apres, annee 2023                           moyenne =   0.1830  ET =  0.1330  n =  20  mois =   8
+  V apres, annee 2024                           moyenne =  -0.0431  ET =  0.1404  n =  24  mois =   8
+  V apres, annee 2025                           moyenne =  -0.1795  ET =  0.1249  n =  24  mois =   8
+  V apres, annee 2026                           moyenne =   0.0205  ET =  0.0849  n =  21  mois =   7
+  V apres, echeance 10                          moyenne =   0.0358  ET =  0.1264  n =  37  mois =  37
+  V apres, echeance 20                          moyenne =  -0.1164  ET =  0.1584  n =  37  mois =  37
+  V apres, echeance 30                          moyenne =   0.0454  ET =  0.0960  n =  39  mois =  39
+  V apres, sans 2023 et sans 30 ans             moyenne =  -0.0863  ET =  0.1097  n =  62  mois =  31
+  V des 20 ans d'avant 2022                     moyenne =  -0.0322  ET =  0.2752  n =   5  mois =   5
+  V avant, echeance 10                          moyenne =  -0.0072  ET =  0.1372  n =  88  mois =  88
+  V avant, echeance 30                          moyenne =  -0.0440  ET =  0.0423  n =  96  mois =  96
+  ecart-type de V (n-1) : P_apres = 0.7848 ; P_avant,10/30 = 0.9363
+== Descriptif complementaire (hors preinscription) : V par annee, toutes echeances de P
+  V annee 2010                                  moyenne =  -0.3277  ET =  0.4023  n =  16  mois =   8
+  V annee 2011                                  moyenne =   0.0125  ET =  0.1714  n =  16  mois =   8
+  V annee 2012                                  moyenne =   0.0760  ET =  0.1142  n =  16  mois =   8
+  V annee 2013                                  moyenne =  -0.4627  ET =  0.0875  n =  14  mois =   8
+  V annee 2014                                  moyenne =   0.1620  ET =  0.0961  n =  16  mois =   8
+  V annee 2015                                  moyenne =   0.0963  ET =  0.1502  n =  16  mois =   8
+  V annee 2016                                  moyenne =   0.1715  ET =  0.1780  n =  15  mois =   8
+  V annee 2017                                  moyenne =   0.0672  ET =  0.0894  n =  14  mois =   8
+  V annee 2018                                  moyenne =   0.1394  ET =  0.1410  n =  15  mois =   8
+  V annee 2019                                  moyenne =   0.2000  ET =  0.0859  n =  15  mois =   8
+  V annee 2020                                  moyenne =  -0.6120  ET =  0.7736  n =  15  mois =   8
+  V annee 2021                                  moyenne =   0.0823  ET =  0.1333  n =  21  mois =   8
+  V annee 2022                                  moyenne =   0.0018  ET =  0.1889  n =  24  mois =   8
+  V annee 2023                                  moyenne =   0.1830  ET =  0.1330  n =  20  mois =   8
+  V annee 2024                                  moyenne =  -0.0431  ET =  0.1404  n =  24  mois =   8
+  V annee 2025                                  moyenne =  -0.1795  ET =  0.1249  n =  24  mois =   8
+  V annee 2026                                  moyenne =   0.0205  ET =  0.0849  n =  21  mois =   7

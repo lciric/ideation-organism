@@ -493,14 +493,16 @@ def controles(cal, d1):
     for x in d1:
         dates_c.setdefault(x["cusip"], []).append(x["auction_date"])
     ok = True
+    ok_trois = True  # lecture litterale : « trois CUSIP distincts » sur toute ligne non ecartee par les metadonnees
     meta = ("hors_calendrier", "temoins_insuffisants", "titre_non_emis_a_jm5")
     for r in rows:
         if r["motif_exclusion"] in meta:
             continue
         t = [r[f"cusip_t{k}"] for k in (1, 2, 3)]
         if "" in t:
-            # ligne prix_manquant sans trois temoins : on verifie seulement les temoins presents
-            pass
+            # ligne prix_manquant faute de trois temoins valides : la lecture litterale du controle 5 echoue ;
+            # la lecture alternative (5bis) ne verifie que les temoins presents
+            ok_trois = False
         tp = [c for c in t if c]
         ok &= len(set(tp)) == len(tp) and r["cusip"] not in tp and r["cusip_premier_ancien"] not in tp
         rg = [int(r[f"rang_t{k}"]) for k in (1, 2, 3) if r[f"rang_t{k}"]]
@@ -525,7 +527,8 @@ def controles(cal, d1):
         pos = [cand.index(c) if c in cand else 10 ** 6 for c in tp]
         ok &= pos == sorted(pos) and all(p < 3 + s for p in pos)
         ok &= all(int(r[f"rang_t{k}"]) == mem.index(r[f"cusip_t{k}"]) for k in (1, 2, 3) if r[f"cusip_t{k}"])
-    res[5] = bool(ok)
+    res[5] = bool(ok and ok_trois)
+    res["5bis"] = bool(ok)
     P = [r for r in rows if r["dans_p"] == "1"]
     # 6
     res[6] = all(r["date_emission_origine"] <= r["date_jm5"] for r in P)
@@ -621,9 +624,15 @@ def main():
     print("n_temoins_figes (toutes lignes) :", sum(r["n_temoins_figes"] or 0 for r in sortie),
           " n_candidats_absents :", sum(r["n_candidats_absents"] or 0 for r in sortie))
     res, rows = controles(cal, d1)
-    for k in sorted(res):
-        print(f"controle {k:2d} : {'OK' if res[k] else 'ECHEC'}")
-    print("schema_ok =", int(all(res.values())))
+    for k in res:
+        print(f"controle {str(k):>4s} : {'OK' if res[k] else 'ECHEC'}")
+    print("schema_ok (lecture litterale, controles 1 a 11) =", schema_ok(res))
+    print("schema_ok (lecture alternative, 5bis a la place de 5) =", schema_ok(res, alternative=True))
+
+
+def schema_ok(res, alternative=False):
+    cles = [k for k in res if k != "5bis"] if not alternative else [k for k in res if k != 5]
+    return int(all(res[k] for k in cles))
 
 
 if __name__ == "__main__":

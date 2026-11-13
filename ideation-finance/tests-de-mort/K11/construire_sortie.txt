@@ -1,0 +1,18 @@
+lignes : 324
+motifs : Counter({'': 302, 'prix_manquant': 8, 'temoins_insuffisants': 8, 'prix_fige': 4, 'hors_calendrier': 1, 'titre_non_emis_a_jm5': 1})
+dans_p : 302
+n_temoins_figes (toutes lignes) : 42  n_candidats_absents : 0
+controle    1 : OK
+controle    2 : OK
+controle    3 : OK
+controle    4 : OK
+controle    5 : ECHEC
+controle 5bis : OK
+controle    6 : OK
+controle    7 : OK
+controle    8 : OK
+controle    9 : OK
+controle   10 : OK
+controle   11 : OK
+schema_ok (lecture litterale, controles 1 a 11) = 0
+schema_ok (lecture alternative, 5bis a la place de 5) = 1

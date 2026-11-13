@@ -148,7 +148,8 @@ def main():
 
     import construire
     res, _ = construire.controles(construire.calendrier_c(), construire.charger_d1())
-    schema_ok = int(all(res.values()))
+    schema_ok = construire.schema_ok(res)  # lecture litterale du controle 5 (voir ecarts.md)
+    schema_ok_alt = construire.schema_ok(res, alternative=True)
     n_figes = sum(int(r["n_temoins_figes"]) for r in P)
 
     temoin = {
@@ -182,6 +183,7 @@ def main():
         f.write("\n")
 
     print("== Controles de schema :", {k: int(v) for k, v in res.items()})
+    print(f"   schema_ok litteral = {schema_ok} ; schema_ok en lecture alternative (5bis) = {schema_ok_alt}")
     print("== Temoin (statistique principale et regle)")
     for k, v in temoin.items():
         print(f"  {k} = {v}")
@@ -232,8 +234,7 @@ def main():
     for a, mm, ee, nn in par_annee:
         col = orange if a >= 2022 else bleu
         ax.errorbar(a, mm, yerr=1.645 * ee, fmt="o", ms=6, color=col, ecolor=col, elinewidth=1.6, capsize=3)
-        ax.annotate(f"n={nn}", (a, mm - 1.645 * ee), textcoords="offset points", xytext=(0, -11),
-                    ha="center", fontsize=7, color=gris)
+        ax.text(a, 0.02, f"n={nn}", transform=ax.get_xaxis_transform(), ha="center", fontsize=7, color=gris)
     ax.axhline(0, color="#c3c2b7", lw=1)
     ax.axhline(0.5, color="#c3c2b7", lw=1, ls=":")
     ax.text(2009.6, 0.55, "0,5 pb", fontsize=7, color=gris, va="bottom")
@@ -244,9 +245,6 @@ def main():
     ax.fill_between([2009.7, 2021.3], mav - 1.645 * etav, mav + 1.645 * etav, color=bleu, alpha=0.12, lw=0)
     ax.hlines(m, 2021.7, 2026.3, color=orange, lw=2)
     ax.fill_between([2021.7, 2026.3], L, U, color=orange, alpha=0.15, lw=0)
-    ax.text(2009.8, mav + 1.645 * etav, f"moyenne 2010-2021, 10 et 30 ans : {mav:.2f} pb", fontsize=8,
-            color=encre, va="bottom")
-    ax.text(2021.8, U, f"μ_après : {m:.2f} pb\nIC 90 % [{L:.2f} ; {U:.2f}]", fontsize=8, color=encre, va="bottom")
     ax.set_xlim(2009.5, 2026.5)
     ax.set_xticks(range(2010, 2027))
     ax.tick_params(axis="x", labelrotation=45, labelsize=8)
@@ -258,9 +256,12 @@ def main():
     ax.grid(axis="y", color="#e1e0d9", lw=0.6)
     ax.set_axisbelow(True)
     from matplotlib.lines import Line2D
-    ax.legend(handles=[Line2D([], [], color=bleu, marker="o", lw=0, label="2010-2021 (avant)"),
-                       Line2D([], [], color=orange, marker="o", lw=0, label="2022-2026 (après)")],
-              loc="lower left", fontsize=8, frameon=False)
+    from matplotlib.patches import Patch
+    ax.legend(handles=[Line2D([], [], color=bleu, marker="o", lw=0, label="année 2010-2021, toutes échéances de P"),
+                       Line2D([], [], color=orange, marker="o", lw=0, label="année 2022-2026, toutes échéances de P"),
+                       Patch(color=bleu, alpha=0.3, label=f"2010-2021, 10 et 30 ans : {mav:.2f} pb [{mav - 1.645 * etav:.2f} ; {mav + 1.645 * etav:.2f}]"),
+                       Patch(color=orange, alpha=0.3, label=f"μ_après (statistique principale) : {m:.2f} pb [{L:.2f} ; {U:.2f}]")],
+              loc="lower left", bbox_to_anchor=(0.0, 0.06), fontsize=8, frameon=False)
     fig.tight_layout()
     fig.savefig(os.path.join(ICI, "figure.png"))
 
