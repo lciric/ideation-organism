@@ -1,12 +1,12 @@
-"""Descriptive analyses (NOT preregistered). They describe the K20 data; none of them enters the verdict.
+"""Descriptive analyses (NOT preregistered). They describe the data; none of them enters a verdict.
 
-All functions take the standardised main sample (`base`, as returned by k20.run): one row per variable x
-target quarter with columns variable, t_target, z_r (standardised revision), z_e (standardised error) and
-large (1 after a large surprise). They work for any list of variables, so the same functions can describe
-a later replication (for instance the euro-area test K20-ZE).
+US (K20): the functions take the standardised main sample (`base`, as returned by k20.run): one row per
+variable x target quarter with columns variable, t_target, z_r (standardised revision), z_e (standardised
+error) and large (1 after a large surprise). Standard errors are Driscoll-Kraay with 4 lags (scores summed by
+target quarter), as in the preregistered test; 90% intervals are estimate +/- 1.645 se.
 
-Standard errors are Driscoll-Kraay with 4 lags (scores summed by target quarter), as in the preregistered
-test; 90% intervals are estimate +/- 1.645 se.
+Euro area (K20-ZE, functions ea_*): the same ideas on k20ze.run's sample, with its six series, 8 lags by
+survey round and the critical value 1.708. `comparison` puts the two surveys side by side.
 """
 import math
 

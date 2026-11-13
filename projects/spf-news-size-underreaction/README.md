@@ -45,7 +45,7 @@ python run_all.py
 Python 3.13 with numpy, pandas, scipy, statsmodels, matplotlib and openpyxl (pytest for the tests). The
 first run downloads the 14 raw files into `data/raw/` (curl's user agent, retries with growing waits:
 FRED sometimes returns empty bodies, the Philadelphia Fed site can be slow); later runs reuse that cache.
-A full run on a warm cache takes about 35 seconds. Tests: `python -m pytest`.
+A full run on a warm cache takes about 30 seconds. Tests: `python -m pytest`.
 
 `python run_all.py --seed <path to tests-de-mort>` fills empty cache slots by copying the raw files the
 sealed tests downloaded (`<ID>/donnees/`; recorded as such in `data/raw/PROVENANCE.md`). Checks made on

@@ -5,8 +5,8 @@ otherwise it is downloaded (with retries and growing waits) and written without 
 URL, origin, date, sha256 and size go to data/raw/provenance.json, from which data/raw/PROVENANCE.md is
 written.
 
-The catalogue is grouped by test (`CATALOGUES`). A later test (for instance the euro-area replication
-K20-ZE) adds its own group of files here; nothing else in this module changes.
+The catalogue is grouped by test (`CATALOGUES`): K20 (US) and K20-ZE (euro area). A later test (the
+Livingston Survey replication K20-LIV) adds its own group of files here; nothing else in this module changes.
 """
 import datetime
 import hashlib

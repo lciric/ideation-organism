@@ -1,5 +1,6 @@
-"""The four figures (PNG, 200 dpi). One idea per figure; each title states the finding; every figure is
-labelled 'Descriptive, not preregistered' in its footnote.
+"""The six figures (PNG, 200 dpi): four on the US survey, two comparing the US and the euro area. One idea
+per figure; each title states the finding; every figure is labelled 'Descriptive, not preregistered' in
+its footnote.
 Colours: a colour-blind-safe categorical order (blue, orange) on a near-white surface, checked with a
 palette validator (deuteranopia / protanopia / tritanopia separation); text and reference lines stay in
 neutral greys, and identity is never carried by colour alone (legends and direct labels)."""
