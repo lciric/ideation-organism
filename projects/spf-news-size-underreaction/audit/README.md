@@ -1,10 +1,17 @@
 # Audit trail
 
-This folder holds byte-for-byte copies of the records of the sealed test this project rests on, K20.
-They are in French, as they were written. Nothing here was edited. `run_all.py` recomputes the sha256 of
-`K20/preenregistrement.md` and stops if it differs from the seal.
+This folder holds byte-for-byte copies of the records of the two sealed tests this project rests on:
+K20 (US Survey of Professional Forecasters) and K20-ZE (its blind replication on the ECB Survey of
+Professional Forecasters). They are in French, as they were written. Nothing here was edited.
+`run_all.py` recomputes the sha256 of each `<ID>/preenregistrement.md` and stops if it differs from the
+seal.
+
+A third replication, K20-LIV (US Livingston Survey), is being preregistered; its records will go in
+`K20-LIV/` once it is sealed and judged.
 
 ## The sealed protocol
+
+Described here for K20; K20-ZE follows the same protocol (its differences are listed in its section below).
 
 - **`K20/preenregistrement.md` — the preregistration.** Written and sealed on 2026-11-12, *before* anyone
   computed an error, a revision, a surprise or a regression on the data. Its author could look only at file
@@ -29,7 +36,7 @@ A verdict has three possible values: **survit** (survives), **éliminée** (elim
 **non concluant** (inconclusive: a data or schema guard failed, or the 90% interval cannot choose between
 "no effect" and "the predicted effect").
 
-## The question and the rule
+## K20: the question and the rule
 
 Does the under-reaction of the Philadelphia Fed SPF consensus grow after large surprises? For five
 variables (GDP deflator inflation, real GDP growth, unemployment, CPI inflation, 3-month T-bill rate;
@@ -77,5 +84,56 @@ same rule applied to the same numbers would give **éliminée** (upper bound 0.0
 for information only, as the after-verdict reading does, and is never used as the verdict.
 
 `../results/reproduction.md` shows that this project's pipeline, written from the raw data, reproduces
-all 53 verifier numbers within the preregistered tolerances and that the sealed rule applied to them gives
-"non concluant" again.
+all 53 K20 verifier numbers within the preregistered tolerances and that the sealed rule applied to them
+gives "non concluant" again.
+
+## K20-ZE: the blind euro-area replication — **éliminée**
+
+**Files** (`K20-ZE/`): `preenregistrement.md` (sealed on 2026-11-13, seal
+`91c3f919cbf571abfeee2e087b387b4962960e183f832a7e4983de7bb802e63a`), `preenregistrement.md.sha256`,
+`verdict.json` (the verdict computed mechanically from the verifier's 65 numbers), `verification.json`
+(the verifier's numbers), `temoin.json` (the experimenter's numbers), `ecarts.md` (the experimenter's
+deviations and ambiguities), `rapport-experimentateur.md`, `rapport-verificateur.md` and
+`lecture-apres-coup.md` (a reading written after the verdict, which does not change it).
+
+**What it asks.** The same question as K20, asked blind on a second survey: does the under-reaction of the
+ECB SPF consensus (HICP inflation, real GDP growth, unemployment; target years 2000-2025) grow after large
+news? Its author knew K20's result and the literature but had seen no euro-area statistic.
+
+**What it keeps and what it adapts.** The statistic, the survival and elimination thresholds and the floor
+formula are K20's. Its own section 2.2 lists the adaptations:
+- Annual targets with eight survey rounds each, and six series (variable × horizon).
+- The news is the change in the reference value that the ECB sends to forecasters between two rounds. It
+  contains no survey noise.
+- A tie-aware cut for "large": values have one decimal, so ties are common.
+- Driscoll-Kraay standard errors with 8 lags by survey round, and the critical value 1.708 (about 26
+  independent target years).
+- A positive control: the base under-reaction must be visible, or a null c says nothing.
+- A relevance guard that applies only when survival is not reached.
+- **K20's faulty guard is fixed.** Schema checks count for the verdict only on the rows that enter the
+  computation; failures elsewhere are reported as `n_anomalies_hors_principal`.
+
+**Verdict: éliminée.** The verifier's numbers, all reproduced here:
+- **Sample.** 578 rows, 107 rounds, 26 target years; 0 schema violations and 0 anomalies.
+- **Positive control: passes.** Common slope 0.366, lower 90% bound 0.268; the consensus under-reacts.
+- **Primary statistic.** c = −0.106 (se 0.090), 90% interval [−0.259, +0.047].
+- **Why it is eliminated.** The upper bound is below 0.40, so the predicted extra slope is excluded at the
+  one-sided 5% level.
+- **Episodes.** Without each of the three episodes c stays negative (−0.19 to −0.06).
+
+**Three things the after-verdict reading states plainly, repeated here.**
+1. **The survival floor was much higher than the preregistration expected.** The computed mechanical bias
+   is 0.43, against the 0.10 assumed in the decisiveness simulation, because the variance ratio of
+   revisions is 8.4 rather than about 3. Had the true c been near +0.40, the test would mostly have ended
+   "non concluant". The elimination does not depend on the floor: it comes from the upper bound, and the
+   mechanical bias pushes c up, not down.
+2. **With the pandemic rows, the sign changes.** Secondary analysis S3 puts back the 2020-2021 GDP and
+   unemployment rows, which were excluded before any data were seen. It gives c = +0.18 (se 0.08); this
+   project's descriptive breakdown shows it is driven by unemployment. That is still far below +0.40.
+3. **Ties in the cut.** The experimenter and the verifier both computed surprises in double precision
+   without rounding, as the text says. The rounded reading gives c = −0.099 and the same verdict
+   (`K20-ZE/ecarts.md`, C1). This project follows the letter. Its analysis dataset is bit-identical to the
+   sealed `K20-ZE_analyse.csv`.
+
+`../results/reproduction.md` shows all 65 K20-ZE verifier numbers reproduced within the preregistered
+tolerances, and the sealed rule applied to them gives "éliminée" again.
