@@ -1,0 +1,740 @@
+{
+  "audits": {
+    "A1": {
+      "a_verifier_sur_fichiers_bruts": [
+        "fichier témoin et journal de bwrap de chaque gains.csv",
+        "registre du relais apparié appel par appel (expérimentateur appelé)"
+      ],
+      "bac_reel_partout": true,
+      "contre_calcul_egal": true,
+      "declenche": "d'office (issue C1)",
+      "fausses_log_w_max_au_plus_0": true,
+      "plus_grand_log_w_max_des_fausses": -0.11528,
+      "vraies_survivantes_membres_justes": true,
+      "vue_g2_sans_loi_plantee": true
+    },
+    "A2": null,
+    "A3": null,
+    "A4": null
+  },
+  "aussi": [],
+  "code": "C1",
+  "constats": {
+    "arret": null,
+    "cause_c5": null,
+    "copies_promues": [],
+    "ecarts_p6": [],
+    "fausses_promues": [],
+    "manques": [],
+    "p1": true,
+    "p2_v1_v2": true,
+    "p3_mesure": {
+      "V3": {
+        "promue": false,
+        "verdict": null
+      },
+      "V4": {
+        "promue": false,
+        "verdict": null
+      }
+    },
+    "p4": true,
+    "p5_copies_refusees": true,
+    "p6_tenue": true,
+    "partiel": false,
+    "t_elim": {
+      "promue": true,
+      "verdict": "éliminée"
+    },
+    "t_mal": {
+      "gardien": "refuse",
+      "promue": false
+    },
+    "vraies_promues_survivantes_g1": [
+      "V1",
+      "V2"
+    ]
+  },
+  "issue": "la chaîne garde (classe couverte, ce monde, cette taille)",
+  "lecteur": "lecture-boucle-reelle-v66",
+  "lu_utc": "2026-11-12T15:07:35+00:00",
+  "mesures_sans_issue": {
+    "depense": {
+      "appels": 8,
+      "depense_usd": 1.99431,
+      "duree_s": 2739.3,
+      "par_relais_usd": {
+        "argon": 0.85618,
+        "kimi": 1.13813
+      },
+      "par_role_usd": {
+        "proposeur": 1.10442,
+        "tests_de_mort": 0.88989
+      },
+      "parts_usd": {
+        "argon": 7.0,
+        "kimi": 33.0
+      }
+    },
+    "jetons": {
+      "appels": [
+        {
+          "entree": 7283,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 31891,
+          "usage": {
+            "completion_tokens": 31891,
+            "prompt_tokens": 7283,
+            "total_tokens": 39174
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "proposeur_ideation",
+          "sortie": null,
+          "usage": {
+            "entree": 8687,
+            "sortie": 2390
+          }
+        },
+        {
+          "entree": 3751,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 638,
+          "usage": {
+            "completion_tokens": 638,
+            "prompt_tokens": 3751,
+            "total_tokens": 4389
+          }
+        },
+        {
+          "entree": 4225,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 211,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 211,
+            "prompt_tokens": 4225,
+            "total_tokens": 4436
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3053,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3893,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1093,
+          "usage": {
+            "completion_tokens": 1093,
+            "prompt_tokens": 3893,
+            "total_tokens": 4986
+          }
+        },
+        {
+          "entree": 4646,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 321,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 321,
+            "prompt_tokens": 4646,
+            "total_tokens": 4967
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3252,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3746,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 531,
+          "usage": {
+            "completion_tokens": 531,
+            "prompt_tokens": 3746,
+            "total_tokens": 4277
+          }
+        },
+        {
+          "entree": 4214,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 320,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 320,
+            "prompt_tokens": 4214,
+            "total_tokens": 4534
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3063,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3847,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1615,
+          "usage": {
+            "completion_tokens": 1615,
+            "prompt_tokens": 3847,
+            "total_tokens": 5462
+          }
+        },
+        {
+          "entree": 4407,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 253,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 253,
+            "prompt_tokens": 4407,
+            "total_tokens": 4660
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3165,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3759,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 611,
+          "usage": {
+            "completion_tokens": 611,
+            "prompt_tokens": 3759,
+            "total_tokens": 4370
+          }
+        },
+        {
+          "entree": 4229,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 243,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 243,
+            "prompt_tokens": 4229,
+            "total_tokens": 4472
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3054,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3752,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1318,
+          "usage": {
+            "completion_tokens": 1318,
+            "prompt_tokens": 3752,
+            "total_tokens": 5070
+          }
+        },
+        {
+          "entree": 4385,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 322,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 322,
+            "prompt_tokens": 4385,
+            "total_tokens": 4707
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3112,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3756,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1469,
+          "usage": {
+            "completion_tokens": 1469,
+            "prompt_tokens": 3756,
+            "total_tokens": 5225
+          }
+        },
+        {
+          "entree": 4226,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 309,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 309,
+            "prompt_tokens": 4226,
+            "total_tokens": 4535
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3060,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3890,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 738,
+          "usage": {
+            "completion_tokens": 738,
+            "prompt_tokens": 3890,
+            "total_tokens": 4628
+          }
+        },
+        {
+          "entree": 4500,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 276,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 276,
+            "prompt_tokens": 4500,
+            "total_tokens": 4776
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3209,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3909,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 987,
+          "usage": {
+            "completion_tokens": 987,
+            "prompt_tokens": 3909,
+            "total_tokens": 4896
+          }
+        },
+        {
+          "entree": 4533,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 358,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 358,
+            "prompt_tokens": 4533,
+            "total_tokens": 4891
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3221,
+            "sortie": 221
+          }
+        },
+        {
+          "entree": 3825,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 909,
+          "usage": {
+            "completion_tokens": 909,
+            "prompt_tokens": 3825,
+            "total_tokens": 4734
+          }
+        },
+        {
+          "entree": 4369,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 292,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 292,
+            "prompt_tokens": 4369,
+            "total_tokens": 4661
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3140,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3753,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 635,
+          "usage": {
+            "completion_tokens": 635,
+            "prompt_tokens": 3753,
+            "total_tokens": 4388
+          }
+        },
+        {
+          "entree": 4225,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 404,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 404,
+            "prompt_tokens": 4225,
+            "total_tokens": 4629
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3053,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3777,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1191,
+          "usage": {
+            "completion_tokens": 1191,
+            "prompt_tokens": 3777,
+            "total_tokens": 4968
+          }
+        },
+        {
+          "entree": 4265,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 221,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 221,
+            "prompt_tokens": 4265,
+            "total_tokens": 4486
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3139,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3761,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 635,
+          "usage": {
+            "completion_tokens": 635,
+            "prompt_tokens": 3761,
+            "total_tokens": 4396
+          }
+        },
+        {
+          "entree": 4241,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 374,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 374,
+            "prompt_tokens": 4241,
+            "total_tokens": 4615
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3097,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3794,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 933,
+          "usage": {
+            "completion_tokens": 933,
+            "prompt_tokens": 3794,
+            "total_tokens": 4727
+          }
+        },
+        {
+          "entree": 4312,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 412,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 412,
+            "prompt_tokens": 4312,
+            "total_tokens": 4724
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3154,
+            "sortie": 57
+          }
+        },
+        {
+          "entree": 8527,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 38343,
+          "usage": {
+            "completion_tokens": 38343,
+            "prompt_tokens": 8527,
+            "total_tokens": 46870
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "proposeur_ideation",
+          "sortie": null,
+          "usage": {
+            "entree": 9929,
+            "sortie": 1296
+          }
+        }
+      ],
+      "sommes_par_relais": {
+        "argon": {
+          "appels_avec_usage": 0,
+          "appels_sans_usage": 16,
+          "entree": 0,
+          "sortie": 0
+        },
+        "kimi": {
+          "appels_avec_usage": 30,
+          "appels_sans_usage": 0,
+          "entree": 129800,
+          "sortie": 87853
+        }
+      },
+      "source": "champ « usage » de la dernière ligne JSON des commandes externes"
+    },
+    "lignes_de_tranche_dans_les_contextes": {
+      "communes": [],
+      "episodes_servis": 400,
+      "lignes_de_tranche": 800,
+      "precision": "6 décimales",
+      "taches_comparees": 2
+    },
+    "recherche_loi_plantee": {
+      "attendu": "aucune touche hors de la loi gelée servie au test de mort (que l'expérimentateur doit voir)",
+      "experimentateur_et_verificateur": {
+        "consignes_cherchees": 42,
+        "par_role": {
+          "experimentateur_test": 28,
+          "lecteur_test": 14
+        },
+        "touches_dans_la_loi_gelee": 200,
+        "touches_hors_loi_gelee": []
+      },
+      "formes": [
+        "exacte",
+        "deux décimales"
+      ],
+      "parametres_de_la_loi_plantee": 9,
+      "proposeurs": {
+        "contextes_cherches": 4,
+        "touches": [
+          {
+            "chemin": "contexte.lois_retenues[3].loi.poids[1][1]",
+            "forme": "deux décimales",
+            "ou": "boucle-reelle-v66|bras=reel|generation=2|proposeur=kimi",
+            "parametre": [
+              "poids",
+              2,
+              0
+            ],
+            "valeur": "1.3"
+          },
+          {
+            "chemin": "contexte.lois_retenues[3].loi.poids[1][1]",
+            "forme": "deux décimales",
+            "ou": "boucle-reelle-v66|bras=reel|generation=2|proposeur=argon",
+            "parametre": [
+              "poids",
+              2,
+              0
+            ],
+            "valeur": "1.3"
+          }
+        ]
+      }
+    }
+  },
+  "oracle": {
+    "fausses_decouvertes_reelles": [],
+    "par_fournisseur": {
+      "argon": {
+        "fausses_decouvertes": 0,
+        "fausses_promotions_du_juge": 0,
+        "promues": 6,
+        "proposees": 12,
+        "refusees_au_gardien": 0,
+        "retenues": 6,
+        "survivantes": 6,
+        "testees": 6,
+        "vraies_decouvertes": 6,
+        "wilson_95": {
+          "fausses_decouvertes/promues": [
+            0.0,
+            0.390334
+          ],
+          "promues/proposees": [
+            0.253782,
+            0.746218
+          ],
+          "refusees_au_gardien/proposees": [
+            0.0,
+            0.242494
+          ],
+          "retenues/proposees": [
+            0.253782,
+            0.746218
+          ],
+          "survivantes/testees": [
+            0.609666,
+            1.0
+          ],
+          "vraies_decouvertes/promues": [
+            0.609666,
+            1.0
+          ]
+        }
+      },
+      "kimi": {
+        "fausses_decouvertes": 0,
+        "fausses_promotions_du_juge": 0,
+        "promues": 5,
+        "proposees": 11,
+        "refusees_au_gardien": 0,
+        "retenues": 5,
+        "survivantes": 5,
+        "testees": 5,
+        "vraies_decouvertes": 5,
+        "wilson_95": {
+          "fausses_decouvertes/promues": [
+            0.0,
+            0.434482
+          ],
+          "promues/proposees": [
+            0.212713,
+            0.719908
+          ],
+          "refusees_au_gardien/proposees": [
+            0.0,
+            0.258833
+          ],
+          "retenues/proposees": [
+            0.212713,
+            0.719908
+          ],
+          "survivantes/testees": [
+            0.565518,
+            1.0
+          ],
+          "vraies_decouvertes/promues": [
+            0.565518,
+            1.0
+          ]
+        }
+      }
+    }
+  },
+  "phrase": "Issue C1 : « la chaîne garde (classe couverte, ce monde, cette taille) » — course reel (decisif) (classe couverte du nul v8, monde jouet S-V1, une génération et demie ; rien sur la classe non couverte).",
+  "releve": {
+    "chemin": "/root/sorties/course-reelle/boucle-reelle-v66.json",
+    "mode": "reel (decisif)",
+    "sha256": "21bc75f4d81825695b30b2b32f21feaa91322293f6c2c3161a28dc179ec6df71"
+  },
+  "version": "lecture-boucle-reelle-v66"
+}

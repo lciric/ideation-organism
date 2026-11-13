@@ -345,6 +345,22 @@ Files added to this public tree after the extraction above, each as a new file (
 - `resultats/boucle-reelle-v66/`: status page (English), the two run reports of 12 November 2026 and, per run, the launcher's record and the frozen reading, byte for byte with their companions.
 - Excluded, with reasons: raw journals of the provider relays and machine console logs (provider logs are not published); run manifests, spending registers and machine sheets (work records); the two earlier stop reports (one names the address of a destroyed machine); anything from other tasks of the programme. Secret scan on everything added (Anthropic, OpenAI-style, GitHub, Hugging Face, AWS and Google key shapes): 0 match.
 
+## Added on 13 November 2026 (third attempt of the smallest real loop, and its verdict)
+
+- `resultats/course-v67/`: status page (English) and, byte for byte with their `.sha256` companions, copied from the private working repository:
+
+| file | sha256 |
+|---|---|
+| `resultats/course-v67/verdict-course-v67-v1.md` | `d79024328157aafc5c801b5b0a4a621a5c009f367d88b96bbbfaeaeef3753459` |
+| `resultats/course-v67/rapport-course-v67-poste-local-v1.md` | `8a98f2f67b8c442e65dc700c081c270ec0a025bac09e89fe03961cf424b09f65` |
+| `resultats/course-v67/poste-local-v1/boucle-reelle-v66.json` | `21bc75f4d81825695b30b2b32f21feaa91322293f6c2c3161a28dc179ec6df71` |
+| `resultats/course-v67/poste-local-v1/lecture-course-reelle.json` | `d0ef1ee7667bdc665747c2822dcb031abfea3b38b3094782ad72ae593c016086` |
+| `resultats/course-v67/README.md` | `055597d670d8cef7c76f938f4e7cfac33616002edbe9cd81ad503cc0265be02a` |
+
+- The records of the first two attempts (`c9c6212b…`, `5a7fc27c…`) and their readings stay in `resultats/boucle-reelle-v66/` (published 12 November 2026); the new status page reports the three together, as text v2 requires. `README.md` (status, evidence row, note under Figure 1) and `resultats/boucle-reelle-v66/README.md` (one dated pointer) are updated.
+- Outcome C1 is stated with the verdict's narrow scope and its seven reservations; nothing is added to the verdict.
+- Excluded, with reasons: raw journals of the provider relays and machine console logs (provider logs are not published); run manifest, spending register, machine sheets, dry-run outputs and the per-generation folders (work records); the run instruction and the registers (private). Secret scan on every new object pushed: see the commit message.
+
 ## Security scans run before publication
 
 - key and token patterns (Anthropic, GitHub, AWS, Slack, OpenAI, private-key blocks, literal `api_key=`): no match except the regular expression inside `pole/caviardage.py`, which is the redaction guard itself;

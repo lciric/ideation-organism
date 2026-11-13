@@ -1,0 +1,4909 @@
+{
+  "appels_etage": [
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.013882,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10510,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.786118,
+      "cout_usd": 0.01056,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11692,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03343,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8036,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.018716,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10806,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.781284,
+      "cout_usd": 0.012502,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12709,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03542,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8399,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.012802,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10508,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.787198,
+      "cout_usd": 0.011628,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11684,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03353,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8034,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.023844,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10724,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.776156,
+      "cout_usd": 0.011344,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12120,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03455,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8250,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.013628,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10520,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.786372,
+      "cout_usd": 0.010888,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11707,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03334,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8044,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.020684,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10522,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.779316,
+      "cout_usd": 0.01199,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12217,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03392,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8111,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.022202,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10516,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.777798,
+      "cout_usd": 0.011542,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11699,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.0334,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8040,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.01516,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10836,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.78484,
+      "cout_usd": 0.01176,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12339,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03489,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8360,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.017688,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10862,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.782312,
+      "cout_usd": 0.012646,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12391,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.04326,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8386,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.01674,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10721,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.78326,
+      "cout_usd": 0.011658,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12108,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.0342,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8245,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.013856,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10513,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.786144,
+      "cout_usd": 0.01249,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11697,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03343,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8039,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.019464,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10598,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.780536,
+      "cout_usd": 0.01074,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11863,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03419,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8122,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.013872,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10566,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.786128,
+      "cout_usd": 0.012222,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 11799,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03377,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8090,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.8,
+      "cout_usd": 0.016918,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 10693,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.783082,
+      "cout_usd": 0.012744,
+      "modele": "kimi-k3.1-pro",
+      "relais": "kimi",
+      "rien_envoye": false,
+      "role": "experimentateur_test",
+      "statut": "ok",
+      "taille_consigne": 12068,
+      "verification_prealable": false
+    },
+    {
+      "budget_passe_usd": 0.1,
+      "cout_usd": 0.03439,
+      "modele": "gemini-4-argon",
+      "relais": "argon",
+      "rien_envoye": false,
+      "role": "lecteur_test",
+      "statut": "ok",
+      "taille_consigne": 8220,
+      "verification_prealable": false
+    }
+  ],
+  "appels_proposeurs": [
+    [
+      {
+        "consigne_sha256": "c4b91ee54998c19d40caf6ccb4a7770e3f05ab6310284e418745ecc0ed458a0c",
+        "cout_usd": 0.333476,
+        "erreur": null,
+        "refus": null,
+        "statut": "ok",
+        "tache": "boucle-reelle-v66|bras=reel|generation=1",
+        "taille_consigne": 13671
+      },
+      {
+        "consigne_sha256": "5d722e4114b2d3227d4a1b8fb299c6e6ebaa7d15388dce66d4fdf49448adfa9b",
+        "cout_usd": 0.400484,
+        "erreur": null,
+        "refus": null,
+        "statut": "ok",
+        "tache": "boucle-reelle-v66|bras=reel|generation=2",
+        "taille_consigne": 15882
+      }
+    ],
+    [
+      {
+        "consigne_sha256": "c4b91ee54998c19d40caf6ccb4a7770e3f05ab6310284e418745ecc0ed458a0c",
+        "cout_usd": 0.20637,
+        "erreur": null,
+        "refus": null,
+        "statut": "ok",
+        "tache": "boucle-reelle-v66|bras=reel|generation=1",
+        "taille_consigne": 13671
+      },
+      {
+        "consigne_sha256": "5d722e4114b2d3227d4a1b8fb299c6e6ebaa7d15388dce66d4fdf49448adfa9b",
+        "cout_usd": 0.16409,
+        "erreur": null,
+        "refus": null,
+        "statut": "ok",
+        "tache": "boucle-reelle-v66|bras=reel|generation=2",
+        "taille_consigne": 15882
+      }
+    ]
+  ],
+  "depense": {
+    "appels": 8,
+    "depense_usd": 1.99431,
+    "duree_s": 2739.3,
+    "par_relais_usd": {
+      "argon": 0.85618,
+      "kimi": 1.13813
+    },
+    "par_role_usd": {
+      "proposeur": 1.10442,
+      "tests_de_mort": 0.88989
+    },
+    "parts_usd": {
+      "argon": 7.0,
+      "kimi": 33.0
+    }
+  },
+  "dossier_des_sessions": "/tmp/boucle-reelle-v67-sessions-mkft1pxg",
+  "fin_utc": "2026-11-12T15:07:32+00:00",
+  "journal": [
+    {
+      "evenement": "jugement-ecrit",
+      "generation": 1,
+      "m_e_bh": 22,
+      "membres_attendus": 4,
+      "plantees_promues": [
+        "F-00a1d8c8713e",
+        "F-c0965482b3f3",
+        "F-b0f7a98e2655"
+      ],
+      "promues": [
+        "F-85ebb8a13dbd",
+        "F-2a1b31f3b5b5",
+        "F-0e383ebd264a",
+        "F-70e224d5849f",
+        "F-6e2a1edad084",
+        "F-fb2ba689a57a",
+        "F-d4762af0bdc6",
+        "F-2bcc714f7837",
+        "F-81bca221154e",
+        "F-9cf715dd9c02",
+        "F-e3783adc4dca"
+      ]
+    },
+    {
+      "bac_a_sable": "bwrap",
+      "comptes": {
+        "non concluant": 0,
+        "survit": 11,
+        "éliminée": 0
+      },
+      "contre_calcul": {
+        "F-0e383ebd264a": {
+          "noyau": 0.45387800580775656,
+          "ok": true,
+          "orchestrateur": 0.453878005808,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-2a1b31f3b5b5": {
+          "noyau": 0.45369504735887034,
+          "ok": true,
+          "orchestrateur": 0.453695047359,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-2bcc714f7837": {
+          "noyau": 0.4531078737835443,
+          "ok": true,
+          "orchestrateur": 0.453107873784,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-6e2a1edad084": {
+          "noyau": 0.4637997173381241,
+          "ok": true,
+          "orchestrateur": 0.463799717338,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-70e224d5849f": {
+          "noyau": 0.43686517061446595,
+          "ok": true,
+          "orchestrateur": 0.436865170614,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-81bca221154e": {
+          "noyau": 0.4524177942472787,
+          "ok": true,
+          "orchestrateur": 0.452417794247,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-85ebb8a13dbd": {
+          "noyau": 0.43928613147520246,
+          "ok": true,
+          "orchestrateur": 0.439286131475,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-9cf715dd9c02": {
+          "noyau": 0.4444639557416325,
+          "ok": true,
+          "orchestrateur": 0.444463955742,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-d4762af0bdc6": {
+          "noyau": 0.4305048424133182,
+          "ok": true,
+          "orchestrateur": 0.430504842413,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-e3783adc4dca": {
+          "noyau": 0.42084204055204794,
+          "ok": true,
+          "orchestrateur": 0.420842040552,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-fb2ba689a57a": {
+          "noyau": 0.4535762261919886,
+          "ok": true,
+          "orchestrateur": 0.453576226192,
+          "sans_objet": false,
+          "verdict": "survit"
+        }
+      },
+      "couts_etage": {
+        "claude_usd": 0.70158,
+        "externe_usd": 0.0
+      },
+      "dossier": "etage",
+      "evenement": "etage-tests-de-mort",
+      "factice": false,
+      "selection_sha256": "59c3a5d0a42eda4cad29e92e4dedc6e3cc3dfde02203f7b5499ffa458ca9cad6",
+      "tache": "boucle-reelle-v66|bras=reel|generation=1",
+      "tranche_index_sha256": "c50b1c756fbe42b16bd9880ce3614ed5143dd9342f94afbbba4cc210b8bf97e1"
+    },
+    {
+      "bac_a_sable": "bwrap",
+      "comptes": {
+        "non concluant": 0,
+        "survit": 2,
+        "éliminée": 1
+      },
+      "contre_calcul": {
+        "F-00a1d8c8713e": {
+          "noyau": 0.4963032728085276,
+          "ok": true,
+          "orchestrateur": 0.496303272809,
+          "sans_objet": false,
+          "verdict": "survit"
+        },
+        "F-b0f7a98e2655": {
+          "noyau": 0.4882199365870282,
+          "ok": true,
+          "orchestrateur": 0.488219936587,
+          "sans_objet": false,
+          "verdict": "éliminée"
+        },
+        "F-c0965482b3f3": {
+          "noyau": 0.3961277354482162,
+          "ok": true,
+          "orchestrateur": 0.396127735448,
+          "sans_objet": false,
+          "verdict": "survit"
+        }
+      },
+      "couts_etage": {
+        "claude_usd": 0.18831,
+        "externe_usd": 0.0
+      },
+      "dossier": "etage-plantees",
+      "evenement": "etage-tests-de-mort",
+      "factice": false,
+      "selection_sha256": "781fa17459b062770073815894bdae048487d45611884827b7fa8ad88a708da3",
+      "tache": "boucle-reelle-v66|bras=reel|generation=1",
+      "tranche_index_sha256": "c50b1c756fbe42b16bd9880ce3614ed5143dd9342f94afbbba4cc210b8bf97e1"
+    },
+    {
+      "archive_de_jugement": [
+        "K1"
+      ],
+      "bilan_sha256": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "comptes": {
+        "appels_proposeurs": [
+          {
+            "cout_usd": 0.333476,
+            "ignorees_au_dela_du_maximum": 0,
+            "motif": null,
+            "proposeur": "kimi",
+            "propositions": 5,
+            "relais": "kimi"
+          },
+          {
+            "cout_usd": 0.20637,
+            "ignorees_au_dela_du_maximum": 0,
+            "motif": null,
+            "proposeur": "argon",
+            "propositions": 6,
+            "relais": "argon"
+          }
+        ],
+        "jugees": 11,
+        "m_e_bh": 22,
+        "plantees_promues": 3,
+        "plantees_testees": 3,
+        "promues": 11,
+        "proposees": 11,
+        "refusees_au_gardien": 0,
+        "retenues": 11,
+        "testees": 11
+      },
+      "correspondance": {
+        "F-0e383ebd264a": "G1-argon-01",
+        "F-2a1b31f3b5b5": "G1-argon-04",
+        "F-2bcc714f7837": "G1-kimi-05",
+        "F-6e2a1edad084": "G1-kimi-02",
+        "F-70e224d5849f": "G1-argon-05",
+        "F-81bca221154e": "G1-argon-06",
+        "F-85ebb8a13dbd": "G1-argon-02",
+        "F-9cf715dd9c02": "G1-kimi-04",
+        "F-d4762af0bdc6": "G1-kimi-03",
+        "F-e3783adc4dca": "G1-argon-03",
+        "F-fb2ba689a57a": "G1-kimi-01"
+      },
+      "depense": {
+        "appels": 6,
+        "depense_usd": 1.429736,
+        "duree_s": 1610.8,
+        "par_relais_usd": {
+          "argon": 0.69209,
+          "kimi": 0.737646
+        },
+        "par_role_usd": {
+          "proposeur": 0.539846,
+          "tests_de_mort": 0.88989
+        },
+        "parts_usd": {
+          "argon": 7.0,
+          "kimi": 33.0
+        }
+      },
+      "evenement": "generation",
+      "generation": 1,
+      "heritage_lu": "93dcf51715f7a1aa4f313e9e1761c5a375a275d572ffcdb6969fbfaf2fb623c1",
+      "log_e": {
+        "F-00a1d8c8713e": 16.483026,
+        "F-0e383ebd264a": 12.607436,
+        "F-2a1b31f3b5b5": 13.350998,
+        "F-2bcc714f7837": 8.943072,
+        "F-4a4c6a9afbad": -0.602124,
+        "F-4ce35a8afa9d": -5.013673,
+        "F-6905c2ee0d34": -4.02403,
+        "F-6e2a1edad084": 11.727968,
+        "F-70e224d5849f": 12.39348,
+        "F-81bca221154e": 8.803973,
+        "F-85ebb8a13dbd": 14.579324,
+        "F-9621dc105ca3": 5.874719,
+        "F-9cf715dd9c02": 8.380974,
+        "F-b0f7a98e2655": 9.58704,
+        "F-b5da881904c0": -3.639281,
+        "F-c0965482b3f3": 6.617036,
+        "F-d4762af0bdc6": 9.972063,
+        "F-e3783adc4dca": 6.680411,
+        "F-e37eee25f30a": 4.248412,
+        "F-fb2ba689a57a": 10.281986
+      },
+      "membres_attendus": 4,
+      "plantees_promues": [
+        "F-00a1d8c8713e",
+        "F-c0965482b3f3",
+        "F-b0f7a98e2655"
+      ],
+      "plantees_refusees": {
+        "T-MAL": "test de mort refusé (étage v5) : test_de_mort.statistique : bloc absent ou non objet {fichier, colonne, statistique} (v4 : exigé ; aucun repli sur le chiffre du script)"
+      },
+      "promues": [
+        "F-85ebb8a13dbd",
+        "F-2a1b31f3b5b5",
+        "F-0e383ebd264a",
+        "F-70e224d5849f",
+        "F-6e2a1edad084",
+        "F-fb2ba689a57a",
+        "F-d4762af0bdc6",
+        "F-2bcc714f7837",
+        "F-81bca221154e",
+        "F-9cf715dd9c02",
+        "F-e3783adc4dca"
+      ],
+      "refusees_au_gardien": {},
+      "retenues": [
+        "F-85ebb8a13dbd",
+        "F-2a1b31f3b5b5",
+        "F-0e383ebd264a",
+        "F-70e224d5849f",
+        "F-6e2a1edad084",
+        "F-fb2ba689a57a",
+        "F-d4762af0bdc6",
+        "F-2bcc714f7837",
+        "F-81bca221154e",
+        "F-9cf715dd9c02",
+        "F-e3783adc4dca"
+      ],
+      "selection_sha256": "59c3a5d0a42eda4cad29e92e4dedc6e3cc3dfde02203f7b5499ffa458ca9cad6",
+      "verdicts": {
+        "F-0e383ebd264a": "survit",
+        "F-2a1b31f3b5b5": "survit",
+        "F-2bcc714f7837": "survit",
+        "F-6e2a1edad084": "survit",
+        "F-70e224d5849f": "survit",
+        "F-81bca221154e": "survit",
+        "F-85ebb8a13dbd": "survit",
+        "F-9cf715dd9c02": "survit",
+        "F-d4762af0bdc6": "survit",
+        "F-e3783adc4dca": "survit",
+        "F-fb2ba689a57a": "survit"
+      },
+      "verdicts_plantees": {
+        "F-00a1d8c8713e": "survit",
+        "F-b0f7a98e2655": "éliminée",
+        "F-c0965482b3f3": "survit"
+      },
+      "vue_servie": [
+        "K1"
+      ]
+    },
+    {
+      "archive": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a",
+        "K1"
+      ],
+      "bilan_sha256": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "evenement": "heritage-lu",
+      "generation": 2
+    },
+    {
+      "evenement": "jugement-ecrit",
+      "generation": 2,
+      "m_e_bh": 22,
+      "membres_attendus": 37,
+      "plantees_promues": [],
+      "promues": []
+    },
+    {
+      "archive_de_jugement": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a",
+        "K1"
+      ],
+      "bilan_sha256": "9f995cdf0237f5be482cf538cc9ac3d5d4a4685e5b62c02ba442423cb9e21fdd",
+      "comptes": {
+        "appels_proposeurs": [
+          {
+            "cout_usd": 0.400484,
+            "ignorees_au_dela_du_maximum": 0,
+            "motif": null,
+            "proposeur": "kimi",
+            "propositions": 6,
+            "relais": "kimi"
+          },
+          {
+            "cout_usd": 0.16409,
+            "ignorees_au_dela_du_maximum": 0,
+            "motif": null,
+            "proposeur": "argon",
+            "propositions": 6,
+            "relais": "argon"
+          }
+        ],
+        "jugees": 12,
+        "m_e_bh": 22,
+        "plantees_promues": 0,
+        "plantees_testees": 0,
+        "promues": 0,
+        "proposees": 12,
+        "refusees_au_gardien": 0,
+        "retenues": 0,
+        "testees": 0
+      },
+      "correspondance": {
+        "F-30fea327e782": "G2-kimi-06",
+        "F-320e971f36a6": "G2-kimi-01",
+        "F-34d4b81446a3": "G2-argon-02",
+        "F-4b5fe756d62a": "G2-kimi-05",
+        "F-534e11620b09": "G2-argon-06",
+        "F-5f0569d7dec2": "G2-argon-04",
+        "F-861e1a08c558": "G2-argon-05",
+        "F-99a9f7dc5b22": "G2-kimi-03",
+        "F-b9a059c50c8e": "G2-kimi-04",
+        "F-b9d680163b2f": "G2-argon-01",
+        "F-d38222b20b6d": "G2-argon-03",
+        "F-ec68f7a1b1b3": "G2-kimi-02"
+      },
+      "depense": {
+        "appels": 8,
+        "depense_usd": 1.99431,
+        "duree_s": 2739.3,
+        "par_relais_usd": {
+          "argon": 0.85618,
+          "kimi": 1.13813
+        },
+        "par_role_usd": {
+          "proposeur": 1.10442,
+          "tests_de_mort": 0.88989
+        },
+        "parts_usd": {
+          "argon": 7.0,
+          "kimi": 33.0
+        }
+      },
+      "evenement": "generation",
+      "generation": 2,
+      "heritage_lu": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "log_e": {
+        "F-18948ad2a20e": -12.972627,
+        "F-30fea327e782": -12.6468,
+        "F-320e971f36a6": -9.417608,
+        "F-34d4b81446a3": -6.948696,
+        "F-3cbab8c06384": -14.084633,
+        "F-4b5fe756d62a": -7.081011,
+        "F-534e11620b09": -4.624221,
+        "F-5507f248c46d": -99.648048,
+        "F-5f0569d7dec2": -5.25388,
+        "F-8000a6032c75": -6.252935,
+        "F-84f15d56517c": -88.141604,
+        "F-861e1a08c558": -11.296651,
+        "F-99a9f7dc5b22": -12.025421,
+        "F-b71466ab69af": -14.007884,
+        "F-b9a059c50c8e": -13.769309,
+        "F-b9d680163b2f": -8.440801,
+        "F-d38222b20b6d": -6.766965,
+        "F-d86161402d08": -95.776799,
+        "F-ec68f7a1b1b3": -13.638149,
+        "F-fd5d4c94af6d": -85.552541
+      },
+      "membres_attendus": 37,
+      "plantees_promues": [],
+      "plantees_refusees": {},
+      "promues": [],
+      "refusees_au_gardien": {},
+      "retenues": [],
+      "selection_sha256": "a149955acdbe3f6028fc8d7447c02585a9d52473f8f5daef7521f1326d1a74f5",
+      "verdicts": {},
+      "verdicts_plantees": {},
+      "vue_servie": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a",
+        "K1"
+      ]
+    }
+  ],
+  "mode": "reel (decisif)",
+  "preenregistrement": {
+    "chemin": "prereg/preenregistrement-boucle-reelle-organisme-v1-v2.md",
+    "empreintes_du_code_verifiees": {
+      "demonstrations/attaque_goodhart_v2.py": "58609e0c9fc5c5eea5de1dbb8c9b8235fd85a9884d326ffe09dfb50b21af79cf",
+      "demonstrations/boucle_reelle_v67.py": "d530d81c6ff8bfc3e72ab24456d278767dd5dacfc98f81439720c4557ce5569a",
+      "demonstrations/ideation_v2.py": "bc5e9c98acff41b97487e2345d33768c8cdf41f0ededf8b2eed0bf842c889845",
+      "demonstrations/ideation_v4.py": "4212d4c9d014a265847d4c4ed87a8cd804fdafa73f85fd8947874d63fca1c36d",
+      "demonstrations/ideation_v5.py": "1894f250264eaaccbf891dfa255e71dc587fe415c8d21e283391203a2fe73444",
+      "demonstrations/ideation_v6.py": "4c302e5b97b229d5b3edd9e9a427f1e50796c10f7081f63132165ffeef854ba4",
+      "demonstrations/ideation_v7.py": "7b90e65e1308b1c230b3f804743cfc42b9dc571d93b73ed6c5f3f8c9d2b481b2",
+      "demonstrations/ideation_v8.py": "2e2be8d72c548e183b94c14de20c971f241f998f54f64c5281b2427fdd64e9d1",
+      "demonstrations/lire_boucle_reelle_v66.py": "e2183565c5867255addf0c74d6de9f1498e3129ded1161e1cf0c6f5f96844db8",
+      "demonstrations/lire_tour_ferme_v64.py": "393b17cc859a634036778cab364c5fb2ae2ff1aa7c34ddec27b2246732b9952b",
+      "demonstrations/tour_ferme_v64.py": "98c1a1a205cfe58ec277b64fbf4778e567246cfb1f0cc6882c1071704c01ae01",
+      "pole/__init__.py": "f7341b965ddba1e0fb21b44d9068f59650d5c77e3175f2b6b7ca879219fa5c9b",
+      "pole/a_blanc_v59.py": "606aa8b4fcc38786b38cf2954da46533eed9384232a56100d22ff30b8ce0826c",
+      "pole/adaptateur_commande_v64.py": "adb7328721342601eb487856840e385493e6e35c522c90d804a4f8c96bfb5700",
+      "pole/adaptateur_commande_v67.py": "a1b488b38ef69e0d336b8a4c4b4796ca10a4ec44aea468da01f76ac840708bb4",
+      "pole/adaptateur_kimi_v53.py": "09a46515ff30a99f360fcbc7d4c613c35cb511439a5b6c249327e477fdee4ada",
+      "pole/adaptateurs.py": "a1a8ede8d38884a28365ee797dcd3018dbf09ea1baefa3f57cfcb3281c529c99",
+      "pole/adaptateurs_v56.py": "d36c79b272af450b8d67313f44068743d80f0204bcedbd30f5d879829c945a17",
+      "pole/aiguilleur_v53.py": "a856cdaa37e8fb1f3b873ef2c0d9aa439ee0a8838f5ee9a2910cb3c0dcf8007f",
+      "pole/attaque_goodhart_v2.py": "3c9de8b83b6fcf198d12cacf6a6738c2fc3fe4ade9391f943b3924592959e703",
+      "pole/bisociateur_v53.py": "962eb8ce22d5af1bf59970e9ef9cab15620edef4d5e9746161bc302e97c2af02",
+      "pole/bisociateur_v54.py": "20d938b2dcafcd4bb7c9777a0182a3590b390a146a8375590905741ea0e250f8",
+      "pole/bisociateur_v55.py": "d9521311a96384494871e9f9fcd4b4554548b9f45fdc28e8e75ca30d4c54d22f",
+      "pole/boucle_fermee_v59.py": "a2de486592fc98c14e13bb9071d272fb65d4f49de38dd188ee64857698177681",
+      "pole/boucle_reelle_v65.py": "5d20d9fb4d8bc53ff6c4ffb8f3f2442200c8d51c9075828cd183277cdbe8ff13",
+      "pole/boucle_reelle_v66.py": "ea17a4b8645ab4fc81df4702479fbdcd7ced912d9575190779b23fc334fb45b6",
+      "pole/bras_attaque_v54.py": "a4a70be0090f5c94852dae7b6192486a97b50ec5c901b27ed01ccb40fdde9368",
+      "pole/budget_v53.py": "cefc7e76322b8f8266ec77f31ecb06bf1ea21633ab5dec1e1b91dc62e4374345",
+      "pole/budget_v54.py": "220d25e6ce5a7eed008c095ef1a9f66e84b4e98f801dfee2f74bdda02ba5ac62",
+      "pole/budget_v56.py": "3a672aceeeee3cf83cd4e46ca461fdbaf3acd0a9552be24d2566627ce6b7c13e",
+      "pole/caviardage.py": "78abfd4731218e20538418608ebebaca3364206ef6d014b7a34829a3c9fd7e85",
+      "pole/coffre_v53.py": "f8a70c8f71c380689b2979e3c212d09379ceee1973465b2b207b493cbd73c380",
+      "pole/coffre_v55.py": "ef10fe044608fda51d5cd4b3b855da677845be83d1367ca3aa33fe45337e33fd",
+      "pole/configuration_v53.py": "ef72ffbf6b5ba546fb5e509502b59f0d9ac4f78772dcb9570ef36086639f4a78",
+      "pole/configuration_v54.py": "3424ca7fa8911e5c2656cb56632f7d74c958008b9366af0ac45e6a62e4d16d66",
+      "pole/configuration_v55.py": "2e6237c0a8b1c823fa17ddd6c680357a59ec4030bfbe9ac6ba970a700a864071",
+      "pole/configuration_v56.py": "122405228d6ec550b2120114e87a1e70bcc74c14eee17342605d8402bd015d6b",
+      "pole/controles_pari.py": "fabc3d0873e6db639f2578eb00ef0035d7831a3b2a1457ffce1d91aa7a364e1c",
+      "pole/course2_v53.py": "8f2d035828df913d8fa92e1b7d0c8e41ac73e8416e60f3b674753c27f5c61237",
+      "pole/course2_v54.py": "ac1980d04eb88d8fbb9a073902e47146ab9eadd3375a41cd72835fa5acf20342",
+      "pole/course2_v55.py": "ee6a861e7f8db32a9545372a51f902389cdbea809b0ba354e621a3681e541a70",
+      "pole/course2_v56.py": "14f655696876afc8453ec5237236b3f9daf8d87844c4acc9d5189b3e61b310f1",
+      "pole/cycle.py": "798f039042e3ee1f18df5c566f5a0ddee5dac5c98225c8ce621e267174c8ee18",
+      "pole/dossier_ferme.py": "62fd284519278382592a4684e9d4ecd32baad5e11491c256ef64ee844f08d087",
+      "pole/etage_entre_generations_v53.py": "d568d25bf7d96011cfdcda12e7bc2c1933a61827b237f8c8c363b4055122ad4b",
+      "pole/etage_entre_generations_v54.py": "86a6bec00c3fee9b4ea510cf8dad8d899b9c96adef1e5ae4f8a8281d658143e5",
+      "pole/etage_entre_generations_v55.py": "865bd7e5734618a2e989bdd14726ff7db53e014963cbc93b48be1892c7ab4dd9",
+      "pole/etage_entre_generations_v56.py": "f0c80e2d9801d4a928574f7f442e2950c2d130d77015b30102911bfa87dd6eba",
+      "pole/etage_entre_generations_v57.py": "e4bf36819d18844079a2bb4996991fd65c233a51d76b7d3daf5b866a71328318",
+      "pole/evaluateur_lois_v62.py": "26613fe72da7f049d5dd076aab51a3808221bf52686b9d0258a201c8b38b8632",
+      "pole/fiche.py": "ec018f147196222268d91358ce2038bb35bf76069e6bf8928dea9e3db59d1074",
+      "pole/fiches_v53.py": "7cfcf8329c66c7a37ceb2992cc96e21aedbfa0a10525467672794090a128eda6",
+      "pole/fiches_v54.py": "1ab0796dd5d9de14ea84953b0307a065572bc300ebe45209ca207d7880bbaebf",
+      "pole/garde_outils.py": "3abd0e19a8f16cc1c2a8f2590ea04831a7d9ba25c02129fb881b87be3983f390",
+      "pole/gardes_e0_v54.py": "83b54b816b3277d97f5340ad4a316094a492bc2090c782b3e134092a97ca1edf",
+      "pole/gardes_e0_v55.py": "e46c5cd0a301c89830d97c098ee52b33ead6b01cafe15ab8454e6b7957c54db1",
+      "pole/gardes_e0_v56.py": "921e59f23753666d6367678447edf4ee2964dc6ec3d382aefa8582b996e123b9",
+      "pole/graines_v53.py": "7eb838958b28c7b7a5ee20177dfc3d0c194002b99b2382e019fe7d91c3090dc0",
+      "pole/ideation.py": "4ee70d25567a9b3ac90911cc5ebee8cebba0537d541e7a0ebc1fa3ed170abdc2",
+      "pole/ideation_v2.py": "67d2ad3591b21601ece4101154138f532ba519024761beb8c9738181f8f3fefc",
+      "pole/juges_croises_v53.py": "c4c6ab12dc471eef078c116a4205a22d9b498da720ce71e37a0a6edae6c4239b",
+      "pole/lecture_boucle_reelle_v66.py": "0152103a9f2b33271eddfb6493368e387d5a6c5ade010e217c7abdfda43d52c6",
+      "pole/lecture_tour_ferme_v63.py": "2e2c695abcfe2715ca29101c434346658949a2c86be86ed8f9d6f68a408f94ea",
+      "pole/memoire.py": "71f1d08613bf335aa9ef7aa1397f20aa24553fea2f1b858c10b265d62f8ab79e",
+      "pole/memoire_v53.py": "43b01b43b1ec347ff02b456975d74c17e7a0e974e9b95e9ba4935bdb895f31a0",
+      "pole/mesures_v54.py": "8f3f57fc98972fbcf6aefb27fd37298ac67f249cd295c7127b47ab8e77626c08",
+      "pole/moisson.py": "35d9a996aaacf6d61e84762a2173e73e3c1a90eda730cce122a0f321b038d0e1",
+      "pole/monde_banque.py": "33088eb9088549a20ffd489687928a1f1469d1df85a025db29bc9ce3f93e7b18",
+      "pole/monde_noyau.py": "b2aaf3958525e399f0c6453eace41550146327623f95578d64e158bb13e8cae0",
+      "pole/noyau_v54.py": "711a32679164bd63605f0bcc2a96f37d53260c479004d04d887d8228ac7d431b",
+      "pole/noyau_v55.py": "ca0f2dda980777da9c549519c6b15994309722353b22f88d117e95aa2c2d4035",
+      "pole/noyau_v56.py": "eb5a003e8f23b0882e5588fe537e8b65b890f0d7d19560896be4e85a0731543b",
+      "pole/nul_filles_v2.py": "0ed9b4adbcddc4ad77a1c97d5cbd5706f14926e9c47fe96ce2bab3221a138910",
+      "pole/nul_v8.py": "cc452aafd17121a7c0ec42829eea47063ffee1f6cdf7f642e264d528f976b888",
+      "pole/oracle_tour_ferme_v60.py": "514864b7879e5131ee37f7a57951db5ece514abe9acbd90b1294e0d914041669",
+      "pole/outils.py": "966d9553026aad1eb7d97fa677334f1b59f22a39f15eef95134d63bc47634444",
+      "pole/pari_apparie.py": "ec6c2cf64d0c9a3bcb3484f2bc58ca986c89e97829bd45fdb96cbc42bf094fef",
+      "pole/prepilote_v54.py": "77056684e5d1b2149521878da396d51bb3f16834de85ca9e86acdc7e1998592d",
+      "pole/prepilote_v55.py": "e91e07e4f3bf67cd5106129586048abb3b06284eb9812f8e4da4082087859f05",
+      "pole/prepilote_v56.py": "dfce55061c65b5ae7526161c54be17005ddef631cb539463cd2c23b32b87b087",
+      "pole/proposeurs_references_v59.py": "7d00371a8fcfa3efc2c17b2f0ab33d18ef83b41f3988744ea12dcf823806f68f",
+      "pole/protocole_outils.py": "0657eec8e0b1a3d2a3f57f37aad59c34554a2352be4e42ed2c3395e9e94fe2b5",
+      "pole/registre_go_v66.py": "4541ef7f53e2210bff7f74e1872ac46a10b29fda30f9cf4db568a99b03c04b4c",
+      "pole/relais.py": "b5a76343e458cf8fb91ee1928244f9cb65d50c27ab9b1bae91c21a5c82349da3",
+      "pole/relais_reel.py": "1b90b020287e575b5564508f9ba33b87bbc051c1015f4198e6b6e648d50ee153",
+      "pole/selection_pari.py": "359928110d757cd54cc0d2773910c7360895b68cac5d17e0e4b4e9933ef306bc",
+      "pole/simulation.py": "be14d44e7a8ebf6b2a71f16b5290555f5d7a11309e5dbf309ce9097f19ae7892",
+      "pole/simulation_v53.py": "27129c62498e3d5b801eb4d882b8abb7db2c3a0bfb2205829a62d7f0c69a353c",
+      "pole/simulation_v54.py": "de2232922516f0d3fa2ca664ff80800d0ac53ff8e823b784864aab375e01941c",
+      "pole/simulation_v55.py": "91ac1c345c3670dd232b0c1da63825608aac1a840192639dd01e7fb175efbf4f",
+      "pole/simulation_v56.py": "bcafca44c5117dfd30262ee520a67944d051208f1b1deac6fac016e8cb95dc76",
+      "pole/suivi_roles_v54.py": "620225973d68670a56ca913cdd02709fa576fa43e1393d166915ea67c1d7c3bb",
+      "pole/tableau_v53.py": "1a8267fea6d147b070d697ccd2c9d33f2514be6fcba106dca8ca123be1cb7403",
+      "pole/tests_de_mort.py": "fc5d3507b33e13094d64751ff2b4564ba5ed4c238f93aaae808c458b3c123252",
+      "pole/tests_de_mort_v2.py": "363a3725885da08412f25b28defba7a8d204d883c3637f1de1df83686d93a41a",
+      "pole/tests_de_mort_v3.py": "ea05eb55f9d179501fb091d25298deaf36cd66ad16fd65bdca4dcf5e4ba74bba",
+      "pole/tests_de_mort_v4.py": "35912a3ab5e9e289077ffdceb492bb966f24176244976b3923dcfe95bda1603a",
+      "pole/tests_de_mort_v5.py": "da524871b9b498693d67cc099240acb98c4c84c800ee4c69f0a1cb5fe60b64f1",
+      "pole/tour_ferme_v64.py": "35a8294e24c870685435b990d6c03cd33cb5b2e288bcb2cc91cd9af04679c2da"
+    },
+    "go": {
+      "accorde": "2026-11-12",
+      "echeance": "2026-11-30",
+      "enveloppe": null,
+      "extensions": [],
+      "forme_du_plafond": "montant seul",
+      "identifiant": "GO-2026-11-12-06",
+      "lecteur": "registre-go-v66",
+      "ligne": 313,
+      "montant_requis_usd": 45.0,
+      "par": "Lazar",
+      "perimetre": "**Course réelle de l'organisme d'idéation sous l'écart 1, option 2** : 40 USD de modèles (Kimi 33, Argon 7 ; plafond de chaque relais égal à sa part) et 5 USD de machine jetable, validée par l'essai à blanc `--bac reel` avant tout appel payant ; conditions toutes exigées : **code v67** (délai de la configuration passé à l'adaptateur, 7 200 s) contre-lu, **configuration v8** (borne de sortie du proposeur 131 072, plafond de session 1,50 USD, délais 7 200 s), texte du préenregistrement v2 contre-lu et scellé ; **remplace GO-2026-11-10-11 pour la suite de cette course, sans cumul** (sa dépense ≈ 1,19 USD reste sous elle) ; jamais de ligne d'extension ; arrêt par identifiant (R10), dépenses et arrêts consignés",
+      "plafond": "45 USD",
+      "plafond_lu_usd": 45.0,
+      "ref": "R-2423, R-2426 ; mot direct de Lazar (12:26 UTC), verbatim : « Recommandation : option 2 : go ; Recommandation : (a), confiance 0,75 go ; »",
+      "type": "calcul"
+    },
+    "plan": {
+      "bras": [
+        "reel"
+      ],
+      "cartes_par_proposeur": 6,
+      "configuration_sha256": "eb6262890927bfc351bf2a32c21d0dcf121445256a5ebe6c4eaee70b9265b31d",
+      "decisions": {
+        "d7": "archive_propre",
+        "d9": "mecanique"
+      },
+      "duree_h": 72.0,
+      "generations": 2,
+      "go": "GO-2026-11-12-06",
+      "go_montant_usd": 45.0,
+      "heritage_depart_sha256": "93dcf51715f7a1aa4f313e9e1761c5a375a275d572ffcdb6969fbfaf2fb623c1",
+      "jeu_plante_sha256": "21b4b0058672deb36a2312370324f2fcc5065576f18f2b69a97eda84f84eb41e",
+      "m_e_bh": 22,
+      "monde_sha256": "fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877",
+      "plafond_argon_usd": 7.0,
+      "plafond_kimi_usd": 33.0,
+      "plafond_machine_usd": 5.0,
+      "plafond_modeles_usd": 40.0
+    },
+    "sha256": "80fe4f03b4905b2376b8cd16873c9ab93da3b97e4e01a9a2932be329bab0954d"
+  },
+  "releve": {
+    "archives_de_jugement": {
+      "1": {
+        "K1": {
+          "biais": [
+            0.0,
+            0.941698,
+            0.721847
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.834964,
+              0.0
+            ],
+            [
+              -0.242046,
+              0.0
+            ]
+          ],
+          "type": "softmax"
+        }
+      },
+      "2": {
+        "F-0e383ebd264a": {
+          "biais": [
+            0.0,
+            0.9,
+            0.2
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -1.1,
+              1.6
+            ],
+            [
+              0.2,
+              -2.0
+            ]
+          ],
+          "type": "softmax"
+        },
+        "F-2a1b31f3b5b5": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                1.0,
+                0.3
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.2,
+                  1.7
+                ],
+                [
+                  0.3,
+                  -2.1
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.8,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.1,
+                  1.9
+                ],
+                [
+                  0.2,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "F-2bcc714f7837": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                0.6,
+                -0.35
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.835,
+                  1.1
+                ],
+                [
+                  -0.242,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.58,
+                -0.38
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.95,
+                  1.15
+                ],
+                [
+                  -0.25,
+                  -2.15
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "F-6e2a1edad084": {
+          "biais": [
+            0.0,
+            0.5,
+            -0.6
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.835,
+              1.3
+            ],
+            [
+              -0.242,
+              -2.5
+            ]
+          ],
+          "type": "softmax"
+        },
+        "F-70e224d5849f": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                1.2,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.6,
+                  2.4
+                ],
+                [
+                  0.4,
+                  -3.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                0.3,
+                0.4,
+                0.3
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.92,
+            0.08
+          ],
+          "type": "melange"
+        },
+        "F-81bca221154e": {
+          "condition": {
+            "indice": 1,
+            "seuil": 0.0
+          },
+          "si": {
+            "biais": [
+              0.0,
+              0.8,
+              -0.8
+            ],
+            "poids": [
+              [
+                0.5,
+                -0.5
+              ],
+              [
+                -1.0,
+                1.5
+              ],
+              [
+                0.8,
+                -2.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "sinon": {
+            "biais": [
+              0.0,
+              0.7,
+              0.4
+            ],
+            "poids": [
+              [
+                0.2,
+                0.5
+              ],
+              [
+                -1.2,
+                1.2
+              ],
+              [
+                0.3,
+                -2.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "type": "si_sinon"
+        },
+        "F-85ebb8a13dbd": {
+          "biais": [
+            -0.2,
+            1.0,
+            0.1
+          ],
+          "poids": [
+            [
+              0.2,
+              0.1
+            ],
+            [
+              -1.5,
+              2.2
+            ],
+            [
+              0.5,
+              -2.8
+            ]
+          ],
+          "type": "softmax"
+        },
+        "F-9cf715dd9c02": {
+          "base": {
+            "biais": [
+              0.0,
+              0.6,
+              -0.35
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -0.835,
+                1.1
+              ],
+              [
+                -0.242,
+                -2.2
+              ]
+            ],
+            "type": "softmax"
+          },
+          "melange_aveugle": {
+            "lambda": 0.03,
+            "probas": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "type": "transformee"
+        },
+        "F-d4762af0bdc6": {
+          "biais": [
+            0.0,
+            0.75,
+            0.05
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.8,
+              1.0
+            ],
+            [
+              -0.25,
+              -1.7
+            ]
+          ],
+          "type": "softmax"
+        },
+        "F-e3783adc4dca": {
+          "biais": [
+            0.0,
+            0.85,
+            0.35
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.9,
+              1.2
+            ],
+            [
+              0.1,
+              -1.4
+            ]
+          ],
+          "type": "softmax"
+        },
+        "F-fb2ba689a57a": {
+          "biais": [
+            0.0,
+            0.6,
+            -0.35
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.835,
+              1.1
+            ],
+            [
+              -0.242,
+              -2.2
+            ]
+          ],
+          "type": "softmax"
+        },
+        "K1": {
+          "biais": [
+            0.0,
+            0.941698,
+            0.721847
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.834964,
+              0.0
+            ],
+            [
+              -0.242046,
+              0.0
+            ]
+          ],
+          "type": "softmax"
+        }
+      }
+    },
+    "arret": null,
+    "bras": [
+      "reel"
+    ],
+    "cartes": [
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "b56914b38051bdb0718a5eecb1f760ce50e3b1e5e95e0cc36cbc793f5265330a",
+        "enonce": "Softmax global : l'effet de z0 estimé dans K1 est conservé, tandis que z1 positif favorise fortement l'issue 1 et z1 négatif l'issue 2. L'issue 0 reste la plus probable dans la zone centrale.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 11116623653202018064,
+          "noyau": 16012080890315715945
+        },
+        "identifiant": "G1-kimi-01",
+        "identifiant_servi": "F-fb2ba689a57a",
+        "log_e": 10.281986,
+        "log_richesse_max": 79.151211,
+        "loi": {
+          "biais": [
+            0.0,
+            0.6,
+            -0.35
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.835,
+              1.1
+            ],
+            [
+              -0.242,
+              -2.2
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "kimi",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "c07919baf79dc3e35320ae10159258a767bcc49192450267cde3b8437b6df7d5",
+        "enonce": "Variante plus tranchée : les pentes opposées selon z1 sont renforcées et leurs biais abaissés, ce qui concentre les issues 1 et 2 dans leurs queues respectives tout en laissant davantage de place à l'issue 0 près de z1 = 0.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 10431103495507734769,
+          "noyau": 14603065989301575534
+        },
+        "identifiant": "G1-kimi-02",
+        "identifiant_servi": "F-6e2a1edad084",
+        "log_e": 11.727968,
+        "log_richesse_max": 94.475378,
+        "loi": {
+          "biais": [
+            0.0,
+            0.5,
+            -0.6
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.835,
+              1.3
+            ],
+            [
+              -0.242,
+              -2.5
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "kimi",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "c3ad19ae16d969692f1370242a8ee16606539b284ad9c3309170f4df8e60fb41",
+        "enonce": "Variante plus douce et moins confiante : la séparation par z1 demeure le signal principal, mais avec des pentes réduites et une calibration proche des fréquences observées. Elle limite le coût des nombreux chevauchements entre classes.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 9647718274270726988,
+          "noyau": 8703378226834540971
+        },
+        "identifiant": "G1-kimi-03",
+        "identifiant_servi": "F-d4762af0bdc6",
+        "log_e": 9.972063,
+        "log_richesse_max": 75.558814,
+        "loi": {
+          "biais": [
+            0.0,
+            0.75,
+            0.05
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.8,
+              1.0
+            ],
+            [
+              -0.25,
+              -1.7
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "kimi",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "e3163d19d46cce7317a8ec647371713e508b16a12475164eb21448769b2c3132",
+        "enonce": "Loi principale avec une petite composante aveugle uniforme : elle conserve la géométrie softmax tout en évitant des probabilités excessivement faibles pour les issues atypiques observées dans les zones pourtant bien tranchées.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 13454996021722970626,
+          "noyau": 15500604537346469036
+        },
+        "identifiant": "G1-kimi-04",
+        "identifiant_servi": "F-9cf715dd9c02",
+        "log_e": 8.380974,
+        "log_richesse_max": 81.240379,
+        "loi": {
+          "base": {
+            "biais": [
+              0.0,
+              0.6,
+              -0.35
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -0.835,
+                1.1
+              ],
+              [
+                -0.242,
+                -2.2
+              ]
+            ],
+            "type": "softmax"
+          },
+          "melange_aveugle": {
+            "lambda": 0.03,
+            "probas": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "kimi",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "7f21bbc1ab528fbd4abba3eb707dae56016b2daebfd68f8d08927ea158253ea5",
+        "enonce": "Ajustement par sous-population : la structure reste commune, mais g = 1 reçoit une pente z0 un peu plus forte pour l'issue 1, traduisant la présence accrue de l'issue 0 à grand z0 et de l'issue 1 à z0 très négatif.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 8391236003637957298,
+          "noyau": 3304697650054758101
+        },
+        "identifiant": "G1-kimi-05",
+        "identifiant_servi": "F-2bcc714f7837",
+        "log_e": 8.943072,
+        "log_richesse_max": 64.552211,
+        "loi": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                0.6,
+                -0.35
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.835,
+                  1.1
+                ],
+                [
+                  -0.242,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.58,
+                -0.38
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.95,
+                  1.15
+                ],
+                [
+                  -0.25,
+                  -2.15
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "kimi",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "9e0035b1a734b6aac8cf82ee3a94f4d1f579b711277ba899a33af33ff7229e74",
+        "enonce": "Loi softmax complète intégrant fortement le second trait z1 : z1 positif favorise l'issue 1 tandis que z1 négatif favorise l'issue 2, avec une dépendance modérée au premier trait z0.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 16285503829670787460,
+          "noyau": 7489922145459974805
+        },
+        "identifiant": "G1-argon-01",
+        "identifiant_servi": "F-0e383ebd264a",
+        "log_e": 12.607436,
+        "log_richesse_max": 84.043963,
+        "loi": {
+          "biais": [
+            0.0,
+            0.9,
+            0.2
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -1.1,
+              1.6
+            ],
+            [
+              0.2,
+              -2.0
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "7df33eb23b4cca62cdbbacca6016747b2faf2c17ddaa777f0c448d803fcf1695",
+        "enonce": "Loi softmax à contrastes accentués sur les deux traits : séparation franche entre l'issue 1 (z0 négatif, z1 positif) et l'issue 2 (z1 très négatif).",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 17095751389194487770,
+          "noyau": 17935394447044836149
+        },
+        "identifiant": "G1-argon-02",
+        "identifiant_servi": "F-85ebb8a13dbd",
+        "log_e": 14.579324,
+        "log_richesse_max": 91.511061,
+        "loi": {
+          "biais": [
+            -0.2,
+            1.0,
+            0.1
+          ],
+          "poids": [
+            [
+              0.2,
+              0.1
+            ],
+            [
+              -1.5,
+              2.2
+            ],
+            [
+              0.5,
+              -2.8
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "15f56c5eeee49fbfa2975027928693a4ed448ace73c95219a0c45912c130fdba",
+        "enonce": "Loi softmax modérée privilégiant la régularité des probabilités prédites tout en capturant l'effet directeur de z1 et z0 sur les trois issues.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 12329032827592015091,
+          "noyau": 9239580964302570372
+        },
+        "identifiant": "G1-argon-03",
+        "identifiant_servi": "F-e3783adc4dca",
+        "log_e": 6.680411,
+        "log_richesse_max": 76.808157,
+        "loi": {
+          "biais": [
+            0.0,
+            0.85,
+            0.35
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.9,
+              1.2
+            ],
+            [
+              0.1,
+              -1.4
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "81a4909a693c9faccde3119726da954340ced0e4a3265ea589fe1551459aabb5",
+        "enonce": "Loi différenciée par sous-population permettant des seuils et pentes distincts selon que g vaut 0 ou 1.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 12779187186848529109,
+          "noyau": 5585238257728453306
+        },
+        "identifiant": "G1-argon-04",
+        "identifiant_servi": "F-2a1b31f3b5b5",
+        "log_e": 13.350998,
+        "log_richesse_max": 88.323328,
+        "loi": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                1.0,
+                0.3
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.2,
+                  1.7
+                ],
+                [
+                  0.3,
+                  -2.1
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.8,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.1,
+                  1.9
+                ],
+                [
+                  0.2,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "7eb3a35432f4abcf703e1264e743fe65cfc53283e966038761d8d7ea606a4e36",
+        "enonce": "Mélange robuste entre une loi softmax fortement discriminante sur z0 et z1 et une composante uniforme amortissant les prédictions extrêmes.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 6954379257981077000,
+          "noyau": 17352304953797050801
+        },
+        "identifiant": "G1-argon-05",
+        "identifiant_servi": "F-70e224d5849f",
+        "log_e": 12.39348,
+        "log_richesse_max": 89.11303,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                1.2,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.6,
+                  2.4
+                ],
+                [
+                  0.4,
+                  -3.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                0.3,
+                0.4,
+                0.3
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.92,
+            0.08
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "8ed73af8042682755fd22aaff928a9def570b2667a8889a1dc16909d3400bcd6",
+        "enonce": "Loi conditionnelle selon le signe de z1 : régime spécifique pour les valeurs positives de z1 (dominé par les issues 1 et 0) et régime négatif (dominé par l'issue 2).",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 4627343536595332975,
+          "noyau": 6726926689863126753
+        },
+        "identifiant": "G1-argon-06",
+        "identifiant_servi": "F-81bca221154e",
+        "log_e": 8.803973,
+        "log_richesse_max": 83.893536,
+        "loi": {
+          "condition": {
+            "indice": 1,
+            "seuil": 0.0
+          },
+          "si": {
+            "biais": [
+              0.0,
+              0.8,
+              -0.8
+            ],
+            "poids": [
+              [
+                0.5,
+                -0.5
+              ],
+              [
+                -1.0,
+                1.5
+              ],
+              [
+                0.8,
+                -2.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "sinon": {
+            "biais": [
+              0.0,
+              0.7,
+              0.4
+            ],
+            "poids": [
+              [
+                0.2,
+                0.5
+              ],
+              [
+                -1.2,
+                1.2
+              ],
+              [
+                0.3,
+                -2.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "type": "si_sinon"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_d_archive": 4,
+        "promue": true,
+        "promue_seule": true,
+        "proposeur": "argon",
+        "retenue": true,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "18722d055d8834d9ba9bd3f815b517a3d9999e22fcfe9d08faa32ff723901fc2",
+        "enonce": "Le softmax par sous-population est conservé, puis légèrement lissé. Cette calibration limite le coût des quelques observations atypiques sans modifier les dépendances dominantes à z0 et z1.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 13443032249536985989,
+          "noyau": 13545599304899845640
+        },
+        "identifiant": "G2-kimi-01",
+        "identifiant_servi": "F-320e971f36a6",
+        "log_e": -9.417608,
+        "log_richesse_max": -3.762189,
+        "loi": {
+          "base": {
+            "lois": {
+              "0": {
+                "biais": [
+                  0.0,
+                  0.6,
+                  -0.35
+                ],
+                "poids": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    -0.835,
+                    1.1
+                  ],
+                  [
+                    -0.242,
+                    -2.2
+                  ]
+                ],
+                "type": "softmax"
+              },
+              "1": {
+                "biais": [
+                  0.0,
+                  0.58,
+                  -0.38
+                ],
+                "poids": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    -0.95,
+                    1.15
+                  ],
+                  [
+                    -0.25,
+                    -2.15
+                  ]
+                ],
+                "type": "softmax"
+              }
+            },
+            "type": "par_sous_population"
+          },
+          "melange_aveugle": {
+            "lambda": 0.02,
+            "probas": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "9bb5bddfbf416d0f362723ed6f961135f7053998ff8ffba0ec6d5a21ec1e893c",
+        "enonce": "Recalibration très modérée du meilleur softmax commun : l'issue 0 est légèrement moins favorisée et l'issue 2 un peu plus présente près du centre, tandis que tous les coefficients des traits sont préservés.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 983146318891119589,
+          "noyau": 17329031941899646168
+        },
+        "identifiant": "G2-kimi-02",
+        "identifiant_servi": "F-ec68f7a1b1b3",
+        "log_e": -13.638149,
+        "log_richesse_max": -6.39585,
+        "loi": {
+          "biais": [
+            -0.04,
+            0.6,
+            -0.29
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.835,
+              1.1
+            ],
+            [
+              -0.242,
+              -2.2
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-81bca221154e",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "eee15c602146552559e434cd1ed45e51a3c9bf21ee99ecbca0906311f66ed683",
+        "enonce": "La loi recalibrée est légèrement accentuée pour gagner en netteté sur les cas bien tranchés, avec une petite composante uniforme qui protège les probabilités des issues rares.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 9575298020599587340,
+          "noyau": 8487957656818841987
+        },
+        "identifiant": "G2-kimi-03",
+        "identifiant_servi": "F-99a9f7dc5b22",
+        "log_e": -12.025421,
+        "log_richesse_max": -2.275673,
+        "loi": {
+          "base": {
+            "biais": [
+              -0.04,
+              0.6,
+              -0.29
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -0.835,
+                1.1
+              ],
+              [
+                -0.242,
+                -2.2
+              ]
+            ],
+            "type": "softmax"
+          },
+          "melange_aveugle": {
+            "lambda": 0.012,
+            "probas": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "puissance": 1.03,
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-2a1b31f3b5b5",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "f22498ba2499c3d991c86e90d94b652bfe6d520fa081db6a51ac18ef07d9d5a4",
+        "enonce": "Un mélange dominé par le softmax central emprunte une petite part au modèle fort déjà régularisé. Il accentue doucement les séparations tout en gardant une calibration proche de la référence.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 9504250753161944233,
+          "noyau": 15624557712735331606
+        },
+        "identifiant": "G2-kimi-04",
+        "identifiant_servi": "F-b9a059c50c8e",
+        "log_e": -13.769309,
+        "log_richesse_max": -2.683001,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.6,
+                -0.35
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.835,
+                  1.1
+                ],
+                [
+                  -0.242,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "composantes": [
+                {
+                  "biais": [
+                    0.0,
+                    1.2,
+                    0.2
+                  ],
+                  "poids": [
+                    [
+                      0.0,
+                      0.0
+                    ],
+                    [
+                      -1.6,
+                      2.4
+                    ],
+                    [
+                      0.4,
+                      -3.0
+                    ]
+                  ],
+                  "type": "softmax"
+                },
+                {
+                  "probas": [
+                    0.3,
+                    0.4,
+                    0.3
+                  ],
+                  "type": "fixe"
+                }
+              ],
+              "poids": [
+                0.92,
+                0.08
+              ],
+              "type": "melange"
+            }
+          ],
+          "poids": [
+            0.8,
+            0.2
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-e3783adc4dca",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "2f5af25b37984f65b62ec0d8b1ef25d244f3f2ec044d222beb1d20af043aa5ca",
+        "enonce": "Rétrécissement des pentes vers le centre des lois retenues : la dépendance à z1 reste forte mais moins extrême, et les biais sont ajustés pour préserver les fréquences relatives des trois issues.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 1691207650957505161,
+          "noyau": 5324689356794386066
+        },
+        "identifiant": "G2-kimi-05",
+        "identifiant_servi": "F-4b5fe756d62a",
+        "log_e": -7.081011,
+        "log_richesse_max": -3.397363,
+        "loi": {
+          "biais": [
+            -0.03,
+            0.65,
+            -0.25
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.88,
+              1.15
+            ],
+            [
+              -0.22,
+              -2.05
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "3d073f87962f5a5c463a4fca76f6cd6d329dbc5e816abde6b9d8d315c34b59f1",
+        "enonce": "Le softmax central reçoit une faible composante conditionnelle au signe de z1. Cette correction permet une calibration différente de part et d'autre de zéro sans bouleverser les prédictions établies.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 9650311162737446342,
+          "noyau": 13755331807066059680
+        },
+        "identifiant": "G2-kimi-06",
+        "identifiant_servi": "F-30fea327e782",
+        "log_e": -12.6468,
+        "log_richesse_max": -3.522123,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.6,
+                -0.35
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.835,
+                  1.1
+                ],
+                [
+                  -0.242,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "condition": {
+                "indice": 1,
+                "seuil": 0.0
+              },
+              "si": {
+                "biais": [
+                  0.0,
+                  0.8,
+                  -0.8
+                ],
+                "poids": [
+                  [
+                    0.5,
+                    -0.5
+                  ],
+                  [
+                    -1.0,
+                    1.5
+                  ],
+                  [
+                    0.8,
+                    -2.0
+                  ]
+                ],
+                "type": "softmax"
+              },
+              "sinon": {
+                "biais": [
+                  0.0,
+                  0.7,
+                  0.4
+                ],
+                "poids": [
+                  [
+                    0.2,
+                    0.5
+                  ],
+                  [
+                    -1.2,
+                    1.2
+                  ],
+                  [
+                    0.3,
+                    -2.0
+                  ]
+                ],
+                "type": "softmax"
+              },
+              "type": "si_sinon"
+            }
+          ],
+          "poids": [
+            0.88,
+            0.12
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-2a1b31f3b5b5",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "kimi",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "79010e147333472ce425ce4f3d7cd9082f688476fe0edac1fd6de04f86a99c3c",
+        "enonce": "Modèle par sous-population avec poids positifs sur z0 pour l'issue 2 et forts gradients sur z1.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 13651417714267063631,
+          "noyau": 16454824896807905549
+        },
+        "identifiant": "G2-argon-01",
+        "identifiant_servi": "F-b9d680163b2f",
+        "log_e": -8.440801,
+        "log_richesse_max": -3.48593,
+        "loi": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                0.95,
+                0.25
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.3,
+                  1.8
+                ],
+                [
+                  0.4,
+                  -2.4
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.85,
+                0.15
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.2,
+                  2.0
+                ],
+                [
+                  0.3,
+                  -2.5
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-85ebb8a13dbd",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "fe684ab7473c212c8d6cd380c50d8c88793987432774281eeade7f1581d1e8cf",
+        "enonce": "Modèle par sous-population avec léger mélange aveugle régularisateur pour absorber les valeurs extrêmes.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 11958797506166933056,
+          "noyau": 4122848469555941259
+        },
+        "identifiant": "G2-argon-02",
+        "identifiant_servi": "F-34d4b81446a3",
+        "log_e": -6.948696,
+        "log_richesse_max": -2.280099,
+        "loi": {
+          "base": {
+            "lois": {
+              "0": {
+                "biais": [
+                  0.0,
+                  1.05,
+                  0.2
+                ],
+                "poids": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    -1.5,
+                    2.2
+                  ],
+                  [
+                    0.4,
+                    -2.8
+                  ]
+                ],
+                "type": "softmax"
+              },
+              "1": {
+                "biais": [
+                  0.0,
+                  0.9,
+                  0.1
+                ],
+                "poids": [
+                  [
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    -1.4,
+                    2.4
+                  ],
+                  [
+                    0.3,
+                    -2.9
+                  ]
+                ],
+                "type": "softmax"
+              }
+            },
+            "type": "par_sous_population"
+          },
+          "melange_aveugle": {
+            "lambda": 0.04,
+            "probas": [
+              0.3,
+              0.4,
+              0.3
+            ]
+          },
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-70e224d5849f",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "1ffd8aecb88e13d2309124d45c0738b08c8e0684809cb53597e706c032f13d68",
+        "enonce": "Mélange entre deux régimes de sensibilité aux traits z0 et z1.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 748877585922500909,
+          "noyau": 16161331245926289070
+        },
+        "identifiant": "G2-argon-03",
+        "identifiant_servi": "F-d38222b20b6d",
+        "log_e": -6.766965,
+        "log_richesse_max": -1.954932,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                1.1,
+                0.15
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.5,
+                  2.3
+                ],
+                [
+                  0.45,
+                  -2.9
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "biais": [
+                0.0,
+                0.65,
+                -0.25
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.9,
+                  1.2
+                ],
+                [
+                  -0.1,
+                  -2.0
+                ]
+              ],
+              "type": "softmax"
+            }
+          ],
+          "poids": [
+            0.65,
+            0.35
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-70e224d5849f",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "8331151d976b1caeddf7b83892634020ff008737f369f37d8f209cdc19fc95c0",
+        "enonce": "Rupture de pente selon le signe de z0 pour mieux isoler la zone centrale de l'issue 0.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 13349043967331847598,
+          "noyau": 8957184268994743940
+        },
+        "identifiant": "G2-argon-04",
+        "identifiant_servi": "F-5f0569d7dec2",
+        "log_e": -5.25388,
+        "log_richesse_max": -2.099269,
+        "loi": {
+          "condition": {
+            "indice": 0,
+            "seuil": 0.0
+          },
+          "si": {
+            "biais": [
+              0.0,
+              0.6,
+              0.0
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -1.0,
+                2.1
+              ],
+              [
+                0.5,
+                -2.6
+              ]
+            ],
+            "type": "softmax"
+          },
+          "sinon": {
+            "biais": [
+              0.0,
+              1.1,
+              0.2
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -1.4,
+                1.7
+              ],
+              [
+                0.1,
+                -2.1
+              ]
+            ],
+            "type": "softmax"
+          },
+          "type": "si_sinon"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "c2c4a4bc59b12e8c4f5dfaa64aa69dc8e55a5b447d0d5e744d3205b7e4caa69b",
+        "enonce": "Modulation non-linéaire sur z1 par oscillation cosinusoïdale favorisant l'issue 0 autour de z1 = 0.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 14187305392489439319,
+          "noyau": 15525670870026498786
+        },
+        "identifiant": "G2-argon-05",
+        "identifiant_servi": "F-861e1a08c558",
+        "log_e": -11.296651,
+        "log_richesse_max": -2.300297,
+        "loi": {
+          "base": {
+            "biais": [
+              -0.3,
+              0.95,
+              0.15
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -1.25,
+                1.85
+              ],
+              [
+                0.35,
+                -2.35
+              ]
+            ],
+            "type": "softmax"
+          },
+          "oscillation": {
+            "amplitude": 0.45,
+            "frequence": 1.5,
+            "issue": 0,
+            "phase": 0.0,
+            "trait": 1
+          },
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-2a1b31f3b5b5",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "b34e3d79552fe28e2748d19a0d11e85fbdfe9b133099da1d9b6cc9399e7be1ef",
+        "enonce": "Softmax calibré intermédiaire avec effet opposé de z0 sur les issues 1 et 2.",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 17516693382669894130,
+          "noyau": 1573341791900514402
+        },
+        "identifiant": "G2-argon-06",
+        "identifiant_servi": "F-534e11620b09",
+        "log_e": -4.624221,
+        "log_richesse_max": -1.081498,
+        "loi": {
+          "biais": [
+            0.0,
+            0.92,
+            0.18
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -1.28,
+              1.92
+            ],
+            [
+              0.32,
+              -2.45
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-6e2a1edad084",
+        "membres_d_archive": 37,
+        "promue": false,
+        "promue_seule": false,
+        "proposeur": "argon",
+        "retenue": false,
+        "verdict": null
+      }
+    ],
+    "complet": true,
+    "decisions": {
+      "d7": "archive_propre",
+      "d9": "mecanique"
+    },
+    "depense": {
+      "appels": 8,
+      "depense_usd": 1.99431,
+      "duree_s": 2739.3,
+      "par_relais_usd": {
+        "argon": 0.85618,
+        "kimi": 1.13813
+      },
+      "par_role_usd": {
+        "proposeur": 1.10442,
+        "tests_de_mort": 0.88989
+      },
+      "parts_usd": {
+        "argon": 7.0,
+        "kimi": 33.0
+      }
+    },
+    "etages": [
+      {
+        "bac_a_sable": "bwrap",
+        "bilan_sha256": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+        "contre_calculs": {
+          "cartes": {
+            "F-0e383ebd264a": {
+              "noyau": 0.45387800580775656,
+              "ok": true,
+              "orchestrateur": 0.453878005808,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-2a1b31f3b5b5": {
+              "noyau": 0.45369504735887034,
+              "ok": true,
+              "orchestrateur": 0.453695047359,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-2bcc714f7837": {
+              "noyau": 0.4531078737835443,
+              "ok": true,
+              "orchestrateur": 0.453107873784,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-6e2a1edad084": {
+              "noyau": 0.4637997173381241,
+              "ok": true,
+              "orchestrateur": 0.463799717338,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-70e224d5849f": {
+              "noyau": 0.43686517061446595,
+              "ok": true,
+              "orchestrateur": 0.436865170614,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-81bca221154e": {
+              "noyau": 0.4524177942472787,
+              "ok": true,
+              "orchestrateur": 0.452417794247,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-85ebb8a13dbd": {
+              "noyau": 0.43928613147520246,
+              "ok": true,
+              "orchestrateur": 0.439286131475,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-9cf715dd9c02": {
+              "noyau": 0.4444639557416325,
+              "ok": true,
+              "orchestrateur": 0.444463955742,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-d4762af0bdc6": {
+              "noyau": 0.4305048424133182,
+              "ok": true,
+              "orchestrateur": 0.430504842413,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-e3783adc4dca": {
+              "noyau": 0.42084204055204794,
+              "ok": true,
+              "orchestrateur": 0.420842040552,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-fb2ba689a57a": {
+              "noyau": 0.4535762261919886,
+              "ok": true,
+              "orchestrateur": 0.453576226192,
+              "sans_objet": false,
+              "verdict": "survit"
+            }
+          },
+          "plantees": {
+            "F-00a1d8c8713e": {
+              "noyau": 0.4963032728085276,
+              "ok": true,
+              "orchestrateur": 0.496303272809,
+              "sans_objet": false,
+              "verdict": "survit"
+            },
+            "F-b0f7a98e2655": {
+              "noyau": 0.4882199365870282,
+              "ok": true,
+              "orchestrateur": 0.488219936587,
+              "sans_objet": false,
+              "verdict": "éliminée"
+            },
+            "F-c0965482b3f3": {
+              "noyau": 0.3961277354482162,
+              "ok": true,
+              "orchestrateur": 0.396127735448,
+              "sans_objet": false,
+              "verdict": "survit"
+            }
+          }
+        },
+        "factice": false,
+        "generation": 1,
+        "selection_plantees_sha256": "781fa17459b062770073815894bdae048487d45611884827b7fa8ad88a708da3",
+        "selection_sha256": "59c3a5d0a42eda4cad29e92e4dedc6e3cc3dfde02203f7b5499ffa458ca9cad6"
+      },
+      {
+        "bac_a_sable": "bwrap",
+        "bilan_sha256": "9f995cdf0237f5be482cf538cc9ac3d5d4a4685e5b62c02ba442423cb9e21fdd",
+        "contre_calculs": {
+          "cartes": {},
+          "plantees": {}
+        },
+        "factice": false,
+        "generation": 2,
+        "selection_plantees_sha256": "a149955acdbe3f6028fc8d7447c02585a9d52473f8f5daef7521f1326d1a74f5",
+        "selection_sha256": "a149955acdbe3f6028fc8d7447c02585a9d52473f8f5daef7521f1326d1a74f5"
+      }
+    ],
+    "generations_jouees": [
+      1,
+      2
+    ],
+    "heritage_depart": {
+      "archive": [
+        "K1"
+      ],
+      "sha256": "93dcf51715f7a1aa4f313e9e1761c5a375a275d572ffcdb6969fbfaf2fb623c1"
+    },
+    "incidents": [],
+    "jetons": {
+      "appels": [
+        {
+          "entree": 7283,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 31891,
+          "usage": {
+            "completion_tokens": 31891,
+            "prompt_tokens": 7283,
+            "total_tokens": 39174
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "proposeur_ideation",
+          "sortie": null,
+          "usage": {
+            "entree": 8687,
+            "sortie": 2390
+          }
+        },
+        {
+          "entree": 3751,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 638,
+          "usage": {
+            "completion_tokens": 638,
+            "prompt_tokens": 3751,
+            "total_tokens": 4389
+          }
+        },
+        {
+          "entree": 4225,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 211,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 211,
+            "prompt_tokens": 4225,
+            "total_tokens": 4436
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3053,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3893,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1093,
+          "usage": {
+            "completion_tokens": 1093,
+            "prompt_tokens": 3893,
+            "total_tokens": 4986
+          }
+        },
+        {
+          "entree": 4646,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 321,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 321,
+            "prompt_tokens": 4646,
+            "total_tokens": 4967
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3252,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3746,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 531,
+          "usage": {
+            "completion_tokens": 531,
+            "prompt_tokens": 3746,
+            "total_tokens": 4277
+          }
+        },
+        {
+          "entree": 4214,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 320,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 320,
+            "prompt_tokens": 4214,
+            "total_tokens": 4534
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3063,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3847,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1615,
+          "usage": {
+            "completion_tokens": 1615,
+            "prompt_tokens": 3847,
+            "total_tokens": 5462
+          }
+        },
+        {
+          "entree": 4407,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 253,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 253,
+            "prompt_tokens": 4407,
+            "total_tokens": 4660
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3165,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3759,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 611,
+          "usage": {
+            "completion_tokens": 611,
+            "prompt_tokens": 3759,
+            "total_tokens": 4370
+          }
+        },
+        {
+          "entree": 4229,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 243,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 243,
+            "prompt_tokens": 4229,
+            "total_tokens": 4472
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3054,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3752,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1318,
+          "usage": {
+            "completion_tokens": 1318,
+            "prompt_tokens": 3752,
+            "total_tokens": 5070
+          }
+        },
+        {
+          "entree": 4385,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 322,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 322,
+            "prompt_tokens": 4385,
+            "total_tokens": 4707
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3112,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3756,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1469,
+          "usage": {
+            "completion_tokens": 1469,
+            "prompt_tokens": 3756,
+            "total_tokens": 5225
+          }
+        },
+        {
+          "entree": 4226,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 309,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 309,
+            "prompt_tokens": 4226,
+            "total_tokens": 4535
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3060,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3890,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 738,
+          "usage": {
+            "completion_tokens": 738,
+            "prompt_tokens": 3890,
+            "total_tokens": 4628
+          }
+        },
+        {
+          "entree": 4500,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 276,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 276,
+            "prompt_tokens": 4500,
+            "total_tokens": 4776
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3209,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3909,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 987,
+          "usage": {
+            "completion_tokens": 987,
+            "prompt_tokens": 3909,
+            "total_tokens": 4896
+          }
+        },
+        {
+          "entree": 4533,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 358,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 358,
+            "prompt_tokens": 4533,
+            "total_tokens": 4891
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3221,
+            "sortie": 221
+          }
+        },
+        {
+          "entree": 3825,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 909,
+          "usage": {
+            "completion_tokens": 909,
+            "prompt_tokens": 3825,
+            "total_tokens": 4734
+          }
+        },
+        {
+          "entree": 4369,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 292,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 292,
+            "prompt_tokens": 4369,
+            "total_tokens": 4661
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3140,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3753,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 635,
+          "usage": {
+            "completion_tokens": 635,
+            "prompt_tokens": 3753,
+            "total_tokens": 4388
+          }
+        },
+        {
+          "entree": 4225,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 404,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 404,
+            "prompt_tokens": 4225,
+            "total_tokens": 4629
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3053,
+            "sortie": 58
+          }
+        },
+        {
+          "entree": 3777,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 1191,
+          "usage": {
+            "completion_tokens": 1191,
+            "prompt_tokens": 3777,
+            "total_tokens": 4968
+          }
+        },
+        {
+          "entree": 4265,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 221,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 221,
+            "prompt_tokens": 4265,
+            "total_tokens": 4486
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3139,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3761,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 635,
+          "usage": {
+            "completion_tokens": 635,
+            "prompt_tokens": 3761,
+            "total_tokens": 4396
+          }
+        },
+        {
+          "entree": 4241,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 374,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 374,
+            "prompt_tokens": 4241,
+            "total_tokens": 4615
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3097,
+            "sortie": 56
+          }
+        },
+        {
+          "entree": 3794,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 933,
+          "usage": {
+            "completion_tokens": 933,
+            "prompt_tokens": 3794,
+            "total_tokens": 4727
+          }
+        },
+        {
+          "entree": 4312,
+          "relais": "kimi",
+          "role": "experimentateur_test",
+          "sortie": 412,
+          "usage": {
+            "cached_tokens": 3584,
+            "completion_tokens": 412,
+            "prompt_tokens": 4312,
+            "total_tokens": 4724
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "lecteur_test",
+          "sortie": null,
+          "usage": {
+            "entree": 3154,
+            "sortie": 57
+          }
+        },
+        {
+          "entree": 8527,
+          "relais": "kimi",
+          "role": "proposeur_ideation",
+          "sortie": 38343,
+          "usage": {
+            "completion_tokens": 38343,
+            "prompt_tokens": 8527,
+            "total_tokens": 46870
+          }
+        },
+        {
+          "entree": null,
+          "relais": "argon",
+          "role": "proposeur_ideation",
+          "sortie": null,
+          "usage": {
+            "entree": 9929,
+            "sortie": 1296
+          }
+        }
+      ],
+      "sommes_par_relais": {
+        "argon": {
+          "appels_avec_usage": 0,
+          "appels_sans_usage": 16,
+          "entree": 0,
+          "sortie": 0
+        },
+        "kimi": {
+          "appels_avec_usage": 30,
+          "appels_sans_usage": 0,
+          "entree": 129800,
+          "sortie": 87853
+        }
+      },
+      "source": "champ « usage » de la dernière ligne JSON des commandes externes"
+    },
+    "lecture_selection": {
+      "attendu": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "copies": [
+        {
+          "nom": "C1",
+          "source": "F-85ebb8a13dbd"
+        },
+        {
+          "nom": "C2",
+          "source": "F-2a1b31f3b5b5"
+        },
+        {
+          "nom": "C3",
+          "source": "F-0e383ebd264a"
+        },
+        {
+          "nom": "C4",
+          "source": "F-70e224d5849f"
+        }
+      ],
+      "empreintes_lues": {
+        "bilan": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+        "cartes": "9e07f890a530271a0e73bf272fa6f0c2eb13296ac232035184ffdd6bf860ef01",
+        "selection": "59c3a5d0a42eda4cad29e92e4dedc6e3cc3dfde02203f7b5499ffa458ca9cad6",
+        "verdicts": {
+          "F-0e383ebd264a": "78235308cfecb89363cdfe869243a9201eb141ce66c0fde1322d6f85c3b29efc",
+          "F-2a1b31f3b5b5": "93768025154cf8e09e5e5dc7954f67348f28534d4ebc52408a3996a5edb46213",
+          "F-2bcc714f7837": "8cd0dbdf9b28661f44ea6f8f6a856c8cd9fd94d34a8c3f5b74b59e2c253cdacd",
+          "F-6e2a1edad084": "7ccefbc2d1e520c74aec06ddea22d24097abed7314d6e39ebc34ec7838a90310",
+          "F-70e224d5849f": "1c8e8afa2082ea78ccdc246f40de43a0fb7fc96f9ab46427970ac99b019813cf",
+          "F-81bca221154e": "abbfad562657f52beae0606a2d8c4c6cbced24c9987cfdb28132619ba20f9583",
+          "F-85ebb8a13dbd": "a3acb430ee1d13bbc87f1c459083591a5a64b5858433546f87af6e3c6d71dd12",
+          "F-9cf715dd9c02": "b38d2f7e03ea49a047425b67936d1befcb4213ab1b6bff20d0ea463907cbe3d7",
+          "F-d4762af0bdc6": "42f28174c89fbddb6219752b981197f05799d343d6591dc26fff5da97163ed62",
+          "F-e3783adc4dca": "eea51120954dcca5774b665baabfaf123354dad24ad3ffd120834d26d2fb31aa",
+          "F-fb2ba689a57a": "4d9477ef3b0c3eb1b8bc1436a9c41b62f20c4277fe9c5f0e87bb5886dd4d4a0f"
+        }
+      },
+      "lu": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "lu_sur_disque": "6e7e652ead65550859334b44884c83567feef011e90e18cea77a079a5f62bd30",
+      "refus": null,
+      "retenues_ecrites_g1": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a"
+      ],
+      "retenues_lues": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a"
+      ],
+      "vue": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a",
+        "K1"
+      ],
+      "vue_attendue": [
+        "F-0e383ebd264a",
+        "F-2a1b31f3b5b5",
+        "F-2bcc714f7837",
+        "F-6e2a1edad084",
+        "F-70e224d5849f",
+        "F-81bca221154e",
+        "F-85ebb8a13dbd",
+        "F-9cf715dd9c02",
+        "F-d4762af0bdc6",
+        "F-e3783adc4dca",
+        "F-fb2ba689a57a",
+        "K1"
+      ]
+    },
+    "lignes_de_tranche_dans_les_contextes": {
+      "communes": [],
+      "episodes_servis": 400,
+      "lignes_de_tranche": 800,
+      "precision": "6 décimales",
+      "taches_comparees": 2
+    },
+    "membres_attendus": {
+      "1": 4,
+      "2": 37
+    },
+    "monde_sha256": "fdf4d5c1ca0d2971b416ee5f694deff7a4696fe5defb3a6a1843dffef1231877",
+    "moteur_etage": "claude-sdk",
+    "plan": {
+      "bras": [
+        "reel"
+      ],
+      "cartes_par_proposeur": 6,
+      "duree_max_s": 259200.0,
+      "generations": 2,
+      "m_e_bh": 22,
+      "parts": {
+        "argon": 7.0,
+        "kimi": 33.0
+      },
+      "plafond_usd": 40.0
+    },
+    "plantees": [
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "7aab307d5f3ad8222e4d326b622613bdc3c59790ac8caf68ccafa2cf419dc19c",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 12137806827616890041,
+          "noyau": 5461210329148130191
+        },
+        "identifiant": "P-4fae23142d11",
+        "identifiant_servi": "F-00a1d8c8713e",
+        "log_e": 16.483026,
+        "log_richesse_max": 91.823291,
+        "loi": {
+          "biais": [
+            -0.082681,
+            0.10575,
+            -0.944897
+          ],
+          "poids": [
+            [
+              0.833437,
+              0.861085
+            ],
+            [
+              -0.583145,
+              3.13424
+            ],
+            [
+              1.296203,
+              -2.574519
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "V1",
+        "promue": true,
+        "promue_seule": true,
+        "source": null,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "4d3c78668e4496fb2b523a563314e286aa11026e5d20fdd12ff314502741d278",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 11576739938241873038,
+          "noyau": 5524680371260148304
+        },
+        "identifiant": "P-a48741671afe",
+        "identifiant_servi": "F-c0965482b3f3",
+        "log_e": 6.617036,
+        "log_richesse_max": 61.430121,
+        "loi": {
+          "biais": [
+            -0.082681,
+            0.10575,
+            -0.944897
+          ],
+          "poids": [
+            [
+              0.0,
+              0.861085
+            ],
+            [
+              0.0,
+              3.13424
+            ],
+            [
+              0.0,
+              -2.574519
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "V2",
+        "promue": true,
+        "promue_seule": true,
+        "source": null,
+        "verdict": "survit"
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "4b1fab0f1206869f64fd86a059691c5f0570e4ce61e25425cde4de57c2b62a6f",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 18127164137606772295,
+          "noyau": 15935561155043153299
+        },
+        "identifiant": "P-7599984bcf92",
+        "identifiant_servi": "F-e37eee25f30a",
+        "log_e": 4.248412,
+        "log_richesse_max": 4.248412,
+        "loi": {
+          "base": {
+            "biais": [
+              -0.082681,
+              0.10575,
+              -0.944897
+            ],
+            "poids": [
+              [
+                0.833437,
+                0.861085
+              ],
+              [
+                -0.583145,
+                3.13424
+              ],
+              [
+                1.296203,
+                -2.574519
+              ]
+            ],
+            "type": "softmax"
+          },
+          "puissance": 0.08,
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "V3",
+        "promue": false,
+        "promue_seule": true,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "712c53694a41558488c4c77d4e158582aa8fbf6e1273418ea03dc9229706355f",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 16763247219281331580,
+          "noyau": 1632653524323902526
+        },
+        "identifiant": "P-bf77aa625420",
+        "identifiant_servi": "F-9621dc105ca3",
+        "log_e": 5.874719,
+        "log_richesse_max": 5.874719,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                -0.082681,
+                0.10575,
+                -0.944897
+              ],
+              "poids": [
+                [
+                  0.833437,
+                  0.861085
+                ],
+                [
+                  -0.583145,
+                  3.13424
+                ],
+                [
+                  1.296203,
+                  -2.574519
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.15,
+            0.85
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "V4",
+        "promue": false,
+        "promue_seule": true,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "6989bee341b942325a9b5774985a13d56793bb3eb7dc3d1c73cd3025848c5cef",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 13730760620528686302,
+          "noyau": 11570076799317340889
+        },
+        "identifiant": "P-16277edafcdf",
+        "identifiant_servi": "F-4ce35a8afa9d",
+        "log_e": -5.013673,
+        "log_richesse_max": -0.791774,
+        "loi": {
+          "biais": [
+            0.0,
+            0.941698,
+            0.721847
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.834964,
+              0.0
+            ],
+            [
+              -0.242046,
+              0.0
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "F1",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "abb9008f83f81d69b66924967edbbb4433ff6f2aaf63e8f1c4751be7c10cff19",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 1595246132859549240,
+          "noyau": 6762561148247471280
+        },
+        "identifiant": "P-ef8503ac4ba2",
+        "identifiant_servi": "F-b5da881904c0",
+        "log_e": -3.639281,
+        "log_richesse_max": -0.5165,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.941698,
+                0.721847
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.834964,
+                  0.0
+                ],
+                [
+                  -0.242046,
+                  0.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.8,
+            0.2
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "F2",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "0ec3ddbda9b5ddc7199e2d32adb40832ab07f802b78964c350443bdbeaf6e62e",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 373040792812575297,
+          "noyau": 4924963277897794886
+        },
+        "identifiant": "P-21a5f5e615be",
+        "identifiant_servi": "F-4a4c6a9afbad",
+        "log_e": -0.602124,
+        "log_richesse_max": -0.11528,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.941698,
+                0.721847
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.834964,
+                  0.0
+                ],
+                [
+                  -0.242046,
+                  0.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                0.3,
+                0.4,
+                0.3
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.8,
+            0.2
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "F3",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "a14b6dcae5992ad2c6b6a75c5787fcdf35206218752fe7f1a6cd2f4b608b5987",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 16609323057212859822,
+          "noyau": 975034905604763799
+        },
+        "identifiant": "P-6c26aa6f0689",
+        "identifiant_servi": "F-6905c2ee0d34",
+        "log_e": -4.02403,
+        "log_richesse_max": -1.286822,
+        "loi": {
+          "base": {
+            "biais": [
+              0.0,
+              0.941698,
+              0.721847
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -0.834964,
+                0.0
+              ],
+              [
+                -0.242046,
+                0.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "inclinaison": [
+            0.0,
+            0.05,
+            -0.05
+          ],
+          "puissance": 1.2,
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:K1",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "F4",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": true,
+        "empreinte_engagement": "533ecd376f88dda553cc694d6382e59036e5873b6c16a333be2d1cc809147a7b",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 1,
+        "graines": {
+          "frais": 5515206574598706086,
+          "noyau": 17271347851304183212
+        },
+        "identifiant": "P-11773aa84f5a",
+        "identifiant_servi": "F-b0f7a98e2655",
+        "log_e": 9.58704,
+        "log_richesse_max": 78.802142,
+        "loi": {
+          "base": {
+            "biais": [
+              -0.082681,
+              0.10575,
+              -0.944897
+            ],
+            "poids": [
+              [
+                0.833437,
+                0.861085
+              ],
+              [
+                -0.583145,
+                3.13424
+              ],
+              [
+                1.296203,
+                -2.574519
+              ]
+            ],
+            "type": "softmax"
+          },
+          "puissance": 1.25,
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_lineaire:archive",
+        "membres_attendus": 4,
+        "membres_d_archive": 4,
+        "motif": null,
+        "nom": "T-ELIM",
+        "promue": true,
+        "promue_seule": true,
+        "source": null,
+        "verdict": "éliminée"
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": null,
+        "etage": "sans objet (refusée au gardien)",
+        "gardien": "refuse",
+        "generation": 1,
+        "graines": null,
+        "identifiant": "P-de410ebc3dac",
+        "identifiant_servi": "F-73d1667897e5",
+        "log_e": null,
+        "log_richesse_max": null,
+        "loi": {
+          "biais": [
+            -0.082681,
+            0.10575,
+            -0.944897
+          ],
+          "poids": [
+            [
+              0.833437,
+              0.861085
+            ],
+            [
+              -0.583145,
+              3.13424
+            ],
+            [
+              1.296203,
+              -2.574519
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": null,
+        "membres_attendus": 4,
+        "membres_d_archive": null,
+        "motif": "test de mort refusé (étage v5) : test_de_mort.statistique : bloc absent ou non objet {fichier, colonne, statistique} (v4 : exigé ; aucun repli sur le chiffre du script)",
+        "nom": "T-MAL",
+        "promue": false,
+        "promue_seule": null,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "c0ae7ef6ce2df106b3a5129109da9e122c422721865926fc3fc258aea467c0af",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 9290522119250679032,
+          "noyau": 18291242112170571456
+        },
+        "identifiant": "P-1f4c0998597b",
+        "identifiant_servi": "F-d86161402d08",
+        "log_e": -95.776799,
+        "log_richesse_max": -13.577472,
+        "loi": {
+          "biais": [
+            0.0,
+            0.941698,
+            0.721847
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -0.834964,
+              0.0
+            ],
+            [
+              -0.242046,
+              0.0
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-2a1b31f3b5b5",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "F1",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "37b9dccbe068b0c02e2795deb6b351a46ef4ca77e47d79a320cbef4fc1f13345",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 16573556679780204549,
+          "noyau": 17286455136953665178
+        },
+        "identifiant": "P-ac9c6ca7ff79",
+        "identifiant_servi": "F-fd5d4c94af6d",
+        "log_e": -85.552541,
+        "log_richesse_max": -16.430567,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.941698,
+                0.721847
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.834964,
+                  0.0
+                ],
+                [
+                  -0.242046,
+                  0.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                1.0,
+                1.0,
+                1.0
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.8,
+            0.2
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "F2",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "518f5d537710bd4db6a1934d9e2ce41eee58b3250a5f4140ddce50e5306dc58d",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 7559420090353363547,
+          "noyau": 12998751022334428515
+        },
+        "identifiant": "P-fc1c733486c6",
+        "identifiant_servi": "F-84f15d56517c",
+        "log_e": -88.141604,
+        "log_richesse_max": -14.35156,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                0.941698,
+                0.721847
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -0.834964,
+                  0.0
+                ],
+                [
+                  -0.242046,
+                  0.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                0.3,
+                0.4,
+                0.3
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.8,
+            0.2
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-2a1b31f3b5b5",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "F3",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "dff39e14f57436d8ec7f5a0bdd4b66aef0d9e6b82f997238cbfe60b233a88b47",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 13100931026797832998,
+          "noyau": 13652521523939612659
+        },
+        "identifiant": "P-d581bdbb223c",
+        "identifiant_servi": "F-5507f248c46d",
+        "log_e": -99.648048,
+        "log_richesse_max": -19.053014,
+        "loi": {
+          "base": {
+            "biais": [
+              0.0,
+              0.941698,
+              0.721847
+            ],
+            "poids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                -0.834964,
+                0.0
+              ],
+              [
+                -0.242046,
+                0.0
+              ]
+            ],
+            "type": "softmax"
+          },
+          "inclinaison": [
+            0.0,
+            0.05,
+            -0.05
+          ],
+          "puissance": 1.2,
+          "type": "transformee"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-81bca221154e",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "F4",
+        "promue": false,
+        "promue_seule": false,
+        "source": null,
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "12062cd471763f4651258be950906b5a2d1e06efc38992b6d7cff6bafc30d1e1",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 14639184661751321785,
+          "noyau": 15035320657698604230
+        },
+        "identifiant": "P-7bc99633844e",
+        "identifiant_servi": "F-b71466ab69af",
+        "log_e": -14.007884,
+        "log_richesse_max": -2.71403,
+        "loi": {
+          "biais": [
+            -0.2,
+            1.0,
+            0.1
+          ],
+          "poids": [
+            [
+              0.2,
+              0.1
+            ],
+            [
+              -1.5,
+              2.2
+            ],
+            [
+              0.5,
+              -2.8
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "C1",
+        "promue": false,
+        "promue_seule": false,
+        "source": "F-85ebb8a13dbd",
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "d648525b15084c9c47f6feb8c6f440ade712f03122ff66ac8191606ec5c79d02",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 3129332726657992531,
+          "noyau": 2076037735714813591
+        },
+        "identifiant": "P-3af388b6a7e2",
+        "identifiant_servi": "F-18948ad2a20e",
+        "log_e": -12.972627,
+        "log_richesse_max": -1.162622,
+        "loi": {
+          "lois": {
+            "0": {
+              "biais": [
+                0.0,
+                1.0,
+                0.3
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.2,
+                  1.7
+                ],
+                [
+                  0.3,
+                  -2.1
+                ]
+              ],
+              "type": "softmax"
+            },
+            "1": {
+              "biais": [
+                0.0,
+                0.8,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.1,
+                  1.9
+                ],
+                [
+                  0.2,
+                  -2.2
+                ]
+              ],
+              "type": "softmax"
+            }
+          },
+          "type": "par_sous_population"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-0e383ebd264a",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "C2",
+        "promue": false,
+        "promue_seule": false,
+        "source": "F-2a1b31f3b5b5",
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "70a04990cef7bb2a35a9a23aa03fcab56a379b2c153c599265db08af5f05418d",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 3524271124127073070,
+          "noyau": 5860876877337227367
+        },
+        "identifiant": "P-e1eecaa5216d",
+        "identifiant_servi": "F-8000a6032c75",
+        "log_e": -6.252935,
+        "log_richesse_max": -0.788195,
+        "loi": {
+          "biais": [
+            0.0,
+            0.9,
+            0.2
+          ],
+          "poids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -1.1,
+              1.6
+            ],
+            [
+              0.2,
+              -2.0
+            ]
+          ],
+          "type": "softmax"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-fb2ba689a57a",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "C3",
+        "promue": false,
+        "promue_seule": false,
+        "source": "F-0e383ebd264a",
+        "verdict": null
+      },
+      {
+        "contre_calcul_ok": null,
+        "empreinte_engagement": "2ad12149dccdaa852861806bae85a5fa5f4b0e4b2d4a5d0c0f7d786dcb591629",
+        "etage": "joué",
+        "gardien": "passe",
+        "generation": 2,
+        "graines": {
+          "frais": 707400782533627041,
+          "noyau": 17858190392457739797
+        },
+        "identifiant": "P-c876e6a80dde",
+        "identifiant_servi": "F-3cbab8c06384",
+        "log_e": -14.084633,
+        "log_richesse_max": -2.94554,
+        "loi": {
+          "composantes": [
+            {
+              "biais": [
+                0.0,
+                1.2,
+                0.2
+              ],
+              "poids": [
+                [
+                  0.0,
+                  0.0
+                ],
+                [
+                  -1.6,
+                  2.4
+                ],
+                [
+                  0.4,
+                  -3.0
+                ]
+              ],
+              "type": "softmax"
+            },
+            {
+              "probas": [
+                0.3,
+                0.4,
+                0.3
+              ],
+              "type": "fixe"
+            }
+          ],
+          "poids": [
+            0.92,
+            0.08
+          ],
+          "type": "melange"
+        },
+        "membre_dominant_final": "ajuste_log:archive:F-85ebb8a13dbd",
+        "membres_attendus": 37,
+        "membres_d_archive": 37,
+        "motif": null,
+        "nom": "C4",
+        "promue": false,
+        "promue_seule": false,
+        "source": "F-70e224d5849f",
+        "verdict": null
+      }
+    ],
+    "racine": "58345369110968640905866274141444329612776610461720727200824299094680825533773",
+    "recherche_loi_plantee": {
+      "attendu": "aucune touche hors de la loi gelée servie au test de mort (que l'expérimentateur doit voir)",
+      "experimentateur_et_verificateur": {
+        "consignes_cherchees": 42,
+        "par_role": {
+          "experimentateur_test": 28,
+          "lecteur_test": 14
+        },
+        "touches_dans_la_loi_gelee": 200,
+        "touches_hors_loi_gelee": []
+      },
+      "formes": [
+        "exacte",
+        "deux décimales"
+      ],
+      "parametres_de_la_loi_plantee": 9,
+      "proposeurs": {
+        "contextes_cherches": 4,
+        "touches": [
+          {
+            "chemin": "contexte.lois_retenues[3].loi.poids[1][1]",
+            "forme": "deux décimales",
+            "ou": "boucle-reelle-v66|bras=reel|generation=2|proposeur=kimi",
+            "parametre": [
+              "poids",
+              2,
+              0
+            ],
+            "valeur": "1.3"
+          },
+          {
+            "chemin": "contexte.lois_retenues[3].loi.poids[1][1]",
+            "forme": "deux décimales",
+            "ou": "boucle-reelle-v66|bras=reel|generation=2|proposeur=argon",
+            "parametre": [
+              "poids",
+              2,
+              0
+            ],
+            "valeur": "1.3"
+          }
+        ]
+      }
+    },
+    "retenues": {
+      "1": [
+        "F-85ebb8a13dbd",
+        "F-2a1b31f3b5b5",
+        "F-0e383ebd264a",
+        "F-70e224d5849f",
+        "F-6e2a1edad084",
+        "F-fb2ba689a57a",
+        "F-d4762af0bdc6",
+        "F-2bcc714f7837",
+        "F-81bca221154e",
+        "F-9cf715dd9c02",
+        "F-e3783adc4dca"
+      ],
+      "2": []
+    },
+    "selection_finale": {
+      "bilan_sha256": "9f995cdf0237f5be482cf538cc9ac3d5d4a4685e5b62c02ba442423cb9e21fdd",
+      "lu": "9f995cdf0237f5be482cf538cc9ac3d5d4a4685e5b62c02ba442423cb9e21fdd",
+      "refus": null,
+      "retenues": []
+    },
+    "version": "boucle-reelle-v66",
+    "vues_servies": {
+      "1": {
+        "appels": [
+          {
+            "proposeur": "kimi",
+            "texte_recu_sha256": "c4b91ee54998c19d40caf6ccb4a7770e3f05ab6310284e418745ecc0ed458a0c"
+          },
+          {
+            "proposeur": "argon",
+            "texte_recu_sha256": "c4b91ee54998c19d40caf6ccb4a7770e3f05ab6310284e418745ecc0ed458a0c"
+          }
+        ],
+        "attendus": [
+          "K1"
+        ],
+        "contexte_sha256": "572c6b3b82b4cc22059de6f80119edd39cf35a9e578ff9c7b59d724387935545",
+        "identifiants": [
+          "K1"
+        ],
+        "lois_sha256": "8dbe546acefd10f921e03264f15b6623052c21679c6b03570561f639ace56020",
+        "texte_sha256": "c4b91ee54998c19d40caf6ccb4a7770e3f05ab6310284e418745ecc0ed458a0c"
+      },
+      "2": {
+        "appels": [
+          {
+            "proposeur": "kimi",
+            "texte_recu_sha256": "5d722e4114b2d3227d4a1b8fb299c6e6ebaa7d15388dce66d4fdf49448adfa9b"
+          },
+          {
+            "proposeur": "argon",
+            "texte_recu_sha256": "5d722e4114b2d3227d4a1b8fb299c6e6ebaa7d15388dce66d4fdf49448adfa9b"
+          }
+        ],
+        "attendus": [
+          "F-0e383ebd264a",
+          "F-2a1b31f3b5b5",
+          "F-2bcc714f7837",
+          "F-6e2a1edad084",
+          "F-70e224d5849f",
+          "F-81bca221154e",
+          "F-85ebb8a13dbd",
+          "F-9cf715dd9c02",
+          "F-d4762af0bdc6",
+          "F-e3783adc4dca",
+          "F-fb2ba689a57a",
+          "K1"
+        ],
+        "contexte_sha256": "15dacfe1d794fca50683c1ac352c8e336f6347af33fd46605c1bb1e248b701b9",
+        "identifiants": [
+          "F-0e383ebd264a",
+          "F-2a1b31f3b5b5",
+          "F-2bcc714f7837",
+          "F-6e2a1edad084",
+          "F-70e224d5849f",
+          "F-81bca221154e",
+          "F-85ebb8a13dbd",
+          "F-9cf715dd9c02",
+          "F-d4762af0bdc6",
+          "F-e3783adc4dca",
+          "F-fb2ba689a57a",
+          "K1"
+        ],
+        "lois_sha256": "db0d35f9b64403a5c74c92fc06803d5a67ac686a2997dd74866e60968b3536b6",
+        "texte_sha256": "5d722e4114b2d3227d4a1b8fb299c6e6ebaa7d15388dce66d4fdf49448adfa9b"
+      }
+    }
+  },
+  "version": "boucle-reelle-v66"
+}

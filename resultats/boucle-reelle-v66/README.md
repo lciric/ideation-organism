@@ -49,7 +49,7 @@ The second stop showed that lifting the output bound was not enough: the v66 cod
 3. the Kimi relay's upstream and silence delays raised (7,200 s and 1,800 s);
 4. in the frozen plan, only the configuration hash and the spending line.
 
-The reading criteria are unchanged; the text says the next report must call it the third attempt under this design and report the three records together. That attempt has been authorised; no result of it is reported here.
+The reading criteria are unchanged; the text says the next report must call it the third attempt under this design and report the three records together. That attempt has been authorised; no result of it is reported here. *Update (13 November 2026): the third attempt ran on 12 November 2026; outcome C1, confirmed by a fresh reader, with its narrow scope and seven reservations: [`../course-v67/`](../course-v67/).*
 
 ## Files in this folder
 
