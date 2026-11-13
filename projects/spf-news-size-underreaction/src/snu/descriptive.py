@@ -143,3 +143,97 @@ def by_decade(D):
         rows.append(_row(label, r["estimate"], r["se"], int(r["n"]), quarters=int(sub["t_target"].nunique()),
                          variables=", ".join(variables_in(sub))))
     return pd.DataFrame(rows)
+
+
+# ------------------------------------------------------------------------- euro area (K20-ZE)
+# Same ideas for the euro-area replication: six series (variable x horizon), Driscoll-Kraay with 8 lags
+# (scores summed by survey round) and the critical value 1.708 of its preregistration.
+EA_PERIODS = [("2000-2009", 2000, 2009), ("2010-2019", 2010, 2019), ("2020-2025", 2020, 2025)]
+
+
+def _ea_row(label, est, se, n, **extra):
+    from .k20ze import CRIT
+    return {"label": label, "estimate": est, "se": se, "lo90": est - CRIT * se, "hi90": est + CRIT * se, "n": n,
+            **extra}
+
+
+def ea_c_by_variable(fields):
+    """The preregistered S1 fields c_<v> and et_c_<v>_dk8 of K20-ZE, with 90% intervals (critical value 1.708)."""
+    from .k20ze import VARIABLES
+    return pd.DataFrame([_ea_row(v, fields[f"c_{v}"], fields[f"et_c_{v}_dk8"], None) for v in VARIABLES])
+
+
+def ea_pandemic(fields, data):
+    """c without and with the RGDP and UNEM rows of 2020-2021 (preregistered main test and S3), and, added
+    here, c by variable on the rows with the pandemic."""
+    from . import k20ze
+    complete = data[data["complete"] == 1]
+    rows = [_ea_row("all variables, main sample (pandemic rows excluded; preregistered test)", fields["c"],
+                    fields["et_c_dk8"], fields["n_principal"]),
+            _ea_row("all variables, with the pandemic rows (preregistered S3)", fields["c_avec_pandemie"],
+                    fields["et_c_avec_pandemie_dk8"], int(len(complete)))]
+    R = k20ze.regress(complete, by_variable=True)
+    for i, v in enumerate(k20ze.VARIABLES):
+        c, se = k20ze.c_and_se(R, 18 + i)
+        rows.append(_ea_row(f"{v}, with the pandemic rows", c, se, int((complete["variable"] == v).sum())))
+    return pd.DataFrame(rows)
+
+
+def ea_base_slopes(base):
+    """Base under-reaction slope with no size split: one constant per series and either one slope per
+    variable (pooled over the two horizons) or one common slope (the preregistered b_commun)."""
+    from . import k20ze
+
+    def by_variable(D):
+        groups = [g for g in k20ze.SERIES if g in set(D["series"])]
+        return np.column_stack([(D["series"] == g).astype(float).values for g in groups]
+                               + [(D["variable"] == v).astype(float).values * D["z_r"].values for v in k20ze.VARIABLES])
+    R = k20ze.regress(base, X=by_variable)
+    k = len(R["beta"]) - 3
+    rows = [_ea_row(v, *k20ze.c_and_se(R, k + i), int((base["variable"] == v).sum())) for i, v in enumerate(k20ze.VARIABLES)]
+    rows.append(_ea_row("pooled", *k20ze.c_and_se(k20ze.regress(base, X=k20ze.common_slope_design)), len(base)))
+    return pd.DataFrame(rows)
+
+
+def ea_by_period(base):
+    """Common base slope by period of the target year (three periods of ten, ten and six target years)."""
+    from . import k20ze
+    rows = []
+    for label, y0, y1 in EA_PERIODS:
+        sub = base[base["target_year"].between(y0, y1)]
+        c, se = k20ze.c_and_se(k20ze.regress(sub, X=k20ze.common_slope_design))
+        rows.append(_ea_row(label, c, se, len(sub), rounds=int(sub["t_round"].nunique()),
+                            target_years=int(sub["target_year"].nunique())))
+    return pd.DataFrame(rows)
+
+
+def comparison(us_fields, us_base_pooled, ea_fields):
+    """US (K20) and euro area (K20-ZE) side by side: the quantities that decide or frame the two tests."""
+    from .k20ze import CRIT
+    u, e = us_fields, ea_fields
+    rows = [
+        ("rows in the main sample", f"{u['n_principal']}", f"{e['n_principal']}"),
+        ("survey dates (clusters for the standard error)", f"{u['n_trimestres']} target quarters",
+         f"{e['n_tours']} rounds, {e['n_annees_cibles']} target years"),
+        ("standard error; critical value of the 90% interval", "Driscoll-Kraay, 4 lags; 1.645",
+         f"Driscoll-Kraay, 8 lags; {CRIT}"),
+        ("base slope, no size split (one constant per series, one common slope)",
+         f"{us_base_pooled['estimate']:.3f} (se {us_base_pooled['se']:.3f})",
+         f"{e['b_commun']:.3f} (se {e['et_b_commun_dk8']:.3f})"),
+        ("base slope after small news (mean of the series' b)", f"{u['b_moyen']:.3f}",
+         f"{e['b_moyen']:.3f} (se {e['et_b_moyen_dk8']:.3f})"),
+        ("slope after large news (mean b + c)", f"{u['pente_moyenne_grandes']:.3f}", f"{e['pente_moyenne_grandes']:.3f}"),
+        ("**extra slope after large news, c (se)**", f"**{u['c']:.3f}** ({u['et_c_dk4']:.3f})",
+         f"**{e['c']:.3f}** ({e['et_c_dk8']:.3f})"),
+        ("90% interval of c", f"[{u['borne_basse_ic90']:.3f}, {u['borne_haute_ic90']:.3f}]",
+         f"[{e['borne_basse_ic90']:.3f}, {e['borne_haute_ic90']:.3f}]"),
+        ("variance ratio of revisions, large / small news", f"{u['rapport_variance_revision']:.2f}",
+         f"{e['rapport_variance_revision']:.2f}"),
+        ("k = s.d. revision / s.d. error (mean)", f"{u['k_moyen']:.3f}", f"{e['k_moyen']:.3f}"),
+        ("mechanical bias with 20% noise", f"{u['biais_mecanique_nu20']:.3f}", f"{e['biais_mecanique_nu20']:.3f}"),
+        ("mechanical-bias floor max(0.10, bias)", f"{u['seuil_survie_bas']:.3f}", f"{e['seuil_survie_bas']:.3f}"),
+        ("c without each episode (range)", f"{u['c_min_sans_episode']:.3f} to {max(u[f'c_sans_E{i}'] for i in range(1, 8)):.3f}",
+         f"{e['c_min_sans_episode']:.3f} to {max(e[f'c_sans_E{i}'] for i in range(1, 4)):.3f}"),
+        ("effective observations", f"{u['n_effectif']:.0f}", f"{e['n_effectif']:.0f}"),
+    ]
+    return pd.DataFrame(rows, columns=["quantity", "US SPF (K20)", "ECB SPF (K20-ZE)"])

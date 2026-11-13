@@ -97,8 +97,17 @@ def read_spf(variable):
         raw = pd.read_csv(io.BytesIO(z.read(SPF_FILES[variable])), dtype=str, keep_default_na=False)
     raw = raw[raw["table_name"] == "Point"].copy()
     raw["t"] = raw["ref_round"].map(round_number)
-    raw["x"] = pd.to_numeric(raw["value"], errors="coerce")
+    raw["x"] = raw["value"].map(_to_float)
     return raw
+
+
+def _to_float(text):
+    """Python's correctly rounded float parsing (pandas' fast parser can differ in the last bit, which
+    matters for ties in |surprise|); NaN for an empty or non-numeric cell."""
+    try:
+        return float(text)
+    except ValueError:
+        return np.nan
 
 
 def outturns():
@@ -107,7 +116,7 @@ def outturns():
     out = {}
     for v in VARIABLES:
         e = pd.read_csv(data.get(EUROSTAT_FILES[v]), dtype=str, keep_default_na=False)
-        x = pd.to_numeric(e["OBS_VALUE"])
+        x = e["OBS_VALUE"].map(_to_float)
         if v == "UNEM":
             g = x.groupby(e["TIME_PERIOD"].str[:4].astype(int))
             out[v] = {int(y): float(np.mean(vals)) for y, vals in g if len(vals) == 12}
