@@ -121,7 +121,7 @@ dimensionné pour que cette attente puisse être démentie : il fait survivre c 
 | A6 | Retards de Driscoll-Kraay | 4 trimestres | **2 semestres** | même durée calendaire (un an) ; chevauchement d'ordre 1 entre erreurs successives (section 6) |
 | A7 | Épisodes | 7 fenêtres : pic NBER → creux + 4 trimestres | **11 fenêtres** : pic NBER → creux + 14 mois, fusion des chevauchements, 2020 jointe à 2021-2023 | une ligne utilise des données datées de T − 14 à T ; l'échantillon commence en 1947 (quatre récessions de plus) |
 | A8 | Biais mécanique | bruit supposé : 20 % de la variance de la révision | **bruit mesuré** sur les réponses individuelles, puis doublé | limite 2 de K20 : « sans les réponses individuelles, on ne mesure pas ν ». L'enquête Livingston les publie |
-| A9 | Contrôle positif | — | **nouveau** : la pente regroupée erreur-sur-révision doit avoir sa borne basse à 90 % au-dessus de 0 | une interaction nulle ne dit rien si l'enquête ne montre aucune sous-réaction de base |
+| A9 | Contrôle positif | — | **nouveau** : la pente regroupée erreur-sur-révision doit avoir sa borne basse à 90 % au-dessus de 0 (sauf si tout l'intervalle de c est sous 0 : section 6, étape 6) | une interaction nulle ne dit rien si l'enquête ne montre aucune sous-réaction de base |
 | A10 | Contrôles de schéma | sur toutes les lignes | **sur les seules lignes principales** ; les anomalies ailleurs sont comptées et rapportées, sans effet sur le verdict | K20 est tombé en « non concluant » pour une ligne hors de toute régression |
 | A11 | Pandémie | `RGDP`, `UNEMP` sans les cibles 2020T1-2021T4 | **`UNPR`** sans les 4 cibles dont une donnée ou une enquête tombe en 2020 | même raison (section 3.5) |
 | A12 | Minimum | 1 000 lignes (1 004 attendues) | **540 lignes** (548 attendues) | même marge relative, à peu près |
@@ -170,7 +170,7 @@ enquêtes au plus décembre 2025). Un sha256 différent est noté dans `ecarts.m
 - `individualdata.xlsx` : mêmes feuilles ; colonnes `Date`, `ID`, `Category`, puis les mêmes colonnes de prévision ; une ligne par
   répondant et par enquête ; 7 241 lignes par feuille ; mois de `Date` : juin et décembre seulement.
 
-| Variable (feuille) | Colonnes utilisées | Unité publiée | Cellules numériques `_6M` / `_12M` | Répondants par cellule utilisée |
+| Variable (feuille) | Colonnes utilisées | Unité publiée | Cellules numériques `_6M` / `_12M` | Réponses individuelles par cellule (minimum sur les cellules utilisées ; maximum) |
 |---|---|---|---|---|
 | `CPI` (IPC) | `CPI_BP`, `CPI_6M`, `CPI_12M` | indice dans la base de l'époque ; non désaisonnalisé avant l'enquête de décembre 2004, désaisonnalisé ensuite | `_6M` 1946-06 → 2026-06 (161) ; `_12M` 1946-12 → 2026-06 (160) ; `_BP` 161, sans trou | 14 à 64 |
 | `UNPR` (chômage) | `UNPR_6M`, `UNPR_12M` | points de %, désaisonnalisé | 1961-06 → 2026-06 (131 chacune), sans trou | 14 à 67 |
@@ -236,7 +236,7 @@ téléchargement par l'expérimentateur, qui note la date dans le journal.
 
 **Pourquoi c'est acceptable ici.**
 - `CPIAUCNS` (IPC non désaisonnalisé) n'est **jamais révisé** ; seule la base de l'indice change, et elle s'annule dans les
-  rapports (section 4). Le dernier millésime est donc la donnée en temps réel. C'est la série de 129 des 156 lignes IPC.
+  rapports (section 4). Le dernier millésime est donc la donnée en temps réel. C'est la série de 115 des 156 lignes IPC principales (cibles 1947-12 à 2004-12).
 - `DPRIME` et `DTB3` ne sont jamais révisées. ALFRED n'en a aucun millésime (404, vérifié).
 - `UNRATE` et `CPIAUCSL` ne sont révisés que par les coefficients saisonniers (de l'ordre du dixième de point pour le chômage,
   de quelques centièmes de point pour la croissance de l'IPC sur huit mois).
