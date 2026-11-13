@@ -134,7 +134,7 @@ def construire():
 
     def chercher(t, cible):
         idx = pd.MultiIndex.from_arrays([d["source"], d["id_prev"], t, cible])
-        return cle.reindex(idx).to_numpy()
+        return np.array(cle.reindex(idx).to_numpy(), dtype=float, copy=True)
 
     prec = chercher(d["t_tour"] - 1, d["annee_cible"])
     prec[d["t_tour"].to_numpy() == T_MIN] = np.nan

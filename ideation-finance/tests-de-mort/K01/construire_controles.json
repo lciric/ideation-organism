@@ -1,0 +1,85 @@
+{
+ "effectifs_aux_filtres": {
+  "spf_lignes_1_HICP": 354060,
+  "spf_point": 31983,
+  "spf_point_id_numerique": 31235,
+  "spf_point_id_numerique_types_annuels": 16307,
+  "spf_fenetre_2001Q4_2025Q4": 14255,
+  "bce_lignes_Y_Y1_Y2_statut_F": 291
+ },
+ "comptes": {
+  "lignes_SPF": 14255,
+  "lignes_BCE": 291,
+  "spf_h01_tours_2002_2025_cible_le_2025": 10474,
+  "dont_avec_revision": 8873,
+  "dont_avec_revision_et_instrument": 8663,
+  "identifiants_revision_et_instrument": 105,
+  "echantillon_iv_lignes": 8595,
+  "echantillon_iv_previsionnistes": 94,
+  "echantillon_iv_tours": 96,
+  "echantillon_iv_annees_cibles": 24,
+  "echantillon_iv_horizon0": 4393,
+  "echantillon_iv_horizon1": 4202,
+  "lignes_par_tour_min_mediane_max": [
+   47,
+   92.0,
+   108
+  ],
+  "hors_2021_2023_lignes": 7425,
+  "hors_2021_2023_tours": 88,
+  "cibles_2002_2019_lignes": 6269,
+  "identifiants_retires_par_regle_8_tours": 11,
+  "lignes_retirees_par_regle_8_tours": 68
+ },
+ "controles": {
+  "1": {
+   "ok": true,
+   "detail": "22 colonnes"
+  },
+  "2": {
+   "ok": true,
+   "detail": "doublons 0"
+  },
+  "3": {
+   "ok": true,
+   "detail": "tours SPF 97, BCE 97"
+  },
+  "4": {
+   "ok": true,
+   "detail": ""
+  },
+  "5": {
+   "ok": true,
+   "detail": "97 millésimes, 291 lignes"
+  },
+  "6": {
+   "ok": true,
+   "detail": ""
+  },
+  "7": {
+   "ok": true,
+   "detail": ""
+  },
+  "8": {
+   "ok": true,
+   "detail": ""
+  },
+  "9": {
+   "ok": true,
+   "detail": ""
+  },
+  "10": {
+   "ok": true,
+   "detail": ""
+  },
+  "11": {
+   "ok": true,
+   "detail": ""
+  },
+  "12": {
+   "ok": true,
+   "detail": ""
+  }
+ },
+ "n_violations_schema": 0
+}

@@ -293,17 +293,18 @@ def figure(t):
         col = accent if princ else muted
         ax.plot([b - C * et, b + C * et], [y, y], color=col, lw=2.5 if princ else 1.6, solid_capstyle="round")
         ax.plot(b, y, "o", color=col, ms=8 if princ else 6, mec="white", mew=1.5, zorder=3)
-        ax.text(b + C * et + 0.03, y, f"{b:+.3f}  [{b - C * et:+.2f} ; {b + C * et:+.2f}]", va="center",
-                fontsize=8, color=ink)
+        lab = f"{b:+.3f}  [{b - C * et:+.2f} ; {b + C * et:+.2f}]".replace(".", ",")
+        ax.text(b + C * et + 0.03, y, lab, va="center", fontsize=8, color=ink)
     ax.set_yticks(range(len(lignes)))
     ax.set_yticklabels([n for n, *_ in lignes][::-1], fontsize=9, color=ink)
     ax.get_yticklabels()[-1].set_fontweight("bold")
     ax.set_xlabel("Pente de l'erreur sur la révision (points d'erreur par point de révision)", fontsize=9)
-    ax.text(-DELTA, len(lignes) - 0.35, "−0,15 (prédiction)", ha="center", fontsize=8, color=muted)
+    ax.text(-DELTA - 0.02, -0.75, "−0,15\n(prédiction H1)", ha="right", va="center", fontsize=7.5, color=muted)
     ax.set_title("K01 — pente erreur-révision, intervalle à 90 % (b ± 1,714 × e.-t. Driscoll-Kraay, 8 retards)",
                  fontsize=10, color=ink, loc="left")
-    ax.text(0, -1.25, "Seule la première ligne entre dans la règle préinscrite ; les autres sont descriptives. "
-            "Zone grisée : entre −0,15 et 0.", fontsize=7.5, color=muted, ha="center")
+    fig.text(0.01, 0.01, "Seule la première ligne entre dans la règle préinscrite ; les autres sont descriptives "
+             "\n(pour elles, l'intervalle b ± 1,714 × e.-t. n'est qu'un repère visuel). Zone grisée : entre −0,15 et 0. "
+             "n = 8 595 lignes, 94 prévisionnistes, 96 tours.", fontsize=7, color=muted, ha="left", va="bottom")
     for sp in ["top", "right", "left"]:
         ax.spines[sp].set_visible(False)
     ax.tick_params(axis="y", length=0)
@@ -311,9 +312,9 @@ def figure(t):
     ax.set_axisbelow(True)
     xmax = max(b + C * et for _, b, et, _ in lignes)
     xmin = min(b - C * et for _, b, et, _ in lignes)
-    ax.set_xlim(min(xmin, -0.2) - 0.05, xmax + 0.55)
-    ax.set_ylim(-1.5, len(lignes) - 0.2)
-    fig.tight_layout()
+    ax.set_xlim(min(xmin, -0.2) - 0.12, xmax + 0.55)
+    ax.set_ylim(-1.2, len(lignes) - 0.4)
+    fig.tight_layout(rect=(0, 0.06, 1, 1))
     fig.savefig(os.path.join(ICI, "figure.png"))
 
 
