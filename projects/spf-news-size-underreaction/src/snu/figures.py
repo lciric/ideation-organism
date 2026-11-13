@@ -158,3 +158,70 @@ def fig4_by_decade(table, pooled_full, path):
     ax.set_title("Under-reaction is not stable over time: clearly positive only in 1990-2009")
     _footnote(fig, "US SPF mean consensus, five variables (CPI and T-bill from 1982). One constant per variable, one common slope, no split by surprise size; standardisation constants of the full sample. Bars: 90% intervals (Driscoll-Kraay, 4 lags).")
     _save(fig, path)
+
+
+EA_NAMES = {"HICP": "HICP inflation", "RGDP": "real GDP growth", "UNEM": "unemployment rate"}
+US_NAMES = {"PGDP": "GDP deflator inflation", "RGDP": "real GDP growth", "UNEMP": "unemployment rate",
+            "CPI": "CPI inflation", "TBILL": "3-month T-bill rate"}
+
+
+def fig5_forest_c(us_pooled, us_vars, ea_pooled, ea_vars, path):
+    """Forest plot of the extra slope c after large news, with 90% intervals: pooled and by variable, for the
+    US SPF (K20) and the ECB SPF (K20-ZE). Each table has columns label, estimate, lo90, hi90."""
+    rows = ([("US SPF, all five variables (K20)", us_pooled, BLUE, True)]
+            + [(f"   {US_NAMES[r.label]}", r, BLUE, False) for r in us_vars.itertuples()]
+            + [("ECB SPF, all three variables (K20-ZE)", ea_pooled, ORANGE, True)]
+            + [(f"   {EA_NAMES[r.label]}", r, ORANGE, False) for r in ea_vars.itertuples()])
+    fig, ax = plt.subplots(figsize=(8.4, 5.6))
+    y = np.arange(len(rows))[::-1].astype(float)
+    y[len(us_vars) + 1:] -= 0.6          # a gap between the two surveys
+    ax.axvline(0, color=MUTED, lw=0.8)
+    ax.axvline(0.40, color=INK, lw=1.2, ls=":")
+    ax.text(0.395, y[0] + 0.55, "predicted c = +0.40", fontsize=8, color=INK, ha="right", va="bottom")
+    for yi, (label, r, colour, pooled) in zip(y, rows):
+        est, lo, hi = (r["estimate"], r["lo90"], r["hi90"]) if isinstance(r, dict) else (r.estimate, r.lo90, r.hi90)
+        _interval(ax, yi, est, lo, hi, colour, horizontal=True, size=70 if pooled else 36)
+        ax.annotate(_num(est), (hi, yi), xytext=(5, -3), textcoords="offset points", fontsize=8, color=INK)
+    ax.set_yticks(y)
+    ax.set_yticklabels([r[0] for r in rows], fontsize=8.5)
+    for tick, (_, _, _, pooled) in zip(ax.get_yticklabels(), rows):
+        tick.set_fontweight("bold" if pooled else "normal")
+    ax.set_ylim(y[-1] - 0.7, y[0] + 1.1)
+    ax.grid(axis="y", visible=False)
+    ax.set_xlabel(f"extra slope after large news, c ({UNITS})")
+    ax.set_title("In both surveys the extra slope after large news is near zero; +0.40 is excluded")
+    _footnote(fig, "The figure is new; its estimates are preregistered: pooled c is each test's primary statistic, the "
+                   "per-variable c its secondary analysis S1. Bars: 90% intervals, Driscoll-Kraay standard errors (US: 4 lags "
+                   "by target quarter, critical value 1.645; euro area: 8 lags by survey round, critical value 1.708). "
+                   "Large news: top third of the data surprise of each variable.")
+    _save(fig, path, bottom=0.12)
+
+
+def fig6_base_vs_c(table, c_pandemic, se_pandemic, path):
+    """Base under-reaction slope (no size split) and extra slope c after large news, for each survey.
+    `table` has one row per survey and quantity: survey, quantity ('base' or 'c'), estimate, lo90, hi90."""
+    surveys = list(dict.fromkeys(table["survey"]))
+    fig, ax = plt.subplots(figsize=(8.4, 4.9))
+    ax.axhline(0, color=MUTED, lw=0.8)
+    for q, colour, shift, label in (("base", BLUE, -0.14, "base under-reaction slope (no split by news size)"),
+                                    ("c", ORANGE, 0.14, "extra slope after large news, c")):
+        t = table[table["quantity"] == q].set_index("survey").loc[surveys]
+        x = np.arange(len(surveys)) + shift
+        _interval(ax, x, t["estimate"], t["lo90"], t["hi90"], colour, label, size=60)
+        for xi, est in zip(x, t["estimate"]):
+            ax.annotate(_num(est), (xi, est), xytext=(8, -3), textcoords="offset points", fontsize=8.5, color=INK)
+    for i in range(len(surveys)):
+        ax.hlines(0.40, i + 0.02, i + 0.30, color=INK, lw=1.2, ls=":")
+    ax.text(len(surveys) - 1 + 0.31, 0.40, "predicted\nc = +0.40", fontsize=8, color=INK, va="center")
+    ax.set_xticks(range(len(surveys)))
+    ax.set_xticklabels(surveys)
+    ax.set_xlim(-0.6, len(surveys) - 0.25)
+    ax.grid(axis="x", visible=False)
+    ax.set_ylabel(f"slope of error on revision\n({UNITS})")
+    ax.set_title("Under-reaction yes, size-dependence no: the same answer in two surveys", pad=30)
+    ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=8)
+    _footnote(fig, "Base slope: one constant per series and one common slope (US: descriptive, not preregistered; "
+                   "euro area: the preregistered positive control b_commun). c: each test's primary statistic. Bars: 90% "
+                   "intervals (US: Driscoll-Kraay 4 lags, 1.645; euro area: 8 lags, 1.708). Euro area: pandemic rows of "
+                   f"GDP and unemployment excluded, as preregistered; with them c = {_num(c_pandemic)} (se {se_pandemic:.2f}).")
+    _save(fig, path)

@@ -1,0 +1,110 @@
+[
+ {
+  "fichier": "means.xlsx",
+  "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/livingston-survey/historical-data/means.xlsx",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "791eaa773a3274e8358e9ffe6a197cf814bd77997b5d398d6f7ed27c437e1a1f",
+  "octets": 168566,
+  "lignes": null
+ },
+ {
+  "fichier": "medians.xlsx",
+  "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/livingston-survey/historical-data/medians.xlsx",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "ddb2a9f7ed51c2964921d04efefbe3363b3d8aa223df0c7efc28723d4a8175df",
+  "octets": 162457,
+  "lignes": null
+ },
+ {
+  "fichier": "individualdata.xlsx",
+  "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/livingston-survey/historical-data/individualdata.xlsx",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "fcbfc455057afb3b8b986bc60bfc60f0b35afc5ed1819378efa7b3305534b6f6",
+  "octets": 6046431,
+  "lignes": null
+ },
+ {
+  "fichier": "livingston-documentation.pdf",
+  "url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/livingston-survey/livingston-documentation.pdf",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "e85138f8185220be42283bc77ce4e28c10cbc787c3f569dbf1832dd0c3962163",
+  "octets": 423974,
+  "lignes": null
+ },
+ {
+  "fichier": "FRED_CPIAUCNS.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "0e1fc35d62c4b76698418b4e6a8f259ca23407a52bf3f5971597afe0388cadfc",
+  "octets": 25112,
+  "lignes": 1367
+ },
+ {
+  "fichier": "FRED_CPIAUCSL.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "c9be2d4909ffd28d91f07df5d113151b0fe7ba602144ee6fd453d3bc8426efde",
+  "octets": 17782,
+  "lignes": 959
+ },
+ {
+  "fichier": "FRED_UNRATE.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "fb669461abc34e00324b940be6bad1c7f89117652f28587196a7b8bf4a9f56a1",
+  "octets": 14226,
+  "lignes": 947
+ },
+ {
+  "fichier": "FRED_DPRIME.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DPRIME",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "02932983559e4008a419d4b239d44c1576e987e745950e098f2e81db740decc7",
+  "octets": 298316,
+  "lignes": 18594
+ },
+ {
+  "fichier": "FRED_DTB3.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTB3",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "45f3f924645ecdbaba042c49452104997882a0aaba2955e50a4f17b9e44ee5fd",
+  "octets": 301649,
+  "lignes": 19008
+ },
+ {
+  "fichier": "FRED_HOUST.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HOUST",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "47bc24513586c26b5467da890f86ba9ec905f8af8986dec70849945678e85c76",
+  "octets": 12937,
+  "lignes": 814
+ },
+ {
+  "fichier": "FRED_USRECP.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USRECP",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "261efdccb37bf9d9a460bc3d8c336396e6b21b259eb182c1609a3196545705dc",
+  "octets": 26843,
+  "lignes": 2064
+ },
+ {
+  "fichier": "FRED_USREC.csv",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USREC",
+  "date": "2026-11-13 09:43 UTC",
+  "http": "200",
+  "sha256": "7d28698513be7460870afa883c2325d3502ddaecd6b1e781ed5f655126341b44",
+  "octets": 26842,
+  "lignes": 2064
+ }
+]

@@ -8,6 +8,7 @@ copied in `verdict.json` under `regle`). Integers are shown without decimals.
 | test | fields within tolerance | verdict from pipeline numbers | sealed verdict |
 |---|---|---|---|
 | K20 | 53 / 53 | non concluant | non concluant |
+| K20-ZE | 65 / 65 | éliminée | éliminée |
 
 ## K20
 
@@ -68,3 +69,75 @@ copied in `verdict.json` under `regle`). Integers are shown without decimals.
 | `et_c_TBILL_dk4` | 0.180348 | 0.180348 | 5.6e-15 | 0.005 | OK |
 
 **K20: 53 / 53 fields within tolerance.**
+
+## K20-ZE
+
+| field | sealed verifier value | pipeline value | absolute gap | tolerance | status |
+|---|---|---|---|---|---|
+| `n_violations_schema` | 0 | 0 | 0.0e+00 | 0 | OK |
+| `n_anomalies_hors_principal` | 0 | 0 | 0.0e+00 | 0 | OK |
+| `n_principal` | 578 | 578 | 0.0e+00 | 0 | OK |
+| `n_tours` | 107 | 107 | 0.0e+00 | 0 | OK |
+| `n_annees_cibles` | 26 | 26 | 0.0e+00 | 0 | OK |
+| `n_grands` | 196 | 196 | 0.0e+00 | 0 | OK |
+| `n_tours_grands` | 71 | 71 | 0.0e+00 | 0 | OK |
+| `c` | -0.105963 | -0.105963 | 6.2e-16 | 0.005 | OK |
+| `et_c_dk8` | 0.089770 | 0.089770 | 2.8e-16 | 0.005 | OK |
+| `t_c` | -1.180388 | -1.180388 | 3.1e-15 | 0.02 | OK |
+| `borne_basse_ic90` | -0.259290 | -0.259290 | 1.1e-15 | 0.01 | OK |
+| `borne_haute_ic90` | 0.047364 | 0.047364 | 1.5e-16 | 0.01 | OK |
+| `b_moyen` | 0.446776 | 0.446776 | 7.8e-16 | 0.005 | OK |
+| `et_b_moyen_dk8` | 0.086833 | 0.086833 | 2.6e-16 | 0.005 | OK |
+| `borne_basse_b_moyen_ic90` | 0.298465 | 0.298465 | 3.3e-16 | 0.01 | OK |
+| `b_commun` | 0.365654 | 0.365654 | 5.6e-17 | 0.005 | OK |
+| `et_b_commun_dk8` | 0.056960 | 0.056960 | 6.9e-18 | 0.005 | OK |
+| `borne_basse_b_commun_ic90` | 0.268367 | 0.268367 | 1.1e-16 | 0.01 | OK |
+| `controle_positif_ok` | 1 | 1 | 0.0e+00 | 0 | OK |
+| `k_moyen` | 0.426927 | 0.426927 | 0.0e+00 | 0.005 | OK |
+| `pente_moyenne_grandes` | 0.340812 | 0.340812 | 1.7e-16 | 0.005 | OK |
+| `rapport_variance_revision` | 8.415145 | 8.415145 | 1.8e-15 | 0.01 | OK |
+| `rapport_variance_ecart_prec` | 2.661965 | 2.661965 | 8.9e-16 | 0.01 | OK |
+| `pertinence_manquante` | 0 | 0 | 0.0e+00 | 0 | OK |
+| `biais_mecanique_nu20` | 0.425063 | 0.425063 | 5.6e-16 | 0.005 | OK |
+| `seuil_survie_bas` | 0.425063 | 0.425063 | 5.6e-16 | 0.01 | OK |
+| `borne_basse_moins_seuil` | -0.684354 | -0.684354 | 1.6e-15 | 0.01 | OK |
+| `marge_indecision` | -0.352636 | -0.352636 | 1.7e-16 | 0.01 | OK |
+| `c_sans_E1` | -0.064332 | -0.064332 | 1.1e-15 | 0.005 | OK |
+| `c_sans_E2` | -0.185351 | -0.185351 | 2.2e-16 | 0.005 | OK |
+| `c_sans_E3` | -0.166932 | -0.166932 | 2.8e-17 | 0.005 | OK |
+| `t_sans_E1` | -0.732646 | -0.732646 | 8.5e-15 | 0.02 | OK |
+| `t_sans_E2` | -1.999928 | -1.999928 | 3.3e-15 | 0.02 | OK |
+| `t_sans_E3` | -1.246724 | -1.246724 | 6.7e-16 | 0.02 | OK |
+| `t_min_sans_episode` | -1.999928 | -1.999928 | 3.3e-15 | 0.02 | OK |
+| `c_min_sans_episode` | -0.185351 | -0.185351 | 2.2e-16 | 0.005 | OK |
+| `episode_t_min` | 2 | 2 | 0.0e+00 | 0 | OK |
+| `conflit_robustesse` | 0 | 0 | 0.0e+00 | 0 | OK |
+| `et_c_iid` | 0.101260 | 0.101260 | 1.4e-17 | 0.005 | OK |
+| `n_effectif` | 735.426602 | 735.426602 | 4.4e-12 | 1 | OK |
+| `et_c_dk4` | 0.086778 | 0.086778 | 1.5e-16 | 0.005 | OK |
+| `et_c_dk12` | 0.094052 | 0.094052 | 1.1e-16 | 0.005 | OK |
+| `et_c_dk0` | 0.098567 | 0.098567 | 9.7e-17 | 0.005 | OK |
+| `et_c_grappes_annee` | 0.079064 | 0.079064 | 1.1e-16 | 0.005 | OK |
+| `c_avec_pandemie` | 0.176700 | 0.176700 | 2.2e-16 | 0.005 | OK |
+| `et_c_avec_pandemie_dk8` | 0.077342 | 0.077342 | 1.5e-16 | 0.005 | OK |
+| `c_avant_2020` | -0.149141 | -0.149141 | 8.3e-17 | 0.005 | OK |
+| `et_c_avant_2020_dk8` | 0.134322 | 0.134322 | 2.8e-17 | 0.005 | OK |
+| `c_annee_en_cours` | -0.011219 | -0.011219 | 1.1e-15 | 0.005 | OK |
+| `et_c_annee_en_cours_dk8` | 0.129866 | 0.129866 | 1.1e-16 | 0.005 | OK |
+| `c_annee_suivante` | -0.197682 | -0.197682 | 3.9e-16 | 0.005 | OK |
+| `et_c_annee_suivante_dk8` | 0.150563 | 0.150563 | 1.9e-16 | 0.005 | OK |
+| `c_mediane` | -0.031433 | -0.031433 | 5.7e-16 | 0.005 | OK |
+| `et_c_mediane_dk8` | 0.102284 | 0.102284 | 1.7e-16 | 0.005 | OK |
+| `c_coupure_revision` | -0.229342 | -0.229342 | 1.1e-15 | 0.005 | OK |
+| `et_c_coupure_revision_dk8` | 0.131479 | 0.131479 | 1.4e-16 | 0.005 | OK |
+| `n_surprise_consensus` | 554 | 554 | 0.0e+00 | 0 | OK |
+| `c_surprise_consensus` | -0.270698 | -0.270698 | 6.1e-16 | 0.005 | OK |
+| `et_c_surprise_consensus_dk8` | 0.113137 | 0.113137 | 9.7e-17 | 0.005 | OK |
+| `c_HICP` | 0.126985 | 0.126985 | 3.1e-16 | 0.005 | OK |
+| `c_RGDP` | -0.216518 | -0.216518 | 1.7e-16 | 0.005 | OK |
+| `c_UNEM` | -0.151139 | -0.151139 | 1.7e-16 | 0.005 | OK |
+| `et_c_HICP_dk8` | 0.171377 | 0.171377 | 1.3e-15 | 0.005 | OK |
+| `et_c_RGDP_dk8` | 0.162617 | 0.162617 | 4.2e-16 | 0.005 | OK |
+| `et_c_UNEM_dk8` | 0.208634 | 0.208634 | 1.1e-16 | 0.005 | OK |
+
+**K20-ZE: 65 / 65 fields within tolerance.**

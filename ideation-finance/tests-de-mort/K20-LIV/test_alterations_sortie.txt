@@ -1,0 +1,25 @@
+controle  1 | colonne ajoutée                                         | viole: [1] | anomalies hors principal: 0
+controle  1 | colonne renommée                                        | viole: [1] | anomalies hors principal: 0
+controle  2 | cible de mois 09                                        | viole: [2, 3, 5] | anomalies hors principal: 0
+controle  2 | couple (variable, cible) dupliqué / variable hors plage | viole: [2, 3, 4, 5, 6, 7, 11] | anomalies hors principal: 1
+controle  3 | enquete_2 non suivante                                  | viole: [3] | anomalies hors principal: 0
+controle  3 | mois de base faux                                       | viole: [3, 5] | anomalies hors principal: 0
+controle  4 | prev_6m_2 supprimée                                     | viole: [4] | anomalies hors principal: 0
+controle  4 | bp_1 présente sur une variable non IPC                  | viole: [4] | anomalies hors principal: 0
+controle  5 | série réalisée fausse (IPC avant 2004)                  | viole: [5] | anomalies hors principal: 0
+controle  5 | jour de lecture d'un autre mois                         | viole: [5] | anomalies hors principal: 0
+controle  6 | prévision de chômage hors plage                         | viole: [6, 7] | anomalies hors principal: 0
+controle  6 | IPC réalisé hors plage                                  | viole: [6, 7] | anomalies hors principal: 0
+controle  7 | erreur écartée de 0,01                                  | viole: [7] | anomalies hors principal: 0
+controle  7 | y_prev_1 de l'IPC écartée de 1e-4                       | viole: [7] | anomalies hors principal: 0
+controle  8 | n_rep_1 = 1                                             | viole: [8, 9] | anomalies hors principal: 0
+controle  8 | variance négative                                       | viole: [8] | anomalies hors principal: 0
+controle  9 | complete faux                                           | viole: [9] | anomalies hors principal: 0
+controle  9 | ligne pandémie marquée principale                       | viole: [9, 11] | anomalies hors principal: 0
+controle 10 | épisode faux                                            | viole: [10] | anomalies hors principal: 0
+controle 10 | épisode effacé                                          | viole: [10] | anomalies hors principal: 0
+controle 11 | grande_nouvelle inversée                                | viole: [11] | anomalies hors principal: 0
+--- altérations HORS lignes principales : comptées comme anomalies, jamais comme violations
+controle  6 | plage violée sur UNPR 2020-06 (hors principal)          | viole: [] | anomalies hors principal: 2
+controle  3 | date fausse sur UNPR 2026-06 (hors principal)           | viole: [] | anomalies hors principal: 1
+controle  8 | bruit faux sur CPI 2005-06 (hors principal)             | viole: [] | anomalies hors principal: 1

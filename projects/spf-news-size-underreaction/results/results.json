@@ -615,5 +615,295 @@
    "figures/fig3_sort_on_revision_vs_surprise.png",
    "figures/fig4_base_slope_by_decade.png"
   ]
+ },
+ "K20-ZE": {
+  "question": "Does the under-reaction of the ECB SPF consensus grow after large news (extra slope c > 0)?",
+  "preregistered": {
+   "fields": {
+    "n_violations_schema": 0,
+    "n_anomalies_hors_principal": 0,
+    "n_principal": 578,
+    "n_tours": 107,
+    "n_annees_cibles": 26,
+    "n_grands": 196,
+    "n_tours_grands": 71,
+    "c": -0.10596338391192366,
+    "et_c_dk8": 0.08976994290403473,
+    "t_c": -1.180388228888593,
+    "borne_basse_ic90": -0.259290446392015,
+    "borne_haute_ic90": 0.04736367856816766,
+    "b_moyen": 0.4467758088679899,
+    "et_b_moyen_dk8": 0.08683315561142309,
+    "borne_basse_b_moyen_ic90": 0.2984647790836793,
+    "b_commun": 0.3656539889185341,
+    "et_b_commun_dk8": 0.05695978630488663,
+    "borne_basse_b_commun_ic90": 0.26836667390978775,
+    "controle_positif_ok": 1,
+    "k_moyen": 0.4269265401779681,
+    "pente_moyenne_grandes": 0.34081242495606623,
+    "rapport_variance_revision": 8.415144634170307,
+    "rapport_variance_ecart_prec": 2.661964547603998,
+    "pertinence_manquante": 0,
+    "biais_mecanique_nu20": 0.4250632031634404,
+    "seuil_survie_bas": 0.4250632031634404,
+    "borne_basse_moins_seuil": -0.6843536495554554,
+    "marge_indecision": -0.3526363214318324,
+    "c_sans_E1": -0.06433234824548159,
+    "c_sans_E2": -0.18535072883777648,
+    "c_sans_E3": -0.16693167306263354,
+    "t_sans_E1": -0.7326458052121549,
+    "t_sans_E2": -1.9999284189642557,
+    "t_sans_E3": -1.246724495283662,
+    "t_min_sans_episode": -1.9999284189642557,
+    "c_min_sans_episode": -0.18535072883777648,
+    "episode_t_min": 2,
+    "conflit_robustesse": 0,
+    "et_c_iid": 0.1012597141865728,
+    "n_effectif": 735.4266015568664,
+    "et_c_dk4": 0.08677770252451789,
+    "et_c_dk12": 0.09405160054662688,
+    "et_c_dk0": 0.09856690992746905,
+    "et_c_grappes_annee": 0.07906396963861259,
+    "c_avec_pandemie": 0.17669962687281987,
+    "et_c_avec_pandemie_dk8": 0.07734173735476844,
+    "c_avant_2020": -0.14914085721915463,
+    "et_c_avant_2020_dk8": 0.13432170477776548,
+    "c_annee_en_cours": -0.011219056154627085,
+    "et_c_annee_en_cours_dk8": 0.12986625074865712,
+    "c_annee_suivante": -0.19768155560164136,
+    "et_c_annee_suivante_dk8": 0.1505625288476699,
+    "c_mediane": -0.03143327954909715,
+    "et_c_mediane_dk8": 0.10228363845347413,
+    "c_coupure_revision": -0.22934236321990653,
+    "et_c_coupure_revision_dk8": 0.13147899157535275,
+    "n_surprise_consensus": 554,
+    "c_surprise_consensus": -0.27069770956695055,
+    "et_c_surprise_consensus_dk8": 0.11313702683631169,
+    "c_HICP": 0.12698478838006536,
+    "c_RGDP": -0.2165182833351989,
+    "c_UNEM": -0.15113892841686052,
+    "et_c_HICP_dk8": 0.17137726836482053,
+    "et_c_RGDP_dk8": 0.16261748393358863,
+    "et_c_UNEM_dk8": 0.20863433806402432
+   },
+   "verdict_from_pipeline_numbers": "éliminée",
+   "non_conclusion_conditions_held": [],
+   "sealed_verdict": "éliminée",
+   "fields_reproduced": "65/65"
+  },
+  "descriptive_not_preregistered": {
+   "c_by_variable": [
+    {
+     "label": "HICP",
+     "estimate": 0.1269847884,
+     "se": 0.1713772684,
+     "lo90": -0.165727586,
+     "hi90": 0.4196971627,
+     "n": null
+    },
+    {
+     "label": "RGDP",
+     "estimate": -0.2165182833,
+     "se": 0.1626174839,
+     "lo90": -0.4942689459,
+     "hi90": 0.0612323792,
+     "n": null
+    },
+    {
+     "label": "UNEM",
+     "estimate": -0.1511389284,
+     "se": 0.2086343381,
+     "lo90": -0.5074863778,
+     "hi90": 0.205208521,
+     "n": null
+    }
+   ],
+   "c_with_and_without_pandemic": [
+    {
+     "label": "all variables, main sample (pandemic rows excluded; preregistered test)",
+     "estimate": -0.1059633839,
+     "se": 0.0897699429,
+     "lo90": -0.2592904464,
+     "hi90": 0.0473636786,
+     "n": 578
+    },
+    {
+     "label": "all variables, with the pandemic rows (preregistered S3)",
+     "estimate": 0.1766996269,
+     "se": 0.0773417374,
+     "lo90": 0.0445999395,
+     "hi90": 0.3087993143,
+     "n": 618
+    },
+    {
+     "label": "HICP, with the pandemic rows",
+     "estimate": 0.1269847884,
+     "se": 0.1713772684,
+     "lo90": -0.165727586,
+     "hi90": 0.4196971627,
+     "n": 206
+    },
+    {
+     "label": "RGDP, with the pandemic rows",
+     "estimate": -0.0393696176,
+     "se": 0.1446024818,
+     "lo90": -0.2863506565,
+     "hi90": 0.2076114213,
+     "n": 206
+    },
+    {
+     "label": "UNEM, with the pandemic rows",
+     "estimate": 0.5770819577,
+     "se": 0.2052713092,
+     "lo90": 0.2264785616,
+     "hi90": 0.9276853539,
+     "n": 206
+    }
+   ],
+   "base_slope_by_variable": [
+    {
+     "label": "HICP",
+     "estimate": 0.3741334998,
+     "se": 0.1114375456,
+     "lo90": 0.183798172,
+     "hi90": 0.5644688276,
+     "n": 206
+    },
+    {
+     "label": "RGDP",
+     "estimate": 0.3328378576,
+     "se": 0.1365710973,
+     "lo90": 0.0995744235,
+     "hi90": 0.5661012918,
+     "n": 186
+    },
+    {
+     "label": "UNEM",
+     "estimate": 0.3890689234,
+     "se": 0.0919594837,
+     "lo90": 0.2320021252,
+     "hi90": 0.5461357215,
+     "n": 186
+    },
+    {
+     "label": "pooled",
+     "estimate": 0.3656539889,
+     "se": 0.0569597863,
+     "lo90": 0.2683666739,
+     "hi90": 0.4629413039,
+     "n": 578
+    }
+   ],
+   "base_slope_by_period": [
+    {
+     "label": "2000-2009",
+     "estimate": 0.4038291351,
+     "se": 0.085178422,
+     "lo90": 0.2583443903,
+     "hi90": 0.5493138799,
+     "n": 234,
+     "rounds": 43,
+     "target_years": 10
+    },
+    {
+     "label": "2010-2019",
+     "estimate": 0.3181001704,
+     "se": 0.1226168192,
+     "lo90": 0.1086706431,
+     "hi90": 0.5275296976,
+     "n": 240,
+     "rounds": 44,
+     "target_years": 10
+    },
+    {
+     "label": "2020-2025",
+     "estimate": 0.2320672735,
+     "se": 0.0955310051,
+     "lo90": 0.0689003168,
+     "hi90": 0.3952342302,
+     "n": 104,
+     "rounds": 28,
+     "target_years": 6
+    }
+   ]
+  }
+ },
+ "comparison": {
+  "table": [
+   {
+    "quantity": "rows in the main sample",
+    "US SPF (K20)": "1004",
+    "ECB SPF (K20-ZE)": "578"
+   },
+   {
+    "quantity": "survey dates (clusters for the standard error)",
+    "US SPF (K20)": "223 target quarters",
+    "ECB SPF (K20-ZE)": "107 rounds, 26 target years"
+   },
+   {
+    "quantity": "standard error; critical value of the 90% interval",
+    "US SPF (K20)": "Driscoll-Kraay, 4 lags; 1.645",
+    "ECB SPF (K20-ZE)": "Driscoll-Kraay, 8 lags; 1.708"
+   },
+   {
+    "quantity": "base slope, no size split (one constant per series, one common slope)",
+    "US SPF (K20)": "0.191 (se 0.047)",
+    "ECB SPF (K20-ZE)": "0.366 (se 0.057)"
+   },
+   {
+    "quantity": "base slope after small news (mean of the series' b)",
+    "US SPF (K20)": "0.194",
+    "ECB SPF (K20-ZE)": "0.447 (se 0.087)"
+   },
+   {
+    "quantity": "slope after large news (mean b + c)",
+    "US SPF (K20)": "0.164",
+    "ECB SPF (K20-ZE)": "0.341"
+   },
+   {
+    "quantity": "**extra slope after large news, c (se)**",
+    "US SPF (K20)": "**-0.030** (0.071)",
+    "ECB SPF (K20-ZE)": "**-0.106** (0.090)"
+   },
+   {
+    "quantity": "90% interval of c",
+    "US SPF (K20)": "[-0.146, 0.086]",
+    "ECB SPF (K20-ZE)": "[-0.259, 0.047]"
+   },
+   {
+    "quantity": "variance ratio of revisions, large / small news",
+    "US SPF (K20)": "3.06",
+    "ECB SPF (K20-ZE)": "8.42"
+   },
+   {
+    "quantity": "k = s.d. revision / s.d. error (mean)",
+    "US SPF (K20)": "0.294",
+    "ECB SPF (K20-ZE)": "0.427"
+   },
+   {
+    "quantity": "mechanical bias with 20% noise",
+    "US SPF (K20)": "0.081",
+    "ECB SPF (K20-ZE)": "0.425"
+   },
+   {
+    "quantity": "mechanical-bias floor max(0.10, bias)",
+    "US SPF (K20)": "0.100",
+    "ECB SPF (K20-ZE)": "0.425"
+   },
+   {
+    "quantity": "c without each episode (range)",
+    "US SPF (K20)": "-0.084 to 0.014",
+    "ECB SPF (K20-ZE)": "-0.185 to -0.064"
+   },
+   {
+    "quantity": "effective observations",
+    "US SPF (K20)": "820",
+    "ECB SPF (K20-ZE)": "735"
+   }
+  ],
+  "figures": [
+   "figures/fig5_forest_c_us_vs_euro_area.png",
+   "figures/fig6_base_slope_vs_c_two_surveys.png"
+  ]
  }
 }

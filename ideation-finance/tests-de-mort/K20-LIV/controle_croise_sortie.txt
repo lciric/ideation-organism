@@ -1,0 +1,5 @@
+c            statsmodels -0.122191  analyse.py -0.122191
+et_c_dk2     statsmodels 0.139088  analyse.py 0.139088
+b_regroupe   statsmodels 0.372772  analyse.py 0.372772
+et_b_regroupe statsmodels 0.066811  analyse.py 0.066811
+et_c_iid     statsmodels 0.114833  analyse.py 0.114833
