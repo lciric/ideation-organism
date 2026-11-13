@@ -2,7 +2,7 @@
 
 N'utilise AUCUNE donnée : seulement des chiffres déjà scellés ou déjà publiés dans le registre (listés dans ENTREES).
 Ne lit aucun fichier. Résultat : pour chaque scénario de dispersion et chaque « vérité » simulée, la fréquence des
-verdicts survit / éliminée / non concluant donnés par la règle de la section 9 de la préinscription.
+verdicts survit / éliminée / non concluant donnés par la règle de la section 10 de la préinscription.
 
 Usage : python3 simulation_decision.py            (environ une minute ; graine fixe, résultat identique à chaque fois)
 """
@@ -62,7 +62,7 @@ def plan(n10_avant=97, n20_avant=13, apres_moins_un_20=True):
     extra = n10_avant - 96
     if extra == 1:
         mois.append(75); ech.append(10); an.append(2019); per.append(0)
-    elif extra < 0:  # retirer |extra| lignes à 10 ans (2019-06-12 et 2019-06-21 exclues dans M01 : un seul mois touché)
+    elif extra == -1:  # M01 exclut les deux réouvertures à 10 ans de juin 2019 : on retire celle du mois 75
         idx = [i for i in range(len(mois)) if ech[i] == 10 and mois[i] == 75][0]
         for L in (mois, ech, an, per):
             L.pop(idx)
@@ -102,7 +102,7 @@ def champs(vc, vo, mois, per, garde):
 
 
 def verdict(t, s23, s30):
-    """Règle de la section 9, gardes de données mises à part (échantillon complet, schéma valide)."""
+    """Règle de la section 10, gardes de données mises à part (échantillon complet, schéma valide)."""
     if not (t["bi_own_avant"] > 0 and t["bi_baisse_cmt"] > 0):
         return "nc"  # contrôle positif ou contrôle de la cassure en échec
     survit = t["bi_own_apres"] > 0 and t["marge"] <= 0 and s23["marge"] <= 0 and s30["marge"] <= 0

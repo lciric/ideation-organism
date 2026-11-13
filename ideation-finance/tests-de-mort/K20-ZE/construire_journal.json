@@ -1,0 +1,50 @@
+{
+ "0_Round_dates.csv": {
+  "sha256": "c960dcc2beb6d1e0f71d2e692688325a165670bdd86feaf5df7fee5d74142eae"
+ },
+ "1_HICP.csv": {
+  "sha256": "a8e99246d20bbf3ac81dabfdc3ce2d2a7ad19889a532372d37e166d44f585aa7"
+ },
+ "3_RGDP.csv": {
+  "sha256": "755f49aa486d7d74cf1c5075ae16957859ad9471d105f991f50f94dd10478438"
+ },
+ "5_UNEM.csv": {
+  "sha256": "d522f43c440ea88cee927d81b3c1df903c2e07ec9eab523f762e8cf93926d394"
+ },
+ "SPF_microdata_by_variable.zip": {
+  "sha256": "49348fa33c5e5d58aa3e05aac56cf5df23ab29439862ab6e3ccafe68797b51f4",
+  "date": "2026-11-13 09:21:05 UTC",
+  "http": 200
+ },
+ "cepr_eabcn_findings_dec2022.pdf": {
+  "sha256": "b0c779a8d10558c608acaec18bfe285bb11af88ee1442d4c97a053633bdd5623",
+  "date": "2026-11-13 09:21:09 UTC",
+  "http": 200
+ },
+ "cepr_eabcn_findings_sept2020.pdf": {
+  "sha256": "742947507455e1b0bc12e6956a72b2e2aac01645adfc085ca6a9d423fcce2c02",
+  "date": "2026-11-13 09:21:08 UTC",
+  "http": 200
+ },
+ "eurostat_nama_10_gdp.csv": {
+  "sha256": "0b8e98ab2fb2a8445bb263eecb493d93551b5894483b3406b4d98a62b0431534",
+  "date": "2026-11-13 09:21:08 UTC",
+  "http": 200,
+  "last_update": "11/11/26 23:00:00"
+ },
+ "eurostat_prc_hicp_ainr.csv": {
+  "sha256": "43ef7b6b85ff0268d912b1e7d405a8790f7ad049aea427387a53f2781ad0505e",
+  "date": "2026-11-13 09:21:07 UTC",
+  "http": 200,
+  "last_update": "17/09/26 11:00:00"
+ },
+ "eurostat_une_rt_m.csv": {
+  "sha256": "7842067c58b6b283d99eb35e8779e1a11350cc45073ba442b2766d74d4beb10e",
+  "date": "2026-11-13 09:21:08 UTC",
+  "http": 200,
+  "last_update": "05/11/26 23:00:00"
+ },
+ "K20-ZE_analyse.csv": {
+  "sha256": "6964ed68b6f4dae1a6eced333879d0750370d6bb162e0dc16db14b97bb8dfbb6"
+ }
+}

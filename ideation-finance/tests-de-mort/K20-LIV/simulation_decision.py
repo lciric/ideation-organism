@@ -220,7 +220,7 @@ def calibrer_sig_eta2(rng, P, cible):
 def calibrer_rho(rng, P, cible_effet, v_idx, tau, nd, V, n_ep, ep, tirages=300):
     """rho (corrélation commune par date) tel que E[(et_dk/et_iid)^2] vaille l'effet de plan de K20."""
     meilleur = None
-    for rho in (0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9):
+    for rho in np.round(np.arange(0.0, 0.951, 0.05), 2):
         Q = dict(P, rho=rho)
         ratios = []
         for _ in range(tirages):
@@ -244,7 +244,7 @@ def scenario(nom, P, variables, tirages, graine, cs=(0.0, 0.40)):
           f"plage = {nd}")
     print(f"    paramètres : b = {P['b']}, k = {P['k']}, rapport visé = {P['rapport']}, nu_bar = {P['nu_bar']}, "
           f"queues = {P['queues']}, theta = {P['theta']}, vol = {P['vol']} ; calibrés : sig_eta2 = {P['sig_eta2']:.3f}, "
-          f"rho = {rho} (effet de plan simulé {effet:.2f}, visé {P['effet_plan']:.2f})")
+          f"rho = {float(rho)} (effet de plan simulé {effet:.2f}, visé {P['effet_plan']:.2f})")
     lignes_ep = {k: int((ep == i).sum()) for i, k in enumerate(EPISODES, start=1)}
     print(f"    lignes principales par épisode : {lignes_ep} ; hors épisode : {int((ep == 0).sum())}")
     res = {}
