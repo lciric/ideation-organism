@@ -64,7 +64,8 @@ def fig2_leave_out(drop_one, drop_two, beta_z, path):
         ax.vlines(years, 0, v, color=colours, lw=2)
         ax.scatter(years, v, color=colours, s=30, zorder=3)
         ax.axhline(beta_z, color=INK, lw=1, ls="--")
-        ax.text(years[0] - 0.5, 0.56, f"dashed line: all targets ({beta_z:.2f}); orange: 2022 removed", fontsize=8,
+        note = "orange: 2022 removed" if label == "one year removed" else "orange: a removed pair that contains 2022"
+        ax.text(years[0] - 0.5, 0.56, f"dashed line: all targets ({beta_z:.2f}); {note}", fontsize=8,
                 color=MUTED)
         ax.axhline(0, color=MUTED, lw=0.8)
         ax.set_ylabel("correlation of error\nwith revision")
@@ -113,7 +114,8 @@ def fig4_k01_slopes(table, path, crit=1.714):
     ax.set_yticklabels(names)
     ax.invert_yaxis()
     ax.grid(axis="y", visible=False)
-    ax.set_xlabel("slope of error on revision (points per point; 90% interval, Driscoll-Kraay)")
+    ax.set_xlabel("slope of error on revision (points per point; 90% interval: Driscoll-Kraay,\n"
+                  "except the naive within-round slope: clustered by survey round, as preregistered)")
     ax.set_title("ECB SPF: the predicted individual over-reaction is excluded", pad=28)
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=8)
     _save(fig, path)
