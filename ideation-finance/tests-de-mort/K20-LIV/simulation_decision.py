@@ -134,13 +134,15 @@ def appliquer_regle(e, r, s, v_idx, tau, ep, nd, V, nu_bar, n_ep):
         c_ex.append(bk[-1]); t_ex.append(bk[-1] / ek)
     t_min, c_min = (min(t_ex), min(c_ex)) if t_ex else (np.inf, np.inf)
     conflit = int(lo > seuil and hi >= 0.40 and t_min < 1 and c_min > 0)
-    # Contrôle positif : pente de base REGROUPÉE (petites nouvelles), une seule pente b pour les cinq variables,
-    # dans une régression qui garde constantes et effets de classe propres et un supplément c commun.
+    # Contrôle positif : pente de sous-réaction de base REGROUPÉE (régression de Coibion-Gorodnichenko sur toutes
+    # les lignes principales, constantes propres à chaque variable, une seule pente, sans classe).
     D = np.eye(V)[v_idx]
-    Xb = np.hstack([D, D * L[:, None], zr[:, None], (zr * L)[:, None]])
+    Xb = np.hstack([D, zr[:, None]])
     bb, ub = mco(Xb, ze)
     Vb, _ = dk_var(Xb, ub, tau, nd, 2)
-    ctrl = int(bb[2 * V] - 1.645 * np.sqrt(Vb[2 * V, 2 * V]) > 0)
+    # Champ dérivé controle_positif_ok : 1 si la borne basse à 90 % de la pente regroupée est > 0, ou si tout
+    # l'intervalle à 90 % de c est sous 0 (une interaction nettement négative n'est pas une interaction nulle).
+    ctrl = int((bb[-1] - 1.645 * np.sqrt(Vb[-1, -1]) > 0) or (hi < 0))
     # Règle (section 9 ; mêmes opérateurs que verdict.py)
     non_concl = (A / a < 1.25) or (ctrl < 1) or (marge >= 0) or (conflit >= 1)
     if non_concl:
@@ -149,7 +151,7 @@ def appliquer_regle(e, r, s, v_idx, tau, ep, nd, V, nu_bar, n_ep):
         verdict = "survit"
     else:
         verdict = "éliminée"
-    return verdict, dict(c=c, et_c=et_c, et_iid=et_iid, ratio=A / a, biais=biais, seuil=seuil, ctrl=ctrl, b=bb[2 * V])
+    return verdict, dict(c=c, et_c=et_c, et_iid=et_iid, ratio=A / a, biais=biais, seuil=seuil, ctrl=ctrl, b=bb[-1])
 
 # ---------------------------------------------------------------------------------------------------------------
 # 3. Processus simulé
@@ -280,7 +282,7 @@ def main():
     cinq = ["CPI", "UNPR", "PRIME", "TBILL", "TPHS"]
     print("Simulation de décision K20-LIV — aucune donnée de résultat lue.")
     # Scénario principal : dispersions de K20, plan retenu (cinq variables). C'est lui qui décide (>= 0,80 exigé).
-    res = scenario("PRINCIPAL (dispersions de K20)", PRINCIPAL, cinq, t, a.graine, cs=(0.0, 0.20, 0.40))
+    res = scenario("PRINCIPAL (dispersions de K20)", PRINCIPAL, cinq, t, a.graine, cs=(-0.40, -0.20, 0.0, 0.10, 0.20, 0.40, 0.60))
     # Sensibilités, rapportées, hors exigence.
     scenario("S-a : quatre variables sans TPHS", PRINCIPAL, cinq[:4], t, a.graine + 1)
     scenario("S-b : cibles en niveau (rapport 5, k = 1)", dict(PRINCIPAL, rapport=5.0, k=1.0), cinq, t, a.graine + 2)
