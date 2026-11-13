@@ -15,6 +15,7 @@ import os
 import shutil
 import time
 import urllib.request
+import zipfile
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[2]
@@ -24,6 +25,8 @@ PHILLY_SPF = ("https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-d
               "survey-of-professional-forecasters/historical-data/")
 PHILLY_RTDSM = "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/real-time-data/data-files/xlsx/"
 FRED = "https://fred.stlouisfed.org/graph/fredgraph.csv?id="
+ECB_SPF = "https://www.ecb.europa.eu/stats/prices/indic/forecast/shared/files/SPF_microdata_by_variable.zip"
+EUROSTAT = "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/"
 
 # FRED answers reliably only to curl's default user agent; the Philadelphia Fed accepts it too.
 USER_AGENT = "curl/8.5.0"
@@ -41,7 +44,30 @@ def k20_catalogue():
     return cat
 
 
-CATALOGUES = {"K20": k20_catalogue}
+def k20ze_catalogue():
+    """K20-ZE files (euro area): the ECB SPF micro-data archive and three Eurostat series."""
+    return {
+        "ecb_spf/SPF_microdata_by_variable.zip": (ECB_SPF, b"PK"),
+        "eurostat/prc_hicp_ainr_A_RCH_A_AVG_TOTAL_EA.csv": (
+            EUROSTAT + "prc_hicp_ainr/A.RCH_A_AVG.TOTAL.EA?format=SDMX-CSV", b"DATAFLOW"),
+        "eurostat/nama_10_gdp_A_CLV_PCH_PRE_B1GQ_EA.csv": (
+            EUROSTAT + "nama_10_gdp/A.CLV_PCH_PRE.B1GQ.EA?format=SDMX-CSV", b"DATAFLOW"),
+        "eurostat/une_rt_m_M_NSA_TOTAL_PC_ACT_T_EA21.csv": (
+            EUROSTAT + "une_rt_m/M.NSA.TOTAL.PC_ACT.T.EA21?format=SDMX-CSV", b"DATAFLOW"),
+    }
+
+
+# K20-LIV (US Livingston Survey) is being preregistered; its file group will be added here.
+CATALOGUES = {"K20": k20_catalogue, "K20-ZE": k20ze_catalogue}
+
+# Name of each cache file in the raw-download folder (`donnees/`) of the sealed test, for seeding.
+SEALED_NAMES = {
+    "K20": {name: Path(name).name for name in k20_catalogue()},
+    "K20-ZE": {"ecb_spf/SPF_microdata_by_variable.zip": "SPF_microdata_by_variable.zip",
+               "eurostat/prc_hicp_ainr_A_RCH_A_AVG_TOTAL_EA.csv": "eurostat_prc_hicp_ainr.csv",
+               "eurostat/nama_10_gdp_A_CLV_PCH_PRE_B1GQ_EA.csv": "eurostat_nama_10_gdp.csv",
+               "eurostat/une_rt_m_M_NSA_TOTAL_PC_ACT_T_EA21.csv": "eurostat_une_rt_m.csv"},
+}
 
 
 def catalogue():
@@ -109,19 +135,36 @@ def get_all():
         get(name)
 
 
-# --------------------------------------------------------------------------- seeding from the sealed test
-def seed_from(folder):
-    """Copy, byte for byte, the raw files the sealed test K20 downloaded (its flat `donnees/` folder) into
-    the empty cache slots. Only raw source files are copied, never an analysis file."""
-    folder = Path(folder)
-    cat = k20_catalogue()
-    for name in cat:
-        target, source = RAW / name, folder / Path(name).name
-        if target.exists() or not source.exists():
-            continue
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        _record(name, cat[name][0], f"copied from sealed test folder tests-de-mort/K20/donnees/{source.name}")
+# --------------------------------------------------------------------------- seeding from the sealed tests
+def seed_from(tests_dir):
+    """Copy, byte for byte, the raw files the sealed tests downloaded (`<tests_dir>/<ID>/donnees/`) into the
+    empty cache slots. Only raw source files are copied, never an analysis file."""
+    tests_dir = Path(tests_dir)
+    cat = catalogue()
+    for tid, names in SEALED_NAMES.items():
+        for name, sealed_name in names.items():
+            target, source = RAW / name, tests_dir / tid / "donnees" / sealed_name
+            if target.exists() or not source.exists():
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, target)
+            _record(name, cat[name][0], f"copied from sealed test folder tests-de-mort/{tid}/donnees/{sealed_name}")
+
+
+def compare_with_sealed(tests_dir):
+    """{cache name: True/False/None}: is the cached file byte-identical (sha256) to the sealed test's copy?
+    None when the sealed folder has no copy."""
+    tests_dir = Path(tests_dir)
+    out = {}
+    for tid, names in SEALED_NAMES.items():
+        for name, sealed_name in names.items():
+            source = tests_dir / tid / "donnees" / sealed_name
+            if source.exists() and (RAW / name).exists():
+                out[name] = (hashlib.sha256(source.read_bytes()).hexdigest()
+                             == hashlib.sha256((RAW / name).read_bytes()).hexdigest())
+            else:
+                out[name] = None
+    return out
 
 
 # --------------------------------------------------------------------------- reading
@@ -136,29 +179,37 @@ def read_excel(path, sheet):
 
 
 def count_rows(name):
-    """Data rows of a cache file (CSV: lines minus header; xlsx: rows of the first sheet)."""
+    """Data rows of a cache file (CSV: lines minus header; zip: rows of 1_HICP.csv; xlsx: first sheet)."""
     path = RAW / name
     if name.endswith(".csv"):
         return max(len(path.read_bytes().splitlines()) - 1, 0)
+    if name.endswith(".zip"):
+        with zipfile.ZipFile(path) as z:
+            return len(z.read("1_HICP.csv").splitlines()) - 1
     return len(read_excel(path, 0))
 
 
-def write_provenance():
-    """Write data/raw/PROVENANCE.md from provenance.json and the files on disk."""
+def write_provenance(sealed=None):
+    """Write data/raw/PROVENANCE.md from provenance.json and the files on disk. `sealed` (from
+    compare_with_sealed) adds whether each file is byte-identical to the sealed test's own copy."""
+    sealed = sealed or {}
+    label = {True: "yes", False: "NO", None: "–"}
     log = _read_log()
     lines = ["# Provenance of the raw data cache", "",
              "Every file below is kept exactly as received. `origin` says whether it was downloaded by",
-             "`src/snu/data.py` or copied, byte for byte, from the raw-download folder of the sealed test K20",
-             "(`ideation-finance/tests-de-mort/K20/donnees/`, downloaded there on 2026-11-12 and listed in that",
-             "folder's own PROVENANCE.md). Only raw source files were copied, never an analysis CSV. Delete the",
+             "`src/snu/data.py` or copied, byte for byte, from the raw-download folder of a sealed test",
+             "(`ideation-finance/tests-de-mort/<ID>/donnees/`, listed in that folder's own PROVENANCE.md). Only raw",
+             "source files were copied, never an analysis CSV. Delete the",
              "files in `data/raw/` (keep this one if you like) and run `python run_all.py` to download everything",
              "again. `date (UTC)` is the date the file entered this cache. `rows` = data rows (CSV: lines minus",
-             "header; xlsx: rows of the first sheet minus header).", "",
-             "| file | URL | origin | date (UTC) | sha256 | bytes | rows |", "|---|---|---|---|---|---|---|"]
+             "header; zip: rows of `1_HICP.csv`; xlsx: rows of the first sheet minus header). `same as sealed`",
+             "says whether the file is byte-identical (sha256) to the copy in the sealed test's `donnees/` folder.", "",
+             "| file | URL | origin | date (UTC) | sha256 | bytes | rows | same as sealed |",
+             "|---|---|---|---|---|---|---|---|"]
     for name in sorted(log):
         e = log[name]
         sha = hashlib.sha256((RAW / name).read_bytes()).hexdigest()
         flag = "" if sha == e["sha256"] else " (CHANGED since logged)"
         lines.append(f"| `{name}` | {e['url']} | {e['origin']} | {e['date_utc']} | `{sha}`{flag} | "
-                     f"{e['bytes']} | {count_rows(name)} |")
+                     f"{e['bytes']} | {count_rows(name)} | {label[sealed.get(name)]} |")
     (RAW / "PROVENANCE.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

@@ -14,6 +14,7 @@ jamais les valeurs) ; une simulation sans aucune donnée (section 8, script `sim
 - Dans `generation-2/nouveaute/J02.md`, seulement les deux passages qui contiennent le mot « Livingston » (recherche faite pour
   vérifier que l'enquête n'a jamais servi dans ce projet ; elle n'a servi à aucun test).
 - La documentation de l'enquête : `livingston-documentation.pdf` (version du 4 avril 2022), en entier.
+- En fin de rédaction, les titres de commit du dépôt (`git log`) : voir section 0.
 
 **Ce que le rédacteur a vu des données** (téléchargées le 2026-11-13, toutes en HTTP 200 sauf mention).
 - Fed de Philadelphie, `means.xlsx`, `medians.xlsx` : noms des 16 feuilles et des colonnes ; la colonne `Date` (161 dates) ;
@@ -59,6 +60,12 @@ projet. Le rédacteur sait par la littérature que la pente de base erreur-sur-r
 trouvé ses prévisions d'inflation lentes à s'ajuster. Il ne les a pas relues pour ce test. Personne, à sa connaissance, n'a
 publié le supplément de pente selon la taille des nouvelles sur cette enquête.
 
+**Vu en fin de rédaction, quand le plan et la simulation étaient déjà fixés.** En vérifiant l'état des fichiers (`git log`),
+le rédacteur a lu les titres de commit d'un test voisin, K20-ZE (consensus de la zone euro) : « éliminée », supplément
+−0,11, IC à 90 % [−0,26 ; +0,05], contrôle positif passé, pente de base 0,37 ; et, pour sa lecture après coup, « plancher de
+survie plus haut que simulé ». Il n'a ouvert aucun fichier de K20-ZE. Aucun choix de ce texte n'a été changé après cette
+lecture ; la limite 1 (section 10) disait déjà que la décisivité dépend des dispersions supposées, plancher compris.
+
 **Ce qui peut avoir orienté le plan, et ce qui ne le peut pas.** Le rédacteur connaît la réponse de K20 (c ≈ 0). Les seuils de
 ce test sont ceux de K20, transférés sans réglage (section 9). Les choix propres à K20-LIV (variables, cibles, surprise,
 retards, épisodes, bruit) viennent de la structure des fichiers et de la documentation, chacun avec sa raison (section 2).
@@ -98,7 +105,7 @@ la révision.
 
 **Attente du rédacteur, hors verdict.** K20 a trouvé c = −0,03 sur le SPF. Les deux enquêtes interrogent des prévisionnistes
 américains sur les mêmes chocs. Le rédacteur s'attend donc à c entre −0,2 et +0,15, et plutôt à une élimination. Le plan est
-dimensionné pour que cette attente puisse être démentie : il fait survivre c = 0,40 près de 9 fois sur 10 (section 8).
+dimensionné pour que cette attente puisse être démentie : il fait survivre c = 0,40 85 fois sur 100 (section 8).
 
 ---
 
@@ -114,7 +121,7 @@ dimensionné pour que cette attente puisse être démentie : il fait survivre c 
 | T6 | Seuils | survie : borne basse > max(0,10 ; biais) et borne haute ≥ 0,40 et t ≥ 1 sans chaque épisode ; élimination : borne haute < 0,40 | **identiques** | test de la même prédiction (0,40), avec la même prudence |
 | T7 | Pertinence | rapport des variances de la révision ≥ 1,25 | **identique** | sinon le tri ne sépare pas les grandes nouvelles |
 | A1 | Cadence | trimestrielle ; révision horizon 4 → horizon 3 | **semestrielle** : prévision à 12 mois de l'enquête s → prévision à 6 mois de l'enquête s+1, même mois cible | l'enquête a deux dates par an et deux horizons (6 et 12 mois) : c'est la seule paire de prévisions successives d'une même cible |
-| A2 | Cible | taux de croissance (3 variables), niveaux (2) | **niveaux** ; en log ×100 pour l'IPC et les mises en chantier ; l'IPC **remis dans la base de la série réalisée** par la valeur de base du même questionnaire | l'enquête demande des niveaux. Un taux calculé dans une seule enquête pour le semestre cible exige la prévision du mois courant, qui n'existe que depuis juin 1992 : on perdrait 60 % de l'échantillon. La documentation dit que la valeur de base de l'IPC (`CPI_BP`) est exacte dans toutes les enquêtes |
+| A2 | Cible | taux de croissance (3 variables), niveaux (2) | **niveaux** ; en log ×100 pour l'IPC et les mises en chantier ; l'IPC **remis dans la base de la série réalisée** par la valeur de base du même questionnaire | l'enquête demande des niveaux. Un taux calculé dans une seule enquête pour le semestre cible exige la prévision du mois courant, qui n'existe que depuis juin 1992 : on perdrait 216 lignes sur 555 (39 %) et huit des onze épisodes (tous ceux d'avant 1993). La documentation dit que la valeur de base de l'IPC (`CPI_BP`) est exacte dans toutes les enquêtes |
 | A3 | Surprise | réalisé du trimestre de la 1re enquête − sa prévision du trimestre courant | réalisé du **mois de base de s+1** (avril ou octobre) − la valeur que la **trajectoire de s** annonçait pour ce mois (aux 3/4 du chemin entre son mois de base et sa cible à 6 mois) | avant 1992, l'enquête ne prévoit pas le mois courant. Le mois de base de s+1 est la dernière donnée connue des répondants de s+1 (documentation, section 4) |
 | A4 | Variables | `PGDP`, `RGDP`, `UNEMP`, `CPI`, `TBILL` | **`CPI`, `UNPR`, `PRIME`, `TBILL`, `TPHS`** | les seules variables dont la prévision et la réalisation se comparent sans conversion douteuse (section 3.2) |
 | A5 | Réalisés | première publication (PIB, déflateur), dernier millésime FRED (autres) | **dernier millésime FRED pour tout** | trois des six séries ne sont jamais révisées ; deux ne le sont que par les coefficients saisonniers (section 3.4) |
@@ -124,7 +131,7 @@ dimensionné pour que cette attente puisse être démentie : il fait survivre c 
 | A9 | Contrôle positif | — | **nouveau** : la pente regroupée erreur-sur-révision doit avoir sa borne basse à 90 % au-dessus de 0 (sauf si tout l'intervalle de c est sous 0 : section 6, étape 6) | une interaction nulle ne dit rien si l'enquête ne montre aucune sous-réaction de base |
 | A10 | Contrôles de schéma | sur toutes les lignes | **sur les seules lignes principales** ; les anomalies ailleurs sont comptées et rapportées, sans effet sur le verdict | K20 est tombé en « non concluant » pour une ligne hors de toute régression |
 | A11 | Pandémie | `RGDP`, `UNEMP` sans les cibles 2020T1-2021T4 | **`UNPR`** sans les 4 cibles dont une donnée ou une enquête tombe en 2020 | même raison (section 3.5) |
-| A12 | Minimum | 1 000 lignes (1 004 attendues) | **540 lignes** (548 attendues) | même marge relative, à peu près |
+| A12 | Minimum | 1 000 lignes (1 004 attendues) | **540 lignes** (548 attendues) | marge de 8 lignes (1,5 %), un peu plus large que celle de K20 (4 lignes) : octobre 2025 a montré qu'une donnée peut manquer sans faute de construction |
 
 ---
 
@@ -132,7 +139,7 @@ dimensionné pour que cette attente puisse être démentie : il fait survivre c 
 
 Toutes les sources sont publiques, sans compte. Les fichiers bruts vont dans `tests-de-mort/K20-LIV/donnees/`. Le sha256, la date
 et le code HTTP de chaque fichier vont dans `tests-de-mort/K20-LIV/construire_journal.json`. Chaque téléchargement a jusqu'à 5
-essais, avec 120 s de délai par essai. **Si un fichier manque, l'expérimenteur s'arrête** : verdict non concluant, pour une
+essais, avec 120 s de délai par essai. **Si un fichier manque, l'expérimentateur s'arrête** : verdict non concluant, pour une
 raison de données.
 
 ### 3.1 Prévisions — enquête Livingston, Fed de Philadelphie
@@ -209,7 +216,7 @@ Adresse : `https://fred.stlouisfed.org/graph/fredgraph.csv?id=<SÉRIE>`. En-têt
 | Variable | Série FRED | Fréquence, couverture vérifiée | Dates vides vérifiées | Valeur utilisée pour un mois M |
 |---|---|---|---|---|
 | `CPI`, lignes dont l'enquête s+1 est au plus 2004-06 | `CPIAUCNS` (IPC-U, non désaisonnalisé, 1982-84 = 100) | mensuelle, 1913-01 → 2026-10 | **2025-10** | l'observation du mois M |
-| `CPI`, lignes dont l'enquête s est au moins 2004-12 | `CPIAUCSL` (désaisonnalisé) | mensuelle, 1947-01 → 2026-10 | **2025-10** | l'observation du mois M |
+| `CPI`, lignes dont l'enquête s+1 est au moins 2004-12 | `CPIAUCSL` (désaisonnalisé) | mensuelle, 1947-01 → 2026-10 | **2025-10** | l'observation du mois M |
 | `UNPR` | `UNRATE` | mensuelle, 1948-01 → 2026-10 | **2025-10** | l'observation du mois M |
 | `PRIME` | `DPRIME` | jours ouvrés, 1955-08-04 → 2026-11-09 | jours fériés | la **dernière observation non vide du mois M** |
 | `TBILL` | `DTB3` | jours ouvrés, 1954-01-04 → 2026-11-10 | jours fériés | la **dernière observation non vide du mois M** |
@@ -505,7 +512,7 @@ les lignes : quand c = 0, elle est égale à la pente de base et c'est l'estimat
 nouvelles, estimée sur des révisions peu dispersées, ne passerait le contrôle qu'environ 8 fois sur 10 même si b = 0,19 ;
 section 8). Pourquoi la seconde branche : quand c est très négatif (H2, H3), la pente sur toutes les lignes baisse avec c et
 peut passer sous 0 ; sans cette branche, une interaction **nettement négative**, qui contredit H1 sans ambiguïté, deviendrait
-« non concluant » (100 % des cas simulés pour c = −0,40). Une interaction dont tout l'intervalle est sous 0 n'est pas une
+« non concluant » (100 % des cas pour c = −0,40, dans un essai de 300 tirages). Une interaction dont tout l'intervalle est sous 0 n'est pas une
 interaction nulle : la raison d'être du contrôle ne s'y applique pas. Dans tous les autres cas, le contrôle exige bien que la
 borne basse à 90 % de la pente regroupée dépasse 0.
 
@@ -650,7 +657,7 @@ présence des cellules.
 - Surprise vraie s* par ligne : une part commune aux variables d'un même semestre (corrélation ρ) et une part propre.
 - Révision vraie r* = s* + η : η est réglée pour que le rapport des variances de la révision entre grandes et petites
   nouvelles vaille celui de K20.
-- Bruit du consensus de chaque enquête, de variance telle que ν = 0,05 (milieu de la plage 0,02-0,12 de K20) ; la révision
+- Bruit du consensus de chaque enquête, de variance telle que ν = 0,05 (dans la plage 0,02-0,12 de K20) ; la révision
   publiée contient ε_{s+1} − ε_s, l'erreur publiée −ε_{s+1}, la surprise −0,75 ε_s.
 - Erreur : pente b sur r*, plus c sur r* quand L = 1, plus un aléa avec la même part commune ρ et une moyenne mobile d'ordre 1
   (θ = 0,3, le chevauchement).
@@ -663,20 +670,63 @@ présence des cellules.
 
 **Résultats du scénario principal** (4 000 tirages par ligne ; survit / éliminée / non concluant) :
 
-RESULTATS_PRINCIPAL
+Réglages obtenus par le script : ρ = 0,40 (effet de plan simulé 1,23 pour 1,22 visé) ; variance de η = 1,264 ; rapport
+moyen simulé 2,92 (visé 3,06) ; plancher moyen 0,100.
 
-**Les deux probabilités exigées : P(éliminée | c = 0) = P_ELIM ; P(survit | c = 0,40) = P_SURV.** Les deux dépassent 0,80.
+| c vrai | Ce que c'est | survit | éliminée | non concluant | ĉ moyen | é.-t. de ĉ | `et_c_dk2` moyen | contrôle positif réussi |
+|---|---|---|---|---|---|---|---|---|
+| −0,40 | H3 forte | 0,000 | 0,977 | 0,023 | −0,368 | 0,099 | 0,095 | 0,977 |
+| −0,20 | H2 ou H3 | 0,000 | 0,749 | 0,251 | −0,179 | 0,105 | 0,096 | 0,749 |
+| **0** | **H0** | 0,005 | **0,936** | 0,058 | +0,010 | 0,101 | 0,095 | 0,949 |
+| +0,10 | au plus le biais mécanique | 0,058 | 0,905 | 0,037 | +0,106 | 0,101 | 0,094 | 0,995 |
+| +0,20 | bas de la plage de la fiche | 0,245 | 0,695 | 0,059 | +0,198 | 0,098 | 0,092 | 1,000 |
+| **+0,40** | **prédiction** | **0,848** | 0,123 | 0,028 | +0,362 | 0,092 | 0,088 | 1,000 |
+| +0,60 | haut de la plage | 0,997 | 0,002 | 0,002 | +0,506 | 0,085 | 0,083 | 1,000 |
 
-**Seuils implicites** (écart-type ≈ ET_MOYEN, plancher 0,10) : survit si ĉ > SEUIL_SURV environ ; éliminée si
-ĉ < SEUIL_ELIM environ. La bande d'indécision est étroite : le plan tranche presque toujours. Un effet vrai survit 8 fois
-sur 10 à partir de c ≈ EFFET_80.
+ĉ est un peu sous le c vrai quand c > 0 : le bruit du consensus atténue la pente des grandes nouvelles (section 7, sens
+prudent). L'écart-type simulé (≈ 0,095) est cohérent avec un calcul direct : 0,0639 × √(1 004 / 548) × √1,22 ≈ 0,096.
+
+**Les deux probabilités exigées : P(éliminée | c = 0) = 0,936 ; P(survit | c = 0,40) = 0,848.** Les deux dépassent 0,80.
+
+**Seuils implicites** (écart-type ≈ 0,095, plancher 0,10) : survit si ĉ > 0,10 + 1,645 × 0,095 = 0,256
+environ ; éliminée si ĉ < 0,40 − 1,645 × 0,095 = 0,244 environ. La bande d'indécision est étroite : le plan tranche presque
+toujours. Un effet vrai survit 8 fois sur 10 à partir de c ≈ 0,38 (c = 0,40 survit 85 fois sur 100 ; c = 0,20, 25 fois).
+L'écart-type de c est plus grand que dans K20 (0,095 contre 0,071), parce que l'échantillon est presque deux fois plus petit ; les
+mêmes seuils restent tranchants parce que l'écart entre le plancher (0,10) et la prédiction (0,40) vaut plus de trois
+écarts-types.
 
 **Sensibilités** (4 000 tirages, hors exigence) :
 
-RESULTATS_SENSIBILITE
+| Scénario | Ce qui change | P(éliminée \| c = 0) | P(survit \| c = 0,40) | non concluant (c = 0 ; c = 0,40) | `et_c_dk2` moyen (c = 0) | plancher moyen (c = 0) | contrôle positif réussi (c = 0) |
+|---|---|---|---|---|---|---|---|
+| S-a | sans `TPHS` (436 lignes, 4 variables) | 0,875 | 0,817 | 0,116 ; 0,069 | 0,107 | 0,100 | 0,910 |
+| S-b | cibles en niveau : rapport 5, k = 1 | **0,778** | 0,878 | 0,202 ; 0,065 | 0,103 | 0,119 | 0,831 |
+| S-c | pessimiste : S-b, plus queues de Student à 5 degrés, effet de plan 2, volatilité groupée 0,6, bruit ν = 0,10 | **0,287** | **0,674** | 0,683 ; 0,284 | 0,130 | 0,199 | 0,481 |
+| S-d | sous-réaction de base faible : b = 0,10 | **0,538** | 0,851 | 0,457 ; 0,036 | 0,097 | 0,100 | 0,549 |
 
 **Lecture.**
-LECTURE_SIMULATION
+- **Avec les dispersions de K20, le plan tranche aux deux bouts.** Une interaction nulle est éliminée 94 fois sur 100 ; la
+  prédiction (0,40) survit 85 fois sur 100. L'exigence (au moins 0,80 pour les deux) est tenue.
+- **Il ne survit pas au seul biais** : c = 0 survit 0,5 % du temps, c = 0,10 6 % du temps.
+- **Il répond à « 0,40 ou pas », pas à « 0 ou pas »** : un vrai c de 0,20 est éliminé 7 fois sur 10. Une élimination voudra
+  dire « pas la taille prédite », pas « aucun effet ».
+- **Interaction négative** : c = −0,40 est éliminé 98 fois sur 100 ; c = −0,20 l'est 75 fois et reste non concluant 25 fois,
+  parce que la pente regroupée, qui baisse avec c, ne passe pas toujours le contrôle positif. Sans la seconde branche du contrôle
+  (tout l'intervalle de c sous 0), un essai de 300 tirages donnait 100 % de « non concluant » à c = −0,40.
+- **Pourquoi le contrôle porte sur la pente regroupée de toutes les lignes.** Dans un essai de 300 tirages, un contrôle sur la
+  seule pente des petites nouvelles ne passait que 8 fois sur 10 et faisait tomber les deux probabilités à 0,79 et 0,70 : le plan
+  n'aurait pas tranché.
+- **`TPHS` donne la marge** : sans lui (S-a), les deux probabilités tombent à 0,875 et 0,817.
+- **Si l'enquête Livingston ne ressemble pas au SPF, la décision faiblit, et le rédacteur le dit sans détour.** Avec des cibles
+  en niveau (S-b, sans doute le cas le plus réaliste), P(éliminée | c = 0) tombe à 0,78, juste sous l'exigence, surtout parce
+  que le contrôle positif échoue une fois sur six ; la survie de 0,40 reste à 0,88. Dans le scénario pessimiste (S-c), le plan
+  ne tranche plus (0,29 et 0,67) : « non concluant » y devient l'issue la plus probable, et ce serait un vrai résultat de
+  puissance. Pour retrouver 0,80 dans ce cas, il faudrait plus que doubler le nombre de lignes ; l'enquête n'a pas d'autre
+  variable comparable sans conversion douteuse (section 3.2), et `TBOND` n'ajouterait que 64 lignes.
+- **Si la sous-réaction de base de Livingston n'est que la moitié de celle du SPF** (S-d, b = 0,10), le contrôle positif échoue
+  près d'une fois sur deux sous c = 0 et « non concluant » devient fréquent. C'est voulu : sans sous-réaction de base, une
+  interaction nulle ne dit rien.
+- **La garde d'épisodes coûte peu** quand l'effet est réparti : sous c = 0,40, les cas « non concluant » ne sont que 2,8 %.
 
 **Minimum d'échantillon.** 548 lignes principales sont attendues, comptées sur les fichiers réels. Sous **540** (plus de 8
 lignes perdues de façon imprévue), la construction a un problème : verdict non concluant.
@@ -730,7 +780,12 @@ plancher et rapport de variances ; 0,02 sur les t ; 1 sur `n_effectif`.
 
 1. **La décision repose sur les dispersions de K20.** Les cibles de Livingston sont des niveaux : la révision contient la
    surprise réalisée, donc elle varie sans doute plus entre les classes (rapport ≈ 5 plutôt que 3) et plus près de l'erreur
-   (k ≈ 1 plutôt que 0,3). Dans ce cas (S-b), LIMITE_SB
+   (k ≈ 1 plutôt que 0,3). Dans ce cas (S-b), P(éliminée | c = 0) tombe à 0,78, juste sous l'exigence de 0,80, surtout
+   parce que le contrôle positif échoue une fois sur six ; P(survit | c = 0,40) reste 0,88. Dans le scénario pessimiste (S-c),
+   le plan ne tranche plus (0,29 et 0,67) : il faudrait plus que doubler l'échantillon, et l'enquête n'a pas d'autre variable
+   comparable sans conversion douteuse. **C'est la limite la plus sérieuse : la décisivité est démontrée avec les dispersions de
+   K20, pas avec celles, encore inconnues, de Livingston.** Un « non concluant » par le contrôle positif ou par indécision
+   serait alors un résultat de puissance, pas un échec de construction.
 2. **La surprise est interpolée.** L'enquête s ne prévoit pas le mois de base de s+1 ; on suppose une trajectoire régulière
    entre son mois de base et sa cible à 6 mois. Si les prévisionnistes attendaient une trajectoire courbe, une partie de la
    « surprise » est cette courbure. Cela classe mal certaines lignes et rapproche c de 0 : l'erreur joue contre H1, pas pour
@@ -801,4 +856,152 @@ dossier de `tests-de-mort/`, sauf `protocole.md` et `verdict.py`. S'ils l'ont fa
 
 ## 12. Règle lisible par machine
 
-JSON_BLOCK
+```json
+{
+  "id": "K20-LIV",
+  "fichier_analyse": "K20-LIV_analyse.csv",
+  "champs_verification": [
+    "n_violations_schema",
+    "n_principal",
+    "c",
+    "et_c_dk2",
+    "t_c",
+    "borne_basse_ic90",
+    "borne_haute_ic90",
+    "rapport_variance_revision",
+    "b_moyen",
+    "k_moyen",
+    "pente_moyenne_grandes",
+    "b_regroupe",
+    "et_b_regroupe_dk2",
+    "borne_basse_b_ic90",
+    "controle_positif_ok",
+    "nu_mesure",
+    "biais_mecanique_mesure",
+    "biais_mecanique_nu20",
+    "seuil_survie_bas",
+    "borne_basse_moins_seuil",
+    "marge_indecision",
+    "t_min_sans_episode",
+    "c_min_sans_episode",
+    "episode_t_min",
+    "conflit_robustesse",
+    "n_grands",
+    "n_dates",
+    "n_dates_grands",
+    "et_c_iid",
+    "n_effectif",
+    "c_sans_E1",
+    "c_sans_E2",
+    "c_sans_E3",
+    "c_sans_E4",
+    "c_sans_E5",
+    "c_sans_E6",
+    "c_sans_E7",
+    "c_sans_E8",
+    "c_sans_E9",
+    "c_sans_E10",
+    "c_sans_E11",
+    "et_c_dk4",
+    "et_c_dk0",
+    "c_avec_pandemie",
+    "et_c_avec_pandemie_dk2",
+    "c_depuis_1985",
+    "et_c_depuis_1985_dk2",
+    "c_avant_2020",
+    "et_c_avant_2020_dk2",
+    "c_mediane",
+    "et_c_mediane_dk2",
+    "c_coupure_revision",
+    "et_c_coupure_revision_dk2",
+    "c_CPI",
+    "c_UNPR",
+    "c_PRIME",
+    "c_TBILL",
+    "c_TPHS",
+    "et_c_CPI_dk2",
+    "et_c_UNPR_dk2",
+    "et_c_PRIME_dk2",
+    "et_c_TBILL_dk2",
+    "et_c_TPHS_dk2"
+  ],
+  "survit_si": [
+    {"champ": "borne_basse_moins_seuil", "operateur": ">", "seuil": 0},
+    {"champ": "borne_haute_ic90", "operateur": ">=", "seuil": 0.4},
+    {"champ": "t_min_sans_episode", "operateur": ">=", "seuil": 1.0}
+  ],
+  "non_concluant_si": [
+    {"champ": "n_violations_schema", "operateur": ">", "seuil": 0},
+    {"champ": "n_principal", "operateur": "<", "seuil": 540},
+    {"champ": "rapport_variance_revision", "operateur": "<", "seuil": 1.25},
+    {"champ": "controle_positif_ok", "operateur": "<", "seuil": 1},
+    {"champ": "marge_indecision", "operateur": ">=", "seuil": 0},
+    {"champ": "conflit_robustesse", "operateur": ">=", "seuil": 1}
+  ],
+  "tolerance": {
+    "n_violations_schema": 0,
+    "n_principal": 0,
+    "c": 0.005,
+    "et_c_dk2": 0.005,
+    "t_c": 0.02,
+    "borne_basse_ic90": 0.01,
+    "borne_haute_ic90": 0.01,
+    "rapport_variance_revision": 0.01,
+    "b_moyen": 0.005,
+    "k_moyen": 0.005,
+    "pente_moyenne_grandes": 0.005,
+    "b_regroupe": 0.005,
+    "et_b_regroupe_dk2": 0.005,
+    "borne_basse_b_ic90": 0.01,
+    "controle_positif_ok": 0,
+    "nu_mesure": 0.001,
+    "biais_mecanique_mesure": 0.005,
+    "biais_mecanique_nu20": 0.005,
+    "seuil_survie_bas": 0.01,
+    "borne_basse_moins_seuil": 0.01,
+    "marge_indecision": 0.01,
+    "t_min_sans_episode": 0.02,
+    "c_min_sans_episode": 0.005,
+    "episode_t_min": 0,
+    "conflit_robustesse": 0,
+    "n_grands": 0,
+    "n_dates": 0,
+    "n_dates_grands": 0,
+    "et_c_iid": 0.005,
+    "n_effectif": 1,
+    "c_sans_E1": 0.005,
+    "c_sans_E2": 0.005,
+    "c_sans_E3": 0.005,
+    "c_sans_E4": 0.005,
+    "c_sans_E5": 0.005,
+    "c_sans_E6": 0.005,
+    "c_sans_E7": 0.005,
+    "c_sans_E8": 0.005,
+    "c_sans_E9": 0.005,
+    "c_sans_E10": 0.005,
+    "c_sans_E11": 0.005,
+    "et_c_dk4": 0.005,
+    "et_c_dk0": 0.005,
+    "c_avec_pandemie": 0.005,
+    "et_c_avec_pandemie_dk2": 0.005,
+    "c_depuis_1985": 0.005,
+    "et_c_depuis_1985_dk2": 0.005,
+    "c_avant_2020": 0.005,
+    "et_c_avant_2020_dk2": 0.005,
+    "c_mediane": 0.005,
+    "et_c_mediane_dk2": 0.005,
+    "c_coupure_revision": 0.005,
+    "et_c_coupure_revision_dk2": 0.005,
+    "c_CPI": 0.005,
+    "c_UNPR": 0.005,
+    "c_PRIME": 0.005,
+    "c_TBILL": 0.005,
+    "c_TPHS": 0.005,
+    "et_c_CPI_dk2": 0.005,
+    "et_c_UNPR_dk2": 0.005,
+    "et_c_PRIME_dk2": 0.005,
+    "et_c_TBILL_dk2": 0.005,
+    "et_c_TPHS_dk2": 0.005
+  }
+}
+```

@@ -13,6 +13,12 @@ Il applique la règle de verdict préinscrite (section 9) à des panels simulés
 c = 0,40 (la prédiction), et rapporte la probabilité d'atteindre un verdict : « éliminée » sous c = 0, « survit » sous
 c = 0,40. Graine fixe ; 4 000 tirages par cas (au moins 2 000 exigés).
 
+Les autres réglages sont des choix du rédacteur, décrits en section 8 de la préinscription : bruit du consensus nu = 0,05,
+moyenne mobile d'ordre 1 (theta = 0,3), volatilité groupée par semestre (0,3). La corrélation commune par date (rho) est
+calibrée pour reproduire l'effet de plan de K20. Les sensibilités S-a à S-d suivent le scénario principal ; seul le
+scénario principal porte l'exigence (>= 0,80). Sortie : texte sur la console seulement ; aucun fichier écrit.
+Durée : environ 25 minutes sur un cœur.
+
 Usage : python3 simulation_decision.py [--tirages 4000] [--graine 20261113] [--rapide]
 """
 import argparse
