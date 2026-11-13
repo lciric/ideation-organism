@@ -6,7 +6,8 @@ When a forecaster revises an inflation forecast up, does inflation end up even h
 forecast (under-reaction), or lower (over-reaction)? The standard measure is the slope of the forecast
 error (outturn − forecast) on the forecast revision (new − old forecast for the same target): positive
 means under-reaction. This project recomputes, from the raw public data, four tests of this question that
-were preregistered, sealed and judged before this code was written (see [`audit/`](audit/README.md)):
+were preregistered, sealed and judged before this code was written (see [`audit/`](audit/README.md)), and
+reports a fifth, K20-ZE, the decisive euro-area replication of K20:
 
 | test | data | question |
 |---|---|---|
@@ -14,6 +15,13 @@ were preregistered, sealed and judged before this code was written (see [`audit/
 | **H03-v2** | same, horizons 1-4, targets 2004-2025, real-time outturns | Could a correction rule estimated in real time on past errors have predicted the errors? |
 | **K01** | ECB Survey of Professional Forecasters, individual forecasters, 2002-2025 | Do individuals over-react, once the mechanical bias is removed by an instrument? |
 | **K20** | Philadelphia Fed SPF consensus, five variables, 1969-2026 | Does under-reaction grow after large surprises? |
+| **K20-ZE** | ECB SPF consensus, HICP / real GDP / unemployment, target years 2000-2025 | Same question on the euro area (blind replication of K20) |
+
+K20-ZE is not recomputed by this code. It is reproduced in full, from raw data and with separate code, in the
+sibling project [`../spf-news-size-underreaction/`](../spf-news-size-underreaction/README.md) (65 of 65 verifier
+numbers within tolerance, analysis file bit-identical to the sealed one); duplicating that pipeline here would add
+nothing. This project keeps byte-for-byte copies of its sealed records in `audit/K20-ZE/`, checks their seal, and
+applies the sealed rule to the sealed verifier numbers.
 
 ## Run it
 
@@ -38,15 +46,15 @@ slow that day (the ECB API was answering in minutes) and the check was stopped t
 
 | file | role |
 |---|---|
-| `run_all.py` | checks the seals of the preregistrations, gets the data, builds the four datasets, computes every preregistered field, applies each test's verdict rule, writes `results/` |
+| `run_all.py` | checks the seals of the preregistrations (K20-ZE included), gets the data, builds the four datasets, computes every preregistered field, applies each test's verdict rule (for K20-ZE, to its sealed numbers), writes `results/` |
 | `src/ifu/data.py` | download with on-disk cache and retries; catalogue of all source URLs; seeding from the sealed tests; `PROVENANCE.md` (URL, date, sha256, rows) |
 | `src/ifu/vintages.py` | MPD vintages: letter codes (W = March, G = June, S = September, A = December, checked against `TITLE_COMPL`), quarter numbers, reading a value with a given status, real-time outturns |
 | `src/ifu/measures.py` | errors and revisions; one `build_*` function per test returns its analysis dataset |
 | `src/ifu/stats.py` | OLS, Newey-West / Driscoll-Kraay (Bartlett weights, lags in calendar time), just-identified 2SLS with first-stage F, block statistics, Diebold-Mariano-HLN, moving-block bootstrap — written from their formulas |
 | `src/ifu/h03v2.py`, `j02.py`, `k01.py`, `k20.py` | one module per test: its schema checks, its primary statistic exactly as preregistered, its descriptive breakdowns |
 | `src/ifu/figures.py` | the five figures |
-| `tests/` | pytest: vintage letters against `TITLE_COMPL`, sign conventions, estimators against statsmodels and hand computations, and the acceptance test (all sealed numbers reproduce) |
-| `audit/` | byte-for-byte copies of the sealed preregistrations, seals, verdicts, the K20 after-verdict reading and the record of the voided H03 run |
+| `tests/` | pytest: vintage letters against `TITLE_COMPL`, sign conventions, estimators against statsmodels and hand computations, the acceptance test (all sealed numbers reproduce) and the K20-ZE seal and verdict rule |
+| `audit/` | byte-for-byte copies of the sealed preregistrations, seals, verdicts, the K20 and K20-ZE after-verdict readings, the K20-ZE verifier numbers and deviation record, and the record of the voided H03 run |
 | `results/` | `results.json` (all fields), `RESULTS.md` (results and breakdowns), `reproduction.md` (sealed vs pipeline, field by field), `figures/` |
 
 The analysis datasets (`data/processed/*.csv`) use English column names; each `build_*` docstring gives the
@@ -72,7 +80,8 @@ can be compared one to one with the sealed verdicts.
 
 All 149 sealed verifier numbers are reproduced within their preregistered tolerances
 ([`results/reproduction.md`](results/reproduction.md)); applying each preregistered rule to the pipeline's
-numbers gives the sealed verdicts.
+numbers gives the sealed verdicts. K20-ZE's 65 numbers are reproduced in the sibling project; here its sealed
+rule, applied to its sealed numbers, gives its sealed verdict.
 
 | test | primary statistic | 90% interval | verdict | what it means |
 |---|---|---|---|---|
@@ -80,6 +89,9 @@ numbers gives the sealed verdicts.
 | H03-v2 | mean block correlation 0.016 | [−0.074, 0.105] | eliminated | a rule estimated in real time would not have predicted the errors; the corrected projection does worse in a typical block (MSE ratio 1.10) |
 | K01 | individual 2SLS slope +1.15 (Driscoll-Kraay se 0.46; first-stage F 514) | [0.36, 1.94] | eliminated | the predicted individual over-reaction (−0.15) is excluded; the naive within-round slope (−0.45) is the mechanical bias. Descriptive: consensus 0.92, ECB staff 0.77; without 2021-2023 the individual slope is 0.17 |
 | K20 | extra slope after large surprises c = −0.03 (se 0.07) | [−0.15, 0.09] | inconclusive (schema guard) | one row (CPI 2026Q1) fails a schema check because October 2025 is missing at the source; the numbers show no extra under-reaction after large surprises (base slope 0.19) |
+| K20-ZE (replication; reproduced in the sibling project) | extra slope after large news c = −0.11 (se 0.09) | [−0.26, 0.05] | eliminated | the ECB SPF consensus under-reacts on average (positive control passed: common base slope 0.37, lower bound 0.27), but not more after large news: +0.40 is excluded, and c stays negative without each episode (−0.19 to −0.06). Descriptive: HICP alone +0.13 (se 0.17); with the 2020-21 activity targets (preregistered secondary) +0.18 (se 0.08) |
+
+On size-dependence, K20-ZE is the decisive test: K20 stays formally inconclusive, and its point estimates agree.
 
 Details and descriptive breakdowns: [`results/RESULTS.md`](results/RESULTS.md). Figures:
 

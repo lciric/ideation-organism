@@ -1,6 +1,7 @@
 # Presentation material: "Do inflation forecasters under-react to news?"
 
-All numbers below come from `results/results.json` and the sealed verdicts in `audit/`. Verdict words are those of
+All numbers below come from `results/results.json` and the sealed verdicts in `audit/` (for K20-ZE, the sealed
+verifier numbers, reproduced in the sibling project `projects/spf-news-size-underreaction/`). Verdict words are those of
 the sealed rules: *survives*, *eliminated*, *inconclusive*.
 
 ## 1. CV bullets (pick one)
@@ -8,7 +9,8 @@ the sealed rules: *survives*, *eliminated*, *inconclusive*.
 **Variant A (economics first)**
 - Tested four preregistered hypotheses on ECB staff and professional inflation forecasts (1969–2026, public data):
   staff errors follow revisions (correlation 0.44) but almost only through 2021–22 (0.05 without), and a real-time
-  correction rule would not have helped.
+  correction rule would not have helped; a decisive euro-area replication showed that under-reaction does not grow
+  with the size of the news (predicted +0.40 excluded).
 
 **Variant B (econometrics first)**
 - Built an instrumental-variable test on 8,595 individual ECB SPF revisions that removes the mechanical bias of
@@ -17,8 +19,8 @@ the sealed rules: *survives*, *eliminated*, *inconclusive*.
 
 **Variant C (AI method)**
 - Directed an AI-agent research pipeline under strict verification (SHA-256-sealed preregistrations, independent
-  verifier on another model, verdicts applied by code); four macro tests, all 149 verified numbers rebuilt from
-  raw data.
+  verifier on another model, verdicts applied by code); four macro tests plus one decisive replication, all 149
+  verified numbers of the four rebuilt from raw data.
 
 *Check before use:* Variant C says "directed". Keep it only if it matches what you did; Section 8 of the paper
 leaves your exact role to you.
@@ -43,12 +45,13 @@ with their revision for the other target year, which carries news but not their 
 under-react too: the slope is 1.15, and the predicted over-reaction was eliminated. Again, the effect mostly
 comes from 2021–2023.
 
-Fourth, in 57 years of US survey data, does under-reaction grow after large surprises? The estimate says no,
-minus 0.03. But the formal verdict is inconclusive, because one data check failed on a single row, and the rule
-says a failed check means no verdict. I kept it that way.
+Fourth, does under-reaction grow after large surprises? In 57 years of US survey data the estimate says no,
+minus 0.03, but the formal verdict is inconclusive, because one data check failed on a single row. I kept it that
+way and asked the question again, sealed, on the ECB survey. There the consensus under-reacts on average, but not
+more after large news: minus 0.11, and the predicted plus 0.40 is excluded.
 
 So my answer is this. Under-reaction in euro area inflation forecasts is real over the whole sample, but it is
-mostly one episode, and it was not exploitable in real time. The project was run with AI agents under a protocol
+mostly one episode, it was not exploitable in real time, and it does not grow with the size of the news. The project was run with AI agents under a protocol
 where no agent graded its own work, and every number can be rebuilt from the raw data."
 
 ## 3. Ten questions a sharp interviewer would ask, with honest answers
@@ -107,6 +110,12 @@ structure and did not verify it on the last row. October 2025 is missing in FRED
 enters no regression, and the numbers show no extra under-reaction: c = −0.03, interval [−0.15, 0.09]. Had the
 check passed, the rule would have said "eliminated". But rewriting a guard after seeing results is exactly the
 flexibility the protocol exists to remove. So I report the numbers, and I report the verdict as inconclusive.
+Instead, the question was preregistered again, blind, on the ECB SPF consensus (K20-ZE), with the guard fixed in
+advance and a positive control. That test is decisive: the consensus under-reacts on average (base slope 0.37,
+lower bound 0.27), and the extra slope after large news is −0.11, interval [−0.26, 0.05], so +0.40 is excluded and
+the verdict is "eliminated". Two honest caveats: inflation alone gives +0.13 (se 0.17), and putting back the
+2020–21 GDP and unemployment targets gives +0.18 (se 0.08), a preregistered secondary analysis that is descriptive
+only.
 
 **9. What did the AI do, what did you do, and why should I trust it?**
 Agents proposed ideas, judged them blind, checked the literature, wrote the preregistrations, ran the analyses
@@ -116,7 +125,7 @@ sealed before data were read. A verifier on a different model recomputed everyth
 experimenter's code. Verdicts came from code. Errors were recorded, not hidden: the first run of one test was
 voided because two vintage letters were swapped, and the record is in the audit folder. The limit: the verifier
 checked computations from the analysis file, not its construction. The independent rebuild from raw data, which
-reproduces all 149 numbers, covers that only partly.
+reproduces all 149 numbers (and, in a sibling project, all 65 of the replication), covers that only partly.
 
 **10. What should a central bank take from this?**
 Three modest points. Full-sample efficiency tests that include 2021–22 overstate how projections behave in a

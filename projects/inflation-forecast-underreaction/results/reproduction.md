@@ -11,6 +11,13 @@ Integers are shown without decimals.
 | J02 | 26 / 26 | survit | survit |
 | K01 | 45 / 45 | éliminée | éliminée |
 | K20 | 53 / 53 | non concluant | non concluant |
+| K20-ZE (replication) | 65 / 65 in the sibling project `projects/spf-news-size-underreaction/` (not recomputed here) | éliminée (rule applied to the sealed numbers) | éliminée |
+
+K20-ZE, the euro-area replication of K20, is not recomputed by this pipeline. The sibling project
+`projects/spf-news-size-underreaction/` rebuilds it from the raw ECB and Eurostat files with its own code:
+65 of 65 sealed verifier numbers within tolerance, an analysis file bit-identical to the sealed one, and the
+same verdict (see its `results/reproduction.md`). Here `run_all.py` checks the K20-ZE seal on the byte-for-byte
+copies in `audit/K20-ZE/` and applies the sealed rule to the sealed verifier numbers.
 
 ## H03-v2
 

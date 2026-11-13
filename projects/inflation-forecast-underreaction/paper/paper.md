@@ -3,7 +3,7 @@ title: "Do inflation forecasters under-react to news? Four preregistered tests o
 author: "[Author]"
 date: "November 2026"
 abstract: |
-  When ECB/Eurosystem staff revise an inflation projection, does inflation end up beyond the revised number? Four preregistered tests, recomputed from public data, give a qualified answer. A correction rule estimated in real time on past errors would not have predicted staff errors (mean block correlation 0.02, 90% interval [−0.07, 0.10]; verdict: eliminated). After the fact, errors two quarters ahead do follow revisions over 1999–2026 (correlation 0.44, [0.12, 0.76]; survives), but the correlation falls to 0.05 without 2021–2022 and to 0.14 without 2021–2023. Individual ECB SPF forecasters under-react too once reporting noise is handled with an instrument (2SLS slope 1.15, [0.36, 1.94]; the predicted over-reaction is eliminated), again mostly through 2021–2023. For the US SPF consensus, the estimates show no extra under-reaction after large surprises (extra slope −0.03, [−0.15, 0.09]), but that test's verdict is inconclusive because a schema guard failed.
+  When ECB/Eurosystem staff revise an inflation projection, does inflation end up beyond the revised number? Four preregistered tests, recomputed from public data, and one decisive replication give a qualified answer. A correction rule estimated in real time on past errors would not have predicted staff errors (mean block correlation 0.02, 90% interval [−0.07, 0.10]; verdict: eliminated). After the fact, errors two quarters ahead do follow revisions over 1999–2026 (correlation 0.44, [0.12, 0.76]; survives), but the correlation falls to 0.05 without 2021–2022 and to 0.14 without 2021–2023. Individual ECB SPF forecasters under-react too once reporting noise is handled with an instrument (2SLS slope 1.15, [0.36, 1.94]; the predicted over-reaction is eliminated), again mostly through 2021–2023. The ECB SPF consensus under-reacts on average (base slope 0.37), but that under-reaction does not grow with the size of the news: in a decisive replication, the extra slope after large news is −0.11 ([−0.26, 0.05]), so the predicted +0.40 is excluded (eliminated). The same test on the US SPF consensus gives a similar estimate (−0.03, [−0.15, 0.09]) but stays formally inconclusive because a schema guard failed.
 ---
 
 # 1 Introduction
@@ -20,8 +20,8 @@ predictable from revisions, a simple correction might improve the projections. W
 have worked in real time is a different question from whether a slope exists in a full sample studied after the
 fact.
 
-This note reports four tests of the question. Each was preregistered and sealed by a SHA-256 hash before any
-statistic was computed. Each verdict was applied by code to numbers recomputed by an independent verifier, and a
+This note reports four tests of the question and one decisive replication of the last of them. Each was
+preregistered and sealed by a SHA-256 hash before any statistic was computed. Each verdict was applied by code to numbers recomputed by an independent verifier, and a
 separate pipeline then rebuilt every number from raw public data. The answer, in three sentences:
 
 1. A revision-based correction rule estimated in real time would not have predicted the errors of ECB/Eurosystem
@@ -29,8 +29,9 @@ separate pipeline then rebuilt every number from raw public data. The answer, in
 2. Over 1999–2026, staff errors two quarters ahead do follow revisions, and so do the errors of individual
    forecasters in the ECB Survey of Professional Forecasters (SPF), but in both cases the size of the effect comes
    mostly from the 2021–2023 surge.
-3. In the US Survey of Professional Forecasters, the point estimates show no extra under-reaction of the consensus
-   after large data surprises, but that test's verdict is inconclusive for a formal reason.
+3. Under-reaction does not grow with the size of the news: in the ECB SPF consensus, which under-reacts on average,
+   a decisive replication excludes the predicted extra under-reaction after large news; the same test on the US
+   Survey of Professional Forecasters, with similar point estimates, stays inconclusive for a formal reason.
 
 **How the question arose.** The question did not come from one insight but from a sequence of tests, each prompted
 by the previous one. It started from a textbook tool, the regression of forecast errors on forecast revisions
@@ -111,7 +112,7 @@ is finalised about two months after the SPF round of the same quarter, so the tw
 
 # 4 Method
 
-## 4.1 The four tests
+## 4.1 The four tests and the replication
 
 In all tests the revision is the new forecast minus the previous one for the same target, and the error is the
 outturn minus the new forecast. Each preregistration fixed three outcomes: *survives*, *eliminated* and
@@ -147,6 +148,18 @@ mechanical-bias floor, max(0.10, the bias implied by a 20% noise share), the upp
 *t* ≥ 1 after removing each of seven recession-based episodes. Inconclusive if any schema check fails, among other
 conditions. Otherwise eliminate.
 
+**K20-ZE: the same question on the euro area (ECB SPF consensus, three variables, target years 2000–2025).** After
+K20's inconclusive verdict, the question was preregistered again, blind, on the ECB SPF: the consensus (mean of the
+individual point forecasts) for HICP inflation, real GDP growth and unemployment, current and next calendar year,
+one row per variable, target year and round (578 rows, 107 rounds, 26 target years; GDP and unemployment targets of
+2020–2021 excluded). The news is the change, between two rounds, in the latest published figure the ECB sends to
+the forecasters, so it contains no survey noise; "large" is again the top third. The statistic is the same extra
+slope *c*, with Driscoll-Kraay standard errors (8 lags by round, critical value 1.708). The rule keeps K20's three
+survival conditions (three euro-area episodes), counts schema failures only on rows in the computation, and adds a
+positive control: the base under-reaction must be visible, so that a null *c* cannot come from a blind instrument.
+This test is not recomputed by this note's pipeline; a sibling project rebuilds it from raw data with separate
+code (Section 4.3).
+
 ## 4.2 Why an instrument, in plain words
 
 The natural individual test compares forecasters within the same survey round. It cannot work. In a round, every
@@ -177,7 +190,10 @@ recomputed everything, without seeing the experimenter's code or numbers. A sepa
 within the preregistered tolerances and applied the sealed rule to the verifier's numbers.
 
 For this note, a separate pipeline rebuilt the four analysis datasets from the raw files with its own code. It
-reproduced all 149 sealed verifier numbers within tolerance and gives the same four verdicts (Appendix A). Every
+reproduced all 149 sealed verifier numbers within tolerance and gives the same four verdicts (Appendix A). K20-ZE
+is reproduced in full in the sibling project `projects/spf-news-size-underreaction/` (65 of 65 verifier numbers
+within tolerance, analysis file bit-identical to the sealed one, same verdict); its numbers below are the sealed
+verifier numbers, also recorded in `results/results.json`. Every
 number below comes from `results/results.json`, except a few block-level and per-year descriptive values from
 tables in `results/RESULTS.md` produced by the same run, which are marked.
 
@@ -189,6 +205,7 @@ tables in `results/RESULTS.md` produced by the same run, which are marked.
 | J02, full-sample slope | correlation 0.443 (NW se 0.196, *t* = 2.27) | [0.122, 0.765] | survives |
 | K01, individuals | 2SLS slope 1.151 (DK se 0.463; first-stage F 514) | [0.357, 1.945] | eliminated |
 | K20, large surprises | extra slope *c* = −0.030 (DK se 0.071) | [−0.146, 0.086] | inconclusive (schema guard) |
+| K20-ZE, replication on the ECB SPF | extra slope *c* = −0.106 (DK se 0.090, *t* = −1.18) | [−0.259, 0.047] | eliminated |
 
 : Primary statistics and verdicts.
 
@@ -277,31 +294,50 @@ after large surprises. Without each episode, *c* ranged from −0.084 to 0.014. 
 pandemic quarters, 0.075 with medians, and −0.003 on the original card's cut (absolute standardised revision above
 1). The reading written after the verdict, which states that it does not change the verdict, notes that with check
 9 passed the rule would have given "eliminated" (upper bound 0.086 < 0.40). Its conclusion is that the consensus's
-under-reaction does not grow after large surprises, at least as measured here. That is a reading, not a verdict.
+under-reaction does not grow after large surprises, at least as measured here. That is a reading, not a verdict;
+Section 5.5 gives a verdict on the same question in the euro area.
 
 ![K20. US SPF consensus: slope of error on revision after small (blue) and large (orange) surprises, by variable, with 90% intervals.](../results/figures/fig5_k20_by_variable.png){width=95%}
 
+## 5.5 In the euro area, under-reaction does not grow with the size of the news (K20-ZE)
+
+The verdict is **eliminated**, with no protocol reservation: 0 schema violations on the 578 rows of the computation
+and 0 anomalies elsewhere. The instrument sees the base effect. The positive control passed: the common base slope
+was 0.366 (se 0.057, 90% lower bound 0.268), 0.447 after small news and 0.341 after large news. So the ECB SPF
+consensus under-reacts on average, and a null extra slope is not the silence of a blind instrument. On 196 rows after
+large news the extra slope was *c* = −0.106 (se 0.090, *t* = −1.18), 90% interval [−0.259, 0.047]. The upper bound is
+below 0.40: the data exclude, at the one-sided 5% level, the predicted extra under-reaction after large news. Without
+each of the three euro-area episodes *c* stayed negative, from −0.185 to −0.064.
+
+The secondary analyses, outside the verdict, point the same way with one exception. By variable, *c* was 0.127 for
+HICP inflation (se 0.171), −0.217 for real GDP and −0.151 for unemployment; none comes near 0.40. Putting back the
+2020–2021 GDP and unemployment targets, excluded before any data were seen, gives +0.177 (se 0.077): positive, still
+below 0.40, and descriptive. This decisive replication, not the formal inconclusiveness of K20, is the last word
+here on size-dependence. The full analysis, with figures comparing the surveys, is in the sibling project
+(`projects/spf-news-size-underreaction/`, its `results/RESULTS.md` and `paper/paper.md`).
+
 # 6 Discussion
 
-**What holds.** Three results meet the preregistered standard. A mechanical real-time correction of ECB staff
+**What holds.** Four results meet the preregistered standard. A mechanical real-time correction of ECB staff
 projections based on revisions would not have helped over 2004–2025, and it raised squared errors in a typical
 two-year block. Over 1999–2026, staff errors two quarters ahead are positively correlated with revisions, at a size
 compatible with 0.40. Individual ECB SPF forecasters do not over-react as measured by the pooled instrumented slope:
-the predicted −0.15 is excluded.
+the predicted −0.15 is excluded. And in the ECB SPF consensus, which under-reacts on average, the
+under-reaction does not grow after large news: the predicted +0.40 is excluded.
 
 **What does not hold.** The positive results do not describe ordinary times. The J02 correlation falls from 0.44 to
 0.05 without 2021–2022. The individual slope falls from 1.15 to 0.17 without 2021–2023, and the staff and consensus
 slopes on annual targets fall too. The negative within-round slope, which a naive analysis would read as individual
-over-reaction, is a property of the statistic. The idea that bigger news brings more under-reaction gets no support
-from the US point estimates, though the formal verdict is inconclusive.
+over-reaction, is a property of the statistic. The idea that bigger news brings more under-reaction is eliminated
+in the euro area and gets no support from the US point estimates, whose formal verdict stays inconclusive.
 
 **How the four fit together.** One episode, the 2021–2022 surge, accounts for most of the measured under-reaction
 in euro area inflation forecasts over 1999–2026. Staff, consensus and individual forecasters all revised up too
 little during it. Without it the slopes are smaller: staff 0.14 on quarterly targets (about two standard errors
 above zero) and 0.16 on annual targets, consensus 0.51, individuals 0.17 with a standard error of 0.47. Because the
 effect was concentrated in time, a rule learned from the past could not use it, and once learned it over-corrected
-the disinflation. The K20 estimates, with an inconclusive verdict, do not suggest a general law in which
-under-reaction grows with the size of news. These tests cannot say what was special about 2021–2022. The ECB's own
+the disinflation. Nor is there a general law in which under-reaction grows with the size of news: the
+euro-area replication eliminates it, and the US estimates, with an inconclusive verdict, point the same way. These tests cannot say what was special about 2021–2022. The ECB's own
 work points to energy and other technical assumptions (Chahad et al., 2022, 2024), which this project did not test.
 
 **What a central bank could take from this.** (i) A full-sample error-on-revision slope that includes 2021–2022
@@ -322,21 +358,29 @@ episode. None of this says whether staff should have revised faster in 2021–20
    wording "errors follow revisions", not "forecasters are irrational".
 3. **The K20 guard failure.** The verdict is inconclusive for a reason unrelated to the hypothesis: a check the
    preregistration called guaranteed was not verified on the last row. Repairing it after seeing the numbers would
-   have defeated the purpose of the seal.
-4. **Power and standard errors.** J02's standard error (0.196) matched the pessimistic preregistered scenario
+   have defeated the purpose of the seal. The question was instead asked again on the euro area (K20-ZE); the US
+   verdict itself stays inconclusive.
+4. **What the euro-area replication does and does not show.** K20-ZE was preregistered after K20's numbers were
+   known, on annual targets of a different survey. Its mechanical-bias floor turned out at 0.43, far above the 0.10
+   its decisiveness simulation assumed (revision variance ratio 8.4, not about 3): that would have blocked a
+   survival, but the elimination rests on the upper bound of *c*, which the floor does not enter. HICP inflation
+   alone gives +0.13 (se 0.17), and with the 2020–2021 activity targets the extra slope is +0.18 (se 0.08); both are
+   descriptive and below 0.40, but the second leaves open a size effect in an exceptional shock. K20-ZE is
+   reproduced in a sibling project, not by this note's pipeline.
+5. **Power and standard errors.** J02's standard error (0.196) matched the pessimistic preregistered scenario
    (0.19). K01's (0.463) was worse than the pessimistic scenario (0.40) and decided only because the estimate was
    far from −0.15. K20's (0.071) beat the optimistic scenario (0.10). Newey-West and Driscoll-Kraay errors tend to
    be too small with about 24 independent target years (K01) or 108 overlapping quarters (J02); the J02 bootstrap
    interval keeps the verdict.
-5. **The plans were not blind to history.** The preregistrations were written in 2026 by agents who knew the surge,
+6. **The plans were not blind to history.** The preregistrations were written in 2026 by agents who knew the surge,
    the literature and, for K01 and K20, J02's numbers. No outcome data were read before sealing, but design choices
    cannot be proven independent of that knowledge.
-6. **Data.** Outturns are latest vintages except in H03-v2 and for US national accounts. Projections are rounded to
+7. **Data.** Outturns are latest vintages except in H03-v2 and for US national accounts. Projections are rounded to
    0.1 point, which attenuates slopes. The 1999–2000 MPD vintages were not published at the time with quarterly
    detail. Vintages are identified by letter codes, and a swapped mapping voided the first H03 run. Eurostat
    revisions mean a fresh download may differ slightly. K20 mixes first releases and latest vintages, CPI and the
    T-bill start in 1981, and the pandemic exclusion for real GDP and unemployment is a choice.
-7. **Selection across the programme.** These tests came out of a pipeline that tested other ideas. Each verdict is
+8. **Selection across the programme.** These tests came out of a pipeline that tested other ideas. Each verdict is
    a one-sided 5% decision under its own rule, with no correction for the number of ideas tested.
 
 # 8 How this project was run
@@ -364,10 +408,12 @@ catch it read an empty column. The voiding, its reason and the voided run's numb
 recorded, not erased (`audit/H03/annulation.md`). The test was re-preregistered as H03-v2 before any statistic was
 computed under the correct mapping, and was eliminated. In the second generation a Kimi-family agent proposed J02,
 motivated by the H03 record, and it survived. In the third, a Claude-family agent proposed K01 and K20 as daughters
-of J02.
+of J02. After K20's inconclusive verdict, K20-ZE was preregistered as a blind replication of K20 on the ECB SPF
+and eliminated.
 
 **This repository** rebuilds the four analyses from raw public files, checks the seals and reproduces all 149
-sealed verifier numbers.
+sealed verifier numbers. K20-ZE is rebuilt in the sibling project; this repository keeps its sealed records and
+checks its seal.
 
 **Division of labour.** Agents proposed, judged, checked novelty, wrote preregistrations, ran experiments, verified
 and drafted. [To be completed by the author: what the author personally wrote, checked or re-derived; the decision
@@ -459,8 +505,10 @@ largest absolute gap on any field was of the order of 10⁻¹².
 | K01 | 45 / 45 | eliminated | eliminated |
 | K20 | 53 / 53 | inconclusive | inconclusive |
 | **Total** | **149 / 149** | | |
+| K20-ZE, replication | 65 / 65, in the sibling project | eliminated | eliminated |
 
-: Sealed verifier numbers reproduced by the pipeline (field by field in `results/reproduction.md`).
+: Sealed verifier numbers reproduced by the pipeline (field by field in `results/reproduction.md`). K20-ZE is
+reproduced by the sibling project `projects/spf-news-size-underreaction/`, not by this pipeline.
 
 # Appendix B: Audit trail
 
@@ -473,6 +521,7 @@ seals, recomputed on these copies before writing this note:
 | J02 | `6cbe19eac13e77331aa0bcb7d51cb96f10e0d07c5618e61b2d4b2b35fb441ed0` |
 | K01 | `0808bd18fc0f748fe7703773d4e7b53ec640532202560cbaa10383be13c733cc` |
 | K20 | `2c34e6f5ff86721f1ae903f2dce8f91d79324d94a909cff19aee569a16451ad7` |
+| K20-ZE | `91c3f919cbf571abfeee2e087b387b4962960e183f832a7e4983de7bb802e63a` |
 | H03, voided first run | `ea611aca877077d8b5014037d777c31041f8bbf131ced534c7f622e9de9633b7` |
 
 : Seals of the preregistrations.
@@ -481,5 +530,6 @@ Each hash also appears as `sceau_preenregistrement` in the test's `verdict.json`
 no longer matches. Each `verdict.json` holds the verifier's numbers, the machine-readable rule and, for K20, the
 reason for the inconclusive verdict ("condition de non-conclusion tenue : n_violations_schema > 0").
 `audit/K20/lecture-apres-coup.md` is the reading written after that verdict and states that it does not change
-it. `audit/H03/annulation.md` records why the first H03 run was voided; the verdict script was never run on it,
+it; `audit/K20-ZE/` holds the same kind of reading for K20-ZE, its verifier numbers (`verification.json`) and the
+experimenter's record of deviations and ambiguities (`ecarts.md`). `audit/H03/annulation.md` records why the first H03 run was voided; the verdict script was never run on it,
 so it has no verdict file.

@@ -1,10 +1,14 @@
 """Run the whole project: python run_all.py
 
-1. checks the sha256 of the four sealed preregistrations copied in audit/;
+1. checks the sha256 of the four sealed preregistrations copied in audit/, and of the K20-ZE replication;
 2. downloads every raw file (or reuses data/raw/) and writes data/raw/PROVENANCE.md;
 3. builds the four analysis datasets (data/processed/*.csv);
 4. computes every preregistered field of the four tests and the verdict their rules give;
 5. writes results/results.json, results/RESULTS.md, results/reproduction.md and results/figures/*.png.
+
+K20-ZE, the decisive euro-area replication of K20 (ECB SPF consensus), is not recomputed here: it is reproduced
+field by field (65 of 65) in the sibling project projects/spf-news-size-underreaction/. This script checks its
+seal, applies its sealed rule to its sealed verifier numbers and reports it next to the four tests.
 
 Optional: python run_all.py --seed <path to tests-de-mort> fills empty cache slots by copying the raw
 files the sealed tests downloaded (recorded as such in PROVENANCE.md) instead of downloading them.
@@ -31,12 +35,17 @@ TESTS = {  # id: (module, dataset builder, short question)
     "K20": (k20, measures.build_k20,
             "Does the US SPF consensus under-react more after large surprises (extra slope c > 0)?"),
 }
+# Replications reported but recomputed elsewhere: id -> (short question, where it is reproduced, fields reproduced there)
+REPLICATIONS = {
+    "K20-ZE": ("Does the ECB SPF consensus under-react more after large news (extra slope c > 0)? Decisive "
+               "euro-area replication of K20.", "projects/spf-news-size-underreaction/", "65/65"),
+}
 RESULTS = ROOT / "results"
 
 
 def check_seals():
     """Each copied preregistration must hash to the sealed value (its .sha256 file and its verdict.json)."""
-    for tid in TESTS:
+    for tid in [*TESTS, *REPLICATIONS]:
         folder = ROOT / "audit" / tid
         sha = hashlib.sha256((folder / "preenregistrement.md").read_bytes()).hexdigest()
         sealed = (folder / "preenregistrement.md.sha256").read_text().split()[0]
@@ -105,6 +114,18 @@ def main():
         summary.append((tid, n_ok, n, verdict, sealed["verdict"]))
         print(f"{tid}: {n_ok}/{n} fields reproduced; verdict from rule: {verdict} (sealed: {sealed['verdict']})")
 
+    for tid, (question, where, n_there) in REPLICATIONS.items():
+        sealed = json.loads((ROOT / "audit" / tid / "verdict.json").read_text(encoding="utf-8"))
+        fields = sealed["chiffres_verificateur"]
+        verdict, held = verdict_from_rule(sealed["regle"], fields)
+        results[tid] = {"question": question, "fields": fields,
+                        "fields_source": f"sealed verifier numbers (audit/{tid}/verdict.json), not recomputed here",
+                        "verdict_from_sealed_rule_on_sealed_numbers": verdict,
+                        "non_conclusion_conditions_held": held, "sealed_verdict": sealed["verdict"],
+                        "reproduced_in_sibling_project": where, "fields_reproduced_there": n_there}
+        print(f"{tid}: reproduced in {where} ({n_there}); sealed rule on sealed numbers: {verdict} "
+              f"(sealed: {sealed['verdict']})")
+
     (RESULTS / "results.json").write_text(json.dumps(results, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     head = ["# Reproduction of the sealed verifier numbers", "",
             "Each pipeline value is computed by `run_all.py` from the raw files in `data/raw/` with the code in",
@@ -112,7 +133,17 @@ def main():
             "(`chiffres_verificateur`); the tolerance is the one written in that test's preregistration (json block).",
             "Integers are shown without decimals.", "",
             "| test | fields within tolerance | verdict from pipeline numbers | sealed verdict |", "|---|---|---|---|"]
-    head += [f"| {t} | {a} / {b} | {v} | {s} |" for t, a, b, v, s in summary] + [""]
+    head += [f"| {t} | {a} / {b} | {v} | {s} |" for t, a, b, v, s in summary]
+    for tid, (_, where, n_there) in REPLICATIONS.items():
+        r = results[tid]
+        head.append(f"| {tid} (replication) | {n_there.replace('/', ' / ')} in the sibling project `{where}` "
+                    f"(not recomputed here) | {r['verdict_from_sealed_rule_on_sealed_numbers']} (rule applied to the "
+                    f"sealed numbers) | {r['sealed_verdict']} |")
+    head += ["", "K20-ZE, the euro-area replication of K20, is not recomputed by this pipeline. The sibling project",
+             "`projects/spf-news-size-underreaction/` rebuilds it from the raw ECB and Eurostat files with its own code:",
+             "65 of 65 sealed verifier numbers within tolerance, an analysis file bit-identical to the sealed one, and the",
+             "same verdict (see its `results/reproduction.md`). Here `run_all.py` checks the K20-ZE seal on the byte-for-byte",
+             "copies in `audit/K20-ZE/` and applies the sealed rule to the sealed verifier numbers.", ""]
     (RESULTS / "reproduction.md").write_text("\n".join(head + repro), encoding="utf-8")
     write_results_md(results, extras)
     make_figures(results, extras)
@@ -122,7 +153,9 @@ def write_results_md(results, extras):
     """Main statistics and descriptive breakdowns, in English."""
     f = {t: results[t]["fields"] for t in results}
     L = ["# Results", "",
-         "Do inflation forecasters under-react to news? Four preregistered tests, recomputed from raw data.",
+         "Do inflation forecasters under-react to news? Four preregistered tests, recomputed from raw data, and one",
+         "decisive replication of K20 on the ECB SPF consensus (K20-ZE), reproduced in the sibling project",
+         "`projects/spf-news-size-underreaction/` and reported here from its sealed numbers.",
          "Primary statistics are computed exactly as preregistered (see `audit/`). Only the primary statistic,",
          "its interval and the preregistered guards enter a verdict; every other number below is descriptive.", "",
          "| test | question | primary statistic | 90% interval | verdict (sealed rule) |", "|---|---|---|---|---|"]
@@ -140,6 +173,11 @@ def write_results_md(results, extras):
              f"[{u['borne_basse_ic90']:.3f}, {u['borne_haute_ic90']:.3f}] | "
              f"{results['K20']['verdict_from_pipeline_numbers']} (schema guard: n_violations_schema = "
              f"{u['n_violations_schema']}) |")
+    z = f["K20-ZE"]
+    L.append(f"| K20-ZE (replication) | {results['K20-ZE']['question']} | extra slope c = {z['c']:.3f} "
+             f"(DK8 se {z['et_c_dk8']:.3f}) | [{z['borne_basse_ic90']:.3f}, {z['borne_haute_ic90']:.3f}] | "
+             f"{results['K20-ZE']['sealed_verdict']} (reproduced in the sibling project, "
+             f"{results['K20-ZE']['fields_reproduced_there']}) |")
     L += ["", "## H03-v2 — real-time correction rule (ECB staff, horizons 1-4, targets 2004-2025)", "",
           f"- {h['n_obs_evaluees']} evaluated rows in {h['n_blocs']} valid blocks. Without blocks 2020-2023: "
           f"R = {h['r_hors_episode']:.3f}. Geometric mean of block MSE ratios (corrected / published): "
@@ -207,7 +245,37 @@ def write_results_md(results, extras):
     for _, r in extras["K20"]["per_variable"].iterrows():
         L.append(f"| {r['variable']} | {r['b_small']:.3f} | {r['b_large']:.3f} | {r['c']:.3f} "
                  f"({f['K20'][f'et_c_{r.variable}_dk4']:.3f}) |")
-    L += ["", "## Figures", "", "1. `figures/fig1_ecb_error_vs_revision.png`", "2. `figures/fig2_j02_leave_years_out.png`",
+    L += ["", "## K20-ZE — ECB SPF consensus, three variables, large vs small news (target years 2000-2025)", "",
+          "A blind replication of K20 on the euro area, preregistered and sealed before any statistic was computed. It is "
+          "reproduced in full (65 of 65 fields, bit-identical analysis file) in the sibling project "
+          "`projects/spf-news-size-underreaction/` (its `results/RESULTS.md`, figures fig5 and fig6, and `paper/paper.md`); "
+          "the numbers below are the sealed verifier numbers in `audit/K20-ZE/verdict.json`, not recomputed here.", "",
+          f"- ECB SPF consensus (mean), HICP inflation, real GDP growth and unemployment, current and next calendar year; "
+          f"{z['n_principal']} rows ({z['n_tours']} rounds, {z['n_annees_cibles']} target years), {z['n_grands']} after "
+          f"large news (top third of the absolute change in the latest published figure between two rounds). Schema "
+          f"violations {z['n_violations_schema']}, anomalies elsewhere {z['n_anomalies_hors_principal']}.",
+          f"- **Extra slope after large news c = {z['c']:.3f}** (Driscoll-Kraay 8-lag se {z['et_c_dk8']:.3f}, "
+          f"t = {z['t_c']:.2f}); 90% interval (critical value 1.708) [{z['borne_basse_ic90']:.3f}, "
+          f"{z['borne_haute_ic90']:.3f}]. The predicted +0.40 is excluded.",
+          f"- **Positive control passed**: common base slope {z['b_commun']:.3f} (se {z['et_b_commun_dk8']:.3f}, lower "
+          f"90% bound {z['borne_basse_b_commun_ic90']:.3f}); slope after small news {z['b_moyen']:.3f}, after large "
+          f"news {z['pente_moyenne_grandes']:.3f}. The consensus under-reacts on average, so a null c is not the "
+          f"silence of a blind instrument.",
+          f"- **Verdict: {results['K20-ZE']['sealed_verdict']}** (the sealed rule applied to the sealed numbers gives "
+          f"{results['K20-ZE']['verdict_from_sealed_rule_on_sealed_numbers']}; no non-conclusion condition holds): the "
+          f"upper bound {z['borne_haute_ic90']:.3f} is below 0.40. The mechanical-bias floor was "
+          f"{z['seuil_survie_bas']:.3f} (revision variance ratio {z['rapport_variance_revision']:.2f}), far above the "
+          f"0.10 the preregistration's simulation assumed; it would have blocked a survival but does not enter the "
+          f"elimination.",
+          f"- Without each of the three euro-area episodes, c = {z['c_sans_E1']:.3f}, {z['c_sans_E2']:.3f}, "
+          f"{z['c_sans_E3']:.3f}. By variable (secondary S1): HICP {z['c_HICP']:.3f} (se {z['et_c_HICP_dk8']:.3f}), "
+          f"real GDP {z['c_RGDP']:.3f} ({z['et_c_RGDP_dk8']:.3f}), unemployment {z['c_UNEM']:.3f} "
+          f"({z['et_c_UNEM_dk8']:.3f}).",
+          f"- Secondary S3, with the 2020-2021 GDP and unemployment targets put back (excluded before seeing the data): "
+          f"c = {z['c_avec_pandemie']:.3f} (se {z['et_c_avec_pandemie_dk8']:.3f}); descriptive, outside the verdict. "
+          f"Before 2020 {z['c_avant_2020']:.3f}; medians {z['c_mediane']:.3f}; the card's cut on |revision| > 1 s.d. "
+          f"{z['c_coupure_revision']:.3f}.",
+          "", "## Figures", "", "1. `figures/fig1_ecb_error_vs_revision.png`", "2. `figures/fig2_j02_leave_years_out.png`",
           "3. `figures/fig3_h03v2_blocks.png`", "4. `figures/fig4_k01_slopes.png`", "5. `figures/fig5_k20_by_variable.png`", ""]
     (RESULTS / "RESULTS.md").write_text("\n".join(L), encoding="utf-8")
 

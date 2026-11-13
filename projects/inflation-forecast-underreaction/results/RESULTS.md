@@ -1,6 +1,8 @@
 # Results
 
-Do inflation forecasters under-react to news? Four preregistered tests, recomputed from raw data.
+Do inflation forecasters under-react to news? Four preregistered tests, recomputed from raw data, and one
+decisive replication of K20 on the ECB SPF consensus (K20-ZE), reproduced in the sibling project
+`projects/spf-news-size-underreaction/` and reported here from its sealed numbers.
 Primary statistics are computed exactly as preregistered (see `audit/`). Only the primary statistic,
 its interval and the preregistered guards enter a verdict; every other number below is descriptive.
 
@@ -10,6 +12,7 @@ its interval and the preregistered guards enter a verdict; every other number be
 | J02 | Is the full-sample error-on-revision slope of ECB staff projections (2 quarters ahead) positive and as large as 0.40? | standardised slope 0.443 (NW4 se 0.196, t = 2.27) | [0.122, 0.765] | survit |
 | K01 | Do individual ECB SPF forecasters over-react to their own news (2SLS slope < 0)? | 2SLS slope 1.151 (DK8 se 0.463; first-stage F 514) | [0.357, 1.945] | éliminée |
 | K20 | Does the US SPF consensus under-react more after large surprises (extra slope c > 0)? | extra slope c = -0.030 (DK4 se 0.071) | [-0.146, 0.086] | non concluant (schema guard: n_violations_schema = 1) |
+| K20-ZE (replication) | Does the ECB SPF consensus under-react more after large news (extra slope c > 0)? Decisive euro-area replication of K20. | extra slope c = -0.106 (DK8 se 0.090) | [-0.259, 0.047] | éliminée (reproduced in the sibling project, 65/65) |
 
 ## H03-v2 — real-time correction rule (ECB staff, horizons 1-4, targets 2004-2025)
 
@@ -100,6 +103,17 @@ its interval and the preregistered guards enter a verdict; every other number be
 | UNEMP | 0.418 | 0.314 | -0.103 (0.149) |
 | CPI | 0.090 | 0.137 | 0.047 (0.151) |
 | TBILL | 0.496 | 0.185 | -0.311 (0.180) |
+
+## K20-ZE — ECB SPF consensus, three variables, large vs small news (target years 2000-2025)
+
+A blind replication of K20 on the euro area, preregistered and sealed before any statistic was computed. It is reproduced in full (65 of 65 fields, bit-identical analysis file) in the sibling project `projects/spf-news-size-underreaction/` (its `results/RESULTS.md`, figures fig5 and fig6, and `paper/paper.md`); the numbers below are the sealed verifier numbers in `audit/K20-ZE/verdict.json`, not recomputed here.
+
+- ECB SPF consensus (mean), HICP inflation, real GDP growth and unemployment, current and next calendar year; 578 rows (107 rounds, 26 target years), 196 after large news (top third of the absolute change in the latest published figure between two rounds). Schema violations 0, anomalies elsewhere 0.
+- **Extra slope after large news c = -0.106** (Driscoll-Kraay 8-lag se 0.090, t = -1.18); 90% interval (critical value 1.708) [-0.259, 0.047]. The predicted +0.40 is excluded.
+- **Positive control passed**: common base slope 0.366 (se 0.057, lower 90% bound 0.268); slope after small news 0.447, after large news 0.341. The consensus under-reacts on average, so a null c is not the silence of a blind instrument.
+- **Verdict: éliminée** (the sealed rule applied to the sealed numbers gives éliminée; no non-conclusion condition holds): the upper bound 0.047 is below 0.40. The mechanical-bias floor was 0.425 (revision variance ratio 8.42), far above the 0.10 the preregistration's simulation assumed; it would have blocked a survival but does not enter the elimination.
+- Without each of the three euro-area episodes, c = -0.064, -0.185, -0.167. By variable (secondary S1): HICP 0.127 (se 0.171), real GDP -0.217 (0.163), unemployment -0.151 (0.209).
+- Secondary S3, with the 2020-2021 GDP and unemployment targets put back (excluded before seeing the data): c = 0.177 (se 0.077); descriptive, outside the verdict. Before 2020 -0.149; medians -0.031; the card's cut on |revision| > 1 s.d. -0.229.
 
 ## Figures
 

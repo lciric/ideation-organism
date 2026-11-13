@@ -1,6 +1,7 @@
 # Audit trail
 
-This folder holds byte-for-byte copies of the records of the four tests this project is built on.
+This folder holds byte-for-byte copies of the records of the four tests this project is built on, and of
+K20-ZE, the decisive euro-area replication of K20.
 They are in French, as they were written. Nothing here was edited.
 
 ## What these files are
@@ -18,8 +19,11 @@ They are in French, as they were written. Nothing here was edited.
   and the analysis file, rewrote all the computations with separate code. The verdict was then computed
   mechanically, by a separate script, from the **verifier's** numbers (`chiffres_verificateur`) and the
   machine-readable rule copied from the preregistration (`regle`). Nobody chose the verdict by hand.
-- **`K20/lecture-apres-coup.md` — a reading written after the verdict.** It explains the verdict and what
-  the numbers show, and it says explicitly that it does not change the verdict.
+- **`K20/lecture-apres-coup.md`, `K20-ZE/lecture-apres-coup.md` — readings written after the verdict.** Each
+  explains the verdict and what the numbers show, and says explicitly that it does not change the verdict.
+- **`K20-ZE/verification.json`, `K20-ZE/ecarts.md`.** The verifier's numbers as delivered (identical to
+  `chiffres_verificateur` in `verdict.json`), and the experimenter's record of deviations and ambiguities in
+  the preregistration (one ambiguity, rounding the surprises before the cut, changes no rule condition).
 - **`H03/annulation.md` — an honesty record.** The first run of H03 was voided: its preregistration had the
   vintage letters for June and September swapped (`S` and `G`), and the schema check that should have
   caught it read an empty column (`TITLE` instead of `TITLE_COMPL`). The test was re-preregistered as
@@ -39,5 +43,16 @@ between "no effect" and "the predicted effect").
 | K01 | Do individual ECB SPF forecasters over-react to their own news (negative slope), while the consensus and the ECB under-react? | Pooled 2SLS slope of error on revision, the revision instrumented by the same forecaster's revision of the other target year in the same round; Driscoll-Kraay (8 lags) 90% interval with critical value 1.714. Survives if the upper bound < 0 and the slope without 2021-2023 < 0; eliminated if the whole interval lies above −0.15 (the predicted over-reaction is excluded). | **éliminée** — +1.15, interval [0.36, 1.94]: the predicted over-reaction is excluded. The naive within-round slope (−0.45) is mechanical. Descriptive: consensus 0.92, ECB staff 0.77. |
 | K20 | Does the under-reaction of the Philadelphia Fed SPF consensus (five variables) grow after large surprises? | Extra slope c of the standardised error on the standardised revision after the top third of surprises; Driscoll-Kraay (4 lags) 90% interval. Survives if the lower bound is above a mechanical-bias floor, the upper bound ≥ 0.40 and t ≥ 1 without each of seven episodes. | **non concluant** — by a schema guard: check 9 fails on one row (CPI 2026Q1, October 2025 missing at the source). The numbers show no extra under-reaction: c = −0.03, interval [−0.15, 0.09]; base slope 0.19. |
 
+## The replication
+
+| ID | Question | Primary statistic and rule (summary) | Verdict |
+|---|---|---|---|
+| K20-ZE | Does the under-reaction of the ECB SPF consensus (HICP inflation, real GDP growth, unemployment; current and next year; target years 2000-2025) grow after large news? A blind replication of K20, sealed before any statistic was computed. | Extra slope c of the standardised error on the standardised revision after the top third of news (the change in the latest published figure between two rounds); Driscoll-Kraay (8 lags by round) 90% interval, critical value 1.708. Survives if the lower bound is above the mechanical-bias floor, the upper bound ≥ 0.40 and t ≥ 1 without each of three episodes; a positive control (base under-reaction visible) must pass. | **éliminée** — c = −0.106, interval [−0.259, 0.047]: the predicted +0.40 is excluded. 578 rows, 0 schema violations; positive control passed (common base slope 0.366, lower bound 0.268). |
+
+The files in `K20-ZE/` were copied byte for byte from the sealed test folder; their seal is checked by
+`run_all.py` and by `tests/test_replication.py`.
+
 `../results/reproduction.md` shows that the pipeline of this project, written from the raw data,
-reproduces every verifier number within the preregistered tolerances.
+reproduces every verifier number of the four tests within the preregistered tolerances. K20-ZE is not
+recomputed here: the sibling project `projects/spf-news-size-underreaction/` rebuilds it from raw data
+(65 of 65 verifier numbers within tolerance, bit-identical analysis file, same verdict).
