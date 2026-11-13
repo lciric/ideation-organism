@@ -35,7 +35,8 @@ DEFAULTS = {"beta": 0.6, "noise_sd": 0.25, "vol_sd": 0.6, "error_sd": 2.5, "df":
 
 def simulate_panel(n_quarters, seed, noise="scaled", **params):
     """One simulated panel: 5 variables x n_quarters target quarters, columns variable, t_target, revision,
-    error, surprise, main (= 1). The quarter's volatility has a common and a variable-specific part."""
+    error, surprise, main (= 1) and noise (= eps3 - eps4, the noise in the revision, kept to measure its share).
+    The quarter's volatility has a common and a variable-specific part."""
     p = {**DEFAULTS, **params}
     rng = np.random.default_rng(seed)
     n = len(SIM_VARIABLES) * n_quarters
@@ -49,7 +50,8 @@ def simulate_panel(n_quarters, seed, noise="scaled", **params):
     true_error = p["beta"] * true_revision + h * rng.normal(0, p["error_sd"], n)
     return pd.DataFrame({"variable": np.repeat(SIM_VARIABLES, n_quarters), "t_target": t,
                          "revision": true_revision + eps3 - eps4, "error": true_error - eps3,
-                         "surprise": h * rng.normal(0, 1, n), "main": 1})
+                         "surprise": h * rng.normal(0, 1, n), "main": 1,
+                         "noise": eps3 - eps4})
 
 
 def interaction_by_sort(panel, lags=(4,)):
@@ -79,3 +81,9 @@ def summarise(reps):
     """Mean and 5th / 95th percentiles of c across replications, for each sort."""
     return {k: {"mean": float(reps[k].mean()), "p05": float(reps[k].quantile(0.05)),
                 "p95": float(reps[k].quantile(0.95))} for k in ("surprise_sort", "revision_sort")}
+
+
+def noise_share(n_quarters=40000, seed=20261113, noise="scaled"):
+    """Share of the variance of the observed revision that is consensus noise (nu in section 7)."""
+    panel = simulate_panel(n_quarters, seed, noise)
+    return float(panel["noise"].var() / panel["revision"].var())

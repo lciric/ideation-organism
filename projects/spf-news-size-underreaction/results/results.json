@@ -1,0 +1,619 @@
+{
+ "K20": {
+  "question": "Does the under-reaction of the US SPF consensus grow after large surprises (extra slope c > 0)?",
+  "preregistered": {
+   "fields": {
+    "n_violations_schema": 1,
+    "n_principal": 1004,
+    "c": -0.029779691159437252,
+    "et_c_dk4": 0.07068524999487312,
+    "t_c": -0.4212999340258004,
+    "borne_basse_ic90": -0.14605692740100354,
+    "borne_haute_ic90": 0.08649754508212903,
+    "rapport_variance_revision": 3.063543426660672,
+    "b_moyen": 0.19357626994012392,
+    "k_moyen": 0.29426929860104195,
+    "pente_moyenne_grandes": 0.16379657878068665,
+    "biais_mecanique_nu20": 0.08067492983361778,
+    "seuil_survie_bas": 0.1,
+    "borne_basse_moins_seuil": -0.24605692740100354,
+    "marge_indecision": -0.313502454917871,
+    "t_min_sans_episode": -1.518917764975824,
+    "c_min_sans_episode": -0.0837338545245668,
+    "episode_t_min": 2,
+    "conflit_robustesse": 0,
+    "n_grands": 334,
+    "n_trimestres": 223,
+    "n_trimestres_grands": 184,
+    "et_c_iid": 0.06387183134405758,
+    "n_effectif": 819.7753460130788,
+    "c_sans_E1": -0.03250722377694818,
+    "c_sans_E2": -0.0837338545245668,
+    "c_sans_E3": 0.014180211517565208,
+    "c_sans_E4": -0.020555119398071198,
+    "c_sans_E5": -0.027682475577150603,
+    "c_sans_E6": -0.007430630350826052,
+    "c_sans_E7": -0.026717498510076338,
+    "et_c_dk8": 0.06821704588541264,
+    "et_c_dk0": 0.07310722582438169,
+    "c_avec_pandemie": -0.09494549214956176,
+    "et_c_avec_pandemie_dk4": 0.0738867941780452,
+    "c_depuis_1985": -0.06688354392494192,
+    "et_c_depuis_1985_dk4": 0.08334606511692509,
+    "c_avant_2020": -0.03714821991223311,
+    "et_c_avant_2020_dk4": 0.0794979937969923,
+    "c_mediane": 0.0746087836824432,
+    "et_c_mediane_dk4": 0.06937968266095111,
+    "c_coupure_revision": -0.0026207390430887448,
+    "et_c_coupure_revision_dk4": 0.08558149982113891,
+    "c_PGDP": 0.17335279597205394,
+    "et_c_PGDP_dk4": 0.1832307752846858,
+    "c_RGDP": -0.053128547839588064,
+    "et_c_RGDP_dk4": 0.15849535094916334,
+    "c_UNEMP": -0.10328501151363248,
+    "et_c_UNEMP_dk4": 0.14894185334437413,
+    "c_CPI": 0.046509135162968646,
+    "et_c_CPI_dk4": 0.15098169816636767,
+    "c_TBILL": -0.31101825321680987,
+    "et_c_TBILL_dk4": 0.18034812527371144
+   },
+   "verdict_from_pipeline_numbers": "non concluant",
+   "non_conclusion_conditions_held": [
+    {
+     "champ": "n_violations_schema",
+     "operateur": ">",
+     "seuil": 0
+    }
+   ],
+   "sealed_verdict": "non concluant",
+   "fields_reproduced": "53/53",
+   "schema_checks_passed": {
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "5": true,
+    "6": true,
+    "7": true,
+    "8": true,
+    "9": false,
+    "10": true,
+    "11": true,
+    "12": true
+   },
+   "check9_failing_rows": [
+    {
+     "variable": "CPI",
+     "target": "2026-Q1",
+     "level": 328.1136666667,
+     "level_before": null,
+     "complete": 0,
+     "main": 0
+    }
+   ],
+   "rule_applied_with_schema_check_set_aside": "éliminée"
+  },
+  "descriptive_not_preregistered": {
+   "base_slope_full_sample": [
+    {
+     "label": "PGDP",
+     "estimate": 0.2576055801,
+     "se": 0.0960366019,
+     "lo90": 0.0996253699,
+     "hi90": 0.4155857902,
+     "n": 223
+    },
+    {
+     "label": "RGDP",
+     "estimate": -0.1192563551,
+     "se": 0.0778130317,
+     "lo90": -0.2472587923,
+     "hi90": 0.0087460821,
+     "n": 215
+    },
+    {
+     "label": "UNEMP",
+     "estimate": 0.3523867994,
+     "se": 0.0998379071,
+     "lo90": 0.1881534422,
+     "hi90": 0.5166201567,
+     "n": 214
+    },
+    {
+     "label": "CPI",
+     "estimate": 0.118289355,
+     "se": 0.095492361,
+     "lo90": -0.0387955788,
+     "hi90": 0.2753742889,
+     "n": 175
+    },
+    {
+     "label": "TBILL",
+     "estimate": 0.359459584,
+     "se": 0.0932035814,
+     "lo90": 0.2061396926,
+     "hi90": 0.5127794754,
+     "n": 177
+    },
+    {
+     "label": "pooled",
+     "estimate": 0.1907639656,
+     "se": 0.0469682106,
+     "lo90": 0.1135012592,
+     "hi90": 0.268026672,
+     "n": 1004
+    }
+   ],
+   "base_slope_before_2020": [
+    {
+     "label": "PGDP",
+     "estimate": 0.2490604349,
+     "se": 0.1079047312,
+     "lo90": 0.071557152,
+     "hi90": 0.4265637177,
+     "n": 196
+    },
+    {
+     "label": "RGDP",
+     "estimate": -0.0932572014,
+     "se": 0.0837449917,
+     "lo90": -0.2310177128,
+     "hi90": 0.0445033099,
+     "n": 196
+    },
+    {
+     "label": "UNEMP",
+     "estimate": 0.3568583672,
+     "se": 0.1014165433,
+     "lo90": 0.1900281535,
+     "hi90": 0.5236885809,
+     "n": 196
+    },
+    {
+     "label": "CPI",
+     "estimate": 0.0740351184,
+     "se": 0.098156955,
+     "lo90": -0.0874330726,
+     "hi90": 0.2355033094,
+     "n": 150
+    },
+    {
+     "label": "TBILL",
+     "estimate": 0.2779510916,
+     "se": 0.0805681565,
+     "lo90": 0.145416474,
+     "hi90": 0.4104857091,
+     "n": 150
+    },
+    {
+     "label": "pooled",
+     "estimate": 0.1712408687,
+     "se": 0.0466358168,
+     "lo90": 0.0945249501,
+     "hi90": 0.2479567874,
+     "n": 888
+    }
+   ],
+   "base_slope_raw_units": [
+    {
+     "label": "PGDP",
+     "estimate": 1.1059178681,
+     "se": 0.4122915119,
+     "lo90": 0.4276983311,
+     "hi90": 1.7841374051,
+     "n": 223
+    },
+    {
+     "label": "RGDP",
+     "estimate": -0.5673601464,
+     "se": 0.3701942176,
+     "lo90": -1.1763296344,
+     "hi90": 0.0416093415,
+     "n": 215
+    },
+    {
+     "label": "UNEMP",
+     "estimate": 0.8003859245,
+     "se": 0.2267646113,
+     "lo90": 0.4273581389,
+     "hi90": 1.1734137101,
+     "n": 214
+    },
+    {
+     "label": "CPI",
+     "estimate": 0.8654701136,
+     "se": 0.6986747414,
+     "lo90": -0.2838498359,
+     "hi90": 2.0147900631,
+     "n": 175
+    },
+    {
+     "label": "TBILL",
+     "estimate": 0.7965509037,
+     "se": 0.2065361456,
+     "lo90": 0.4567989441,
+     "hi90": 1.1363028632,
+     "n": 177
+    }
+   ],
+   "slopes_small_vs_large_surprises": [
+    {
+     "label": "PGDP",
+     "class": "small",
+     "estimate": 0.147794213,
+     "se": 0.0909502791,
+     "lo90": -0.001818996,
+     "hi90": 0.2974074221
+    },
+    {
+     "label": "PGDP",
+     "class": "large",
+     "estimate": 0.321147009,
+     "se": 0.1434207806,
+     "lo90": 0.085219825,
+     "hi90": 0.5570741931
+    },
+    {
+     "label": "RGDP",
+     "class": "small",
+     "estimate": -0.1000882408,
+     "se": 0.1145474589,
+     "lo90": -0.2885188107,
+     "hi90": 0.0883423292
+    },
+    {
+     "label": "RGDP",
+     "class": "large",
+     "estimate": -0.1532167886,
+     "se": 0.1092314989,
+     "lo90": -0.3329026044,
+     "hi90": 0.0264690272
+    },
+    {
+     "label": "UNEMP",
+     "class": "small",
+     "estimate": 0.4176673673,
+     "se": 0.1502402236,
+     "lo90": 0.1705221994,
+     "hi90": 0.6648125351
+    },
+    {
+     "label": "UNEMP",
+     "class": "large",
+     "estimate": 0.3143823558,
+     "se": 0.1044032345,
+     "lo90": 0.142639035,
+     "hi90": 0.4861256765
+    },
+    {
+     "label": "CPI",
+     "class": "small",
+     "estimate": 0.090231679,
+     "se": 0.0593191111,
+     "lo90": -0.0073482588,
+     "hi90": 0.1878116168
+    },
+    {
+     "label": "CPI",
+     "class": "large",
+     "estimate": 0.1367408142,
+     "se": 0.1468245133,
+     "lo90": -0.1047855101,
+     "hi90": 0.3782671385
+    },
+    {
+     "label": "TBILL",
+     "class": "small",
+     "estimate": 0.496268988,
+     "se": 0.1532872256,
+     "lo90": 0.2441115019,
+     "hi90": 0.7484264741
+    },
+    {
+     "label": "TBILL",
+     "class": "large",
+     "estimate": 0.1852507348,
+     "se": 0.1053242681,
+     "lo90": 0.0119923137,
+     "hi90": 0.3585091559
+    },
+    {
+     "label": "pooled",
+     "class": "small",
+     "estimate": 0.1935762699,
+     "se": 0.0559140439,
+     "lo90": 0.1015976677,
+     "hi90": 0.2855548722
+    },
+    {
+     "label": "pooled",
+     "class": "large",
+     "estimate": 0.1637965788,
+     "se": 0.0475404395,
+     "lo90": 0.0855925557,
+     "hi90": 0.2420006018
+    }
+   ],
+   "c_by_variable": [
+    {
+     "label": "PGDP",
+     "estimate": 0.173352796,
+     "se": 0.1832307753,
+     "lo90": -0.1280618294,
+     "hi90": 0.4747674213,
+     "n": null
+    },
+    {
+     "label": "RGDP",
+     "estimate": -0.0531285478,
+     "se": 0.1584953509,
+     "lo90": -0.3138534002,
+     "hi90": 0.2075963045,
+     "n": null
+    },
+    {
+     "label": "UNEMP",
+     "estimate": -0.1032850115,
+     "se": 0.1489418533,
+     "lo90": -0.3482943603,
+     "hi90": 0.1417243372,
+     "n": null
+    },
+    {
+     "label": "CPI",
+     "estimate": 0.0465091352,
+     "se": 0.1509816982,
+     "lo90": -0.2018557583,
+     "hi90": 0.2948740286,
+     "n": null
+    },
+    {
+     "label": "TBILL",
+     "estimate": -0.3110182532,
+     "se": 0.1803481253,
+     "lo90": -0.6076909193,
+     "hi90": -0.0143455871,
+     "n": null
+    }
+   ],
+   "c_without_each_episode": [
+    {
+     "label": "E1",
+     "estimate": -0.0325072238,
+     "se": 0.0721191411,
+     "lo90": -0.1511432109,
+     "hi90": 0.0861287633,
+     "n": 989,
+     "window": "1969Q4-1971Q4",
+     "rows_removed": 15,
+     "t": -0.4507433572
+    },
+    {
+     "label": "E2",
+     "estimate": -0.0837338545,
+     "se": 0.0551273127,
+     "lo90": -0.1744182838,
+     "hi90": 0.0069505748,
+     "n": 977,
+     "window": "1973Q4-1976Q1",
+     "rows_removed": 27,
+     "t": -1.518917765
+    },
+    {
+     "label": "E3",
+     "estimate": 0.0141802115,
+     "se": 0.0916391975,
+     "lo90": -0.1365662683,
+     "hi90": 0.1649266914,
+     "n": 944,
+     "window": "1980Q1-1983Q4",
+     "rows_removed": 60,
+     "t": 0.1547395864
+    },
+    {
+     "label": "E4",
+     "estimate": -0.0205551194,
+     "se": 0.0722203243,
+     "lo90": -0.1393575529,
+     "hi90": 0.0982473141,
+     "n": 969,
+     "window": "1990Q3-1992Q1",
+     "rows_removed": 35,
+     "t": -0.284616825
+    },
+    {
+     "label": "E5",
+     "estimate": -0.0276824756,
+     "se": 0.0708873499,
+     "lo90": -0.1442921662,
+     "hi90": 0.088927215,
+     "n": 964,
+     "window": "2001Q1-2002Q4",
+     "rows_removed": 40,
+     "t": -0.3905136194
+    },
+    {
+     "label": "E6",
+     "estimate": -0.0074306304,
+     "se": 0.0676612972,
+     "lo90": -0.1187334643,
+     "hi90": 0.1038722036,
+     "n": 949,
+     "window": "2007Q4-2010Q2",
+     "rows_removed": 55,
+     "t": -0.1098209856
+    },
+    {
+     "label": "E7",
+     "estimate": -0.0267174985,
+     "se": 0.077657563,
+     "lo90": -0.1544641897,
+     "hi90": 0.1010291926,
+     "n": 935,
+     "window": "2019Q4-2023Q4",
+     "rows_removed": 69,
+     "t": -0.3440424535
+    }
+   ],
+   "c_by_sort_variable": [
+    {
+     "label": "top third of |surprise| (preregistered)",
+     "estimate": -0.0297796912,
+     "se": 0.07068525,
+     "lo90": -0.1460569274,
+     "hi90": 0.0864975451,
+     "n": 1004,
+     "share_large": 0.3326693227,
+     "variance_ratio": 3.0635434267
+    },
+    {
+     "label": "|revision| > 1 s.d. (card; S7)",
+     "estimate": -0.002620739,
+     "se": 0.0855814998,
+     "lo90": -0.1434023062,
+     "hi90": 0.1381608282,
+     "n": 1004,
+     "share_large": 0.2161354582,
+     "variance_ratio": 17.1766566879
+    },
+    {
+     "label": "top third of |revision|",
+     "estimate": 0.1163324278,
+     "se": 0.1155828876,
+     "lo90": -0.0738014223,
+     "hi90": 0.3064662779,
+     "n": 1004,
+     "share_large": 0.3326693227,
+     "variance_ratio": 20.9284592532
+    }
+   ],
+   "base_slope_by_decade": [
+    {
+     "label": "1969-1979",
+     "estimate": 0.0630180551,
+     "se": 0.0727947926,
+     "lo90": -0.0567293788,
+     "hi90": 0.1827654889,
+     "n": 108,
+     "quarters": 36,
+     "variables": "PGDP, RGDP, UNEMP"
+    },
+    {
+     "label": "1980-1989",
+     "estimate": 0.0575389973,
+     "se": 0.059853311,
+     "lo90": -0.0409196993,
+     "hi90": 0.1559976939,
+     "n": 180,
+     "quarters": 40,
+     "variables": "PGDP, RGDP, UNEMP, CPI, TBILL"
+    },
+    {
+     "label": "1990-1999",
+     "estimate": 0.1539102748,
+     "se": 0.0723505795,
+     "lo90": 0.0348935715,
+     "hi90": 0.272926978,
+     "n": 200,
+     "quarters": 40,
+     "variables": "PGDP, RGDP, UNEMP, CPI, TBILL"
+    },
+    {
+     "label": "2000-2009",
+     "estimate": 0.317011303,
+     "se": 0.0769439419,
+     "lo90": 0.1904385186,
+     "hi90": 0.4435840874,
+     "n": 200,
+     "quarters": 40,
+     "variables": "PGDP, RGDP, UNEMP, CPI, TBILL"
+    },
+    {
+     "label": "2010-2019",
+     "estimate": 0.0132467583,
+     "se": 0.0800267172,
+     "lo90": -0.1183971916,
+     "hi90": 0.1448907081,
+     "n": 200,
+     "quarters": 40,
+     "variables": "PGDP, RGDP, UNEMP, CPI, TBILL"
+    },
+    {
+     "label": "2020-2026",
+     "estimate": 0.1598687003,
+     "se": 0.1037402158,
+     "lo90": -0.0107839547,
+     "hi90": 0.3305213554,
+     "n": 116,
+     "quarters": 27,
+     "variables": "PGDP, RGDP, UNEMP, CPI, TBILL"
+    }
+   ],
+   "simulation_300_panels_of_1000_rows": {
+    "scaled": {
+     "surprise_sort": {
+      "mean": -0.003052605000790797,
+      "p05": -0.1602595485293046,
+      "p95": 0.1573748450384259
+     },
+     "revision_sort": {
+      "mean": 0.04580263543029151,
+      "p05": -0.11182811454818121,
+      "p95": 0.21300934738584018
+     }
+    },
+    "fixed": {
+     "surprise_sort": {
+      "mean": 0.05001387344249549,
+      "p05": -0.09721819768896751,
+      "p95": 0.20655255880288564
+     },
+     "revision_sort": {
+      "mean": 0.11967947593733937,
+      "p05": -0.03496209597916965,
+      "p95": 0.2685988168269857
+     }
+    }
+   },
+   "simulation_one_panel_of_200000_rows": {
+    "scaled": {
+     "surprise_sort": {
+      "c": 0.012666837010572621,
+      "se": 0.008694397282111103
+     },
+     "revision_sort": {
+      "c": 0.06726161097204683,
+      "se": 0.008158439943363573
+     }
+    },
+    "fixed": {
+     "surprise_sort": {
+      "c": 0.06313396945248845,
+      "se": 0.008193062867609624
+     },
+     "revision_sort": {
+      "c": 0.14761139950143715,
+      "se": 0.007293727633586698
+     }
+    }
+   },
+   "simulation_parameters": {
+    "beta": 0.6,
+    "noise_sd": 0.25,
+    "vol_sd": 0.6,
+    "error_sd": 2.5,
+    "df": 3
+   },
+   "simulation_noise_share_of_revision_variance": {
+    "scaled": 0.10946474339691586,
+    "fixed": 0.10965125465878336
+   }
+  },
+  "figures": [
+   "figures/fig1_slopes_small_vs_large_surprises.png",
+   "figures/fig2_c_without_each_episode.png",
+   "figures/fig3_sort_on_revision_vs_surprise.png",
+   "figures/fig4_base_slope_by_decade.png"
+  ]
+ }
+}
