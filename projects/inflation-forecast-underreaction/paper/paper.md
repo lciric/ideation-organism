@@ -32,6 +32,18 @@ separate pipeline then rebuilt every number from raw public data. The answer, in
 3. In the US Survey of Professional Forecasters, the point estimates show no extra under-reaction of the consensus
    after large data surprises, but that test's verdict is inconclusive for a formal reason.
 
+**How the question arose.** The question did not come from one insight but from a sequence of tests, each prompted
+by the previous one. It started from a textbook tool, the regression of forecast errors on forecast revisions
+(Coibion and Gorodnichenko, 2015), applied to the forecaster that matters most to a euro-area central bank, ECB staff,
+whose 2021–2022 inflation misses were public. The first, practical question was whether a correction could have
+helped in real time; the ECB's own in-sample evaluation (Chahad et al., 2024) had left that open. When the real-time
+rule failed, the natural next step was the in-sample slope over the full sample, surge included; when that slope
+turned out to rest on 2021–2022, the next question was who under-reacts — the institution, or forecasters in general —
+which is the question Bordalo, Gennaioli, Ma and Shleifer (2020) asked for US data, where individuals over-react while
+the consensus under-reacts. A student could follow the same path without any AI tool: start from a standard
+regression, apply it to one well-known forecaster, ask whether the finding is usable in real time, then whether it is
+specific to that forecaster or to one episode. Section 8 describes how the steps were actually run.
+
 # 2 Related work
 
 **ECB staff projections.** Granziera, Jalasjoki and Paloviita (2021) ran this regression on quarterly ECB staff
