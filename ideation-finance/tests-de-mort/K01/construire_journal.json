@@ -1,0 +1,66 @@
+{
+ "MPD_A.U2.HIC.A.A01.0000.csv": {
+  "date_utc": "2026-11-13T00:02:32Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1409,
+  "sha256": "815274d6d1ca8496445f1f4bf94d3cb900ec0e03ca82b6231425f38ae5161d15",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.A01.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.A02.0000.csv": {
+  "date_utc": "2026-11-13T00:03:16Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1409,
+  "sha256": "7c12e446c3669ff763c1b44d6790af615e6e08963742d3f5748fc560cc06113b",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.A02.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.G02.0000.csv": {
+  "date_utc": "2026-11-13T00:02:53Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1175,
+  "sha256": "33d5ad2f7be2c37a4b60686cfbec69667802cb50a3452ebbe44f064c9c9c0f3e",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.G02.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.S02.0000.csv": {
+  "date_utc": "2026-11-13T00:03:09Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1414,
+  "sha256": "3d0cc5a3486904ca537d3a68f7c0e18cbd462ef1b77d8a957879747f02801071",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.S02.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.W02.0000.csv": {
+  "date_utc": "2026-11-13T00:02:42Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1394,
+  "sha256": "68813df3658866c6cb8cbf0a4d47ab31cad8630ebaeddf6e6ac2e37b38ee0b31",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.W02.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.W03.0000.csv": {
+  "date_utc": "2026-11-13T00:03:26Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 1392,
+  "sha256": "6434250c6a3c9808da2da921222951780f889bfde1c9f3c0a2c88535c9a1a61e",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.W03.0000?format=csvdata"
+ },
+ "SPF_microdata_by_variable.zip": {
+  "date_utc": "2026-11-13T00:02:07Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 12035888,
+  "sha256": "49348fa33c5e5d58aa3e05aac56cf5df23ab29439862ab6e3ccafe68797b51f4",
+  "url": "https://www.ecb.europa.eu/stats/prices/indic/forecast/shared/files/SPF_microdata_by_variable.zip"
+ },
+ "prc_hicp_ainr_A.RCH_A_AVG.TOTAL.EA.csv": {
+  "date_utc": "2026-11-13T00:02:08Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 2292,
+  "sha256": "43ef7b6b85ff0268d912b1e7d405a8790f7ad049aea427387a53f2781ad0505e",
+  "url": "https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/prc_hicp_ainr/A.RCH_A_AVG.TOTAL.EA?format=SDMX-CSV"
+ }
+}
