@@ -1,0 +1,82 @@
+{
+  "meanGrowth.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/historical-data/meanGrowth.xlsx",
+    "date_utc": "2026-11-12T23:56:01Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 146159,
+    "sha256": "4888e773cb4d577970dd24227bca5c7feb2ff79d931de7d0fb70b5bf628ea517"
+  },
+  "meanLevel.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/historical-data/meanLevel.xlsx",
+    "date_utc": "2026-11-12T23:56:05Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 599838,
+    "sha256": "f2b53e0cb911c71348eddf367eb3bfada1dd9dfcb728c4199efa8846fdfcbee4"
+  },
+  "medianGrowth.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/historical-data/medianGrowth.xlsx",
+    "date_utc": "2026-11-12T23:56:08Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 144611,
+    "sha256": "fdcf9ca0299de022c58f8fc35fd20761d8e52b45e038781ae3c4826d1a3cbb5c"
+  },
+  "medianLevel.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/survey-of-professional-forecasters/historical-data/medianLevel.xlsx",
+    "date_utc": "2026-11-12T23:56:12Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 554444,
+    "sha256": "d296e737331c406f7680414504a0d005472743709387f8fda6d969a1d2200977"
+  },
+  "pQvQd.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/real-time-data/data-files/xlsx/pQvQd.xlsx",
+    "date_utc": "2026-11-12T23:56:16Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 247472,
+    "sha256": "9726209d1cd370bd44bc22f18a1c715405e4e8f329d9779229ae8914203a11c6"
+  },
+  "routputQvQd.xlsx": {
+    "url": "https://www.philadelphiafed.org/-/media/frbp/assets/surveys-and-data/real-time-data/data-files/xlsx/routputQvQd.xlsx",
+    "date_utc": "2026-11-12T23:56:19Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 244845,
+    "sha256": "6a7971b31b7336551705465de8a0855826f3652abe112406f52b2c2ed0994c0c"
+  },
+  "UNRATE.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=UNRATE",
+    "date_utc": "2026-11-12T23:56:22Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 14226,
+    "sha256": "fb669461abc34e00324b940be6bad1c7f89117652f28587196a7b8bf4a9f56a1"
+  },
+  "CPIAUCSL.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+    "date_utc": "2026-11-12T23:56:25Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 17782,
+    "sha256": "c9be2d4909ffd28d91f07df5d113151b0fe7ba602144ee6fd453d3bc8426efde"
+  },
+  "TB3MS.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS",
+    "date_utc": "2026-11-12T23:56:29Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 17881,
+    "sha256": "33fae406051a658c316580f8e8b5e461157e6663bc03b35648cc7cd3e89ee26b"
+  },
+  "USRECQP.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=USRECQP",
+    "date_utc": "2026-11-12T23:56:32Z",
+    "http": 200,
+    "essai": 1,
+    "octets": 8969,
+    "sha256": "fae37d07129f12682fde3584a8511408eeaef1554b33141f15c6e7886fea627e"
+  }
+}
