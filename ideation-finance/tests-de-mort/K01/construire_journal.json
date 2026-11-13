@@ -183,6 +183,14 @@
   "sha256": "8b444590bd73aa86dca19b104f32cb0c7299b29d7b1b99b612153fc627e00463",
   "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.A23.0000?format=csvdata"
  },
+ "MPD_A.U2.HIC.A.A24.0000.csv": {
+  "date_utc": "2026-11-13T00:19:12Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 7511,
+  "sha256": "19dd6291926a318c2092f9a4386122df2360073c71c53c2bd7867754dcd76737",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.A24.0000?format=csvdata"
+ },
  "MPD_A.U2.HIC.A.G02.0000.csv": {
   "date_utc": "2026-11-13T00:02:53Z",
   "essais": 1,
@@ -367,6 +375,14 @@
   "sha256": "a27968c41bf63b4a233073409c018ccefc4d5ab83884f9593a93712162d74f66",
   "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.G24.0000?format=csvdata"
  },
+ "MPD_A.U2.HIC.A.G25.0000.csv": {
+  "date_utc": "2026-11-13T00:19:19Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 7643,
+  "sha256": "e86ae46a791a369989f4197694252584bd2102ed3706cfb6e6bd5ebd95074dd4",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.G25.0000?format=csvdata"
+ },
  "MPD_A.U2.HIC.A.S02.0000.csv": {
   "date_utc": "2026-11-13T00:03:09Z",
   "essais": 1,
@@ -542,6 +558,14 @@
   "octets": 7106,
   "sha256": "7703d460d0032cfbf0042cf555bfe81fcdf16fedf0204a4497482ef75075e4ba",
   "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.S23.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.S24.0000.csv": {
+  "date_utc": "2026-11-13T00:19:09Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 7325,
+  "sha256": "9a40b8f4ff45093827d69e8464c48ce866f78ba1e9399cc114daa2aa8b2ddf44",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.S24.0000?format=csvdata"
  },
  "MPD_A.U2.HIC.A.W02.0000.csv": {
   "date_utc": "2026-11-13T00:02:42Z",
@@ -726,6 +750,14 @@
   "octets": 7195,
   "sha256": "ff8aab812806e042a1a25148b25eb6b78ec220f1a1ec17a47acb62bb652d28de",
   "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.W24.0000?format=csvdata"
+ },
+ "MPD_A.U2.HIC.A.W25.0000.csv": {
+  "date_utc": "2026-11-13T00:19:13Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 7410,
+  "sha256": "c73e3334483ac97caf7cf840eccf1bf13b8304a35805390d448a16fb06c024c1",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.W25.0000?format=csvdata"
  },
  "SPF_microdata_by_variable.zip": {
   "date_utc": "2026-11-13T00:02:07Z",
