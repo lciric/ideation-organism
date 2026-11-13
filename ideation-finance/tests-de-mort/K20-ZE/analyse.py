@@ -116,24 +116,16 @@ def variance_ratio(d, z, L):
     return float(A / a), float(a), float(A)
 
 # ------------------------------------------------------------------ calcul
-def main():
-    # controles de schema (4.4) relances sur le fichier
-    spec = importlib.util.spec_from_file_location("construire", ICI / "construire.py")
-    C = importlib.util.module_from_spec(spec); spec.loader.exec_module(C)
-    sch = C.controles(CSV)
-
-    d = charge()
+def calculer(d, L, verifier_L=False):
     P = d.principal == 1
     p = d[P]
     T = {}  # temoin
-    T["n_violations_schema"] = int(sch["n_violations_schema"])
-    T["n_anomalies_hors_principal"] = int(sch["n_anomalies_hors_principal"])
     T["n_principal"] = int(len(p))
     T["n_tours"] = int(p.t_tour.nunique())
     T["n_annees_cibles"] = int(p.annee_cible.nunique())
-    L = d["grande_nouvelle"].astype(float)  # L du fichier ; recalcule ci-dessous pour verification
     Lcalc, infoL = grande(d, "surprise", P)
-    assert (L[d.surprise.notna()] == Lcalc[d.surprise.notna()]).all(), "grande_nouvelle du fichier != recalcul 6.2"
+    if verifier_L:
+        assert (L[d.surprise.notna()] == Lcalc[d.surprise.notna()]).all(), "grande_nouvelle du fichier != recalcul 6.2"
     T["n_grands"] = int((L[P] == 1).sum())
     T["n_tours_grands"] = int(p[L[P] == 1].t_tour.nunique())
 
@@ -219,6 +211,22 @@ def main():
     for i, v in enumerate(("HICP", "RGDP", "UNEM")):
         T[f"c_{v}"] = float(r1["beta"][18 + i]); T[f"et_c_{v}_dk8"] = float(np.sqrt(r1["V"][18 + i, 18 + i]))
 
+    aux = dict(p=p, zr=zr, ze=ze, r=r, bmoy=bmoy, c=c, bg=bg, a=a, A=A, k=k, infoL=infoL, info8=info8)
+    return T, aux
+
+def main():
+    # controles de schema (4.4) relances sur le fichier
+    spec = importlib.util.spec_from_file_location("construire", ICI / "construire.py")
+    C = importlib.util.module_from_spec(spec); spec.loader.exec_module(C)
+    sch = C.controles(CSV)
+
+    d = charge()
+    L = d["grande_nouvelle"].astype(float)  # L du fichier ; recalcule dans calculer() pour verification
+    T, aux = calculer(d, L, verifier_L=True)
+    T["n_violations_schema"] = int(sch["n_violations_schema"])
+    T["n_anomalies_hors_principal"] = int(sch["n_anomalies_hors_principal"])
+    p, zr, ze, r, bmoy, c, bg, a, A, k, infoL, info8 = (aux[x] for x in
+        ("p", "zr", "ze", "r", "bmoy", "c", "bg", "a", "A", "k", "infoL", "info8"))
     # fichier : types (entiers pour comptes et indicatrices)
     champs = json.loads(re_bloc())["champs_verification"]
     ENT = {"n_violations_schema", "n_anomalies_hors_principal", "n_principal", "n_tours", "n_annees_cibles", "n_grands",
