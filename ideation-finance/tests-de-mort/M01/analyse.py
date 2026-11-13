@@ -132,6 +132,19 @@ def jn(x):
     return x if math.isfinite(x) else None
 
 
+def nettoyer(o):
+    """remplace les nombres non finis par None (JSON valide), les types numpy par des types python."""
+    if isinstance(o, dict):
+        return {k: nettoyer(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [nettoyer(v) for v in o]
+    if isinstance(o, (np.integer,)):
+        return int(o)
+    if isinstance(o, (float, np.floating)):
+        return float(o) if math.isfinite(o) else None
+    return o
+
+
 def main():
     df = pd.read_csv(CSV, dtype=str, keep_default_na=False)
     num = [c for c in df.columns if c not in ("id_ligne", "cusip", "terme_api", "date_adjudication", "mois", "periode",
@@ -231,7 +244,7 @@ def main():
     s4["n_lignes_P_prix_identique_aux_trois_dates"] = int(((pr.prix_fi_jm5 == pr.prix_fi_j) & (pr.prix_fi_j == pr.prix_fi_jp5)).sum())
     desc["S4_hypotheses_et_comptes"] = s4
     desc["controles_schema"] = {str(n): [bool(res[n][0]), res[n][1]] for n in range(1, 10)}
-    out["descriptif"] = desc
+    out["descriptif"] = nettoyer(desc)
     with open(os.path.join(ICI, "temoin.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
     for k, v in out.items():
