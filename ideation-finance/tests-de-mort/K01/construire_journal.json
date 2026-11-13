@@ -23,6 +23,14 @@
   "sha256": "33d5ad2f7be2c37a4b60686cfbec69667802cb50a3452ebbe44f064c9c9c0f3e",
   "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.G02.0000?format=csvdata"
  },
+ "MPD_A.U2.HIC.A.G03.0000.csv": {
+  "date_utc": "2026-11-13T00:03:35Z",
+  "essais": 1,
+  "http": 200,
+  "octets": 2029,
+  "sha256": "c32ad2f18ff3be6809a368e05e64eda61c11d2819a444e2808cb236d855eb5f0",
+  "url": "https://data-api.ecb.europa.eu/service/data/MPD/A.U2.HIC.A.G03.0000?format=csvdata"
+ },
  "MPD_A.U2.HIC.A.S02.0000.csv": {
   "date_utc": "2026-11-13T00:03:09Z",
   "essais": 1,
