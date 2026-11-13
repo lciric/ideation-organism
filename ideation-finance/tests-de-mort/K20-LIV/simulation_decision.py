@@ -134,12 +134,13 @@ def appliquer_regle(e, r, s, v_idx, tau, ep, nd, V, nu_bar, n_ep):
         c_ex.append(bk[-1]); t_ex.append(bk[-1] / ek)
     t_min, c_min = (min(t_ex), min(c_ex)) if t_ex else (np.inf, np.inf)
     conflit = int(lo > seuil and hi >= 0.40 and t_min < 1 and c_min > 0)
-    # Contrôle positif : pente regroupée, sans classe
+    # Contrôle positif : pente de base REGROUPÉE (petites nouvelles), une seule pente b pour les cinq variables,
+    # dans une régression qui garde constantes et effets de classe propres et un supplément c commun.
     D = np.eye(V)[v_idx]
-    Xb = np.hstack([D, zr[:, None]])
+    Xb = np.hstack([D, D * L[:, None], zr[:, None], (zr * L)[:, None]])
     bb, ub = mco(Xb, ze)
     Vb, _ = dk_var(Xb, ub, tau, nd, 2)
-    ctrl = int(bb[-1] - 1.645 * np.sqrt(Vb[-1, -1]) > 0)
+    ctrl = int(bb[2 * V] - 1.645 * np.sqrt(Vb[2 * V, 2 * V]) > 0)
     # Règle (section 9 ; mêmes opérateurs que verdict.py)
     non_concl = (A / a < 1.25) or (ctrl < 1) or (marge >= 0) or (conflit >= 1)
     if non_concl:
@@ -148,7 +149,7 @@ def appliquer_regle(e, r, s, v_idx, tau, ep, nd, V, nu_bar, n_ep):
         verdict = "survit"
     else:
         verdict = "éliminée"
-    return verdict, dict(c=c, et_c=et_c, et_iid=et_iid, ratio=A / a, biais=biais, seuil=seuil, ctrl=ctrl, b=bb[-1])
+    return verdict, dict(c=c, et_c=et_c, et_iid=et_iid, ratio=A / a, biais=biais, seuil=seuil, ctrl=ctrl, b=bb[2 * V])
 
 # ---------------------------------------------------------------------------------------------------------------
 # 3. Processus simulé
