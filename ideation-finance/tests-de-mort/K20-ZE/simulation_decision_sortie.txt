@@ -1,0 +1,104 @@
+K20-ZE simulation de decision ; graine 20261113 ; 2000 tirages par cas ; grille : 578 lignes principales, 107 tours
+--- A central | c = 0 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.58} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.085  719.219 -0.001  0.081  0.189  0.306  2.975  1.364  1.157  0.077  0.190  0.101 -0.561
+std   0.002  291.903  0.093  0.017  0.083  0.024  0.633  0.230  0.201  0.027  0.057  0.056  1.141
+50%   0.085  663.181 -0.000  0.080  0.189  0.304  2.905  1.332  1.133  0.074  0.189  0.100 -0.546
+issues {'E': 0.962, 'NC': 0.036, 'S': 0.002} decisif 0.964 | CP rate 0.965 | marge>=0 0.002 | conflit 0.0 | pert 0.0
+--- A central | c ~ 0,40 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.285} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.095  783.684  0.399  0.088  0.157  0.252  0.615  1.342  1.332 -0.034  0.254  0.158  3.590
+std   0.005  377.698  0.107  0.021  0.058  0.020  0.121  0.227  0.233  0.016  0.060  0.060  1.423
+50%   0.095  711.018  0.401  0.085  0.156  0.250  0.599  1.312  1.302 -0.032  0.253  0.158  3.481
+issues {'S': 0.859, 'NC': 0.109, 'E': 0.032} decisif 0.891 | CP rate 0.996 | marge>=0 0.054 | conflit 0.002 | pert 0.104
+--- B chocs correles, Student 3 | c = 0 {"lam0": 0.58, "rho": 0.6, "kappa": 0.8, "s_om": 0.5, "s_nu": 0.1, "s_eta": 1.6, "lam1": 0.58} df 3 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.089  697.243  0.012  0.087  0.166  0.308  3.968  1.434  1.162  0.099  0.177  0.083 -0.371
+std   0.005  510.193  0.096  0.020  0.094  0.033  1.245  0.332  0.248  0.051  0.065  0.065  1.094
+50%   0.088  631.367  0.012  0.085  0.164  0.304  3.750  1.384  1.122  0.090  0.174  0.081 -0.345
+issues {'E': 0.902, 'NC': 0.097, 'S': 0.001} decisif 0.903 | CP rate 0.912 | marge>=0 0.009 | conflit 0.0 | pert 0.0
+--- B chocs correles, Student 3 | c ~ 0,40 {"lam0": 0.58, "rho": 0.6, "kappa": 0.8, "s_om": 0.5, "s_nu": 0.1, "s_eta": 1.6, "lam1": 0.27} df 3 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.093  759.626  0.403  0.088  0.139  0.247  0.681  1.399  1.367 -0.025  0.246  0.145  3.625
+std   0.006  394.333  0.108  0.022  0.063  0.024  0.167  0.296  0.313  0.016  0.070  0.068  1.522
+50%   0.093  676.179  0.403  0.086  0.139  0.245  0.655  1.353  1.316 -0.024  0.245  0.143  3.457
+issues {'S': 0.868, 'NC': 0.106, 'E': 0.025} decisif 0.894 | CP rate 0.988 | marge>=0 0.052 | conflit 0.0 | pert 0.099
+--- C surprise plus bruitee | c = 0 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 1.0, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.58} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.084  724.817 -0.002  0.080  0.189  0.306  2.400  1.306  1.148  0.060  0.190  0.101 -0.598
+std   0.002  308.175  0.094  0.017  0.079  0.024  0.576  0.222  0.196  0.023  0.057  0.056  1.171
+50%   0.084  667.560 -0.002  0.078  0.189  0.304  2.333  1.280  1.122  0.057  0.189  0.100 -0.577
+issues {'E': 0.964, 'NC': 0.034, 'S': 0.002} decisif 0.966 | CP rate 0.968 | marge>=0 0.002 | conflit 0.0 | pert 0.0
+--- C surprise plus bruitee | c ~ 0,40 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 1.0, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.285} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.099  761.987  0.404  0.094  0.160  0.257  0.530  1.291  1.309 -0.047  0.248  0.153  3.366
+std   0.006  375.835  0.115  0.023  0.058  0.020  0.116  0.220  0.227  0.020  0.060  0.059  1.443
+50%   0.099  680.082  0.407  0.092  0.160  0.255  0.514  1.265  1.286 -0.045  0.247  0.152  3.241
+issues {'S': 0.839, 'NC': 0.139, 'E': 0.022} decisif 0.861 | CP rate 0.996 | marge>=0 0.078 | conflit 0.004 | pert 0.132
+--- D chocs peu correles | c = 0 {"lam0": 0.58, "rho": 0.1, "kappa": 0.4, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.58} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.084  749.135 -0.003  0.078  0.192  0.306  2.316  1.296  1.146  0.058  0.193  0.105 -0.597
+std   0.002  304.295  0.091  0.016  0.074  0.023  0.424  0.211  0.192  0.020  0.054  0.055  1.155
+50%   0.084  698.582 -0.001  0.076  0.192  0.304  2.269  1.275  1.130  0.056  0.190  0.103 -0.554
+issues {'E': 0.976, 'NC': 0.021, 'S': 0.003} decisif 0.979 | CP rate 0.98 | marge>=0 0.0 | conflit 0.0 | pert 0.0
+--- D chocs peu correles | c ~ 0,40 {"lam0": 0.58, "rho": 0.1, "kappa": 0.4, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.285} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.100  778.491  0.407  0.093  0.163  0.257  0.518  1.283  1.305 -0.049  0.250  0.156  3.433
+std   0.006  370.928  0.113  0.022  0.055  0.020  0.097  0.210  0.221  0.019  0.057  0.058  1.402
+50%   0.099  693.809  0.410  0.091  0.163  0.256  0.507  1.255  1.282 -0.047  0.248  0.156  3.341
+issues {'S': 0.857, 'NC': 0.12, 'E': 0.022} decisif 0.88 | CP rate 0.997 | marge>=0 0.064 | conflit 0.002 | pert 0.116
+--- E epreuve | c = 0 {"lam0": 0.58, "rho": 0.8, "kappa": 0.9, "s_om": 0.5, "s_nu": 0.1, "s_eta": 1.6, "vm": 2.0, "lam1": 0.58} df 3 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.098  597.809  0.013  0.106  0.175  0.334  6.384  1.866  1.445  0.174  0.191  0.083 -0.429
+std   0.011  646.222  0.123  0.029  0.125  0.044  3.794  0.655  0.491  0.199  0.082  0.084  1.123
+50%   0.096  526.656  0.015  0.101  0.175  0.328  5.731  1.724  1.343  0.146  0.187  0.082 -0.404
+issues {'E': 0.828, 'NC': 0.162, 'S': 0.01} decisif 0.838 | CP rate 0.874 | marge>=0 0.044 | conflit 0.0 | pert 0.0
+--- E epreuve | c ~ 0,40 {"lam0": 0.58, "rho": 0.8, "kappa": 0.9, "s_om": 0.5, "s_nu": 0.1, "s_eta": 1.6, "vm": 2.0, "lam1": 0.27} df 3 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.085  636.490  0.418  0.092  0.140  0.252  0.967  1.805  1.744 -0.005  0.282  0.167  3.468
+std   0.006  414.267  0.124  0.028  0.073  0.028  0.343  0.578  0.615  0.018  0.086  0.083  1.651
+50%   0.085  548.751  0.422  0.088  0.143  0.249  0.895  1.682  1.612 -0.006  0.279  0.166  3.333
+issues {'S': 0.84, 'NC': 0.136, 'E': 0.024} decisif 0.864 | CP rate 0.983 | marge>=0 0.076 | conflit 0.006 | pert 0.11
+--- grille 8.3 central | lambda1 = 1.0 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 1.0} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.113  577.283 -0.293  0.120  0.273  0.438  9.841  1.382  1.095  0.364  0.031 -0.046 -3.024
+std   0.009  246.287  0.136  0.027  0.127  0.037  2.522  0.232  0.192  0.137  0.050  0.048  1.310
+50%   0.112  534.181 -0.287  0.117  0.271  0.435  9.574  1.350  1.078  0.346  0.030 -0.047 -2.920
+issues {'E': 0.742, 'NC': 0.258} decisif 0.742 | CP rate 0.742 | marge>=0 0.001 | conflit 0.0 | pert 0.0
+--- grille 8.3 central | lambda1 = 0.5 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.5} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.083  757.698  0.070  0.077  0.177  0.287  2.125  1.359  1.190  0.047  0.216  0.124  0.326
+std   0.002  311.240  0.089  0.016  0.075  0.022  0.432  0.229  0.206  0.018  0.058  0.058  1.137
+50%   0.083  704.285  0.069  0.075  0.177  0.285  2.078  1.329  1.166  0.045  0.215  0.123  0.313
+issues {'E': 0.962, 'NC': 0.026, 'S': 0.012} decisif 0.974 | CP rate 0.982 | marge>=0 0.006 | conflit 0.0 | pert 0.002
+--- grille 8.3 central | lambda1 = 0.4 {"lam0": 0.58, "rho": 0.3, "kappa": 0.6, "s_om": 0.5, "s_nu": 0.05, "s_eta": 1.6, "lam1": 0.4} df 4 n 2000
+      etiid     neff      c     et   bmoy      k    rap  rap_p  rap_e  biais  bpool    lob   tmin
+mean  0.084  794.363  0.186  0.076  0.165  0.267  1.290  1.352  1.246  0.014  0.242  0.147  1.727
+std   0.003  344.924  0.090  0.016  0.066  0.020  0.254  0.228  0.216  0.012  0.060  0.060  1.192
+50%   0.084  733.874  0.185  0.075  0.166  0.265  1.258  1.323  1.218  0.013  0.240  0.146  1.684
+issues {'E': 0.514, 'NC': 0.335, 'S': 0.15} decisif 0.665 | CP rate 0.994 | marge>=0 0.028 | conflit 0.0 | pert 0.316
+
+=== Resume (pourcentages survit / eliminee / non concluant ; probabilite de decision)
+                                   cas  c_moyen  survit  eliminee  non_concluant  decisif
+                     A central | c = 0   -0.001     0.2      96.2            3.6    0.964
+                  A central | c ~ 0,40    0.399    85.9       3.2           10.9    0.891
+   B chocs correles, Student 3 | c = 0    0.012     0.1      90.2            9.7    0.903
+B chocs correles, Student 3 | c ~ 0,40    0.403    86.8       2.5           10.6    0.894
+       C surprise plus bruitee | c = 0   -0.002     0.2      96.4            3.4    0.966
+    C surprise plus bruitee | c ~ 0,40    0.404    83.9       2.2           13.9    0.861
+          D chocs peu correles | c = 0   -0.003     0.3      97.6            2.1    0.979
+       D chocs peu correles | c ~ 0,40    0.407    85.7       2.2           12.0    0.880
+                     E epreuve | c = 0    0.013     1.0      82.8           16.2    0.838
+                  E epreuve | c ~ 0,40    0.418    84.0       2.4           13.6    0.864
+    grille 8.3 central | lambda1 = 1.0   -0.293     0.0      74.2           25.8    0.742
+    grille 8.3 central | lambda1 = 0.5    0.070     1.2      96.2            2.6    0.974
+    grille 8.3 central | lambda1 = 0.4    0.186    15.0      51.4           33.5    0.665
+
+=== Tableau 8.1 (loi normale, dispersion reelle = 1,2 x et, gardes non comprises)
+et=0.07  survit si c>0.220  eliminee si c<0.280  c=0.00: decision 1.000  c=0.40: decision 1.000
+et=0.08  survit si c>0.237  eliminee si c<0.263  c=0.00: decision 1.000  c=0.40: decision 1.000
+et=0.09  survit si c>0.254  eliminee si c<0.246  c=0.00: decision 0.998  c=0.40: decision 0.990
+et=0.10  survit si c>0.271  eliminee si c<0.229  c=0.00: decision 0.984  c=0.40: decision 0.937
+et=0.11  survit si c>0.288  eliminee si c<0.212  c=0.00: decision 0.961  c=0.40: decision 0.879
+et=0.12  survit si c>0.305  eliminee si c<0.195  c=0.00: decision 0.929  c=0.40: decision 0.823
+et=0.14  survit si c>0.339  eliminee si c<0.161  c=0.00: decision 0.853  c=0.40: decision 0.719
