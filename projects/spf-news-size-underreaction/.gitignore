@@ -1,0 +1,7 @@
+# raw-data cache (re-created by run_all.py); only its provenance record is tracked
+data/raw/*
+!data/raw/PROVENANCE.md
+# analysis datasets (re-created by run_all.py)
+data/processed/
+__pycache__/
+.pytest_cache/
