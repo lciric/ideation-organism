@@ -347,6 +347,7 @@ def main():
     cles = Counter((r["variable"], r["cible"]) for r in R)
     echecs = defaultdict(list)  # (n° contrôle) -> [(ligne, message)] pour les lignes de la portée
     hors = defaultdict(list)  # anomalies des contrôles 3 à 8 hors des lignes principales
+    annexe = defaultdict(list)  # diagnostics hors lettre : médianes (6m), chaîne complète du contrôle 7 (7e)
     ecart_max = {"fichier": defaultdict(float), "entrees": defaultdict(float)}
     jours_quotidiens = []
 
@@ -502,11 +503,11 @@ def main():
         r["_echecs"] = f
         for k, msgs in f.items():
             for m in msgs:
-                if dans and k in (2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
+                if k in ("6m", "7e"):  # diagnostics hors lettre, rangés à part (portée ou non)
+                    annexe[(k, dans)].append((nom(r), m))
+                elif dans:
                     echecs[k].append((nom(r), m))
-                elif not dans and k in (3, 4, 5, 6, 7, 8):
-                    hors[k].append((nom(r), m))
-                else:
+                else:  # hors des lignes principales : contrôles 3 à 8 (et tout autre échec, listé aussi)
                     hors[k].append((nom(r), m))
 
     viole = {1: echec1}
@@ -519,11 +520,13 @@ def main():
         dire(f"  contrôle {k:2d} : {'VIOLÉ' if viole[k] else 'passé'}"
              + (f" ({len(echecs[k])} échec(s), ex. {echecs[k][:3]})" if k > 1 and echecs[k] else ""))
     dire(f"n_violations_schema = {n_violations_schema}")
-    dire(f"Contrôle 7, chaîne complète depuis les entrées (rapporté) : {len(echecs.get('7e', []))} échec(s) dans la portée")
+    dire(f"Contrôle 7, chaîne complète depuis les entrées (rapporté) : {len(annexe[('7e', True)])} échec(s) "
+         f"dans la portée, {len(annexe[('7e', False)])} ailleurs {annexe[('7e', True)][:3] + annexe[('7e', False)][:3]}")
     for src in ("fichier", "entrees"):
         dire(f"  écart maximal formule/fichier ({src}) : "
              + ", ".join(f"{c} {ecart_max[src][c]:.2e}" for c in COL_FORMULES))
-    dire(f"Médianes hors des plages du contrôle 6 (hors lettre) : {len(echecs.get('6m', [])) + len(hors.get('6m', []))}")
+    dire(f"Médianes hors des plages du contrôle 6 (hors lettre) : {len(annexe[('6m', True)])} dans la portée, "
+         f"{len(annexe[('6m', False)])} ailleurs")
     dire("")
     dire("Anomalies hors des lignes principales (contrôles 3 à 8, cellules présentes) :")
     nb_hors = 0
