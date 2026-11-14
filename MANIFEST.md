@@ -367,6 +367,11 @@ Files added to this public tree after the extraction above, each as a new file (
 - `resultats/controle-r1-blanche-noire/README.md`: the same narrowing of the leak sentence; the sentence on next steps under "Consequence" is removed; the date of the last update is changed. The "Where it stood" text of 2 November is unchanged.
 - No new run and no new file. New on the page: the fresh reader's verdict on T0.3 (10 November 2026), and figures already given on the result pages or read in the cited papers.
 
+## Updated on 14 November 2026 (status page of the Goodhart attack: one sentence corrected, one erratum)
+
+- `resultats/attaque-goodhart-v2/README.md`: in "What the breach is", the sentence "The hole is read off the judge's description, not learned from its verdicts." is replaced by "The breach needs no optimisation against the judge." — the runs do not establish that the proposer read the hole off the judge's description, and the item above already reports that feedback changes nothing. At the end of "Fix", one sentence says that the header comment of `orchestrator/pole/nul_v9.py` makes a similar claim, that the runs do not establish it, and that the file is left unchanged so that its hash stays as cited. The "Last updated" line at the top of the page says so.
+- No new run, no figure changed, no new file; `orchestrator/pole/nul_v9.py` is unchanged.
+
 ## Security scans run before publication
 
 - key and token patterns (Anthropic, GitHub, AWS, Slack, OpenAI, private-key blocks, literal `api_key=`): no match except the regular expression inside `pole/caviardage.py`, which is the redaction guard itself;
