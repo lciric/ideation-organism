@@ -1,6 +1,6 @@
 # MANIFEST — what this repository contains, and what was left out
 
-Extract of the private working repository `controle-ia-travail` (branch `canal/conv-audit-n04`, commit `91a3c7f8`, 1 November 2026). Each file below is listed with its SHA-256 as copied. Companion `.sha256` files are the project's own seals and are kept as is.
+Extract of a private working repository (commit `91a3c7f8`, 1 November 2026). Each file below is listed with its SHA-256 as copied. Companion `.sha256` files are the project's own seals and are kept as is.
 
 ## Included
 
@@ -360,6 +360,12 @@ Files added to this public tree after the extraction above, each as a new file (
 - The records of the first two attempts (`c9c6212b…`, `5a7fc27c…`) and their readings stay in `resultats/boucle-reelle-v66/` (published 12 November 2026); the new status page reports the three together, as text v2 requires. `README.md` (status, evidence row, note under Figure 1) and `resultats/boucle-reelle-v66/README.md` (one dated pointer) are updated.
 - Outcome C1 is stated with the verdict's narrow scope and its seven reservations; nothing is added to the verdict.
 - Excluded, with reasons: raw journals of the provider relays and machine console logs (provider logs are not published); run manifest, spending register, machine sheets, dry-run outputs and the per-generation folders (work records); the run instruction and the registers (private). Secret scan on every new object pushed: see the commit message.
+
+## Updated on 13 November 2026 (related work, claims narrowed, three result lines brought to their verdicts)
+
+- `README.md`: the "Related work" paragraph is rewritten to cite, with versions and pages, the published work that already does what this system adopts (separation of proposer and judge, statistic computed outside the agents, hash-sealed plans, control of multiple comparisons, a scripted attacker and mutation-style stress tests of acceptance gates, a judge's diagnostics served to a language-model proposer on negative controls, judging a discovery against what is already known); none of these is claimed here. The Goodhart attack is described as the public code builds it; the judge's null is described as what the system does, and the published work it assembles is cited. Two sentences that presented the separation of proposer and judge as this system's own rule now say it is adopted from published work. The label "frontier crossed, robust" is marked as a frozen outcome label, with its rule; the A1-v4 row says that the sign "false promotions held at or near zero" is already published. The R1 row is narrowed to the leak audit's frozen outcome and its second reservation, and its sentence on next steps is removed; the T0.3 row gives the fresh reader's verdict of 10 November 2026 and its main reservation.
+- `resultats/controle-r1-blanche-noire/README.md`: the same narrowing of the leak sentence; the sentence on next steps under "Consequence" is removed; the date of the last update is changed. The "Where it stood" text of 2 November is unchanged.
+- No new run and no new file. New on the page: the fresh reader's verdict on T0.3 (10 November 2026), and figures already given on the result pages or read in the cited papers.
 
 ## Security scans run before publication
 
